@@ -245,7 +245,7 @@ if ( ! function_exists( 'bsf_extract_product_id' ) ) {
 		}
 
 		// Use of file_get_contents() - https://github.com/WordPress/WordPress-Coding-Standards/pull/1374/files#diff-400e43bc09c24262b43f26fce487fdabR43-R52.
-		$filelines = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$filelines = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Reading local file is OK.
 		if ( stripos( $filelines, 'ID:[' ) !== false ) {
 			preg_match_all( '/ID:\[(.*?)\]/', $filelines, $matches );
 			if ( isset( $matches[1] ) ) {

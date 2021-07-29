@@ -1,3 +1,19 @@
+v3.5.7
+- Security Fix: Replaced AJAX post request with simple JS request for Infinite pagination from WooCommerce & Blog Pro addon.
+- Fix: Builder - Submenu & sticky header colors not working if "Header Sections" addon is deactivated from old header. ( https://wpastra.com/docs/editing-submenu-above-below-header-fix/ )
+- Fix: Search - In 'Search Box' style search icon missing when Astra CSS icons available on site.
+- Fix: Category archive title showing extra 1em space around when "Add Space Between Posts" option is disabled.
+- Fix: Showing old footer copyright section on checkout page when distraction free checkout option is enabled for WooCommercce, EDD and LifterLMS.
+- Fix: Stack On option for footer Social Icons not reflecting correctly as per setting in customizer.
+- Fix: Search icon color is not applying to the Sticky Header Search Box style.
+- Fix: Builder - WooCommerce & EDD cart - Outline cart type has transparent background. ( https://wpastra.com/docs/fix-transparent-woocommerce-cart/ )
+- Fix: Page Headers and Custom Layouts for specific Pages/ Posts/ Taxonomies, etc. do not work in customizer.
+- Fix: Swap Section feature not working for mobile in Old Header Footer. ( https://wpastra.com/docs/fix-swap-sections-not-working/ )
+- Deprecated: Filter 'astra_infinite_pagination_post_type' deprecated as AJAX request handled by simple JS request. ( https://wpastra.com/docs/restrict-search-results-post/ )
+
+v3.5.6
+- Fix: Fatal error on the widgets page when Learndash module is active.
+
 v3.5.5
 - Fix: Customizer not working due to conflict with block editor JS.
 

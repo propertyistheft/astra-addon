@@ -742,7 +742,7 @@ if ( ! class_exists( 'Astra_Above_Header_Configs' ) ) {
 					),
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					'section'  => 'section-above-header',
-					'default'  => astra_get_option( 'above-header-section-swap-mobile' ),
+					'default'  => astra_get_option( 'above-header-swap-mobile' ),
 					'title'    => __( 'Swap Sections on Mobile Devices', 'astra-addon' ),
 					'priority' => 101,
 				),

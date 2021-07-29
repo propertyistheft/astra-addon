@@ -391,11 +391,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			require_once ASTRA_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-header-sections-configs.php';
 
 			// Check Header Sections is activated.
-			if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
-
-				require_once ASTRA_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-above-header-colors-bg-configs.php';
-				require_once ASTRA_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-below-header-colors-bg-configs.php';
-			}
+			require_once ASTRA_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-above-header-colors-bg-configs.php';
+			require_once ASTRA_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-below-header-colors-bg-configs.php';
 
 			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 
@@ -438,15 +435,17 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			$sticky_hide_on_scroll = astra_get_option( 'sticky-hide-on-scroll' );
 
 			$localize_array = array(
-				'stickyHeaderStyle'  => $sticky_header_style,
-				'stickyHideOnScroll' => $sticky_hide_on_scroll,
-				'component_limit'    => astra_addon_builder_helper()->component_limit,
-				'is_flex_based_css'  => Astra_Addon_Builder_Helper::apply_flex_based_css(),
+				'stickyHeaderStyle'     => $sticky_header_style,
+				'stickyHideOnScroll'    => $sticky_hide_on_scroll,
+				'component_limit'       => astra_addon_builder_helper()->component_limit,
+				'is_flex_based_css'     => Astra_Addon_Builder_Helper::apply_flex_based_css(),
+				'header_builder_active' => astra_addon_builder_helper()->is_header_footer_builder_active,
+				'sticky_header_style'   => astra_get_option_meta( 'sticky-header-style' ),
+				'sticky_hide_on_scroll' => astra_get_option_meta( 'sticky-hide-on-scroll' ),
+
 			);
 
 			wp_localize_script( 'astra-sticky-header-customizer-preview-js', 'astSticky', $localize_array );
-			wp_localize_script( 'astra-sticky-header-customizer-preview-js', 'astraAddon', apply_filters( 'astra_addon_js_localize', array() ) );
-
 			wp_enqueue_script( 'astra-sticky-header-customizer-preview-js' );
 
 		}

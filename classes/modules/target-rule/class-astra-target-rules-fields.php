@@ -1373,7 +1373,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						break;
 				}
 
-				apply_filters( 'astra_meta_args_post_by_condition', $meta_args, $q_obj, $current_post_id );
+				$meta_args = apply_filters( 'astra_meta_args_post_by_condition', $meta_args, $q_obj, $current_post_id );
 
 				// Ignore the PHPCS warning about constant declaration.
 				// @codingStandardsIgnoreStart

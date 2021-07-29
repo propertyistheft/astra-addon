@@ -114,7 +114,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$outside_menu_item_font   = astra_get_option( 'outside-menu-font-size' );
 	$outside_menu_line_height = astra_get_option( 'outside-menu-line-height' );
 
-	$is_widget_title_support_font_weight = support_addon_font_css_to_widget_and_in_editor();
+	$is_widget_title_support_font_weight = Astra_Addon_Update_Filter_Function::support_addon_font_css_to_widget_and_in_editor();
 	$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 
 	// Fallback for Site Title - headings typography.
@@ -499,7 +499,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	/**
 	 * Elementor & Gutenberg button backward compatibility for default styling.
 	 */
-	if ( page_builder_addon_button_style_css() ) {
+	if ( Astra_Addon_Update_Filter_Function::page_builder_addon_button_style_css() ) {
 
 		$global_button_page_builder_css_desktop = array(
 			/**
@@ -1522,14 +1522,4 @@ function astra_addon_typography_anchors_in_css_selectors_heading() {
 		return false;
 	}
 
-}
-
-/**
- * Check backwards compatibility to not load default CSS for the button styling of Page Builders.
- *
- * @since 2.2.0
- * @return boolean true if button style CSS should be loaded, False if not.
- */
-function page_builder_addon_button_style_css() {
-	return apply_filters( 'astra_addon_page_builder_button_style_css', astra_get_option( 'pb-button-color-compatibility-addon', true ) );
 }

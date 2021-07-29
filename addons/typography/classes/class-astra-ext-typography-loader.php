@@ -695,11 +695,11 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 
 			$localize_array = array(
 				'includeAnchorsInHeadindsCss'         => astra_addon_typography_anchors_in_css_selectors_heading(),
-				'addon_page_builder_button_style_css' => page_builder_addon_button_style_css(),
+				'addon_page_builder_button_style_css' => Astra_Addon_Update_Filter_Function::page_builder_addon_button_style_css(),
 				'component_limit'                     => astra_addon_builder_helper()->component_limit,
 				'is_flex_based_css'                   => Astra_Addon_Builder_Helper::apply_flex_based_css(),
 				'astra_not_updated'                   => version_compare( ASTRA_THEME_VERSION, '3.2.0', '<' ),
-				'font_weight_support_widget_title'    => support_addon_font_css_to_widget_and_in_editor(),
+				'font_weight_support_widget_title'    => Astra_Addon_Update_Filter_Function::support_addon_font_css_to_widget_and_in_editor(),
 			);
 
 			wp_localize_script( 'astra-ext-typography-customize-preview-js', 'astTypography', $localize_array );

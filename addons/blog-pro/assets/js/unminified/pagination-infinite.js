@@ -2,14 +2,11 @@
 
 	var total 			= parseInt( astra.infinite_total ) || '',
 		count 			= parseInt( astra.infinite_count ) || '',
-		ajax_url 		= astra.ajax_url || '',
-		infinite_nonce 	= astra.infinite_nonce || '',
 		pagination 		= astra.pagination || '',
 		masonryEnabled  = astra.masonryEnabled || false,
 		loadStatus 		= true,
 		infinite_event 	= astra.infinite_scroll_event || '',
-		loader 			= jQuery('.ast-pagination-infinite .ast-loader'),
-		ast_post_type   = astra.astinfiniteposttype
+		loader 			= jQuery('.ast-pagination-infinite .ast-loader');
 
 	//	Is 'infinite' pagination?
 	if( typeof pagination != '' && pagination == 'infinite' ) {
@@ -74,52 +71,49 @@
 		function NextloadArticles(pageNumber) {
 
 			$('.ast-load-more').removeClass('.active').hide();
+			var nextDestUrl = $('a.next.page-numbers').attr( 'href' );
+
 			loader.show();
 
-			var data = {
-				action : 'astra_pagination_infinite',
-				page_no	: pageNumber,
-				post_type : ast_post_type,
-				nonce: infinite_nonce,
-				query_vars: astra.query_vars,
-				astra_infinite: 'astra_pagination_ajax',
-			}
+			$.ajax({
+				url         : nextDestUrl,
+				dataType    : 'html',
+				success     : function (data) {
 
-			$.post( ajax_url, data, function( data ) {
+					var obj  = $( data ),
+						boxes = obj.find( 'article' );
 
-				$( window ).trigger('astAddedAjaxPosts');
+					//	Disable loader
+					loader.hide();
+					$('.ast-load-more').addClass('active').show();
 
-				var boxes = $(data);
+					//	Append articles
+					$('#main > .ast-row').append( boxes );
 
-				//	Disable loader
-				loader.hide();
-				$('.ast-load-more').addClass('active').show();
+					var grid_layout 	= astra.grid_layout || '3';
 
-				//	Append articles
-				$('#main > .ast-row').append( boxes );
+					//	Append articles
+					if( 1 == masonryEnabled && grid_layout > 1 ) {
+						$('#main > .ast-row').masonry('appended', boxes, true);
+						$('#main > .ast-row').imagesLoaded(function () {
+							$('#main > .ast-row').masonry('reload');
+						});
+						$('#main > .ast-row').trigger('masonryItemAdded');
+					}
 
-				var grid_layout 	= astra.grid_layout || '3';
+					//	Add grid classes
+					var msg 			= astra.no_more_post_message || '';
+					//	Show no more post message
+					if( count > total ) {
+						$('.ast-pagination-infinite').html( '<span class="ast-load-more no-more active" style="display: inline-block;">' + msg + "</span>" );
+					} else {
+						var newNextTargetUrl = nextDestUrl.replace(/\/page\/[0-9]+/, '/page/' + (pageNumber + 1));
+						$('a.next.page-numbers').attr('href', newNextTargetUrl);
+					}
 
-				//	Append articles
-				if( 1 == masonryEnabled && grid_layout > 1 ) {
-					$('#main > .ast-row').masonry('appended', boxes, true);
-					$('#main > .ast-row').imagesLoaded(function () {
-						$('#main > .ast-row').masonry('reload');
-					});
-					$('#main > .ast-row').trigger('masonryItemAdded');
+					//	Complete the process 'loadStatus'
+					loadStatus = true;
 				}
-
-				//	Add grid classes
-				var msg 			= astra.no_more_post_message || '';
-				//	Show no more post message
-				if( count > total ) {
-					$('.ast-pagination-infinite').html( '<span class="ast-load-more no-more active" style="display: inline-block;">' + msg + "</span>" );
-				}
-
-				$( window ).trigger('astBlogProAjaxPostsAdded');
-
-				//	Complete the process 'loadStatus'
-				loadStatus = true;
 			});
 		}
 	}

@@ -95,6 +95,11 @@
   }
 }
 
+/* Hiding 'woocommerce-pagination' for infinite-scroll page. */
+.ast-woocommerce-pagination-type-infinite .woocommerce-pagination {
+  display: none;
+}
+
 .logged-in.admin-bar.woocommerce .astra-off-canvas-sidebar, .logged-in.admin-bar.woocommerce-page .astra-off-canvas-sidebar {
   top: 32px;
   height: calc(100% - 32px);

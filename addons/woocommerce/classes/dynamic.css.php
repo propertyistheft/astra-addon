@@ -120,7 +120,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$load_upsell_grid_css  = ( Astra_Addon_Builder_Helper::apply_flex_based_css() && astra_get_option( 'single-product-up-sells-display' ) ) ? true : false;
 
 	// Supporting color setting for default icon as well.
-	$can_update_cart_color   = astra_cart_color_default_icon_old_header();
+	$can_update_cart_color   = Astra_Addon_Update_Filter_Function::astra_cart_color_default_icon_old_header();
 	$cart_new_color_setting  = astra_get_option( 'woo-header-cart-icon-color', $theme_color );
 	$header_cart_count_color = ( $can_update_cart_color ) ? $cart_new_color_setting : $theme_color;
 
@@ -425,6 +425,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 			// We adding this conditional CSS only to maintain backwards. Remove this condition after 2-3 updates of theme.
 			if ( version_compare( ASTRA_THEME_VERSION, '3.4.3', '>=' ) ) {
+				$add_background_outline_cart   = Astra_Addon_Update_Filter_Function::astra_add_bg_color_outline_cart_header_builder();
 				$border_width                  = astra_get_option( 'woo-header-cart-border-width' );
 				$transparent_header_icon_color = esc_attr( astra_get_option( 'transparent-header-woo-cart-icon-color', $header_cart_icon_color ) );
 
@@ -443,6 +444,13 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					'border-style' => 'solid',
 					'border-color' => esc_attr( $transparent_header_icon_color ),
 				);
+
+				if ( $add_background_outline_cart ) {
+					$header_cart_icon['.ast-menu-cart-outline .ast-addon-cart-wrap'] = array(
+						'border-width' => astra_get_css_value( $border_width, 'px' ),
+						'background'   => '#ffffff',
+					);
+				}
 			}
 		} else {
 

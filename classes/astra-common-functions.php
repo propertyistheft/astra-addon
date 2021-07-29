@@ -326,21 +326,21 @@ if ( ! function_exists( 'astra_get_responsive_background_obj' ) ) {
 /**
  * Search Form
  */
-if ( ! function_exists( 'astra_get_search_form' ) ) :
+if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 	/**
 	 * Display search form.
 	 *
 	 * @param bool $echo Default to echo and not return the form.
 	 * @return string|void String when $echo is false.
 	 */
-	function astra_get_search_form( $echo = true ) {
+	function astra_addon_get_search_form( $echo = true ) {
 
 		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 			<label>
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra-addon' ) . '</span>
 				<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', 'astra-addon' ) . '" value="' . get_search_query() . '" name="s" />
 			</label>
-			<button type="submit" class="search-submit" value="' . esc_html__( 'Search', 'astra-addon' ) . '"><i class="astra-search-icon"></i></button>
+			<button type="submit" class="search-submit" value="' . esc_html__( 'Search', 'astra-addon' ) . '"><i class="astra-search-icon"> ' . Astra_Icons::get_icons( 'search' ) . ' </i></button>
 		</form>';
 
 		/**
@@ -465,32 +465,4 @@ function astra_get_megamenu_spacing_css( $spacing_obj ) {
  */
 function is_astra_theme_3_5_0_version() {
 	return version_compare( ASTRA_THEME_VERSION, '3.5.0', '<' );
-}
-
-/**
- * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
- *
- * 1. Adding Font-weight support to widget titles.
- * 2. Customizer font CSS not supporting in editor.
- *
- * @since 3.5.1
- * @return boolean false if it is an existing user, true if not.
- */
-function support_addon_font_css_to_widget_and_in_editor() {
-	$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['can-support-widget-and-editor-fonts'] = isset( $astra_settings['can-support-widget-and-editor-fonts'] ) ? false : true;
-	return apply_filters( 'astra_heading_fonts_typo_support', $astra_settings['can-support-widget-and-editor-fonts'] );
-}
-
-/**
- * Support cart color setting to default cart icon, till now with other cart icons have this color comaptibility but default one don't have this.
- * This case is only for old header layout.
- *
- * @since 3.5.1
- * @return boolean false if it is an existing user, true if not.
- */
-function astra_cart_color_default_icon_old_header() {
-	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['can-reflect-cart-color-in-old-header'] = isset( $astra_settings['can-reflect-cart-color-in-old-header'] ) ? false : true;
-	return apply_filters( 'astra_support_default_cart_color_in_old_header', $astra_settings['can-reflect-cart-color-in-old-header'] );
 }

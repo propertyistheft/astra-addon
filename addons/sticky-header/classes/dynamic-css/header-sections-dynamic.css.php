@@ -5,7 +5,107 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_ext_above_header_sections_dynamic_css', 30 );
+if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
+	add_filter( 'astra_dynamic_css', 'astra_ext_above_header_sections_dynamic_css', 30 );
+} else {
+	if ( Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() || ( ! Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() && Astra_Ext_Extension::is_active( 'header-sections' ) ) ) {
+		add_filter( 'astra_dynamic_css', 'astra_above_header_builder_sections_dynamic_css', 30 );
+	}
+}
+
+/**
+ * Dynamic CSS
+ *
+ * @param  string $dynamic_css          Astra Dynamic CSS.
+ * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+ * @return string
+ */
+function astra_above_header_builder_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+	/**
+	 * Set colors
+	 *
+	 * If colors extension is_active then get color from it.
+	 * Else set theme default colors.
+	 */
+	$stick_header            = astra_get_option_meta( 'stick-header-meta' );
+	$stick_header_above_meta = astra_get_option_meta( 'header-above-stick-meta' );
+
+	$stick_header_above = astra_get_option( 'header-above-stick' );
+
+	$sticky_header_style   = astra_get_option( 'sticky-header-style' );
+	$sticky_hide_on_scroll = astra_get_option( 'sticky-hide-on-scroll' );
+
+	/**
+	 * Above Header.
+	 */
+	$desktop_sticky_above_header_bg_color = astra_get_prop( astra_get_option( 'sticky-above-header-bg-color-responsive' ), 'desktop', '' );
+	$tablet_sticky_above_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-above-header-bg-color-responsive' ), 'tablet' );
+	$mobile_sticky_above_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-above-header-bg-color-responsive' ), 'mobile' );
+
+	if ( ! $stick_header_above && ( 'disabled' !== $stick_header && empty( $stick_header ) && ( empty( $stick_header_above_meta ) ) ) ) {
+		return $dynamic_css;
+	}
+
+	$above_header_sticky_selector = '.ast-above-sticky-header-active .ast-above-header.ast-header-sticked';
+	$parse_css                    = '';
+
+	/**
+	 * Sticky Header
+	 *
+	 * [1]. Sticky Header Above colors options.
+	 */
+
+		/**
+		 * Above Header.
+		 */
+	if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
+
+		$desktop_above_header_css_output = array(
+			'.ast-above-header-bar.ast-header-sticked' => array(
+				'z-index' => 9,
+			),
+			$above_header_sticky_selector              => array(
+				'background' => esc_attr( $desktop_sticky_above_header_bg_color ),
+			),
+		);
+		$tablet_above_header_css_output  = array(
+			$above_header_sticky_selector => array(
+				'background' => esc_attr( $tablet_sticky_above_header_bg_color ),
+			),
+		);
+		$mobile_above_header_css_output  = array(
+			$above_header_sticky_selector => array(
+				'background' => esc_attr( $mobile_sticky_above_header_bg_color ),
+			),
+		);
+	} else {
+		// Only when Fixed Header Merkup added.
+		$desktop_above_header_css_output = array(
+			'#ast-fixed-header .ast-above-header' => array(
+				'background' => esc_attr( $desktop_sticky_above_header_bg_color ),
+			),
+		);
+		$tablet_above_header_css_output  = array(
+			'#ast-fixed-header .ast-above-header' => array(
+				'background' => esc_attr( $tablet_sticky_above_header_bg_color ),
+			),
+		);
+		$mobile_above_header_css_output  = array(
+			'#ast-fixed-header .ast-above-header' => array(
+				'background' => esc_attr( $mobile_sticky_above_header_bg_color ),
+			),
+		);
+	}
+
+	/* Parse CSS from array() */
+	$parse_css .= astra_parse_css( $desktop_above_header_css_output );
+	$parse_css .= astra_parse_css( $tablet_above_header_css_output, '', astra_addon_get_tablet_breakpoint() );
+	$parse_css .= astra_parse_css( $mobile_above_header_css_output, '', astra_addon_get_mobile_breakpoint() );
+
+	return $dynamic_css . $parse_css;
+
+}
 
 /**
  * Dynamic CSS
@@ -470,8 +570,100 @@ function astra_ext_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css
 
 }
 
+if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
+	add_filter( 'astra_dynamic_css', 'astra_ext_below_header_sections_dynamic_css', 30 );
+} else {
+	if ( Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() || ( ! Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() && Astra_Ext_Extension::is_active( 'header-sections' ) ) ) {
+		add_filter( 'astra_dynamic_css', 'astra_below_header_builder_sections_dynamic_css', 30 );
+	}
+}
 
-add_filter( 'astra_dynamic_css', 'astra_ext_below_header_sections_dynamic_css', 30 );
+/**
+ * Dynamic CSS
+ *
+ * @param  string $dynamic_css          Astra Dynamic CSS.
+ * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+ * @return string
+ */
+function astra_below_header_builder_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+	/**
+	 * Set colors
+	 *
+	 * If colors extension is_active then get color from it.
+	 * Else set theme default colors.
+	 */
+	$stick_header            = astra_get_option_meta( 'stick-header-meta' );
+	$stick_header_below_meta = astra_get_option_meta( 'header-below-stick-meta' );
+
+	$stick_header_below = astra_get_option( 'header-below-stick' );
+
+	$sticky_header_style   = astra_get_option( 'sticky-header-style' );
+	$sticky_hide_on_scroll = astra_get_option( 'sticky-hide-on-scroll' );
+	/**
+	 * Below Header.
+	 */
+	$desktop_sticky_below_header_bg_color = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'desktop', '#414042' );
+	$tablet_sticky_below_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'tablet' );
+	$mobile_sticky_below_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'mobile' );
+
+	if ( ! $stick_header_below && ( 'disabled' !== $stick_header && empty( $stick_header ) && ( empty( $stick_header_below_meta ) ) ) ) {
+		return $dynamic_css;
+	}
+
+	$parse_css = '';
+
+	/**
+	 * Sticky Header
+	 *
+	 * [1]. Sticky Header Below colors options.
+	 */
+
+		/**
+		 * Below Header.
+		 */
+	if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
+		$desktop_below_header_css_output = array(
+			'.ast-below-sticky-header-active .ast-below-header-wrap .ast-below-header' => array(
+				'background' => esc_attr( $desktop_sticky_below_header_bg_color ),
+			),
+		);
+		$tablet_below_header_css_output  = array(
+			'.ast-below-sticky-header-active .ast-below-header-wrap .ast-below-header' => array(
+				'background' => esc_attr( $tablet_sticky_below_header_bg_color ),
+			),
+		);
+		$mobile_below_header_css_output  = array(
+			'.ast-below-sticky-header-active .ast-below-header-wrap .ast-below-header' => array(
+				'background' => esc_attr( $mobile_sticky_below_header_bg_color ),
+			),
+		);
+	} else {
+		// Only when Fixed Header Merkup added.
+		$desktop_below_header_css_output = array(
+			'#ast-fixed-header .ast-below-header' => array(
+				'background' => esc_attr( $desktop_sticky_below_header_bg_color ),
+			),
+		);
+		$tablet_below_header_css_output  = array(
+			'#ast-fixed-header .ast-below-header' => array(
+				'background' => esc_attr( $tablet_sticky_below_header_bg_color ),
+			),
+		);
+		$mobile_below_header_css_output  = array(
+			'#ast-fixed-header .ast-below-header' => array(
+				'background' => esc_attr( $mobile_sticky_below_header_bg_color ),
+			),
+		);
+	}
+
+	/* Parse CSS from array() */
+	$parse_css .= astra_parse_css( $desktop_below_header_css_output );
+	$parse_css .= astra_parse_css( $tablet_below_header_css_output, '', astra_addon_get_tablet_breakpoint() );
+	$parse_css .= astra_parse_css( $mobile_below_header_css_output, '', astra_addon_get_mobile_breakpoint() );
+
+	return $dynamic_css . $parse_css;
+}
 
 /**
  * Dynamic CSS

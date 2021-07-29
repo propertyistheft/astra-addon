@@ -52,9 +52,9 @@
 		} );
 	} );
 
-		var sticky_header_style = astraAddon.sticky_header_style || '';
-		var sticky_hide_on_scroll = astraAddon.sticky_hide_on_scroll || '';
-		var isHeaderBuilderActive = astraAddon.header_builder_active || false;
+		var sticky_header_style = astSticky.sticky_header_style || '';
+		var sticky_hide_on_scroll = astSticky.sticky_hide_on_scroll || '';
+		var isHeaderBuilderActive = astSticky.header_builder_active || false;
 
 		if( isHeaderBuilderActive ) {
 			// Site Identity preview styles.
@@ -62,7 +62,7 @@
 			astra_css( 'astra-settings[sticky-header-builder-site-title-h-color]', 'color', '[CLASS*="-sticky-header-active"] #ast-fixed-header.ast-header-sticked .site-title a:hover, [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a:hover' );
 			astra_css( 'astra-settings[sticky-header-builder-site-tagline-color]', 'color', '[CLASS*="-sticky-header-active"] #ast-fixed-header.ast-header-sticked .ast-site-identity .site-description, [CLASS*="-sticky-header-active"] .ast-header-sticked .ast-site-identity .site-description' );
 
-			for ( var index = 1; index <= astraAddon.component_limit; index++ ) {
+			for ( var index = 1; index <= astSticky.component_limit; index++ ) {
 
 				// Menu color preview styles.
 				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-color-responsive]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' > .menu-item > .menu-link' );
@@ -539,14 +539,14 @@
 	astra_css(
 		'astra-settings[sticky-header-search-icon-color]',
 		'color',
-		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder'
+		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder,' + selector + ' .ast-icon'
 	);
 
 	// Box icon hover Color.
 	astra_css(
 		'astra-settings[sticky-header-search-icon-h-color]',
 		'color',
-		selector + ' .astra-search-icon:hover'
+		selector + ' .astra-search-icon:hover,' + selector + ' .ast-icon:hover'
 	);
 
 	// search text Color.

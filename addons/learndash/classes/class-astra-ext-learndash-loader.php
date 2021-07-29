@@ -42,7 +42,9 @@ if ( ! class_exists( 'Astra_Ext_LearnDash_Loader' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_inline_style' ), 11 );
+			if ( ! is_admin() ) {
+				add_action( 'wp_enqueue_scripts', array( $this, 'add_inline_style' ), 11 );
+			}
 		}
 
 		/**

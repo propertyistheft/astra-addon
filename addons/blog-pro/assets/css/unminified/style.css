@@ -271,3 +271,8 @@ hr.ast-single-previous-hr {
     transform: scale(1);
   }
 }
+
+/* Hiding 'ast-pagination' for infinite-scroll page. */
+.ast-blog-pagination-type-infinite .ast-pagination {
+  display: none;
+}

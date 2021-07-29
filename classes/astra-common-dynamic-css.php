@@ -140,6 +140,13 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	/* Parse CSS from array() -> max-width: (tablet-breakpoint)px */
 	$css_output .= astra_parse_css( $tablet_max_lang_direction_css, '', astra_addon_get_tablet_breakpoint() );
 
+	/**
+	 * Normal blog multiple column layout creates extra spacing around category title, whereas this '-1em' needed when "Add Space Between Posts" optionn is enabled.
+	 *
+	 * @since 3.5.7
+	 */
+	$margin_space = astra_get_option( 'blog-space-bet-posts' ) ? '-1em' : '0';
+
 	$tablet_min_css = array(
 		// Single Post author info.
 		'.single .ast-author-meta .ast-author-details' => array(
@@ -158,8 +165,8 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'border-bottom' => 0,
 		),
 		'.ast-separate-container .ast-grid-2 > .site-main > .ast-row, .ast-separate-container .ast-grid-3 > .site-main > .ast-row, .ast-separate-container .ast-grid-4 > .site-main > .ast-row' => array(
-			'margin-left'  => '-1em',
-			'margin-right' => '-1em',
+			'margin-left'  => esc_attr( $margin_space ),
+			'margin-right' => esc_attr( $margin_space ),
 			'display'      => 'flex',
 			'flex-flow'    => 'row wrap',
 			'align-items'  => 'stretch',

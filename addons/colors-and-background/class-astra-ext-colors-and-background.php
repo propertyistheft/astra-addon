@@ -46,9 +46,14 @@ if ( ! class_exists( 'Astra_Ext_Colors_And_Background' ) ) {
 				require_once ASTRA_EXT_COLORS_DIR . 'classes/dynamic-css/class-astra-addon-colors-dynamic-css.php';
 
 				// Check Header Sections is activated.
-				if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
+				if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
 					// Dynamic css dependent on Header Sections.
 					require_once ASTRA_EXT_COLORS_DIR . 'classes/dynamic-css/header-sections-dynamic.css.php';
+				} else {
+					// Avoided directly fixing this issue as it related to frontend. Managed backward compatibility here.
+					if ( Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() || ( ! Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() && Astra_Ext_Extension::is_active( 'header-sections' ) ) ) {
+						require_once ASTRA_EXT_COLORS_DIR . 'classes/dynamic-css/header-builder-sections-dynamic.css.php';
+					}
 				}
 			}
 

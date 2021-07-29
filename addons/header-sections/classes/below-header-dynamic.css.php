@@ -542,6 +542,34 @@ function astra_ext_below_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// Submenu items goes outside?
 	$parse_css .= astra_parse_css( $submenu_border_for_left_align_menu, astra_addon_get_tablet_breakpoint( '', 1 ) );
 
+	if ( is_support_swap_mobile_below_header_sections() ) {
+
+		$swap_mobile_below_header_sections = array(
+			'.ast-header-break-point .ast-swap-below-header-sections .below-header-section-1' => array(
+				'order'           => 2,
+				'justify-content' => 'flex-end',
+			),
+			'.ast-header-break-point .ast-swap-below-header-sections .below-header-section-2' => array(
+				'order'           => 1,
+				'justify-content' => 'flex-start',
+			),
+		);
+		$parse_css                        .= astra_parse_css( $swap_mobile_below_header_sections );
+	}
+
 	// Add Inline style.
 	return $dynamic_css . $parse_css;
+}
+
+/**
+ * Whether to fix the Swap Sections on Mobile Devices not working case or not.
+ * As this is frontend reflecting change added this backwards for existing users.
+ *
+ * @since 3.5.7
+ * @return boolean false if it is an existing user, true if not.
+ */
+function is_support_swap_mobile_below_header_sections() {
+	$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['support-swap-mobile-header-sections'] = isset( $astra_settings['support-swap-mobile-header-sections'] ) ? false : true;
+	return apply_filters( 'astra_apply_swap_mobile_header_sections_css', $astra_settings['support-swap-mobile-header-sections'] );
 }

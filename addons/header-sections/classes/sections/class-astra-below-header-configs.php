@@ -891,7 +891,7 @@ if ( ! class_exists( 'Astra_Below_Header_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[below-header-swap-mobile]',
-					'default'  => astra_get_option( 'below-header-section-swap-mobile' ),
+					'default'  => astra_get_option( 'below-header-swap-mobile' ),
 					'type'     => 'control',
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),

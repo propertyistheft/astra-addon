@@ -67,6 +67,12 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 				'astra_addon_cart_color_not_working_in_old_header',
 				'astra_addon_clear_assets_cache',
 			),
+			'3.5.7' => array(
+				'astra_addon_outline_cart_bg_color_support',
+				'astra_addon_remove_header_sections_deps_new_builder',
+				'astra_addon_swap_section_not_working_in_old_header',
+				'astra_addon_clear_assets_cache',
+			),
 		);
 
 		/**

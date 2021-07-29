@@ -999,29 +999,29 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		.ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content {
 			display: none;
 		}
-		
+
 		.ast-main-header-nav-open.astra-hfb-header .ast-mobile-header-wrap .ast-mobile-header-content {
 			display: block;
 		}
-		
+
 		.ast-header-stick-slide-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-header-stick-fade-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-header-stick-scroll-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content {
 			display: block;
 		}
-		
+
 		.ast-header-stick-slide-active .ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-header-stick-fade-active .ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-header-stick-scroll-active .ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content {
 			display: none;
 		}
-		
+
 		.ast-header-stick-slide-active.ast-off-canvas-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-header-stick-fade-active.ast-off-canvas-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-header-stick-scroll-active.ast-off-canvas-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content {
 			display: none;
 		}
-		
+
 		.ast-primary-sticky-header-active.ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-above-sticky-header-active.ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 		.ast-below-sticky-header-active.ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content {
@@ -1035,29 +1035,29 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			.ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content {
 				display: none;
 			}
-			
+
 			.ast-main-header-nav-open.astra-hfb-header .ast-mobile-header-wrap .ast-mobile-header-content {
 				display: block;
 			}
-			
+
 			.ast-header-stick-slide-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-header-stick-fade-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-header-stick-scroll-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content {
 				display: block;
 			}
-			
+
 			.ast-header-stick-slide-active .ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-header-stick-fade-active .ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-header-stick-scroll-active .ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content {
 				display: none;
 			}
-			
+
 			.ast-header-stick-slide-active.ast-off-canvas-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-header-stick-fade-active.ast-off-canvas-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-header-stick-scroll-active.ast-off-canvas-active .ast-main-header-nav-open.astra-hfb-header #ast-fixed-header .ast-mobile-header-wrap .ast-mobile-header-content {
 				display: none;
 			}
-			
+
 			.ast-primary-sticky-header-active.ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-above-sticky-header-active.ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content,
 			.ast-below-sticky-header-active.ast-main-header-nav-open.astra-hfb-header #masthead > .ast-mobile-header-wrap .ast-mobile-header-content {

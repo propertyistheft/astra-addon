@@ -27,10 +27,10 @@ function astra_sticky_header_search_dynamic_css( $dynamic_css, $dynamic_css_filt
 	 */
 	$css_output_desktop = array(
 
-		$selector . ' .astra-search-icon, ' . $selector . ' .search-field::placeholder' => array(
+		$selector . ' .astra-search-icon, ' . $selector . ' .search-field::placeholder,' . $selector . ' .ast-icon' => array(
 			'color' => esc_attr( astra_get_option( 'sticky-header-search-icon-color' ) ),
 		),
-		$selector . ' .astra-search-icon:hover' => array(
+		$selector . ' .astra-search-icon:hover,' . $selector . ' .ast-icon:hover' => array(
 			'color' => esc_attr( astra_get_option( 'sticky-header-search-icon-h-color' ) ),
 		),
 		$selector . ' .search-field, ' . $selector . ' .ast-search-menu-icon .search-field::placeholder' => array(

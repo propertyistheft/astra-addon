@@ -309,3 +309,55 @@ function astra_addon_cart_color_not_working_in_old_header() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * Till now "Header Sections" addon has dependency conflict with new header builder, unless & until this addon activate dynamic CSS does load for new header layouts.
+ * As we deprecate "Header Sections" for new header builder layout, conflict appears here.
+ *
+ * Adding backward compatibility as changes can directly reflect on frontend.
+ *
+ * @since 3.5.7
+ * @return void
+ */
+function astra_addon_remove_header_sections_deps_new_builder() {
+
+	$theme_options = get_option( 'astra-settings' );
+
+	if ( ! isset( $theme_options['remove-header-sections-deps-in-new-header'] ) ) {
+		// Set a flag to avoid direct changes on frontend.
+		$theme_options['remove-header-sections-deps-in-new-header'] = false;
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * In old header for Cart widget we have background: #ffffff; for outline cart, whereas this CSS missed in new HFB > Cart element. Adding it now as per support requests. This case is only for new header builder > WooCommerce cart.
+ *
+ * @since 3.5.7
+ * @return void
+ */
+function astra_addon_outline_cart_bg_color_support() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['add-outline-cart-bg-new-header'] ) ) {
+		$theme_options['add-outline-cart-bg-new-header'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Swap section on Mobile Device not working in old header. As this change can reflect on frontend directly, adding this backward compatibility.
+ *
+ * @since 3.5.7
+ * @return void
+ */
+function astra_addon_swap_section_not_working_in_old_header() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-swap-mobile-header-sections'] ) ) {
+		$theme_options['support-swap-mobile-header-sections'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

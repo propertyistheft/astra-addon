@@ -32,3 +32,31 @@ if ( ! function_exists( 'astar' ) ) :
 	}
 
 endif;
+
+if ( ! function_exists( 'astra_pagination_infinite' ) ) :
+
+	/**
+	 * Deprecating astra_pagination_infinite function.
+	 *
+	 * @since 3.5.7
+	 * @deprecated 3.5.7
+	 */
+	function astra_pagination_infinite() {
+		_deprecated_function( __FUNCTION__, '3.5.7' );
+	}
+
+endif;
+
+if ( ! function_exists( 'astra_shop_pagination_infinite' ) ) :
+
+	/**
+	 * Deprecating astra_shop_pagination_infinite function.
+	 *
+	 * @since 3.5.7
+	 * @deprecated 3.5.7
+	 */
+	function astra_shop_pagination_infinite() {
+		_deprecated_function( __FUNCTION__, '3.5.7' );
+	}
+
+endif;
