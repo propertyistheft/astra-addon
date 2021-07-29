@@ -1,0 +1,15 @@
+== Credits ==
+
+BEAVER THEMER
+License: GNU General Public License v2.0
+https://www.wpbeaverbuilder.com/beaver-themer/
+
+WP Color Picker Alpha
+WP Color Picker Alpha is used to Overwrite Automattic Iris for enabled Alpha Channel in wpColorPicker By Sergio.
+https://github.com/kallookoo/wp-color-picker-alpha
+Distributed under the terms of the GNU GPL v2.
+
+jQuery-Timepicker-Addon
+Adds a timepicker to jQueryUI Datepicker
+https://github.com/trentrichardson/jQuery-Timepicker-Addon
+License: MIT

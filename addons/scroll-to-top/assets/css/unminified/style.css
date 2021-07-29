@@ -1,0 +1,39 @@
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+#ast-scroll-top {
+  display: none;
+  position: fixed;
+  text-align: center;
+  cursor: pointer;
+  z-index: 99;
+  width: 2.1em;
+  height: 2.1em;
+  line-height: 2.1;
+  color: #ffffff;
+  border-radius: 2px;
+  content: "";
+}
+
+@media (min-width: 769px) {
+  #ast-scroll-top {
+    content: "769";
+  }
+}
+
+#ast-scroll-top .ast-icon.icon-arrow svg {
+  margin-left: 0px;
+  transform: translate(0, -20%) rotate(180deg);
+  width: 1.6em;
+}
+
+.ast-scroll-to-top-right {
+  right: 30px;
+  bottom: 30px;
+}
+
+.ast-scroll-to-top-left {
+  left: 30px;
+  bottom: 30px;
+}

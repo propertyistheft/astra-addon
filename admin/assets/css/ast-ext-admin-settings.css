@@ -1,0 +1,273 @@
+/*
+ * CSS code for all Astra Extensions admin screens
+ *
+ * @package Astra Addon
+ * @since 1.2.1
+ */
+ 
+/* Welcome Screen */
+.ast-addon-heading > span{
+    flex: auto;
+}
+.ast-addon-heading .ast-bulk-actions-wrap{
+    flex: auto;
+    text-align: right;
+}
+.ast-addon-list-section .ast-addon-list .deactive .advanced-module{
+    display: none;
+}
+
+.ast-addon-list-section .ast-addon-list .active,
+.ast-addon-list-section .ast-addon-list #white-label{
+    border-left: 2px solid #008ec2;
+    padding-left: 12px;
+}
+
+.ast-addon-list-section .ast-addon-list .ast-disable {
+    border-left: 0;
+    padding-left: 16px;
+}
+
+.ast-addon-list-section .ast-addon-list #white-label.deactive  .advanced-module{
+    display: block;
+}
+
+.ast-addon-list li a:before {
+    display: inline-block;
+    margin-right: 2px;
+    font: normal 20px/1 'dashicons';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: top;
+}
+
+.ast-addon-list li.ast-disable .ast-addon-link-wrapper a{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ast-addon-list li.ast-disable.ast-modules-not-activated .ast-deactivate-module {
+    color: #444;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* Update icon. */
+.ast-addon-link-wrapper a.updating-message:before {
+    color: #f56e28;
+    content: "\f463";
+}
+
+/* Spins the update icon. */
+.ast-addon-link-wrapper a.updating-message:before {
+    -webkit-animation: rotation 2s infinite linear;
+    animation: rotation 2s infinite linear;
+}
+
+/* Updated icon (check mark). */
+.ast-addon-link-wrapper a.updated-message:before {
+    content: "\f147";
+    color: #79ba49;
+}
+
+
+.ast-white-label-notice.notice{
+    margin: 5px 0;
+    padding-left: 0;
+}
+.ast-white-label-notice .dashicons{
+    margin: 0 5px 0 0;
+}
+
+/* Tooltips */
+.ast-white-label-help {
+    cursor: help;
+    color: #444;
+}
+
+.ui-widget-content.ast-white-label-ui-tooltip {
+    background: #333;
+    border-width: 1px;
+    border-color: #333;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 0px 2px 0px rgba(214,214,214,0.5);
+    box-shadow: 1px 0px 2px 0px rgba(214,214,214,0.5);
+    color: #dedede;
+    max-width: 250px;
+    text-align: center;
+    padding: 7px;
+    text-rendering: optimizeLegibility;
+    text-shadow: none;
+    z-index: 9999;
+}
+
+.ast-white-label-save-btn{
+    width: 100%;
+}
+
+.ast-enable-white-label-wrapper p.submit{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 0;
+}
+
+/*Brancing Page*/
+.ast-branding-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    margin: 0;
+}
+.ast-branding-list,
+.ast-branding-list * {
+    box-sizing: border-box;
+}
+.ast-branding-list li {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    padding: 0.7em;
+}
+.ast-branding-list li:nth-child(odd){
+    padding-left: 0;
+}
+.ast-branding-list li:nth-child(even){
+    padding-right: 0;
+}
+.ast-branding-list li:nth-child(1),
+.ast-branding-list li:nth-child(2){
+    padding-top: 0;
+}
+
+.ast-branding-list .branding-form{
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 1024px) {
+    .ast-branding-list li {
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+    }
+    .ast-branding-list li:nth-child(odd){
+        padding:0 0.5em 1em 0;
+    }
+    .ast-branding-list li:nth-child(even){
+        padding:0 0.5em 1em 0;
+    }
+    .ast-branding-list li:nth-child(1),
+    .ast-branding-list li:nth-child(2){
+        padding:0 0.5em 1em 0;
+    }
+}
+
+
+/**
+ * Extension: Custom 404 Page
+ */
+
+.astext-custom-404-options .ast-404-page {
+	display: none;
+}
+
+.astext-custom-404-options .ast-404-page th,
+.astext-custom-404-options .ast-404-page td {
+	padding-top: 15px;
+}
+.ast-custom-404-button p.submit{
+	padding: 0;
+}
+
+/**
+ * License Form
+ */
+
+.bsf-license-register-astra-addon .astra-license-heading {
+    margin: 13px 0;
+    font-size: 15px;
+}
+.bsf-license-register-astra-addon .astra-product-license {
+    margin: 8px 0;
+}
+.bsf-license-register-astra-addon .license-form-field {
+    display: block;
+    margin: 8px 0;
+}
+.bsf-license-register-astra-addon .license-form-field input {
+    width: 100%;
+}
+
+.bsf-license-not-active-astra-addon span {
+	color: #000000;
+    display: inline-block;
+    font-size:  0.9em;
+    font-weight: 400;
+}
+.bsf-license-active-astra-addon span {
+	font-style: italic;
+	color: #46b450;
+    display: inline-block;
+}
+
+.bsf-license-register-astra-addon h4 {
+    margin-bottom: .5em;
+}
+
+/**
+ * Popup z-index issue
+ */
+.ui-autocomplete {
+    z-index: 100052;
+}
+
+.astra-popup-form-submit {
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+}
+
+.astra-popup-form tr {
+    line-height: 3;
+}
+
+@media all and (min-width: 800px){
+    .left-section {
+        float: left;
+        width: 49.5%;
+    }
+    .left-section .postbox {
+        margin-right: 8px;
+    }
+    .right-section {
+        float: right;
+        width: 50.5%;
+    }
+    .right-section .postbox {
+        margin-left: 8px;
+    }
+}
+
+
+.ast-button-spinner:before {
+    font: normal 20px/.5 dashicons;
+    speak: none;
+    display: inline-block;
+    padding: 0;
+    top: 9px;
+    left: -4px;
+    position: relative;
+    vertical-align: top;
+    content: "\f463";
+}
+
+.ast-button-spinner.loading:before {
+    -webkit-animation: rotation 1s infinite linear;
+    animation: rotation 1s infinite linear;
+}
+
+.ast-button-spinner.success:before {
+    content: "\f147";
+    color: #46b450;
+}

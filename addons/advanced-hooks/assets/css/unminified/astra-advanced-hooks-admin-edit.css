@@ -1,0 +1,348 @@
+/* Meta Box Heading
+------------------------------------------------------*/
+#advanced-hook-settings .inside{
+	margin: 0;
+	padding: 0
+}
+#advanced-hook-settings .nav-tab-wrapper{
+	border-bottom: 0;
+}
+#advanced-hook-settings .nav-tab-wrapper ul{
+	margin: 0;
+}
+#advanced-hook-settings #ast-advanced-hook-tab-page-header{
+	margin-left: 0;
+}
+.advanced-hook-meta-box-wrap .inside{
+	margin: 0;
+	padding: 0;
+}
+
+/* Radio Button Images*/
+.ast-advanced-hook-layout-radio-button-wrap input[type='radio'] {
+    display: none;
+}
+.ast-advanced-hook-layout-radio-button-wrap label[checked="checked"] img,
+.ast-advanced-hook-layout-radio-button-wrap label img:hover{
+    border-color: transparent;
+}
+.ast-advanced-hook-layout-radio-button-wrap label {
+    display: inline-block;
+    cursor: pointer;
+}
+.ast-advanced-hook-layout-radio-button-wrap label img{
+    border-width: 2px;
+    border-style: solid;
+}
+
+.ast-advanced-hook-php-content {
+	height: 300px;
+	z-index: auto;
+	position: relative;
+	transition: none;
+	background: transparent !important;
+}
+
+/* Loading Overlay */
+.spinner.ast-advanced-hook-loading {
+    visibility: visible;
+    background-color: rgba(255,255,255,0.9);
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: initial;
+    width: auto;
+    margin: 0;
+}
+
+
+/* Tooltips */
+.ast-advanced-hook-heading-help {
+	cursor: help;
+}
+
+.ui-widget-content.ast-advanced-hook-ui-tooltip {
+    background: #333;
+    border-width: 1px;
+	border-color: #333;
+	border-radius: 3px;
+	box-shadow: 1px 0px 2px 0px rgba(214,214,214,0.5);
+	color: #dedede;
+	max-width: 250px;
+	text-align: center;
+	padding: 7px;
+	text-rendering: optimizeLegibility;
+	text-shadow: none;
+	z-index: 9999;
+}
+
+/* Table */
+.ast-advanced-hook-table {
+	border: none;
+	border-bottom: 5px solid #f0f0f0;
+}
+.ast-advanced-hook-table:last-of-type {
+	border-bottom-width: 0;
+}
+.ast-advanced-hook-table.widefat{
+	border-width: 0;
+}
+/* Rows */
+.ast-advanced-hook-row td:before,
+.ast-advanced-hook-row td:after {
+	display: table;
+	content: " ";
+}
+.ast-advanced-hook-row td:after {
+	clear: both;
+}
+.ast-advanced-hook-row td {
+	padding-left: 12px;
+	padding-right: 12px;
+	border-bottom: 1px solid #f0f0f0;
+	zoom:1;
+	vertical-align: middle;
+}
+.ast-advanced-hook-row td *:not(.select2-selection__choice__remove){
+	vertical-align: middle;
+}
+.ast-advanced-hook-row:last-child td {
+	border-bottom: none;
+}
+
+/* Row Heading */
+.ast-advanced-hook-row-heading {
+	border-right: 1px solid #E1E1E1;
+	padding: 15px;
+	width: 25%;
+	vertical-align: middle;
+}
+
+.ast-advanced-hook-row td.ast-advanced-hook-row-heading.title {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+.ast-advanced-hook-row-heading label {
+	display: inline-block;
+	font-size: 13px;
+	line-height: 1.4em;
+	font-weight: bold;
+	padding: 0;
+	margin: 0 0 3px;
+	color: #333;
+}
+.ast-advanced-hook-row-sub-heading {
+	border-right: 1px solid #E1E1E1;
+	padding: 15px;
+	width: 25%;
+	vertical-align: middle;
+}
+.ast-advanced-hook-row-sub-heading label{
+	display: inline-block;
+	font-size: 13px;
+	line-height: 1.4em;
+	font-weight: normal;
+	padding: 0;
+	margin: 0 0 3px;
+	color: #333;
+}
+.ast-advanced-hook-heading-help {
+	color: #b3b3b3;
+	cursor: help;
+	float: right;
+    font-size: 18px;
+}
+
+/* Row Content */
+.ast-advanced-hook-table  .ast-advanced-hook-row-content {
+	padding: 15px 10px;
+	position: relative;
+	width: 75%;
+}
+.ast-advanced-hook-row-content p:last-child {
+	margin-bottom: 0;
+}
+
+.ast-advanced-hook-padding {
+	width: 110px;
+}
+.ast-advanced-hook-padding-bottom-wrap {
+	margin-top: 5px;
+}
+
+/* Row Inputs */
+.ast-advanced-hook-row-content select {
+	width: 100%;
+}
+.ast-advanced-hook-row-content .ast-advanced-hook-action-desc.ast-no-desc {
+	margin-top: 0;
+}
+
+.ast-advanced-hook-row-content .ast-advanced-hook-action-desc {
+	margin-top: 10px;
+}
+
+/* Settings Meta Box
+------------------------------------------------------*/
+
+#ast-advanced-hook-settings .inside {
+	margin: 0;
+	padding: 0;
+}
+
+/* Builder Buttons Meta Box
+------------------------------------------------------*/
+
+#ast-advanced-hook-buttons .inside {
+	margin: 0;
+	padding: 15px;
+}
+#ast-advanced-hook-buttons .button {
+	margin-right: 5px;
+}
+
+
+/* Rule Settings
+------------------------------------------------------*/
+
+/* Rule Forms */
+.ast-advanced-hook-saved-rule {
+    -js-display: flex;
+    display: flex;
+    padding: 0 0 8px 0;
+}
+.ast-advanced-hook-saved-rule-select {
+	width: 100%;
+}
+.ast-advanced-hook-rule-objects {
+	display: none;
+}
+.ast-advanced-hook-rule-objects-visible {
+	-js-display: flex;
+	display: flex;
+}
+.ast-advanced-hook-row-content .ast-advanced-hook-rule-objects-visible select {
+	width: 50%;
+}
+.ast-advanced-hook-rule-objects-visible .ast-advanced-hook-rule-objects {
+	display: inline;
+	margin-left: 7px;
+}
+.ast-advanced-hook-remove-rule-button {
+	display: none;
+    margin-top: 5px;
+    text-align: right;
+	width: 33px;
+}
+.ast-advanced-hook-remove-rule{
+	color: #000;
+	cursor: pointer;
+	opacity: 0.2;
+}
+.ast-advanced-hook-remove-rule:hover {
+	color: #d54e21;
+	opacity: 1;
+}
+.ast-advanced-hook-add-rule {
+	float: left;
+	margin-right: 8px;
+    min-width: 150px;
+}
+.ast-advanced-hook-add-rule .button {
+    text-align: center;
+	width: 100%;
+}
+
+/* Location Rules */
+.ast-advanced-hook-locations-form {
+	display: none;
+}
+
+/* Exclusion Rules */
+.ast-advanced-hook-exclusion-rules {
+	display: none;
+}
+
+/* Color Picker */
+.ast-advanced-hook-row .wp-picker-holder{
+	position: absolute;
+    z-index: 1;
+}
+.ast-advanced-hook-row .iris-border .iris-picker-inner{
+	right: 0;
+}
+
+/* Dependency */
+.astra-php-editor-container {
+	visibility: hidden;
+	height: 0;
+}
+
+.astra-php-snippt-enabled .astra-php-editor-container {
+	margin-top: 20px;
+	visibility: visible;
+	height: auto;
+}
+
+.astra-php-snippt-enabled .composer-switch,
+.astra-php-snippt-enabled .fl-builder-admin,
+.astra-php-snippt-enabled #postdivrich,
+.astra-php-snippt-enabled #elementor-switch-mode,
+.astra-php-snippt-enabled.elementor-editor-active #elementor-editor,
+.astra-php-snippt-enabled #elementor-editor {
+	display: none;
+}
+.astra-php-snippt-enabled #wpb_visual_composer {
+	display: none !important;
+}
+
+.ast-advanced-hook-enable-php-btn i {
+    font-size: 1.2em;
+    line-height: 1.8;
+    height: auto;
+}
+
+.ast-advanced-hook-enable-php-wrapper {
+	margin: 0;
+	order: 2;
+}
+.widefat td .ast-inside-content-notice {
+	display: none;
+	margin-top: 10px;
+}
+.widefat td .ast-inside-content-blocks-notice,
+.widefat td .ast-inside-content-heading-notice{
+	margin-top: 10px;
+}
+.ast-advanced-hook-inline-label{
+	font-size: 14px;
+	color: #2c3338;
+}
+.ast-inside-content-number-field{
+	width: 60px;
+}
+
+.ast-advanced-hook-wrap {
+	margin-bottom: 5px;
+}
+
+input.readonly, input[readonly], .ast-advanced-date-time-input {
+	width: 190px;
+	background: white;
+}
+
+.ast-advanced-time-duration-wrap {
+	display: grid;
+	grid-template-columns: 10em 25em 25em 10em;
+	height: 50px;
+	align-items: center;
+}
+
+.ast-advanced-device-display-wrap {
+	display: grid;
+	grid-template-columns: 7em 7em 7em;
+}
