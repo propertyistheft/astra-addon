@@ -361,3 +361,19 @@ function astra_addon_swap_section_not_working_in_old_header() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not apply default header site title and tag line color to sticky header for existing users.
+ *
+ * @since 3.5.8
+ *
+ * @return void
+ */
+function astra_sticky_header_site_title_tagline_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['sticky-header-default-site-title-tagline-css'] ) ) {
+		$theme_options['sticky-header-default-site-title-tagline-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

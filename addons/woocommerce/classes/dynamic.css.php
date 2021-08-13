@@ -328,6 +328,27 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'.ast-icon-next:before'                     => array(
 				'transform' => 'rotate(-90deg)',
 			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-prev:before, #ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-next:before' => array(
+				'content'     => '"\e900"',
+				'font-family' => 'Astra',
+				'font-size'   => '20px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav a' => array(
+				'width'  => '20px',
+				'height' => '20px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-prev' => array(
+				'left' => '10px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-next' => array(
+				'right' => '10px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-prev' => array(
+				'transform' => 'rotate(90deg)',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-next' => array(
+				'transform' => 'rotate(-90deg)',
+			),
 		);
 
 		if ( false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
@@ -392,6 +413,26 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'.ast-product-icon-previous .ast-icon.icon-arrow svg, .ast-product-icon-next .ast-icon.icon-arrow svg' => array(
 				'margin-left' => '0',
 				'width'       => '0.8em',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-prev:before, #ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-next:before' => array(
+				'content'   => '"\203A"',
+				'font-size' => '30px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav a' => array(
+				'width'  => '30px',
+				'height' => '30px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-prev' => array(
+				'left' => '-10px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-next' => array(
+				'right' => '-10px',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-prev' => array(
+				'transform' => 'rotate(180deg)',
+			),
+			'#ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-next' => array(
+				'transform' => 'rotate(0deg)',
 			),
 		);
 	}

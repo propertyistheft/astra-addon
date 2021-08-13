@@ -73,6 +73,10 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 				'astra_addon_swap_section_not_working_in_old_header',
 				'astra_addon_clear_assets_cache',
 			),
+			'3.5.8' => array(
+				'astra_sticky_header_site_title_tagline_css',
+				'astra_addon_clear_assets_cache',
+			),
 		);
 
 		/**

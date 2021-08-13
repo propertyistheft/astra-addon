@@ -214,8 +214,6 @@ body #ast-quick-view-modal div.product .flex-viewport {
 #ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav a {
   text-decoration: none;
   display: block;
-  width: 20px;
-  height: 20px;
   margin: -20px 0 0;
   position: absolute;
   top: 50%;
@@ -230,8 +228,6 @@ body #ast-quick-view-modal div.product .flex-viewport {
 }
 
 #ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-prev:before, #ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-next:before {
-  content: "\e900";
-  font-family: 'Astra' !important;
   speak: none;
   font-size: 20px;
   font-style: normal;
@@ -247,23 +243,15 @@ body #ast-quick-view-modal div.product .flex-viewport {
 
 #ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-prev {
   right: -50px;
-  transform: rotate(-90deg);
 }
 
 #ast-quick-view-modal .ast-qv-image-slider .flex-direction-nav .flex-next {
   left: -50px;
   text-align: left;
-  transform: rotate(90deg);
 }
 
-#ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-prev {
+#ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-prev, #ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-next {
   opacity: 0.7;
-  right: 10px;
-}
-
-#ast-quick-view-modal .ast-qv-image-slider:hover .flex-direction-nav .flex-next {
-  opacity: 0.7;
-  left: 10px;
 }
 
 #ast-quick-view-content {

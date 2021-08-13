@@ -89,7 +89,7 @@ class Astra_Cache extends Astra_Cache_Base {
 
 		$assets_info = $this->get_asset_info( 'theme' );
 
-		if ( ! file_exists( $assets_info['path'] ) && ! self::inline_assets() ) {
+		if ( array_key_exists( 'path', $assets_info ) && ! file_exists( $assets_info['path'] ) && ! self::inline_assets() ) {
 			$theme_css_data = $this->get_dynamic_css();
 
 			// Return if there is no data to add in the css file.

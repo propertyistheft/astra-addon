@@ -460,7 +460,7 @@ class Astra_Cache_Base {
 		$info       = array();
 
 		if ( ! isset( $this->uploads_dir['path'] ) || ! isset( $this->uploads_dir['url'] ) ) {
-			return;
+			return $info;
 		}
 
 		$info['path']    = $this->uploads_dir['path'] . $css_suffix . '-' . $this->asset_slug . '.css';

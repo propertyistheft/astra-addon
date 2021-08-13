@@ -93,7 +93,7 @@ class Astra_Addon_Cache extends Astra_Cache_Base {
 	public function setup_cache() {
 		$assets_info = $this->get_asset_info( 'addon' );
 
-		if ( ! file_exists( $assets_info['path'] ) && ! self::inline_assets() ) {
+		if ( array_key_exists( 'path', $assets_info ) && ! file_exists( $assets_info['path'] ) && ! self::inline_assets() ) {
 			$astra_addon_css_data = $this->get_dynamic_css();
 
 			// Return if there is no data to add in the css file.

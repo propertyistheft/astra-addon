@@ -533,3 +533,16 @@ function astra_addon_has_widgets_block_editor() {
 	}
 	return false;
 }
+
+/**
+ * Check whther to display or hide sticky header widget design options.
+ *
+ * @since 3.5.8
+ * @return boolean
+ */
+function astra_addon_remove_widget_design_options() {
+	if ( function_exists( 'astra_remove_widget_design_options' ) ) {
+		return astra_remove_widget_design_options();
+	}
+	return false;
+}

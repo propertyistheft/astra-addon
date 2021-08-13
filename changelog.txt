@@ -1,3 +1,9 @@
+v3.5.8
+- Fix: Previous & Next arrow icons not appearing for product gallery in Quick View layout.
+- Fix: Compatibility with WPML plugin version 4.5.
+- Fix: Console error while editing in the beaver builder editor view when "CSS File Generation" is enabled with Ultimate Addons for Beaver Builder plugin.
+- Deprecated: Header Footer Widgets - Deprecated design specific sticky header options for better compatibility with WordPress 5.8. ( https://wpastra.com/docs/enable-astra-widget-design-options/ )
+
 v3.5.7
 - Security Fix: Replaced AJAX post request with simple JS request for Infinite pagination from WooCommerce & Blog Pro addon.
 - Fix: Builder - Submenu & sticky header colors not working if "Header Sections" addon is deactivated from old header. ( https://wpastra.com/docs/editing-submenu-above-below-header-fix/ )

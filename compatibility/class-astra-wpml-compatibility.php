@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Wpml_Compatibility' ) ) :
 
 					if ( null !== $wpml_filter_id ) {
 
-						if ( $post_id !== $wpml_filter_id && isset( $wpml_filter_posts[ $post_id ] ) && isset( $wpml_filter_posts[ $wpml_filter_id ] ) ) {
+						if ( $post_id !== $wpml_filter_id && isset( $wpml_filter_posts[ $post_id ] ) ) {
 
 							$wpml_filter_posts[ $wpml_filter_id ]       = $wpml_filter_posts[ $post_id ];
 							$wpml_filter_posts[ $wpml_filter_id ]['id'] = $wpml_filter_id;

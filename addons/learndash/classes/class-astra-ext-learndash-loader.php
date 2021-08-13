@@ -91,7 +91,6 @@ if ( ! class_exists( 'Astra_Ext_LearnDash_Loader' ) ) {
 			// Table Heading.
 			$defaults['font-family-learndash-table-heading']    = 'inherit';
 			$defaults['font-weight-learndash-table-heading']    = 'inherit';
-			$defaults['text-transform-learndash-table-heading'] = 'uppercase';
 			$defaults['text-transform-learndash-table-heading'] = '';
 			$defaults['font-size-learndash-table-heading']      = array(
 				'desktop'      => '',

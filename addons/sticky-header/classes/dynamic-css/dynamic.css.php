@@ -102,6 +102,10 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$header_custom_sticky_button_border_h_color = astra_get_option( 'header-main-rt-sticky-section-button-border-h-color' );
 	$header_custom_sticky_button_border_size    = astra_get_option( 'header-main-rt-sticky-section-button-border-size' );
 
+	$default_header_site_title_color       = astra_get_option( 'header-color-site-title' );
+	$default_header_site_title_hover_color = astra_get_option( 'header-color-h-site-title' );
+	$default_header_site_tagline_color     = astra_get_option( 'header-color-site-tagline' );
+
 	if ( ! $stick_header_main && ! $stick_header_above && ! $stick_header_below && ( 'disabled' !== $stick_header && empty( $stick_header ) && ( empty( $stick_header_above_meta ) || empty( $stick_header_below_meta ) || empty( $stick_header_main_meta ) ) ) ) {
 		return $dynamic_css;
 	}
@@ -805,12 +809,18 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 
 		/* Site Identity Sticky Color Options */
-		$sticky_site_title_color       = astra_get_option( 'sticky-header-builder-site-title-color', '#222' );
-		$sticky_site_title_hover_color = astra_get_option( 'sticky-header-builder-site-title-h-color' );
-		$sticky_site_tagline_color     = astra_get_option( 'sticky-header-builder-site-tagline-color' );
+		if ( ! sticky_header_default_site_title_tagline_css_comp() ) {
+			$sticky_site_title_color       = astra_get_option( 'sticky-header-builder-site-title-color' );
+			$sticky_site_title_hover_color = astra_get_option( 'sticky-header-builder-site-title-h-color' );
+			$sticky_site_tagline_color     = astra_get_option( 'sticky-header-builder-site-tagline-color' );
+		} else {
+			$sticky_site_title_color       = astra_get_option( 'sticky-header-builder-site-title-color', $default_header_site_title_color );
+			$sticky_site_title_hover_color = astra_get_option( 'sticky-header-builder-site-title-h-color', $default_header_site_title_hover_color );
+			$sticky_site_tagline_color     = astra_get_option( 'sticky-header-builder-site-tagline-color', $default_header_site_tagline_color );
+		}
 
 		$sticky_builder_site_identity_css = array(
-			'[CLASS*="-sticky-header-active"] #ast-fixed-header.ast-header-sticked .site-title a, [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a:focus, [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a:visited' => array(
+			'[CLASS*="-sticky-header-active"] #ast-fixed-header.ast-header-sticked .site-title a, [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a:focus, [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a:visited , [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a' => array(
 				'color' => esc_attr( $sticky_site_title_color ),
 			),
 			'[CLASS*="-sticky-header-active"] #ast-fixed-header.ast-header-sticked .site-title a:hover, [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a:hover'           => array(
@@ -1091,4 +1101,16 @@ function astra_pro_sticky_header_submenu_below_header_fix() {
 	} else {
 		return true;
 	}
+}
+
+/**
+ * For existing users, do not apply the defaut header site title color by default.
+ *
+ * @since 3.5.8
+ * @return boolean false if it is an existing user , true if not.
+ */
+function sticky_header_default_site_title_tagline_css_comp() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['sticky-header-default-site-title-tagline-css'] = isset( $astra_settings['sticky-header-default-site-title-tagline-css'] ) ? false : true;
+	return apply_filters( 'astra_default_site_title_tagline_css_comp', $astra_settings['sticky-header-default-site-title-tagline-css'] );
 }
