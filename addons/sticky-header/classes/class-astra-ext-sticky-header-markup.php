@@ -69,15 +69,25 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			 */
 			$main_stick        = astra_get_option( 'header-main-stick' );
 			$above_stick       = astra_get_option( 'header-above-stick' );
+			$below_stick       = astra_get_option( 'header-below-stick' );
 			$shrink_main       = astra_get_option( 'header-main-shrink' );
 			$header_logo       = astra_get_option( 'sticky-header-logo' );
 			$inherit_desk_logo = astra_get_option( 'different-sticky-logo', false );
 
-			$sticky_header_meta         = astra_get_option_meta( 'stick-header-meta' );
-			$sticky_primary_header_meta = astra_get_option_meta( 'header-main-stick-meta' );
+			$sticky_header_meta              = astra_get_option_meta( 'stick-header-meta' );
+			$sticky_primary_header_meta      = astra_get_option_meta( 'header-main-stick-meta' );
+			$astra_main_header_shrink_status = apply_filters( 'astra_main_header_shrink_disable', false );
 
-			if ( ! apply_filters( 'astra_main_header_shrink_disable', false ) && '1' == $main_stick && '1' == $shrink_main ) {
+			if ( ! $astra_main_header_shrink_status && '1' == $main_stick && '1' == $shrink_main ) {
 				$classes[] = 'ast-sticky-main-shrink';
+			}
+
+			if ( ! $astra_main_header_shrink_status && '1' == $above_stick && '1' == $shrink_main ) {
+				$classes[] = 'ast-sticky-above-shrink';
+			}
+
+			if ( ! $astra_main_header_shrink_status && '1' == $below_stick && '1' == $shrink_main ) {
+				$classes[] = 'ast-sticky-below-shrink';
 			}
 
 			if ( Astra_Ext_Extension::is_active( 'sticky-header' ) && $shrink_main ) {

@@ -127,6 +127,10 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			add_action( 'astra_addon_activated', __CLASS__ . '::refresh_assets', 11 );
 			add_action( 'astra_addon_deactivated', __CLASS__ . '::refresh_assets', 11 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+
+			if ( version_compare( ASTRA_THEME_VERSION, '3.6.8', '>' ) ) {
+				add_action( 'astra_get_js_files', array( $this, 'add_fronted_pro_script' ) );
+			}
 		}
 
 		/**
@@ -1002,6 +1006,38 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			}
 
 			return $css;
+		}
+
+		/**
+		 * Load Addon ddependent JS related to toggle navigation menu.
+		 *
+		 * @since 3.5.9
+		 */
+		public static function add_fronted_pro_script() {
+			/* Define Variables */
+			$uri  = ASTRA_EXT_URI . 'assets/js/';
+			$path = ASTRA_EXT_DIR . 'assets/js/';
+
+			/* Directory and Extension */
+			$file_prefix = '.min';
+			$dir_name    = 'minified';
+
+			if ( SCRIPT_DEBUG ) {
+				$file_prefix = '';
+				$dir_name    = 'unminified';
+			}
+
+			$js_uri = $uri . $dir_name . '/';
+			$js_dir = $path . $dir_name . '/';
+
+			if ( defined( 'ASTRA_THEME_HTTP2' ) && ASTRA_THEME_HTTP2 ) {
+				$gen_path = $js_uri;
+			} else {
+				$gen_path = $js_dir;
+			}
+
+			/*** End Path Logic */
+			self::add_js( $gen_path . 'frontend-pro' . $file_prefix . '.js' );
 		}
 	}
 

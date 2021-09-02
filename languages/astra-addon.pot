@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 3.5.8\n"
+"Project-Id-Version: Astra Pro 3.5.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2021-08-10 04:45:35+00:00\n"
+"POT-Creation-Date: 2021-09-01 06:26:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -633,7 +633,7 @@ msgstr ""
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-typo-configs.php:214
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:834
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1197
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:131
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:154
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:172
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:270
 #: addons/edd/classes/sections/class-astra-edd-shop-typo-configs.php:172
@@ -684,7 +684,7 @@ msgstr ""
 #: addons/typography/classes/sections/class-astra-site-header-typo-configs.php:88
 #: addons/typography/classes/sections/class-astra-site-header-typo-configs.php:164
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:60
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:196
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:219
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:155
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-typo-configs.php:111
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-typo-configs.php:328
@@ -1172,8 +1172,8 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:300
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:317
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:260
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:215
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:250
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:211
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:242
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:104
 msgid "Link Color"
 msgstr ""
@@ -1225,12 +1225,12 @@ msgid "Background "
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:768
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:742
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:761
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:729
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:748
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:92
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-single.php:76
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:146
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:169
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:192
 #: addons/nav-menu/classes/sections/class-astra-existing-nav-menu-above-header-colors.php:78
 #: addons/nav-menu/classes/sections/class-astra-existing-nav-menu-above-header-colors.php:92
 #: addons/scroll-to-top/classes/sections/class-astra-scroll-to-top-configs.php:156
@@ -1240,7 +1240,7 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-language-switcher-configs.php:72
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:78
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-toggle-configs.php:65
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:219
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:242
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:91
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:218
 msgid "Color"
@@ -1412,9 +1412,9 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:76
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:59
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:77
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:198
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:229
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:266
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:196
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:223
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:256
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:88
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:51
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:444
@@ -1496,7 +1496,7 @@ msgstr ""
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1221
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:223
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:237
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:553
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:563
 msgid "Customizer Setting"
 msgstr ""
 
@@ -3026,15 +3026,15 @@ msgstr ""
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:110
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:111
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:216
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:324
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:326
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:349
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:350
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:569
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:633
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:634
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:649
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:650
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:323
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:325
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:346
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:347
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:556
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:620
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:621
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:636
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:637
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:153
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:294
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:376
@@ -3086,7 +3086,7 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:359
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:361
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:173
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:199
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:197
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:112
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:113
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:150
@@ -3162,15 +3162,15 @@ msgstr ""
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:147
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:148
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:230
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:365
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:366
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:380
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:381
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:586
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:669
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:670
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:686
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:687
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:360
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:361
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:373
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:374
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:573
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:656
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:657
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:673
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:674
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:165
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:309
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:393
@@ -3218,8 +3218,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:332
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:373
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:376
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:211
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:233
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:207
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:227
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:131
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:132
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:169
@@ -3262,8 +3262,8 @@ msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-content.php:52
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:79
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:300
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:617
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:299
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:604
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:67
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:94
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-sidebar.php:55
@@ -3315,7 +3315,7 @@ msgid "Text / Link"
 msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:71
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:604
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:591
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:86
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:817
 msgid "Submenu Color"
@@ -3325,14 +3325,14 @@ msgstr ""
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:165
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:181
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:182
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:400
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:401
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:417
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:418
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:703
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:704
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:720
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:721
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:391
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:392
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:406
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:407
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:690
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:691
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:707
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:708
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:229
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:244
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:259
@@ -3349,8 +3349,8 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:248
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:263
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:267
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:249
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:267
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:241
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:257
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:781
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:782
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:797
@@ -3383,7 +3383,7 @@ msgid "Colors"
 msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:278
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:601
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:588
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:430
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:622
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:691
@@ -3392,47 +3392,47 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1355
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:386
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:98
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:274
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:226
 msgid "Link"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:284
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:283
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:58
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:151
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:693
 msgid "Menu Color"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:431
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:275
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:418
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:227
 msgid "Login Popup"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:455
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:442
 msgid "Label Color"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:471
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:458
 msgid "Input Text Color"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:487
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:474
 msgid "Input Border Color"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:503
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:490
 msgid "Button Text Color"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:519
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:506
 msgid "Button Background Color"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:535
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:522
 msgid "Popup Background Color"
 msgstr ""
 
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:549
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:536
 msgid "Link Colors"
 msgstr ""
 
@@ -3469,13 +3469,13 @@ msgid "Border Color"
 msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:407
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:192
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:215
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:244
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:208
 #: addons/scroll-to-top/classes/sections/class-astra-scroll-to-top-configs.php:108
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:255
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1535
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:241
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:264
 msgid "Border Radius"
 msgstr ""
 
@@ -3585,48 +3585,53 @@ msgstr ""
 msgid "Basket"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:90
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:77
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:152
+msgid "Count Color"
+msgstr ""
+
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:113
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:185
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:165
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:188
 msgid "Border Width"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:111
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:134
 msgid "Header Cart Icon"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:127
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:192
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:150
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:215
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:145
 msgid "Style"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:132
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:155
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:173
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:150
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:197
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:220
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:76
 msgid "Outline"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:133
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:156
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:172
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:149
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:198
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:221
 msgid "Fill"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:219
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:261
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:242
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:284
 msgid "Display Cart Totals"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:233
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:277
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:256
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:300
 msgid "Display Cart Title"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:249
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:272
 msgid "EDD Cart"
 msgstr ""
 
@@ -3808,7 +3813,7 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:67
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:225
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:239
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:555
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:565
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:469
 msgid "Disabled"
 msgstr ""
@@ -4034,19 +4039,19 @@ msgid "Course / Lesson"
 msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:148
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:582
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:592
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:79
 msgid "Stick Primary Header"
 msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:161
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:568
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:578
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-sections-configs.php:59
 msgid "Stick Above Header"
 msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:174
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:595
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:605
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-sections-configs.php:71
 msgid "Stick Below Header"
 msgstr ""
@@ -4061,7 +4066,7 @@ msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:224
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:238
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:554
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:564
 msgid "Enabled"
 msgstr ""
 
@@ -4629,7 +4634,7 @@ msgstr ""
 msgid "Site Identity Space"
 msgstr ""
 
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:550
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:560
 #: addons/sticky-header/classes/class-astra-sticky-header-panels-configs.php:41
 msgid "Sticky Header"
 msgstr ""
@@ -5296,38 +5301,38 @@ msgstr ""
 msgid "Configure Menu from Here."
 msgstr ""
 
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:204
-msgid ""
-"Note: For responsive devices, the menu will be replaced with the "
-"WooCommerce \"My Account\" link."
-msgstr ""
-
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:226
-msgid ""
-"Note: For responsive devices, the menu will be replaced with the Link "
-"provided in the Link Tab."
-msgstr ""
-
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:248
-msgid ""
-"Note: For responsive devices, the menu will be replaced with the LifterLMS "
-"\"My Account\" link."
-msgstr ""
-
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:272
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:224
 msgid "Click Action"
 msgstr ""
 
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:305
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:257
 msgid "Lost your password?"
 msgstr ""
 
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:334
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:286
 msgid "Select Icon"
 msgstr ""
 
-#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:376
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:328
 msgid "Select Account"
+msgstr ""
+
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:352
+msgid ""
+"<b>Note:</b> For responsive devices, the menu will be replaced with the "
+"WooCommerce \"My Account\" link."
+msgstr ""
+
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:354
+msgid ""
+"<b>Note:</b> For responsive devices, the menu will be replaced with the "
+"LifterLMS \"My Account\" link."
+msgstr ""
+
+#: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:356
+msgid ""
+"<b>Note:</b> For responsive devices, the menu will be replaced with the "
+"Link provided in the Link Tab."
 msgstr ""
 
 #: classes/builder/type/header/off-canvas/class-astra-addon-offcanvas-configs.php:47

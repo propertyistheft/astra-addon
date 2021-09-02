@@ -608,8 +608,8 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		);
 
 		$css_output .= astra_parse_css( $search_css_output );
-		$css_output .= astra_parse_css( $search_css_output_tablet, '', astra_get_tablet_breakpoint() );
-		$css_output .= astra_parse_css( $search_css_output_mobile, '', astra_get_mobile_breakpoint() );
+		$css_output .= astra_parse_css( $search_css_output_tablet, '', astra_addon_get_tablet_breakpoint() );
+		$css_output .= astra_parse_css( $search_css_output_mobile, '', astra_addon_get_mobile_breakpoint() );
 
 		return $dynamic_css . $css_output;
 	}

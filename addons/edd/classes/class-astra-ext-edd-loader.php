@@ -70,13 +70,14 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 			$defaults['edd-checkout-content-max-width'] = 1200;
 
 			// General.
-			$defaults['edd-header-cart-icon']          = 'default';
-			$defaults['edd-header-cart-icon-style']    = 'none';
-			$defaults['edd-header-cart-icon-color']    = '';
-			$defaults['edd-header-cart-border-width']  = 1;
-			$defaults['edd-header-cart-icon-radius']   = 3;
-			$defaults['edd-header-cart-total-display'] = true;
-			$defaults['edd-header-cart-title-display'] = true;
+			$defaults['edd-header-cart-icon']                = 'default';
+			$defaults['edd-header-cart-icon-style']          = 'none';
+			$defaults['edd-header-cart-icon-color']          = '';
+			$defaults['edd-header-cart-border-width']        = 1;
+			$defaults['edd-header-cart-icon-radius']         = 3;
+			$defaults['edd-header-cart-total-display']       = true;
+			$defaults['edd-header-cart-title-display']       = true;
+			$defaults['edd-header-cart-product-count-color'] = '';
 
 			// General Product Price Typo.
 			$defaults['font-family-product-price'] = 'inherit';

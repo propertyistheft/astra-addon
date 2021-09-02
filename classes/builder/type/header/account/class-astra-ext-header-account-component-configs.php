@@ -195,63 +195,15 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 			),
 
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-create-menu-link-woo-notice]',
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-menu-link-notice]',
 				'type'     => 'control',
 				'control'  => 'ast-description',
 				'section'  => $_section,
 				'priority' => 7,
 				'label'    => '',
-				'help'     => __( 'Note: For responsive devices, the menu will be replaced with the WooCommerce "My Account" link.', 'astra-addon' ),
+				'help'     => $this->get_help_text_notice(),
 				'context'  => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
-						'operator' => '==',
-						'value'    => 'woocommerce',
-					),
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
-						'operator' => '==',
-						'value'    => 'menu',
-					),
-				),
-			),
-
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-create-menu-link-default-notice]',
-				'type'     => 'control',
-				'control'  => 'ast-description',
-				'section'  => $_section,
-				'priority' => 7,
-				'label'    => '',
-				'help'     => __( 'Note: For responsive devices, the menu will be replaced with the Link provided in the Link Tab.', 'astra-addon' ),
-				'context'  => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
-						'operator' => '==',
-						'value'    => 'default',
-					),
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
-						'operator' => '==',
-						'value'    => 'menu',
-					),
-				),
-			),
-
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-create-menu-link-lifterlms-notice]',
-				'type'     => 'control',
-				'control'  => 'ast-description',
-				'section'  => $_section,
-				'priority' => 7,
-				'label'    => '',
-				'help'     => __( 'Note: For responsive devices, the menu will be replaced with the LifterLMS "My Account" link.', 'astra-addon' ),
-				'context'  => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-type]',
-						'operator' => '==',
-						'value'    => 'lifterlms',
-					),
+					astra_addon_builder_helper()->general_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
 						'operator' => '==',
@@ -386,6 +338,25 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 		$configurations = array_merge( $configurations, $_configs );
 
 		return $configurations;
+	}
+
+	/**
+	 * Help notice message to be displayed when the Link type set as Menu.
+	 *
+	 * @since  3.5.9
+	 * @return String HTML Markup for the help notice.
+	 */
+	private function get_help_text_notice() {
+
+		if ( class_exists( 'WooCommerce' ) ) {
+			$notice = __( '<b>Note:</b> For responsive devices, the menu will be replaced with the WooCommerce "My Account" link.', 'astra-addon' );
+		} elseif ( class_exists( 'LifterLMS' ) ) {
+			$notice = __( '<b>Note:</b> For responsive devices, the menu will be replaced with the LifterLMS "My Account" link.', 'astra-addon' );
+		} else {
+			$notice = __( '<b>Note:</b> For responsive devices, the menu will be replaced with the Link provided in the Link Tab.', 'astra-addon' );
+		}
+
+		return $notice;
 	}
 }
 

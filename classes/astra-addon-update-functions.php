@@ -245,17 +245,6 @@ function astra_addon_header_css_optimizations() {
 }
 
 /**
- * Regenerate Astra cache files.
- * Added this function for this version because from theme at same version we migrating old header & footer layout to make it compatible with new Header-Footer Builder.
- *
- * @since 3.0.0
- * @return void
- */
-function astra_addon_clear_assets_cache() {
-	Astra_Minify::refresh_assets();
-}
-
-/**
  * Page Header's color options compatibility with new Header builder layout.
  *
  * @since 3.5.0
@@ -376,4 +365,40 @@ function astra_sticky_header_site_title_tagline_css() {
 		$theme_options['sticky-header-default-site-title-tagline-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
+}
+
+/**
+ * Migrating Builder > Account > resonsive menu color options to single color options.
+ * Because we do not show menu on resonsive devices, whereas we trigger login link on responsive devices instead of showing menu.
+ *
+ * @since 3.5.9
+ *
+ * @return void
+ */
+function astra_addon_remove_responsive_account_menu_colors_support() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	$account_menu_colors = array(
+		'header-account-menu-color',                // Menu color.
+		'header-account-menu-h-color',              // Menu hover color.
+		'header-account-menu-a-color',              // Menu active color.
+		'header-account-menu-bg-obj',               // Menu background color.
+		'header-account-menu-h-bg-color',           // Menu background hover color.
+		'header-account-menu-a-bg-color',           // Menu background active color.
+		'sticky-header-account-menu-color',         // Sticky menu color.
+		'sticky-header-account-menu-h-color',       // Sticky menu hover color.
+		'sticky-header-account-menu-a-color',       // Sticky menu active color.
+		'sticky-header-account-menu-bg-obj',        // Sticky menu background color.
+		'sticky-header-account-menu-h-bg-color',    // Sticky menu background hover color.
+		'sticky-header-account-menu-a-bg-color',    // Sticky menu background active color.
+	);
+
+	foreach ( $account_menu_colors as $color_option ) {
+		if ( ! isset( $theme_options[ $color_option ] ) && isset( $theme_options[ $color_option . '-responsive' ]['desktop'] ) ) {
+			$theme_options[ $color_option ] = $theme_options[ $color_option . '-responsive' ]['desktop'];
+		}
+	}
+
+	update_option( 'astra-settings', $theme_options );
 }

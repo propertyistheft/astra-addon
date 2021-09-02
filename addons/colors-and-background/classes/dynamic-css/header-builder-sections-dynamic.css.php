@@ -342,36 +342,12 @@ function astra_ext_header_builder_sections_colors_dynamic_css( $dynamic_css, $dy
 		$popup_bg_color           = astra_get_option( 'header-account-popup-bg-color' );
 
 		// Menu colors.
-		$menu_resp_color           = astra_get_option( 'header-account-menu-color-responsive' );
-		$menu_resp_bg_color        = astra_get_option( 'header-account-menu-bg-obj-responsive' );
-		$menu_resp_color_hover     = astra_get_option( 'header-account-menu-h-color-responsive' );
-		$menu_resp_bg_color_hover  = astra_get_option( 'header-account-menu-h-bg-color-responsive' );
-		$menu_resp_color_active    = astra_get_option( 'header-account-menu-a-color-responsive' );
-		$menu_resp_bg_color_active = astra_get_option( 'header-account-menu-a-bg-color-responsive' );
-
-		$menu_resp_color_desktop = ( isset( $menu_resp_color['desktop'] ) ) ? $menu_resp_color['desktop'] : '';
-		$menu_resp_color_tablet  = ( isset( $menu_resp_color['tablet'] ) ) ? $menu_resp_color['tablet'] : '';
-		$menu_resp_color_mobile  = ( isset( $menu_resp_color['mobile'] ) ) ? $menu_resp_color['mobile'] : '';
-
-		$menu_resp_bg_color_desktop = ( isset( $menu_resp_bg_color['desktop'] ) ) ? $menu_resp_bg_color['desktop'] : '';
-		$menu_resp_bg_color_tablet  = ( isset( $menu_resp_bg_color['tablet'] ) ) ? $menu_resp_bg_color['tablet'] : '';
-		$menu_resp_bg_color_mobile  = ( isset( $menu_resp_bg_color['mobile'] ) ) ? $menu_resp_bg_color['mobile'] : '';
-
-		$menu_resp_color_hover_desktop = ( isset( $menu_resp_color_hover['desktop'] ) ) ? $menu_resp_color_hover['desktop'] : '';
-		$menu_resp_color_hover_tablet  = ( isset( $menu_resp_color_hover['tablet'] ) ) ? $menu_resp_color_hover['tablet'] : '';
-		$menu_resp_color_hover_mobile  = ( isset( $menu_resp_color_hover['mobile'] ) ) ? $menu_resp_color_hover['mobile'] : '';
-
-		$menu_resp_bg_color_hover_desktop = ( isset( $menu_resp_bg_color_hover['desktop'] ) ) ? $menu_resp_bg_color_hover['desktop'] : '';
-		$menu_resp_bg_color_hover_tablet  = ( isset( $menu_resp_bg_color_hover['tablet'] ) ) ? $menu_resp_bg_color_hover['tablet'] : '';
-		$menu_resp_bg_color_hover_mobile  = ( isset( $menu_resp_bg_color_hover['mobile'] ) ) ? $menu_resp_bg_color_hover['mobile'] : '';
-
-		$menu_resp_color_active_desktop = ( isset( $menu_resp_color_active['desktop'] ) ) ? $menu_resp_color_active['desktop'] : '';
-		$menu_resp_color_active_tablet  = ( isset( $menu_resp_color_active['tablet'] ) ) ? $menu_resp_color_active['tablet'] : '';
-		$menu_resp_color_active_mobile  = ( isset( $menu_resp_color_active['mobile'] ) ) ? $menu_resp_color_active['mobile'] : '';
-
-		$menu_resp_bg_color_active_desktop = ( isset( $menu_resp_bg_color_active['desktop'] ) ) ? $menu_resp_bg_color_active['desktop'] : '';
-		$menu_resp_bg_color_active_tablet  = ( isset( $menu_resp_bg_color_active['tablet'] ) ) ? $menu_resp_bg_color_active['tablet'] : '';
-		$menu_resp_bg_color_active_mobile  = ( isset( $menu_resp_bg_color_active['mobile'] ) ) ? $menu_resp_bg_color_active['mobile'] : '';
+		$menu_color           = astra_get_option( 'header-account-menu-color' );
+		$menu_bg_color        = astra_get_option( 'header-account-menu-bg-obj' );
+		$menu_color_hover     = astra_get_option( 'header-account-menu-h-color' );
+		$menu_bg_color_hover  = astra_get_option( 'header-account-menu-h-bg-color' );
+		$menu_color_active    = astra_get_option( 'header-account-menu-a-color' );
+		$menu_bg_color_active = astra_get_option( 'header-account-menu-a-bg-color' );
 
 		if ( false === Astra_Icons::is_svg_icons() ) {
 			$account__menu_css = array(
@@ -415,72 +391,28 @@ function astra_ext_header_builder_sections_colors_dynamic_css( $dynamic_css, $dy
 			'.ast-header-account-wrap .ast-hb-account-login' => array(
 				'background' => $popup_bg_color,
 			),
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link' => array(
-				'color' => $menu_resp_color_desktop,
+			$selector . ' .ast-account-nav-menu .menu-item .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link' => array(
+				'color' => $menu_color,
 			),
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover,' . $selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item:hover > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover,' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link' => array(
-				'color'      => $menu_resp_color_hover_desktop,
-				'background' => $menu_resp_bg_color_hover_desktop,
+			$selector . ' .ast-account-nav-menu .menu-item:hover > .menu-link, ' . $selector . ' .ast-account-nav-menu .menu-item > .menu-link:hover,' . $selector . ' .ast-account-nav-menu .menu-item.current-menu-item:hover > .menu-link, ' . $selector . ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover,' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item:hover > .menu-link, ' . $adv_selector . ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link' => array(
+				'color'      => $menu_color_hover,
+				'background' => $menu_bg_color_hover,
 			),
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link' => array(
-				'color'      => $menu_resp_color_active_desktop,
-				'background' => $menu_resp_bg_color_active_desktop,
+			$selector . ' .ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link' => array(
+				'color'      => $menu_color_active,
+				'background' => $menu_bg_color_active,
 			),
 
 			$selector . ' .account-main-navigation ul, ' . $selector . ' .account-woo-navigation ul, ' . $adv_selector . ' .account-main-navigation ul, ' . $adv_selector . ' .account-woo-navigation ul' => array(
-				'background' => $menu_resp_bg_color_desktop,
+				'background' => $menu_bg_color,
 			),
 			$selector . ' .menu-item .menu-link' => array(
 				'border-style' => 'none',
 			),
 		);
 
-		$account_css_tablet = array(
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link' => array(
-				'color' => $menu_resp_color_tablet,
-			),
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover'    => array(
-				'color'      => $menu_resp_color_hover_tablet,
-				'background' => $menu_resp_bg_color_hover_tablet,
-			),
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link' => array(
-				'color'      => $menu_resp_color_active_tablet,
-				'background' => $menu_resp_bg_color_active_tablet,
-			),
-
-			$selector . ' .account-main-navigation ul, ' . $selector . ' .account-woo-navigation ul, ' . $adv_selector . ' .account-main-navigation ul, ' . $adv_selector . ' .account-woo-navigation ul' => array(
-				'background' => $menu_resp_bg_color_tablet,
-			),
-			'.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' => array(
-				'border-style' => 'none',
-			),
-		);
-
-		$account_css_mobile = array(
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link' => array(
-				'color' => $menu_resp_color_mobile,
-			),
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover'    => array(
-				'color'      => $menu_resp_color_hover_mobile,
-				'background' => $menu_resp_bg_color_hover_mobile,
-			),
-			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link' => array(
-				'color'      => $menu_resp_color_active_mobile,
-				'background' => $menu_resp_bg_color_active_mobile,
-			),
-
-			$selector . ' .account-main-navigation ul, ' . $selector . ' .account-woo-navigation ul, ' . $adv_selector . ' .account-main-navigation ul, ' . $adv_selector . ' .account-woo-navigation ul' => array(
-				'background' => $menu_resp_bg_color_mobile,
-			),
-			'.ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link, .ast-header-break-point ' . $selector . ' .account-main-navigation .menu-item .menu-link' => array(
-				'border-style' => 'none',
-			),
-		);
-
 		$parse_css .= astra_parse_css( $account__menu_css );
 		$parse_css .= astra_parse_css( $account_css_desktop );
-		$parse_css .= astra_parse_css( $account_css_tablet, '', astra_get_tablet_breakpoint() );
-		$parse_css .= astra_parse_css( $account_css_mobile, '', astra_get_mobile_breakpoint() );
 	}
 
 	/**

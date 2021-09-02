@@ -340,7 +340,7 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra-addon' ) . '</span>
 				<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', 'astra-addon' ) . '" value="' . get_search_query() . '" name="s" />
 			</label>
-			<button type="submit" class="search-submit" value="' . esc_html__( 'Search', 'astra-addon' ) . '"><i class="astra-search-icon"> ' . Astra_Icons::get_icons( 'search' ) . ' </i></button>
+			<button type="submit" class="search-submit" value="' . esc_html__( 'Search', 'astra-addon' ) . '" aria-label= "' . esc_attr__( 'Search', 'astra-addon' ) . '"><i class="astra-search-icon"> ' . Astra_Icons::get_icons( 'search' ) . ' </i></button>
 		</form>';
 
 		/**

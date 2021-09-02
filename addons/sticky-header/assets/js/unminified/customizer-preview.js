@@ -661,51 +661,45 @@
 	);
 
 	// Menu - Normal Color
-	astra_color_responsive_css(
-		'sticky-astra-account-menu-color-preview',
-		'astra-settings[sticky-header-account-menu-color-responsive]',
+	astra_css(
+		'astra-settings[sticky-header-account-menu-color]',
 		'color',
 		account_selector + ' .main-header-menu .menu-item > .menu-link'
 	);
 
 	// Menu - Hover Color
-	astra_color_responsive_css(
-		'sticky-astra-account-menu-h-color-preview',
-		'astra-settings[sticky-header-account-menu-h-color-responsive]',
+	astra_css(
+		'astra-settings[sticky-header-account-menu-h-color]',
 		'color',
 		account_selector + ' .menu-item:hover > .menu-link'
 	);
 
 	// Menu - Active Color
-	astra_color_responsive_css(
-		'sticky-astra-account-menu-active-color-preview',
-		'astra-settings[sticky-header-account-menu-a-color-responsive]',
+	astra_css(
+		'astra-settings[sticky-header-account-menu-a-color]',
 		'color',
 		account_selector + ' .menu-item.current-menu-item > .menu-link'
 	);
 
-	// Menu - Hover Background
-	astra_color_responsive_css(
-		'sticky-astra-account-menu-bg-preview',
-		'astra-settings[sticky-header-account-menu-bg-obj-responsive]',
+	// Menu - Background
+	astra_css(
+		'astra-settings[sticky-header-account-menu-bg-obj]',
 		'background',
-		account_selector + ' .account-main-navigation ul'
+		account_selector + ' .account-main-navigation ul, ' + account_selector + ' .account-woo-navigation ul,' + account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link'
 	);
 
 	// Menu - Hover Background
-	astra_color_responsive_css(
-		'sticky-astra-account-menu-bg-preview',
-		'astra-settings[sticky-header-account-menu-h-bg-color-responsive]',
+	astra_css(
+		'astra-settings[sticky-header-account-menu-h-bg-color]',
 		'background',
-		account_selector + ' .menu-item:hover > .menu-link'
+		account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link'
 	);
 
 	// Menu - Active Background
-	astra_color_responsive_css(
-		'sticky-astra-account-menu',
-		'astra-settings[sticky-header-account-menu-a-bg-color-responsive]',
+	astra_css(
+		'astra-settings[sticky-header-account-menu-a-bg-color]',
 		'background',
-		account_selector + ' .menu-item.current-menu-item > .menu-link'
+		account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link'
 	);
 
 	/**

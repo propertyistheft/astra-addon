@@ -1,3 +1,16 @@
+v3.5.9
+- Improvement: Astra menu settings button made accessible to users with 'edit-theme-options' capability.
+- Improvement: Clear asset cache of theme and addon on every new update of the addon.
+- Improvement: WooCommerce & EDD cart - Introducing Cart product count color option.
+- Fix: Fatal error `Uncaught Error: Call to undefined function astra_get_tablet_breakpoint()` in some cases.
+- Fix: Search - Added Accessibility for Search Box style of Search Button.
+- Fix: EDD - Cart count is overlapping on the submenu section.
+- Fix: Builder - Account Element - Sticky header menu color not working.
+- Fix: Builder - Account Element - Menu Font not working.
+- Fix: Builder - Account Element - Deprecated responsive options for menu colors.
+- Fix: Builder - Account Element - Login menu notice only visible when WooCommerce or Lifter LMS plugin activated.
+- Fix: Sticky Header shrink option not working in new Header/Footer builder.
+
 v3.5.8
 - Fix: Previous & Next arrow icons not appearing for product gallery in Quick View layout.
 - Fix: Compatibility with WPML plugin version 4.5.

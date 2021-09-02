@@ -65,6 +65,29 @@ if ( ! class_exists( 'Astra_Edd_General_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Cart Count color
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[edd-header-cart-product-count-color]',
+					'default'           => astra_get_option( 'edd-header-cart-product-count-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Count Color', 'astra-addon' ),
+					'context'           => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon]',
+							'operator' => '!=',
+							'value'    => 'default',
+						),
+					),
+					'section'           => $_section,
+					'priority'          => 45,
+				),
+
+				/**
 				 * Option: Border Width
 				 */
 				array(

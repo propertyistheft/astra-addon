@@ -149,8 +149,8 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				 * Header - Account
 				 */
 				if ( Astra_Addon_Builder_Helper::is_component_loaded( 'account', 'header' ) ) {
-					$account_font_family = astra_get_option( 'font-family-section-header-account' );
-					$account_font_weight = astra_get_option( 'font-weight-section-header-account' );
+					$account_font_family = astra_get_option( 'section-header-account-menu-font-family' );
+					$account_font_weight = astra_get_option( 'section-header-account-menu-font-weight' );
 					Astra_Fonts::add_font( $account_font_family, $account_font_weight );
 				}
 

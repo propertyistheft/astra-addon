@@ -187,6 +187,16 @@
 	} );
 
 	/**
+	 * Cart Count Color.
+	 */
+	wp.customize( 'astra-settings[woo-header-cart-product-count-color]', function( setting ) {
+		setting.bind( function( color ) {
+			var dynamicStyle = '.ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after { color: ' + color + '; } ';
+			astra_add_dynamic_css( 'woo-header-cart-product-count-color', dynamicStyle );
+		} );
+	} );
+
+	/**
 	 * Cart total display
 	 */
 	wp.customize( 'astra-settings[woo-header-cart-total-display]', function( setting ) {

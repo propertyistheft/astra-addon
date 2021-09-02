@@ -69,10 +69,11 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$checkout_width        = astra_get_option( 'edd-checkout-content-width' );
 	$checkout_custom_width = astra_get_option( 'edd-checkout-content-max-width' );
 
-	$header_cart_icon_style  = astra_get_option( 'edd-header-cart-icon-style' );
-	$header_cart_icon_color  = astra_get_option( 'edd-header-cart-icon-color', $theme_color );
-	$header_cart_icon_radius = astra_get_option( 'edd-header-cart-icon-radius' );
-	$cart_h_color            = astra_get_foreground_color( $header_cart_icon_color );
+	$header_cart_icon_style    = astra_get_option( 'edd-header-cart-icon-style' );
+	$header_cart_icon_color    = astra_get_option( 'edd-header-cart-icon-color', $theme_color );
+	$header_cart_icon_radius   = astra_get_option( 'edd-header-cart-icon-radius' );
+	$cart_h_color              = astra_get_foreground_color( $header_cart_icon_color );
+	$cart_products_count_color = astra_get_option( 'edd-header-cart-product-count-color', astra_get_foreground_color( $theme_color ) );
 
 	// Default headings font family.
 	$headings_font_family = astra_get_option( 'headings-font-family' );
@@ -93,12 +94,12 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			'padding-right'  => astra_get_css_value( $btn_h_padding, 'px' ),
 		),
 
-		'.ast-edd-site-header-cart span.astra-icon:after' => array(
+		'.ast-edd-site-header-cart .ast-addon-cart-wrap span.astra-icon:after' => array(
 			'background' => $header_cart_count_color,
-			'color'      => astra_get_foreground_color( $theme_color ),
+			'color'      => $cart_products_count_color,
 		),
 
-		'.single-download .entry-title'                   => array(
+		'.single-download .entry-title'       => array(
 			'font-size'      => astra_responsive_font( $product_title_font_size, 'desktop' ),
 			'line-height'    => esc_attr( $product_title_line_height ),
 			'font-weight'    => astra_get_css_value( $product_title_font_weight, 'font' ),
@@ -107,7 +108,7 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			'color'          => esc_attr( $product_title_color ),
 		),
 		// Single Product Content.
-		'.single-download .entry-content'                 => array(
+		'.single-download .entry-content'     => array(
 			'font-size'      => astra_responsive_font( $product_content_font_size, 'desktop' ),
 			'line-height'    => esc_attr( $product_content_line_height ),
 			'font-weight'    => astra_get_css_value( $product_content_font_weight, 'font' ),
@@ -133,7 +134,7 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			'color'       => esc_attr( $edd_archive_product_price_color ),
 		),
 
-		'.single-download .post-navigation a'             => array(
+		'.single-download .post-navigation a' => array(
 			'color' => esc_attr( $product_navigation_color ),
 		),
 
@@ -365,4 +366,3 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	return $dynamic_css . $css_output;
 
 }
-

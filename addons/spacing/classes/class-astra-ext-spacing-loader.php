@@ -653,8 +653,8 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 
 			$localize_array = array(
 				'blog_pro_enabled'   => Astra_Ext_Extension::is_active( 'blog-pro' ),
-				'tablet_break_point' => astra_get_tablet_breakpoint(),
-				'mobile_break_point' => astra_get_mobile_breakpoint(),
+				'tablet_break_point' => astra_addon_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_addon_get_mobile_breakpoint(),
 				'component_limit'    => astra_addon_builder_helper()->component_limit,
 				'astra_not_updated'  => version_compare( ASTRA_THEME_VERSION, '3.2.0', '<' ),
 			);

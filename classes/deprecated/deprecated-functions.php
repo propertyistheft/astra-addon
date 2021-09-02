@@ -60,3 +60,17 @@ if ( ! function_exists( 'astra_shop_pagination_infinite' ) ) :
 	}
 
 endif;
+
+if ( ! function_exists( 'astra_addon_clear_assets_cache' ) ) :
+
+	/**
+	 * Deprecating astra_addon_clear_assets_cache function.
+	 *
+	 * @since 3.5.9
+	 * @deprecated 3.5.9
+	 */
+	function astra_addon_clear_assets_cache() {
+		_deprecated_function( __FUNCTION__, '3.5.9' );
+	}
+
+endif;

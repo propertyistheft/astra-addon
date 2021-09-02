@@ -265,51 +265,45 @@
 	var adv_account_selector = '.ast-advanced-headers .ast-header-account-wrap';
 
 	// Menu - Normal Color
-	astra_color_responsive_css(
-		'astra-account-menu-color-preview',
-		'astra-settings[header-account-menu-color-responsive]',
+	astra_css(
+		'astra-settings[header-account-menu-color]',
 		'color',
-		account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link'
+		account_selector + ' .ast-account-nav-menu .menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link'
 	);
 
 	// Menu - Hover Color
-	astra_color_responsive_css(
-		'astra-account-menu-h-color-preview',
-		'astra-settings[header-account-menu-h-color-responsive]',
+	astra_css(
+		'astra-settings[header-account-menu-h-color]',
 		'color',
-		account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link:hover, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link:hover'
+		account_selector + ' .ast-account-nav-menu .menu-item:hover > .menu-link, ' + account_selector + ' .ast-account-nav-menu .menu-item > .menu-link:hover, ' + account_selector + ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' + account_selector + ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link:hover, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link:hover'
 	);
 
 	// Menu - Active Color
-	astra_color_responsive_css(
-		'astra-account-menu-active-color-preview',
-		'astra-settings[header-account-menu-a-color-responsive]',
+	astra_css(
+		'astra-settings[header-account-menu-a-color]',
 		'color',
-		account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link'
+		account_selector + ' .ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + account_selector + ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link'
 	);
 
 	// Menu - Background
-	astra_color_responsive_css(
-		'astra-account-menu-bg-obj-preview',
-		'astra-settings[header-account-menu-bg-obj-responsive]',
+	astra_css(
+		'astra-settings[header-account-menu-bg-obj]',
 		'background',
-		account_selector + ' .account-main-navigation ul, ' + account_selector + ' .account-woo-navigation ul,' + account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link .menu-link, ' + adv_account_selector + ' .account-main-navigation ul, ' + adv_account_selector + ' .account-woo-navigation ul,' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link .menu-link'
+		account_selector + ' .account-main-navigation ul, ' + account_selector + ' .account-woo-navigation ul,' + account_selector + ' .ast-account-nav-menu .menu-item > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link .menu-link, ' + adv_account_selector + ' .account-main-navigation ul, ' + adv_account_selector + ' .account-woo-navigation ul,' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link .menu-link'
 	);
 
 	// Menu - Hover Background
-	astra_color_responsive_css(
-		'astra-account-menu-bg-preview',
-		'astra-settings[header-account-menu-h-bg-color-responsive]',
+	astra_css(
+		'astra-settings[header-account-menu-h-bg-color]',
 		'background',
 		account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link:hover .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link:hover, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link:hover .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active > .menu-link:hover'
 	);
 
 	// Menu - Active Background
-	astra_color_responsive_css(
-		'astra-account-menu',
-		'astra-settings[header-account-menu-a-bg-color-responsive]',
+	astra_css(
+		'astra-settings[header-account-menu-a-bg-color]',
 		'background',
-		account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link'
+		account_selector + ' .ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + account_selector + ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + account_selector + ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link'
 	);
 
 	astra_css(

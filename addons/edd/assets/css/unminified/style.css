@@ -209,7 +209,7 @@
   min-width: 18px;
   border-radius: 99px;
   text-align: center;
-  z-index: 4;
+  z-index: 3;
 }
 
 .ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-addon-cart-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-addon-cart-wrap {

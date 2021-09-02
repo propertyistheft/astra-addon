@@ -111,6 +111,16 @@
 	} );
 
 	/**
+	 * Cart Count Color.
+	 */
+	 wp.customize( 'astra-settings[edd-header-cart-product-count-color]', function( setting ) {
+		setting.bind( function( color ) {
+			var dynamicStyle = '.ast-edd-site-header-cart .ast-addon-cart-wrap span.astra-icon:after { color: ' + color + '; } ';
+			astra_add_dynamic_css( 'edd-header-cart-product-count-color', dynamicStyle );
+		} );
+	} );
+
+	/**
 	 * EDD Cart Button Color
 	 */
 	wp.customize( 'astra-settings[edd-header-cart-icon-color]', function( setting ) {

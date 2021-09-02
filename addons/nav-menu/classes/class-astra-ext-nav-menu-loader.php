@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 */
 		public function admin_scripts() {
 
-			if ( current_user_can( 'switch_themes' ) ) {
+			if ( current_user_can( 'edit_theme_options' ) ) {
 				global $pagenow;
 				$rtl = '';
 				if ( is_rtl() ) {

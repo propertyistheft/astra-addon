@@ -102,10 +102,12 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_width        = astra_get_option( 'checkout-content-width' );
 	$checkout_custom_width = astra_get_option( 'checkout-content-max-width' );
 
-	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
-	$header_cart_icon_color  = astra_get_option( 'header-woo-cart-icon-color', $theme_color );
-	$header_cart_icon_radius = astra_get_option( 'woo-header-cart-icon-radius' );
-	$cart_h_color            = astra_get_foreground_color( $header_cart_icon_color );
+	$header_cart_icon_style    = astra_get_option( 'woo-header-cart-icon-style' );
+	$header_cart_icon_color    = astra_get_option( 'header-woo-cart-icon-color', $theme_color );
+	$header_cart_icon_radius   = astra_get_option( 'woo-header-cart-icon-radius' );
+	$cart_h_color              = astra_get_foreground_color( $header_cart_icon_color );
+	$theme_h_color             = astra_get_foreground_color( $theme_color );
+	$cart_products_count_color = astra_get_option( 'woo-header-cart-product-count-color', $theme_h_color );
 
 	// Default headings font family.
 	$headings_font_family = astra_get_option( 'headings-font-family' );
@@ -171,7 +173,6 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 		'.ast-site-header-cart i.astra-icon:after' => array(
 			'background' => $header_cart_count_color,
-			'color'      => astra_get_foreground_color( $theme_color ),
 		),
 
 		'.single-product div.product .entry-title' => array(
@@ -244,6 +245,13 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'text-transform' => esc_attr( $shop_product_content_text_transform ),
 			'line-height'    => esc_attr( $shop_product_content_line_height ),
 			'color'          => esc_attr( $shop_product_content_color ),
+		),
+
+		'.ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after' => array(
+			'color' => esc_attr( $cart_products_count_color ),
+		),
+		'.ast-theme-transparent-header .ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after' => array(
+			'color' => esc_attr( $cart_products_count_color ),
 		),
 	);
 
