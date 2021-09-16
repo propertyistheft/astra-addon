@@ -522,6 +522,16 @@ function astra_add_addon_specific_stats( $default_stats ) {
 add_filter( 'bsf_core_stats', 'astra_add_addon_specific_stats' );
 
 /**
+ * Check compatibility for content background and typography options.
+ *
+ * @since 3.6.0
+ * @return bool if astra theme version is less than 3.7.0, true else false.
+ */
+function astra_addon_has_gcp_typo_preset_compatibility() {
+	return version_compare( ASTRA_THEME_VERSION, '3.7.0', '<' );
+}
+
+/**
  * Check is WordPress version is greater than or equal to 5.8 version.
  *
  * @since 3.5.5

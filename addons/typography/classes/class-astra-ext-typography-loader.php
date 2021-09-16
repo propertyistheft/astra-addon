@@ -106,29 +106,32 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$font_weight_footer_content = astra_get_option( 'font-weight-footer-content' );
 			Astra_Fonts::add_font( $font_family_footer_content, $font_weight_footer_content );
 
-			$font_family_h1 = astra_get_option( 'font-family-h1' );
-			$font_weight_h1 = astra_get_option( 'font-weight-h1' );
-			Astra_Fonts::add_font( $font_family_h1, $font_weight_h1 );
+			if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
 
-			$font_family_h2 = astra_get_option( 'font-family-h2' );
-			$font_weight_h2 = astra_get_option( 'font-weight-h2' );
-			Astra_Fonts::add_font( $font_family_h2, $font_weight_h2 );
+				$font_family_h1 = astra_get_option( 'font-family-h1' );
+				$font_weight_h1 = astra_get_option( 'font-weight-h1' );
+				Astra_Fonts::add_font( $font_family_h1, $font_weight_h1 );
 
-			$font_family_h3 = astra_get_option( 'font-family-h3' );
-			$font_weight_h3 = astra_get_option( 'font-weight-h3' );
-			Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
+				$font_family_h2 = astra_get_option( 'font-family-h2' );
+				$font_weight_h2 = astra_get_option( 'font-weight-h2' );
+				Astra_Fonts::add_font( $font_family_h2, $font_weight_h2 );
 
-			$font_family_h4 = astra_get_option( 'font-family-h4' );
-			$font_weight_h4 = astra_get_option( 'font-weight-h4' );
-			Astra_Fonts::add_font( $font_family_h4, $font_weight_h4 );
+				$font_family_h3 = astra_get_option( 'font-family-h3' );
+				$font_weight_h3 = astra_get_option( 'font-weight-h3' );
+				Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
 
-			$font_family_h5 = astra_get_option( 'font-family-h5' );
-			$font_weight_h5 = astra_get_option( 'font-weight-h5' );
-			Astra_Fonts::add_font( $font_family_h5, $font_weight_h5 );
+				$font_family_h4 = astra_get_option( 'font-family-h4' );
+				$font_weight_h4 = astra_get_option( 'font-weight-h4' );
+				Astra_Fonts::add_font( $font_family_h4, $font_weight_h4 );
 
-			$font_family_h6 = astra_get_option( 'font-family-h6' );
-			$font_weight_h6 = astra_get_option( 'font-weight-h6' );
-			Astra_Fonts::add_font( $font_family_h6, $font_weight_h6 );
+				$font_family_h5 = astra_get_option( 'font-family-h5' );
+				$font_weight_h5 = astra_get_option( 'font-weight-h5' );
+				Astra_Fonts::add_font( $font_family_h5, $font_weight_h5 );
+
+				$font_family_h6 = astra_get_option( 'font-family-h6' );
+				$font_weight_h6 = astra_get_option( 'font-weight-h6' );
+				Astra_Fonts::add_font( $font_family_h6, $font_weight_h6 );
+			}
 
 			$font_family_button = astra_get_option( 'font-family-button' );
 			$font_weight_button = astra_get_option( 'font-weight-button' );
@@ -519,23 +522,25 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$defaults['text-transform-h3'] = '';
 			$defaults['line-height-h3']    = '';
 
-			// Header <H4>.
-			$defaults['font-family-h4']    = 'inherit';
-			$defaults['font-weight-h4']    = 'inherit';
-			$defaults['text-transform-h4'] = '';
-			$defaults['line-height-h4']    = '';
+			if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
+				// Header <H4>.
+				$defaults['font-family-h4']    = 'inherit';
+				$defaults['font-weight-h4']    = 'inherit';
+				$defaults['text-transform-h4'] = '';
+				$defaults['line-height-h4']    = '';
 
-			// Header <H5>.
-			$defaults['font-family-h5']    = 'inherit';
-			$defaults['font-weight-h5']    = 'inherit';
-			$defaults['text-transform-h5'] = '';
-			$defaults['line-height-h5']    = '';
+				// Header <H5>.
+				$defaults['font-family-h5']    = 'inherit';
+				$defaults['font-weight-h5']    = 'inherit';
+				$defaults['text-transform-h5'] = '';
+				$defaults['line-height-h5']    = '';
 
-			// Header <H6>.
-			$defaults['font-family-h6']    = 'inherit';
-			$defaults['font-weight-h6']    = 'inherit';
-			$defaults['text-transform-h6'] = '';
-			$defaults['line-height-h6']    = '';
+				// Header <H6>.
+				$defaults['font-family-h6']    = 'inherit';
+				$defaults['font-weight-h6']    = 'inherit';
+				$defaults['text-transform-h6'] = '';
+				$defaults['line-height-h6']    = '';
+			}
 
 			// Outside Menu Item.
 			$defaults['outside-menu-font-size']   = array(

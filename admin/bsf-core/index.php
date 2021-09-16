@@ -54,10 +54,12 @@ require_once 'includes/system-info.php';
 require_once 'auto-update/admin-functions.php';
 require_once 'auto-update/updater.php';
 require_once 'class-bsf-update-manager.php';
+require_once 'class-bsf-rollback-version-manager.php';
 require_once 'class-bsf-license-manager.php';
 require_once 'classes/class-bsf-extension-installer.php';
 
 require_once 'classes/class-bsf-core-update.php';
+require_once 'classes/class-bsf-rollback-version.php';
 
 if ( defined( 'WP_CLI' ) ) {
 	require 'class-bsf-wp-cli-command.php';

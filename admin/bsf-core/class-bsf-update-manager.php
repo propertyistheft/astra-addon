@@ -232,7 +232,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 					}
 
 					$product_name   = isset( $product['name'] ) ? $product['name'] : '';
-					$info->name     = apply_filters( "bsf_product_name_{$id}", $product_name );
+					$info->name     = bsf_get_white_lable_product_name( $id, $product_name );
 					$info->slug     = $product_slug;
 					$info->version  = isset( $product['remote'] ) ? $product['remote'] : '';
 					$info->author   = apply_filters( "bsf_product_author_{$id}", 'Brainstorm Force' );
@@ -307,25 +307,30 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 			$product       = get_brainstorm_product( $product_id );
 			$status        = BSF_License_Manager::bsf_is_active_license( $product_id );
 			$download_path = '';
+			$parent_product = isset( $product['parent'] ) ? $product['parent'] : '';
 
 			if ( $this->use_beta_version( $product_id ) ) {
-				$download_file = isset( $product['download_url_beta'] ) ? $product['download_url_beta'] : '';
+				$version = isset( $product['version_beta'] ) ? $product['version_beta'] : '';
 			} else {
-				$download_file = isset( $product['download_url'] ) ? $product['download_url'] : '';
+				$version = isset( $product['remote'] ) ? $product['remote'] : '';
 			}
 
-			if ( '' !== $download_file ) {
+			if ( '' !== $version && false !== $status ) {
+				$bundled_product = self::bsf_is_product_bundled( $product_id );
+				$purchase_key    = $this->get_purchse_key( $product_id );
+				$is_bundled      = ( ! empty( $bundled_product ) ) ? '1' : '0';
 
-				if ( false === $status ) {
-					return '';
-				}
+				$download_params = array(
+					'version_no'   => $version,
+					'purchase_key' => $purchase_key,
+					'site_url'     => get_site_url(),
+					'is_bundled'   => $is_bundled,
+					'parent_product' => $parent_product,
+				);
 
-				$timezone      = date_default_timezone_get();
-				$hashtime_date = new DateTime( 'now', new DateTimeZone( $timezone ) );
-				$hash          = 'file=' . $download_file . '&hashtime=' . strtotime( $hashtime_date->format( 'd-m-Y h:i:s a' ) ) . '&timezone=' . $timezone;
-
-				$get_path      = 'https://downloads.brainstormforce.com/';
-				$download_path = rtrim( $get_path, '/' ) . '/download.php?' . $hash . '&base=ignore';
+				$download_path = bsf_get_api_site( false, true ) . 'download/' . $product_id . '?' . http_build_query( $download_params );
+				// Clear Product versions from transient after update.
+				bsf_clear_versions_cache( $product_id );
 
 				return $download_path;
 			}
@@ -568,7 +573,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 			if ( ! empty( $bundled ) ) {
 				$parent_id         = $bundled[0];
 				$registration_page = bsf_registration_page_url( '', $parent_id );
-				$parent_name       = apply_filters( "bsf_product_name_{$parent_id}", brainstrom_product_name( $parent_id ) );
+				$parent_name       = bsf_get_white_lable_product_name( $parent_id, brainstrom_product_name( $parent_id ) );
 				/* translators: %1$s: $parent_name %2%s: $registration_page */
 				$message = sprintf( __( ' <br>This plugin is came bundled with the <i>%1$s</i>. For receiving updates, you need to register license of <i>%2$s</i> <a href="%3$s">here</a>.', 'bsf' ), $parent_name, $parent_name, $registration_page );
 			} else {
@@ -630,7 +635,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 				$plugin_info = $current->skin->plugin_info;
 
 				if ( ( isset( $plugin_info['author'] ) && 'Brainstorm Force' === $plugin_info['author'] ) || ( isset( $plugin_info['AuthorName'] ) && 'Brainstorm Force' === $plugin_info['AuthorName'] ) ) {
-					$strings['downloading_package'] = __( 'Downloading the update...' );
+					$strings['downloading_package'] = __( 'Downloading the update...', 'bsf-core' );
 				}
 			} elseif ( isset( $current->skin->theme_info ) ) {
 
@@ -638,8 +643,11 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 				$theme_author = $theme_info->get( 'Author' );
 
 				if ( 'Brainstorm Force' === $theme_author ) {
-					$strings['downloading_package'] = __( 'Downloading the update...' );
+					$strings['downloading_package'] = __( 'Downloading the update...', 'bsf-core' );
 				}
+			} elseif ( isset( $_GET['action'] ) && 'bsf_rollback' === $_GET['action'] && check_admin_referer( 'bsf_rollback' ) ) {
+				// In case of rollback version.
+				$strings['downloading_package'] = __( 'Downloading the update...', 'bsf-core' );
 			}
 
 			// restore the strings back to WP_Upgrader.
@@ -682,6 +690,25 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 			}
 
 			return $brainstrom_products;
+		}
+
+		/**
+		 * Get the prurchase key for product download API.
+		 * If the product is bundeled then return it's parent product purchase key.
+		 *
+		 * @param string $product_id Product ID.
+		 * @return string Purchase Key.
+		 */
+		public function get_purchse_key( $product_id ) {
+			$all_products = brainstorm_get_all_products();
+			$is_bundled   = self::bsf_is_product_bundled( $product_id );
+			$product      = isset( $all_products[ $product_id ] ) ? $all_products[ $product_id ] : array();
+
+			if ( ! empty( $is_bundled ) ) {
+				$product = isset( $all_products[ $product['parent'] ] ) ? $all_products[ $product['parent'] ] : array();
+			}
+
+			return isset( $product['purchase_key'] ) ? $product['purchase_key'] : '';
 		}
 
 	} // class BSF_Update_Manager

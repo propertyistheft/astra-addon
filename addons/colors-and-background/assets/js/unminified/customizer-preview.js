@@ -99,42 +99,46 @@
 
 	astra_color_responsive_css( 'colors-background', 'astra-settings[primary-submenu-a-bg-color-responsive]', 'background-color', 	'.main-header-menu .sub-menu .menu-item.current-menu-item > .menu-link, .main-header-menu .sub-menu .menu-item.current-menu-ancestor > .menu-link, .ast-header-sections-navigation .sub-menu .menu-item.current-menu-item > .menu-link, .ast-header-break-point .main-header-menu .sub-menu .menu-item.current-menu-item > .menu-link' );
 
-	/**
-	 * Content background color
-	 */
-	if( jQuery( 'body' ).hasClass( 'ast-separate-container' ) && jQuery( 'body' ).hasClass( 'ast-two-container' )){
-		var dynamicSelector   = '.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comment-respond,.ast-separate-container .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts, .ast-separate-container .comments-area, .ast-separate-container .comments-count-wrapper, .ast-separate-container.ast-two-container #secondary .widget';
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
-	}
-	else if ( jQuery( 'body' ).hasClass( 'ast-separate-container' ) ) {
-		var dynamicSelector   = '.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comment-respond,.ast-separate-container .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts, .ast-separate-container .comments-area, .ast-separate-container .comments-count-wrapper';
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
-	}
-	else if ( jQuery( 'body' ).hasClass( 'ast-plain-container' ) && ( jQuery( 'body' ).hasClass( 'ast-box-layout' ) || jQuery( 'body' ).hasClass( 'ast-padded-layout' ) ) ) {
-		var dynamicSelector   = '.ast-box-layout.ast-plain-container .site-content, .ast-padded-layout.ast-plain-container .site-content';
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+	if( astColors.is_content_bg_option_to_load ) {
+
+		/**
+		 * Content background color
+		 */
+		if( jQuery( 'body' ).hasClass( 'ast-separate-container' ) && jQuery( 'body' ).hasClass( 'ast-two-container' )){
+			var dynamicSelector   = '.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comment-respond,.ast-separate-container .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts, .ast-separate-container .comments-area, .ast-separate-container .comments-count-wrapper, .ast-separate-container.ast-two-container #secondary .widget';
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+		}
+		else if ( jQuery( 'body' ).hasClass( 'ast-separate-container' ) ) {
+			var dynamicSelector   = '.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comment-respond,.ast-separate-container .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts, .ast-separate-container .comments-area, .ast-separate-container .comments-count-wrapper';
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+		}
+		else if ( jQuery( 'body' ).hasClass( 'ast-plain-container' ) && ( jQuery( 'body' ).hasClass( 'ast-box-layout' ) || jQuery( 'body' ).hasClass( 'ast-padded-layout' ) ) ) {
+			var dynamicSelector   = '.ast-box-layout.ast-plain-container .site-content, .ast-padded-layout.ast-plain-container .site-content';
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+		}
+
+		var blog_grid = (typeof ( wp.customize._value['astra-settings[blog-grid]'] ) != 'undefined') ? wp.customize._value['astra-settings[blog-grid]']._value : 1;
+		var blog_layout = (typeof ( wp.customize._value['astra-settings[blog-layout]'] ) != 'undefined') ? wp.customize._value['astra-settings[blog-layout]']._value : 'blog-layout-1';
+
+		if( 'blog-layout-1' == blog_layout && 1 != blog_grid ) {
+			var dynamicSelector   = '.ast-separate-container .blog-layout-1, .ast-separate-container .blog-layout-2, .ast-separate-container .blog-layout-3';
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+		} else {
+			var dynamicSelector   = '.ast-separate-container .ast-article-post';
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+		}
 	}
 
-	var blog_grid = (typeof ( wp.customize._value['astra-settings[blog-grid]'] ) != 'undefined') ? wp.customize._value['astra-settings[blog-grid]']._value : 1;
-	var blog_layout = (typeof ( wp.customize._value['astra-settings[blog-layout]'] ) != 'undefined') ? wp.customize._value['astra-settings[blog-layout]']._value : 'blog-layout-1';
-
-	if( 'blog-layout-1' == blog_layout && 1 != blog_grid ) {
-		var dynamicSelector   = '.ast-separate-container .blog-layout-1, .ast-separate-container .blog-layout-2, .ast-separate-container .blog-layout-3';
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
-	} else {
-		var dynamicSelector   = '.ast-separate-container .ast-article-post';
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
-	}
 	/**
 	 * Content background color
 	 */

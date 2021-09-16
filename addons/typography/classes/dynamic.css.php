@@ -332,83 +332,6 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 
 		/**
-		 * Heading - <h1>
-		 */
-		astra_addon_typography_conditional_headings_css_selectors(
-			'h1, .entry-content h1, .entry-content h1 a',
-			'h1, .entry-content h1'
-		)                                             => array(
-			'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
-			'line-height'    => esc_attr( $h1_line_height ),
-			'text-transform' => esc_attr( $h1_text_transform ),
-		),
-
-		/**
-		 * Heading - <h2>
-		 */
-		astra_addon_typography_conditional_headings_css_selectors(
-			'h2, .entry-content h2, .entry-content h2 a',
-			'h2, .entry-content h2'
-		)                                             => array(
-			'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
-			'line-height'    => esc_attr( $h2_line_height ),
-			'text-transform' => esc_attr( $h2_text_transform ),
-		),
-
-		/**
-		 * Heading - <h3>
-		 */
-		astra_addon_typography_conditional_headings_css_selectors(
-			'h3, .entry-content h3, .entry-content h3 a',
-			'h3, .entry-content h3'
-		)                                             => array(
-			'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
-			'line-height'    => esc_attr( $h3_line_height ),
-			'text-transform' => esc_attr( $h3_text_transform ),
-		),
-
-		/**
-		 * Heading - <h4>
-		 */
-		astra_addon_typography_conditional_headings_css_selectors(
-			'h4, .entry-content h4, .entry-content h4 a',
-			'h4, .entry-content h4'
-		)                                             => array(
-			'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
-			'line-height'    => esc_attr( $h4_line_height ),
-			'text-transform' => esc_attr( $h4_text_transform ),
-		),
-
-		/**
-		 * Heading - <h5>
-		 */
-		astra_addon_typography_conditional_headings_css_selectors(
-			'h5, .entry-content h5, .entry-content h5 a',
-			'h5, .entry-content h5'
-		)                                             => array(
-			'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
-			'line-height'    => esc_attr( $h5_line_height ),
-			'text-transform' => esc_attr( $h5_text_transform ),
-		),
-
-		/**
-		 * Heading - <h6>
-		 */
-		astra_addon_typography_conditional_headings_css_selectors(
-			'h6, .entry-content h6, .entry-content h6 a',
-			'h6, .entry-content h6'
-		)                                             => array(
-			'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
-			'line-height'    => esc_attr( $h6_line_height ),
-			'text-transform' => esc_attr( $h6_text_transform ),
-		),
-		/**
 		 * Button
 		 */
 		'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
@@ -423,6 +346,92 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'line-height' => esc_attr( $outside_menu_line_height ),
 		),
 	);
+
+	if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
+
+		$typography_css = array(
+
+			/**
+			 * Heading - <h1>
+			 */
+			astra_addon_typography_conditional_headings_css_selectors(
+				'h1, .entry-content h1, .entry-content h1 a',
+				'h1, .entry-content h1'
+			) => array(
+				'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
+				'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
+				'line-height'    => esc_attr( $h1_line_height ),
+				'text-transform' => esc_attr( $h1_text_transform ),
+			),
+
+			/**
+			 * Heading - <h2>
+			 */
+			astra_addon_typography_conditional_headings_css_selectors(
+				'h2, .entry-content h2, .entry-content h2 a',
+				'h2, .entry-content h2'
+			) => array(
+				'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
+				'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
+				'line-height'    => esc_attr( $h2_line_height ),
+				'text-transform' => esc_attr( $h2_text_transform ),
+			),
+
+			/**
+			 * Heading - <h3>
+			 */
+			astra_addon_typography_conditional_headings_css_selectors(
+				'h3, .entry-content h3, .entry-content h3 a',
+				'h3, .entry-content h3'
+			) => array(
+				'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
+				'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
+				'line-height'    => esc_attr( $h3_line_height ),
+				'text-transform' => esc_attr( $h3_text_transform ),
+			),
+
+			/**
+			 * Heading - <h4>
+			 */
+			astra_addon_typography_conditional_headings_css_selectors(
+				'h4, .entry-content h4, .entry-content h4 a',
+				'h4, .entry-content h4'
+			) => array(
+				'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
+				'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
+				'line-height'    => esc_attr( $h4_line_height ),
+				'text-transform' => esc_attr( $h4_text_transform ),
+			),
+
+			/**
+			 * Heading - <h5>
+			 */
+			astra_addon_typography_conditional_headings_css_selectors(
+				'h5, .entry-content h5, .entry-content h5 a',
+				'h5, .entry-content h5'
+			) => array(
+				'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
+				'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
+				'line-height'    => esc_attr( $h5_line_height ),
+				'text-transform' => esc_attr( $h5_text_transform ),
+			),
+
+			/**
+			 * Heading - <h6>
+			 */
+			astra_addon_typography_conditional_headings_css_selectors(
+				'h6, .entry-content h6, .entry-content h6 a',
+				'h6, .entry-content h6'
+			) => array(
+				'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
+				'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
+				'line-height'    => esc_attr( $h6_line_height ),
+				'text-transform' => esc_attr( $h6_text_transform ),
+			),
+		);
+
+		$css_output = array_merge( $css_output, $typography_css );
+	}
 
 	/* Parse CSS from array() */
 	$css_output = astra_parse_css( $css_output );

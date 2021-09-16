@@ -156,7 +156,7 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			var bg_color	= bg_obj[device]['background-color'];
 			var tablet_css  = ( bg_obj['tablet']['background-image'] ) ? true : false;
 			var desktop_css = ( bg_obj['desktop']['background-image'] ) ? true : false;
-			
+
 			if( undefined !== bg_obj[device]['background-type'] && '' !== bg_obj[device]['background-type'] ) {
 
 				if ( ( 'color' === bg_obj[device]['background-type'] ) ) {
@@ -191,8 +191,8 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 
 						gen_bg_css = 'background-color: ' + bg_color + ';';
 						gen_bg_css += 'background-image: none;';
-						
-					} 
+
+					}
 				} else if ( 'image' === bg_obj[device]['background-type'] ) {
 
 					if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color && ! bg_color.includes("linear-gradient") && ! bg_color.includes("radial-gradient") ) {

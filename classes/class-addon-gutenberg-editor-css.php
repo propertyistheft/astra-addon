@@ -230,24 +230,31 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 
 				// Setting up "Full-Width / Stretched" layout transparent but not for "Full-Width / Contained" in case of Max-Width site layout.
 				// Because we showcase container with "Full-Width / Contained" layout, so it should be visible as it looks on frontend with their content background styles.
-				$boxed_container        = array(
-					'.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+				$boxed_container = array(
 					'.ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow' => array(
 						'padding' => '20px',
 					),
 				);
+
 				$boxed_container_tablet = array(
-					'.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
 					'.ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow' => array(
 						'padding' => '20px',
 					),
 				);
 				$boxed_container_mobile = array(
-					'.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
 					'.ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow' => array(
 						'padding' => '20px',
 					),
 				);
+
+				if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
+
+					$boxed_container['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'desktop' );
+
+					$boxed_container_tablet['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'tablet' );
+
+					$boxed_container_mobile['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
+				}
 			}
 
 			$parse_css .= astra_parse_css( $boxed_container );

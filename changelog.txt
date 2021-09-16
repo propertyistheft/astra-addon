@@ -1,3 +1,11 @@
+v3.6.0 
+- Improvement: Moved heading color options to Global Colors section. 
+- Fix: Backward compatibility for Content Background option with the theme. 
+
+v3.6.0-beta.1
+- Improvement: Content background option is removed and will be available with the free Astra Theme.
+- Improvement: Typography options for Heading H4 to H6 are now moved to the free Astra Theme.
+
 v3.5.9
 - Improvement: Astra menu settings button made accessible to users with 'edit-theme-options' capability.
 - Improvement: Clear asset cache of theme and addon on every new update of the addon.

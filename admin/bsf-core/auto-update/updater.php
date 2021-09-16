@@ -10,18 +10,30 @@ if ( ! function_exists( 'bsf_get_remote_version' ) ) {
 	/**
 	 * Get remote version for product
 	 *
-	 * @param array $products products data.
+	 * @param array $product_list products data.
+	 * @param array $products products data (deprecated).
 	 * @return array
 	 */
-	function bsf_get_remote_version( $products ) {
+	function bsf_get_remote_version( $product_list, $products ) {
 		global $ultimate_referer;
 
 		$path = bsf_get_api_url() . '?referer=' . $ultimate_referer;
 
 		$data = array(
-			'action'   => 'bsf_get_product_versions',
-			'ids'      => $products,
+			'action' => 'bsf_get_product_versions',
+			'ids' => $products,
+			'products' => $product_list,
 			'site_url' => get_site_url(),
+			'php_version' => bsf_get_php_version(),
+			'wp_version' => get_bloginfo( 'version' ),
+			'locale' => get_locale(),
+			'bsf_core_version' => BSF_UPDATER_VERSION,
+			'active_theme' => get_template(),
+			'active_stylesheet' => get_stylesheet(),
+			'php_max_input_vars' => ini_get( 'max_input_vars' ), // phpcs:ignore:PHPCompatibility.IniDirectives.NewIniDirectives.max_input_varsFound
+			'php_post_max_size' => ini_get( 'post_max_size' ),
+			'php_max_execution_time' => ini_get( 'max_execution_time' ),
+			'php_memory_limit' => ini_get( 'memory_limit' ),
 		);
 
 		$request = wp_remote_post(
@@ -65,8 +77,11 @@ if ( ! function_exists( 'bsf_check_product_update' ) ) {
 	 */
 	function bsf_check_product_update() {
 		$is_update    = true;
-		$registered   = array();
+		$registered   = array(); // This list will be deprecated in favor of $product_list.
+		$product_list = array();
 		$all_products = brainstorm_get_all_products( false, false, true );
+		$brainstrom_products         = get_option( 'brainstrom_products', array() );
+		$brainstrom_bundled_products = get_option( 'brainstrom_bundled_products', array() );
 
 		foreach ( $all_products as $key => $product ) {
 			if ( ! isset( $product['id'] ) ) {
@@ -78,12 +93,13 @@ if ( ! function_exists( 'bsf_check_product_update' ) ) {
 				continue;
 			}
 			$registered[] = $product['id'];
+			$product_list[ $product['id'] ] = array(
+				'id' => $product['id'],
+				'installed_version' => $product['version'],
+			);
 		}
 
-		$remote_versions = bsf_get_remote_version( $registered );
-
-		$brainstrom_products         = get_option( 'brainstrom_products', array() );
-		$brainstrom_bundled_products = get_option( 'brainstrom_bundled_products', array() );
+		$remote_versions = bsf_get_remote_version( $product_list, $registered );
 
 		$bsf_product_plugins = isset( $brainstrom_products['plugins'] ) ? $brainstrom_products['plugins'] : array();
 		$bsf_product_themes  = isset( $brainstrom_products['themes'] ) ? $brainstrom_products['themes'] : array();
