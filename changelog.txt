@@ -1,4 +1,7 @@
-v3.6.0 
+v3.6.1
+- New: Rollback to previous versions feature for the theme and addon.
+ 
+v3.6.0
 - Improvement: Moved heading color options to Global Colors section. 
 - Fix: Backward compatibility for Content Background option with the theme. 
 

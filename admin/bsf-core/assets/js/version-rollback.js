@@ -38,11 +38,11 @@
 			rollbackConfirmdata = rollbackConfirmdata.replace( '#VERSION#', versionNumber )
 			rollbackConfirmText.html( rollbackConfirmdata );
 
-			$( '.bsf-confirm-rollback-popup' ).removeClass('hidden');
+			document.querySelector('.bsf-confirm-rollback-popup').style.display = 'block';
 		},
 
 		closeRollbackPopup: function ( e ) {
-			$( '.bsf-confirm-rollback-popup' ).addClass('hidden');
+			document.querySelector('.bsf-confirm-rollback-popup').style.display = 'none';
 		},
 
 		onRollbackOk:function ( e ) {

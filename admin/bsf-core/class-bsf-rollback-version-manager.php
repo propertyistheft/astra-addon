@@ -26,7 +26,6 @@ class BSF_Rollback_Version_Manager {
 	public function __construct() {
 		add_action( 'admin_notices', array( $this, 'bsf_download_rollback_version' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_scripts' ) );
-		add_action( 'admin_footer', array( $this, 'rollback_version_popup' ) );
 	}
 
 	/**
@@ -36,6 +35,7 @@ class BSF_Rollback_Version_Manager {
 	 * @since 1.0.0
 	 */
 	public function render_rollback_version_form( $product_id ) {
+		add_action( 'admin_footer', array( $this, 'rollback_version_popup' ) );
 
 		// Enqueue scripts only when this function is called.
 		wp_enqueue_script( 'bsf-core-version-rollback' );
@@ -148,7 +148,7 @@ class BSF_Rollback_Version_Manager {
 
 		self::$reload_page_cache = 0;
 		?>
-		<div class="bsf-confirm-rollback-popup hidden">
+		<div class="bsf-confirm-rollback-popup" style="display:none;">
 			<div class="bsf-core-rollback-overlay"></div>
 			<div class="bsf-confirm-rollback-popup-content">
 				<h3 class="bsf-rollback-heading bsf-confirm-heading" data-text="<?php esc_html_e( 'Rollback #PRODUCT_NAME# Version', 'bsf-core' ); ?>"></h3>

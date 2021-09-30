@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 3.6.0\n"
+"Project-Id-Version: Astra Pro 3.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2021-09-14 05:47:41+00:00\n"
+"POT-Creation-Date: 2021-09-24 06:10:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -949,19 +949,19 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:214
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:215
-#: classes/class-astra-theme-extension.php:536
+#: classes/class-astra-theme-extension.php:542
 msgid "Page Headers"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:262
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:174
-#: classes/class-astra-theme-extension.php:1254
+#: classes/class-astra-theme-extension.php:1296
 msgid "Clear"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:263
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:175
-#: classes/class-astra-theme-extension.php:1255
+#: classes/class-astra-theme-extension.php:1297
 msgid "Clear color"
 msgstr ""
 
@@ -981,25 +981,25 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:266
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:41
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:123
-#: classes/class-astra-theme-extension.php:1256
+#: classes/class-astra-theme-extension.php:1298
 msgid "Default"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:265
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:177
-#: classes/class-astra-theme-extension.php:1257
+#: classes/class-astra-theme-extension.php:1299
 msgid "Select default color"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:266
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:178
-#: classes/class-astra-theme-extension.php:1258
+#: classes/class-astra-theme-extension.php:1300
 msgid "Select Color"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:267
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:179
-#: classes/class-astra-theme-extension.php:1259
+#: classes/class-astra-theme-extension.php:1301
 msgid "Color value"
 msgstr ""
 
@@ -1566,7 +1566,7 @@ msgid "Display Below Header"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1691
-#: classes/class-astra-theme-extension.php:688
+#: classes/class-astra-theme-extension.php:694
 msgid "Primary Header"
 msgstr ""
 
@@ -1711,7 +1711,7 @@ msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:298
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:299
-#: classes/class-astra-theme-extension.php:535
+#: classes/class-astra-theme-extension.php:541
 msgid "Custom Layouts"
 msgstr ""
 
@@ -1719,7 +1719,7 @@ msgstr ""
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:106
 #: addons/colors-and-background/classes/class-astra-ext-colors-panels-and-sections.php:61
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:42
-#: classes/class-astra-theme-extension.php:704
+#: classes/class-astra-theme-extension.php:710
 msgid "Header"
 msgstr ""
 
@@ -4438,6 +4438,7 @@ msgid "Save"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:938
+#: admin/astra-rollback/class-astra-rollback-version-manager.php:124
 msgid "Cancel"
 msgstr ""
 
@@ -5052,6 +5053,39 @@ msgstr ""
 msgid "Placeholder"
 msgstr ""
 
+#: admin/astra-rollback/class-astra-rollback-version-manager.php:55
+msgid "No Versions Found! "
+msgstr ""
+
+#: admin/astra-rollback/class-astra-rollback-version-manager.php:69
+#: admin/astra-rollback/class-astra-rollback-version-manager.php:70
+msgid "Rollback"
+msgstr ""
+
+#: admin/astra-rollback/class-astra-rollback-version-manager.php:121
+#. translators: %s: whitelable name
+msgid "Rollback %s Version"
+msgstr ""
+
+#: admin/astra-rollback/class-astra-rollback-version-manager.php:122
+#. translators: %s: whitelable name
+msgid "Are you sure you want to rollback %s to version #VERSION#?"
+msgstr ""
+
+#: admin/astra-rollback/class-astra-rollback-version-manager.php:125
+msgid "Continue"
+msgstr ""
+
+#: admin/astra-rollback/class-astra-rollback-version.php:114
+#. translators: %s: whitelable name and version
+msgid "Rollback %1$s to version %2$s"
+msgstr ""
+
+#: admin/astra-rollback/class-astra-rollback-version.php:196
+#: classes/astra-theme-compatibility-functions.php:17
+msgid "Astra"
+msgstr ""
+
 #: admin/bsf-analytics/class-bsf-analytics.php:216
 #. translators: %s product name
 msgid ""
@@ -5095,10 +5129,6 @@ msgstr ""
 
 #: class-brainstorm-update-astra-addon.php:183
 msgid "Get the license >>"
-msgstr ""
-
-#: classes/astra-theme-compatibility-functions.php:17
-msgid "Astra"
 msgstr ""
 
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:56
@@ -5334,72 +5364,72 @@ msgstr ""
 msgid "%s does not exist."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:412
+#: classes/class-astra-theme-extension.php:416
 msgid "View Astra Pro settings"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:412
-#: classes/class-astra-theme-extension.php:887
-#: classes/class-astra-theme-extension.php:894
-#: classes/class-astra-theme-extension.php:904
+#: classes/class-astra-theme-extension.php:416
+#: classes/class-astra-theme-extension.php:893
+#: classes/class-astra-theme-extension.php:900
+#: classes/class-astra-theme-extension.php:910
 msgid "Settings"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:500
+#: classes/class-astra-theme-extension.php:506
 msgid "Addons"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:526
-#: classes/class-astra-theme-extension.php:867
+#: classes/class-astra-theme-extension.php:532
+#: classes/class-astra-theme-extension.php:873
 msgid "Activate"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:527
-#: classes/class-astra-theme-extension.php:877
+#: classes/class-astra-theme-extension.php:533
+#: classes/class-astra-theme-extension.php:883
 msgid "Deactivate"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:528
-#: classes/class-astra-theme-extension.php:1128
+#: classes/class-astra-theme-extension.php:534
+#: classes/class-astra-theme-extension.php:1170
 msgid "Enable Beta Updates"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:529
-#: classes/class-astra-theme-extension.php:1130
+#: classes/class-astra-theme-extension.php:535
+#: classes/class-astra-theme-extension.php:1172
 msgid "Disable Beta Updates"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:530
-#: classes/class-astra-theme-extension.php:1200
+#: classes/class-astra-theme-extension.php:536
+#: classes/class-astra-theme-extension.php:1242
 msgid "Enable File Generation"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:531
-#: classes/class-astra-theme-extension.php:1202
+#: classes/class-astra-theme-extension.php:537
+#: classes/class-astra-theme-extension.php:1244
 msgid "Disable File Generation"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:532
+#: classes/class-astra-theme-extension.php:538
 msgid "Refreshing"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:533
+#: classes/class-astra-theme-extension.php:539
 msgid "Refreshed"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:741
+#: classes/class-astra-theme-extension.php:747
 msgid ""
 "Looking for a theme? You can search or browse the WordPress.org theme "
 "directory, install and preview themes, then activate them right here."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:742
+#: classes/class-astra-theme-extension.php:748
 msgid ""
 "While previewing a new theme, you can continue to tailor things like "
 "widgets and menus, and explore theme-specific options."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:793
+#: classes/class-astra-theme-extension.php:799
 #. translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the Astra
 #. Theme
 msgid ""
@@ -5407,94 +5437,98 @@ msgid ""
 "updated."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:857
+#: classes/class-astra-theme-extension.php:863
 msgid "This plugin needs to be installed/activated"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:988
+#: classes/class-astra-theme-extension.php:994
 msgid "Activate All"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:989
+#: classes/class-astra-theme-extension.php:995
 msgid "Deactivate All"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1004
+#: classes/class-astra-theme-extension.php:1010
 msgid "Stylish, Lightning Fast & Easily Customizable!"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1042
+#: classes/class-astra-theme-extension.php:1048
 msgid "Astra Pro License"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1046
-#: classes/class-astra-theme-extension.php:1053
+#: classes/class-astra-theme-extension.php:1052
+#: classes/class-astra-theme-extension.php:1059
 #. translators: %s: Astra Pro name
 msgid "%s License"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1057
+#: classes/class-astra-theme-extension.php:1063
 #. translators: %s: Astra Pro name
 msgid "Please enter your valid %s license key to receive updates and support."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1067
+#: classes/class-astra-theme-extension.php:1073
 msgid "Activate License"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1068
+#: classes/class-astra-theme-extension.php:1074
 msgid "Deactivate License"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1070
+#: classes/class-astra-theme-extension.php:1076
 msgid "Your license is not active!"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1071
+#: classes/class-astra-theme-extension.php:1077
 msgid "Your license is activated!"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1079
+#: classes/class-astra-theme-extension.php:1085
 msgid "Active!"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1103
+#: classes/class-astra-theme-extension.php:1112
+msgid "Rollback Version"
+msgstr ""
+
+#: classes/class-astra-theme-extension.php:1145
 msgid "Allow Beta updates"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1108
+#: classes/class-astra-theme-extension.php:1150
 msgid "Enable this option to receive update notifications for beta versions."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1117
-#: classes/class-astra-theme-extension.php:1189
+#: classes/class-astra-theme-extension.php:1159
+#: classes/class-astra-theme-extension.php:1231
 #. translators: %1$s: a tag open.
 msgid "Please read %1$s this article %2$s to know more."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1155
+#: classes/class-astra-theme-extension.php:1197
 msgid "Enable this option to generate CSS files."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1159
+#: classes/class-astra-theme-extension.php:1201
 msgid "Refresh"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1160
+#: classes/class-astra-theme-extension.php:1202
 msgid "Click on the 'Refresh' button to regenerate CSS files."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1163
+#: classes/class-astra-theme-extension.php:1205
 msgid "Recheck"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1164
+#: classes/class-astra-theme-extension.php:1206
 msgid ""
 "Click on the 'Recheck' button to check if the uploads folder has write "
 "access."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:1173
+#: classes/class-astra-theme-extension.php:1215
 msgid "CSS File Generation"
 msgstr ""
 

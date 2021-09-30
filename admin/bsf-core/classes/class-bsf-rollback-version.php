@@ -172,7 +172,7 @@ class BSF_Rollback_Version {
 		$per_page = apply_filters( 'bsf_show_versions_to_rollback_' . $product_id, 10 );
 		$path     = bsf_get_api_site( false, true ) . 'versions/' . $product_id . '?per_page=' . $per_page;
 		if ( BSF_Update_Manager::bsf_allow_beta_updates( $product_id ) ) {
-			$path .= add_query_arg( 'include_beta', 'true', $path );
+			$path = add_query_arg( 'include_beta', 'true', $path );
 		}
 
 		$response = wp_remote_get(

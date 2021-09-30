@@ -97,6 +97,21 @@ if ( ! function_exists( 'bsf_check_product_update' ) ) {
 				'id' => $product['id'],
 				'installed_version' => $product['version'],
 			);
+
+			// Add bundled products to the list.
+			if ( isset( $brainstrom_bundled_products[ $product['id'] ] ) ) {
+				$bundled_products = $brainstrom_bundled_products[ $product['id'] ];
+				$bundled_product_data = array();
+
+				foreach ( $bundled_products as $bundled_product ) {
+					$bundled_product_data[ $bundled_product->id ] = array(
+						'id' => $bundled_product->id,
+						'installed_version' => $bundled_product->version,
+					);
+				}
+
+				$product_list[ $product['id'] ]['bundled_products'] = $bundled_product_data;
+			}
 		}
 
 		$remote_versions = bsf_get_remote_version( $product_list, $registered );
