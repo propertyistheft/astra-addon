@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_learndash_dynamic_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_addon_learndash_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -15,7 +15,7 @@ add_filter( 'astra_dynamic_css', 'astra_learndash_dynamic_css' );
  * @since  1.8.6
  * @return string
  */
-function astra_learndash_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_learndash_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$active_theme = '';
 
@@ -145,7 +145,7 @@ function astra_learndash_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
  *
  * @return string
  */
-function astra_ldrv3_dynamic_css() {
+function astra_addon_ldrv3_dynamic_css() {
 
 	$active_ld_theme = '';
 	$css_output      = '';

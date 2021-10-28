@@ -19,7 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 3.0.0
  */
+// @codingStandardsIgnoreStart
 class Astra_Social_Component_Configs {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Register Builder Customizer Configurations.

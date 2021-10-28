@@ -23,7 +23,9 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  *
  * @since 3.1.0
  */
-class Astra_Footer_Language_Switcher_Configs extends Astra_Customizer_Config_Base {
+// @codingStandardsIgnoreStart
+class Astra_Footer_Language_Switcher_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Register Builder Customizer Configurations.

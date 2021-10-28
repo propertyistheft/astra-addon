@@ -17,7 +17,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 	 *
 	 * @since 1.6.0
 	 */
+	// @codingStandardsIgnoreStart
 	final class Astra_Ext_Nav_Menu_Loader {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -60,8 +63,8 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				add_action( 'wp', array( $this, 'load_gutenberg_addon_scripts' ) );
 			}
 
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'wp_footer', array( $this, 'megamenu_style' ) );
@@ -182,11 +185,11 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 					}
 
 					if ( SCRIPT_DEBUG ) {
-						wp_enqueue_style( 'astra-mm-opts-style', ASTRA_EXT_NAV_MENU_URL . 'assets/css/unminified/megamenu-options' . $rtl . '.css', array(), ASTRA_EXT_VER );
-						wp_enqueue_script( 'astra-megamenu-opts', ASTRA_EXT_NAV_MENU_URL . 'assets/js/unminified/megamenu-options.js', array( 'jquery', 'astra-color-alpha' ), ASTRA_EXT_VER, true );
+						wp_enqueue_style( 'astra-mm-opts-style', ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/css/unminified/megamenu-options' . $rtl . '.css', array(), ASTRA_EXT_VER );
+						wp_enqueue_script( 'astra-megamenu-opts', ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/js/unminified/megamenu-options.js', array( 'jquery', 'astra-color-alpha' ), ASTRA_EXT_VER, true );
 					} else {
-						wp_enqueue_style( 'astra-mm-opts-style', ASTRA_EXT_NAV_MENU_URL . 'assets/css/minified/megamenu-options' . $rtl . '.min.css', array(), ASTRA_EXT_VER );
-						wp_enqueue_script( 'astra-megamenu-opts', ASTRA_EXT_NAV_MENU_URL . 'assets/js/minified/megamenu-options.min.js', array( 'jquery', 'astra-color-alpha' ), ASTRA_EXT_VER, true );
+						wp_enqueue_style( 'astra-mm-opts-style', ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/css/minified/megamenu-options' . $rtl . '.min.css', array(), ASTRA_EXT_VER );
+						wp_enqueue_script( 'astra-megamenu-opts', ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/js/minified/megamenu-options.min.js', array( 'jquery', 'astra-color-alpha' ), ASTRA_EXT_VER, true );
 					}
 
 					$has_wp_block_suport = post_type_exists( 'wp_block' );
@@ -216,9 +219,9 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		public function preview_scripts() {
 
 			if ( SCRIPT_DEBUG ) {
-				wp_enqueue_script( 'astra-ext-nav-menu-customize-preview-js', ASTRA_EXT_NAV_MENU_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-nav-menu-customize-preview-js', ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			} else {
-				wp_enqueue_script( 'astra-ext-nav-menu-customize-preview-js', ASTRA_EXT_NAV_MENU_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-nav-menu-customize-preview-js', ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			}
 		}
 
@@ -241,8 +244,8 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		public function add_scripts() {
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_NAV_MENU_URL . 'assets/js/';
-			$path = ASTRA_EXT_NAV_MENU_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_NAV_MENU_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';
@@ -278,8 +281,8 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_NAV_MENU_URL . 'assets/css/';
-			$path = ASTRA_EXT_NAV_MENU_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_NAV_MENU_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -343,26 +346,26 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 
 			if ( astra_addon_existing_header_footer_configs() ) {
 				// Primary Header.
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-primary-header-layout.php';
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-primary-header-typography.php';
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-existing-nav-menu-primary-header-colors.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-primary-header-layout.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-primary-header-typography.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-existing-nav-menu-primary-header-colors.php';
 				// Above Header.
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-above-header-layout.php';
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-above-header-typography.php';
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-existing-nav-menu-above-header-colors.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-above-header-layout.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-above-header-typography.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-existing-nav-menu-above-header-colors.php';
 				// Below Header.
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-below-header-layout.php';
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-below-header-typography.php';
-				require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-existing-nav-menu-below-header-colors.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-below-header-layout.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-below-header-typography.php';
+				require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-existing-nav-menu-below-header-colors.php';
 			}
 			// Primary Header.
-			require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-primary-header-colors.php';
+			require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-primary-header-colors.php';
 
 			// Above Header.
-			require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-above-header-colors.php';
+			require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-above-header-colors.php';
 
 			// Below Header.
-			require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-below-header-colors.php';
+			require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-below-header-colors.php';
 		}
 
 

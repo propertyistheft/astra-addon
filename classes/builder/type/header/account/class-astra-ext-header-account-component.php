@@ -13,15 +13,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'ASTRA_EXT_HEADER_ACCOUNT_DIR', ASTRA_EXT_DIR . 'classes/builder/type/header/account/' );
-define( 'ASTRA_EXT_HEADER_ACCOUNT_URI', ASTRA_EXT_URI . 'classes/builder/type/header/account/' );
+define( 'ASTRA_ADDON_EXT_HEADER_ACCOUNT_DIR', ASTRA_EXT_DIR . 'classes/builder/type/header/account/' );
 
 /**
  * Heading Initial Setup
  *
  * @since 3.0.0
  */
+// @codingStandardsIgnoreStart
 class Astra_Ext_Header_Account_Component {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Constructor function that initializes required actions and hooks
@@ -29,7 +31,7 @@ class Astra_Ext_Header_Account_Component {
 	public function __construct() {
 
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		require_once ASTRA_EXT_HEADER_ACCOUNT_DIR . 'classes/class-astra-ext-header-account-component-loader.php';
+		require_once ASTRA_ADDON_EXT_HEADER_ACCOUNT_DIR . 'classes/class-astra-ext-header-account-component-loader.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }

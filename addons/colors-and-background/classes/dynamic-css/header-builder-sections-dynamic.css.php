@@ -6,7 +6,7 @@
  * @since 3.5.7
  */
 
-add_filter( 'astra_dynamic_css', 'astra_ext_header_builder_sections_colors_dynamic_css', 99 );
+add_filter( 'astra_addon_dynamic_css', 'astra_addon_header_builder_sections_colors_dynamic_css', 99 );
 
 /**
  * Dynamic CSS
@@ -16,7 +16,7 @@ add_filter( 'astra_dynamic_css', 'astra_ext_header_builder_sections_colors_dynam
  * @return string
  * @since 3.5.7
  */
-function astra_ext_header_builder_sections_colors_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$parse_css = '';
 

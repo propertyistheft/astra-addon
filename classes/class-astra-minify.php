@@ -18,7 +18,9 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 	/**
 	 * Astra_Minify
 	 */
-	class Astra_Minify {
+	// @codingStandardsIgnoreStart
+	class Astra_Minify { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * WordPress Filesystem
@@ -129,7 +131,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 			if ( version_compare( ASTRA_THEME_VERSION, '3.6.8', '>' ) ) {
-				add_action( 'astra_get_js_files', array( $this, 'add_fronted_pro_script' ) );
+				add_action( 'astra_addon_get_js_files', array( $this, 'add_fronted_pro_script' ) );
 			}
 		}
 
@@ -160,7 +162,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 				}
 
 				if ( ! function_exists( 'astra_addon_filesystem' ) ) {
-					wp_add_inline_style( 'astra-addon-css', apply_filters( 'astra_dynamic_css', '' ) );
+					wp_add_inline_style( 'astra-addon-css', apply_filters( 'astra_addon_dynamic_css', '' ) );
 				}
 
 				wp_localize_script( 'astra-addon-js', 'astraAddon', apply_filters( 'astra_addon_js_localize', array() ) );
@@ -263,10 +265,10 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		public static function get_css_files() {
 
 			if ( 1 > count( self::$css_files ) ) {
-				do_action( 'astra_get_css_files' );
+				do_action( 'astra_addon_get_css_files' );
 			}
 
-			return apply_filters( 'astra_add_css_file', self::$css_files );
+			return apply_filters( 'astra_addon_add_css_file', self::$css_files );
 		}
 
 		/**
@@ -302,10 +304,10 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		public static function get_js_files() {
 
 			if ( 1 > count( self::$js_files ) ) {
-				do_action( 'astra_get_js_files' );
+				do_action( 'astra_addon_get_js_files' );
 			}
 
-			return apply_filters( 'astra_add_js_file', self::$js_files );
+			return apply_filters( 'astra_addon_add_js_file', self::$js_files );
 		}
 
 		/**
@@ -315,7 +317,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * @return array()
 		 */
 		public static function get_dependent_js_files() {
-			return apply_filters( 'astra_add_dependent_js_file', self::$dependent_js_files );
+			return apply_filters( 'astra_addon_add_dependent_js_file', self::$dependent_js_files );
 		}
 
 		/**
@@ -700,7 +702,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			self::load_filesystem();
 
 			if ( ! defined( 'FS_CHMOD_FILE' ) ) {
-				define( 'FS_CHMOD_FILE', ( fileperms( ABSPATH . 'index.php' ) & 0777 | 0644 ) );
+				define( 'FS_CHMOD_FILE', ( fileperms( ABSPATH . 'index.php' ) & 0777 | 0644 ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 			}
 
 			if ( get_option( 'ast-theme-css-status' ) ) {
@@ -732,7 +734,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 				}
 			}
 
-			$css = apply_filters( 'astra_render_css', $css );
+			$css = apply_filters( 'astra_addon_render_css', $css );
 
 			$status = self::$astra_addon_filesystem->put_contents(
 				$filepath,
@@ -849,7 +851,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			self::load_filesystem();
 
 			if ( ! defined( 'FS_CHMOD_FILE' ) ) {
-				define( 'FS_CHMOD_FILE', ( fileperms( ABSPATH . 'index.php' ) & 0777 | 0644 ) );
+				define( 'FS_CHMOD_FILE', ( fileperms( ABSPATH . 'index.php' ) & 0777 | 0644 ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 			}
 
 			if ( get_option( 'astra-addon-js-status' ) ) {
@@ -882,7 +884,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 				}
 			}
 
-			$js = apply_filters( 'astra_render_js', $js );
+			$js = apply_filters( 'astra_addon_render_js', $js );
 
 			$status = self::$astra_addon_filesystem->put_contents(
 				$filepath,
@@ -897,7 +899,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			update_option( self::$_js_key . '-dep-' . $js_slug, $dep_js_files );
 			update_option( self::$_js_key . '-' . $js_slug, $new_js_key );
 
-			do_action( 'astra_after_render_js' );
+			do_action( 'astra_addon_after_render_js' );
 		}
 
 		/**

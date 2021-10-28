@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 	 *
 	 * @since 3.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Builder {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable

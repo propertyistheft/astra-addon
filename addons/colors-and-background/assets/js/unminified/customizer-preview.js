@@ -587,7 +587,7 @@
 	astra_css(
 		'astra-settings[header-search-border-h-color]',
 		'border-color',
-		'.ast-header-search .ast-search-menu-icon .search-form:hover'
+		'.ast-header-search .ast-search-menu-icon .search-form:hover, .ast-search-icon:hover + .search-form'
 	);
 
 	// Seach Full Screen / Header Cover Overlay BG Color.

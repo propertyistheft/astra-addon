@@ -18,7 +18,10 @@ if ( ! class_exists( 'Astra_Customizer_Ext_WooCommerce_Partials' ) ) {
 	 *
 	 * @since 1.1.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Ext_WooCommerce_Partials {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable

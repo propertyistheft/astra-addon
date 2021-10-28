@@ -28,16 +28,16 @@ class Astra_Addon_AMP_Compatibility {
 	public function disable_addon_features() {
 
 		// If AMP endpoint is not active, bail as we don't need to change anything here.
-		if ( true !== astra_pro_is_emp_endpoint() ) {
+		if ( true !== astra_addon_is_amp_endpoint() ) {
 			return;
 		}
 
 		// Bail if AMP support is disabled by the user.
-		if ( false === apply_filters( 'astra_amp_support', true ) ) {
+		if ( false === apply_filters( 'astra_amp_support', true ) ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			return;
 		}
 
-		add_filter( 'astra_cache_asset_type', array( $this, 'cache_add_amp_prefix' ) );
+		add_filter( 'astra_addon_cache_asset_type', array( $this, 'cache_add_amp_prefix' ) );
 
 		if ( is_callable( 'Astra_Minify::get_instance' ) ) {
 			// Prioritize Astra Addon's CSS in AMP layouts.
@@ -48,30 +48,30 @@ class Astra_Addon_AMP_Compatibility {
 		// Scroll to top Addon.
 		if ( true === Astra_Ext_Extension::is_active( 'scroll-to-top' ) && is_callable( 'Astra_Ext_Scroll_To_Top_Markup::get_instance' ) ) {
 			remove_action( 'wp_footer', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'html_markup_loader' ) );
-			remove_action( 'astra_get_css_files', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'add_styles' ) );
-			remove_action( 'astra_get_js_files', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'add_scripts' ) );
-			remove_filter( 'astra_dynamic_css', 'astra_ext_scroll_to_top_dynamic_css' );
+			remove_action( 'astra_addon_get_css_files', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'add_styles' ) );
+			remove_action( 'astra_addon_get_js_files', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'add_scripts' ) );
+			remove_filter( 'astra_addon_dynamic_css', 'astra_addon_scroll_to_top_dynamic_css' );
 		}
 
 		// Sticky Header.
 		if ( true === Astra_Ext_Extension::is_active( 'sticky-header' ) && is_callable( 'Astra_Ext_Sticky_Header_Markup::get_instance' ) ) {
-			remove_action( 'astra_get_css_files', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'add_styles' ) );
-			remove_action( 'astra_get_js_files', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'add_scripts' ) );
+			remove_action( 'astra_addon_get_css_files', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'add_styles' ) );
+			remove_action( 'astra_addon_get_js_files', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'add_scripts' ) );
 			remove_filter( 'astra_addon_js_localize', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'localize_variables' ) );
 			remove_action( 'body_class', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'add_body_class' ) );
 			remove_action( 'astra_header', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'none_header_markup' ), 5 );
 			remove_action( 'astra_header', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'fixed_header_markup' ), 11 );
-			remove_filter( 'astra_dynamic_css', 'astra_ext_sticky_header_dynamic_css', 30 );
-			remove_filter( 'astra_dynamic_css', 'astra_ext_above_header_sections_dynamic_css', 30 );
-			remove_filter( 'astra_dynamic_css', 'astra_ext_below_header_sections_dynamic_css', 30 );
-			remove_filter( 'astra_dynamic_css', 'astra_ext_sticky_header_with_site_layouts_dynamic_css' );
+			remove_filter( 'astra_addon_dynamic_css', 'astra_ext_sticky_header_dynamic_css', 30 );
+			remove_filter( 'astra_addon_dynamic_css', 'astra_ext_above_header_sections_dynamic_css', 30 );
+			remove_filter( 'astra_addon_dynamic_css', 'astra_ext_below_header_sections_dynamic_css', 30 );
+			remove_filter( 'astra_addon_dynamic_css', 'astra_ext_sticky_header_with_site_layouts_dynamic_css' );
 		}
 
 		// Nav Menu Addon.
 		if ( true === Astra_Ext_Extension::is_active( 'nav-menu' ) && is_callable( 'Astra_Ext_Nav_Menu_Loader::get_instance' ) ) {
-			remove_action( 'astra_get_css_files', array( Astra_Ext_Nav_Menu_Loader::get_instance(), 'add_styles' ) );
+			remove_action( 'astra_addon_get_css_files', array( Astra_Ext_Nav_Menu_Loader::get_instance(), 'add_styles' ) );
 			remove_filter( 'wp_nav_menu_args', array( Astra_Ext_Nav_Menu_Loader::get_instance(), 'modify_nav_menu_args' ) );
-			remove_filter( 'astra_dynamic_css', 'astra_ext_mega_menu_dynamic_css' );
+			remove_filter( 'astra_addon_dynamic_css', 'astra_addon_mega_menu_dynamic_css' );
 		}
 
 		// Page Header Addon.

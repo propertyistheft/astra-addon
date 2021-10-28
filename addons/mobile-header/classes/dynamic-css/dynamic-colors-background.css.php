@@ -8,7 +8,7 @@
 /**
  * Mobile Header options.
  */
-add_filter( 'astra_dynamic_css', 'astra_ext_mobile_header_colors_background_dynamic_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_addon_mobile_header_colors_background_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -17,7 +17,7 @@ add_filter( 'astra_dynamic_css', 'astra_ext_mobile_header_colors_background_dyna
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return string
  */
-function astra_ext_mobile_header_colors_background_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_mobile_header_colors_background_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$menu_style = astra_get_option( 'mobile-menu-style' );
 
@@ -334,10 +334,10 @@ function astra_ext_mobile_header_colors_background_dynamic_css( $dynamic_css, $d
 				),
 			);
 			// Fullscreen background color if Header Background color is set.
-			$desktop_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'desktop' );
+			$desktop_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'desktop' );
 			// Fullscreen background color if Primary Menu Background color is set.
 			if ( '' !== $primary_menu_bg_image['desktop']['background-image'] || '' !== $primary_menu_bg_image['desktop']['background-color'] ) {
-				$desktop_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'desktop' );
+				$desktop_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'desktop' );
 			}
 
 			$tablet_colors = array(
@@ -407,10 +407,10 @@ function astra_ext_mobile_header_colors_background_dynamic_css( $dynamic_css, $d
 			);
 
 			// Fullscreen background color if Header Background color is set.
-			$tablet_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'tablet' );
+			$tablet_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'tablet' );
 			// Fullscreen background color if Primary Menu Background color is set.
 			if ( '' !== $primary_menu_bg_image['tablet']['background-image'] || '' !== $primary_menu_bg_image['tablet']['background-color'] ) {
-				$tablet_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'tablet' );
+				$tablet_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'tablet' );
 			}
 
 			$mobile_colors = array(
@@ -479,10 +479,10 @@ function astra_ext_mobile_header_colors_background_dynamic_css( $dynamic_css, $d
 				),
 			);
 			// Fullscreen background color if Header Background color is set.
-			$mobile_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'mobile' );
+			$mobile_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'mobile' );
 			// Fullscreen background color if Primary Menu Background color is set.
 			if ( '' !== $primary_menu_bg_image['mobile']['background-image'] || '' !== $primary_menu_bg_image['mobile']['background-color'] ) {
-				$mobile_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'mobile' );
+				$mobile_colors['.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'mobile' );
 			}
 
 			/* Parse CSS from array() */
@@ -615,10 +615,10 @@ function astra_ext_mobile_header_colors_background_dynamic_css( $dynamic_css, $d
 			),
 		);
 		// Flyout background color if Header Background color is set.
-		$desktop_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'desktop' );
+		$desktop_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'desktop' );
 		// Flyout background color if Primary Menu Background color is set.
 		if ( '' !== $primary_menu_bg_image['desktop']['background-image'] || '' !== $primary_menu_bg_image['desktop']['background-color'] ) {
-			$desktop_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'desktop' );
+			$desktop_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'desktop' );
 		}
 
 		$tablet_colors = array(
@@ -627,10 +627,10 @@ function astra_ext_mobile_header_colors_background_dynamic_css( $dynamic_css, $d
 			),
 		);
 		// Flyout background color if Header Background color is set.
-		$tablet_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'tablet' );
+		$tablet_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'tablet' );
 		// Flyout background color if Primary Menu Background color is set.
 		if ( '' !== $primary_menu_bg_image['tablet']['background-image'] || '' !== $primary_menu_bg_image['tablet']['background-color'] ) {
-			$tablet_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'tablet' );
+			$tablet_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'tablet' );
 		}
 
 		$mobile_colors = array(
@@ -639,10 +639,10 @@ function astra_ext_mobile_header_colors_background_dynamic_css( $dynamic_css, $d
 			),
 		);
 		// Flyout background color if Header Background color is set.
-		$mobile_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'mobile' );
+		$mobile_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $header_bg_obj, 'mobile' );
 		// Flyout background color if Primary Menu Background color is set.
 		if ( '' !== $primary_menu_bg_image['mobile']['background-image'] || '' !== $primary_menu_bg_image['mobile']['background-color'] ) {
-			$mobile_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'mobile' );
+			$mobile_colors['.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap'] = astra_get_responsive_background_obj( $primary_menu_bg_image, 'mobile' );
 		}
 
 		/* Parse CSS from array() */

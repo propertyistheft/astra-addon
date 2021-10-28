@@ -10,8 +10,9 @@
  *
  * @since 1.0.0
  */
-final class Astra_Ext_Advanced_Headers_Data {
-
+// @codingStandardsIgnoreStart
+final class Astra_Ext_Advanced_Headers_Data { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Cached layout data for the current page indexed by type.

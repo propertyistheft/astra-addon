@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_EDD_DIR', ASTRA_EXT_DIR . 'addons/edd/' );
-define( 'ASTRA_EXT_EDD_URI', ASTRA_EXT_URI . 'addons/edd/' );
+define( 'ASTRA_ADDON_EXT_EDD_DIR', ASTRA_EXT_DIR . 'addons/edd/' );
+define( 'ASTRA_ADDON_EXT_EDD_URI', ASTRA_EXT_URI . 'addons/edd/' );
 
 if ( ! class_exists( 'Astra_Ext_Edd' ) ) {
 
@@ -15,7 +15,9 @@ if ( ! class_exists( 'Astra_Ext_Edd' ) ) {
 	 *
 	 * @since 1.6.10
 	 */
-	class Astra_Ext_Edd {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Edd { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -42,13 +44,13 @@ if ( ! class_exists( 'Astra_Ext_Edd' ) ) {
 			// If plugin - 'WooCommerce' not exist then return.
 			if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 
-				require_once ASTRA_EXT_EDD_DIR . 'classes/common-functions.php';
-				require_once ASTRA_EXT_EDD_DIR . 'classes/class-astra-ext-edd-markup.php';
-				require_once ASTRA_EXT_EDD_DIR . 'classes/class-astra-ext-edd-loader.php';
+				require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/common-functions.php';
+				require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/class-astra-ext-edd-markup.php';
+				require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/class-astra-ext-edd-loader.php';
 
 				// Include front end files.
 				if ( ! is_admin() ) {
-					require_once ASTRA_EXT_EDD_DIR . 'classes/dynamic.css.php';
+					require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/dynamic.css.php';
 				}
 			}
 

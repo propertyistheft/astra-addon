@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Sticky_Header_Sections_Configs' ) ) {
 	/**
 	 * Register Sticky Header - Header Sections Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Sticky_Header_Sections_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Sticky Header - Header Sections Customizer Configurations.

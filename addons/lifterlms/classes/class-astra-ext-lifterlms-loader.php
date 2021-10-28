@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_LifterLMS_Loader {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -85,13 +88,13 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS_Loader' ) ) {
 			/**
 			 * Register Sections & Panels
 			 */
-			require_once ASTRA_EXT_LIFTERLMS_DIR . 'classes/class-astra-customizer-lifterlms-panels-and-sections.php';
+			require_once ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'classes/class-astra-customizer-lifterlms-panels-and-sections.php';
 
 			/**
 			 * Sections
 			 */
-			require_once ASTRA_EXT_LIFTERLMS_DIR . 'classes/sections/class-astra-customizer-lifterlms-general-configs.php';
-			require_once ASTRA_EXT_LIFTERLMS_DIR . 'classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php';
+			require_once ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'classes/sections/class-astra-customizer-lifterlms-general-configs.php';
+			require_once ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php';
 
 		}
 
@@ -108,7 +111,7 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS_Loader' ) ) {
 				$js_path = 'assets/js/minified/customizer-preview.min.js';
 			}
 
-			wp_register_script( 'ast-lifterlms-customizer-preview', ASTRA_EXT_LIFTERLMS_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+			wp_register_script( 'ast-lifterlms-customizer-preview', ASTRA_ADDON_EXT_LIFTERLMS_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			wp_enqueue_script( 'ast-lifterlms-customizer-preview' );
 		}
 
@@ -266,7 +269,7 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS_Loader' ) ) {
 						$js_path = 'assets/js/minified/lifterlms-builder-settings.min.js';
 					}
 
-					wp_enqueue_script( 'ast-lifterlms-builder-settings-', ASTRA_EXT_LIFTERLMS_URI . $js_path, array(), ASTRA_EXT_VER, true );
+					wp_enqueue_script( 'ast-lifterlms-builder-settings-', ASTRA_ADDON_EXT_LIFTERLMS_URI . $js_path, array(), ASTRA_EXT_VER, true );
 				}
 			}
 		}

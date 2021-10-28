@@ -13,7 +13,10 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 	 *
 	 * @since 1.2.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Spacing_Loader {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -625,19 +628,19 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 			/**
 			 * Sections
 			 */
-			require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-container-layout-spacing-configs.php';
+			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-container-layout-spacing-configs.php';
 			if ( astra_addon_existing_header_footer_configs() ) {
-				require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-header-spacing-configs.php';
-				require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-above-header-spacing-configs.php';
-				require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-below-header-spacing-configs.php';
-				require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-footer-small-spacing-configs.php';
-				require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-site-identity-spacing-configs.php';
+				require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-header-spacing-configs.php';
+				require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-above-header-spacing-configs.php';
+				require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-below-header-spacing-configs.php';
+				require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-footer-small-spacing-configs.php';
+				require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-site-identity-spacing-configs.php';
 			} else {
-				require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-header-builder-menu-configs.php';
+				require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-header-builder-menu-configs.php';
 			}
-			require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-sidebar-spacing-configs.php';
-			require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-blog-spacing-configs.php';
-			require_once ASTRA_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-single-post-spacing-configs.php';
+			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-sidebar-spacing-configs.php';
+			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-blog-spacing-configs.php';
+			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-single-post-spacing-configs.php';
 		}
 
 		/**
@@ -646,9 +649,9 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 		public function preview_scripts() {
 
 			if ( SCRIPT_DEBUG ) {
-				wp_enqueue_script( 'astra-ext-spacing-customize-preview-js', ASTRA_EXT_SPACING_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-spacing-customize-preview-js', ASTRA_ADDON_EXT_SPACING_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			} else {
-				wp_enqueue_script( 'astra-ext-spacing-customize-preview-js', ASTRA_EXT_SPACING_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-spacing-customize-preview-js', ASTRA_ADDON_EXT_SPACING_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			}
 
 			$localize_array = array(

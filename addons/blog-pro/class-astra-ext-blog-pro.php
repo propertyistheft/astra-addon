@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_BLOG_PRO_DIR', ASTRA_EXT_DIR . 'addons/blog-pro/' );
-define( 'ASTRA_EXT_BLOG_PRO_URI', ASTRA_EXT_URI . 'addons/blog-pro/' );
+define( 'ASTRA_ADDON_EXT_BLOG_PRO_DIR', ASTRA_EXT_DIR . 'addons/blog-pro/' );
+define( 'ASTRA_ADDON_EXT_BLOG_PRO_URI', ASTRA_EXT_URI . 'addons/blog-pro/' );
 
 if ( ! class_exists( 'Astra_Ext_Blog_Pro' ) ) {
 
@@ -15,7 +15,9 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Blog_Pro {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Blog_Pro { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -39,13 +41,13 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro' ) ) {
 		 */
 		public function __construct() {
 
-			require_once ASTRA_EXT_BLOG_PRO_DIR . 'classes/class-astra-ext-blog-pro-images-resizer.php';
-			require_once ASTRA_EXT_BLOG_PRO_DIR . 'classes/class-astra-ext-blog-pro-loader.php';
-			require_once ASTRA_EXT_BLOG_PRO_DIR . 'classes/class-astra-ext-blog-pro-markup.php';
+			require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/class-astra-ext-blog-pro-images-resizer.php';
+			require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/class-astra-ext-blog-pro-loader.php';
+			require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/class-astra-ext-blog-pro-markup.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
-				require_once ASTRA_EXT_BLOG_PRO_DIR . 'classes/dynamic.php';
+				require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/dynamic.php';
 			}
 
 		}

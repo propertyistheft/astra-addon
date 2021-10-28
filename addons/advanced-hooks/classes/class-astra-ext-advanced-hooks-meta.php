@@ -13,8 +13,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 	/**
 	 * Meta Boxes setup
 	 */
-	class Astra_Ext_Advanced_Hooks_Meta {
-
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Advanced_Hooks_Meta { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Instance
@@ -910,7 +911,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
 			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-			add_filter( 'astra_location_rule_post_types', array( $this, 'location_rule_post_types' ) );
+			add_filter( 'astra_addon_location_rule_post_types', array( $this, 'location_rule_post_types' ) );
 		}
 
 		/**

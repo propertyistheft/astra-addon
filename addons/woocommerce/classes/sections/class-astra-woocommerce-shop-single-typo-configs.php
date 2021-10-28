@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 	/**
 	 * Register Blog Single Layout Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Woocommerce_Shop_Single_Typo_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Blog Single Layout Configurations.

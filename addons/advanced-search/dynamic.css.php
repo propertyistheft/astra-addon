@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_ext_advanced_search_dynamic_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_addon_advanced_search_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -14,7 +14,7 @@ add_filter( 'astra_dynamic_css', 'astra_ext_advanced_search_dynamic_css' );
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return string
  */
-function astra_ext_advanced_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_advanced_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$parse_css = '';
 

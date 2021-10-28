@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 	/**
 	 * Register Woocommerce Shop Typo Layout Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Woocommerce_Shop_Typo_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Woocommerce Shop Typo Layout Configurations.

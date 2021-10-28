@@ -213,8 +213,7 @@
 	 */
 	var container, button, menu, links, subMenus, i, len;
 
-	container = document.querySelector('#ast-fixed-header #site-navigation' );
-	console.log( container );
+	container = document.querySelector('#ast-fixed-header .site-navigation' );
 	if ( ! container ) {
 		return;
 	}

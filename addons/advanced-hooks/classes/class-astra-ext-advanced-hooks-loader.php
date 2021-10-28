@@ -13,8 +13,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Advanced_Hooks_Loader {
-
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Advanced_Hooks_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -322,25 +323,25 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 				wp_enqueue_script(
 					'advanced-hook-datetimepicker-script',
-					ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/jquery-ui-timepicker-addon.min.js',
+					ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/jquery-ui-timepicker-addon.min.js',
 					array( 'jquery-ui-datepicker', 'jquery-ui-slider' ),
 					ASTRA_EXT_VER,
 					true
 				);
 				wp_enqueue_style(
 					'advanced-hook-datetimepicker-style',
-					ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/jquery-ui-timepicker-addon.min.css',
+					ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/jquery-ui-timepicker-addon.min.css',
 					null,
 					ASTRA_EXT_VER
 				);
 
 				// Scripts.
 				if ( SCRIPT_DEBUG ) {
-					wp_enqueue_style( 'advanced-hook-admin-edit', ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/css/unminified/astra-advanced-hooks-admin-edit.css', null, ASTRA_EXT_VER );
-					wp_enqueue_script( 'advanced-hook-admin-edit', ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/js/unminified/advanced-hooks.js', array( 'jquery', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
+					wp_enqueue_style( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/unminified/astra-advanced-hooks-admin-edit.css', null, ASTRA_EXT_VER );
+					wp_enqueue_script( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/unminified/advanced-hooks.js', array( 'jquery', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
 				} else {
-					wp_enqueue_style( 'advanced-hook-admin-edit', ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/astra-advanced-hooks-admin-edit.min.css', null, ASTRA_EXT_VER );
-					wp_enqueue_script( 'advanced-hook-admin-edit', ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/advanced-hooks.min.js', array( 'jquery', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
+					wp_enqueue_style( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/astra-advanced-hooks-admin-edit.min.css', null, ASTRA_EXT_VER );
+					wp_enqueue_script( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/advanced-hooks.min.js', array( 'jquery', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
 				}
 			}
 		}

@@ -13,7 +13,9 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Colors_Loader {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Colors_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -340,19 +342,19 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 		public function new_customize_register( $wp_customize ) {
 
 			// Register Sections & Panels.
-			require_once ASTRA_EXT_COLORS_DIR . 'classes/class-astra-ext-colors-panels-and-sections.php';
+			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/class-astra-ext-colors-panels-and-sections.php';
 
 			// Sections.
-			require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-archive.php';
-			require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-content.php';
-			require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-header.php';
+			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-archive.php';
+			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-content.php';
+			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-header.php';
 			if ( astra_addon_existing_header_footer_configs() ) {
-				require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-existing-header.php';
-				require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-primary-menu.php';
+				require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-existing-header.php';
+				require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-primary-menu.php';
 			}
-			require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-sidebar.php';
-			require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-single.php';
-			require_once ASTRA_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-header-builder.php';
+			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-sidebar.php';
+			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-single.php';
+			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-header-builder.php';
 
 		}
 
@@ -367,7 +369,7 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 				$js_path = 'assets/js/minified/customizer-preview.min.js';
 			}
 
-			wp_enqueue_script( 'astra-ext-colors-customize-preview-js', ASTRA_EXT_COLORS_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js', 'astra-addon-customizer-preview-js' ), ASTRA_EXT_VER, true );
+			wp_enqueue_script( 'astra-ext-colors-customize-preview-js', ASTRA_ADDON_EXT_COLORS_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js', 'astra-addon-customizer-preview-js' ), ASTRA_EXT_VER, true );
 
 			$localize_array = array(
 				'tablet_break_point'           => astra_addon_get_tablet_breakpoint(),

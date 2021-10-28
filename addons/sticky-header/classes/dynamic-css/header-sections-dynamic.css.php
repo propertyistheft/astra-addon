@@ -6,10 +6,10 @@
  */
 
 if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
-	add_filter( 'astra_dynamic_css', 'astra_ext_above_header_sections_dynamic_css', 30 );
+	add_filter( 'astra_addon_dynamic_css', 'astra_ext_above_header_sections_dynamic_css', 30 );
 } else {
 	if ( Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() || ( ! Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() && Astra_Ext_Extension::is_active( 'header-sections' ) ) ) {
-		add_filter( 'astra_dynamic_css', 'astra_above_header_builder_sections_dynamic_css', 30 );
+		add_filter( 'astra_addon_dynamic_css', 'astra_above_header_builder_sections_dynamic_css', 30 );
 	}
 }
 
@@ -571,10 +571,10 @@ function astra_ext_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css
 }
 
 if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
-	add_filter( 'astra_dynamic_css', 'astra_ext_below_header_sections_dynamic_css', 30 );
+	add_filter( 'astra_addon_dynamic_css', 'astra_ext_below_header_sections_dynamic_css', 30 );
 } else {
 	if ( Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() || ( ! Astra_Addon_Update_Filter_Function::astra_remove_header_sections_deps_header_builder() && Astra_Ext_Extension::is_active( 'header-sections' ) ) ) {
-		add_filter( 'astra_dynamic_css', 'astra_below_header_builder_sections_dynamic_css', 30 );
+		add_filter( 'astra_addon_dynamic_css', 'astra_below_header_builder_sections_dynamic_css', 30 );
 	}
 }
 

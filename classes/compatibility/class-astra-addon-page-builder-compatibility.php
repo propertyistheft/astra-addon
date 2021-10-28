@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 				return Astra_Addon_Thrive_Compatibility::get_instance();
 			}
 
-			if ( class_exists( 'FLBuilderModel' ) && apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() ) && get_post_meta( $post_id, '_fl_builder_enabled', true ) ) {
+			if ( class_exists( 'FLBuilderModel' ) && apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() ) && get_post_meta( $post_id, '_fl_builder_enabled', true ) ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 				return Astra_Addon_Beaver_Builder_Compatibility::get_instance();
 			}
 

@@ -78,7 +78,7 @@ class Astra_Addon_Cache extends Astra_Cache_Base {
 	 * @return String Dynamic CSS
 	 */
 	protected function get_dynamic_css() {
-		$astra_addon_css_data  = apply_filters( 'astra_dynamic_css', '' );
+		$astra_addon_css_data  = apply_filters( 'astra_addon_dynamic_css', '' );
 		$astra_addon_css_data .= $this->get_css_from_files( self::$dynamic_css_files );
 
 		return Astra_Enqueue_Scripts::trim_css( $astra_addon_css_data );

@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Nav_Menu_Above_Header_Colors' ) ) {
 	/**
 	 * Register Mega Menu Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Nav_Menu_Above_Header_Colors extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Mega Menu Customizer Configurations.

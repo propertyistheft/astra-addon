@@ -19,7 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 3.0.0
  */
+// @codingStandardsIgnoreStart
 class Astra_Social_Icon_Component_Dynamic_CSS {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Dynamic CSS

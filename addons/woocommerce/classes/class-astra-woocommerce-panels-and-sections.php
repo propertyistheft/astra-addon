@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Woocommerce_Panels_And_Sections' ) ) {
 	/**
 	 * Register Woocommerce Panels and sections Layout Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Woocommerce_Panels_And_Sections extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Woocommerce Panels and sections Layout Configurations.

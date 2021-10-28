@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Header_Builder_Menu_Configs' ) ) {
 	/**
 	 * Register Content Spacing Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Header_Builder_Menu_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Content Spacing Customizer Configurations.

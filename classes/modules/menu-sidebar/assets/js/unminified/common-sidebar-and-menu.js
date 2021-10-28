@@ -55,7 +55,7 @@
 
 			// Flyout menu.
 			$(document).on( 'click', '.ast-flyout-menu-enable .main-header-bar .menu-toggle', { class: 'ast-flyout-menu-overlay'}, AstraMenu._enable_primary_menu_overlay );
-			$(document).on( 'click touchstart', '.ast-flyout-menu-overlay .main-header-bar-navigation, .ast-flyout-menu-overlay .main-header-bar .ast-nav-close', { class: 'ast-flyout-menu-overlay' }, AstraMenu._close_offcanvas );
+			$(document).on( 'click', '.ast-flyout-menu-overlay .main-header-bar-navigation, .ast-flyout-menu-overlay .main-header-bar .ast-nav-close', { class: 'ast-flyout-menu-overlay' }, AstraMenu._close_offcanvas );
 			$(document).on( 'click', '.ast-flyout-menu-overlay .main-header-bar-navigation', { class: "toggled" }, AstraMenu._toggle_menu );
 
 			// Full Screen menu.

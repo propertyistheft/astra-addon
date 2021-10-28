@@ -5,13 +5,13 @@
 /**
  * Fullscreen Menu styling
  */
-.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible #site-navigation,
+.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .site-navigation,
 .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap {
   padding-top: 32px;
 }
 
 @media screen and (max-width: 782px) {
-  .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible #site-navigation,
+  .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .site-navigation,
   .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap {
     padding-top: 46px;
   }
@@ -199,7 +199,7 @@
   opacity: 1;
 }
 
-.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation {
+.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation {
   position: fixed;
   left: 0;
   right: 0;
@@ -211,13 +211,13 @@
   text-align: center;
 }
 
-.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation .widget_shopping_cart .woocommerce-mini-cart__buttons a,
-.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation .widget_price_filter .price_slider_amount .button {
+.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation .widget_shopping_cart .woocommerce-mini-cart__buttons a,
+.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation .widget_price_filter .price_slider_amount .button {
   padding: 10px 15px;
   font-weight: normal;
 }
 
-.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation ul.product_list_widget li a {
+.ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation ul.product_list_widget li a {
   margin-bottom: 4px;
   line-height: 1.2;
 }
@@ -310,7 +310,7 @@
   }
 }
 
-.ast-fullscreen-menu-overlay .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation {
+.ast-fullscreen-menu-overlay .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation {
   left: 0;
 }
 
@@ -320,7 +320,7 @@
   background: transparent;
 }
 
-.ast-fullscreen-menu-overlay .ast-fullscreen-menu-enable.ast-header-break-point #site-navigation {
+.ast-fullscreen-menu-overlay .ast-fullscreen-menu-enable.ast-header-break-point .site-navigation {
   text-align: center;
 }
 

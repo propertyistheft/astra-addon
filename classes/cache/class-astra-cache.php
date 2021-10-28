@@ -16,7 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Astra_Cache
  */
-class Astra_Cache extends Astra_Cache_Base {
+// @codingStandardsIgnoreStart
+class Astra_Cache extends Astra_Cache_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Member Variable
@@ -73,7 +75,7 @@ class Astra_Cache extends Astra_Cache_Base {
 	 * @return String Dynamic CSS
 	 */
 	protected function get_dynamic_css() {
-		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' );
+		$theme_css_data  = apply_filters( 'astra_dynamic_theme_css', '' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$theme_css_data .= $this->get_css_from_files( self::$dynamic_css_files );
 
 		return Astra_Enqueue_Scripts::trim_css( $theme_css_data );

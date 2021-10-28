@@ -13,7 +13,9 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Blog_Pro_Loader {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Blog_Pro_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -102,14 +104,14 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 			/**
 			 * Sections
 			 */
-			require_once ASTRA_EXT_BLOG_PRO_DIR . 'classes/sections/class-astra-customizer-blog-pro-configs.php';
-			require_once ASTRA_EXT_BLOG_PRO_DIR . 'classes/sections/class-astra-customizer-blog-pro-single-configs.php';
+			require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/sections/class-astra-customizer-blog-pro-configs.php';
+			require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/sections/class-astra-customizer-blog-pro-single-configs.php';
 		}
 		/**
 		 * Customizer Preview
 		 */
 		public function preview_scripts() {
-			wp_enqueue_script( 'astra-blog-customizer-preview-js', ASTRA_EXT_BLOG_PRO_URI . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+			wp_enqueue_script( 'astra-blog-customizer-preview-js', ASTRA_ADDON_EXT_BLOG_PRO_URI . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 		}
 	}
 

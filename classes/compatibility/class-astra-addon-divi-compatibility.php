@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 
 			$current_post->post_content = self::add_divi_wrap( $current_post->post_content );
 
-			$current_post->post_content = apply_filters( 'the_content', $current_post->post_content );
+			$current_post->post_content = apply_filters( 'the_content', $current_post->post_content );// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 			if ( strpos( $current_post->post_content, '<div id="et-boc" class="et-boc">' ) === false ) {
 				$current_post->post_content = self::add_main_divi_wrapper( $current_post->post_content );
@@ -76,12 +76,12 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 		 */
 		public static function add_divi_wrap( $content ) {
 
-			$outer_class   = apply_filters( 'et_builder_outer_content_class', array( 'et_builder_outer_content' ) );
+			$outer_class   = apply_filters( 'et_builder_outer_content_class', array( 'et_builder_outer_content' ) );// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			$outer_classes = implode( ' ', $outer_class );
 
-			$outer_id = apply_filters( 'et_builder_outer_content_id', 'et_builder_outer_content' );
+			$outer_id = apply_filters( 'et_builder_outer_content_id', 'et_builder_outer_content' );// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
-			$inner_class   = apply_filters( 'et_builder_inner_content_class', array( 'et_builder_inner_content' ) );
+			$inner_class   = apply_filters( 'et_builder_inner_content_class', array( 'et_builder_inner_content' ) );// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			$inner_classes = implode( ' ', $inner_class );
 
 			$content = sprintf(

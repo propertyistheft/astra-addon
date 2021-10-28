@@ -16,38 +16,38 @@ global $post, $product, $woocommerce;
 	<div class="ast-qv-slides slides">
 	<?php
 	if ( has_post_thumbnail() ) {
-		$attachment_ids = $product->get_gallery_image_ids();
-		$props          = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
-		$image          = get_the_post_thumbnail(
+		$astra_addon_image_attachment_ids = $product->get_gallery_image_ids();
+		$astra_addon_image_props          = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
+		$astra_addon_product_image        = get_the_post_thumbnail(
 			$post->ID,
 			'shop_single',
 			array(
-				'title' => $props['title'],
-				'alt'   => $props['alt'],
+				'title' => $astra_addon_image_props['title'],
+				'alt'   => $astra_addon_image_props['alt'],
 			)
 		);
 		echo sprintf(
 			'<li class="woocommerce-product-gallery__image">%s</li>',
-			$image // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			$astra_addon_product_image // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		);
 
-		if ( $attachment_ids ) {
-			$loop = 0;
+		if ( $astra_addon_image_attachment_ids ) {
+			$astra_addon_image_loop = 0;
 
-			foreach ( $attachment_ids as $attachment_id ) {
+			foreach ( $astra_addon_image_attachment_ids as $astra_addon_attachment_id ) {
 
-				$props = wc_get_product_attachment_props( $attachment_id, $post );
+				$astra_addon_image_props = wc_get_product_attachment_props( $astra_addon_attachment_id, $post );
 
-				if ( ! $props['url'] ) {
+				if ( ! $astra_addon_image_props['url'] ) {
 					continue;
 				}
 
 				echo sprintf(
 					'<li>%s</li>',
-					wp_get_attachment_image( $attachment_id, 'shop_single', 0, $props )
+					wp_get_attachment_image( $astra_addon_attachment_id, 'shop_single', 0, $astra_addon_image_props )
 				);
 
-				$loop++;
+				$astra_addon_image_loop++;
 			}
 		}
 	} else {

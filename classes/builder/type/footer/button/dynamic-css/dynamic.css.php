@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Footer Buttons
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_ext_fb_button_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_addon_footer_button_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -24,7 +24,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_ext_fb_button_dynamic_css' );
  *
  * @since 3.3.0
  */
-function astra_ext_fb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_footer_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$dynamic_css .= Astra_Addon_Button_Component_Dynamic_CSS::astra_ext_button_dynamic_css( 'footer' );
 

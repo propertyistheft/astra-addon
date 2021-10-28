@@ -16,8 +16,9 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 	/**
 	 * Brainstorm Update
 	 */
-	class Brainstorm_Update_Astra_Addon {
-
+	// @codingStandardsIgnoreStart
+	class Brainstorm_Update_Astra_Addon { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 		/**
 		 * Instance
 		 *
@@ -163,8 +164,8 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 
 				// Compare versions.
 				if ( version_compare( $version, $bsf_core_version, '>' ) ) {
-					$bsf_core_version = $version;
-					$bsf_core_path    = $bsf_core_dir;
+					$bsf_core_version = $version; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+					$bsf_core_path    = $bsf_core_dir; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 				}
 			}
 		}

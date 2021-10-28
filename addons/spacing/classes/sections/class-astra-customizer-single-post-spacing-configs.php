@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Single_Post_Spacing_Configs' ) ) {
 	/**
 	 * Register Single Post Spacing Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Single_Post_Spacing_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Single Post Spacing Customizer Configurations.

@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_MENU_SIDEBAR_DIR', ASTRA_EXT_DIR . 'classes/modules/menu-sidebar/' );
-define( 'ASTRA_EXT_MENU_SIDEBAR_URI', ASTRA_EXT_URI . 'classes/modules/menu-sidebar/' );
+define( 'ASTRA_ADDON_EXT_MENU_SIDEBAR_DIR', ASTRA_EXT_DIR . 'classes/modules/menu-sidebar/' );
+define( 'ASTRA_ADDON_EXT_MENU_SIDEBAR_URI', ASTRA_EXT_URI . 'classes/modules/menu-sidebar/' );
 
 if ( ! class_exists( 'Astra_Menu_Sidebar_Animation' ) ) {
 
@@ -15,7 +15,10 @@ if ( ! class_exists( 'Astra_Menu_Sidebar_Animation' ) ) {
 	 *
 	 * @since 1.4.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Menu_Sidebar_Animation {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -45,7 +48,7 @@ if ( ! class_exists( 'Astra_Menu_Sidebar_Animation' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_filter( 'astra_addon_js_localize', array( $this, 'localize_variables' ) );
 		}
 
@@ -60,8 +63,8 @@ if ( ! class_exists( 'Astra_Menu_Sidebar_Animation' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_MENU_SIDEBAR_URI . 'assets/js/';
-			$path = ASTRA_EXT_MENU_SIDEBAR_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_MENU_SIDEBAR_URI . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_MENU_SIDEBAR_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';

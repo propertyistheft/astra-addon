@@ -8,7 +8,7 @@
 /**
  * Mobile Header options.
  */
-add_filter( 'astra_dynamic_css', 'astra_ext_mobile_header_dynamic_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_addon_mobile_header_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -17,7 +17,7 @@ add_filter( 'astra_dynamic_css', 'astra_ext_mobile_header_dynamic_css' );
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return string
  */
-function astra_ext_mobile_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_mobile_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$menu_style            = astra_get_option( 'mobile-menu-style' );
 	$flayout_sidebar_width = apply_filters( 'astra_flayout_sidebar_width', 325 );
@@ -211,7 +211,7 @@ function astra_ext_mobile_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	 */
 	if ( 'flyout' == $menu_style ) {
 		$desktop_colors = array(
-			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation #site-navigation,  .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap' => array(
+			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .site-navigation,  .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap' => array(
 				'width' => astra_get_css_value( $flayout_sidebar_width, 'px' ),
 			),
 		);

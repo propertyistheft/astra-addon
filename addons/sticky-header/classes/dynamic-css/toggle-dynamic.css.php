@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Mobile Trigger.
  */
-add_filter( 'astra_dynamic_css', 'astra_sticky_mobile_trigger_design_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_sticky_mobile_trigger_design_css' );
 
 /**
  * Mobile Trigger - Dynamic CSS

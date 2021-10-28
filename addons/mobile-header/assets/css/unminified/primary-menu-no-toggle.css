@@ -16,7 +16,7 @@
   display: block;
 }
 
-.ast-header-break-point.ast-no-toggle-menu-enable .main-header-bar-navigation #site-navigation {
+.ast-header-break-point.ast-no-toggle-menu-enable .main-header-bar-navigation .site-navigation {
   background: #fff;
 }
 

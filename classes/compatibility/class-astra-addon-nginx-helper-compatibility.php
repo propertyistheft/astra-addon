@@ -28,7 +28,7 @@ class Astra_Addon_Nginx_Helper_Compatibility {
 	 */
 	public function refresh_nginx_helper_cache() {
 		// Nginx FastCGI using Nginx Helper.
-		do_action( 'rt_nginx_helper_purge_all' );
+		do_action( 'rt_nginx_helper_purge_all' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 }

@@ -24,7 +24,9 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Typo_Configs' ) ) {
 	/**
 	 * Register Blog Single Layout Configurations.
 	 */
-	class Astra_Edd_Shop_Single_Typo_Configs extends Astra_Customizer_Config_Base {
+	// @codingStandardsIgnoreStart
+	class Astra_Edd_Shop_Single_Typo_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Blog Single Layout Configurations.

@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 	/**
 	 * Register below header Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Sidebar_Typo_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Side bar typography Customizer Configurations.

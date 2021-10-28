@@ -14,7 +14,10 @@ if ( ! class_exists( 'Astra_Wpml_Compatibility' ) ) :
 	/**
 	 * WPML Compatibility
 	 */
-	final class Astra_Wpml_Compatibility {
+	// @codingStandardsIgnoreStart
+	final class Astra_Wpml_Compatibility { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
+
 		/**
 		 * Instance of Astra_Wpml_Compatibility.
 		 *
@@ -43,7 +46,7 @@ if ( ! class_exists( 'Astra_Wpml_Compatibility' ) ) :
 		 * @since  1.1.0
 		 */
 		private function __construct() {
-			add_filter( 'astra_get_display_posts_by_conditions', array( $this, 'get_advanced_hook_wpml_object' ), 10, 2 );
+			add_filter( 'astra_addon_get_display_posts_by_conditions', array( $this, 'get_advanced_hook_wpml_object' ), 10, 2 );
 		}
 
 		/**
@@ -64,7 +67,7 @@ if ( ! class_exists( 'Astra_Wpml_Compatibility' ) ) :
 				foreach ( $current_posts as $post_id => $post_data ) {
 
 					// Get tralated post id here.
-					$wpml_filter_id = apply_filters( 'wpml_object_id', $post_id, 'astra-advanced-hook', true );
+					$wpml_filter_id = apply_filters( 'wpml_object_id', $post_id, 'astra-advanced-hook', true ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 					if ( null !== $wpml_filter_id ) {
 

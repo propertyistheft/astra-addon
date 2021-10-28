@@ -1,9 +1,21 @@
+v3.6.2
+- Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_addon_ prefix NamingConvention. ( https://wpastra.com/docs/deprecated-astra-hooks/ )
+- Fix: W3 validation - Getting duplicate H1 tag for 'site-title' in case of Sticky header.
+- Fix: W3 validation - CSS parse error for search icon height.
+- Fix: W3 validation - Duplicate ID: '#ast-hf-mobile-menu'.
+- Fix: W3 validation - Duplicate HTML id '#site-navigation' in case of multiple menus on a single page.
+- Fix: Builder - Menu - Transparent header's submenu background color not overridden by Sticky header's submenu background color.
+- Fix: Builder - Search - Placeholder was not reflecting on frontend when changing from customizer in Search box style.
+- Fix: Search input field border color was not changing when hovered on search icon for Slide Search style.
+- Fix: Builder – Language Switcher – Element's language options overlapping on one another.
+- Fix: Flyout menu reoccurs when clicked on close icon for Old Header on iPhone devices.
+
 v3.6.1
 - New: Rollback to previous versions feature for the theme and addon.
- 
+
 v3.6.0
-- Improvement: Moved heading color options to Global Colors section. 
-- Fix: Backward compatibility for Content Background option with the theme. 
+- Improvement: Moved heading color options to Global Colors section.
+- Fix: Backward compatibility for Content Background option with the theme.
 
 v3.6.0-beta.1
 - Improvement: Content background option is removed and will be available with the free Astra Theme.

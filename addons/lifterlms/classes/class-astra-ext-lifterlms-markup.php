@@ -12,7 +12,10 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class ASTRA_Ext_LifterLMS_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Varible
@@ -39,7 +42,7 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 			add_action( 'wp', array( $this, 'llms_checkout' ) );
 			add_action( 'wp', array( $this, 'llms_learning' ) );
 			add_action( 'body_class', array( $this, 'body_class' ) );
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
 
 			// Add LifterLMS icon in Menu.
 			add_action( 'astra_masthead_content', array( $this, 'lifterlms_profile_link_enabled' ) );
@@ -254,7 +257,7 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 		 */
 		public function header_markup() {
 
-			astra_get_template( 'lifterlms/templates/header.php' );
+			astra_addon_get_template( 'lifterlms/templates/header.php' );
 		}
 
 		/**
@@ -262,7 +265,7 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 		 */
 		public function footer_markup() {
 
-			astra_get_template( 'lifterlms/templates/footer.php' );
+			astra_addon_get_template( 'lifterlms/templates/footer.php' );
 		}
 
 		/**
@@ -314,8 +317,8 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_LIFTERLMS_URI . 'assets/css/';
-			$path = ASTRA_EXT_LIFTERLMS_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_LIFTERLMS_URI . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {

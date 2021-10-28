@@ -20,7 +20,10 @@ if ( ! class_exists( 'Astra_Typo_Panel_Section_Configs' ) ) {
 	/**
 	 * Register below header Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Typo_Panel_Section_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Typography Customizer Configurations.

@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
 			global $post;
 			$post = $current_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
-			$tve_content = apply_filters( 'the_content', $current_post->post_content );
+			$tve_content = apply_filters( 'the_content', $current_post->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 			if ( isset( $_REQUEST[ TVE_EDITOR_FLAG ] ) ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				$tve_content = str_replace( 'id="tve_editor"', '', $tve_content );

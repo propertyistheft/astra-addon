@@ -25,7 +25,10 @@ if ( ! class_exists( 'Astra_Above_Header_Configs' ) ) {
 	/**
 	 * Register Header Layout Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Above_Header_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Header Layout Customizer Configurations.

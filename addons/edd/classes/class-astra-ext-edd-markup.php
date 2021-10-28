@@ -12,7 +12,9 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 	 *
 	 * @since 1.6.10
 	 */
-	class ASTRA_Ext_Edd_Markup {
+	// @codingStandardsIgnoreStart
+	class ASTRA_Ext_Edd_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Varible
@@ -39,7 +41,7 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 			add_action( 'wp', array( $this, 'edd_initializattion' ) );
 			add_action( 'wp', array( $this, 'customization_checkout_page' ) );
 
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
 
 			add_filter( 'body_class', array( $this, 'body_class' ) );
 
@@ -254,7 +256,7 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 		 */
 		public function checkout_header_markup() {
 
-			astra_get_template( 'edd/templates/checkout-header.php' );
+			astra_addon_get_template( 'edd/templates/checkout-header.php' );
 		}
 
 		/**
@@ -262,7 +264,7 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 		 */
 		public function checkout_footer_markup() {
 
-			astra_get_template( 'edd/templates/checkout-footer.php' );
+			astra_addon_get_template( 'edd/templates/checkout-footer.php' );
 		}
 
 		/**
@@ -285,8 +287,8 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_EDD_URI . 'assets/css/';
-			$path = ASTRA_EXT_EDD_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_EDD_URI . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_EDD_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {

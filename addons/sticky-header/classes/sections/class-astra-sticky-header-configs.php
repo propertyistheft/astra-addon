@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 	/**
 	 * Register Sticky Header Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Sticky_Header_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Sticky Header Customizer Configurations.
@@ -449,7 +452,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 						),
 					);
 
-					if ( is_astra_theme_3_5_0_version() ) {
+					if ( astra_addon_check_theme_3_5_0_version() ) {
 						array_push(
 							$sticky_individual_configs,
 							/**

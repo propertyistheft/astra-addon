@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 	 *
 	 * @since 1.4.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Mobile_Header_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -43,8 +46,8 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'body_class', array( $this, 'body_class' ) );
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_filter( 'astra_above_header_menu_toggle_classes', array( $this, 'above_header_menu_toggle_classes' ) );
 			add_filter( 'astra_below_header_menu_toggle_classes', array( $this, 'below_header_menu_toggle_classes' ) );
 
@@ -296,8 +299,8 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_MOBILE_HEADER_URL . 'assets/css/';
-			$path = ASTRA_EXT_MOBILE_HEADER_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_MOBILE_HEADER_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_MOBILE_HEADER_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -382,8 +385,8 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 			$below_header_style  = astra_get_option( 'mobile-below-header-menu-style' );
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_MOBILE_HEADER_URL . 'assets/js/';
-			$path = ASTRA_EXT_MOBILE_HEADER_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_MOBILE_HEADER_URL . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_MOBILE_HEADER_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';

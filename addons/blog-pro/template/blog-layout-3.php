@@ -9,8 +9,8 @@
 
 ?>
 <div <?php astra_blog_layout_class( 'blog-layout-3' ); ?>>
-	<?php $featured_item = apply_filters( 'astra_featured_image_enabled', true ); ?>
-	<?php if ( $featured_item ) : ?>
+	<?php $astra_addon_blog_featured_image = apply_filters( 'astra_featured_image_enabled', true ); ?>
+	<?php if ( $astra_addon_blog_featured_image ) : ?>
 		<?php
 		// Blog Post Featured Image.
 			astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ' . astra_attr( 'ast-grid-col-6' ) . '">', '</div>' );
@@ -21,7 +21,7 @@
 
 		<?php astra_get_blog_post_title_meta(); ?>
 
-		<div class="entry-content clear" 
+		<div class="entry-content clear"
 		<?php
 				echo astra_attr(
 					'article-entry-content-blog-layout-3',

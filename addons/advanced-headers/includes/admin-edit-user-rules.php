@@ -13,10 +13,10 @@
 		<div class="ast-advanced-headers-saved-rule-select">
 			<select name="ast-advanced-headers-user-rule[]"  class="ast-advanced-headers-user-rule">
 				<option value=""><?php esc_html_e( 'Choose...', 'astra-addon' ); ?></option>
-				<?php foreach ( $rules as $group_key => $group_data ) : ?>
-				<optgroup label="<?php echo esc_attr( $group_data['label'] ); ?>">
-					<?php foreach ( $group_data['rules'] as $rule_key => $rule_data ) : ?>
-								<option value='<?php echo wp_json_encode( $rule_data ); ?>' data-rule="<?php echo esc_attr( $rule_data['type'] . ':' . $rule_data['id'] ); ?>"><?php echo esc_html( $rule_data['label'] ); ?></option>
+				<?php foreach ( $rules as $astra_addon_group_key => $astra_addon_group_data ) : ?>
+				<optgroup label="<?php echo esc_attr( $astra_addon_group_data['label'] ); ?>">
+					<?php foreach ( $astra_addon_group_data['rules'] as $astra_addon_rule_key => $astra_addon_rule_data ) : ?>
+								<option value='<?php echo wp_json_encode( $astra_addon_rule_data ); ?>' data-rule="<?php echo esc_attr( $astra_addon_rule_data['type'] . ':' . $astra_addon_rule_data['id'] ); ?>"><?php echo esc_html( $astra_addon_rule_data['label'] ); ?></option>
 					<?php endforeach; ?>
 				</optgroup>
 				<?php endforeach; ?>

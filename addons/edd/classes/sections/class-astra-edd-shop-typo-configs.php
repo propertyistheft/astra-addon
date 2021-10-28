@@ -24,7 +24,9 @@ if ( ! class_exists( 'Astra_Edd_Shop_Typo_Configs' ) ) {
 	/**
 	 * Register Easy Digital Downloads Shop Typo Layout Configurations.
 	 */
-	class Astra_Edd_Shop_Typo_Configs extends Astra_Customizer_Config_Base {
+	// @codingStandardsIgnoreStart
+	class Astra_Edd_Shop_Typo_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Easy Digital Downloads Shop Typo Layout Configurations.

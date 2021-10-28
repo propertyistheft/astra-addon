@@ -12,7 +12,9 @@ if ( class_exists( 'Subtitles' ) && ! class_exists( 'Astra_Advanced_Headers_Subt
 	 *
 	 * @since 1.0
 	 */
-	class Astra_Advanced_Headers_Subtitles {
+	// @codingStandardsIgnoreStart
+	class Astra_Advanced_Headers_Subtitles { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Astra_Advanced_Headers_Subtitles constructor

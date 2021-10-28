@@ -24,7 +24,10 @@ if ( class_exists( 'Astra_Divider_Component_Dynamic_CSS' ) ) {
  *
  * @since 3.0.0
  */
+// @codingStandardsIgnoreStart
 class Astra_Divider_Component_Dynamic_CSS {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Dynamic CSS

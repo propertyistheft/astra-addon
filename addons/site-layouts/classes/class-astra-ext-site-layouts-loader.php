@@ -13,7 +13,10 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Site_Layouts_Loader {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -94,7 +97,7 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Loader' ) ) {
 			/**
 			 * Sections
 			 */
-			require_once ASTRA_EXT_SITE_LAYOUTS_DIR . 'classes/sections/class-astra-site-layout-configuration.php';
+			require_once ASTRA_ADDON_EXT_SITE_LAYOUTS_DIR . 'classes/sections/class-astra-site-layout-configuration.php';
 		}
 
 		/**
@@ -103,9 +106,9 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Loader' ) ) {
 		public function preview_scripts() {
 
 			if ( SCRIPT_DEBUG ) {
-				wp_enqueue_script( 'astra-ext-site-layouts-customize-preview-js', ASTRA_EXT_SITE_LAYOUTS_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-site-layouts-customize-preview-js', ASTRA_ADDON_EXT_SITE_LAYOUTS_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			} else {
-				wp_enqueue_script( 'astra-ext-site-layouts-customize-preview-js', ASTRA_EXT_SITE_LAYOUTS_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-site-layouts-customize-preview-js', ASTRA_ADDON_EXT_SITE_LAYOUTS_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			}
 		}
 

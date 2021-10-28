@@ -10,8 +10,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 	/**
 	 * Meta Boxes setup
 	 */
-	class Astra_Ext_Advanced_Headers_Meta {
-
+	class Astra_Ext_Advanced_Headers_Meta { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
 
 		/**
 		 * Instance
@@ -628,7 +627,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 									id="ast-advanced-headers-layout-2"
 									value="advanced-headers-layout-2"<?php checked( 'advanced-headers-layout-2', $layout_opt ); ?> />
 							<img
-								src="<?php echo esc_url( ASTRA_EXT_ADVANCED_HEADERS_URL . 'assets/images/advanced-header-1-77x48.png' ); ?>"
+								src="<?php echo esc_url( ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/images/advanced-header-1-77x48.png' ); ?>"
 								alt="<?php echo esc_attr__( 'Page Header: Center Aligned', 'astra-addon' ); ?>"
 								title="<?php echo esc_attr__( 'Page Header: Center Aligned', 'astra-addon' ); ?>" />
 						</label>
@@ -638,7 +637,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 									id="ast-advanced-headers-layout-1"
 									value="advanced-headers-layout-1"<?php checked( 'advanced-headers-layout-1', $layout_opt ); ?> />
 							<img
-								src="<?php echo esc_url( ASTRA_EXT_ADVANCED_HEADERS_URL . 'assets/images/advanced-header-2-77x48.png' ); ?>"
+								src="<?php echo esc_url( ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/images/advanced-header-2-77x48.png' ); ?>"
 								alt="<?php echo esc_attr__( 'Page Header: Inline', 'astra-addon' ); ?>"
 								title="<?php echo esc_attr__( 'Page Header: Inline', 'astra-addon' ); ?>" />
 						</label>
@@ -648,7 +647,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 									id="ast-advanced-header-layout-disable"
 									value="disable"<?php checked( 'disable', $layout_opt ); ?> />
 							<img
-								src="<?php echo esc_url( ASTRA_EXT_ADVANCED_HEADERS_URL . 'assets/images/disabled-77x48.png' ); ?>"
+								src="<?php echo esc_url( ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/images/disabled-77x48.png' ); ?>"
 								alt="<?php echo esc_attr__( 'No Page Header', 'astra-addon' ); ?>"
 								title="<?php echo esc_attr__( 'No Page Header', 'astra-addon' ); ?>" />
 						</label>
@@ -985,7 +984,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				</tr>
 
 				<?php
-				if ( is_astra_theme_3_5_0_version() ) {
+				if ( astra_addon_check_theme_3_5_0_version() ) {
 					$site_title = astra_get_option( 'display-site-title' );
 				}else{
 					$site_title_setting = astra_get_option( 'display-site-title-responsive' );
@@ -1015,7 +1014,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					</tr>
 					<?php
 				}
-				if ( is_astra_theme_3_5_0_version() ) {
+				if ( astra_addon_check_theme_3_5_0_version() ) {
 					$display_site_tagline = astra_get_option( 'display-site-tagline' );
 				}else{
 					$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );
@@ -1611,7 +1610,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				</tr>
 
 				<?php
-				if ( is_astra_theme_3_5_0_version() ) {
+				if ( astra_addon_check_theme_3_5_0_version() ) {
 					$site_title = astra_get_option( 'display-site-title' );
 				}else{
 					$site_title_setting = astra_get_option( 'display-site-title-responsive' );
@@ -1641,7 +1640,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					</tr>
 					<?php
 				}
-				if ( is_astra_theme_3_5_0_version() ) {
+				if ( astra_addon_check_theme_3_5_0_version() ) {
 					$display_site_tagline = astra_get_option( 'display-site-tagline' );
 				}else{
 					$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );

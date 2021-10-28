@@ -10,7 +10,9 @@
  *
  * @since 1.0
  */
-final class Astra_Ext_Extension {
+// @codingStandardsIgnoreStart
+final class Astra_Ext_Extension {  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Default Extensions
@@ -20,7 +22,7 @@ final class Astra_Ext_Extension {
 	 */
 	public static function get_default_addons() {
 		return apply_filters(
-			'astra_ext_default_addons',
+			'astra_addon_ext_default_addons',
 			array(
 				'advanced-search' => 'advanced-search',
 			)
@@ -56,7 +58,7 @@ final class Astra_Ext_Extension {
 			'nav-menu'              => array(),
 		);
 
-		return apply_filters( 'astra_get_addons', $extensions );
+		return apply_filters( 'astra_addon_get_addons', $extensions );
 	}
 
 	/**
@@ -92,7 +94,7 @@ final class Astra_Ext_Extension {
 			}
 		}
 
-		return apply_filters( 'astra_ext_enabled_extensions', $enabled_data );
+		return apply_filters( 'astra_addon_enabled_extensions', $enabled_data );
 	}
 
 	/**
@@ -134,7 +136,7 @@ final class Astra_Ext_Extension {
 			$custom_404 = $custom_404_default;
 		}
 
-		$custom_404 = apply_filters( 'astra_custom_404_options', $custom_404_default );
+		$custom_404 = apply_filters( 'astra_addon_custom_404_options', $custom_404_default );
 
 		return $custom_404;
 	}

@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_SCROLL_TO_TOP_DIR', ASTRA_EXT_DIR . 'addons/scroll-to-top/' );
-define( 'ASTRA_EXT_SCROLL_TO_TOP_URL', ASTRA_EXT_URI . 'addons/scroll-to-top/' );
+define( 'ASTRA_ADDON_EXT_SCROLL_TO_TOP_DIR', ASTRA_EXT_DIR . 'addons/scroll-to-top/' );
+define( 'ASTRA_ADDON_EXT_SCROLL_TO_TOP_URL', ASTRA_EXT_URI . 'addons/scroll-to-top/' );
 
 if ( ! class_exists( 'Astra_Ext_Scroll_To_Top' ) ) {
 
@@ -15,7 +15,10 @@ if ( ! class_exists( 'Astra_Ext_Scroll_To_Top' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Scroll_To_Top {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -39,12 +42,12 @@ if ( ! class_exists( 'Astra_Ext_Scroll_To_Top' ) ) {
 		 */
 		public function __construct() {
 
-			require_once ASTRA_EXT_SCROLL_TO_TOP_DIR . 'classes/class-astra-ext-scroll-to-top-loader.php';
-			require_once ASTRA_EXT_SCROLL_TO_TOP_DIR . 'classes/class-astra-ext-scroll-to-top-markup.php';
+			require_once ASTRA_ADDON_EXT_SCROLL_TO_TOP_DIR . 'classes/class-astra-ext-scroll-to-top-loader.php';
+			require_once ASTRA_ADDON_EXT_SCROLL_TO_TOP_DIR . 'classes/class-astra-ext-scroll-to-top-markup.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
-				require_once ASTRA_EXT_SCROLL_TO_TOP_DIR . 'classes/dynamic.css.php';
+				require_once ASTRA_ADDON_EXT_SCROLL_TO_TOP_DIR . 'classes/dynamic.css.php';
 			}
 
 		}

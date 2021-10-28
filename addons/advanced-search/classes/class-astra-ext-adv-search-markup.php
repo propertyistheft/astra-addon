@@ -12,7 +12,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 	 *
 	 * @since 1.4.8
 	 */
-	class Astra_Ext_Adv_Search_Markup {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Adv_Search_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -39,8 +41,8 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 * @since 1.4.8
 		 */
 		public function __construct() {
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 
 			add_filter( 'astra_addon_js_localize', array( $this, 'localize_variables' ) );
 
@@ -300,7 +302,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			$search_html = '';
 
 			ob_start();
-				astra_get_template( 'advanced-search/template/' . esc_attr( $style ) . '.php' );
+				astra_addon_get_template( 'advanced-search/template/' . esc_attr( $style ) . '.php' );
 			$search_html = ob_get_clean();
 
 			if ( $echo ) {
@@ -320,8 +322,8 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_ADVANCED_SEARCH_URL . 'assets/css/';
-			$path = ASTRA_EXT_ADVANCED_SEARCH_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_ADVANCED_SEARCH_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -363,8 +365,8 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_ADVANCED_SEARCH_URL . 'assets/js/';
-			$path = ASTRA_EXT_ADVANCED_SEARCH_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_ADVANCED_SEARCH_URL . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';

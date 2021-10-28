@@ -22,12 +22,12 @@ if ( ! is_user_logged_in() ) {
 	}
 }
 
-$classes[] = 'footer-adv';
-$classes[] = 'footer-adv-layout-4';
-$classes   = implode( ' ', $classes );
+$astra_addon_footer_layout_classes[] = 'footer-adv';
+$astra_addon_footer_layout_classes[] = 'footer-adv-layout-4';
+$astra_addon_footer_layout_classes   = implode( ' ', $astra_addon_footer_layout_classes );
 ?>
 
-<div class="<?php echo esc_attr( $classes ); ?>">
+<div class="<?php echo esc_attr( $astra_addon_footer_layout_classes ); ?>">
 	<div class="footer-adv-overlay">
 		<div class="ast-container">
 			<?php do_action( 'astra_footer_inside_container_top' ); ?>

@@ -25,7 +25,10 @@ if ( ! class_exists( 'Astra_Customizer_Notices_Configs' ) ) :
 	/**
 	 * The Customizer class.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Notices_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register General Customizer Configurations.

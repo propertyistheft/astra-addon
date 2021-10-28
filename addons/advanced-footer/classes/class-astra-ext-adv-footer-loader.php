@@ -13,7 +13,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Adv_Footer_Loader {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Adv_Footer_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -114,14 +116,14 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Loader' ) ) {
 			/**
 			 * Register Sections & Panels
 			 */
-			require_once ASTRA_EXT_ADVANCED_FOOTER_DIR . 'classes/class-astra-advanced-footer-panels-configs.php';
+			require_once ASTRA_ADDON_EXT_ADVANCED_FOOTER_DIR . 'classes/class-astra-advanced-footer-panels-configs.php';
 
 			/**
 			 * Sections
 			 */
 			if ( astra_addon_existing_header_footer_configs() ) {
-				require_once ASTRA_EXT_ADVANCED_FOOTER_DIR . 'classes/sections/class-astra-advanced-footer-configs.php';
-				require_once ASTRA_EXT_ADVANCED_FOOTER_DIR . 'classes/sections/class-astra-advanced-footer-typo-configs.php';
+				require_once ASTRA_ADDON_EXT_ADVANCED_FOOTER_DIR . 'classes/sections/class-astra-advanced-footer-configs.php';
+				require_once ASTRA_ADDON_EXT_ADVANCED_FOOTER_DIR . 'classes/sections/class-astra-advanced-footer-typo-configs.php';
 			}
 		}
 
@@ -131,9 +133,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Loader' ) ) {
 		public function preview_scripts() {
 
 			if ( SCRIPT_DEBUG ) {
-				wp_enqueue_script( 'astra-ext-footer-adv-customize-preview-js', ASTRA_EXT_ADVANCED_FOOTER_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-footer-adv-customize-preview-js', ASTRA_ADDON_EXT_ADVANCED_FOOTER_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			} else {
-				wp_enqueue_script( 'astra-ext-footer-adv-customize-preview-js', ASTRA_EXT_ADVANCED_FOOTER_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-footer-adv-customize-preview-js', ASTRA_ADDON_EXT_ADVANCED_FOOTER_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			}
 		}
 	}

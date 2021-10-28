@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Site_Identity_Spacing_Configs' ) ) {
 	/**
 	 * Register Site Identity Spacing Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Site_Identity_Spacing_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Site Identity Spacing Customizer Configurations.
@@ -41,7 +44,7 @@ if ( ! class_exists( 'Astra_Customizer_Site_Identity_Spacing_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			if ( is_astra_theme_3_5_0_version() ) {
+			if ( astra_addon_check_theme_3_5_0_version() ) {
 
 				$_configs = array(
 

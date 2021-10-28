@@ -12,7 +12,9 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 	 *
 	 * @since 1.6.10
 	 */
-	class Astra_Ext_Edd_Loader {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Edd_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -181,20 +183,20 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 			/**
 			 * Register Sections & Panels
 			 */
-			require_once ASTRA_EXT_EDD_DIR . 'classes/class-astra-edd-panels-and-sections.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/class-astra-edd-panels-and-sections.php';
 
 			/**
 			 * Sections
 			 */
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-general-configs.php';
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-configs.php';
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-single-configs.php';
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-checkout-configs.php';
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-single-typo-configs.php';
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-single-colors-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-general-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-single-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-checkout-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-single-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-single-colors-configs.php';
 
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-typo-configs.php';
-			require_once ASTRA_EXT_EDD_DIR . 'classes/sections/class-astra-edd-archive-colors-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-archive-colors-configs.php';
 
 		}
 
@@ -211,7 +213,7 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 				$js_path = 'assets/js/minified/customizer-preview.min.js';
 			}
 
-			wp_enqueue_script( 'ast-edd-customizer-preview', ASTRA_EXT_EDD_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+			wp_enqueue_script( 'ast-edd-customizer-preview', ASTRA_ADDON_EXT_EDD_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 
 				wp_localize_script(

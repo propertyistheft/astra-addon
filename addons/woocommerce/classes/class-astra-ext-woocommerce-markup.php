@@ -12,7 +12,10 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class ASTRA_Ext_WooCommerce_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Varible
@@ -36,8 +39,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'get_the_post_type_description', 'astra_woo_remove_shop_page_description', 10, 2 );
@@ -322,8 +325,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				$dir_name    = 'unminified';
 			}
 
-			$js_gen_path  = ASTRA_EXT_WOOCOMMERCE_URI . 'assets/js/' . $dir_name . '/';
-			$css_gen_path = ASTRA_EXT_WOOCOMMERCE_URI . 'assets/css/' . $dir_name . '/';
+			$js_gen_path  = ASTRA_ADDON_EXT_WOOCOMMERCE_URI . 'assets/js/' . $dir_name . '/';
+			$css_gen_path = ASTRA_ADDON_EXT_WOOCOMMERCE_URI . 'assets/css/' . $dir_name . '/';
 
 			// Load shop infinite JS pagination  only when used.
 			if ( ( is_shop() || is_product_taxonomy() ) && 'infinite' === $shop_pagination ) {
@@ -918,7 +921,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function checkout_header_markup() {
 
-			astra_get_template( 'woocommerce/templates/checkout-header.php' );
+			astra_addon_get_template( 'woocommerce/templates/checkout-header.php' );
 		}
 
 		/**
@@ -926,7 +929,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function checkout_footer_markup() {
 
-			astra_get_template( 'woocommerce/templates/checkout-footer.php' );
+			astra_addon_get_template( 'woocommerce/templates/checkout-footer.php' );
 		}
 
 		/**
@@ -949,8 +952,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_WOOCOMMERCE_URI . 'assets/css/';
-			$path = ASTRA_EXT_WOOCOMMERCE_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_WOOCOMMERCE_URI . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -1018,8 +1021,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_WOOCOMMERCE_URI . 'assets/js/';
-			$path = ASTRA_EXT_WOOCOMMERCE_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_WOOCOMMERCE_URI . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';
@@ -1127,7 +1130,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			ob_start();
 
 			// load content template.
-			astra_get_template( 'woocommerce/templates/quick-view-product.php' );
+			astra_addon_get_template( 'woocommerce/templates/quick-view-product.php' );
 
 			echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
@@ -1155,7 +1158,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function qv_product_images_markup() {
 
-			astra_get_template( 'woocommerce/templates/quick-view-product-image.php' );
+			astra_addon_get_template( 'woocommerce/templates/quick-view-product-image.php' );
 		}
 
 		/**
@@ -1218,7 +1221,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			$this->quick_view_dependent_data();
 
-			astra_get_template( 'woocommerce/templates/quick-view-modal.php' );
+			astra_addon_get_template( 'woocommerce/templates/quick-view-modal.php' );
 		}
 
 		/**

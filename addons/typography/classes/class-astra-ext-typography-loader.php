@@ -13,7 +13,10 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Typography_Loader {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -673,18 +676,18 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			/**
 			 * Register Sections & Panels
 			 */
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/class-astra-typo-panel-section-configs.php';
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-archive-advanced-typo-configs.php';
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-content-advanced-typo-configs.php';
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-site-header-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/class-astra-typo-panel-section-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-archive-advanced-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-content-advanced-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-site-header-typo-configs.php';
 			if ( astra_addon_existing_header_footer_configs() ) {
-				require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-primary-menu-typo-configs.php';
-				require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-footer-typo-configs.php';
+				require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-primary-menu-typo-configs.php';
+				require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-footer-typo-configs.php';
 			}
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-sidebar-typo-configs.php';
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-single-advanced-typo-configs.php';
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-builder-menu-configs.php';
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-header-builder-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-sidebar-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-single-advanced-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-builder-menu-configs.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-header-builder-typo-configs.php';
 		}
 
 		/**
@@ -693,9 +696,9 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 		public function preview_scripts() {
 
 			if ( SCRIPT_DEBUG ) {
-				wp_enqueue_script( 'astra-ext-typography-customize-preview-js', ASTRA_EXT_TYPOGRAPHY_URI . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-typography-customize-preview-js', ASTRA_ADDON_EXT_TYPOGRAPHY_URI . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			} else {
-				wp_enqueue_script( 'astra-ext-typography-customize-preview-js', ASTRA_EXT_TYPOGRAPHY_URI . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+				wp_enqueue_script( 'astra-ext-typography-customize-preview-js', ASTRA_ADDON_EXT_TYPOGRAPHY_URI . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			}
 
 			$localize_array = array(

@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_sticky_header_widget_dynamic_css', 30 );
+add_filter( 'astra_addon_dynamic_css', 'astra_sticky_header_widget_dynamic_css', 30 );
 
 /**
  * Dynamic CSS

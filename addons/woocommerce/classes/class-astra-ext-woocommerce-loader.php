@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Woocommerce_Loader {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -297,26 +300,26 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			/**
 			 * Register Partials
 			 */
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-customizer-ext-woocommerce-partials.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-customizer-ext-woocommerce-partials.php';
 
 			/**
 			 * Register Sections & Panels
 			 */
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-woocommerce-panels-and-sections.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-woocommerce-panels-and-sections.php';
 
 			/**
 			 * Sections
 			 */
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-general-configs.php';
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-configs.php';
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-single-configs.php';
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-checkout-configs.php';
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-general-colors-configs.php';
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-single-typo-configs.php';
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-single-colors-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-general-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-single-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-checkout-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-general-colors-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-single-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-single-colors-configs.php';
 
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-typo-configs.php';
-			require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-colors-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-typo-configs.php';
+			require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/sections/class-astra-woocommerce-shop-colors-configs.php';
 		}
 
 		/**
@@ -332,7 +335,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 				$js_path = 'assets/js/minified/customizer-preview.min.js';
 			}
 
-			wp_register_script( 'ast-woocommerce-customizer-preview', ASTRA_EXT_WOOCOMMERCE_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
+			wp_register_script( 'ast-woocommerce-customizer-preview', ASTRA_ADDON_EXT_WOOCOMMERCE_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 
 			$localize_array = array(
 				'cart_hash_key' => WC()->ajax_url() . '-wc_cart_hash',

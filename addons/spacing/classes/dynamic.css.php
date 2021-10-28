@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_ext_spacing_dynamic_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_ext_spacing_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -61,6 +61,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	$blog_featured_image_padding    = astra_get_option( 'blog-featured-image-padding' );
 	$remove_single_featured_padding = astra_get_option( 'single-featured-image-padding' );
+	$alignfull_editor_selector      = ( true === astra_get_option( 'improve-gb-editor-ui' ) ) ? '.ast-no-sidebar.ast-separate-container .entry-content > .alignfull' : '.ast-no-sidebar.ast-separate-container .entry-content .alignfull'; // Updated selector here because there is no requirement of extra spacing for nested alignfull blocks.
 	// Desktop Spacing.
 	$spacing = array(
 
@@ -86,7 +87,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		// Negative margin for the alignfull gutenberg class based on the padding.
-		'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
+		$alignfull_editor_selector => array(
 			'margin-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'desktop', '', '-' ),
 			'margin-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'desktop', '', '-' ),
 		),
@@ -150,7 +151,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-left'   => astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'desktop' ),
 		),
 		// Blog Pagination Spacing.
-		'.ast-pagination' => array(
+		'.ast-pagination'          => array(
 			'padding-top'    => astra_responsive_spacing( $blog_post_pagination_spacing, 'top', 'desktop' ),
 			'padding-right'  => astra_responsive_spacing( $blog_post_pagination_spacing, 'right', 'desktop' ),
 			'padding-bottom' => astra_responsive_spacing( $blog_post_pagination_spacing, 'bottom', 'desktop' ),
@@ -249,13 +250,13 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-left'   => astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'tablet' ),
 		),
 		// Blog Pagination Spacing.
-		'.ast-pagination' => array(
+		'.ast-pagination'          => array(
 			'padding-top'    => astra_responsive_spacing( $blog_post_pagination_spacing, 'top', 'tablet' ),
 			'padding-right'  => astra_responsive_spacing( $blog_post_pagination_spacing, 'right', 'tablet' ),
 			'padding-bottom' => astra_responsive_spacing( $blog_post_pagination_spacing, 'bottom', 'tablet' ),
 			'padding-left'   => astra_responsive_spacing( $blog_post_pagination_spacing, 'left', 'tablet' ),
 		),
-		'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
+		$alignfull_editor_selector => array(
 			'margin-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'tablet', '', '-' ),
 			'margin-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'tablet', '', '-' ),
 		),
@@ -366,13 +367,13 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-left'   => astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'mobile' ),
 		),
 		// Blog Pagination Spacing.
-		'.ast-pagination' => array(
+		'.ast-pagination'          => array(
 			'padding-top'    => astra_responsive_spacing( $blog_post_pagination_spacing, 'top', 'mobile' ),
 			'padding-right'  => astra_responsive_spacing( $blog_post_pagination_spacing, 'right', 'mobile' ),
 			'padding-bottom' => astra_responsive_spacing( $blog_post_pagination_spacing, 'bottom', 'mobile' ),
 			'padding-left'   => astra_responsive_spacing( $blog_post_pagination_spacing, 'left', 'mobile' ),
 		),
-		'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
+		$alignfull_editor_selector => array(
 			'margin-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'mobile', '', '-' ),
 			'margin-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'mobile', '', '-' ),
 		),

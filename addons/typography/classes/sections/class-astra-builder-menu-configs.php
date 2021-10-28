@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 	/**
 	 * Register below header Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Builder_Menu_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Primary Menu typography Customizer Configurations.

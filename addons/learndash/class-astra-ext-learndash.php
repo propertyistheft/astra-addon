@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_LEARNDASH_DIR', ASTRA_EXT_DIR . 'addons/learndash/' );
-define( 'ASTRA_EXT_LEARNDASH_URI', ASTRA_EXT_URI . 'addons/learndash/' );
+define( 'ASTRA_ADDON_EXT_LEARNDASH_DIR', ASTRA_EXT_DIR . 'addons/learndash/' );
+define( 'ASTRA_ADDON_EXT_LEARNDASH_URI', ASTRA_EXT_URI . 'addons/learndash/' );
 
 if ( ! class_exists( 'Astra_Ext_LearnDash' ) ) {
 
@@ -15,7 +15,10 @@ if ( ! class_exists( 'Astra_Ext_LearnDash' ) ) {
 	 *
 	 * @since 1.3.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_LearnDash {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -42,12 +45,12 @@ if ( ! class_exists( 'Astra_Ext_LearnDash' ) ) {
 			// If plugin - 'LearnDash' not exist then return.
 			if ( class_exists( 'SFWD_LMS' ) ) {
 
-				require_once ASTRA_EXT_LEARNDASH_DIR . 'classes/class-astra-ext-learndash-markup.php';
-				require_once ASTRA_EXT_LEARNDASH_DIR . 'classes/class-astra-ext-learndash-loader.php';
+				require_once ASTRA_ADDON_EXT_LEARNDASH_DIR . 'classes/class-astra-ext-learndash-markup.php';
+				require_once ASTRA_ADDON_EXT_LEARNDASH_DIR . 'classes/class-astra-ext-learndash-loader.php';
 
 				// Include front end files.
 				if ( ! is_admin() ) {
-					require_once ASTRA_EXT_LEARNDASH_DIR . 'classes/dynamic.css.php';
+					require_once ASTRA_ADDON_EXT_LEARNDASH_DIR . 'classes/dynamic.css.php';
 				}
 			}
 

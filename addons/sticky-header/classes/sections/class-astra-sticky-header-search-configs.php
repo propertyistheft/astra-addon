@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Sticky_Header_Search_Configs' ) ) {
 	/**
 	 * Register Sticky Header Above Header ColorsCustomizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Sticky_Header_Search_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Sticky Header Colors Customizer Configurations.

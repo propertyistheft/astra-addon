@@ -16,7 +16,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 	 *  Constructor
 	 */
 	public function __construct() {
-		add_filter( 'astra_dynamic_css', array( $this, 'astra_ext_colors_dynamic_css' ) );
+		add_filter( 'astra_addon_dynamic_css', array( $this, 'astra_ext_colors_dynamic_css' ) );
 	}
 
 
@@ -204,7 +204,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		 *
 		 * @since 3.5.0
 		 */
-		if ( is_astra_theme_3_5_0_version() ) {
+		if ( astra_addon_check_theme_3_5_0_version() ) {
 			$header_color_site_title   = astra_get_option( 'header-color-site-title' );
 			$header_color_h_site_title = astra_get_option( 'header-color-h-site-title' );
 			$header_color_site_tagline = astra_get_option( 'header-color-site-tagline' );
@@ -525,10 +525,6 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		$search_height_mobile  = astra_get_prop( astra_get_option( 'header-search-height' ), 'mobile' );
 
 		$search_css_output = array(
-			$search_selector . ' form.search-form .search-field' => array(
-				'height' => astra_get_css_value( $search_height_desktop, 'px' ),
-			),
-
 			// Search Box Background.
 			$search_selector . ' .search-field'           => array(
 				'background-color' => esc_attr( astra_get_option( 'header-search-box-background-color' ) ),
@@ -554,7 +550,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 				'border-radius'       => astra_get_css_value( $search_border_radius, 'px' ),
 			),
 
-			$search_selector . ' .search-form:hover'      => array(
+			$search_selector . ' .search-form:hover, .ast-search-icon:hover + .search-form' => array(
 				'border-color' => esc_attr( astra_get_option( 'header-search-border-h-color' ) ),
 			),
 
@@ -593,6 +589,13 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			),
 		);
 
+		// Checking valid height value to remove CSS parse error -> .selector { height: px; }.
+		if ( '' !== $search_height_desktop && null !== $search_height_desktop ) {
+			$search_css_output[ $search_selector . ' form.search-form .search-field' ] = array(
+				'height' => astra_get_css_value( $search_height_desktop, 'px' ),
+			);
+		}
+
 		$search_css_output_tablet = array(
 			'.ast-header-search .astra-search-icon:hover' => array(
 				'color' => esc_attr( $icon_h_color_tablet ),
@@ -600,10 +603,13 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			$search_selector . ' .search-field, ' . $search_selector . ' .search-field::placeholder' => array(
 				'color' => esc_attr( $text_color_tablet ),
 			),
-			'.ast-header-break-point ' . $search_selector . ' .search-form .search-field' => array(
-				'height' => esc_attr( $search_height_tablet ) . 'px',
-			),
 		);
+
+		if ( '' !== $search_height_tablet && null !== $search_height_tablet ) {
+			$search_css_output_tablet[ '.ast-header-break-point ' . $search_selector . ' .search-form .search-field' ] = array(
+				'height' => astra_get_css_value( $search_height_tablet, 'px' ),
+			);
+		}
 
 		$search_css_output_mobile = array(
 			'.ast-header-search .astra-search-icon:hover' => array(
@@ -612,10 +618,13 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			$search_selector . ' .search-field, ' . $search_selector . ' .search-field::placeholder' => array(
 				'color' => esc_attr( $text_color_mobile ),
 			),
-			'.ast-header-break-point ' . $search_selector . ' .search-form .search-field' => array(
-				'height' => esc_attr( $search_height_mobile ) . 'px',
-			),
 		);
+
+		if ( '' !== $search_height_mobile && null !== $search_height_mobile ) {
+			$search_css_output_mobile[ '.ast-header-break-point ' . $search_selector . ' .search-form .search-field' ] = array(
+				'height' => astra_get_css_value( $search_height_mobile, 'px' ),
+			);
+		}
 
 		$css_output .= astra_parse_css( $search_css_output );
 		$css_output .= astra_parse_css( $search_css_output_tablet, '', astra_addon_get_tablet_breakpoint() );

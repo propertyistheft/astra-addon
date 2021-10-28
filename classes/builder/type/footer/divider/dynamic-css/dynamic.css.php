@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Heading Colors
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_fb_divider_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_addon_footer_divider_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -24,7 +24,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_divider_dynamic_css' );
  *
  * @since 3.0.0
  */
-function astra_fb_divider_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_footer_divider_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$dynamic_css .= Astra_Divider_Component_Dynamic_CSS::astra_divider_dynamic_css( 'footer' );
 

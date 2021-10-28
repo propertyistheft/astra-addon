@@ -23,8 +23,9 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  *
  * @since 3.0.0
  */
-class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
-
+// @codingStandardsIgnoreStart
+class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Register Builder Customizer Configurations.

@@ -12,7 +12,9 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_White_Label_Markup {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_White_Label_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -238,7 +240,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				$show_branding = false;
 			}
 
-			return apply_filters( 'astra_pro_show_branding', $show_branding );
+			return apply_filters( 'astra_addon_show_branding', $show_branding );
 		}
 
 		/**

@@ -9,15 +9,15 @@
  * @package Astra Addon
  */
 
-$section = Astra_Ext_Header_Sections_Markup::get_above_header_section( 'above-header-section-1' );
-$value1  = astra_get_option( 'above-header-section-1' );
+$astra_addon_abv_header_section_type  = Astra_Ext_Header_Sections_Markup::get_above_header_section( 'above-header-section-1' );
+$astra_addon_abv_header_section_value = astra_get_option( 'above-header-section-1' );
 /**
  * Hide above header markup if:
  *
  * - User is not logged in. [AND]
  * - Sections 1 is set to none
  */
-if ( empty( $section ) ) {
+if ( empty( $astra_addon_abv_header_section_type ) ) {
 	return;
 }
 ?>
@@ -27,9 +27,9 @@ if ( empty( $section ) ) {
 		<?php do_action( 'astra_above_header_top' ); ?>
 		<div class="ast-container">
 			<div class="ast-flex ast-above-header-section-wrap">
-		<?php if ( $section ) { ?>
-					<div class="ast-above-header-section ast-above-header-section-1 ast-flex ast-justify-content-center <?php echo esc_attr( $value1 ); ?>-above-header" >
-						<?php echo $section; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php if ( $astra_addon_abv_header_section_type ) { ?>
+					<div class="ast-above-header-section ast-above-header-section-1 ast-flex ast-justify-content-center <?php echo esc_attr( $astra_addon_abv_header_section_value ); ?>-above-header" >
+						<?php echo $astra_addon_abv_header_section_type; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
 				<?php } ?>
 			</div>

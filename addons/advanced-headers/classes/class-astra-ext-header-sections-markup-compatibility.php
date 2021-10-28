@@ -14,7 +14,9 @@
  *
  * @since 3.3.0
  */
-class Astra_Ext_Header_Sections_Markup_Compatibility {
+// @codingStandardsIgnoreStart
+class Astra_Ext_Header_Sections_Markup_Compatibility { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 *  Constructor

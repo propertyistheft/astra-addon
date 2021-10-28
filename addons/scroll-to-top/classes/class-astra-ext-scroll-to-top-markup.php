@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Ext_Scroll_To_Top_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Scroll_To_Top_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -37,8 +40,8 @@ if ( ! class_exists( 'Astra_Ext_Scroll_To_Top_Markup' ) ) {
 		public function __construct() {
 
 			add_action( 'wp_footer', array( $this, 'html_markup_loader' ) );
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 
 		}
 
@@ -51,7 +54,7 @@ if ( ! class_exists( 'Astra_Ext_Scroll_To_Top_Markup' ) ) {
 		 */
 		public function html_markup_loader() {
 
-			astra_get_template( 'scroll-to-top/template/scroll-to-top.php' );
+			astra_addon_get_template( 'scroll-to-top/template/scroll-to-top.php' );
 		}
 
 
@@ -65,8 +68,8 @@ if ( ! class_exists( 'Astra_Ext_Scroll_To_Top_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_SCROLL_TO_TOP_URL . 'assets/css/';
-			$path = ASTRA_EXT_SCROLL_TO_TOP_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_SCROLL_TO_TOP_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_SCROLL_TO_TOP_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -108,8 +111,8 @@ if ( ! class_exists( 'Astra_Ext_Scroll_To_Top_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_SCROLL_TO_TOP_URL . 'assets/js/';
-			$path = ASTRA_EXT_SCROLL_TO_TOP_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_SCROLL_TO_TOP_URL . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_SCROLL_TO_TOP_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';

@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Colors_Configs' ) ) {
 	/**
 	 * Register Woocommerce general Color Layout Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Woocommerce_General_Colors_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Woocommerce general Color Layout Configurations.

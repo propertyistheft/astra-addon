@@ -13,15 +13,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'ASTRA_EXT_FOOTER_BUTTON_DIR', ASTRA_EXT_DIR . 'classes/builder/type/footer/button/' );
-define( 'ASTRA_EXT_FOOTER_BUTTON_URI', ASTRA_EXT_URI . 'classes/builder/type/footer/button/' );
+define( 'ASTRA_ADDON_EXT_FOOTER_BUTTON_DIR', ASTRA_EXT_DIR . 'classes/builder/type/footer/button/' );
+define( 'ASTRA_ADDON_EXT_FOOTER_BUTTON_URI', ASTRA_EXT_URI . 'classes/builder/type/footer/button/' );
 
 /**
  * Button Initial Setup
  *
  * @since 3.1.0
  */
-class Astra_Ext_Footer_Button_Component {
+// @codingStandardsIgnoreStart
+class Astra_Ext_Footer_Button_Component { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Constructor function that initializes required actions and hooks
@@ -29,12 +31,12 @@ class Astra_Ext_Footer_Button_Component {
 	public function __construct() {
 
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-		require_once ASTRA_EXT_FOOTER_BUTTON_DIR . 'classes/class-astra-ext-footer-button-component-loader.php';
+		require_once ASTRA_ADDON_EXT_FOOTER_BUTTON_DIR . 'classes/class-astra-ext-footer-button-component-loader.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 		// Include front end files.
 		if ( ! is_admin() ) {
-			require_once ASTRA_EXT_FOOTER_BUTTON_DIR . 'dynamic-css/dynamic.css.php';
+			require_once ASTRA_ADDON_EXT_FOOTER_BUTTON_DIR . 'dynamic-css/dynamic.css.php';
 		}
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}

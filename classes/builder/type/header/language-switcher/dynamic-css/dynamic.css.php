@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Language Switcher Colors
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_hb_lang_switcher_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_addon_header_lang_switcher_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -24,7 +24,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_lang_switcher_dynamic_css' );
  *
  * @since 3.1.0
  */
-function astra_hb_lang_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_header_lang_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	if ( Astra_Addon_Builder_Helper::is_component_loaded( 'language-switcher', 'header' ) ) {
 		$dynamic_css .= Astra_Language_Switcher_Component_Dynamic_CSS::astra_language_switcher_dynamic_css( 'header' );

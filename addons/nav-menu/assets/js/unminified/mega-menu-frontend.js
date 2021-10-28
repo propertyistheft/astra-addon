@@ -95,7 +95,7 @@ function apply_megamenu_width_styles() {
 				$main_container = jQuery( $main_container ).closest('.ast-container' );
 			}
 
-			if ( ( parseInt( jQuery(window).width() ) > parseInt( astra.break_point ) ) && 'ast-hf-mobile-menu' !== $this.parent().attr("id") ) {
+			if ( ( parseInt( jQuery(window).width() ) > parseInt( astra.break_point ) ) && 'ast-hf-mobile-menu' !== $this.parent().attr("id") && 'ast-desktop-toggle-menu' !== $this.parent().attr("id") ) {
 
 				var $menuWidth           = $main_container.width(),
 					$menuPosition        = $main_container.offset(),
@@ -174,7 +174,7 @@ document.addEventListener( 'astMenuHoverStyleChanged', function() {
         $main_container = ast_container.children(),
         $full_width_main_container = ast_container.parent(),
         $this            = jQuery( container );
-        
+
     // Full width mega menu
     if( $this.hasClass( 'full-width-mega' ) || $this.hasClass( 'full-stretched-width-mega' ) ) {
         $main_container = jQuery( $main_container ).closest('.ast-container' );
@@ -185,7 +185,7 @@ document.addEventListener( 'astMenuHoverStyleChanged', function() {
         $this.find( '.sub-menu' ).addClass( 'astra-megamenu-focus' );
         $this.find( '.sub-menu' ).removeClass( 'ast-hidden' );
         $this.find( '.astra-full-megamenu-wrapper' ).addClass( 'astra-megamenu-wrapper-focus' );
-        if ( parseInt( jQuery(window).width() ) > parseInt( astra.break_point ) && 'ast-hf-mobile-menu' !== $this.parent().attr("id") ) {
+        if ( ( parseInt( jQuery(window).width() ) > parseInt( astra.break_point ) ) && 'ast-hf-mobile-menu' !== $this.parent().attr("id") && 'ast-desktop-toggle-menu' !== $this.parent().attr("id") ) {
 
             var $menuWidth           = $main_container.width(),
                 $menuPosition        = $main_container.offset(),

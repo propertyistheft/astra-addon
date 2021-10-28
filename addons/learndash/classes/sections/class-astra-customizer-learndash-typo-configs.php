@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Learndash_Typo_Configs' ) ) {
 	/**
 	 * Register Typo Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Learndash_Typo_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Typo Customizer Configurations.

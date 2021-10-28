@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Learndash_Color_Configs' ) ) {
 	/**
 	 * Register Learndash color Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Learndash_Color_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Learndash color Customizer Configurations.

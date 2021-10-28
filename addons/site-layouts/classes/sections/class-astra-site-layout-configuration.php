@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Site_Layout_Configuration' ) ) {
 	/**
 	 * Register Site Layout Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Site_Layout_Configuration extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Site Layout Customizer Configurations.

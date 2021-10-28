@@ -24,7 +24,10 @@ if ( class_exists( 'Astra_Language_Switcher_Component_Configs' ) ) {
  *
  * @since 3.1.0
  */
+// @codingStandardsIgnoreStart
 class Astra_Language_Switcher_Component_Configs {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Register Builder Customizer Configurations.

@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 	/**
 	 * Register Course Lesson Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Lifterlms_Course_Lesson_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Course Lesson Customizer Configurations.

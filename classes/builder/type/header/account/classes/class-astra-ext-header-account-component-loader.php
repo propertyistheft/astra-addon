@@ -18,7 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 3.0.0
  */
+// @codingStandardsIgnoreStart
 class Astra_Ext_Header_Account_Component_Loader {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Constructor

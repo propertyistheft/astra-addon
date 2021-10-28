@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_TYPOGRAPHY_DIR', ASTRA_EXT_DIR . 'addons/typography/' );
-define( 'ASTRA_EXT_TYPOGRAPHY_URI', ASTRA_EXT_URI . 'addons/typography/' );
+define( 'ASTRA_ADDON_EXT_TYPOGRAPHY_DIR', ASTRA_EXT_DIR . 'addons/typography/' );
+define( 'ASTRA_ADDON_EXT_TYPOGRAPHY_URI', ASTRA_EXT_URI . 'addons/typography/' );
 
 if ( ! class_exists( 'Astra_Ext_Typography' ) ) {
 
@@ -15,7 +15,10 @@ if ( ! class_exists( 'Astra_Ext_Typography' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Typography {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -39,11 +42,11 @@ if ( ! class_exists( 'Astra_Ext_Typography' ) ) {
 		 */
 		public function __construct() {
 
-			require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/class-astra-ext-typography-loader.php';
+			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/class-astra-ext-typography-loader.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
-				require_once ASTRA_EXT_TYPOGRAPHY_DIR . 'classes/dynamic.css.php';
+				require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/dynamic.css.php';
 			}
 
 		}

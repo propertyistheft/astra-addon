@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_LIFTERLMS_DIR', ASTRA_EXT_DIR . 'addons/lifterlms/' );
-define( 'ASTRA_EXT_LIFTERLMS_URI', ASTRA_EXT_URI . 'addons/lifterlms/' );
+define( 'ASTRA_ADDON_EXT_LIFTERLMS_DIR', ASTRA_EXT_DIR . 'addons/lifterlms/' );
+define( 'ASTRA_ADDON_EXT_LIFTERLMS_URI', ASTRA_EXT_URI . 'addons/lifterlms/' );
 
 if ( ! class_exists( 'Astra_Ext_LifterLMS' ) ) {
 
@@ -15,7 +15,9 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_LifterLMS {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_LifterLMS { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -42,12 +44,12 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS' ) ) {
 			// If plugin - 'LifterLMS' not exist then return.
 			if ( class_exists( 'LifterLMS' ) ) {
 
-				require_once ASTRA_EXT_LIFTERLMS_DIR . 'classes/class-astra-ext-lifterlms-markup.php';
-				require_once ASTRA_EXT_LIFTERLMS_DIR . 'classes/class-astra-ext-lifterlms-loader.php';
+				require_once ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'classes/class-astra-ext-lifterlms-markup.php';
+				require_once ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'classes/class-astra-ext-lifterlms-loader.php';
 
 				// Include front end files.
 				if ( ! is_admin() ) {
-					require_once ASTRA_EXT_LIFTERLMS_DIR . 'classes/dynamic.css.php';
+					require_once ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'classes/dynamic.css.php';
 				}
 			}
 

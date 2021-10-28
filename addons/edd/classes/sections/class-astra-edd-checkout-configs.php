@@ -24,7 +24,9 @@ if ( ! class_exists( 'Astra_Edd_Checkout_Configs' ) ) {
 	/**
 	 * Register Easy Digital Downloads Checkout Layout Configurations.
 	 */
-	class Astra_Edd_Checkout_Configs extends Astra_Customizer_Config_Base {
+	// @codingStandardsIgnoreStart
+	class Astra_Edd_Checkout_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Easy Digital Downloads Checkout Layout Configurations.

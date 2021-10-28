@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 	/**
 	 * Register Woocommerce Shop Layout Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Woocommerce_Shop_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Woocommerce Shop Layout Configurations.

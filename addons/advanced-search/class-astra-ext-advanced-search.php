@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_ADVANCED_SEARCH_DIR', ASTRA_EXT_DIR . 'addons/advanced-search/' );
-define( 'ASTRA_EXT_ADVANCED_SEARCH_URL', ASTRA_EXT_URI . 'addons/advanced-search/' );
+define( 'ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR', ASTRA_EXT_DIR . 'addons/advanced-search/' );
+define( 'ASTRA_ADDON_EXT_ADVANCED_SEARCH_URL', ASTRA_EXT_URI . 'addons/advanced-search/' );
 
 if ( ! class_exists( 'Astra_Ext_Advanced_Search' ) ) {
 
@@ -15,7 +15,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Search' ) ) {
 	 *
 	 * @since 1.4.8
 	 */
-	class Astra_Ext_Advanced_Search {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Advanced_Search { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -43,14 +45,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Search' ) ) {
 		 * @since 1.4.8
 		 */
 		public function __construct() {
-			require_once ASTRA_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-loader.php';
-			require_once ASTRA_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-markup.php';
-			require_once ASTRA_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-shortcodes.php';
+			require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-loader.php';
+			require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-markup.php';
+			require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-shortcodes.php';
 			if ( false === Astra_Icons::is_svg_icons() ) {
-				require_once ASTRA_EXT_ADVANCED_SEARCH_DIR . 'classes/dynamic.css.php';
+				require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/dynamic.css.php';
 			}
 			if ( version_compare( ASTRA_THEME_VERSION, '3.2.0', '<' ) ) {
-				require_once ASTRA_EXT_ADVANCED_SEARCH_DIR . 'dynamic.css.php';
+				require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'dynamic.css.php';
 			}
 		}
 	}

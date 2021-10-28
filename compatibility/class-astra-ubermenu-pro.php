@@ -18,7 +18,9 @@ if ( ! class_exists( 'Astra_UberMenu_Pro' ) ) :
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_UberMenu_Pro {
+	// @codingStandardsIgnoreStart
+	class Astra_UberMenu_Pro { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable

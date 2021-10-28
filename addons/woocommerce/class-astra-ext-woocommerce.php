@@ -5,8 +5,8 @@
  * @package Astra Addon
  */
 
-define( 'ASTRA_EXT_WOOCOMMERCE_DIR', ASTRA_EXT_DIR . 'addons/woocommerce/' );
-define( 'ASTRA_EXT_WOOCOMMERCE_URI', ASTRA_EXT_URI . 'addons/woocommerce/' );
+define( 'ASTRA_ADDON_EXT_WOOCOMMERCE_DIR', ASTRA_EXT_DIR . 'addons/woocommerce/' );
+define( 'ASTRA_ADDON_EXT_WOOCOMMERCE_URI', ASTRA_EXT_URI . 'addons/woocommerce/' );
 
 if ( ! class_exists( 'Astra_Ext_WooCommerce' ) ) {
 
@@ -15,7 +15,10 @@ if ( ! class_exists( 'Astra_Ext_WooCommerce' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_WooCommerce {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -42,13 +45,13 @@ if ( ! class_exists( 'Astra_Ext_WooCommerce' ) ) {
 			// If plugin - 'WooCommerce' not exist then return.
 			if ( class_exists( 'WooCommerce' ) ) {
 
-				require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/common-functions.php';
-				require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-ext-woocommerce-markup.php';
-				require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-ext-woocommerce-loader.php';
+				require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/common-functions.php';
+				require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-ext-woocommerce-markup.php';
+				require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/class-astra-ext-woocommerce-loader.php';
 
 				// Include front end files.
 				if ( ! is_admin() ) {
-					require_once ASTRA_EXT_WOOCOMMERCE_DIR . 'classes/dynamic.css.php';
+					require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/dynamic.css.php';
 				}
 			}
 

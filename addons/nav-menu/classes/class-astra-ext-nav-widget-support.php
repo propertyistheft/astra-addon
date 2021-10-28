@@ -17,7 +17,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 	 *
 	 * @since 1.6.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Nav_Widget_Support {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable

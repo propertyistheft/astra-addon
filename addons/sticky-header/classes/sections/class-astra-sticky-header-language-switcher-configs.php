@@ -22,7 +22,10 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 /**
  * Register Sticky Header Above Header Colors Customizer Configurations.
  */
+// @codingStandardsIgnoreStart
 class Astra_Sticky_Header_Language_Switcher_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 	/**
 	 * Register Sticky Header Colors Customizer Configurations.

@@ -24,7 +24,9 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Configs' ) ) {
 	/**
 	 * Register Advanced Footer Customizer Configurations.
 	 */
-	class Astra_Advanced_Footer_Configs extends Astra_Customizer_Config_Base {
+	// @codingStandardsIgnoreStart
+	class Astra_Advanced_Footer_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Advanced Footer Customizer Configurations.

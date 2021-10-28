@@ -68,7 +68,7 @@ function astra_addon_page_header_parallax_device() {
  *
  * @return void
  */
-function astra_responsive_content_background_option() {
+function astra_responsive_content_background_option() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 	$theme_options = get_option( 'astra-settings', array() );
 
@@ -139,7 +139,7 @@ function astra_addon_update_theme_tablet_breakpoint() {
  *
  * @return bool
  */
-function custom_layout_compatibility_having_code_posts() {
+function custom_layout_compatibility_having_code_posts() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 	$posts = get_posts(
 		array(
@@ -358,7 +358,7 @@ function astra_addon_swap_section_not_working_in_old_header() {
  *
  * @return void
  */
-function astra_sticky_header_site_title_tagline_css() {
+function astra_sticky_header_site_title_tagline_css() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['sticky-header-default-site-title-tagline-css'] ) ) {

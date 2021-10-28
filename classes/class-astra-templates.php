@@ -9,7 +9,7 @@
 /**
  * Astra get template.
  */
-if ( ! function_exists( 'astra_get_template' ) ) {
+if ( ! function_exists( 'astra_addon_get_template' ) ) {
 
 	/**
 	 * Get other templates (e.g. blog layout 2/3, advanced footer layout 1/2/3/etc) passing attributes and including the file.
@@ -22,9 +22,9 @@ if ( ! function_exists( 'astra_get_template' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function astra_get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
+	function astra_addon_get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 
-		$located = astra_locate_template( $template_name, $template_path, $default_path );
+		$located = astra_addon_locate_template( $template_name, $template_path, $default_path );
 
 		if ( ! file_exists( $located ) ) {
 			/* translators: 1: file location */
@@ -46,7 +46,7 @@ if ( ! function_exists( 'astra_get_template' ) ) {
 /**
  * Astra locate template.
  */
-if ( ! function_exists( 'astra_locate_template' ) ) {
+if ( ! function_exists( 'astra_addon_locate_template' ) ) {
 	/**
 	 * Locate a template and return the path for inclusion.
 	 *
@@ -63,7 +63,7 @@ if ( ! function_exists( 'astra_locate_template' ) ) {
 	 * @since 1.0.0
 	 * @return string return the template path which is maybe filtered.
 	 */
-	function astra_locate_template( $template_name, $template_path = '', $default_path = '' ) {
+	function astra_addon_locate_template( $template_name, $template_path = '', $default_path = '' ) {
 
 		if ( ! $template_path ) {
 			$template_path = 'astra-addon/';

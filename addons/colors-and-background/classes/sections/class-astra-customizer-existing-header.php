@@ -29,7 +29,9 @@ if ( ! class_exists( 'Astra_Customizer_Existing_Header' ) ) {
 	/**
 	 * Register General Customizer Configurations.
 	 */
-	class Astra_Customizer_Existing_Header extends Astra_Customizer_Config_Base {
+	// @codingStandardsIgnoreStart
+	class Astra_Customizer_Existing_Header extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register General Customizer Configurations.

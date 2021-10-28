@@ -35,7 +35,7 @@ class Astra_Addon_Update_Filter_Function {
 	public static function support_addon_font_css_to_widget_and_in_editor() {
 		$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['can-support-widget-and-editor-fonts'] = isset( $astra_settings['can-support-widget-and-editor-fonts'] ) ? false : true;
-		return apply_filters( 'astra_heading_fonts_typo_support', $astra_settings['can-support-widget-and-editor-fonts'] );
+		return apply_filters( 'astra_heading_fonts_typo_support', $astra_settings['can-support-widget-and-editor-fonts'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 	/**
@@ -48,7 +48,7 @@ class Astra_Addon_Update_Filter_Function {
 	public static function astra_cart_color_default_icon_old_header() {
 		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['can-reflect-cart-color-in-old-header'] = isset( $astra_settings['can-reflect-cart-color-in-old-header'] ) ? false : true;
-		return apply_filters( 'astra_support_default_cart_color_in_old_header', $astra_settings['can-reflect-cart-color-in-old-header'] );
+		return apply_filters( 'astra_support_default_cart_color_in_old_header', $astra_settings['can-reflect-cart-color-in-old-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Astra_Addon_Update_Filter_Function {
 	public static function astra_add_bg_color_outline_cart_header_builder() {
 		$astra_settings                                   = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['add-outline-cart-bg-new-header'] = isset( $astra_settings['add-outline-cart-bg-new-header'] ) ? false : true;
-		return apply_filters( 'astra_apply_background_to_outline_cart_builder_element', $astra_settings['add-outline-cart-bg-new-header'] );
+		return apply_filters( 'astra_apply_background_to_outline_cart_builder_element', $astra_settings['add-outline-cart-bg-new-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 	/**
@@ -73,6 +73,6 @@ class Astra_Addon_Update_Filter_Function {
 	public static function astra_remove_header_sections_deps_header_builder() {
 		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['remove-header-sections-deps-in-new-header'] = isset( $astra_settings['remove-header-sections-deps-in-new-header'] ) ? false : true;
-		return apply_filters( 'astra_remove_header_sections_dependency', $astra_settings['remove-header-sections-deps-in-new-header'] );
+		return apply_filters( 'astra_remove_header_sections_dependency', $astra_settings['remove-header-sections-deps-in-new-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 }

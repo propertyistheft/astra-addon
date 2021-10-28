@@ -13,8 +13,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Advanced_Headers_Loader {
-
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Advanced_Headers_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -84,9 +85,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 		 */
 		private static function load_files() {
 			// Classes.
-			include_once ASTRA_EXT_ADVANCED_HEADERS_DIR . 'classes/class-astra-ext-advanced-headers-data.php';
+			include_once ASTRA_ADDON_EXT_ADVANCED_HEADERS_DIR . 'classes/class-astra-ext-advanced-headers-data.php';
 			// Load Astra Breadcrumbs.
-			include_once ASTRA_EXT_ADVANCED_HEADERS_DIR . 'classes/astra-breadcrumbs.php';
+			include_once ASTRA_ADDON_EXT_ADVANCED_HEADERS_DIR . 'classes/astra-breadcrumbs.php';
 		}
 
 
@@ -272,14 +273,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 				// Scripts.
 				if ( SCRIPT_DEBUG ) {
 
-					wp_enqueue_style( 'astra-advanced-headers-admin-edit', ASTRA_EXT_ADVANCED_HEADERS_URL . 'assets/css/unminified/astra-advanced-headers-admin-edit' . $rtl . '.css', array( 'wp-color-picker' ), ASTRA_EXT_VER );
+					wp_enqueue_style( 'astra-advanced-headers-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/css/unminified/astra-advanced-headers-admin-edit' . $rtl . '.css', array( 'wp-color-picker' ), ASTRA_EXT_VER );
 
-					wp_enqueue_script( 'astra-advanced-headers-admin', ASTRA_EXT_ADVANCED_HEADERS_URL . 'assets/js/unminified/astra-advanced-headers-admin.js', array( 'jquery', 'wp-color-picker', 'astra-color-alpha', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
+					wp_enqueue_script( 'astra-advanced-headers-admin', ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/js/unminified/astra-advanced-headers-admin.js', array( 'jquery', 'wp-color-picker', 'astra-color-alpha', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
 
 				} else {
-					wp_enqueue_style( 'astra-advanced-headers-admin-edit', ASTRA_EXT_ADVANCED_HEADERS_URL . 'assets/css/minified/astra-advanced-headers-admin-edit' . $rtl . '.min.css', array( 'wp-color-picker' ), ASTRA_EXT_VER );
+					wp_enqueue_style( 'astra-advanced-headers-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/css/minified/astra-advanced-headers-admin-edit' . $rtl . '.min.css', array( 'wp-color-picker' ), ASTRA_EXT_VER );
 
-					wp_enqueue_script( 'astra-advanced-headers-admin', ASTRA_EXT_ADVANCED_HEADERS_URL . 'assets/js/minified/astra-advanced-headers-admin.min.js', array( 'jquery', 'wp-color-picker', 'astra-color-alpha', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
+					wp_enqueue_script( 'astra-advanced-headers-admin', ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/js/minified/astra-advanced-headers-admin.min.js', array( 'jquery', 'wp-color-picker', 'astra-color-alpha', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
 				}
 			}
 		}

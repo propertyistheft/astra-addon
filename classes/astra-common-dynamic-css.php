@@ -6,7 +6,7 @@
  */
 
 if ( Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
-	add_filter( 'astra_dynamic_css', 'astra_addon_blog_pro_dynamic_css', 9 );
+	add_filter( 'astra_addon_dynamic_css', 'astra_addon_blog_pro_dynamic_css', 9 );
 }
 
 /**

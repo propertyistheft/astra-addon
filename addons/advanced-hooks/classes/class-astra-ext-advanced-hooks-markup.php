@@ -12,8 +12,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Advanced_Hooks_Markup {
-
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Advanced_Hooks_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -63,10 +64,10 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			/* Add Body Classes */
 			add_filter( 'body_class', array( $this, 'body_classes' ), 10, 1 );
 
-			add_action( 'astra_get_css_files', array( $this, 'add_front_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_front_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_filter( 'astra_addon_js_localize', array( $this, 'localize_variables' ) );
-			add_filter( 'astra_dynamic_css', array( $this, 'astra_ext_advanced_hooks_dynamic_css' ) );
+			add_filter( 'astra_addon_dynamic_css', array( $this, 'astra_ext_advanced_hooks_dynamic_css' ) );
 		}
 
 
@@ -179,7 +180,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 
 				// Exclude rendeting the content in correct action for WooCommerce and 404 Layout.
 				if ( ( 'hooks' === $layout && false == $woocommerce_activated ) || 'header' === $layout || 'footer' === $layout ) {
-					$template = ASTRA_EXT_ADVANCED_HOOKS_DIR . '/template/template.php';
+					$template = ASTRA_ADDON_EXT_ADVANCED_HOOKS_DIR . '/template/template.php';
 				}
 			}
 
@@ -509,8 +510,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 
 						$this->prepare_astra_header_filter( $post_id, '404-page' );
 
-						add_action( 'astra_get_content_layout', 'astra_return_content_layout_page_builder' );
-						add_action( 'astra_page_layout', 'astra_return_page_layout_no_sidebar' );
+						add_action( 'astra_get_content_layout', 'astra_addon_return_content_layout_page_builder' );
+						add_action( 'astra_page_layout', 'astra_addon_return_page_layout_no_sidebar' );
 
 						$layout_404_settings = get_post_meta( $post_id, 'ast-404-page', true );
 						if ( isset( $layout_404_settings['disable_header'] ) && 'enabled' == $layout_404_settings['disable_header'] ) {
@@ -773,8 +774,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			/**
 			* Start Path Logic */
 			/* Define Variables */
-			$uri  = ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/css/';
-			$path = ASTRA_EXT_ADVANCED_HOOKS_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_ADVANCED_HOOKS_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -811,8 +812,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_ADVANCED_HOOKS_URL . 'assets/js/';
-			$path = ASTRA_EXT_ADVANCED_HOOKS_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_ADVANCED_HOOKS_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';

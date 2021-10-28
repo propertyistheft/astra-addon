@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Below_Header_Spacing_Configs' ) ) {
 	/**
 	 * Register Below Header Spacing Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Below_Header_Spacing_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Below Header Spacing Customizer Configurations.

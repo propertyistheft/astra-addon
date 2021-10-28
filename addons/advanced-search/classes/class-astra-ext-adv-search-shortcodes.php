@@ -13,7 +13,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 	 *
 	 * @since 1.4.8
 	 */
-	class Astra_Ext_Adv_Search_Shortcodes {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Adv_Search_Shortcodes { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -54,7 +56,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 		public function enqueue_scripts() {
 
 			/* Define Variables */
-			$uri = ASTRA_EXT_ADVANCED_SEARCH_URL . 'assets/css/';
+			$uri = ASTRA_ADDON_EXT_ADVANCED_SEARCH_URL . 'assets/css/';
 			$rtl = '';
 
 			if ( is_rtl() ) {

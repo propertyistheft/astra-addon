@@ -103,7 +103,7 @@
   padding-bottom: 0.5em;
 }
 
-.ast-sticky-main-shrink .ast-sticky-shrunk #site-navigation {
+.ast-sticky-main-shrink .ast-sticky-shrunk .site-navigation {
   line-height: 3;
 }
 
@@ -135,7 +135,7 @@
   padding-bottom: 0.5em;
 }
 
-.ast-sticky-above-shrink .ast-sticky-shrunk #site-navigation {
+.ast-sticky-above-shrink .ast-sticky-shrunk .site-navigation {
   line-height: 3;
 }
 
@@ -167,7 +167,7 @@
   padding-bottom: 0.5em;
 }
 
-.ast-sticky-below-shrink .ast-sticky-shrunk #site-navigation {
+.ast-sticky-below-shrink .ast-sticky-shrunk .site-navigation {
   line-height: 3;
 }
 

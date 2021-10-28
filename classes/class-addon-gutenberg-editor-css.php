@@ -12,7 +12,9 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 	 *
 	 * @since 1.6.2
 	 */
-	class Addon_Gutenberg_Editor_CSS {
+	// @codingStandardsIgnoreStart
+	class Addon_Gutenberg_Editor_CSS { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Class instance.

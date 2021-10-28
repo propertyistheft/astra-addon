@@ -13,7 +13,10 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 	/**
 	 * Meta Boxes setup
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Target_Rules_Fields {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 
 		/**
@@ -121,7 +124,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			$args['_builtin'] = false;
 			$custom_post_type = get_post_types( $args, 'objects' );
 
-			$post_types = apply_filters( 'astra_location_rule_post_types', array_merge( $post_types, $custom_post_type ) );
+			$post_types = apply_filters( 'astra_addon_location_rule_post_types', array_merge( $post_types, $custom_post_type ) );
 
 			$special_pages = array(
 				'special-404'    => __( '404 Page', 'astra-addon' ),
@@ -203,7 +206,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			 *
 			 * @since 1.5.0
 			 */
-			return apply_filters( 'astra_display_on_list', $selection_options );
+			return apply_filters( 'astra_addon_display_on_list', $selection_options );
 		}
 
 		/**
@@ -240,7 +243,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			 *
 			 * @since 1.5.0
 			 */
-			return apply_filters( 'astra_user_roles_list', $selection_options );
+			return apply_filters( 'astra_addon_user_roles_list', $selection_options );
 		}
 
 		/**
@@ -891,7 +894,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			}
 
 			// filter target page settings.
-			$current_layout = apply_filters( 'astra_target_page_settings', $current_layout, $layout_id );
+			$current_layout = apply_filters( 'astra_addon_target_page_settings', $current_layout, $layout_id );
 
 			return $current_layout;
 		}
@@ -1278,7 +1281,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			$post_type = $post_type ? esc_sql( $post_type ) : esc_sql( $post->post_type );
 
 			if ( is_array( self::$current_page_data ) && isset( self::$current_page_data[ $post_type ] ) ) {
-				return apply_filters( 'astra_get_display_posts_by_conditions', self::$current_page_data[ $post_type ], $post_type );
+				return apply_filters( 'astra_addon_get_display_posts_by_conditions', self::$current_page_data[ $post_type ], $post_type );
 			}
 
 			$current_page_type = $this->get_current_page_type();
@@ -1373,7 +1376,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						break;
 				}
 
-				$meta_args = apply_filters( 'astra_meta_args_post_by_condition', $meta_args, $q_obj, $current_post_id );
+				$meta_args = apply_filters( 'astra_addon_meta_args_post_by_condition', $meta_args, $q_obj, $current_post_id );
 
 				// Ignore the PHPCS warning about constant declaration.
 				// @codingStandardsIgnoreStart
@@ -1393,7 +1396,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$this->remove_user_rule_posts( $post_type, $option );
 			}
 
-			return apply_filters( 'astra_get_display_posts_by_conditions', self::$current_page_data[ $post_type ], $post_type );
+			return apply_filters( 'astra_addon_get_display_posts_by_conditions', self::$current_page_data[ $post_type ], $post_type );
 		}
 
 		/**

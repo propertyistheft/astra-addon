@@ -24,7 +24,10 @@ if ( class_exists( 'Astra_Language_Switcher_Component_Dynamic_CSS' ) ) {
  *
  * @since 3.1.0
  */
+// @codingStandardsIgnoreStart
 class Astra_Language_Switcher_Component_Dynamic_CSS {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Dynamic CSS
@@ -37,6 +40,11 @@ class Astra_Language_Switcher_Component_Dynamic_CSS {
 	public static function astra_language_switcher_dynamic_css( $builder_type = 'header' ) {
 
 		$generated_css = '';
+		if ( false === Astra_Ext_Extension::is_active( 'spacing' ) ) {
+			$generated_css = '.ast-builder-language-switcher-menu-item-header:not(:last-child), .ast-builder-language-switcher-menu-item-footer:not(:last-child) {
+				margin-right: 10px;
+			}';
+		}
 
 		$_section = ( 'header' === $builder_type ) ? 'section-hb-language-switcher' : 'section-fb-language-switcher';
 

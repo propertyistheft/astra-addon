@@ -29,7 +29,10 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Panels_And_Sections' ) ) {
 	/**
 	 * Register Button Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Lifterlms_Panels_And_Sections extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Panels and Sections Customizer Configurations.

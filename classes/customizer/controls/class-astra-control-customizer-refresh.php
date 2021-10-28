@@ -22,7 +22,10 @@ if ( ! class_exists( 'Astra_Control_Customizer_Refresh' ) && class_exists( 'WP_C
 	/**
 	 * Color control (alpha).
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Control_Customizer_Refresh extends WP_Customize_Control {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * The control type.

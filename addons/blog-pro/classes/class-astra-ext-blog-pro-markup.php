@@ -12,7 +12,9 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Blog_Pro_Markup {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Blog_Pro_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -40,8 +42,8 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			add_filter( 'post_class', array( $this, 'astra_post_class_blog_grid' ) );
 			add_filter( 'astra_primary_class', array( $this, 'astra_primary_class_blog_grid' ) );
 			add_filter( 'astra_blog_layout_class', array( $this, 'add_blog_layout_class' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ), 1 );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ), 1 );
 			add_action( 'wp_head', array( $this, 'blog_customization' ) );
 			add_filter( 'astra_blog_post_featured_image_after', array( $this, 'date_box' ), 10, 1 );
 			add_filter( 'astra_related_post_featured_image_after', array( $this, 'date_box' ), 10, 1 );
@@ -152,7 +154,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 		public function author_info_markup() {
 
 			if ( astra_get_option( 'ast-author-info' ) && is_singular( 'post' ) ) {
-				astra_get_template( 'blog-pro/template/author-info.php' );
+				astra_addon_get_template( 'blog-pro/template/author-info.php' );
 			}
 		}
 
@@ -278,7 +280,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 		 * Blog Template Markup
 		 */
 		public function blog_template() {
-			astra_get_template( 'blog-pro/template/' . esc_attr( astra_get_option( 'blog-layout' ) ) . '.php' );
+			astra_addon_get_template( 'blog-pro/template/' . esc_attr( astra_get_option( 'blog-layout' ) ) . '.php' );
 		}
 
 		/**
@@ -449,8 +451,8 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_BLOG_PRO_URI . 'assets/css/';
-			$path = ASTRA_EXT_BLOG_PRO_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_BLOG_PRO_URI . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -508,8 +510,8 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_BLOG_PRO_URI . 'assets/js/';
-			$path = ASTRA_EXT_BLOG_PRO_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_BLOG_PRO_URI . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';
@@ -567,8 +569,8 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 				$dir_name    = 'unminified';
 			}
 
-			$js_gen_path  = ASTRA_EXT_BLOG_PRO_URI . 'assets/js/' . $dir_name . '/';
-			$css_gen_path = ASTRA_EXT_BLOG_PRO_URI . 'assets/css/' . $dir_name . '/';
+			$js_gen_path  = ASTRA_ADDON_EXT_BLOG_PRO_URI . 'assets/js/' . $dir_name . '/';
+			$css_gen_path = ASTRA_ADDON_EXT_BLOG_PRO_URI . 'assets/css/' . $dir_name . '/';
 
 			if ( astra_get_option( 'ast-auto-prev-post' ) && is_singular() ) {
 
@@ -690,7 +692,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			// if this is not a request for partial or a singular object then bail.
 			if ( ( isset( $wp_query->query_vars['partial-prev'] ) || isset( $_GET['partial-prev'] ) ) && is_singular() ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				// include custom template.
-				include ASTRA_EXT_BLOG_PRO_DIR . '/template/content-partial.php';
+				include ASTRA_ADDON_EXT_BLOG_PRO_DIR . '/template/content-partial.php';
 
 				exit;
 			}

@@ -29,7 +29,9 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 	/**
 	 * Register General Customizer Configurations.
 	 */
-	class Astra_Customizer_Colors_Header extends Astra_Customizer_Config_Base {
+	// @codingStandardsIgnoreStart
+	class Astra_Customizer_Colors_Header extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register General Customizer Configurations.
@@ -54,7 +56,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 			 *
 			 * @since 3.5.0
 			 */
-			if ( is_astra_theme_3_5_0_version() ) {
+			if ( astra_addon_check_theme_3_5_0_version() ) {
 				array_push(
 					$_configs,
 					array(

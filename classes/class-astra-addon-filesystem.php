@@ -44,7 +44,7 @@ class Astra_Addon_Filesystem {
 		if ( ! $wp_filesystem ) {
 			require_once ABSPATH . '/wp-admin/includes/file.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
-			$context = apply_filters( 'request_filesystem_credentials_context', false );
+			$context = apply_filters( 'request_filesystem_credentials_context', false ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 			add_filter( 'request_filesystem_credentials', array( $this, 'request_filesystem_credentials' ) );
 
@@ -56,11 +56,11 @@ class Astra_Addon_Filesystem {
 
 		// Set the permission constants if not already set.
 		if ( ! defined( 'FS_CHMOD_DIR' ) ) {
-			define( 'FS_CHMOD_DIR', 0755 );
+			define( 'FS_CHMOD_DIR', 0755 ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 		}
 
 		if ( ! defined( 'FS_CHMOD_FILE' ) ) {
-			define( 'FS_CHMOD_FILE', 0644 );
+			define( 'FS_CHMOD_FILE', 0644 ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 		}
 
 		return $wp_filesystem;
@@ -172,7 +172,7 @@ class Astra_Addon_Filesystem {
 			'url'  => $wp_info['baseurl'] . '/' . $assets_dir . '/',
 		);
 
-		return apply_filters( 'astra_get_assets_uploads_dir', $dir_info );
+		return apply_filters( 'astra_addon_get_assets_uploads_dir', $dir_info );
 	}
 
 	/**

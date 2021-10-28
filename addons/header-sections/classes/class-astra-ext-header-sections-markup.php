@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Header_Sections_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Varible
@@ -74,8 +77,8 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 			}
 			add_action( 'astra_below_header_toggle_buttons', array( $this, 'below_header_toggle_button' ), 11 );
 
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 
 			/**
@@ -1048,7 +1051,7 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 			add_filter( 'astra_enable_mobile_menu_buttons', '__return_true' );
 
 			// Add markup.
-			astra_get_template( 'header-sections/template/' . esc_attr( $below_header_layout ) . '.php' );
+			astra_addon_get_template( 'header-sections/template/' . esc_attr( $below_header_layout ) . '.php' );
 		}
 
 		/**
@@ -1096,7 +1099,7 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 
 			add_filter( 'astra_enable_mobile_menu_buttons', '__return_true' );
 
-			astra_get_template( 'header-sections/template/' . esc_attr( $above_header_layout ) . '.php' );
+			astra_addon_get_template( 'header-sections/template/' . esc_attr( $above_header_layout ) . '.php' );
 		}
 
 		/**
@@ -1142,8 +1145,8 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_HEADER_SECTIONS_URL . 'assets/css/';
-			$path = ASTRA_EXT_HEADER_SECTIONS_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_HEADER_SECTIONS_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_HEADER_SECTIONS_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {
@@ -1201,8 +1204,8 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_HEADER_SECTIONS_URL . 'assets/js/';
-			$path = ASTRA_EXT_HEADER_SECTIONS_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_HEADER_SECTIONS_URL . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_HEADER_SECTIONS_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';

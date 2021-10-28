@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_woocommerce_dynamic_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_woocommerce_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -131,11 +131,6 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	 */
 	$css_output = array(
 
-		// Shop / Archive / Related / Upsell /Woocommerce Shortcode buttons Vertical/Horizontal padding.
-		'.woocommerce.archive ul.products li a.button, .woocommerce > ul.products li a.button, .woocommerce related a.button, .woocommerce .related a.button, .woocommerce .up-sells a.button .woocommerce .cross-sells a.button' => array(
-			'padding' => $btn_v_padding . 'px ' . $btn_h_padding . 'px',
-		),
-
 		/**
 		 * Sale Bubble Styles.
 		 */
@@ -254,6 +249,21 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color' => esc_attr( $cart_products_count_color ),
 		),
 	);
+
+	// Shop / Archive / Related / Upsell /Woocommerce Shortcode buttons Vertical/Horizontal padding.
+	$padding_css_props = array();
+	if ( '' !== $btn_h_padding ) {
+		$padding_css_props['padding-left']  = esc_attr( $btn_h_padding ) . 'px';
+		$padding_css_props['padding-right'] = esc_attr( $btn_h_padding ) . 'px';
+	}
+	if ( '' !== $btn_v_padding ) {
+		$padding_css_props['padding-top']    = esc_attr( $btn_v_padding ) . 'px';
+		$padding_css_props['padding-bottom'] = esc_attr( $btn_v_padding ) . 'px';
+	}
+
+	if ( ! empty( $padding_css_props ) ) {
+		$css_output['.woocommerce.archive ul.products li a.button, .woocommerce > ul.products li a.button, .woocommerce related a.button, .woocommerce .related a.button, .woocommerce .up-sells a.button .woocommerce .cross-sells a.button'] = $padding_css_props;
+	}
 
 	if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && $can_update_cart_color && 'default' === astra_get_option( 'woo-header-cart-icon' ) ) {
 

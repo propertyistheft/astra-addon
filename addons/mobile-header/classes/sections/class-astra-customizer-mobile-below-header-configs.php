@@ -23,7 +23,10 @@ if ( ! class_exists( 'Astra_Customizer_Mobile_Below_Header_Configs' ) ) {
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Customizer_Mobile_Below_Header_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Panels and Sections for Customizer.

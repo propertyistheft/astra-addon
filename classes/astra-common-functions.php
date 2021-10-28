@@ -18,7 +18,7 @@ if ( ! function_exists( 'astra_color_responsive_css' ) ) {
 	 * @param  string $selector     CSS selector.
 	 * @return string               Dynamic responsive CSS.
 	 */
-	function astra_color_responsive_css( $setting, $css_property, $selector ) {
+	function astra_color_responsive_css( $setting, $css_property, $selector ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 		$css = '';
 		if ( isset( $setting['desktop'] ) && ! empty( $setting['desktop'] ) ) {
 			$css .= $selector . '{' . $css_property . ':' . esc_attr( $setting['desktop'] ) . ';}';
@@ -46,7 +46,7 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function astra_responsive_font( $font, $device = 'desktop', $default = '' ) {
+	function astra_responsive_font( $font, $device = 'desktop', $default = '' ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 		$css_val = '';
 
 		if ( isset( $font[ $device ] ) && isset( $font[ $device . '-unit' ] ) ) {
@@ -68,14 +68,14 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 if ( function_exists( 'astra_do_action_deprecated' ) ) {
 
 	// Depreciating astra_woo_qv_product_summary filter.
-	add_action( 'astra_woo_quick_view_product_summary', 'deprecated_astra_woo_quick_view_product_summary', 10 );
+	add_action( 'astra_woo_quick_view_product_summary', 'astra_addon_deprecated_astra_woo_quick_view_product_summary_action', 10 );
 
 	/**
 	 * Astra Color Palettes
 	 *
 	 * @since 1.1.2
 	 */
-	function deprecated_astra_woo_quick_view_product_summary() {
+	function astra_addon_deprecated_astra_woo_quick_view_product_summary_action() {
 
 		astra_do_action_deprecated( 'astra_woo_qv_product_summary', array(), '1.0.22', 'astra_woo_quick_view_product_summary', '' );
 	}
@@ -96,7 +96,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	 * @param  string $prefix Prefix value.
 	 * @return mixed
 	 */
-	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '', $prefix = '' ) {
+	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '', $prefix = '' ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
 			$spacing = astra_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
@@ -127,7 +127,7 @@ if ( ! function_exists( 'astra_calc_spacing' ) ) {
 	 * @param  string $from_unit    Perform operation from the value of unit.
 	 * @return mixed
 	 */
-	function astra_calc_spacing( $value, $operation = '', $from = '', $from_unit = '' ) {
+	function astra_calc_spacing( $value, $operation = '', $from = '', $from_unit = '' ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$css = '';
 		if ( ! empty( $value ) ) {
@@ -158,7 +158,7 @@ if ( ! function_exists( 'astra_get_background_obj' ) ) {
 	 *
 	 * @return array         Color code in HEX.
 	 */
-	function astra_get_background_obj( $bg_obj ) {
+	function astra_get_background_obj( $bg_obj ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$gen_bg_css = array();
 
@@ -233,7 +233,7 @@ if ( ! function_exists( 'astra_get_responsive_background_obj' ) ) {
 	 *
 	 * @return array         Color code in HEX.
 	 */
-	function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
+	function astra_get_responsive_background_obj( $bg_obj_res, $device ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$gen_bg_css = array();
 
@@ -335,10 +335,13 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 	 */
 	function astra_addon_get_search_form( $echo = true ) {
 
+		// get customizer placeholder field value.
+		$astra_search_input_placeholder = isset( $args['input_placeholder'] ) ? $args['input_placeholder'] : astra_default_strings( 'string-search-input-placeholder', false );
+
 		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 			<label>
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra-addon' ) . '</span>
-				<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', 'astra-addon' ) . '" value="' . get_search_query() . '" name="s" />
+				<input type="search" class="search-field" placeholder="' . esc_html( $astra_search_input_placeholder ) . '" value="' . get_search_query() . '" name="s" />
 			</label>
 			<button type="submit" class="search-submit" value="' . esc_html__( 'Search', 'astra-addon' ) . '" aria-label= "' . esc_attr__( 'Search', 'astra-addon' ) . '"><i class="astra-search-icon"> ' . Astra_Icons::get_icons( 'search' ) . ' </i></button>
 		</form>';
@@ -348,7 +351,7 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 		 *
 		 * @param string $form The search form HTML output.
 		 */
-		$result = apply_filters( 'astra_get_search_form', $form );
+		$result = apply_filters( 'astra_get_search_form', $form ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		if ( null === $result ) {
 			$result = $form;
@@ -394,7 +397,7 @@ function astra_addon_wp_version_compare( $version, $compare ) {
  *
  * @since 2.7.1
  */
-function astra_get_megamenu_background_obj( $bg_obj ) {
+function astra_addon_get_megamenu_background_obj( $bg_obj ) {
 
 	$gen_bg_css = array();
 
@@ -441,7 +444,7 @@ function astra_get_megamenu_background_obj( $bg_obj ) {
  *
  * @since 3.0.0
  */
-function astra_get_megamenu_spacing_css( $spacing_obj ) {
+function astra_addon_get_megamenu_spacing_css( $spacing_obj ) {
 
 	$gen_spacing_css = array();
 
@@ -463,6 +466,6 @@ function astra_get_megamenu_spacing_css( $spacing_obj ) {
  *
  * @since  3.5.0
  */
-function is_astra_theme_3_5_0_version() {
+function astra_addon_check_theme_3_5_0_version() {
 	return version_compare( ASTRA_THEME_VERSION, '3.5.0', '<' );
 }

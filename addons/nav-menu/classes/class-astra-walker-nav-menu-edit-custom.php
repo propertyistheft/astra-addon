@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Walker_Nav_Menu_Edit_Custom' ) ) {
 	 *
 	 * @since 1.6.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu_Edit {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Start the element output.

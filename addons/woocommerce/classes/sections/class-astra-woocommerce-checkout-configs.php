@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 	/**
 	 * Register Woocommerce Checkout Layout Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Woocommerce_Checkout_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Woocommerce Checkout Layout Configurations.

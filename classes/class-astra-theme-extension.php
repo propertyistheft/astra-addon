@@ -12,7 +12,9 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Theme_Extension {
+	// @codingStandardsIgnoreStart
+	class Astra_Theme_Extension { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -362,7 +364,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			 *
 			 * @param string $lang_dir The languages directory path.
 			 */
-			$lang_dir = apply_filters( 'astra_languages_directory', $lang_dir );
+			$lang_dir = apply_filters( 'astra_addon_languages_directory', $lang_dir );
 
 			// Traditional WordPress plugin locale filter.
 			global $wp_version;
@@ -379,7 +381,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			 * @var $get_locale The locale to use. Uses get_user_locale()` in WordPress 4.7 or greater,
 			 *                  otherwise uses `get_locale()`.
 			 */
-			$locale = apply_filters( 'plugin_locale', $get_locale, 'astra-addon' );
+			$locale = apply_filters( 'plugin_locale', $get_locale, 'astra-addon' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			$mofile = sprintf( '%1$s-%2$s.mo', 'astra-addon', $locale );
 
 			// Setup paths to current locale file.
@@ -636,7 +638,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 					'ast-ext-admin-settings',
 					'astAdminLacalizeVars',
 					array(
-						'astra_no_toggle_menu_style_deprecate' => apply_filters( 'astra_no_toggle_menu_style_deprecate', $show_deprecated_no_toggle_style ),
+						'astra_no_toggle_menu_style_deprecate' => apply_filters( 'astra_no_toggle_menu_style_deprecate', $show_deprecated_no_toggle_style ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 					)
 				);
 			}
@@ -1004,7 +1006,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		 */
 		public function astra_header_top_right_content() {
 			$top_links = apply_filters(
-				'astra_header_top_links',
+				'astra_header_top_links', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 				array(
 					'astra-theme-info' => array(
 						'title' => __( 'Stylish, Lightning Fast & Easily Customizable!', 'astra-addon' ),
@@ -1151,7 +1153,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 					</p>
 					<p>
 					<?php
-						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . esc_url( 'https://wpastra.com/docs/automatic-beta-updates-for-astra/?utm_source=astra-pro-dashboard&utm_medium=astra-menu-page&utm_campaign=astra-pro-plugin' ) . '">';
+						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . esc_url( 'https://wpastra.com/docs/automatic-beta-updates-for-astra/?utm_source=welcome_page&utm_medium=sidebar&utm_campaign=astra_pro' ) . '">';
 						$a_tag_close = '</a>';
 
 						printf(
@@ -1195,7 +1197,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			$allow_file_generation = get_option( '_astra_file_generation', 'disable' );
 
 			$file_generation_message  = esc_html__( 'Enable this option to generate CSS files.', 'astra-addon' );
-			$file_generation_doc_link = esc_url( 'https://wpastra.com/astra-2-1/?utm_source=astra-pro-dashboard&utm_medium=astra-menu-page&utm_campaign=astra-pro-plugin' );
+			$file_generation_doc_link = esc_url( 'https://wpastra.com/astra-2-1/?utm_source=welcome_page&utm_medium=sidebar&utm_campaign=astra_pro' );
 
 			if ( astra_addon_filesystem()->can_access_filesystem() ) {
 				$refresh_assets_button_text = esc_html__( 'Refresh', 'astra-addon' );

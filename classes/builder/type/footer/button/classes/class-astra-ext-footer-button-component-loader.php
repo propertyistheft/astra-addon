@@ -18,7 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 3.1.0
  */
-class Astra_Ext_Footer_Button_Component_Loader {
+// @codingStandardsIgnoreStart
+class Astra_Ext_Footer_Button_Component_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Constructor
@@ -72,7 +74,7 @@ class Astra_Ext_Footer_Button_Component_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-		wp_enqueue_script( 'astra-ext-footer-button-customizer-preview-js', ASTRA_EXT_FOOTER_BUTTON_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'ahfb-addon-base-customizer-preview' ), ASTRA_EXT_VER, true );
+		wp_enqueue_script( 'astra-ext-footer-button-customizer-preview-js', ASTRA_ADDON_EXT_FOOTER_BUTTON_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'ahfb-addon-base-customizer-preview' ), ASTRA_EXT_VER, true );
 
 		// Localize variables for button JS.
 		wp_localize_script(

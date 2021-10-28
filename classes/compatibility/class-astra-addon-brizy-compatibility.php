@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 
 			if ( $post && $post->uses_editor() ) {
 
-				$content = apply_filters( 'brizy_content', $post->get_compiled_html(), Brizy_Editor_Project::get(), $post->get_wp_post() );
+				$content = apply_filters( 'brizy_content', $post->get_compiled_html(), Brizy_Editor_Project::get(), $post->get_wp_post() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 				echo do_shortcode( $content );
 			}

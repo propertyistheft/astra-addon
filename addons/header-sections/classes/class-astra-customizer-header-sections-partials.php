@@ -18,7 +18,9 @@ if ( ! class_exists( 'Astra_Customizer_Header_Sections_Partials' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Customizer_Header_Sections_Partials {
+	// @codingStandardsIgnoreStart
+	class Astra_Customizer_Header_Sections_Partials { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable

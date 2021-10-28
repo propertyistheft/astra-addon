@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Sticky_Header_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -43,8 +46,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			add_action( 'astra_sticky_header_markup', array( $this, 'fixed_header_markup' ) );
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
-			add_action( 'astra_get_js_files', array( $this, 'add_scripts' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_filter( 'astra_addon_js_localize', array( $this, 'localize_variables' ) );
 
 			/**
@@ -184,6 +187,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 					add_filter( 'get_custom_logo', array( $this, 'sticky_custom_logo' ), 10, 2 );
 				}
 
+				add_filter( 'astra_show_site_title_h1_tag', '__return_false' );
+
 				?>
 
 				<header id="ast-fixed-header" <?php astra_header_classes(); ?> style="visibility: hidden;" data-type="fixed-header">
@@ -205,6 +210,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 					remove_filter( 'astra_replace_logo_width', '__return_false' );
 					remove_filter( 'get_custom_logo', array( $this, 'sticky_custom_logo' ), 10 );
 				}
+
+				remove_filter( 'astra_show_site_title_h1_tag', '__return_false' );
 			}
 		}
 
@@ -389,7 +396,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 						$dir_name    = 'unminified';
 					}
 
-					wp_enqueue_script( 'astra-ext-sticky-header-metabox', ASTRA_EXT_STICKY_HEADER_URI . 'assets/js/' . $dir_name . '/metabox' . $file_prefix . '.js', array( 'jquery' ), ASTRA_EXT_VER, true );
+					wp_enqueue_script( 'astra-ext-sticky-header-metabox', ASTRA_ADDON_EXT_STICKY_HEADER_URI . 'assets/js/' . $dir_name . '/metabox' . $file_prefix . '.js', array( 'jquery' ), ASTRA_EXT_VER, true );
 				}
 			}
 		}
@@ -402,8 +409,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_STICKY_HEADER_URI . 'assets/js/';
-			$path = ASTRA_EXT_STICKY_HEADER_DIR . 'assets/js/';
+			$uri  = ASTRA_ADDON_EXT_STICKY_HEADER_URI . 'assets/js/';
+			$path = ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'assets/js/';
 
 			/* Directory and Extension */
 			$file_prefix = '.min';
@@ -623,8 +630,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_STICKY_HEADER_URI . 'assets/css/';
-			$path = ASTRA_EXT_STICKY_HEADER_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_STICKY_HEADER_URI . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {

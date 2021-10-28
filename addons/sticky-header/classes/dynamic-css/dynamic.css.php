@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_ext_sticky_header_dynamic_css', 30 );
+add_filter( 'astra_addon_dynamic_css', 'astra_ext_sticky_header_dynamic_css', 30 );
 
 /**
  * Dynamic CSS
@@ -273,7 +273,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			/**
 			 * Primary Header Menu
 			 */
-			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation' => array(
+			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation' => array(
 				'background-color' => esc_attr( $sticky_header_menu_bg_color['desktop'] ),
 			),
 			'.ast-primary-sticky-header-active .main-header-menu .menu-item:hover > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .main-header-menu .menu-item.current-menu-ancestor > .menu-link' => array(
@@ -352,7 +352,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			/**
 			 * Primary Header Menu
 			 */
-			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation' => array(
+			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation' => array(
 				'background-color' => esc_attr( $sticky_header_menu_bg_color['tablet'] ),
 			),
 			'.ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .main-header-menu .menu-item.current-menu-ancestor > .menu-link' => array(
@@ -432,7 +432,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			/**
 			 * Primary Header Menu
 			 */
-			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation #site-navigation' => array(
+			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation' => array(
 				'background-color' => esc_attr( $sticky_header_menu_bg_color['mobile'] ),
 			),
 			'.ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .main-header-menu .menu-item.current-menu-ancestor > .menu-link' => array(
@@ -809,7 +809,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 
 		/* Site Identity Sticky Color Options */
-		if ( ! sticky_header_default_site_title_tagline_css_comp() ) {
+		if ( ! astra_addon_sticky_site_title_tagline_css_comp() ) {
 			$sticky_site_title_color       = astra_get_option( 'sticky-header-builder-site-title-color' );
 			$sticky_site_title_hover_color = astra_get_option( 'sticky-header-builder-site-title-h-color' );
 			$sticky_site_tagline_color     = astra_get_option( 'sticky-header-builder-site-tagline-color' );
@@ -919,7 +919,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-link' => array(
 					'color' => esc_attr( $desktop_sticky_primary_submenu_color ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu' => array(
+				'.ast-header-sticked .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu, .ast-header-sticked .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_submenu_bg_color['desktop'] ),
 				),
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-item:hover > .menu-link' => array(
@@ -951,7 +951,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-link' => array(
 					'color' => esc_attr( $tablet_sticky_primary_submenu_color ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu' => array(
+				'.ast-header-sticked .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu, .ast-header-sticked .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_submenu_bg_color['tablet'] ),
 				),
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-item:hover > .menu-link' => array(
@@ -983,7 +983,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-link' => array(
 					'color' => esc_attr( $mobile_sticky_primary_submenu_color ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu' => array(
+				'.ast-header-sticked .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu,.ast-header-sticked .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_submenu_bg_color['mobile'] ),
 				),
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' #ast-hf-menu-' . $index . ' .sub-menu .menu-item:hover > .menu-link' => array(
@@ -1109,7 +1109,7 @@ function astra_pro_sticky_header_submenu_below_header_fix() {
  * @since 3.5.8
  * @return boolean false if it is an existing user , true if not.
  */
-function sticky_header_default_site_title_tagline_css_comp() {
+function astra_addon_sticky_site_title_tagline_css_comp() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['sticky-header-default-site-title-tagline-css'] = isset( $astra_settings['sticky-header-default-site-title-tagline-css'] ) ? false : true;
 	return apply_filters( 'astra_default_site_title_tagline_css_comp', $astra_settings['sticky-header-default-site-title-tagline-css'] );

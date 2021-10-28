@@ -10,7 +10,9 @@
  *
  * @since 1.0
  */
-final class Astra_Ext_Model {
+// @codingStandardsIgnoreStart
+final class Astra_Ext_Model { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Construct

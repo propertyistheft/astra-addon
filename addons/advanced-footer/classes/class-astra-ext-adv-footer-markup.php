@@ -12,7 +12,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Adv_Footer_Markup {
+	// @codingStandardsIgnoreStart
+	class Astra_Ext_Adv_Footer_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -43,7 +45,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Markup' ) ) {
 			/* Add HTML Markup */
 			add_action( 'astra_footer_content', array( $this, 'html_markup_loader' ), 1 );
 
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 
 			/**
@@ -166,7 +168,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Markup' ) ) {
 			}
 
 			// Add markup.
-			astra_get_template( 'advanced-footer/template/' . esc_attr( $advanced_footer_layout ) . '.php' );
+			astra_addon_get_template( 'advanced-footer/template/' . esc_attr( $advanced_footer_layout ) . '.php' );
 		}
 
 		/**
@@ -211,8 +213,8 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_ADVANCED_FOOTER_URL . 'assets/css/';
-			$path = ASTRA_EXT_ADVANCED_FOOTER_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_ADVANCED_FOOTER_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_ADVANCED_FOOTER_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {

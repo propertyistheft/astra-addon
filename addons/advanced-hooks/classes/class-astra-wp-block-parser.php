@@ -10,8 +10,9 @@
  *
  * @since 3.2.0
  */
-class Astra_WP_Block_Parser extends WP_Block_Parser {
-
+// @codingStandardsIgnoreStart
+class Astra_WP_Block_Parser extends WP_Block_Parser { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Parse block document.

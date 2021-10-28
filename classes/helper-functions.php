@@ -8,7 +8,7 @@
 /**
  * Contrasting Color
  */
-if ( ! function_exists( 'astra_contrasting_color' ) ) :
+if ( ! function_exists( 'astra_addon_contrasting_color' ) ) :
 
 	/**
 	 * Contrasting Color
@@ -19,7 +19,7 @@ if ( ! function_exists( 'astra_contrasting_color' ) ) :
 	 * @param  string $light    Light color in HEX format.
 	 * @return string           Contrasting Color.
 	 */
-	function astra_contrasting_color( $hexcolor, $dark = '#000000', $light = '#FFFFFF' ) {
+	function astra_addon_contrasting_color( $hexcolor, $dark = '#000000', $light = '#FFFFFF' ) {
 		return ( hexdec( $hexcolor ) > 0xffffff / 2 ) ? $dark : $light;
 	}
 
@@ -28,7 +28,7 @@ endif;
 /**
  * Color conversion from HEX to RGB or RGBA.
  */
-if ( ! function_exists( 'astra_hex2rgba' ) ) :
+if ( ! function_exists( 'astra_addon_hex2rgba' ) ) :
 
 	/**
 	 * Color conversion from HEX to RGB or RGBA.
@@ -38,7 +38,7 @@ if ( ! function_exists( 'astra_hex2rgba' ) ) :
 	 * @param  string $alpha Color code alpha value for RGBA conversion.
 	 * @return string        Return RGB or RGBA color code.
 	 */
-	function astra_hex2rgba( $hex, $alpha = '' ) {
+	function astra_addon_hex2rgba( $hex, $alpha = '' ) {
 		$hex = str_replace( '#', '', $hex );
 		if ( strlen( $hex ) == 3 ) {
 			$r = hexdec( substr( $hex, 0, 1 ) . substr( $hex, 0, 1 ) );
@@ -74,7 +74,7 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 	 * @param  boolean $opacity Color code opacity.
 	 * @return string           Color code in RGB or RGBA.
 	 */
-	function astra_hex_to_rgba( $color, $opacity = false ) {
+	function astra_hex_to_rgba( $color, $opacity = false ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$default = 'rgb(0,0,0)';
 
@@ -119,7 +119,7 @@ endif;
 /**
  * Function to get Supported Custom Posts
  */
-if ( ! function_exists( 'astra_get_supported_posts' ) ) :
+if ( ! function_exists( 'astra_addon_get_supported_posts' ) ) :
 
 	/**
 	 * Function to get Supported Custom Posts
@@ -127,7 +127,7 @@ if ( ! function_exists( 'astra_get_supported_posts' ) ) :
 	 * @param  boolean $with_tax Post has taxonomy.
 	 * @return array
 	 */
-	function astra_get_supported_posts( $with_tax = false ) {
+	function astra_addon_get_supported_posts( $with_tax = false ) {
 
 		/**
 		 * Dynamic Sidebars
@@ -191,7 +191,7 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 	 *
 	 * @return true | false boolean
 	 */
-	function astra_check_is_ie() {
+	function astra_check_is_ie() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$is_ie      = false;
 		$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : false;
@@ -211,7 +211,7 @@ if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
 	/**
 	 * Check if layout is bb themer's layout
 	 */
-	function astra_check_is_bb_themer_layout() {
+	function astra_check_is_bb_themer_layout() {  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$is_layout = false;
 
@@ -229,7 +229,7 @@ if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
 endif;
 
 
-if ( ! function_exists( 'astra_rgba2hex' ) ) :
+if ( ! function_exists( 'astra_addon_rgba2hex' ) ) :
 
 	/**
 	 * Color conversion from RGBA / RGB to HEX.
@@ -239,11 +239,11 @@ if ( ! function_exists( 'astra_rgba2hex' ) ) :
 	 * @param  string $include_alpha   Color code in RGBA / RGB format.
 	 * @return string           Return HEX color code.
 	 */
-	function astra_rgba2hex( $string, $include_alpha = false ) {
+	function astra_addon_rgba2hex( $string, $include_alpha = false ) {
 
 		$hex_color = $string;
 
-		if ( ! astra_check_is_hex( $string ) ) {
+		if ( ! astra_addon_check_is_hex( $string ) ) {
 
 			$rgba  = array();
 			$regex = '#\((([^()]+|(?R))*)\)#';
@@ -270,7 +270,7 @@ if ( ! function_exists( 'astra_rgba2hex' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_check_is_hex' ) ) :
+if ( ! function_exists( 'astra_addon_check_is_hex' ) ) :
 
 	/**
 	 * Check if color code is HEX.
@@ -279,7 +279,7 @@ if ( ! function_exists( 'astra_check_is_hex' ) ) :
 	 * @param  string $string   Color code any format.
 	 * @return boolean          Return true | false.
 	 */
-	function astra_check_is_hex( $string ) {
+	function astra_addon_check_is_hex( $string ) {
 
 		$is_hex = false;
 		$regex  = '/^#(?:[0-9a-fA-F]{3}){1,2}$/';
@@ -302,7 +302,7 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 	 *
 	 * @return string Addon Name.
 	 */
-	function astra_get_addon_name() {
+	function astra_get_addon_name() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$addon_name = __( 'Astra Pro', 'astra-addon' );
 
@@ -311,7 +311,7 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astra_return_content_layout_page_builder' ) ) :
+if ( ! function_exists( 'astra_addon_return_content_layout_page_builder' ) ) :
 
 	/**
 	 * String for content layout - page-builder
@@ -319,14 +319,14 @@ if ( ! function_exists( 'astra_return_content_layout_page_builder' ) ) :
 	 * @since  1.2.1
 	 * @return String page-builder string used for filter `astra_get_content_layout`
 	 */
-	function astra_return_content_layout_page_builder() {
+	function astra_addon_return_content_layout_page_builder() {
 		return 'page-builder';
 	}
 
 endif;
 
 
-if ( ! function_exists( 'astra_return_page_layout_no_sidebar' ) ) :
+if ( ! function_exists( 'astra_addon_return_page_layout_no_sidebar' ) ) :
 
 	/**
 	 * String for sidebar Layout - no-sidebar
@@ -334,7 +334,7 @@ if ( ! function_exists( 'astra_return_page_layout_no_sidebar' ) ) :
 	 * @since  1.2.1
 	 * @return String no-sidebar string used for filter `astra_page_layout`
 	 */
-	function astra_return_page_layout_no_sidebar() {
+	function astra_addon_return_page_layout_no_sidebar() {
 		return 'no-sidebar';
 	}
 
@@ -359,7 +359,7 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 	 *
 	 * @return null|string|mixed The value
 	 */
-	function astra_get_prop( $array, $prop, $default = null ) {
+	function astra_get_prop( $array, $prop, $default = null ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
 			return $default;
@@ -385,18 +385,18 @@ endif;
  *
  * @return bool
  */
-function astra_pro_is_emp_endpoint() {
+function astra_addon_is_amp_endpoint() {
 	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 }
 
 /**
- * Function is_astra_breadcrumb_trail checks if the Theme has the updated version with function 'astra_breadcrumb_trail'.
+ * Function astra_addon_is_breadcrumb_trail checks if the Theme has the updated version with function 'astra_breadcrumb_trail'.
  * We will fallback to older version of breadcrumb function 'astra_breadcrumb'.
  *
  * @param string $echo Whether to echo or return.
  * @since 1.8.0
  */
-function is_astra_breadcrumb_trail( $echo = true ) {
+function astra_addon_is_breadcrumb_trail( $echo = true ) {
 	if ( function_exists( 'astra_get_breadcrumb' ) ) {
 		return astra_get_breadcrumb( $echo );
 	}
@@ -415,11 +415,11 @@ function is_astra_breadcrumb_trail( $echo = true ) {
  * @return string
  * @since 1.8.0
  */
-function astra_breadcrumb_shortcode() {
-	return is_astra_breadcrumb_trail( false );
+function astra_addon_breadcrumb_shortcode() {
+	return astra_addon_is_breadcrumb_trail( false );
 }
 
-add_shortcode( 'astra_breadcrumb', 'astra_breadcrumb_shortcode' );
+add_shortcode( 'astra_breadcrumb', 'astra_addon_breadcrumb_shortcode' );
 
 /**
  * Get the tablet breakpoint value.
@@ -438,7 +438,7 @@ function astra_addon_get_tablet_breakpoint( $min = '', $max = '' ) {
 	// Change default for new users.
 	$default = ( true === $update_breakpoint ) ? 921 : 768;
 
-	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default );
+	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 	if ( '' !== $min ) {
 		$header_breakpoint = $header_breakpoint - $min;
@@ -461,7 +461,7 @@ function astra_addon_get_tablet_breakpoint( $min = '', $max = '' ) {
  */
 function astra_addon_get_mobile_breakpoint( $min = '', $max = '' ) {
 
-	$header_breakpoint = apply_filters( 'astra_mobile_breakpoint', 544 );
+	$header_breakpoint = apply_filters( 'astra_mobile_breakpoint', 544 ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 	if ( '' !== $min ) {
 		$header_breakpoint = $header_breakpoint - $min;
@@ -490,9 +490,9 @@ if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 	require_once ASTRA_EXT_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
 }
 
-$bsf_analytics = BSF_Analytics_Loader::get_instance();
+$astra_addon_bsf_analytics = BSF_Analytics_Loader::get_instance();
 
-$bsf_analytics->set_entity(
+$astra_addon_bsf_analytics->set_entity(
 	array(
 		'bsf' => array(
 			'product_name'    => 'Astra Pro',
@@ -510,7 +510,7 @@ $bsf_analytics->set_entity(
  * @param array $default_stats Default stats array.
  * @return array $default_stats Default stats with addon specific stats array.
  */
-function astra_add_addon_specific_stats( $default_stats ) {
+function astra_addon_get_specific_stats( $default_stats ) {
 	$default_stats['astra_settings'] = array(
 		'astra-addon-version' => ASTRA_EXT_VER,
 		'astra-theme-version' => ASTRA_THEME_VERSION,
@@ -519,7 +519,7 @@ function astra_add_addon_specific_stats( $default_stats ) {
 	return $default_stats;
 }
 
-add_filter( 'bsf_core_stats', 'astra_add_addon_specific_stats' );
+add_filter( 'bsf_core_stats', 'astra_addon_get_specific_stats' );
 
 /**
  * Check compatibility for content background and typography options.
@@ -563,7 +563,7 @@ function astra_addon_remove_widget_design_options() {
  * @since 3.5.9
  * @return void
  */
-function astra_clear_theme_and_addon_cache() {
+function astra_addon_clear_cache_assets() {
 	// Clear Addon static CSS asset cache.
 	Astra_Minify::refresh_assets();
 
@@ -575,4 +575,4 @@ function astra_clear_theme_and_addon_cache() {
 	$astra_cache_base_instance->refresh_assets( 'astra' );
 }
 
-add_action( 'astra_addon_update_after', 'astra_clear_theme_and_addon_cache', 10 );
+add_action( 'astra_addon_update_after', 'astra_addon_clear_cache_assets', 10 );

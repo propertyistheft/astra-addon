@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_ext_header_sections_colors_dynamic_css', 99 );
+add_filter( 'astra_addon_dynamic_css', 'astra_addon_header_sections_colors_dynamic_css', 99 );
 
 /**
  * Dynamic CSS
@@ -14,7 +14,7 @@ add_filter( 'astra_dynamic_css', 'astra_ext_header_sections_colors_dynamic_css',
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return string
  */
-function astra_ext_header_sections_colors_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_header_sections_colors_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$disable_primary_nav = astra_get_option( 'disable-primary-nav' );
 	$above_header_merged = astra_get_option( 'above-header-merge-menu' );

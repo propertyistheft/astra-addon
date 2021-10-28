@@ -38,31 +38,31 @@
 								<div class="form-wrap">
 									<div class="form-field">
 										<label for="ast-wl-agency-author"><?php esc_html_e( 'Agency Author:', 'astra-addon' ); ?></label>
-										<input type="text" 
-											name="ast_white_label[astra-agency][author]" 
-											id="ast-wl-agency-author" 
-											class="placeholder placeholder-active" 
-											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-agency', 'author' ) ), true, true ); ?> 
+										<input type="text"
+											name="ast_white_label[astra-agency][author]"
+											id="ast-wl-agency-author"
+											class="placeholder placeholder-active"
+											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-agency', 'author' ) ), true, true ); ?>
 											<?php echo 'value="' . esc_attr( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-agency', 'author' ) ) . '"'; ?>
 										>
 									</div>
 									<div class="form-field">
 										<label for="ast-wl-agency-author-url"><?php esc_html_e( 'Agency Author URL:', 'astra-addon' ); ?></label>
-										<input type="url" 
-											name="ast_white_label[astra-agency][author_url]" 
-											id="ast-wl-agency-author-url" 
-											class="placeholder placeholder-active" 
-											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-agency', 'author_url' ) ), true, true ); ?> 
+										<input type="url"
+											name="ast_white_label[astra-agency][author_url]"
+											id="ast-wl-agency-author-url"
+											class="placeholder placeholder-active"
+											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-agency', 'author_url' ) ), true, true ); ?>
 											<?php echo 'value="' . esc_url( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-agency', 'author_url' ) ) . '"'; ?>
 										>
 									</div>
 									<div class="form-field">
 										<label for="ast-wl-agency-lic"><?php esc_html_e( 'Agency Licence Link:', 'astra-addon' ); ?></label>
-										<input type="url" 
-											name="ast_white_label[astra-agency][licence]" 
-											id="ast-wl-agency-lic" 
-											class="placeholder placeholder-active" 
-											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-agency', 'licence' ) ), true, true ); ?> 
+										<input type="url"
+											name="ast_white_label[astra-agency][licence]"
+											id="ast-wl-agency-lic"
+											class="placeholder placeholder-active"
+											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-agency', 'licence' ) ), true, true ); ?>
 											<?php echo 'value="' . esc_url( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-agency', 'licence' ) ) . '"'; ?>
 										>
 										<p class="description"><?php esc_html_e( 'Get license link will be displayed in the license form when the purchase key is expired / not valid.', 'astra-addon' ); ?></p>
@@ -81,30 +81,30 @@
 								<div class="form-wrap">
 									<div class="form-field">
 										<label for="ast-wl-theme-name"><?php esc_html_e( 'Theme Name:', 'astra-addon' ); ?></label>
-										<input type="text" 
-											name="ast_white_label[astra][name]" 
-											id="ast-wl-theme-name" 
-											class="placeholder placeholder-active" 
-											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra', 'name' ) ), true, true ); ?> 
+										<input type="text"
+											name="ast_white_label[astra][name]"
+											id="ast-wl-theme-name"
+											class="placeholder placeholder-active"
+											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra', 'name' ) ), true, true ); ?>
 											<?php echo 'value="' . esc_attr( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'name' ) ) . '"'; ?>
 										>
 									</div>
 									<div class="form-field">
 										<label for="ast-wl-theme-desc"><?php esc_html_e( 'Theme Description:', 'astra-addon' ); ?></label>
-										<textarea name="ast_white_label[astra][description]" 
-											id="ast-wl-theme-desc" 
+										<textarea name="ast_white_label[astra][description]"
+											id="ast-wl-theme-desc"
 											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra', 'description' ) ), true, true ); ?>
-											class="placeholder placeholder-active" 
+											class="placeholder placeholder-active"
 											rows="3"><?php echo esc_attr( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'description' ) ); ?></textarea>
 									</div>
 									<div class="form-field">
 										<label for="ast-wl-theme-screenshot"><?php esc_html_e( 'Theme Screenshot URL:', 'astra-addon' ); ?>
 											<i class="ast-white-label-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'The recommended image size is 1200px wide by 900px tall.', 'astra-addon' ); ?>"></i>
 										</label>
-										<input type="url" 
-											name="ast_white_label[astra][screenshot]" 
-											id="ast-wl-theme-screenshot" 
-											class="placeholder placeholder-active" 
+										<input type="url"
+											name="ast_white_label[astra][screenshot]"
+											id="ast-wl-theme-screenshot"
+											class="placeholder placeholder-active"
 											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra', 'screenshot' ) ), true, true ); ?>
 											<?php echo 'value="' . esc_url( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'screenshot' ) ) . '"'; ?>
 										>
@@ -124,19 +124,19 @@
 								<div class="form-wrap">
 									<div class="form-field">
 										<label for="ast-wl-plugin-name"><?php esc_html_e( 'Plugin Name:', 'astra-addon' ); ?></label>
-										<input type="text" 
-											name="ast_white_label[astra-pro][name]" 
-											id="ast-wl-plugin-name" 
-											class="placeholder placeholder-active" 
+										<input type="text"
+											name="ast_white_label[astra-pro][name]"
+											id="ast-wl-plugin-name"
+											class="placeholder placeholder-active"
 											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-pro', 'name' ) ), true, true ); ?>
 											<?php echo 'value="' . esc_attr( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-pro', 'name' ) ) . '"'; ?>
 										>
 									</div>
 									<div class="form-field">
 										<label for="ast-wl-plugin-desc"><?php esc_html_e( 'Plugin Description:', 'astra-addon' ); ?></label>
-										<textarea 
-											name="ast_white_label[astra-pro][description]" 
-											id="ast-wl-plugin-desc" class="placeholder placeholder-active" 
+										<textarea
+											name="ast_white_label[astra-pro][description]"
+											id="ast-wl-plugin-desc" class="placeholder placeholder-active"
 											<?php disabled( defined( Astra_Ext_White_Label_Markup::branding_key_to_constant( 'astra-pro', 'description' ) ), true, true ); ?>
 											rows="2"><?php echo esc_attr( Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-pro', 'description' ) ); ?></textarea>
 									</div>
@@ -147,7 +147,7 @@
 					</li>
 					<?php
 					// Add form for white label with <li> element.
-					do_action( 'astra_pro_white_label_add_form', Astra_Ext_White_Label_Markup::get_white_labels() );
+					do_action( 'astra_addon_white_label_add_form', Astra_Ext_White_Label_Markup::get_white_labels() );
 					?>
 				</ul>
 			</div>
@@ -167,10 +167,10 @@
 										<p class="admin-help"><?php esc_attr_e( 'You\'re about to enable the white label. This will remove the white label settings.', 'astra-addon' ); ?></p>
 										<p class="admin-help"><?php esc_attr_e( 'If you want to access while label settings in future, simply deactivate the Astra Pro plugin and activate it again.', 'astra-addon' ); ?></p>
 										<?php
-										$astra_support_link = astra_get_pro_url( 'https://wpastra.com/docs/how-to-white-label-astra/', 'astra-dashboard', 'white-label', 'welcome-page' );
+										$astra_addon_support_link = astra_get_pro_url( 'https://wpastra.com/docs/how-to-white-label-astra/', 'options_page', 'sidebar', 'astra_pro' );
 										?>
 
-										<a href="<?php echo esc_url( $astra_support_link ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Read More', 'astra-addon' ); ?></a>
+										<a href="<?php echo esc_url( $astra_addon_support_link ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Read More', 'astra-addon' ); ?></a>
 									</div>
 								</div>
 							</div>

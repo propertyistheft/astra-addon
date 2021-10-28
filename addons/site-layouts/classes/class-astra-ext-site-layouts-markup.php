@@ -12,7 +12,10 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Site_Layouts_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -37,7 +40,7 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Markup' ) ) {
 		public function __construct() {
 
 			add_filter( 'body_class', array( $this, 'body_classes' ), 10, 1 );
-			add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
+			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
 
 		}
 
@@ -63,8 +66,8 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Markup' ) ) {
 			/*** Start Path Logic */
 
 			/* Define Variables */
-			$uri  = ASTRA_EXT_SITE_LAYOUTS_URL . 'assets/css/';
-			$path = ASTRA_EXT_SITE_LAYOUTS_DIR . 'assets/css/';
+			$uri  = ASTRA_ADDON_EXT_SITE_LAYOUTS_URL . 'assets/css/';
+			$path = ASTRA_ADDON_EXT_SITE_LAYOUTS_DIR . 'assets/css/';
 			$rtl  = '';
 
 			if ( is_rtl() ) {

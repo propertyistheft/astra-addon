@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Nav_Menu_Primary_Header_Layout' ) ) {
 	/**
 	 * Register Mega Menu Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Nav_Menu_Primary_Header_Layout extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Mega Menu Customizer Configurations.

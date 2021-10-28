@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Customizer_Partials' ) ) {
 	/**
 	 * Customizer Partials initial setup
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Ext_Sticky_Header_Customizer_Partials {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Instance

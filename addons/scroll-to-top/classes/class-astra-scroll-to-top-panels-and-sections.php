@@ -24,7 +24,10 @@ if ( ! class_exists( 'Astra_Scroll_To_Top_Panels_And_Sections' ) ) {
 	/**
 	 * Register Scroll To Top Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Scroll_To_Top_Panels_And_Sections extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Scroll To Top Customizer Configurations.

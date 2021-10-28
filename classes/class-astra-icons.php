@@ -16,7 +16,10 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 	 *
 	 * @since 3.3.0
 	 */
-	class Astra_Icons {
+	// @codingStandardsIgnoreStart
+	class Astra_Icons { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
+
 		/**
 		 * Constructor function that initializes required actions and hooks
 		 */
@@ -39,7 +42,7 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['can-update-astra-icons-svg'] = ( isset( $astra_settings['can-update-astra-icons-svg'] ) && false === $astra_settings['can-update-astra-icons-svg'] ) ? false : true;
 			if ( version_compare( ASTRA_THEME_VERSION, '3.3.0', '>=' ) ) {
-				return apply_filters( 'astra_is_svg_icons', $astra_settings['can-update-astra-icons-svg'] );
+				return apply_filters( 'astra_is_svg_icons', $astra_settings['can-update-astra-icons-svg'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			}
 			return false;
 		}
@@ -116,12 +119,12 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 				}
 			} else {
 				if ( 'menu-bars' === $icon ) {
-					$menu_icon = apply_filters( 'astra_' . $menu_location . '_menu_toggle_icon', 'menu-toggle-icon' );
+					$menu_icon = apply_filters( 'astra_' . $menu_location . '_menu_toggle_icon', 'menu-toggle-icon' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 					$output    = '<span class="' . esc_attr( $menu_icon ) . '"></span>';
 				}
 			}
 
-			$output = apply_filters( 'astra_svg_icon_element', $output, $icon );
+			$output = apply_filters( 'astra_svg_icon_element', $output, $icon ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 			$classes = array(
 				'ast-icon',
@@ -135,10 +138,10 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 			);
 
 			if ( ! $is_echo ) {
-				return apply_filters( 'astra_svg_icon', $output, $icon );
+				return apply_filters( 'astra_svg_icon', $output, $icon ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			}
 
-			echo apply_filters( 'astra_svg_icon', $output, $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo apply_filters( 'astra_svg_icon', $output, $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		}
 	}
 	new Astra_Icons();

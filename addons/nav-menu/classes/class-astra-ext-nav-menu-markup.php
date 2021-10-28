@@ -17,7 +17,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 	 *
 	 * @since 1.6.0
 	 */
+	// @codingStandardsIgnoreStart
 	final class Astra_Ext_Nav_Menu_Markup {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Member Variable
@@ -192,7 +195,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		 */
 		public function edit_walker() {
 
-			require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/class-astra-walker-nav-menu-edit-custom.php';
+			require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/class-astra-walker-nav-menu-edit-custom.php';
 			return 'Astra_Walker_Nav_Menu_Edit_Custom';
 		}
 
@@ -202,7 +205,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		 * @return void.
 		 */
 		public static function load_walker() {
-			require_once ASTRA_EXT_NAV_MENU_DIR . 'classes/class-astra-custom-nav-walker.php';
+			require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/class-astra-custom-nav-walker.php';
 		}
 
 		/**

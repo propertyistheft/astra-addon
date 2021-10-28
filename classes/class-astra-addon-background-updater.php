@@ -175,13 +175,13 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 			$doing_wp_cron = sprintf( '%.22F', microtime( true ) );
 
 			$cron_request = apply_filters(
-				'cron_request',
+				'cron_request', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 				array(
 					'url'  => site_url( 'wp-cron.php?doing_wp_cron=' . $doing_wp_cron ),
 					'args' => array(
 						'timeout'   => 3,
 						'blocking'  => true,
-						'sslverify' => apply_filters( 'https_local_ssl_verify', $sslverify ),
+						'sslverify' => apply_filters( 'https_local_ssl_verify', $sslverify ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 					),
 				)
 			);

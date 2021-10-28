@@ -33,7 +33,7 @@ final class Astra_Addon_Builder_Customizer {
 			return;
 		}
 
-		add_action( 'astra_get_css_files', array( $this, 'add_styles' ) );
+		add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
 
 		$this->load_base_components();
 
@@ -119,7 +119,7 @@ final class Astra_Addon_Builder_Customizer {
 		if ( ! class_exists( 'Astra_Header_Divider_Component' ) ) {
 			require_once $header_components_path . '/divider/class-astra-header-divider-component.php';
 		}
-		require_once $header_components_path . '/button/class-astra-addon-header-button-component.php';		
+		require_once $header_components_path . '/button/class-astra-addon-header-button-component.php';
 		require_once $header_components_path . '/account/class-astra-ext-header-account-component.php';
 		require_once $header_components_path . '/menu/class-astra-addon-header-menu-component.php';
 		require_once $header_components_path . '/social-icon/class-astra-header-social-component.php';

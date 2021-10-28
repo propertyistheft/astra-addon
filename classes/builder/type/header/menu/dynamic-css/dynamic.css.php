@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Menu Box - Dynamic CSS
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_ext_hb_menu_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_addon_header_menu_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -24,7 +24,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_ext_hb_menu_dynamic_css' );
  *
  * @since 3.3.0
  */
-function astra_ext_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_header_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$component_limit = astra_addon_builder_helper()->component_limit;
 	for ( $index = 1; $index <= $component_limit; $index++ ) {

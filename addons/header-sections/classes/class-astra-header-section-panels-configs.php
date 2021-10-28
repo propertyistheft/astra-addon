@@ -20,7 +20,10 @@ if ( ! class_exists( 'Astra_Header_Section_Panels_Configs' ) ) {
 	/**
 	 * Register Header Layout Customizer Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Header_Section_Panels_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Header Layout Customizer Configurations.

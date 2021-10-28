@@ -12,7 +12,9 @@
 /**
  * Class Astra_Cache_Base.
  */
-class Astra_Cache_Base {
+// @codingStandardsIgnoreStart
+class Astra_Cache_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Member Variable
@@ -115,7 +117,7 @@ class Astra_Cache_Base {
 			$slug = 'archive';
 		}
 
-		return apply_filters( 'astra_cache_asset_query_var', $slug );
+		return apply_filters( 'astra_addon_cache_asset_query_var', $slug );
 	}
 
 	/**
@@ -206,7 +208,7 @@ class Astra_Cache_Base {
 			$title = 'home';
 		}
 
-		return apply_filters( 'astra_cache_asset_type', $title );
+		return apply_filters( 'astra_addon_cache_asset_type', $title );
 	}
 
 	/**
@@ -380,7 +382,7 @@ class Astra_Cache_Base {
 			$inline = true;
 		}
 
-		return apply_filters( 'astra_load_dynamic_css_inline', $inline );
+		return apply_filters( 'astra_addon_load_dynamic_css_inline', $inline );
 	}
 
 	/**

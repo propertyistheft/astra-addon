@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-add_filter( 'astra_dynamic_css', 'astra_ext_adv_search_dynamic_css' );
+add_filter( 'astra_addon_dynamic_css', 'astra_addon_adv_search_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -14,7 +14,7 @@ add_filter( 'astra_dynamic_css', 'astra_ext_adv_search_dynamic_css' );
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return string
  */
-function astra_ext_adv_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_addon_adv_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$css = '';
 	if ( false === Astra_Icons::is_svg_icons() ) {
 		$search_close_btn = array(

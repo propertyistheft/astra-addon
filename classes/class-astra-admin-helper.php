@@ -16,7 +16,9 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 	/**
 	 * Admin Helper
 	 */
-	final class Astra_Admin_Helper {
+	// @codingStandardsIgnoreStart
+	final class Astra_Admin_Helper { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Returns an option from the database for

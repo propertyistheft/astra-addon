@@ -25,7 +25,10 @@ if ( ! class_exists( 'Astra_Above_Header_Typo_Configs' ) ) {
 	/**
 	 * Register above header Configurations.
 	 */
+	// @codingStandardsIgnoreStart
 	class Astra_Above_Header_Typo_Configs extends Astra_Customizer_Config_Base {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+		// @codingStandardsIgnoreEnd
 
 		/**
 		 * Register Above Header Typo Configurations.
