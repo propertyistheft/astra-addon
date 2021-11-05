@@ -43,6 +43,7 @@ if ( ! class_exists( 'BSF_Core_Update' ) ) {
 		public function __construct() {
 			// Theme Updates.
 			add_action( 'admin_init', __CLASS__ . '::init', 0 );
+			add_filter( 'all_plugins', array( $this, 'update_products_slug' ), 10, 1 );
 		}
 
 		/**
@@ -65,6 +66,26 @@ if ( ! class_exists( 'BSF_Core_Update' ) ) {
 			update_option( 'bsf-updater-version', BSF_UPDATER_VERSION );
 
 			do_action( 'astra_update_after' );
+		}
+
+		/**
+		 * Update bsf product slug in WP installed plugins data which will be used in enable/disablestaged updates products.
+		 *
+		 * @param array $plugins All installed plugins.
+		 *
+		 * @return array
+		 */
+		public function update_products_slug( $plugins ) {
+			$bsf_products = bsf_get_brainstorm_products( true );
+
+			foreach ( $bsf_products as $product => $data ) {
+				$plugin_file = isset( $data['template'] ) ? sanitize_text_field( $data['template'] ) : '';
+				if ( isset( $plugins[ $plugin_file ] ) && ! empty( $data['slug'] ) ) {
+					$plugins[ $plugin_file ]['slug'] = $data['slug'];
+				}
+			}
+
+			return $plugins;
 		}
 
 	}

@@ -576,3 +576,16 @@ function astra_addon_clear_cache_assets() {
 }
 
 add_action( 'astra_addon_update_after', 'astra_addon_clear_cache_assets', 10 );
+
+/**
+ * Check is Elementor Pro version is greater than or equal to beta 3.5 version.
+ *
+ * @since 3.6.3
+ * @return boolean
+ */
+function astra_addon_check_elementor_pro_3_5_version() {
+	if ( defined( 'ELEMENTOR_PRO_VERSION' ) && version_compare( ELEMENTOR_PRO_VERSION, '3.5', '>=' ) ) {
+		return true;
+	}
+	return false;
+}

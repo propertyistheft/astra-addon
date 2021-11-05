@@ -1292,6 +1292,15 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$css_output .= Astra_Enqueue_Scripts::trim_css( $woo_static_css );
 	}
 
-	return $dynamic_css . $css_output;
+	if ( astra_addon_check_elementor_pro_3_5_version() ) {
+		$woo_cart_element_css = '
+			.elementor-widget-woocommerce-cart form input[type=number].qty::-webkit-inner-spin-button, .elementor-widget-woocommerce-cart form input[type=number].qty::-webkit-outer-spin-button {
+				-webkit-appearance: auto;
+			}
+		';
 
+		$css_output .= Astra_Enqueue_Scripts::trim_css( $woo_cart_element_css );
+	}
+
+	return $dynamic_css . $css_output;
 }

@@ -1,3 +1,6 @@
+v3.6.3
+- Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
+
 v3.6.2
 - Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_addon_ prefix NamingConvention. ( https://wpastra.com/docs/deprecated-astra-hooks/ )
 - Fix: W3 validation - Getting duplicate H1 tag for 'site-title' in case of Sticky header.
