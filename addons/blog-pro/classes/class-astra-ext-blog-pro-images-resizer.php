@@ -174,10 +174,12 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 								array( $attributes['width'], $attributes['height'], $attributes['crop'] ),
 							),
 							sprintf(
-								astra_attr(
-									'article-image-blog-single-post',
-									array(
-										'class' => '',
+								str_replace(
+									'"',
+									'',
+									astra_attr(
+										'article-image-blog-single-post',
+										array( 'class' => '' )
 									)
 								)
 							)

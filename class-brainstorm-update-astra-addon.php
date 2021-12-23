@@ -46,6 +46,7 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 			add_action( 'init', array( $this, 'load' ), 999 );
 			add_filter( 'bsf_display_product_activation_notice_astra', '__return_false' );
 			add_filter( 'bsf_get_license_message_astra-addon', array( $this, 'license_message_astra_addon' ), 10, 2 );
+			add_filter( 'bsf_is_product_bundled', array( $this, 'remove_astra_pro_bundled_products' ), 20, 3 );
 			add_filter( 'bsf_skip_braisntorm_menu', array( $this, 'skip_menu' ) );
 			add_filter( 'bsf_skip_author_registration', array( $this, 'skip_menu' ) );
 			add_filter( 'bsf_registration_page_url_astra-addon', array( $this, 'get_registration_page_url' ) );
@@ -70,6 +71,34 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 			}
 
 			return $product_id;
+		}
+
+		/**
+		 * Remove bundled products for Astra Pro Sites.
+		 * For Astra Pro Sites the bundled products are only used for one click plugin installation when importing the Astra Site.
+		 * License Validation and product updates are managed separately for all the products.
+		 *
+		 * @since 3.6.4
+		 *
+		 * @param  array  $product_parent  Array of parent product ids.
+		 * @param  String $bsf_product    Product ID or  Product init or Product name based on $search_by.
+		 * @param  String $search_by      Reference to search by id | init | name of the product.
+		 *
+		 * @return array                 Array of parent product ids.
+		 */
+		public function remove_astra_pro_bundled_products( $product_parent, $bsf_product, $search_by ) {
+
+			// Bundled plugins are installed when the demo is imported on Ajax request and bundled products should be unchanged in the ajax.
+			if ( ! defined( 'DOING_AJAX' ) && ! defined( 'WP_CLI' ) ) {
+
+				$key = array_search( 'astra-pro-sites', $product_parent, true );
+
+				if ( false !== $key ) {
+					unset( $product_parent[ $key ] );
+				}
+			}
+
+			return $product_parent;
 		}
 
 		/**

@@ -125,14 +125,13 @@ if ( ! function_exists( 'get_brainstorm_product' ) ) {
 		$all_products = brainstorm_get_all_products();
 
 		foreach ( $all_products as $key => $product ) {
-
 			$product_id_bsf = isset( $product['id'] ) ? $product['id'] : '';
-
 			if ( $product_id === $product_id_bsf ) {
-
 				return $product;
 			}
 		}
+
+		return array();
 	}
 }
 
@@ -148,6 +147,11 @@ if ( ! function_exists( 'brainstorm_get_all_products' ) ) {
 	 * @return array All Products.
 	 */
 	function brainstorm_get_all_products( $skip_plugins = false, $skip_themes = false, $skip_bundled = false ) {
+		static $all_products = array();
+
+		if ( ! empty( $all_products ) ) {
+			return $all_products;
+		}
 
 		$brainstrom_products         = get_option( 'brainstrom_products', array() );
 		$brainstrom_bundled_products = get_option( 'brainstrom_bundled_products', array() );

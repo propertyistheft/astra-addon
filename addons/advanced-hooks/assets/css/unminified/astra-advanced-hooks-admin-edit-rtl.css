@@ -305,7 +305,6 @@
     line-height: 1.8;
     height: auto;
 }
-
 .ast-advanced-hook-enable-php-wrapper {
 	margin: 0;
 	order: 2;
@@ -325,24 +324,259 @@
 .ast-inside-content-number-field{
 	width: 60px;
 }
-
 .ast-advanced-hook-wrap {
 	margin-bottom: 5px;
 }
-
 input.readonly, input[readonly], .ast-advanced-date-time-input {
 	width: 190px;
 	background: white;
 }
-
 .ast-advanced-time-duration-wrap {
 	display: grid;
 	grid-template-columns: 10em 25em 25em 10em;
 	height: 50px;
 	align-items: center;
 }
-
 .ast-advanced-device-display-wrap {
 	display: grid;
 	grid-template-columns: 7em 7em 7em;
+}
+.ast-popup-svg-icons {
+    width: 150px;
+	height: 150px;
+	fill: black;
+	margin-bottom: 25px;
+}
+.ast-select-wrap {
+	-js-display: flex;
+	display: flex;
+	margin-top: 12px;
+}
+.ast-alignment-inner-wrap {
+	text-align: center;
+}
+.ast-alignment-inner-wrap button {
+	height: 118px;
+	padding: 12px 20px 8px 21px;
+	display: inline-block;
+}
+.ast-alignment-inner-wrap {
+	-js-display: flex;
+	display: flex;
+	flex-direction: column;
+}
+.ast-hooks-modal .components-modal__header {
+	margin-bottom: 12px;
+}
+.ahfb-icon-set > svg {
+	opacity: 0.5;
+}
+.ast-alignment-inner-wrap .components-button svg {
+	fill: none;
+}
+.ast-alignment-inner-wrap .components-button.is-primary:hover:not(:disabled) {
+    background: none;
+}
+.ast-alignment-inner-wrap .components-button.is-primary {
+    background: #ffffff;
+}
+.ast-toggle-sticky-popup-btn {
+	margin: 50px 20px 50px 50px;
+}
+.ast-create-custom-hook-btn {
+	-js-display: flex;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.ast-custom-layout-meta-wrap .ast-advanced-hook-heading-help {
+    float: none;
+}
+.ast-custom-layout-meta-wrap .components-input-control__container select.components-select-control__input,
+.ast-display-rule .components-input-control__container select.components-select-control__input {
+    line-height: 17px;
+}
+.ast-display-rule {
+	-js-display: flex;
+	display: flex;
+	justify-content: space-between;
+}
+.target_rule-condition-delete {
+    cursor: pointer;
+}
+.ast-display-rule-buttons {
+   -js-display: flex;
+   display: flex;
+   column-gap: 7px;
+   margin-top: 12px;
+}
+.ast-tab-panel .components-tab-panel__tabs-item.active-tab {
+   box-shadow : inset 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color)
+}
+.ast-tab-panel .components-tab-panel__tabs {
+   background-color: #f2e0e0;
+}
+.ast-select-control {
+    margin-bottom: 5px;
+    width: 100%;
+}
+.ast-meta-select .ast__control {
+    margin-top: 10px;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+.ast-meta-select .ast__control:hover{
+    border-color: #2271b1;
+}
+.ast-meta-select .css-1pahdxg-control {
+    box-shadow: 0 0 0 1px #2271b1;
+}
+.ast-display-rule .target_rule-condition-delete{
+    margin: 5px 9px 0px 6px;
+}
+.ast-meta-select .ast__input input {
+    border: 0;
+    box-shadow: none;
+}
+.ast-select-control .ast-custom-select {
+    font-size: inherit;
+    font-family: inherit;
+    max-width: 100%;
+}
+
+.ast-layout-settings-modal {
+    width: 760px;
+    max-height: 600px;
+    top: 45%;
+}
+.ast-layout-settings-modal .components-modal__content {
+    -js-display: flex;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.ast-layout-settings-modal .components-modal__header {
+    margin: 0;
+}
+.ast-cl-settings-content {
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+.ast-cl-settings-content .ast-advanced-hook-table {
+    padding: 7px 20px 0px 20px;
+}
+.ast-custom-layout-panel .components-button {
+    padding-left: 15px;
+}
+.ast-button-container {
+    -js-display: flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 14px 14px 14px 38px;
+}
+.ast-sticky-control {
+    margin-top: 15px;
+}
+.ast-cl-footer-container {
+    position: sticky;
+    bottom: 0;
+    background: #ffffff;
+}
+.ast-title-container {
+    -js-display: flex;
+    display: flex;
+   flex-grow: 1;
+}
+.ast-cl-popup-notice{
+    margin: 5px 0px 13px 20px;
+}
+.ast-disabled-close {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.ast-cl-priority {
+    -js-display: flex;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+.ast-content-number-field{
+	width: 170px;
+	font-size: 13px;
+}
+.ast-spacing-settings {
+    -js-display: flex;
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+}
+
+.ast-cl-settings-divider:before {
+    width: auto;
+    margin: 1px -16px;
+}
+.ast-cl-settings-divider {
+    padding-top: 15px;
+    padding-bottom: 12px;
+}
+.ast-cl-settings-divider:before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: #e2e4e7;
+}
+.ast-custom-layout-meta-wrap .components-toggle-control {
+    margin-top: 12px;
+}
+.ast-cl-settings-content .ast-advanced-hook-row-content	{
+    padding: 20px 20px 16px 0px;
+}
+.ast-cl-settings-content .ast-advanced-hook-row td {
+    border-bottom: 1px solid #e1e1e1;
+}
+/* Time Duration */
+.ast-datepicker-wrapper .components-datetime__timezone{
+	display: none !important;
+}
+.ast-timezone{
+	border: none;
+	margin-top: 10px;
+}
+.components-text-control__input.ast-datepicker-input{
+	width: 87%;
+	display: inline-block;
+}
+.ast-datepicker-input-icon{
+	display: inline-block;
+	font-size: 25px;
+	margin-top: 5px;
+}
+.ast-schedule-date-time .components-button {
+    background: rgba(244,230,230,0);
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-style: solid;
+	text-decoration: none;
+	border-color: var(--wp-admin-theme-color);
+}
+.components-modal__header .components-button {
+    right: 30px;
+    bottom: 10px;
+}
+.ast-date-time-notice {
+	margin: 10px 0px 0px 0px;
+}
+.ast-datepicker-fields {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.ast-cl-settings-content .ast-advanced-hook-row:last-child td {
+    border-bottom: none;
 }

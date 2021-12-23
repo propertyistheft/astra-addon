@@ -68,8 +68,37 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_filter( 'astra_addon_js_localize', array( $this, 'localize_variables' ) );
 			add_filter( 'astra_addon_dynamic_css', array( $this, 'astra_ext_advanced_hooks_dynamic_css' ) );
+			add_shortcode( 'astra_custom_layout', array( $this, 'shortcode_output' ) );
 		}
 
+		/**
+		 * Render shortcode.
+		 *
+		 * @param array $atts the shortcode args.
+		 * @return string
+		 */
+		public function shortcode_output( $atts ) {
+			$atts = shortcode_atts(
+				array(
+					'id' => 0,
+				),
+				$atts,
+				'astra_custom_layout'
+			);
+
+			if ( empty( $atts['id'] ) ) {
+				return;
+			}
+
+			$post_content = get_post( $atts['id'] );
+			if ( empty( $post_content ) ) {
+				return;
+			}
+
+			ob_start();
+			self::get_instance()->get_action_content( $atts['id'] );
+			return ob_get_clean();
+		}
 
 		/**
 		 * Get the classes for custom layout.
@@ -91,23 +120,29 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 
 			if ( 3 === count( $hide_classes ) ) { // If displayed on desktop, tablet & mobile.
 
-				switch ( $layout ) {
-					case 'header':
-						remove_action( 'astra_header', 'astra_header_markup' );
-						break;
-					case 'footer':
-						remove_action( 'astra_footer', 'astra_footer_markup' );
-						if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
-							remove_action( 'astra_footer', array( Astra_Builder_Footer::get_instance(), 'footer_markup' ), 1 );
-						}
-						break;
-					case '404-page':
-						remove_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
-						break;
+				$custom_layout_status = get_post_meta( $post_id, 'ast-advanced-hook-enabled', true );
+
+				// Remove Previous Content only if custom layout is active.
+				if ( 'no' !== $custom_layout_status ) {
+					switch ( $layout ) {
+						case 'header':
+							remove_action( 'astra_header', 'astra_header_markup' );
+							break;
+						case 'footer':
+							remove_action( 'astra_footer', 'astra_footer_markup' );
+							if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
+								remove_action( 'astra_footer', array( Astra_Builder_Footer::get_instance(), 'footer_markup' ), 1 );
+							}
+							break;
+						case '404-page':
+							remove_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
+							break;
+						default:
+							break;
+					}
 				}
 
 				return;
-
 			}
 
 			switch ( $layout ) {
@@ -727,7 +762,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		 */
 		public function get_action_content( $post_id ) {
 
-			if ( false === apply_filters( 'astra_addon_render_custom_layout_content', true, $post_id ) ) {
+			$enabled = get_post_meta( $post_id, 'ast-advanced-hook-enabled', true );
+			if ( false === apply_filters( 'astra_addon_render_custom_layout_content', true, $post_id ) || 'no' === $enabled ) {
 				return;
 			}
 

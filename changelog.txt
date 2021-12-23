@@ -1,3 +1,11 @@
+v3.6.4
+- New: Added feature to enable or disable specific Custom Layout. ( https://wpastra.com/docs/custom-layouts-pro/ )
+- Improvement: Added easy filtering tabs for custom layouts lists.
+- Improvement: Moved Custom Layout existing settings into a separate Gutenberg sidebar panel.
+- Improvement: Add Custom Layouts on pages/posts using shortcode feature.
+- Fix: Image field error in the CreativeWork Type.
+- Fix: Removed unwanted title and desc tag present for search icon.
+
 v3.6.3
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
 

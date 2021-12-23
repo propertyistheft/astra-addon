@@ -195,39 +195,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				}
 
 				/**
-				 * Footer - Button
-				 */
-				$num_of_footer_button = astra_addon_builder_helper()->num_of_footer_button;
-				for ( $index = 1; $index <= $num_of_footer_button; $index++ ) {
-					if ( ! Astra_Addon_Builder_Helper::is_component_loaded( 'button-' . $index, 'footer' ) ) {
-						continue;
-					}
-
-					$_prefix = 'button' . $index;
-
-					$btn_font_family = astra_get_option( 'footer-' . $_prefix . '-font-family' );
-					$btn_font_weight = astra_get_option( 'footer-' . $_prefix . '-font-weight' );
-					Astra_Fonts::add_font( $btn_font_family, $btn_font_weight );
-				}
-
-				/**
-				 * Header - Button
-				 */
-				$num_of_header_button = astra_addon_builder_helper()->num_of_header_button;
-				for ( $index = 1; $index <= $num_of_header_button; $index++ ) {
-
-					if ( ! Astra_Addon_Builder_Helper::is_component_loaded( 'button-' . $index, 'header' ) ) {
-						continue;
-					}
-
-					$_prefix = 'button' . $index;
-
-					$btn_font_family = astra_get_option( 'header-' . $_prefix . '-font-family' );
-					$btn_font_weight = astra_get_option( 'header-' . $_prefix . '-font-weight' );
-					Astra_Fonts::add_font( $btn_font_family, $btn_font_weight );
-				}
-
-				/**
 				 * Footer - Social
 				 */
 
@@ -616,36 +583,9 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$component_limit = astra_addon_builder_helper()->component_limit;
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
 				$defaults = $this->prepare_social_icons_defaults( $defaults, $index );
-				$defaults = $this->prepare_button_defaults( $defaults, $index );
 			}
 
 			return $defaults;
-		}
-
-		/**
-		 * Prepare Button Defaults.
-		 *
-		 * @param array   $defaults defaults.
-		 * @param integer $index index.
-		 * @return array
-		 * @since 3.1.0
-		 */
-		public function prepare_button_defaults( $defaults, $index ) {
-
-			$defaults[ 'header-button' . $index . '-font-family' ]    = 'inherit';
-			$defaults[ 'header-button' . $index . '-font-weight' ]    = 'inherit';
-			$defaults[ 'header-button' . $index . '-text-transform' ] = '';
-			$defaults[ 'header-button' . $index . '-line-height' ]    = '';
-			$defaults[ 'header-button' . $index . '-letter-spacing' ] = '';
-
-			$defaults[ 'footer-button' . $index . '-font-family' ]    = 'inherit';
-			$defaults[ 'footer-button' . $index . '-font-weight' ]    = 'inherit';
-			$defaults[ 'footer-button' . $index . '-text-transform' ] = '';
-			$defaults[ 'footer-button' . $index . '-line-height' ]    = '';
-			$defaults[ 'footer-button' . $index . '-letter-spacing' ] = '';
-
-			return $defaults;
-
 		}
 
 		/**

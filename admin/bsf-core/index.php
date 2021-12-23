@@ -59,6 +59,7 @@ require_once 'class-bsf-license-manager.php';
 require_once 'classes/class-bsf-extension-installer.php';
 
 require_once 'classes/class-bsf-core-update.php';
+require_once 'classes/class-bsf-core-rest.php';
 require_once 'classes/class-bsf-rollback-version.php';
 
 if ( defined( 'WP_CLI' ) ) {
@@ -265,8 +266,9 @@ if ( ! function_exists( 'init_bsf_core' ) ) {
 	 */
 	function init_bsf_core() {
 
-		$plugins      = get_plugins();
-		$themes       = wp_get_themes();
+		$plugins = get_plugins();
+		$themes = wp_get_themes();
+		$theme_directories = search_theme_directories();
 		$bsf_products = array();
 
 		$bsf_authors = apply_filters(
@@ -310,22 +312,12 @@ if ( ! function_exists( 'init_bsf_core' ) ) {
 			}
 		}
 
-		$brainstrom_products = ( get_option( 'brainstrom_products' ) ) ? get_option( 'brainstrom_products' ) : array();
-
-		// Remove the brainstorm products which no longer exist on site.
-		if ( ! function_exists( 'get_plugins' ) ) {
-			require_once ABSPATH . 'wp-admin/includes/plugin.php';
-		}
-
-		$plugins = get_plugins();
-		$themes  = search_theme_directories();
+		$brainstrom_products = get_option( 'brainstrom_products', array() );
+		$bundled_products = get_option( 'brainstrom_bundled_products', array() );
 
 		if ( ! empty( $brainstrom_products ) ) {
-
 			if ( isset( $brainstrom_products['plugins'] ) ) {
-
 				foreach ( $brainstrom_products['plugins'] as $key => $value ) {
-
 					if ( ! array_key_exists( $value['template'], $plugins ) ) {
 						unset( $brainstrom_products['plugins'][ $key ] );
 					}
@@ -333,10 +325,8 @@ if ( ! function_exists( 'init_bsf_core' ) ) {
 			}
 
 			if ( isset( $brainstrom_products['themes'] ) ) {
-
 				foreach ( $brainstrom_products['themes'] as $key => $value ) {
-
-					if ( ! array_key_exists( $value['template'], $themes ) ) {
+					if ( ! array_key_exists( $value['template'], $theme_directories ) ) {
 						unset( $brainstrom_products['themes'][ $key ] );
 					}
 				}
@@ -362,7 +352,17 @@ if ( ! function_exists( 'init_bsf_core' ) ) {
 			}
 		}
 
+		// Update bundled products.
+		foreach ( $bundled_products as $key => $product ) {
+			$bsf_product = get_brainstorm_product( $key );
+
+			if ( empty( $bsf_product ) ) {
+				unset( $bundled_products[ $key ] );
+			}
+		}
+
 		update_option( 'brainstrom_products', $brainstrom_products );
+		update_option( 'brainstrom_bundled_products', $bundled_products );
 	}
 }
 

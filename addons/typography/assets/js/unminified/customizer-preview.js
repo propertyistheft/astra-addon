@@ -374,74 +374,6 @@
 			'line-height',
 			selector
 		);
-
-
-
-	}
-
-	function prepare_button_preview(index) {
-
-		// Header.
-		var prefix = 'button' + index;
-		var selector = '.ast-header-button-' + index + ' .ast-builder-button-wrap';
-
-		astra_generate_outside_font_family_css(
-			'astra-settings[header-' + prefix + '-font-family]',
-			selector + ' .ast-custom-button'
-		);
-		astra_generate_font_weight_css(
-			'astra-settings[header-' + prefix + '-font-family]',
-			'astra-settings[header-' + prefix + '-font-weight]',
-			'font-weight',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[header-' + prefix + '-text-transform]',
-			'text-transform',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[header-' + prefix + '-line-height]',
-			'line-height',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[header-' + prefix + '-letter-spacing]',
-			'letter-spacing',
-			selector + ' .ast-custom-button',
-			'px'
-		);
-
-		// Footer.
-		var prefix = 'button' + index;
-		var selector = '.ast-footer-button-' + index + ' .ast-builder-button-wrap';
-
-		astra_generate_outside_font_family_css(
-			'astra-settings[footer-' + prefix + '-font-family]',
-			selector + ' .ast-custom-button'
-		);
-		astra_generate_font_weight_css(
-			'astra-settings[footer-' + prefix + '-font-family]',
-			'astra-settings[footer-' + prefix + '-font-weight]',
-			'font-weight',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[footer-' + prefix + '-text-transform]',
-			'text-transform',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[footer-' + prefix + '-line-height]',
-			'line-height',
-			selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[footer-' + prefix + '-letter-spacing]',
-			'letter-spacing',
-			selector + ' .ast-custom-button',
-			'px'
-		);
 	}
 
 	function prepare_social_icon_preview(index) {
@@ -499,13 +431,10 @@
 	}
 
 	for ( var index = 1; index <= astTypography.component_limit; index++ ) {
-
 		prepare_html_preview(index);
-		prepare_button_preview(index);
 		prepare_social_icon_preview(index);
 		prepare_header_widget_preview(index);
 		prepare_footer_widget_preview(index);
-
 	}
 
 	function prepare_header_widget_preview(index) {
