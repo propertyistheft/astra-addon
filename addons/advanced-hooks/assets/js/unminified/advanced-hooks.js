@@ -24,11 +24,13 @@
 			AstraAdvancedHooks.initLayoutSettings();
 			AstraAdvancedHooks.timeDurationEnabled();
 
-			wp.data.subscribe(function () {
-				setTimeout( function () {
-					AstraAdvancedHooks.code_editor_switcher();
-				}, 1 );
-			});
+			if( document.body.classList.contains('block-editor-page') ) {
+				wp.data.subscribe(function () {
+					setTimeout( function () {
+						AstraAdvancedHooks.code_editor_switcher();
+					}, 1 );
+				});
+			}
 		},
 
 		timeDurationEnabled: function () {

@@ -980,7 +980,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			add_action( 'admin_footer', array( $this, 'add_navigation_button' ), 1, 1 );
 			add_action( 'edit_form_after_editor', array( $this, 'php_editor_markup' ), 10, 1 );
 
-			if ( version_compare( $wp_version, '5.0', '<' ) || isset( $_GET['code_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_POST['ast-advanced-hook-layout'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 				add_action( 'save_post', array( $this, 'save_meta_box' ) );
 			}
 
@@ -1271,14 +1271,18 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 							)
 						);
 
-						add_meta_box(
-							'advanced-hook-notice',                // Id.
-							__( 'Custom Layout Settings', 'astra-addon' ), // Title.
-							array( $this, 'meta_box_notice' ),      // Callback.
-							$type,                                  // Post_type.
-							'normal',                               // Context.
-							'low'                                   // Priority.
-						);
+						// Show notice metabox only for block based Custom Layout post.
+						$screen = get_current_screen();
+						if ( true === $screen->is_block_editor() ) {
+							add_meta_box(
+								'advanced-hook-notice',                // Id.
+								__( 'Custom Layout Settings', 'astra-addon' ), // Title.
+								array( $this, 'meta_box_notice' ),      // Callback.
+								$type,                                  // Post_type.
+								'normal',                               // Context.
+								'low'                                   // Priority.
+							);
+						}
 					}
 				}
 			}
@@ -1532,13 +1536,10 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			}
 
 			$editor_type = get_post_meta( $post_id, 'editor_type', true );
+			update_post_meta( $post_id, 'editor_type', 'wordpress_editor' );
 
-			if ( isset( $_GET['wordpress_editor'] ) || 'wordpress_editor' == $editor_type ) {
-				update_post_meta( $post_id, 'editor_type', 'wordpress_editor' );
-			} elseif ( isset( $_GET['code_editor'] ) || 'code_editor' == $editor_type ) {
+			if ( strpos( $_POST['_wp_http_referer'], 'code_editor' ) !== false || 'code_editor' === $editor_type ) {
 				update_post_meta( $post_id, 'editor_type', 'code_editor' );
-			} else {
-				update_post_meta( $post_id, 'editor_type', 'wordpress_editor' );
 			}
 
 			/**

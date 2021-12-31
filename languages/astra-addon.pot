@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 3.6.4\n"
+"Project-Id-Version: Astra Pro 3.6.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2021-12-16 12:59:30+00:00\n"
+"POT-Creation-Date: 2021-12-24 06:39:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:52
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:620
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1688
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1689
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:90
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:51
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:69
@@ -1064,7 +1064,7 @@ msgstr ""
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:454
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2054
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:222
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1890
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1891
 msgid "Display Rules"
 msgstr ""
 
@@ -1247,8 +1247,8 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:834
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:698
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1792
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1818
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1793
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1819
 #: addons/scroll-to-top/classes/sections/class-astra-scroll-to-top-configs.php:58
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:274
 msgid "Desktop + Mobile"
@@ -1256,9 +1256,9 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:835
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:696
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1790
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1816
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1953
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1791
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1817
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1954
 #: addons/scroll-to-top/classes/sections/class-astra-scroll-to-top-configs.php:56
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:272
 #: classes/builder/type/base/configurations/class-astra-social-component-configs.php:63
@@ -1267,9 +1267,9 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:836
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:697
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1791
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1817
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1965
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1792
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1818
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1966
 #: addons/scroll-to-top/classes/sections/class-astra-scroll-to-top-configs.php:57
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:273
 #: classes/builder/type/base/configurations/class-astra-social-component-configs.php:65
@@ -1575,7 +1575,7 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2045
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:13
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1882
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1883
 #: addons/scroll-to-top/classes/sections/class-astra-scroll-to-top-configs.php:54
 msgid "Display On"
 msgstr ""
@@ -1585,12 +1585,12 @@ msgid "Add locations for where this Advanced Header should appear."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2058
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1894
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1895
 msgid "Add Display Rule"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2067
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1903
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1904
 msgid "Do Not Display On"
 msgstr ""
 
@@ -1600,20 +1600,20 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2076
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:28
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1911
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1912
 msgid "Exclude On"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2079
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:22
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:34
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1914
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1915
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:857
 msgid "Add Exclusion Rule"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2089
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1924
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1925
 msgid "User Roles"
 msgstr ""
 
@@ -1623,12 +1623,12 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2097
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:282
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1932
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1933
 msgid "Users"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2100
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1935
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1936
 msgid "Add User Rule"
 msgstr ""
 
@@ -1707,7 +1707,7 @@ msgid "All"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:221
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1826
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1827
 msgid "Action"
 msgstr ""
 
@@ -1780,12 +1780,12 @@ msgid "Custom Layout"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:709
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1733
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1734
 msgid "After certain number of blocks"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:710
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1734
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1735
 msgid "Before certain number of Heading blocks"
 msgstr ""
 
@@ -2576,28 +2576,28 @@ msgid "Another %s Layout is selected for the same display rules."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1264
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1276
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1279
 msgid "Custom Layout Settings"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1320
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1367
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1324
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1371
 msgid "Enable Code Editor"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1368
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1372
 msgid "Enable WordPress Editor"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1512
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1516
 #. translators: %s: blog link
 msgid ""
 "Custom Layout Settings moved to the Sidebar. Access the settings by "
 "clicking the Astra icon in the top right corner. %s for more information."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1692
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1833
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1693
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1834
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:674
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:783
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:1099
@@ -2606,157 +2606,157 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1701
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1702
 msgid ""
 "This option will be applicable only for the posts/pages created with the "
 "block editor."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1708
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1709
 msgid "Disable Primary Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1718
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1719
 msgid "Disable Footer Bar"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1728
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1729
 msgid "Location on post/page"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1729
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1730
 msgid ""
 "Layout will be inserted at a selected location on page/post in the block "
 "editor."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1740
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1741
 msgid "Block Number"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1743
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1744
 msgid "Add layout after"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1745
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1746
 msgid "Block(s)"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1746
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1747
 msgid ""
 "Layout will be inserted after the selected number of blocks. Example - If "
 "you set it 3, the layout will be added after the first 3 blocks."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1751
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1752
 msgid "Heading Block Number"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1754
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1755
 msgid "Add content before"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1756
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1757
 msgid "Heading Block(s)"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1757
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1758
 msgid ""
 "Layout will be inserted before the selected number of Heading blocks. "
 "Example - If you set it 3, the layout will be added just before 3rd Heading "
 "block on page."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1765
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1801
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1766
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1802
 msgid "Stick"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1775
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1776
 msgid "Shrink"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1785
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1811
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1786
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1812
 msgid "Stick On"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1857
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1858
 msgid "Priority"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1865
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1866
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:130
 #: addons/spacing/classes/sections/class-astra-customizer-site-identity-spacing-configs.php:59
 #: addons/spacing/classes/sections/class-astra-customizer-site-identity-spacing-configs.php:133
 msgid "Spacing"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1866
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1867
 msgid ""
 "Spacing can be given any positive number with or without units as "
 "&quot;5&quot; or &quot;5px&quot;. Default unit is &quot;px&quot;"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1871
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1872
 msgid "Top Spacing"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1875
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1876
 msgid "Bottom Spacing"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1883
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1884
 msgid "Add locations for where this Custom Layout should appear."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1904
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1905
 msgid "This Custom Layout will not appear at these locations."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1925
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1926
 msgid "Target this Custom Layout based on user role."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1945
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1946
 msgid "Responsive Visibility"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1946
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1947
 msgid "Select Device for where this Custom Layout should appear."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1959
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1960
 #: classes/builder/type/base/configurations/class-astra-social-component-configs.php:64
 msgid "Tablet"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1974
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1975
 msgid "Time Duration"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1975
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1976
 msgid "Select Time Duration in which this Custom Layout should appear."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1982
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1983
 msgid "Enable"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1986
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1987
 msgid "Start Date/Time"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1987
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1992
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1988
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1993
 msgid "Click to pick a date"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1991
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1992
 msgid "End Date/Time"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1996
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1997
 msgid "Timezone:"
 msgstr ""
 
@@ -5184,7 +5184,7 @@ msgstr ""
 msgid "Learn More."
 msgstr ""
 
-#: class-brainstorm-update-astra-addon.php:184
+#: class-brainstorm-update-astra-addon.php:213
 msgid "Get the license >>"
 msgstr ""
 

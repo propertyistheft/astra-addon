@@ -188,7 +188,7 @@ const customLayout = props => {
 
     return (
 		<>
-            { ! hasBlocks && modalVisible && (
+            { '' === props.meta['ast-advanced-hook-layout'] && ! hasBlocks && modalVisible && (
 				<Modal
 					className="ast-hooks-modal"
 					title={ __( 'Choose Custom Layout Type', 'astra-addon' ) }

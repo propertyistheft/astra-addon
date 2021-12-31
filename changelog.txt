@@ -1,3 +1,6 @@
+v3.6.5
+- Fix: Custom Layout's meta fields not saving when editor type is Code Editor.
+
 v3.6.4
 - New: Added feature to enable or disable specific Custom Layout. ( https://wpastra.com/docs/custom-layouts-pro/ )
 - Improvement: Added easy filtering tabs for custom layouts lists.

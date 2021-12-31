@@ -172,8 +172,11 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 					$themes['package']        = '';
 					$themes['upgrade_notice'] = 'Please activate your license to receive automatic updates.';
 				}
-				$_transient_data->last_checked          = time();
-				$_transient_data->response[ $template ] = $themes;
+				$_transient_data->last_checked = time();
+
+				if ( isset( $template ) ) {
+					$_transient_data->response[ $template ] = $themes;
+				}
 			}
 
 			return $_transient_data;
