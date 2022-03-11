@@ -151,6 +151,7 @@
 	color: #333;
 }
 .ast-advanced-hook-heading-help {
+	vertical-align: middle;
 	color: #b3b3b3;
 	cursor: help;
 	float: left;
@@ -580,3 +581,15 @@ input.readonly, input[readonly], .ast-advanced-date-time-input {
 .ast-cl-settings-content .ast-advanced-hook-row:last-child td {
     border-bottom: none;
 }
+
+
+/* UAG notice
+------------------------------------------------------*/
+
+.components-button.has-icon.ast-custom-button-with-padding {
+	padding-right: 12px;
+	padding-left: 12px;
+}
+
+/* UAG notice ends here
+------------------------------------------------------*/

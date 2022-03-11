@@ -431,7 +431,7 @@ const customLayout = props => {
                             <p className="ast-custom-layout-control-title post-attributes-label-wrapper">
                                 <strong className="customize-control-title">{ __('Location on post/page', 'astra-addon') }</strong>
                                 <Tooltip text={ __( 'Layout will be inserted at a selected location on page/post in the block editor.', 'astra-addon' )} position="bottom left">
-                                    <i className ="dashicons dashicons-editor-help"></i>
+                                    <i className ="ast-advanced-hook-heading-help dashicons dashicons-editor-help"></i>
                                 </Tooltip>
                             </p>
 

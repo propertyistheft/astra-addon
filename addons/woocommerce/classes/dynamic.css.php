@@ -1014,7 +1014,6 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	$mobile_min_css = array(
 		'#ast-quick-view-content div.summary' => array(
-			'content'    => astra_addon_get_mobile_breakpoint(),
 			'overflow-y' => 'auto',
 		),
 	);

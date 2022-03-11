@@ -24,6 +24,7 @@
 
 #ast-scroll-top .ast-icon.icon-arrow svg {
   margin-right: 0px;
+  vertical-align: middle;
   transform: translate(0, -20%) rotate(-180deg);
   width: 1.6em;
 }

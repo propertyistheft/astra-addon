@@ -77,9 +77,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			add_filter(
 				'block_parser_class',
-				function () {
-					return 'Astra_WP_Block_Parser';
-				}
+				function( $content ) {
+					// Check if we're inside the main post content.
+					if ( is_singular() && in_the_loop() && is_main_query() ) {
+						return 'Astra_WP_Block_Parser';
+					}
+					return $content;
+				},
+				1
 			);
 
 			add_action( 'init', array( $this, 'register_meta_settings' ) );
@@ -319,7 +324,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				}
 			} elseif ( 'advanced_hook_shortcode' === $column ) {
 				echo '<div class = "ast-shrotcut"> <input type="text" onfocus="this.select();" readonly="readonly" value="[astra_custom_layout id=' . esc_attr( $post_id ) . ']" />
-				<i class="dashicons dashicons-editor-help" style="vertical-align: text-bottom;" title="' . esc_attr__( 'Make sure to set display rule to post/page where you will be adding the Shortcode.', 'astra-addon' ) . '"></i></div>';
+				<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" style="vertical-align: text-bottom;" title="' . esc_attr__( 'Make sure to set display rule to post/page where you will be adding the Shortcode.', 'astra-addon' ) . '"></i></div>';
 			} elseif ( 'enable_disable' == $column ) {
 				$switch_class = 'ast-custom-layout-switch ast-option-switch';
 				$enabled      = get_post_meta( $post_id, 'ast-advanced-hook-enabled', 'yes' );
@@ -591,7 +596,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			wp_register_script(
 				'astra-custom-layout',
 				$path,
-				array( 'wp-plugins', 'wp-edit-post', 'wp-i18n', 'wp-element' ),
+				array( 'wp-plugins', 'wp-edit-post', 'wp-i18n', 'wp-element', 'updates' ),
 				ASTRA_EXT_VER,
 				true
 			);
@@ -612,6 +617,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			$responsive_visibility_status = ( 'array' == gettype( get_post_meta( get_the_ID(), 'ast-advanced-display-device', true ) ) ) ? true : false;
 
+			// UAG plugin slug.
+			$plugin_slug = 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php';
+
 			wp_enqueue_script( 'astra-custom-layout' );
 			wp_localize_script(
 				'astra-custom-layout',
@@ -627,6 +635,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'specificRule'               => $this->get_specific_rule(),
 					'specificExclusionRule'      => $this->get_specific_rule( 'exclusion' ),
 					'ajax_nonce'                 => wp_create_nonce( 'astra-addon-get-posts-by-query' ),
+					'installPluginNoticeNonce'   => wp_create_nonce( 'bsf_activate_extension_nonce' ),
+					'isPluginInstalled'          => file_exists( WP_PLUGIN_DIR . '/' . $plugin_slug ),
+					'isPluginActivated'          => is_plugin_active( $plugin_slug ),
 					'userRoles'                  => Astra_Target_Rules_Fields::get_user_selections(),
 					'ResponsiveVisibilityStatus' => $responsive_visibility_status,
 					'siteurl'                    => get_option( 'siteurl' ),

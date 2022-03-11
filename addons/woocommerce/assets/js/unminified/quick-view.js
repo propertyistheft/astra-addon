@@ -254,7 +254,6 @@
 		 * @return {[type]}   [description]
 		 */
 		_close_quick_view_on_esc_keypress: function( e ) {
-			e.preventDefault();
 			if( e.keyCode === 27 ) {
 				AstraProQuickView._close_quick_view();
 			}

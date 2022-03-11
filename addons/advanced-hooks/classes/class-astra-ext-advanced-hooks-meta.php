@@ -1985,12 +1985,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 							</li>
 							<li class="ast-advanced-time-duration-enabled">
 								<label for="ast-advanced-time-duration-start-dt"> <?php esc_attr_e( 'Start Date/Time', 'astra-addon' ); ?>:
-								<input placeholder="<?php esc_attr_e( 'Click to pick a date', 'astra-addon' ); ?>" class="ast-advanced-date-time-input" type="text" id="ast-advanced-time-duration-start-dt" name="ast-advanced-time-duration[start-dt]"  value="<?php echo esc_attr( $time_duration['start-dt'] ); ?>" readonly />
+								<input placeholder="<?php esc_attr_e( 'Click to pick a date', 'astra-addon' ); ?>" class="ast-advanced-date-time-input" type="text" id="ast-advanced-time-duration-start-dt" name="ast-advanced-time-duration[start-dt]"  value="<?php echo isset( $time_duration['start-dt'] ) ? esc_attr( $time_duration['start-dt'] ) : ''; ?>" readonly />
 								</label>
 							</li>
 							<li class="ast-advanced-time-duration-enabled">
 								<label for="ast-advanced-time-duration-end-dt"> <?php esc_attr_e( 'End Date/Time', 'astra-addon' ); ?>:
-								<input placeholder="<?php esc_attr_e( 'Click to pick a date', 'astra-addon' ); ?>" class="ast-advanced-date-time-input" type="text" id="ast-advanced-time-duration-end-dt" name="ast-advanced-time-duration[end-dt]" value="<?php echo esc_attr( $time_duration['end-dt'] ); ?>" readonly />
+								<input placeholder="<?php esc_attr_e( 'Click to pick a date', 'astra-addon' ); ?>" class="ast-advanced-date-time-input" type="text" id="ast-advanced-time-duration-end-dt" name="ast-advanced-time-duration[end-dt]" value="<?php echo isset( $time_duration['end-dt'] ) ? esc_attr( $time_duration['end-dt'] ) : ''; ?>" readonly />
 								</label>
 							</li>
 							<li class="ast-advanced-time-duration-enabled" >

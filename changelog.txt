@@ -1,3 +1,19 @@
+v3.6.6
+- Improvement: Removed jQuery dependency from Blog Pro Infinite Scroll addon.
+- Improvement: Removed jQuery dependency from WooCommerce Infinite Scroll addon.
+- Improvement: Added activate UAG notice in Custom Layout editor sidebar.
+- Improvement: Compatibility with PHP 8.0.
+- Fix: Gravity form checkbox not accessible when WooCommerce Quick View option is active.
+- Fix: Accessibility - href attribute is missing in the Anchor element for Scroll to top.
+- Fix: W3 validation - Removed unwanted CSS value set for content property for Quick View summary section.
+- Fix: Navigation menu was not scrollable for the sticky header.
+- Fix: Dropdown Mobile Menu - unable to open submenu on Sticky Header with Max Width - Site Layout.
+- Fix: Elementor Pro popup not triggered when WooCommerce Single Product gallery layout is set to vertical.
+- Fix: Scroll to top - Icon not appearing properly on responsive devices.
+- Fix: Inside post/page content breaking the page when Yoast SEO and Beaver Builder plugins are active.
+- Fix: Custom Layout - Inside Post Content - appearing in the sidebar.
+- Fix: Builder - Language Switcher - WPML - all langauges appearing as active.
+
 v3.6.5
 - Fix: Custom Layout's meta fields not saving when editor type is Code Editor.
 

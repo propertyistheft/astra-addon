@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 							<?php foreach ( $languages as $language ) { ?>
 								<li class="ast-builder-language-switcher-menu-item-<?php echo esc_attr( $builder_type ); ?>">
 
-									<?php if ( isset( $language['active'] ) ) { ?>
+									<?php if ( isset( $language['active'] ) && '1' === $language['active'] ) { ?>
 										<a href="<?php echo esc_url( $language['url'] ); ?>" class="ast-builder-language-switcher-item ast-builder-language-switcher-item__active">
 									<?php } else { ?>
 										<a href="<?php echo esc_url( $language['url'] ); ?>" class="ast-builder-language-switcher-item">

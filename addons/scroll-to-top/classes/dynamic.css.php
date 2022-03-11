@@ -61,6 +61,18 @@ function astra_addon_scroll_to_top_dynamic_css( $dynamic_css, $dynamic_css_filte
 		$scroll_css .= astra_parse_css( $scroll_to_top_icon );
 	}
 
+	// Only if responsive devices is selected.
+	$svg_width = array(
+		/**
+		 * Add spacing based on padded layout spacing
+		 */
+		'#ast-scroll-top .ast-icon.icon-arrow svg' => array(
+			'width' => '1em',
+		),
+	);
+
+	$scroll_css .= astra_parse_css( $svg_width, '', astra_addon_get_tablet_breakpoint() );
+
 	// Only if Padded layout is selected from Site Layout Addon.
 	if ( Astra_Ext_Extension::is_active( 'site-layouts' ) && 'ast-padded-layout' === $site_layout_padding ) {
 

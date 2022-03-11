@@ -962,6 +962,11 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 					'color'            => esc_attr( $tablet_sticky_primary_submenu_a_color ),
 					'background-color' => esc_attr( $sticky_header_submenu_a_bg_color['tablet'] ),
 				),
+				// Sticky Main Menu Scrolling (Tablet & Mobile).
+				'.ast-primary-sticky-header-active.ast-main-header-nav-open nav' => array(
+					'overflow-y' => 'auto',
+					'max-height' => 'calc(100vh - 100px)',
+				),
 			);
 
 			$sticky_builder_menu_mobile_css = array(

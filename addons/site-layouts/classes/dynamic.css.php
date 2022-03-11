@@ -60,11 +60,11 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	$body_font_weight = astra_get_option( 'body-font-weight' );
 
 	if ( 'ast-box-layout' == $layout || 'ast-padded-layout' == $layout ) {
-		$blog_max_width        += ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE;
-		$single_post_max_width += ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE;
+		$blog_max_width        = absint( $blog_max_width ) + ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE;
+		$single_post_max_width = absint( $single_post_max_width ) + ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE;
 	} else {
-		$blog_max_width        += ASTRA_THEME_CONTAINER_PADDING_TWICE;
-		$single_post_max_width += ASTRA_THEME_CONTAINER_PADDING_TWICE;
+		$blog_max_width        = absint( $blog_max_width ) + ASTRA_THEME_CONTAINER_PADDING_TWICE;
+		$single_post_max_width = absint( $single_post_max_width ) + ASTRA_THEME_CONTAINER_PADDING_TWICE;
 	}
 
 	/* Global Responsive */
