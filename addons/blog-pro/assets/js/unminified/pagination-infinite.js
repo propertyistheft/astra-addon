@@ -40,17 +40,17 @@
 							}
 					break;
 				case 'scroll':
-							var mainSelector = document.getElementById('main'); 
+							var mainSelector = document.getElementById('main');
 							var rect = mainSelector.getBoundingClientRect();
-							var offset = { 
-								top: rect.top + window.scrollY, 
-								left: rect.left + window.scrollX, 
+							var offset = {
+								top: rect.top + window.scrollY,
+								left: rect.left + window.scrollX,
 							};
 							if( astLoadMore ){
 									astLoadMore.classList.remove('active');
 							}
 							if( mainSelector.querySelectorAll('article:last-child').length > 0 ) {
-									
+
 								var windowHeight50 = window.outerHeight / 1.25;
 								window.addEventListener('scroll', function() {
 									if( (window.scrollY + windowHeight50 ) >= ( offset.top ) ) {
@@ -91,7 +91,7 @@
 				request.onload = function() {
 					var string = request.response;
 					var data = new DOMParser().parseFromString(string, 'text/html');
-					var	boxes = data.querySelectorAll( 'article' );
+					var boxes = data.querySelectorAll( 'article.post' );
 
 					//	Disable loader
 					loader.style.display = 'none';
@@ -107,14 +107,13 @@
 
 					//	Append articles
 					if( 1 == masonryEnabled && grid_layout > 1 ) {
-						var grid = 'ast-grid-'+ grid_layout; 
-						var msnry = new Masonry( grid, { itemSelector: '.ast-grid-common-col'});
-						for (var i = 0; i < boxes.length; i++) {
-							document.querySelector('#main > .ast-row').appendChild(boxes[i]);
-						}
-						msnry.appended( boxes );
+						var grid = document.querySelector('#main > .ast-row');
+						var msnry = new Masonry( grid, {});
+
 						imagesLoaded( document.querySelector('#main > .ast-row'), function() {
-								msnry.reloadItems();
+							msnry.appended( boxes );
+							msnry.reloadItems();
+							msnry.layout();
 						});
 					}
 
