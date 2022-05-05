@@ -216,9 +216,10 @@ if ( ! class_exists( 'Astra_Customizer_Notices_Configs' ) ) :
 			$advanced_hooks = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( ASTRA_ADVANCED_HOOKS_POST_TYPE, $option );
 
 			foreach ( $advanced_hooks as $post_id => $post_data ) {
-				$layout = get_post_meta( $post_id, 'ast-advanced-hook-layout', false );
+				$custom_post_enable = get_post_meta( $post_id, 'ast-advanced-hook-enabled', true );
+				$layout             = get_post_meta( $post_id, 'ast-advanced-hook-layout', false );
 
-				if ( isset( $layout[0] ) && 'header' == $layout[0] ) {
+				if ( isset( $layout[0] ) && 'header' === $layout[0] && 'no' !== $custom_post_enable ) {
 					return true;
 				}
 			}

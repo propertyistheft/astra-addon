@@ -546,13 +546,13 @@
 		$( document ).on( "addStickyClass", function() {
 			var bodyClass = '';
 
-			if ( '1' == stick_main || 'on' == stick_main ) {
+			if ( '1' == stick_main || 'on' == stick_main || 'disabled' == stick_main ) {
 				bodyClass += " ast-primary-sticky-header-active";
 			}
-			if ( '1' == stick_above || 'on' == stick_above ) {
+			if ( '1' == stick_above || 'on' == stick_above || 'disabled' == stick_above ) {
 				bodyClass += " ast-above-sticky-header-active";
 			}
-			if ( '1' == stick_below || 'on' == stick_below ) {
+			if ( '1' == stick_below || 'on' == stick_below || 'disabled' == stick_below ) {
 				bodyClass += " ast-below-sticky-header-active";
 			}
 			$('body').addClass(bodyClass);
@@ -562,13 +562,13 @@
 		$( document ).on( "removeStickyClass", function() {
 			var bodyClass = '';
 
-			if ( '1' == stick_main || 'on' == stick_main ) {
+			if ( '1' == stick_main || 'on' == stick_main || 'disabled' == stick_main ) {
 				bodyClass += " ast-primary-sticky-header-active";
 			}
-			if ( '1' == stick_above || 'on' == stick_above ) {
+			if ( '1' == stick_above || 'on' == stick_above || 'disabled' == stick_above ) {
 				bodyClass += " ast-above-sticky-header-active";
 			}
-			if ( '1' == stick_below || 'on' == stick_below ) {
+			if ( '1' == stick_below || 'on' == stick_below || 'disabled' == stick_below ) {
 				bodyClass += " ast-below-sticky-header-active";
 			}
 			$('body').removeClass(bodyClass);
@@ -602,13 +602,13 @@
 	    			jQuery( '#ast-fixed-header' ).addClass( 'ast-sticky-shrunk' ).stop();
 	    		}
 
-	    		if( !( '1' == stick_above || 'on' == stick_above ) ) {
+	    		if( !( '1' == stick_above || 'on' == stick_above || 'disabled' == stick_above ) ) {
 					jQuery( '#ast-fixed-header .ast-above-header' ).hide();
 				}
-				if( !( '1' == stick_main || 'on' == stick_main ) ) {
+				if( !( '1' == stick_main || 'on' == stick_main || 'disabled' == stick_main ) ) {
 					jQuery( '#ast-fixed-header .main-header-bar' ).hide();
 				}
-				if( !( '1' == stick_below || 'on' == stick_below ) ) {
+				if( !( '1' == stick_below || 'on' == stick_below || 'disabled' == stick_below ) ) {
 					jQuery( '#ast-fixed-header .ast-below-header' ).hide();
 				}
 
@@ -631,7 +631,7 @@
 							/**
 							 * Stick Above Header
 							 */
-							if ('1' == stick_above || 'on' == stick_above) {
+							if ('1' == stick_above || 'on' == stick_above || 'disabled' == stick_above) {
 								jQuery('#masthead #ast-' + header + '-header .ast-above-header').astExtSticky({
 									max_width: layout_width,
 									site_layout: site_layout,
@@ -642,8 +642,8 @@
 							}
 							// Add wrapper class to primary header & below header if stick primary header , stick below header and shrink primary header is enabled.
 							// stick wrapper class of primary header and below header
-							if (('1' == stick_main || 'on' == stick_main) &&
-								('1' == stick_below || 'on' == stick_below)
+							if (('1' == stick_main || 'on' == stick_main || 'disabled' == stick_main) &&
+								('1' == stick_below || 'on' == stick_below || 'disabled' == stick_below)
 							) {
 
 								var selector = jQuery('#masthead #ast-' + header + '-header .main-header-bar-wrap').length ?
@@ -669,7 +669,7 @@
 								/**
 								 * Stick Main Header
 								 */
-								if ('1' == stick_main || 'on' == stick_main) {
+								if ('1' == stick_main || 'on' == stick_main || 'disabled' == stick_main) {
 
 									// If shrink is enabled
 									// then add shrink top and bottom paddings.
@@ -704,7 +704,7 @@
 								/**
 								 * Stick Below Header
 								 */
-								if (('1' == stick_below || 'on' == stick_below)) {
+								if (('1' == stick_below || 'on' == stick_below || 'disabled' == stick_below)) {
 									jQuery('#masthead #ast-' + header + '-header .ast-below-header').astExtSticky({
 										dependent: ['#masthead #ast-' + header + '-header .main-header-bar', '#masthead #ast-' + header + '-header .ast-above-header'],
 										max_width: layout_width,
@@ -724,7 +724,7 @@
 						/**
 						 * Stick Above Header
 						 */
-						if ('1' == stick_above || 'on' == stick_above) {
+						if ('1' == stick_above || 'on' == stick_above || 'disabled' == stick_above) {
 							jQuery('#masthead .ast-above-header').astExtSticky({
 								max_width: layout_width,
 								site_layout: site_layout,
@@ -735,8 +735,8 @@
 						}
 						// Add wrapper class to primary header & below header if stick primary header , stick below header and shrink primary header is enabled.
 						// stick wrapper class of primary header and below header
-						if (('1' == stick_main || 'on' == stick_main) &&
-							('1' == stick_below || 'on' == stick_below)
+						if (('1' == stick_main || 'on' == stick_main || 'disabled' == stick_main) &&
+							('1' == stick_below || 'on' == stick_below || 'disabled' == stick_below)
 						) {
 
 							jQuery('#masthead .main-header-bar-wrap').wrap('<div class="ast-stick-primary-below-wrapper"></div>')
@@ -758,7 +758,7 @@
 							/**
 							 * Stick Main Header
 							 */
-							if ('1' == stick_main || 'on' == stick_main) {
+							if ('1' == stick_main || 'on' == stick_main || 'disabled' == stick_main) {
 
 								// If shrink is enabled
 								// then add shrink top and bottom paddings.
@@ -793,7 +793,7 @@
 							/**
 							 * Stick Below Header
 							 */
-							if (('1' == stick_below || 'on' == stick_below)) {
+							if (('1' == stick_below || 'on' == stick_below || 'disabled' == stick_below)) {
 								jQuery('#masthead .ast-below-header').astExtSticky({
 									dependent: ['#masthead .main-header-bar', '#masthead .ast-above-header'],
 									max_width: layout_width,
@@ -813,21 +813,21 @@
 
 					jQuery( '#ast-fixed-header' ).addClass( 'ast-sticky-shrunk' ).stop();
 
-					if( !( '1' == stick_above || 'on' == stick_above ) ) {
+					if( !( '1' == stick_above || 'on' == stick_above || 'disabled' == stick_above ) ) {
 						jQuery( '#ast-fixed-header .ast-above-header' ).hide();
 					}
-					if( !( '1' == stick_main || 'on' == stick_main ) ) {
+					if( !( '1' == stick_main || 'on' == stick_main || 'disabled' == stick_main ) ) {
 						jQuery( '#ast-fixed-header .main-header-bar' ).hide();
 					}
-					if( !( '1' == stick_below || 'on' == stick_below ) ) {
+					if( !( '1' == stick_below || 'on' == stick_below || 'disabled' == stick_below) ) {
 						jQuery( '#ast-fixed-header .ast-below-header' ).hide();
 					}
 					/**
 			    	 * Stick Main Header
 			    	 */
-			    	if ( '1' == stick_above || 'on' == stick_above
-						 || '1' == stick_main || 'on' == stick_main
-						 || '1' == stick_below || 'on' == stick_below
+			    	if ( '1' == stick_above || 'on' == stick_above || 'disabled' == stick_above
+						 || '1' == stick_main || 'on' == stick_main || 'disabled' == stick_main
+						 || '1' == stick_below || 'on' == stick_below || 'disabled' == stick_below
 						) {
 
 			    		// If shrink is enabled
@@ -885,8 +885,8 @@
 							}
 					    	// add min height to wrapper class of primary header and below header
 					    	if (  '1' == main_shrink &&
-					    		( '1' == stick_main || 'on' == stick_main ) &&
-					    		( '1' == stick_below || 'on' == stick_below )
+					    		( '1' == stick_main || 'on' == stick_main || 'disabled' == stick_main ) &&
+					    		( '1' == stick_below || 'on' == stick_below || 'disabled' == stick_below )
 					    	) {
 								jQuery( '#masthead .ast-stick-primary-below-wrapper' ).css({
 									'max-height'      : ( windowHeight - headerSectionHeight ) +'px',
@@ -907,8 +907,8 @@
 							'overflow'      : '',
 						});
 						if (  '1' == main_shrink &&
-					    		( '1' == stick_main || 'on' == stick_main ) &&
-					    		( '1' == stick_below || 'on' == stick_below )
+					    		( '1' == stick_main || 'on' == stick_main || 'disabled' == stick_main ) &&
+					    		( '1' == stick_below || 'on' == stick_below || 'disabled' == stick_below )
 					    	) {
 								jQuery( '#masthead .ast-stick-primary-below-wrapper' ).css({
 									'max-height'      : '',

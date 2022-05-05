@@ -51,7 +51,7 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 		wp_enqueue_style( 'wp-block-library' );
 
 		if ( defined( 'UAGB_VER' ) ) {
-			if ( version_compare( preg_replace( '/[^0-9\.]/', '', UAGB_VER ), '1.23.0', '>=' ) && class_exists( 'UAGB_Post_Assets' ) ) {
+			if ( version_compare( UAGB_VER, '1.23.0', '>=' ) && class_exists( 'UAGB_Post_Assets' ) ) {
 				$post_assets = new UAGB_Post_Assets( $post_id );
 				$post_assets->enqueue_scripts();
 			} else {

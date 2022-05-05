@@ -1,3 +1,12 @@
+v3.6.8
+- Improvement: Compatibility for enhancing block editor experience. ( https://wpastra.com/docs/improved-block-editor-experience/ )
+- Fix: Builder - Search - Search markup is loaded even when the search element is not added.
+- Fix: WooCommerce - Grouped product - Add to Cart not appearing properly on Quick view.
+- Fix: Some of the Search shortcodes are not working on the posts or pages.
+- Fix: W3 validation - aria-label attribute is missing for the close icon for the Off-canvas sidebar trigger on the Shop page.
+- Fix: Sticky header meta option is not working on the frontend.
+- Fix: Custom Layout - 'Header is built using Custom Layout' notice showing in customizer even the layout's toggle is disabled.
+
 v3.6.7
 - Fix: Blog - Infinite scroll is not working with Masonry Layout.
 

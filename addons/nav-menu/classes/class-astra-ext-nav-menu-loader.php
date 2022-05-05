@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 
-			if ( defined( 'UAGB_VER' ) && version_compare( preg_replace( '/[^0-9\.]/', '', UAGB_VER ), '1.23.0', '>=' ) ) {
+			if ( defined( 'UAGB_VER' ) && version_compare( UAGB_VER, '1.23.0', '>=' ) ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'load_gutenberg_addon_scripts' ) );
 			} else {
 				add_action( 'wp', array( $this, 'load_gutenberg_addon_scripts' ) );

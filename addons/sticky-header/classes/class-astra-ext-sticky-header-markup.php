@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				$classes[] = 'ast-sticky-custom-logo';
 			}
 
-			if ( ( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && 'on' == $sticky_primary_header_meta ) ) ) {
+			if ( ( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' == $sticky_primary_header_meta ) ) ) ) {
 				$classes[] = 'ast-primary-sticky-enabled';
 			}
 
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			$sticky_header_meta         = astra_get_option_meta( 'stick-header-meta' );
 			$sticky_primary_header_meta = astra_get_option_meta( 'header-main-stick-meta' );
 
-			if ( '1' == $inherit_desk_logo && ( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && 'on' == $sticky_primary_header_meta ) ) && 'none' == $header_style ) {
+			if ( '1' == $inherit_desk_logo && ( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' == $sticky_primary_header_meta ) ) ) && 'none' == $header_style ) {
 				// Logo For None Effect.
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'none_custom_logo' ), 10, 2 );
@@ -164,9 +164,9 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				$sticky_below_header_meta   = astra_get_option_meta( 'header-below-stick-meta' );
 
 				if ( ! (
-						( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && 'on' == $sticky_primary_header_meta ) ) ||
-						( '1' == $above_stick || ( 'enabled' == $sticky_header_meta && 'on' == $sticky_above_header_meta ) ) ||
-						( '1' == $below_stick || ( 'enabled' == $sticky_header_meta && 'on' == $sticky_below_header_meta ) )
+						( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' == $sticky_primary_header_meta ) ) ) ||
+						( '1' == $above_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_above_header_meta || 'disabled' == $sticky_above_header_meta ) ) ) ||
+						( '1' == $below_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_below_header_meta || 'disabled' == $sticky_below_header_meta ) ) )
 					) ) {
 					return;
 				}

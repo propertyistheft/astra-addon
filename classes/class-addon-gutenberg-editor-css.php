@@ -276,6 +276,10 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 		 */
 		public function spacing_addon_gutenberg_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
+			if ( 'custom' === astra_get_option( 'wp-blocks-ui', 'custom' ) ) {
+				return $dynamic_css;
+			}
+
 			$container_layout = get_post_meta( get_the_id(), 'site-content-layout', true );
 			if ( 'default' === $container_layout ) {
 				$container_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );

@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			add_action( 'wp', array( $this, 'load_markup' ), 1 );
 			add_action( 'wp', array( $this, 'remove_navigation_markup' ), 1 );
 
-			if ( defined( 'UAGB_VER' ) && version_compare( preg_replace( '/[^0-9\.]/', '', UAGB_VER ), '1.23.0', '>=' ) ) {
+			if ( defined( 'UAGB_VER' ) && version_compare( UAGB_VER, '1.23.0', '>=' ) ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'load_ultimate_gutenberg_blocks_assets' ) );
 			} else {
 				add_action( 'wp', array( $this, 'load_ultimate_gutenberg_blocks_assets' ) );

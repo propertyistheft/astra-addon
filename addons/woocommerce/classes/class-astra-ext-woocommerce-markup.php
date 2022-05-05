@@ -166,7 +166,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function get_off_canvas_sidebar() {
 			if ( 'disable' != astra_get_option( 'shop-off-canvas-trigger-type' ) && ( is_shop() || is_product_taxonomy() ) ) {
-				echo '<div class="astra-off-canvas-sidebar-wrapper from-left"><div class="astra-off-canvas-sidebar"><a href="javascript:void(0)" id="cart-accessibility" class="ast-shop-filter-close close">' . Astra_Icons::get_icons( 'close' ) . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<div class="astra-off-canvas-sidebar-wrapper from-left"><div class="astra-off-canvas-sidebar"><a href="javascript:void(0)" id="cart-accessibility" class="ast-shop-filter-close close" aria-label="' . esc_attr__( 'Close Off-Canvas Sidebar', 'astra-addon' ) . '">' . Astra_Icons::get_icons( 'close' ) . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				astra_get_footer_widget( 'astra-woo-product-off-canvas-sidebar' );
 				echo '</div></div>';
 			}
@@ -1056,8 +1056,6 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			if ( 'vertical' === $product_gallery ) {
 				Astra_Minify::add_js( $gen_path . 'single-product-vertical-gallery' . $file_prefix . '.js' );
 			}
-
-			Astra_Minify::add_js( $gen_path . 'single-product-vertical-gallery' . $file_prefix . '.js' );
 
 			if ( self::add_to_cart_quantity_btn_enabled() ) {
 				Astra_Minify::add_js( $gen_path . 'add-to-cart-quantity-btn' . $file_prefix . '.js' );

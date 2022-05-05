@@ -299,12 +299,32 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 * @return mixed
 		 */
 		public function get_search_form( $style = 'slide-search', $echo = false ) {
+			if ( Astra_Addon_Builder_Helper::is_component_loaded( 'search', 'header' ) ) {
+				ob_start();
+					astra_addon_get_template( 'advanced-search/template/' . esc_attr( $style ) . '.php' );
+				$search_html = ob_get_clean();
+
+				if ( $echo ) {
+					echo $search_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				} else {
+					return $search_html;
+				}
+			}
+		}
+
+		/**
+		 * Search Form Shortcode
+		 *
+		 * @since 3.6.8
+		 * @param string  $style Search Form Style.
+		 * @param boolean $echo Print or return.
+		 * @return mixed
+		 */
+		public function get_search_form_shortcode( $style = 'slide-search', $echo = false ) {
 			$search_html = '';
-
-			ob_start();
-				astra_addon_get_template( 'advanced-search/template/' . esc_attr( $style ) . '.php' );
-			$search_html = ob_get_clean();
-
+				ob_start();
+					astra_addon_get_template( 'advanced-search/template/' . esc_attr( $style ) . '.php' );
+				$search_html = ob_get_clean();
 			if ( $echo ) {
 				echo $search_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {

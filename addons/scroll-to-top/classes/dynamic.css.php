@@ -45,6 +45,16 @@ function astra_addon_scroll_to_top_dynamic_css( $dynamic_css, $dynamic_css_filte
 
 	$scroll_css = astra_parse_css( $scroll_to_top );
 
+	if ( is_rtl() ) {
+		$scroll_to_top_rtl = array(
+			'#ast-scroll-top .ast-icon.icon-arrow svg' => array(
+				'margin-right' => '0px',
+			),
+		);
+
+		$scroll_css .= astra_parse_css( $scroll_to_top_rtl );
+	}
+
 	if ( false === Astra_Icons::is_svg_icons() ) {
 		$scroll_to_top_icon = array(
 			'.ast-scroll-top-icon::before' => array(

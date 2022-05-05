@@ -89,6 +89,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 		public function search_markup( $atts ) {
 
 			wp_enqueue_style( 'advanced-search-shortcode' );
+			if ( is_callable( 'astra_search_static_css' ) ) {
+				wp_add_inline_style( 'advanced-search-shortcode', astra_search_static_css() );
+			}
 
 			$atts = shortcode_atts(
 				array(
@@ -99,18 +102,20 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 			);
 
 			if ( 'inline' === $atts['style'] ) {
-				$markup = Astra_Ext_Adv_Search_Markup::get_instance()->get_search_form( 'search-box' );
+				$markup = Astra_Ext_Adv_Search_Markup::get_instance()->get_search_form_shortcode( 'search-box' );
 			} elseif ( 'full-screen' === $atts['style'] ) {
-				$markup = '<div class="ast-search-icon"><a class="full-screen astra-search-icon" aria-label="Search icon link" href="#" ></a></div>';
+				$svg_markup = self::search_svg_markup();
+				$markup     = '<div class="ast-search-icon"><a class="full-screen astra-search-icon" aria-label="Search icon link" href="#" >' . $svg_markup . '</a></div>';
 				add_action(
 					'wp_footer',
 					function() {
-						echo Astra_Ext_Adv_Search_Markup::get_instance()->get_search_form( 'full-screen' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo Astra_Ext_Adv_Search_Markup::get_instance()->get_search_form_shortcode( 'full-screen' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 				);
 			} elseif ( 'cover' === $atts['style'] ) {
-				$markup  = '<div class="ast-search-icon"><a class="header-cover astra-search-icon" aria-label="Search icon link" href="#"></a></div>';
-				$markup .= Astra_Ext_Adv_Search_Markup::get_instance()->get_search_form( 'header-cover' );
+				$svg_markup = self::search_svg_markup();
+				$markup     = '<div class="ast-search-icon"><a class="header-cover astra-search-icon" aria-label="Search icon link" href="#">' . $svg_markup . '</a></div>';
+				$markup    .= Astra_Ext_Adv_Search_Markup::get_instance()->get_search_form_shortcode( 'header-cover' );
 			} else {
 				$markup = astra_get_search();
 			}
@@ -134,6 +139,23 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 			<?php
 			return ob_get_clean();
 		}
+
+		/**
+		 * Search svg markup.
+		 *
+		 * @return string
+		 * @since 3.6.8
+		 */
+		public static function search_svg_markup() {
+			ob_start();
+			?>
+			<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra-addon' ); ?></span>
+			<?php Astra_Icons::get_icons( 'search', true ); ?>
+			<?php
+			$search_svg_html = ob_get_clean();
+			return $search_svg_html;
+		}
+
 	}
 
 	/**
