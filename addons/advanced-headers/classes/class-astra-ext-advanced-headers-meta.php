@@ -90,12 +90,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				$current_tab = isset( $_POST['advanced-headers-current-tab'] ) ? esc_attr( $_POST['advanced-headers-current-tab'] ) : '';
 
 				if ( '' !== $current_tab ) {
-					$location = add_query_arg(
+					$location = esc_url_raw( add_query_arg(
 						array(
 							'current-tab' => $current_tab,
 						),
 						$location
-					);
+					) );
 				}
 			}
 

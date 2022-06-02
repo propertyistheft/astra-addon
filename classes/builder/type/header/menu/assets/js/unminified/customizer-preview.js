@@ -17,12 +17,12 @@
      */
     (function (index) {
 
-      var selector = '.ast-desktop .ast-mega-menu-enabled .ast-builder-menu-' + index + ' div:not( .astra-full-megamenu-wrapper) .sub-menu, .ast-desktop .ast-builder-menu-' + index + ' .sub-menu, .ast-builder-menu-' + index + ' .inline-on-mobile .sub-menu, .ast-desktop .ast-builder-menu-' + index + ' .astra-full-megamenu-wrapper, .ast-desktop .ast-builder-menu-' + index + ' .sub-menu';
+      var selector = '.ast-desktop .ast-mega-menu-enabled .ast-builder-menu-' + index + ' div:not( .astra-full-megamenu-wrapper) .sub-menu, .ast-builder-menu-' + index + ' .inline-on-mobile .sub-menu, .ast-desktop .ast-builder-menu-' + index + ' .astra-full-megamenu-wrapper, .ast-desktop .ast-builder-menu-' + index + ' .menu-item .sub-menu';
 
       // Box Shadow CSS Generation.
       astra_addon_box_shadow_css( 'header-menu' + index, selector );
 
     })(index);
   }
-    
+
 } )( jQuery );

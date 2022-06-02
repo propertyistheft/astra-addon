@@ -197,7 +197,6 @@ class Astra_Addon_Offcanvas_Component_Loader {
 		.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .menu-item-has-children .sub-menu {
 		display: none;
 		}
-		.ast-desktop-header-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu,
 		.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu {
 		display: block;
 		}
@@ -373,7 +372,6 @@ class Astra_Addon_Offcanvas_Component_Loader {
 			.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .menu-item-has-children .sub-menu {
 			display: none;
 			}
-			.ast-desktop-header-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu,
 			.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .toggled .menu-item-has-children .sub-menu {
 			display: block;
 			}

@@ -5,7 +5,7 @@
   padding: 35px;
   max-height: 550px;
   width: 340px;
-  margin: 0 0 0 -190px;
+  margin: 0 0 0 -170px;
   background-color: #f1f1f1;
   z-index: 1000011;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
@@ -62,8 +62,7 @@
   pointer-events: all;
 }
 
-.ast-header-break-point .ast-hf-account-menu-wrap,
-.ast-header-break-point .ast-hb-account-login-wrapper {
+.ast-header-break-point .ast-hf-account-menu-wrap {
   display: none;
 }
 

@@ -93,13 +93,19 @@
 			windowWidth       = jQuery( window ).outerWidth();
 			stick_upto_scroll = parseInt( self.options.stick_upto_scroll ),
 			max_width         = parseInt( selector.parent().attr( 'data-stick-maxwidth' ) ), // parseInt( self.options.max_width ),
-			gutter            = parseInt( selector.parent().attr( 'data-stick-gutter' ) ); // parseInt( self.options.gutter ).
+			gutter            = parseInt( selector.parent().attr( 'data-stick-gutter' ) ), // parseInt( self.options.gutter ).
+			aboveHeaderSelectorValue = gutter;
 
 		if ( header_builder_active && astraAddon.header_main_shrink ) {
 			// Decrese the top of primary / below as we decrease the min-height of all sticked headers by 20.
 			if ( ( selector.hasClass( 'ast-stick-primary-below-wrapper' ) || ( selector.hasClass( 'ast-primary-header' ) ) ) && 1 == astraAddon.header_above_stick && gutter > 0  ) {
 
 				gutter = gutter - 10;
+			}
+
+			var aboveHeaderSelector = document.querySelector('.ast-above-header-bar');
+			if ( 1 == astraAddon.header_above_stick && null !== aboveHeaderSelector ) {
+				aboveHeaderSelectorValue = aboveHeaderSelector.getBoundingClientRect().height + parseInt( aboveHeaderSelector.parentNode.getAttribute( 'data-stick-gutter' ) );
 			}
 		}
 
@@ -116,6 +122,10 @@
 			if ( stick_upto_scroll < 0 ) {
 				stick_upto_scroll = 0;
 			}
+
+			// Check if the Elementor Motion Effect class present
+			var stcikyHeaderElementor = document.getElementsByClassName('elementor-motion-effects-parent');
+			var stickyHeaderFlag = stcikyHeaderElementor.length > 0 ? true : false;
 
 			if ( jQuery( window ).scrollTop() > stick_upto_scroll ) {
 
@@ -147,7 +157,9 @@
 					self.hasScrolled( self, 'stick' );
 				}else if ( 'none' == self.options.header_style ) {
 
-					selector.parent().css( 'min-height', selector.outerHeight() );
+					if ( ! stickyHeaderFlag ) {
+						selector.parent().css( 'min-height', selector.outerHeight() );
+					}
 
 					selector.addClass( 'ast-sticky-active' ).stop().css({
 						'max-width'      : max_width,
@@ -155,11 +167,10 @@
 						'padding-bottom' : self.options.shrink.padding_bottom,
 						'top'            : gutter,
 					});
-
 					if ( ( selector.hasClass( 'ast-stick-primary-below-wrapper' ) || selector.hasClass( 'ast-primary-header' ) ) && 1 == astraAddon.header_above_stick && 70 > selector.closest('#ast-desktop-header').find('.ast-above-header-bar').outerHeight() ) {
 
 						selector.addClass( 'ast-sticky-active' ).stop().css({
-							'top'            : 'unset',
+							'top'            : stickyHeaderFlag ? aboveHeaderSelectorValue : 'unset',
 						});
 
 						selector.parent().css( 'min-height', 'unset' );

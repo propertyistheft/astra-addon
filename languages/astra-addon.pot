@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 3.6.8\n"
+"Project-Id-Version: Astra Pro 3.6.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2022-05-05 09:32:40+00:00\n"
+"POT-Creation-Date: 2022-06-01 10:20:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5174,20 +5174,20 @@ msgstr ""
 msgid "No Thanks"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:364
+#: admin/bsf-analytics/class-bsf-analytics.php:366
 msgid "Usage Tracking"
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:408
+#: admin/bsf-analytics/class-bsf-analytics.php:410
 #. translators: %s Product title
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:411
+#: admin/bsf-analytics/class-bsf-analytics.php:413
 msgid " This will be applicable for all sites from the network."
 msgstr ""
 
-#: admin/bsf-analytics/class-bsf-analytics.php:416
+#: admin/bsf-analytics/class-bsf-analytics.php:418
 msgid "Learn More."
 msgstr ""
 
@@ -5414,12 +5414,12 @@ msgstr ""
 msgid "Off-Canvas Menu"
 msgstr ""
 
-#: classes/class-astra-ext-white-label-markup.php:541
+#: classes/class-astra-ext-white-label-markup.php:543
 #. translators: %s: white label pro name
 msgid "Available %s Modules:"
 msgstr ""
 
-#: classes/class-astra-ext-white-label-markup.php:543
+#: classes/class-astra-ext-white-label-markup.php:545
 msgid "Available Astra Pro Modules:"
 msgstr ""
 

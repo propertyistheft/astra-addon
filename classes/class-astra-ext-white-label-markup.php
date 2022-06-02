@@ -334,13 +334,15 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 					// Replace Theme URL with Agency URL.
 					$themes[ $astra_key ]['update'] = str_replace(
 						'https://wordpress.org/themes/astra/?TB_iframe=true&#038;width=1024&#038;height=800',
-						add_query_arg(
-							array(
-								'TB_iframe' => true,
-								'hight'     => '800',
-								'width'     => '1024',
-							),
-							self::get_whitelabel_string( 'astra-agency', 'author_url', 'https://wordpress.org/themes/astra/?TB_iframe=true&#038;width=1024&#038;height=800' )
+						esc_url_raw(
+							add_query_arg(
+								array(
+									'TB_iframe' => true,
+									'hight'     => '800',
+									'width'     => '1024',
+								),
+								self::get_whitelabel_string( 'astra-agency', 'author_url', 'https://wordpress.org/themes/astra/?TB_iframe=true&#038;width=1024&#038;height=800' )
+							)
 						),
 						$themes[ $astra_key ]['update']
 					);
@@ -602,7 +604,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 					'message' => 'saved',
 				);
 
-				$redirect_to = add_query_arg( $query, $url );
+				$redirect_to = esc_url_raw( add_query_arg( $query, $url ) );
 
 				// Flush rewrite rules on publish action of custom layout.
 				flush_rewrite_rules();

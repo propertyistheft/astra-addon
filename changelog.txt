@@ -1,3 +1,11 @@
+v3.6.9
+- Fix: Improvements as per WordPress coding standards.
+- Fix: Header - Menus - Box Shadow not applying for submenus from customizer options
+- Fix: Single Product Quantity not working for decimal numbers.
+- Fix: Elementor page with Motion effect jerks on scroll when header is set to sticky and animation is None.
+- Fix: Submenu items expanded initially in offcanvas, when Toggle Button being used for desktop header.
+- Fix: Astra theme version number missing in Rollback section.
+
 v3.6.8
 - Improvement: Compatibility for enhancing block editor experience. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Fix: Builder - Search - Search markup is loaded even when the search element is not added.

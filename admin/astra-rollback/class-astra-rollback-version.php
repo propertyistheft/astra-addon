@@ -163,9 +163,9 @@ class Astra_Rollback_Version {
 			return $rollback_versions;
 		}
 
-		krsort( $theme_information->versions ); // Reverse the order of array elements.
+		$reverse_theme_versions = array_reverse( $theme_information->versions ); // Reverse the order of array elements.
 
-		foreach ( $theme_information->versions as $version => $download_link ) {
+		foreach ( $reverse_theme_versions as $version => $download_link ) {
 
 			$lowercase_version = strtolower( $version );
 

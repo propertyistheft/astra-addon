@@ -35,7 +35,7 @@ function astra_addon_header_menu_dynamic_css( $dynamic_css, $dynamic_css_filtere
 
 		$_prefix = 'menu' . $index;
 
-		$selector = '.ast-desktop .ast-mega-menu-enabled .ast-builder-menu-' . $index . ' div:not( .astra-full-megamenu-wrapper) .sub-menu, .ast-desktop .ast-builder-menu-' . $index . ' .sub-menu, .ast-builder-menu-' . $index . ' .inline-on-mobile .sub-menu, .ast-desktop .ast-builder-menu-' . $index . ' .astra-full-megamenu-wrapper, .ast-desktop .ast-builder-menu-' . $index . ' .sub-menu';
+		$selector = '.ast-desktop .ast-mega-menu-enabled .ast-builder-menu-' . $index . ' div:not( .astra-full-megamenu-wrapper) .sub-menu, .ast-builder-menu-' . $index . ' .inline-on-mobile .sub-menu, .ast-desktop .ast-builder-menu-' . $index . ' .astra-full-megamenu-wrapper, .ast-desktop .ast-builder-menu-' . $index . ' .menu-item .sub-menu';
 
 		$dynamic_css .= Astra_Addon_Base_Dynamic_CSS::prepare_box_shadow_dynamic_css( 'header-' . $_prefix, $selector );
 
