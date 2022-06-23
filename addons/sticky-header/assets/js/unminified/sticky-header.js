@@ -161,11 +161,15 @@
 						selector.parent().css( 'min-height', selector.outerHeight() );
 					}
 
+					if ( ! document.querySelector('body').classList.contains( 'fl-builder-edit' ) ) {
+						selector.addClass('ast-sticky-active').stop().css({
+							'top': gutter,
+						});
+					}
 					selector.addClass( 'ast-sticky-active' ).stop().css({
 						'max-width'      : max_width,
 						'padding-top'    : self.options.shrink.padding_top,
 						'padding-bottom' : self.options.shrink.padding_bottom,
-						'top'            : gutter,
 					});
 					if ( ( selector.hasClass( 'ast-stick-primary-below-wrapper' ) || selector.hasClass( 'ast-primary-header' ) ) && 1 == astraAddon.header_above_stick && 70 > selector.closest('#ast-desktop-header').find('.ast-above-header-bar').outerHeight() ) {
 

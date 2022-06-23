@@ -273,27 +273,6 @@
 	} );
 
 	/**
-	 * Single Post Container Outside Spacing
-	 */
-	astra_responsive_spacing( 'astra-settings[single-post-outside-spacing]','.ast-separate-container.ast-single-post.ast-right-sidebar #primary, .ast-separate-container.ast-single-post.ast-left-sidebar #primary, .ast-separate-container.ast-single-post #primary, .ast-plain-container.ast-single-post #primary', 'margin',  ['top', 'bottom' ] );
-	astra_responsive_spacing( 'astra-settings[single-post-outside-spacing]','.ast-left-sidebar.ast-single-post #primary, .ast-right-sidebar.ast-single-post #primary, .ast-separate-container.ast-single-post.ast-right-sidebar #primary, .ast-separate-container.ast-single-post.ast-left-sidebar #primary, .ast-separate-container.ast-single-post #primary', 'padding',  ['left', 'right' ] );
-	// Remove padding top to container if padding top is given to Container Outer Spacing.
-	wp.customize( 'astra-settings[single-post-outside-spacing]', function( value ) {
-		value.bind( function( padding ) {
-
-			var dynamicStyle = '';
-			if( padding.desktop.top != '' || padding.tablet.top != '' || padding.mobile.top != '' ) {
-				dynamicStyle += '.ast-separate-container.ast-single-post #primary { padding-top: 0px;} ';
-			}
-			if( padding.desktop.bottom != '' || padding.tablet.bottom != '' || padding.mobile.bottom != '' ) {
-				dynamicStyle += '.ast-separate-container.ast-single-post #primary { padding-bottom: 0px;} ';
-			}
-			astra_add_dynamic_css( 'remove-header-spacing', dynamicStyle );
-
-		} );
-	} );
-
-	/**
 	 * Boxed Content Spacing
 	 */
 	astra_responsive_spacing( 'astra-settings[container-inside-spacing]','.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond, .single.ast-separate-container .ast-author-details, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .ast-single-related-posts-container', 'padding', [ 'top', 'bottom' ] );
@@ -482,7 +461,7 @@
 	var body_selector = '.ast-hfb-header';
 
 	if ( ast_preview.astra_not_updated ) {
-		
+
 		body_selector = '.astra-hfb-header';
 	}
 
@@ -630,7 +609,7 @@
 		} );
 	} );
 
-	
+
 	// Item Spacing.
 	wp.customize( 'astra-settings[section-hb-language-switcher-item-spacing]', function( value ) {
 		value.bind( function( spacing ) {

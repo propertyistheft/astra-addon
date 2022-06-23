@@ -410,7 +410,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @return void if not a single product.
 		 */
 		public function next_previous_links() {
-
+			$args = array();
 			if ( ! is_product() ) {
 				return;
 			}
@@ -423,8 +423,18 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			?>
 			<div class="product-links">
 				<?php
-				previous_post_link( '%link', $previous_icon );
-				next_post_link( '%link', $next_icon );
+				$previous_args = apply_filters( 'astra_woo_product_previous_post_nav_args', $args );
+				$next_args     = apply_filters( 'astra_woo_product_next_post_nav_args', $args );
+
+				if ( ! empty( $previous_args ) || ! empty( $next_args ) ) {
+					$previous_args_icon = ! empty( $previous_args['link'] ) ? $previous_args['link'] : $previous_icon;
+					$next_args_icon     = ! empty( $next_args['link'] ) ? $next_args['link'] : $next_icon;
+					previous_post_link( $previous_args['format'], $previous_args_icon, $previous_args['in_same_term'], $previous_args['excluded_terms'], $previous_args['taxonomy'] );
+					next_post_link( $next_args['format'], $next_args_icon, $next_args['in_same_term'], $next_args['excluded_terms'], $next_args['taxonomy'] );
+				} else {
+					previous_post_link( '%link', $previous_icon );
+					next_post_link( '%link', $next_icon );
+				}
 				?>
 			</div>
 			<?php

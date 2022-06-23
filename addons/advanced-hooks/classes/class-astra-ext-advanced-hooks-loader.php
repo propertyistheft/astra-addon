@@ -625,6 +625,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				'astra-custom-layout',
 				'astCustomLayout',
 				array(
+					'checkPolylangActive'        => class_exists( 'Polylang' ),
 					'postType'                   => $post_type,
 					'title'                      => __( 'Custom Layout', 'astra-addon' ),
 					'layouts'                    => $this->get_layout_type(),

@@ -520,29 +520,6 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 				'tablet-unit'  => 'em',
 				'mobile-unit'  => 'px',
 			);
-			$defaults['single-post-outside-spacing']  = array(
-				'desktop'      => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'tablet'       => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'mobile'       => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'desktop-unit' => 'px',
-				'tablet-unit'  => 'px',
-				'mobile-unit'  => 'px',
-			);
 			$defaults['single-post-inside-spacing']   = array(
 				'desktop'      => array(
 					'top'    => '',

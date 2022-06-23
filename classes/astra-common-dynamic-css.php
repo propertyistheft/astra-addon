@@ -40,6 +40,15 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		),
 	);
 
+	if ( true === astra_get_option( 'customizer-default-layout-update', true ) ) {
+		$desktop_max_css['.single.ast-page-builder-template .ast-single-author-box'] = array(
+			'padding' => '2em 20px',
+		);
+		$desktop_max_css['.single.ast-separate-container .ast-author-meta']          = array(
+			'padding' => '3em',
+		);
+	}
+
 	/* Parse CSS from array() */
 	$css_output .= astra_parse_css( $desktop_max_css );
 
@@ -148,10 +157,6 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$margin_space = astra_get_option( 'blog-space-bet-posts' ) ? '-1em' : '0';
 
 	$tablet_min_css = array(
-		// Single Post author info.
-		'.single .ast-author-meta .ast-author-details' => array(
-			'display' => 'flex',
-		),
 		'.ast-separate-container.ast-blog-grid-2 .ast-archive-description, .ast-separate-container.ast-blog-grid-3 .ast-archive-description, .ast-separate-container.ast-blog-grid-4 .ast-archive-description' => array(
 			'margin-bottom' => '1.33333em',
 		),
@@ -197,6 +202,20 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'margin-bottom' => '2.5em',
 		),
 	);
+
+	if ( true === astra_get_option( 'customizer-default-layout-update', true ) ) {
+		$tablet_min_css['.single .ast-author-meta .ast-author-details'] = array(
+			'display'     => 'flex',
+			'align-items' => 'center',
+		);
+		$tablet_min_css['.post-author-bio .author-title']               = array(
+			'margin-bottom' => '10px',
+		);
+	} else {
+		$tablet_min_css['.single .ast-author-meta .ast-author-details'] = array(
+			'display' => 'flex',
+		);
+	}
 
 	/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1)px */
 	$css_output .= astra_parse_css( $tablet_min_css, astra_addon_get_tablet_breakpoint( '', 1 ) );

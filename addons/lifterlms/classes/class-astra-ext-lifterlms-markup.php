@@ -117,7 +117,7 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 				$my_account_permalink = get_permalink( get_option( 'lifterlms_myaccount_page_id' ) );
 				?>
 				<div class="main-header-log-out">
-					<a class="llms-profile-link" href="<?php echo esc_url_raw( apply_filters( 'astra_llms_profile_link', $my_account_permalink ) ); ?>"><?php echo get_avatar( get_current_user_id(), 45 ); ?></a>
+					<a class="llms-profile-link" role="link" aria-label="<?php esc_attr_e( 'LifterLMS profile link', 'astra-addon' ); ?> href="<?php echo esc_url_raw( apply_filters( 'astra_llms_profile_link', $my_account_permalink ) ); ?>"><?php echo get_avatar( get_current_user_id(), 45 ); ?></a>
 				</div>
 				<?php
 			endif;

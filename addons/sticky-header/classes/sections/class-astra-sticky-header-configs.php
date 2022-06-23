@@ -278,6 +278,32 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Sticky Header Button Colors Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[sticky-header-button-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-sticky-header',
+					'title'    => __( 'Header Button', 'astra-addon' ),
+					'settings' => array(),
+					'priority' => 55,
+					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+							'operator' => '===',
+							'value'    => 'custom-button',
+						),
+					),
+				),
+
+				/**
 				 * Group: Theme Button Colors Group
 				 */
 				array(

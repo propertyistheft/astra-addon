@@ -1,3 +1,13 @@
+v3.6.10
+- Improvement: Moved Single Post and Page spacing option to theme.
+- Fix: Translated Taxonomies not listed under the target specific rule for Custom Layout with Polylang plugin.
+- Fix: Custom Layouts - Inside post/page content displays multiple time with entry_after hooks used.
+- Fix: Small space appearing between the Sticky Above and Primary header in the Beaver Builder editor.
+- Fix: Primary submenus not expandable on mobile when toggle button element is not added.
+- Fix: "Header Button" heading added to separate out Sticky Header options in old header.
+- Fix: Accessibility - LifterLMS profile link is missing aria-label and role attribute.
+- Fix: Fixed display Products from Same Category with Navigation. ( https://wpastra.com/docs/products-from-same-directed-category-with-navigation/ )
+
 v3.6.9
 - Fix: Improvements as per WordPress coding standards.
 - Fix: Header - Menus - Box Shadow not applying for submenus from customizer options

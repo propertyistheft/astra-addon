@@ -35,12 +35,18 @@ const AstDisplayRules = ( props ) => {
 
     // On Specific Post/Page search field.
     const onSpcificSelect = ( value ) => {
-        const requestMetadata = {
+		let polylangBody = '';
+		if ('1' === astCustomLayout.checkPolylangActive) {
+			let postID   = document.querySelector('.metabox-base-form #post_ID').value;
+			polylangBody = '&pll_ajax_backend=1&pll_post_id=' + postID;
+		}
+
+		const requestMetadata = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             },
-            body: 'action=astra_get_posts_by_query&q=' + value + '&nonce=' + astCustomLayout.ajax_nonce
+            body: 'action=astra_get_posts_by_query&q=' + value + '&nonce=' + astCustomLayout.ajax_nonce + polylangBody
         };
 
         const tempSearchOptions = [];
@@ -125,7 +131,7 @@ const AstDisplayRules = ( props ) => {
                         <option value=""> {__('— Select —', 'astra-addon') }</option>
                         {displayRules}
                     </select>
-                
+
 
                     { 'specifics' == editRules.rule[index] &&  <Select
                         value = {specific}
@@ -137,7 +143,7 @@ const AstDisplayRules = ( props ) => {
                         className = "ast-meta-select"
                         classNamePrefix = "ast"
                     /> }
-                    
+
                 </div> }
 
                 { 'clflag' !== editRules.rule[index] &&  <span className= {  disabledClass +"ast-cl-close target_rule-condition-delete dashicons dashicons-dismiss" } onClick = { ( e )=> removeRule( index ) } ></span> }

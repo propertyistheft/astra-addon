@@ -45,6 +45,12 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		),
 	);
 
+	if ( true === astra_get_option( 'customizer-default-layout-update', true ) ) {
+		$css_output['.ast-page-builder-template .ast-archive-description'] = array(
+			'margin-bottom' => '2em',
+		);
+	}
+
 	if ( 'number' === $blog_pagination ) {
 
 		if ( 'circle' === $blog_pagination_style || 'square' === $blog_pagination_style ) {
