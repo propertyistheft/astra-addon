@@ -25,7 +25,14 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 		$output       = '';
 		$current_post = get_post( $post_id, OBJECT );
 
-		$output = $current_post->post_content;
+		if ( has_blocks( $current_post ) ) {
+			$blocks = parse_blocks( $current_post->post_content );
+			foreach ( $blocks as $block ) {
+				$output .= render_block( $block );
+			}
+		} else {
+			$output = $current_post->post_content;
+		}
 
 		ob_start();
 		echo do_shortcode( $output );
