@@ -73,7 +73,21 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'value'    => 'title-meta',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-divider]',
+					'section'  => 'section-blog',
+					'title'    => __( 'Blog Layout', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 5,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 				),
 
 				/**
@@ -102,7 +116,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-3', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -130,7 +143,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'value'    => 'blog-layout-1',
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 
 				/**
@@ -145,7 +158,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'title'     => __( 'Add Space Between Posts', 'astra-addon' ),
 					'transport' => 'postMessage',
 					'priority'  => 15,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -172,7 +184,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'value'    => 1,
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -200,7 +211,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'value'    => 1,
 						),
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -214,7 +224,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'section'  => 'section-blog',
 					'title'    => __( 'Enable Date Box', 'astra-addon' ),
 					'priority' => 30,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -242,7 +251,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 
 				/**
@@ -265,7 +274,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'value'    => 'blog-layout-1',
 						),
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -292,6 +300,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'value'    => 'excerpt',
 						),
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 
 				/**
@@ -326,7 +335,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'section'  => 'section-blog',
 					'title'    => __( 'Display Read More as Button', 'astra-addon' ),
 					'priority' => 90,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -346,7 +355,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider ast-top-section-divider' ),
 				),
 
 				/**

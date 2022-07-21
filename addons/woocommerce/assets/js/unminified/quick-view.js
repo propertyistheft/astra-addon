@@ -46,7 +46,7 @@
 		_bind: function()
 		{
 			// Open Quick View.
-			$(document).off( 'click', '.ast-quick-view-button, .ast-quick-view-text, .ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link' ).on( 'click', '.ast-quick-view-button, .ast-quick-view-text, .ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link', AstraProQuickView._open_quick_view);
+			$(document).off( 'click', '.ast-quick-view-button, .ast-quick-view-text, .ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link, .ast-quick-view-trigger' ).on( 'click', '.ast-quick-view-button, .ast-quick-view-text, .ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link, .ast-quick-view-trigger', AstraProQuickView._open_quick_view);
 
 			// Close Quick View.
 			$(document).on( 'click', '#ast-quick-view-close', AstraProQuickView._close_quick_view);
@@ -152,6 +152,8 @@
 				quick_view.removeClass('loading').addClass('open');
 				$('.ast-quick-view-bg').addClass('open');
 			}, 100);
+
+			document.dispatchEvent( new CustomEvent( "astUpdateSingleProductVariations",  { "detail": {} }) );
 
 			// stop loader
 			$(document).trigger('ast_quick_view_loader_stop');

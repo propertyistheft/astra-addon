@@ -60,6 +60,7 @@ class Astra_Sticky_Header_Language_Switcher_Configs extends Astra_Customizer_Con
 					),
 					astra_addon_builder_helper()->design_tab_config,
 				),
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 			/**
 			 * Option: language-switcher Color.
@@ -73,6 +74,7 @@ class Astra_Sticky_Header_Language_Switcher_Configs extends Astra_Customizer_Con
 				'transport' => 'postMessage',
 				'control'   => 'ast-color',
 				'title'     => __( 'Color', 'astra-addon' ),
+				'divider'   => array( 'ast_class' => 'ast-bottom-spacing' ),
 				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-language-switcher-show-name]',
@@ -81,7 +83,6 @@ class Astra_Sticky_Header_Language_Switcher_Configs extends Astra_Customizer_Con
 					),
 					astra_addon_builder_helper()->design_tab_config,
 				),
-				'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 		);
 

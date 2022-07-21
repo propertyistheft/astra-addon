@@ -116,6 +116,7 @@ if ( ! class_exists( 'Astra_Edd_General_Configs' ) ) {
 					'suffix'      => 'px',
 					'control'     => 'ast-slider',
 					'priority'    => 46,
+					'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,

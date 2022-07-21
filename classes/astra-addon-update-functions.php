@@ -402,3 +402,311 @@ function astra_addon_remove_responsive_account_menu_colors_support() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+
+/**
+ * Check if old user and keep the existing product gallery layouts.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_addon_update_product_gallery_layout() {
+
+	$theme_options = get_option( 'astra-settings' );
+
+	if ( ! isset( $theme_options['astra-product-gallery-layout-flag'] ) ) {
+		$theme_options['astra-product-gallery-layout-flag'] = false;
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Migrate old user data to new responsive format layout for shop's summary box content alignment.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_addon_responsive_shop_content_alignment() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['shop-product-align-responsive'] ) && isset( $theme_options['shop-product-align'] ) ) {
+		$theme_options['shop-product-align-responsive'] = array(
+			'desktop' => $theme_options['shop-product-align'],
+			'tablet'  => $theme_options['shop-product-align'],
+			'mobile'  => $theme_options['shop-product-align'],
+		);
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Migrate old user data to new responsive format for shop's cart button padding.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_addon_responsive_shop_button_padding() {
+	$theme_options             = get_option( 'astra-settings', array() );
+	$vertical_button_padding   = isset( $theme_options['shop-button-v-padding'] ) ? $theme_options['shop-button-v-padding'] : '';
+	$horizontal_button_padding = isset( $theme_options['shop-button-h-padding'] ) ? $theme_options['shop-button-h-padding'] : '';
+	if ( ! isset( $theme_options['shop-button-padding'] ) ) {
+		$theme_options['shop-button-padding'] = array(
+			'desktop'      => array(
+				'top'    => $vertical_button_padding,
+				'right'  => $horizontal_button_padding,
+				'bottom' => $vertical_button_padding,
+				'left'   => $horizontal_button_padding,
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+
+/**
+ * Migrate old box shadow user data to new simplyfy box-shadow controls shop items shadow.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_addon_shop_box_shadow_migration() {
+	// For shop products box-shadow.
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['shop-item-box-shadow-control'] ) && isset( $theme_options['shop-product-shadow'] ) ) {
+
+		$normal_shadow_x      = '';
+		$normal_shadow_y      = '';
+		$normal_shadow_blur   = '';
+		$normal_shadow_spread = '';
+		$normal_shadow_color  = 'rgba(0,0,0,.1)';
+
+		switch ( $theme_options['shop-product-shadow'] ) {
+			case 1:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '1';
+				$normal_shadow_blur   = '3';
+				$normal_shadow_spread = '-2';
+				break;
+
+			case 2:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '3';
+				$normal_shadow_blur   = '6';
+				$normal_shadow_spread = '-5';
+				break;
+
+			case 3:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '10';
+				$normal_shadow_blur   = '20';
+				$normal_shadow_spread = '';
+				break;
+
+			case 4:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '14';
+				$normal_shadow_blur   = '28';
+				$normal_shadow_spread = '';
+				break;
+
+			case 5:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '20';
+				$normal_shadow_blur   = '30';
+				$normal_shadow_spread = '0';
+				break;
+
+			default:
+				break;
+		}
+
+		$theme_options['shop-item-box-shadow-control']  = array(
+			'x'      => $normal_shadow_x,
+			'y'      => $normal_shadow_y,
+			'blur'   => $normal_shadow_blur,
+			'spread' => $normal_shadow_spread,
+		);
+		$theme_options['shop-item-box-shadow-position'] = 'outline';
+		$theme_options['shop-item-box-shadow-color']    = $normal_shadow_color;
+
+		update_option( 'astra-settings', $theme_options );
+	}
+
+	// For shop products hover box-shadow.
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['shop-item-hover-box-shadow-control'] ) && isset( $theme_options['shop-product-shadow-hover'] ) ) {
+
+		$normal_shadow_x      = '';
+		$normal_shadow_y      = '';
+		$normal_shadow_blur   = '';
+		$normal_shadow_spread = '';
+		$normal_shadow_color  = 'rgba(0,0,0,.1)';
+
+		switch ( $theme_options['shop-product-shadow-hover'] ) {
+			case 1:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '1';
+				$normal_shadow_blur   = '3';
+				$normal_shadow_spread = '-2';
+				break;
+
+			case 2:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '3';
+				$normal_shadow_blur   = '6';
+				$normal_shadow_spread = '-5';
+				break;
+
+			case 3:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '10';
+				$normal_shadow_blur   = '20';
+				$normal_shadow_spread = '';
+				break;
+
+			case 4:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '14';
+				$normal_shadow_blur   = '28';
+				$normal_shadow_spread = '';
+				break;
+
+			case 5:
+				$normal_shadow_x      = '0';
+				$normal_shadow_y      = '20';
+				$normal_shadow_blur   = '30';
+				$normal_shadow_spread = '0';
+				break;
+
+			default:
+				break;
+		}
+
+		$theme_options['shop-item-hover-box-shadow-control']  = array(
+			'x'      => $normal_shadow_x,
+			'y'      => $normal_shadow_y,
+			'blur'   => $normal_shadow_blur,
+			'spread' => $normal_shadow_spread,
+		);
+		$theme_options['shop-item-hover-box-shadow-position'] = 'outline';
+		$theme_options['shop-item-hover-box-shadow-color']    = $normal_shadow_color;
+
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * If old user then it keeps then default cart icon.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_addon_update_woocommerce_cart_icons() {
+
+	$theme_options = get_option( 'astra-settings' );
+
+	if ( ! isset( $theme_options['astra-woocommerce-cart-icons-flag'] ) ) {
+		$theme_options['astra-woocommerce-cart-icons-flag'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * If old user then it keeps then default cart icon.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_addon_update_toolbar_seperations() {
+	$theme_options = get_option( 'astra-settings' );
+
+	$shop_toolbar_display = isset( $theme_options['shop-toolbar-display'] ) ? $theme_options['shop-toolbar-display'] : true;
+
+	if ( ! isset( $theme_options['shop-toolbar-structure'] ) ) {
+		if ( true === $shop_toolbar_display ) {
+			if (
+				isset( $theme_options['shop-off-canvas-trigger-type'] ) &&
+				'disable' !== $theme_options['shop-off-canvas-trigger-type'] &&
+				'custom-class' !== $theme_options['shop-off-canvas-trigger-type']
+			) {
+				$theme_options['shop-toolbar-structure']                = array(
+					'filters',
+					'results',
+					'sorting',
+				);
+				$theme_options['shop-toolbar-structure-with-hiddenset'] = array(
+					'filters'   => true,
+					'results'   => true,
+					'sorting'   => true,
+					'easy_view' => false,
+				);
+			} else {
+				$theme_options['shop-toolbar-structure']                = array(
+					'results',
+					'sorting',
+				);
+				$theme_options['shop-toolbar-structure-with-hiddenset'] = array(
+					'results'   => true,
+					'filters'   => false,
+					'sorting'   => true,
+					'easy_view' => false,
+				);
+			}
+		} else {
+			if (
+				isset( $theme_options['shop-off-canvas-trigger-type'] ) &&
+				'disable' !== $theme_options['shop-off-canvas-trigger-type'] &&
+				'custom-class' !== $theme_options['shop-off-canvas-trigger-type']
+			) {
+				$theme_options['shop-toolbar-structure']                = array(
+					'filters',
+				);
+				$theme_options['shop-toolbar-structure-with-hiddenset'] = array(
+					'filters'   => true,
+					'results'   => false,
+					'sorting'   => false,
+					'easy_view' => false,
+				);
+			} else {
+				$theme_options['shop-toolbar-structure']                = array();
+				$theme_options['shop-toolbar-structure-with-hiddenset'] = array(
+					'results'   => false,
+					'filters'   => false,
+					'sorting'   => false,
+					'easy_view' => false,
+				);
+			}
+		}
+
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Restrict direct changes on users end so make it filterable.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_addon_apply_modern_ecommerce_setup() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['modern-ecommerce-setup'] ) ) {
+		$theme_options['modern-ecommerce-setup'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

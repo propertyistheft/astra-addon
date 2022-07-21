@@ -41,6 +41,20 @@ if ( ! class_exists( 'Astra_Edd_Archive_Colors_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-styling-divider]',
+					'section'  => 'section-edd-archive',
+					'title'    => __( 'Product Font & Colors', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 231,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Shop Product Title Color
 				 */
 				array(
@@ -92,7 +106,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Colors_Configs' ) ) {
 					'section'           => 'section-edd-archive',
 					'default'           => astra_get_option( 'edd-archive-product-content-color' ),
 					'type'              => 'control',
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'control'           => 'ast-color',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'transport'         => 'postMessage',

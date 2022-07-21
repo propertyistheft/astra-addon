@@ -38,6 +38,7 @@ class Astra_Addon_Base_Configs {
 				'transport' => 'postMessage',
 				'priority'  => $priority,
 				'context'   => astra_addon_builder_helper()->design_tab,
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**

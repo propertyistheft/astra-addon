@@ -286,6 +286,10 @@ body #ast-quick-view-modal div.product .flex-viewport {
   overflow-y: auto;
 }
 
+#ast-quick-view-content .ast-woocommerce-accordion {
+  display: none;
+}
+
 .open .ast-quick-view-loader {
   opacity: 0;
 }

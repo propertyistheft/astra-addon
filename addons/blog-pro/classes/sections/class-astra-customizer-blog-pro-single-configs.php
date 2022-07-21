@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'    => __( 'Author Info', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 9,
-					'divider'  => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -99,7 +99,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'    => __( 'Disable Single Post Navigation', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 9,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -114,7 +113,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'control'     => Astra_Theme_Extension::$switch_control,
 					'description' => __( 'Auto load previous posts cannot be previewed in the customizer.', 'astra-addon' ),
 					'priority'    => 9,
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -129,7 +127,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'       => __( 'Remove Featured Image Padding', 'astra-addon' ),
 					'description' => __( 'This option will not work on full width layouts.', 'astra-addon' ),
 					'priority'    => 9,
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 

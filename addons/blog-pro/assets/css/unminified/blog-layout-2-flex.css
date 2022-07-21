@@ -7,7 +7,7 @@
   display: flex;
   padding-bottom: 2em;
   vertical-align: middle;
-  border-bottom: 1px solid #f8f8f8;
+  border-bottom: 1px solid var(--ast-border-color);
 }
 
 @media (max-width: 768px) {

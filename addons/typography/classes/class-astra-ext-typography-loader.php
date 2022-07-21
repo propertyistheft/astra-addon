@@ -442,6 +442,14 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
+			$defaults['font-size-sidebar-title']     = array(
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
 			$defaults['font-family-widget-title']    = 'inherit';
 			$defaults['font-weight-widget-title']    = 'inherit';
 			$defaults['text-transform-widget-title'] = '';
@@ -454,6 +462,14 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				'desktop-unit' => 'px',
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
+			);
+			$defaults['font-size-sidebar-content']     = array(
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'em',
+				'tablet-unit'  => 'em',
+				'mobile-unit'  => 'em',
 			);
 			$defaults['font-family-widget-content']    = 'inherit';
 			$defaults['font-weight-widget-content']    = 'inherit';

@@ -58,8 +58,9 @@ if ( ! class_exists( 'Astra_Sticky_Header_Html_Configs' ) ) {
 						'section'  => $_section,
 						'title'    => __( 'Sticky Header Option', 'astra-addon' ),
 						'settings' => array(),
-						'priority' => 110,
+						'priority' => 99,
 						'context'  => astra_addon_builder_helper()->design_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 					/**
 					 * Option: HTML Color.
@@ -69,12 +70,13 @@ if ( ! class_exists( 'Astra_Sticky_Header_Html_Configs' ) ) {
 						'default'           => astra_get_option( 'sticky-header-html-' . $index . 'color' ),
 						'type'              => 'control',
 						'section'           => $_section,
-						'priority'          => 120,
+						'priority'          => 99,
 						'transport'         => 'postMessage',
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 						'title'             => __( 'Text Color', 'astra-addon' ),
 						'context'           => astra_addon_builder_helper()->design_tab,
+						'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 				);
 

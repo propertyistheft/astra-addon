@@ -55,6 +55,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Toggle_Configs' ) ) {
 					'settings' => array(),
 					'priority' => 110,
 					'context'  => astra_addon_builder_helper()->design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -70,6 +71,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Toggle_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 115,
 					'context'   => astra_addon_builder_helper()->design_tab,
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**

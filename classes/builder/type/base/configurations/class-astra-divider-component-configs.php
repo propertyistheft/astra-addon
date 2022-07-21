@@ -113,6 +113,7 @@ class Astra_Divider_Component_Configs {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				// Vertical divider notice.
@@ -155,7 +156,7 @@ class Astra_Divider_Component_Configs {
 					'transport'  => 'postMessage',
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				// Section: Above Footer Border.
@@ -174,7 +175,7 @@ class Astra_Divider_Component_Configs {
 						'step' => 1,
 						'max'  => 60,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'suffix'            => 'px',
 					'context'           => astra_addon_builder_helper()->design_tab,
 				),
@@ -220,7 +221,22 @@ class Astra_Divider_Component_Configs {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'title'             => __( 'Color', 'astra-addon' ),
 					'context'           => astra_addon_builder_helper()->design_tab,
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+					'section'  => $_section,
+					'title'    => __( 'Spacing', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 99,
+					'settings' => array(),
+					'context'  => astra_addon_builder_helper()->design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -230,13 +246,12 @@ class Astra_Divider_Component_Configs {
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
 					'default'           => astra_get_option( $_section . '-margin' ),
 					'type'              => 'control',
-					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'           => $_section,
-					'priority'          => 220,
+					'transport'         => 'postMessage',
+					'priority'          => 99,
 					'title'             => __( 'Margin', 'astra-addon' ),
-					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(
@@ -246,6 +261,7 @@ class Astra_Divider_Component_Configs {
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
 					'context'           => astra_addon_builder_helper()->design_tab,
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 			);
@@ -267,6 +283,7 @@ class Astra_Divider_Component_Configs {
 					'transport'  => 'postMessage',
 					'responsive' => true,
 					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 
 				// Footer vertical divider size.

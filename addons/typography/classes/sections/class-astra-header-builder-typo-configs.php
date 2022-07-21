@@ -867,6 +867,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $hb_lswitcher_section,
 					'transport' => 'postMessage',
 					'priority'  => 23,
+					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 					'context'   => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-language-switcher-show-name]',
@@ -913,21 +914,28 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				* Option: Font Size
 				*/
 				array(
-					'name'        => 'font-size-' . $hb_lswitcher_section,
-					'type'        => 'sub-control',
-					'parent'      => $parent,
-					'section'     => $hb_lswitcher_section,
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-' . $hb_lswitcher_section ),
-					'transport'   => 'postMessage',
-					'priority'    => 14,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-' . $hb_lswitcher_section,
+					'type'              => 'sub-control',
+					'parent'            => $parent,
+					'section'           => $hb_lswitcher_section,
+					'control'           => 'ast-responsive-slider',
+					'default'           => astra_get_option( 'font-size-' . $hb_lswitcher_section ),
+					'transport'         => 'postMessage',
+					'priority'          => 14,
+					'title'             => __( 'Size', 'astra-addon' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -994,8 +1002,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'     => __( 'Typography', 'astra-addon' ),
 					'section'   => $fb_lswitcher_section,
 					'transport' => 'postMessage',
-					'priority'  => 23,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'priority'  => 2,
 					'context'   => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-language-switcher-show-name]',
@@ -1004,6 +1011,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 						),
 						astra_addon_builder_helper()->design_tab_config,
 					),
+					'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -1041,25 +1049,32 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				/**
 				* Option: Font Size
 				*/
+
 				array(
-					'name'        => 'font-size-' . $fb_lswitcher_section,
-					'type'        => 'sub-control',
-					'parent'      => $parent,
-					'section'     => $fb_lswitcher_section,
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-' . $fb_lswitcher_section ),
-					'transport'   => 'postMessage',
-					'priority'    => 14,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-' . $fb_lswitcher_section,
+					'type'              => 'sub-control',
+					'parent'            => $parent,
+					'section'           => $fb_lswitcher_section,
+					'control'           => 'ast-responsive-slider',
+					'default'           => astra_get_option( 'font-size-' . $fb_lswitcher_section ),
+					'transport'         => 'postMessage',
+					'priority'          => 14,
+					'title'             => __( 'Size', 'astra-addon' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
-
 				/**
 				 * Option: Line Height.
 				 */

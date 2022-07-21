@@ -6,6 +6,7 @@
   -js-display: flex;
   display: flex;
   flex-direction: unset;
+  padding-bottom: 0;
   /**
 				 * Shope page image and sale wrapper
 				 */
@@ -27,6 +28,7 @@
 .woocommerce.ast-woocommerce-shop-page-list-style ul.products li.product .astra-shop-thumbnail-wrap,
 .woocommerce-page.ast-woocommerce-shop-page-list-style ul.products li.product .astra-shop-thumbnail-wrap {
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .woocommerce.ast-woocommerce-shop-page-list-style ul.products li.product .astra-shop-thumbnail-wrap,

@@ -1,3 +1,33 @@
+v3.9.0
+- New: Redesigned the entire customizer UI for better user experience.
+- New: WooCommerce - General - Quantity Plus Minus Button Options With Multiple Designs.
+- New: WooCommerce - General - Modern Input skin type.
+- New: WooCommerce - General - Ajax based quantity selector.
+- New: WooCommerce - General - Introduced Color and background option for Sale badge.
+- New: WooCommerce - Shop - Added new modern view option for shop style.
+- New: WooCommerce - Shop - Introduced unique filter panel design.
+- New: WooCommerce - Shop - Introduced sticky shop filter sidebar option.
+- New: WooCommerce - Shop - Added accordion compatibility for WooCommerce filter widgets.
+- New: WooCommerce - Shop - Added Flyout and Collapsible option for WooCommerce filters panel.
+- New: WooCommerce - Single Product - Added sticky add to cart on single product.
+- New: WooCommerce - Single Product - Product tabs heading - Product tabs heading - Added normal, hover, and active text color support.
+- New: WooCommerce - Single Product - Added Color and Typography options for Category text.
+- New: WooCommerce - Single Product - Added Enable/Disable Quantity Plus-Minus sign option.
+- New: WooCommerce - Single Product - Added Option to Add Extra Product Description.
+- New: WooCommerce - Single Product - Introduced tab style presets for product details. ( Accordion / Distributed ).
+- New: WooCommerce - Single Product - Introduced previous-next product preview option on navigation hover.
+- New: WooCommerce - Single Product - Payment options list in single product structure.
+- New: WooCommerce - Single Product - Introduced sticky product summary option.
+- New: WooCommerce - Single Product - Toggle to Convert Variation select dropdown to buttons UI on Single Product page.
+- New: WooCommerce - Added Multistep Navigation for Cart, Checkout and Order Received pages.
+- New: WooCommerce - Cart - Modern Cart Layout.
+- New: WooCommerce - Cart - Sticky Cart total on scroll on WooCommerce cart page.
+- New: WooCommerce - Checkout - Modern Layout.
+- Improvement: Single Product - Option to Show/Hide Category on WooCommerce single product page.
+- Improvement: Single Product - Product gallery Layout options ( First Image Large / Vertical Slider / Horizontal Slider ).
+- Improvement: Single Product - Product Navigation color options ( Normal & Hover ).
+- Fix: Related Products & Upsell columns not working on responsive devices.
+
 v3.6.11
 - Fix: Custom layout styling not loading on front-end.
 

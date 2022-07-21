@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Scroll_To_Top_Configs' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Scroll_To_Top_Configs' ) ) {
 					'priority'   => 11,
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -98,6 +98,33 @@ if ( ! class_exists( 'Astra_Scroll_To_Top_Configs' ) ) {
 					'priority'  => 12,
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[scroll-on-top-color-group]',
+					'default'   => astra_get_option( 'scroll-on-top-color-group' ),
+					'type'      => 'control',
+					'control'   => Astra_Theme_Extension::$group_control,
+					'title'     => __( 'Icon Color', 'astra-addon' ),
+					'section'   => 'section-scroll-to-top',
+					'transport' => 'postMessage',
+					'context'   => astra_addon_builder_helper()->is_header_footer_builder_active ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'priority'  => 1,
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[scroll-on-top-bg-color-group]',
+					'default'   => astra_get_option( 'scroll-on-top-bg-color-group' ),
+					'type'      => 'control',
+					'control'   => Astra_Theme_Extension::$group_control,
+					'title'     => __( 'Background Color', 'astra-addon' ),
+					'section'   => 'section-scroll-to-top',
+					'transport' => 'postMessage',
+					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'priority'  => 1,
+				),
+
 				/**
 				 * Option: Scroll To Top Radius
 				 */
@@ -111,36 +138,9 @@ if ( ! class_exists( 'Astra_Scroll_To_Top_Configs' ) ) {
 					'title'     => __( 'Border Radius', 'astra-addon' ),
 					'suffix'    => 'px',
 					'priority'  => 1,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[scroll-on-top-color-group]',
-					'default'   => astra_get_option( 'scroll-on-top-color-group' ),
-					'type'      => 'control',
-					'control'   => Astra_Theme_Extension::$group_control,
-					'title'     => __( 'Icon Color', 'astra-addon' ),
-					'section'   => 'section-scroll-to-top',
-					'transport' => 'postMessage',
-					'context'   => astra_addon_builder_helper()->is_header_footer_builder_active ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
-					'priority'  => 15,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[scroll-on-top-bg-color-group]',
-					'default'   => astra_get_option( 'scroll-on-top-bg-color-group' ),
-					'type'      => 'control',
-					'control'   => Astra_Theme_Extension::$group_control,
-					'title'     => __( 'Background Color', 'astra-addon' ),
-					'section'   => 'section-scroll-to-top',
-					'transport' => 'postMessage',
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
-					'priority'  => 16,
 				),
 
 				/**

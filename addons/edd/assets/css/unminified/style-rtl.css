@@ -89,6 +89,12 @@
   text-align: center;
 }
 
+.ast-edd-archive-article.box-shadow-0, .ast-edd-archive-article.box-shadow-0-hover:hover,
+.edd_download.box-shadow-0,
+.edd_download.box-shadow-0-hover:hover {
+  transition: all 300ms ease-in-out;
+}
+
 .ast-edd-archive-article.box-shadow-1, .ast-edd-archive-article.box-shadow-1-hover:hover,
 .edd_download.box-shadow-1,
 .edd_download.box-shadow-1-hover:hover {

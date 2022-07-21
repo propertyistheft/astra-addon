@@ -92,17 +92,18 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Typo_Configs' ) ) {
 				/**
 				 * Option: Single Product Title Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-edd-product-title',
-					'parent'      => ASTRA_THEME_SETTINGS . '[edd-single-product-title-typo]',
-					'section'     => 'section-edd-single',
-					'default'     => astra_get_option( 'font-size-edd-product-title' ),
-					'type'        => 'sub-control',
-					'transport'   => 'postMessage',
-					'control'     => 'ast-responsive',
-					'priority'    => 3,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'context'     => array(
+					'name'              => 'font-size-edd-product-title',
+					'parent'            => ASTRA_THEME_SETTINGS . '[edd-single-product-title-typo]',
+					'section'           => 'section-edd-single',
+					'default'           => astra_get_option( 'font-size-edd-product-title' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-slider',
+					'priority'          => 3,
+					'title'             => __( 'Size', 'astra-addon' ),
+					'context'           => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-structure]',
@@ -110,12 +111,19 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Typo_Configs' ) ) {
 							'value'    => 'title',
 						),
 					),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -214,22 +222,30 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Typo_Configs' ) ) {
 				/**
 				 * Option: Single Product Content Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-edd-product-content',
-					'parent'      => ASTRA_THEME_SETTINGS . '[edd-single-product-content-typo]',
-					'section'     => 'section-edd-single',
-					'default'     => astra_get_option( 'font-size-edd-product-content' ),
-					'type'        => 'sub-control',
-					'transport'   => 'postMessage',
-					'control'     => 'ast-responsive',
-					'priority'    => 18,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-edd-product-content',
+					'parent'            => ASTRA_THEME_SETTINGS . '[edd-single-product-content-typo]',
+					'section'           => 'section-edd-single',
+					'default'           => astra_get_option( 'font-size-edd-product-content' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-slider',
+					'priority'          => 18,
+					'title'             => __( 'Size', 'astra-addon' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 

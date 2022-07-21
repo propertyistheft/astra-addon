@@ -37,6 +37,7 @@
 .woocommerce-page.ast-woocommerce-related-upsell-list-style ul.products li.product .astra-shop-thumbnail-wrap {
   overflow: initial;
   flex: 1;
+  margin-bottom: 0;
 }
 
 .woocommerce.ast-woocommerce-related-upsell-list-style ul.products li.product .astra-shop-thumbnail-wrap .woocommerce-loop-product__link,

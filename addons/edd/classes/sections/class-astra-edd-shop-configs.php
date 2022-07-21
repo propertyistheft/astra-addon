@@ -52,15 +52,15 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'priority'          => 5,
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'choices'           => array(
 						'edd-archive-page-grid-style' => array(
 							'label' => __( 'Grid View', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'edd-archive-page-grid-style', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
 						),
 						'edd-archive-page-list-style' => array(
 							'label' => __( 'List View', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'edd-archive-page-list-style', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
 						),
 					),
 				),
@@ -100,6 +100,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 75,
 					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -109,7 +110,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'name'       => ASTRA_THEME_SETTINGS . '[edd-archive-product-align]',
 					'default'    => astra_get_option( 'edd-archive-product-align' ),
 					'type'       => 'control',
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 					'transport'  => 'postMessage',
 					'control'    => Astra_Theme_Extension::$selector_control,
 					'section'    => 'section-edd-archive',
@@ -141,6 +142,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 						'step' => 1,
 						'max'  => 5,
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -161,6 +163,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 						'step' => 1,
 						'max'  => 5,
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -184,7 +187,6 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'default'           => astra_get_option( 'edd-archive-button-v-padding' ),
 					'type'              => 'control',
 					'transport'         => 'postMessage',
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'section'           => 'section-edd-archive',
 					'title'             => __( 'Vertical Padding', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -196,6 +198,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 						'step' => 1,
 						'max'  => 200,
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -217,7 +220,6 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 						'step' => 1,
 						'max'  => 200,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -230,7 +232,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'section'  => 'section-edd-archive',
 					'title'    => __( 'Display Page Title', 'astra-addon' ),
 					'priority' => 29,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 				),
 

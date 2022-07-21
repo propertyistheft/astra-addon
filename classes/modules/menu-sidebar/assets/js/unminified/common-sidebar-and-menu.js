@@ -33,8 +33,12 @@
 		{
 			var canvasEnable = astraAddon.off_canvas_enable || '';
 			if ( canvasEnable ) {
-				$(document).on( 'click', '.' + astraAddon.off_canvas_trigger_class, {class: "ast-off-canvas-overlay"},AstraMenu._enable_offcanvas_overlay );
+				$(document).on( 'click', '.' + astraAddon.off_canvas_trigger_class, {class: "ast-off-canvas-overlay"}, AstraMenu._enable_offcanvas_overlay );
 				$(document).on( 'click touchstart', '.astra-off-canvas-sidebar-wrapper, .astra-off-canvas-sidebar-wrapper .ast-shop-filter-close',{class: "ast-off-canvas-overlay"}, AstraMenu._close_offcanvas );
+			} else {
+				if( astraAddon.off_canvas_trigger_class ) {
+					$(document).on( 'click', '.' + astraAddon.off_canvas_trigger_class, AstraMenu._enable_collapsible_slider  );
+				}
 			}
 
 			// Flyout above header menu.
@@ -125,6 +129,8 @@
 		_enable_offcanvas_overlay: function(e) {
 			e.preventDefault();
 
+			$(this).addClass( 'active' );
+
 			var innerWidth = $('html').innerWidth();
 			$('html').css( 'overflow', 'hidden' );
 			var hiddenInnerWidth = $('html').innerWidth();
@@ -136,6 +142,29 @@
 			setTimeout(function(){
 				$('#cart-accessibility').focus()
 			}, 100);
+
+			const isAccordionActive = $( '.ast-filter-wrap' );
+
+			if( isAccordionActive.hasClass( 'ast-accordion-layout' ) ) {
+				AstraMenu._accordion_initial_height();
+			}
+		},
+
+		_enable_collapsible_slider: function(e) {
+			e.preventDefault();
+			$(this).toggleClass( 'active' );
+			if( $('body').hasClass( 'ast-header-break-point' ) && ! astraAddon.off_canvas_enable && $(this).hasClass('active') ) {
+				$('html, body').animate({
+					scrollTop: $(".ast-woocommerce-container").offset().top
+				}, 500);
+			}
+			$('.ast-collapse-filter').slideToggle();
+
+			const isAccordionActive = $( '.ast-filter-wrap' );
+
+			if( isAccordionActive.hasClass( 'ast-accordion-layout' ) ) {
+				AstraMenu._accordion_initial_height();
+			}
 		},
 
 		_enable_primary_menu_overlay: function(e) {
@@ -217,7 +246,10 @@
 		},
 
 		_close_offcanvas: function(e) {
-			if (e.target.parentNode.parentNode === this || e.type === 'astraMenuHashLinkClicked') {
+
+			const offCanvasWrap = $(".astra-off-canvas-sidebar");
+
+			if (e.target.parentNode.parentNode === this || e.type === 'astraMenuHashLinkClicked' || ( ! offCanvasWrap.is(e.target) && offCanvasWrap.has(e.target).length === 0 ) ) {
 
 				e.data = e.data || {};
 				e.data.class = e.data.class || "ast-flyout-menu-overlay ast-offcanvas-active";
@@ -229,6 +261,12 @@
 				});
 
 				$("html").removeClass(e.data.class);
+
+				const filterButton = $(".astra-shop-filter-button");
+
+				if( filterButton.hasClass( 'active' ) ) {
+					filterButton.removeClass( 'active' );
+				}
 
 				setTimeout(function() {
 				  $("html").removeClass("ast-offcanvas-active");
@@ -318,6 +356,15 @@
 					}
 				}
 			}
+		},
+
+		_accordion_initial_height: function(e)
+		{
+			// Adds dynamic heights so that slide transitions become smooth.
+			$( '.ast-filter-content' ).each( function( i, obj ) {
+				const currentHeight = $( this ).innerHeight();
+				$( obj ).css( 'max-height', currentHeight + 'px' );
+			} );
 		}
 	};
 

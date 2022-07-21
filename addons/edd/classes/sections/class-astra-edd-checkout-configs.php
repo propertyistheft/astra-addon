@@ -41,6 +41,18 @@ if ( ! class_exists( 'Astra_Edd_Checkout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-checkout-toggle-divider]',
+					'section'  => 'section-edd-checkout-page',
+					'title'    => __( 'Checkout Options', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Display Coupon on Checkout Page
 				 */
 				array(
@@ -50,7 +62,7 @@ if ( ! class_exists( 'Astra_Edd_Checkout_Configs' ) ) {
 					'section' => 'section-edd-checkout-page',
 					'title'   => __( 'Display Apply Coupon Field', 'astra-addon' ),
 					'control' => Astra_Theme_Extension::$switch_control,
-					'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider' => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/*
@@ -63,24 +75,27 @@ if ( ! class_exists( 'Astra_Edd_Checkout_Configs' ) ) {
 					'section' => 'section-edd-checkout-page',
 					'title'   => __( 'Distraction Free Checkout', 'astra-addon' ),
 					'control' => Astra_Theme_Extension::$switch_control,
-					'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider' => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
 				 * Option: Checkout Content Width
 				 */
+
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[edd-checkout-content-width]',
-					'default'   => astra_get_option( 'edd-checkout-content-width' ),
-					'type'      => 'control',
-					'control'   => 'ast-select',
-					'section'   => 'section-edd-checkout-page',
-					'transport' => 'postMessage',
-					'title'     => __( 'Checkout Form Width', 'astra-addon' ),
-					'choices'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[edd-checkout-content-width]',
+					'default'    => astra_get_option( 'edd-checkout-content-width' ),
+					'section'    => 'section-edd-checkout-page',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'title'      => __( 'Checkout Form Width', 'astra-addon' ),
+					'choices'    => array(
 						'default' => __( 'Default', 'astra-addon' ),
 						'custom'  => __( 'Custom', 'astra-addon' ),
 					),
+					'transport'  => 'postMessage',
+					'renderAs'   => 'text',
+					'responsive' => false,
 				),
 
 				/**
@@ -108,6 +123,7 @@ if ( ! class_exists( 'Astra_Edd_Checkout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 1920,
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 			);
 

@@ -120,7 +120,7 @@
   padding: 0px 20px;
   border-bottom-width: 1px;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 .ast-fullscreen-above-menu-overlay .ast-header-break-point .ast-above-header-menu .sub-menu {
@@ -142,7 +142,7 @@
   width: 100%;
   border-bottom-width: 1px;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 .ast-header-break-point .ast-above-header-navigation ul .menu-item .menu-link {
@@ -310,7 +310,7 @@
 
 .ast-above-header {
   background: #fff;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid var(--ast-border-color);
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -445,7 +445,7 @@
 .ast-header-break-point .ast-above-header-section-separated .ast-above-header-menu {
   border-top-width: 1px;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
   background: #fff;
 }
 
@@ -535,7 +535,7 @@
   width: 100%;
   border-bottom-width: 1px;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 .ast-header-break-point .ast-above-header-menu-items.main-header-menu {

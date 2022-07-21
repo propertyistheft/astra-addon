@@ -64,7 +64,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Sections_Configs' ) ) {
 					'control'   => Astra_Theme_Extension::$switch_control,
 					'context'   => ! astra_addon_builder_helper()->is_header_footer_builder_active ? array( ASTRA_THEME_SETTINGS . '[above-header-layout]', '!=', 'disabled' ) : '',
 					'transport' => 'refresh',
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				);
 				$_config[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-below-stick]',
@@ -76,7 +75,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Sections_Configs' ) ) {
 					'control'   => Astra_Theme_Extension::$switch_control,
 					'context'   => ! astra_addon_builder_helper()->is_header_footer_builder_active ? array( ASTRA_THEME_SETTINGS . '[below-header-layout]', '!=', 'disabled' ) : '',
 					'transport' => 'refresh',
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				);
 			}
 

@@ -1321,6 +1321,80 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		}
 
 		/**
+		 * Sidebar Widget Title - Typography
+		 */
+		$sidebar_title_font_size = astra_get_option( 'font-size-sidebar-title' );
+		if ( $sidebar_title_font_size ) {
+
+			$sidebar_title_font_size_desktop      = ( isset( $sidebar_title_font_size['desktop'] ) ) ? $sidebar_title_font_size['desktop'] : '';
+			$sidebar_title_font_size_tablet       = ( isset( $sidebar_title_font_size['tablet'] ) ) ? $sidebar_title_font_size['tablet'] : '';
+			$sidebar_title_font_size_mobile       = ( isset( $sidebar_title_font_size['mobile'] ) ) ? $sidebar_title_font_size['mobile'] : '';
+			$sidebar_title_font_size_desktop_unit = ( isset( $sidebar_title_font_size['desktop-unit'] ) ) ? $sidebar_title_font_size['desktop-unit'] : '';
+			$sidebar_title_font_size_tablet_unit  = ( isset( $sidebar_title_font_size['tablet-unit'] ) ) ? $sidebar_title_font_size['tablet-unit'] : '';
+			$sidebar_title_font_size_mobile_unit  = ( isset( $sidebar_title_font_size['mobile-unit'] ) ) ? $sidebar_title_font_size['mobile-unit'] : '';
+
+			$css_output_common = array(
+				'#secondary .wp-block-group h2:first-of-type' => array(
+					'font-size' => astra_get_font_css_value( $sidebar_title_font_size_desktop, $sidebar_title_font_size_desktop_unit ),
+				),
+			);
+
+			$css_output_tablet = array(
+				'#secondary .wp-block-group h2:first-of-type' => array(
+					'font-size' => astra_get_font_css_value( $sidebar_title_font_size_tablet, $sidebar_title_font_size_tablet_unit ),
+				),
+			);
+
+			$css_output_mobile = array(
+				'#secondary .wp-block-group h2:first-of-type' => array(
+					'font-size' => astra_get_font_css_value( $sidebar_title_font_size_mobile, $sidebar_title_font_size_mobile_unit ),
+				),
+			);
+
+			$css_output .= astra_parse_css( $css_output_common );
+			$css_output .= astra_parse_css( $css_output_tablet, '', astra_addon_get_tablet_breakpoint() );
+			$css_output .= astra_parse_css( $css_output_mobile, '', astra_addon_get_mobile_breakpoint() );
+
+		}
+
+		/**
+		 * Sidebar Widget Content - Typography
+		 */
+		$sidebar_content_font_size = astra_get_option( 'font-size-sidebar-content' );
+		if ( $sidebar_content_font_size ) {
+
+			$sidebar_content_font_size_desktop      = ( isset( $sidebar_content_font_size['desktop'] ) ) ? $sidebar_content_font_size['desktop'] : '';
+			$sidebar_content_font_size_tablet       = ( isset( $sidebar_content_font_size['tablet'] ) ) ? $sidebar_content_font_size['tablet'] : '';
+			$sidebar_content_font_size_mobile       = ( isset( $sidebar_content_font_size['mobile'] ) ) ? $sidebar_content_font_size['mobile'] : '';
+			$sidebar_content_font_size_desktop_unit = ( isset( $sidebar_content_font_size['desktop-unit'] ) ) ? $sidebar_content_font_size['desktop-unit'] : '';
+			$sidebar_content_font_size_tablet_unit  = ( isset( $sidebar_content_font_size['tablet-unit'] ) ) ? $sidebar_content_font_size['tablet-unit'] : '';
+			$sidebar_content_font_size_mobile_unit  = ( isset( $sidebar_content_font_size['mobile-unit'] ) ) ? $sidebar_content_font_size['mobile-unit'] : '';
+
+			$css_output_common = array(
+				'#secondary .wp-block-group *:not(h2:first-of-type)' => array(
+					'font-size' => astra_get_font_css_value( $sidebar_content_font_size_desktop, $sidebar_content_font_size_desktop_unit ) . '!important',
+				),
+			);
+
+			$css_output_tablet = array(
+				'#secondary .wp-block-group *:not(h2:first-of-type)' => array(
+					'font-size' => astra_get_font_css_value( $sidebar_content_font_size_tablet, $sidebar_content_font_size_tablet_unit ) . '!important',
+				),
+			);
+
+			$css_output_mobile = array(
+				'#secondary .wp-block-group *:not(h2:first-of-type)' => array(
+					'font-size' => astra_get_font_css_value( $sidebar_content_font_size_mobile, $sidebar_content_font_size_mobile_unit ) . '!important',
+				),
+			);
+
+			$css_output .= astra_parse_css( $css_output_common );
+			$css_output .= astra_parse_css( $css_output_tablet, '', astra_addon_get_tablet_breakpoint() );
+			$css_output .= astra_parse_css( $css_output_mobile, '', astra_addon_get_mobile_breakpoint() );
+
+		}
+
+		/**
 		 * Header - Mobile Trigger - Typography
 		 */
 

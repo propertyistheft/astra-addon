@@ -201,7 +201,7 @@
   width: 100%;
   border-bottom-width: 1px;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 .ast-header-break-point .ast-below-header-menu-items.main-header-menu {
@@ -221,7 +221,7 @@
   margin: 0 -20px;
   border-top-width: 1px;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 .ast-header-break-point .ast-below-header-menu .sub-menu .sub-menu {
@@ -246,7 +246,7 @@
 }
 
 .ast-header-break-point .ast-below-header {
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid var(--ast-border-color);
 }
 
 .ast-header-break-point .menu-below-header-toggle {
@@ -401,7 +401,7 @@
   width: 100%;
   border-bottom-width: 1px;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 .ast-header-break-point .ast-below-header-actual-nav ul .menu-item .menu-link {

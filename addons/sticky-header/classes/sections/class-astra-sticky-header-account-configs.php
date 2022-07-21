@@ -80,6 +80,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Account_Configs' ) ) {
 							),
 						),
 					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -111,7 +112,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Account_Configs' ) ) {
 							),
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -127,7 +127,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Account_Configs' ) ) {
 					'control'           => 'ast-color',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'title'             => __( 'Text Color', 'astra-addon' ),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						astra_addon_builder_helper()->design_tab_config,
 						array(
@@ -177,7 +176,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Account_Configs' ) ) {
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 140,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'    => array(
 						astra_addon_builder_helper()->design_tab_config,
 						array(

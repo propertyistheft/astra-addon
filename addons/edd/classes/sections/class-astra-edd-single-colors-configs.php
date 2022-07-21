@@ -41,6 +41,20 @@ if ( ! class_exists( 'Astra_Edd_Single_Colors_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-single-product-styling-divider]',
+					'section'  => 'section-edd-single',
+					'title'    => __( 'Product Font & Colors', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 231,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Single Product Title Color
 				 */
 				array(
@@ -52,21 +66,6 @@ if ( ! class_exists( 'Astra_Edd_Single_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Title', 'astra-addon' ),
-					'priority'          => 231,
-				),
-
-				/**
-				 * Single Product Content Color
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[edd-single-product-content-color]',
-					'section'           => 'section-edd-single',
-					'default'           => astra_get_option( 'edd-single-product-content-color' ),
-					'type'              => 'control',
-					'control'           => 'ast-color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'transport'         => 'postMessage',
-					'title'             => __( 'Product Content', 'astra-addon' ),
 					'priority'          => 231,
 				),
 
@@ -91,6 +90,23 @@ if ( ! class_exists( 'Astra_Edd_Single_Colors_Configs' ) ) {
 					'title'             => __( 'Product Navigation', 'astra-addon' ),
 					'priority'          => 231,
 				),
+
+				/**
+				 * Single Product Content Color
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[edd-single-product-content-color]',
+					'section'           => 'section-edd-single',
+					'default'           => astra_get_option( 'edd-single-product-content-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Product Content', 'astra-addon' ),
+					'priority'          => 231,
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				),
+
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

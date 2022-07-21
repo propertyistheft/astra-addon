@@ -72,7 +72,7 @@
   padding: 20px 0 14px;
   margin: 0 0 20px;
   border: 0;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid var(--ast-border-color);
 }
 
 .woocommerce.ast-woo-two-step-checkout form .order-review #order_review_heading,
@@ -111,7 +111,7 @@
 .woocommerce.ast-woo-two-step-checkout form .form-row.woocommerce-validated select#billing_state,
 .woocommerce-page.ast-woo-two-step-checkout form .form-row.woocommerce-validated select#billing_country,
 .woocommerce-page.ast-woo-two-step-checkout form .form-row.woocommerce-validated select#billing_state {
-  border-color: #dddddd;
+  border-color: var(--ast-border-color);
   background: #ffffff;
 }
 

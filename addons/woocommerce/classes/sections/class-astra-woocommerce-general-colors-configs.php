@@ -52,8 +52,12 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Rating Color', 'astra-addon' ),
-					'section'           => 'section-woo-general',
-					'priority'          => 58,
+					'section'           => 'section-woo-misc',
+					'priority'          => 24,
+					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 			);

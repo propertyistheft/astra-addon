@@ -71,6 +71,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Primary_Menu' ) ) {
 					'transport'  => 'postMessage',
 					'priority'   => 70,
 					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				array(

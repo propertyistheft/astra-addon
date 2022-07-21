@@ -39,7 +39,7 @@ class Astra_Addon_Header_Menu_Component_Configs extends Astra_Customizer_Config_
 			$_section = 'section-hb-menu-' . $index;
 			$_prefix  = 'menu' . $index;
 
-			$html_config[] = Astra_Addon_Base_Configs::prepare_box_shadow_tab( $_section, 'header-' . $_prefix, $priority = 42 );
+			$html_config[] = Astra_Addon_Base_Configs::prepare_box_shadow_tab( $_section, 'header-' . $_prefix, 100 );
 
 		}
 

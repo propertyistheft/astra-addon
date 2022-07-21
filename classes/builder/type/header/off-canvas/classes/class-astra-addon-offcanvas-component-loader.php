@@ -156,7 +156,7 @@ class Astra_Addon_Offcanvas_Component_Loader {
 		.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-menu {
 		border-top-width: 1px;
 		border-style: solid;
-		border-color: #eaeaea;
+		border-color: var(--ast-border-color);
 		}
 		.ast-desktop-header-content .ast-builder-menu-mobile .main-navigation li.menu-item,
 		.ast-desktop-popup-content .ast-builder-menu-mobile .main-navigation li.menu-item {
@@ -165,7 +165,7 @@ class Astra_Addon_Offcanvas_Component_Loader {
 		.ast-desktop-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link,
 		.ast-desktop-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link {
 		border-bottom-width: 1px;
-		border-color: #eaeaea;
+		border-color: var(--ast-border-color);
 		border-style: solid;
 		}
 		.ast-builder-menu-mobile .main-navigation ul .menu-item .menu-link,
@@ -176,7 +176,7 @@ class Astra_Addon_Offcanvas_Component_Loader {
 		border: 0;
 		border-bottom-width: 1px;
 		border-style: solid;
-		border-color: #eaeaea;
+		border-color: var(--ast-border-color);
 		}
 		.ast-desktop-header-content .ast-builder-menu-mobile .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle,
 		.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
@@ -331,7 +331,7 @@ class Astra_Addon_Offcanvas_Component_Loader {
 			.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-menu {
 			border-top-width: 1px;
 			border-style: solid;
-			border-color: #eaeaea;
+			border-color: var(--ast-border-color);
 			}
 			.ast-desktop-header-content .ast-builder-menu-mobile .main-navigation li.menu-item,
 			.ast-desktop-popup-content .ast-builder-menu-mobile .main-navigation li.menu-item {
@@ -340,7 +340,7 @@ class Astra_Addon_Offcanvas_Component_Loader {
 			.ast-desktop-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link,
 			.ast-desktop-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link {
 			border-bottom-width: 1px;
-			border-color: #eaeaea;
+			border-color: var(--ast-border-color);
 			border-style: solid;
 			}
 			.ast-desktop-header-content .ast-builder-menu-mobile .main-navigation ul .menu-item .menu-link,
@@ -351,7 +351,7 @@ class Astra_Addon_Offcanvas_Component_Loader {
 			border: 0;
 			border-bottom-width: 1px;
 			border-style: solid;
-			border-color: #eaeaea;
+			border-color: var(--ast-border-color);
 			}
 			.ast-desktop-header-content .ast-builder-menu-mobile .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle,
 			.ast-desktop-popup-content .ast-builder-menu-mobile .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {

@@ -66,7 +66,6 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 								'value'   => 'design',
 							),
 						),
-						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Primary Submenu Font Family.
@@ -140,23 +139,30 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 
 					// Option: Primary Submenu Font Size.
 					array(
-						'name'        => 'header-font-size-' . $_prefix . '-sub-menu',
-						'default'     => astra_get_option( 'header-font-size-' . $_prefix . '-sub-menu' ),
-						'parent'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-sub-menu-typography]',
-						'section'     => $_section,
-						'title'       => __( 'Size', 'astra-addon' ),
-						'type'        => 'sub-control',
-						'control'     => 'ast-responsive',
-						'transport'   => 'postMessage',
-						'priority'    => 29,
-						'input_attrs' => array(
-							'min' => 0,
+						'name'              => 'header-font-size-' . $_prefix . '-sub-menu',
+						'default'           => astra_get_option( 'header-font-size-' . $_prefix . '-sub-menu' ),
+						'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-sub-menu-typography]',
+						'section'           => $_section,
+						'type'              => 'sub-control',
+						'transport'         => 'postMessage',
+						'control'           => 'ast-responsive-slider',
+						'priority'          => 29,
+						'title'             => __( 'Size', 'astra-addon' ),
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+						'suffix'            => array( 'px', 'em' ),
+						'input_attrs'       => array(
+							'px' => array(
+								'min'  => 0,
+								'step' => 1,
+								'max'  => 100,
+							),
+							'em' => array(
+								'min'  => 0,
+								'step' => 1,
+								'max'  => 20,
+							),
 						),
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
-						'context'     => array(
+						'context'           => array(
 							array(
 								'setting' => 'ast_selected_tab',
 								'value'   => 'general',
@@ -202,8 +208,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'control'  => 'ast-settings-group',
 							'title'    => __( 'Mega Menu Heading', 'astra-addon' ),
 							'section'  => $_section,
-							'priority' => 131,
-							'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+							'priority' => 130,
 							'context'  => array(
 								array(
 									'setting' => 'ast_selected_tab',
@@ -235,23 +240,30 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 
 						// Option: Primary Megamenu Header Menu Font Size.
 						array(
-							'name'        => 'header-' . $_prefix . '-megamenu-heading-font-size',
-							'default'     => astra_get_option( 'header-' . $_prefix . '-megamenu-heading-font-size' ),
-							'parent'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-mega-menu-col-typography]',
-							'transport'   => 'postMessage',
-							'title'       => __( 'Size', 'astra-addon' ),
-							'type'        => 'sub-control',
-							'section'     => $_section,
-							'control'     => 'ast-responsive',
-							'input_attrs' => array(
-								'min' => 0,
+							'name'              => 'header-' . $_prefix . '-megamenu-heading-font-size',
+							'default'           => astra_get_option( 'header-' . $_prefix . '-megamenu-heading-font-size' ),
+							'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-mega-menu-col-typography]',
+							'transport'         => 'postMessage',
+							'title'             => __( 'Size', 'astra-addon' ),
+							'type'              => 'sub-control',
+							'section'           => $_section,
+							'control'           => 'ast-responsive-slider',
+							'priority'          => 20,
+							'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+							'suffix'            => array( 'px', 'em' ),
+							'input_attrs'       => array(
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 20,
+								),
 							),
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
-							'priority'    => 20,
-							'context'     => array(
+							'context'           => array(
 								array(
 									'setting' => 'ast_selected_tab',
 									'value'   => 'general',
@@ -487,30 +499,36 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 
 				// Option: Primary Submenu Font Size.
 				array(
-					'name'        => 'header-font-size-mobile-menu-sub-menu',
-					'default'     => astra_get_option( 'header-font-size-mobile-menu-sub-menu' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-sub-menu-typography]',
-					'section'     => 'section-header-mobile-menu',
-					'title'       => __( 'Size', 'astra-addon' ),
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
-					'transport'   => 'postMessage',
-					'priority'    => 29,
-					'input_attrs' => array(
-						'min' => 0,
+					'name'              => 'header-font-size-mobile-menu-sub-menu',
+					'default'           => astra_get_option( 'header-font-size-mobile-menu-sub-menu' ),
+					'parent'            => ASTRA_THEME_SETTINGS . '[header-mobile-menu-sub-menu-typography]',
+					'section'           => 'section-header-mobile-menu',
+					'title'             => __( 'Size', 'astra-addon' ),
+					'type'              => 'sub-control',
+					'control'           => 'ast-responsive-slider',
+					'transport'         => 'postMessage',
+					'priority'          => 29,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-					'context'     => array(
+					'context'           => array(
 						array(
 							'setting' => 'ast_selected_tab',
 							'value'   => 'general',
 						),
 					),
 				),
-
 				// Option: Primary Submenu Line Height.
 				array(
 					'name'              => 'header-line-height-mobile-menu-sub-menu',

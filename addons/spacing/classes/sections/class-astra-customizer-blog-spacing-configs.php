@@ -47,6 +47,21 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-layout-divider]',
+					'section'  => 'section-blog',
+					'title'    => __( 'Post Spacing', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 164,
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+				),
+
+				/**
 				 * Option: Post Outside Spacing
 				 */
 				array(
@@ -60,7 +75,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 					'priority'          => 165,
-					'title'             => __( 'Outside Post Spacing', 'astra-addon' ),
+					'title'             => __( 'Outside', 'astra-addon' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(
@@ -69,7 +84,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 						'bottom' => __( 'Bottom', 'astra-addon' ),
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -86,10 +101,9 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 					'priority'          => 170,
-					'title'             => __( 'Inside Post Spacing', 'astra-addon' ),
+					'title'             => __( 'Inside', 'astra-addon' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'choices'           => array(
 						'top'    => __( 'Top', 'astra-addon' ),
 						'right'  => __( 'Right', 'astra-addon' ),
@@ -110,7 +124,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'section'           => 'section-blog',
 					'priority'          => 175,
-					'title'             => __( 'Post Pagination Spacing', 'astra-addon' ),
+					'title'             => __( 'Pagination', 'astra-addon' ),
 					'context'           => array(
 						'context' => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 							astra_addon_builder_helper()->design_tab_config : astra_addon_builder_helper()->general_tab_config,
@@ -128,6 +142,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 						'bottom' => __( 'Bottom', 'astra-addon' ),
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 			);
 

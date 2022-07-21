@@ -42,6 +42,24 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-shop-general-fonts-divider]',
+					'section'  => 'woocommerce_product_catalog',
+					'title'    => __( 'General Fonts', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 230,
+					'settings' => array(),
+					'context'  => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Group: WooCommerce Shop product title Group
 				 */
 				array(
@@ -53,7 +71,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 					'section'   => 'woocommerce_product_catalog',
 					'transport' => 'postMessage',
 					'context'   => array(
-						astra_addon_builder_helper()->general_tab_config,
+						astra_addon_builder_helper()->design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
 							'operator' => 'contains',
@@ -61,6 +79,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 						),
 					),
 					'priority'  => 230,
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -121,22 +140,30 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 				/**
 				 * Option: Product Title Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-shop-product-title',
-					'default'     => astra_get_option( 'font-size-shop-product-title' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[shop-product-title-group]',
-					'section'     => 'woocommerce_product_catalog',
-					'transport'   => 'postMessage',
-					'control'     => 'ast-responsive',
-					'priority'    => 4,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-shop-product-title',
+					'parent'            => ASTRA_THEME_SETTINGS . '[shop-product-title-group]',
+					'section'           => 'woocommerce_product_catalog',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 4,
+					'default'           => astra_get_option( 'font-size-shop-product-title' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -174,6 +201,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 					'section'   => 'woocommerce_product_catalog',
 					'transport' => 'postMessage',
 					'context'   => array(
+						astra_addon_builder_helper()->design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
 							'operator' => 'contains',
@@ -220,21 +248,28 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 				 * Option: Product Price Font Size
 				 */
 				array(
-					'name'        => 'font-size-shop-product-price',
-					'default'     => astra_get_option( 'font-size-shop-product-price' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[shop-product-price-group]',
-					'section'     => 'woocommerce_product_catalog',
-					'transport'   => 'postMessage',
-					'control'     => 'ast-responsive',
-					'priority'    => 9,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-shop-product-price',
+					'default'           => astra_get_option( 'font-size-shop-product-price' ),
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[shop-product-price-group]',
+					'section'           => 'woocommerce_product_catalog',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-slider',
+					'priority'          => 9,
+					'title'             => __( 'Size', 'astra-addon' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -272,7 +307,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 					'transport' => 'postMessage',
 					'context'   => array(
 						'relation' => 'AND',
-						astra_addon_builder_helper()->general_tab_config,
+						astra_addon_builder_helper()->design_tab_config,
 						array(
 							'relation' => 'OR',
 							array(
@@ -350,22 +385,30 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 				/**
 				 * Option: Product Content Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-shop-product-content',
-					'default'     => astra_get_option( 'font-size-shop-product-content' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[shop-product-content-group]',
-					'section'     => 'woocommerce_product_catalog',
-					'transport'   => 'postMessage',
-					'control'     => 'ast-responsive',
-					'priority'    => 14,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-shop-product-content',
+					'parent'            => ASTRA_THEME_SETTINGS . '[shop-product-content-group]',
+					'section'           => 'woocommerce_product_catalog',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 14,
+					'default'           => astra_get_option( 'font-size-shop-product-content' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 

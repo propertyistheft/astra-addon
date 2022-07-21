@@ -42,6 +42,21 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[sidebar-typography-divider]',
+					'section'  => 'section-sidebars',
+					'title'    => __( 'Font', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 24,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+				),
+
+				/**
 				 * Option: SideBar title typography Group
 				 */
 				array(
@@ -53,6 +68,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'section'   => 'section-sidebars',
 					'transport' => 'postMessage',
 					'priority'  => 24,
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
@@ -76,20 +92,27 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 				 * Option: Widget Title Font Size
 				 */
 				array(
-					'name'        => 'font-size-widget-title',
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[sidebar-title-typography-group]',
-					'section'     => 'section-sidebars',
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'font-size-widget-title' ),
-					'title'       => __( 'Size', 'astra-addon' ),
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-widget-title',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-title-typography-group]',
+					'section'           => 'section-sidebars',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'font-size-widget-title' ),
+					'control'           => 'ast-responsive-slider',
+					'title'             => __( 'Size', 'astra-addon' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -163,7 +186,6 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'section'   => 'section-sidebars',
 					'transport' => 'postMessage',
 					'priority'  => 24,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
@@ -186,21 +208,29 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 				/**
 				 * Option: Widget Content Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-widget-content',
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
-					'section'     => 'section-sidebars',
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-widget-content' ),
-					'title'       => __( 'Size', 'astra-addon' ),
-					'transport'   => 'postMessage',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-widget-content',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
+					'section'           => 'section-sidebars',
+					'control'           => 'ast-responsive-slider',
+					'default'           => astra_get_option( 'font-size-widget-content' ),
+					'title'             => __( 'Size', 'astra-addon' ),
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -260,6 +290,64 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
+				),
+
+				/**
+				 * Option: Widget Title Font Size
+				 */
+
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[font-size-sidebar-title]',
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => 'section-sidebars',
+					'transport'         => 'refresh',
+					'title'             => __( 'Widget Title Font Size', 'astra-addon' ),
+					'priority'          => 24,
+					'default'           => astra_get_option( 'font-size-sidebar-title' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
+					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
+					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+				),
+
+				/**
+				 * Option: Widget Font Size
+				 */
+
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[font-size-sidebar-content]',
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => 'section-sidebars',
+					'transport'         => 'refresh',
+					'title'             => __( 'Widget Font Size ', 'astra-addon' ),
+					'priority'          => 24,
+					'default'           => astra_get_option( 'font-size-sidebar-content' ),
+					'suffix'            => array( 'em' ),
+					'input_attrs'       => array(
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 5,
+						),
+					),
+					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 			);
 

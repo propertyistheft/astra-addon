@@ -74,11 +74,12 @@ class Astra_Addon_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 						'fallback_refresh'    => false,
 					),
+					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 			);
 
-			$html_config[] = Astra_Addon_Base_Configs::prepare_box_shadow_tab( $_section, $builder_type . '-' . $_prefix );
+			$html_config[] = Astra_Addon_Base_Configs::prepare_box_shadow_tab( $_section, $builder_type . '-' . $_prefix, 99 );
 
 			$html_config[] = $_configs;
 		}

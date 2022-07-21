@@ -65,7 +65,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => false,
 					'render_callback'     => array( Astra_Ext_Adv_Search_Markup::get_instance(), 'get_search_markup' ),
 				),
-				'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -75,7 +75,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'name'      => ASTRA_THEME_SETTINGS . '[header-search-box-placeholder]',
 				'default'   => astra_get_option( 'header-search-box-placeholder' ),
 				'section'   => $_section,
-				'priority'  => 2,
+				'priority'  => 3,
 				'title'     => __( 'Placeholder Text', 'astra-addon' ),
 				'type'      => 'control',
 				'control'   => 'text',
@@ -86,6 +86,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 					'render_callback'     => array( Astra_Ext_Adv_Search_Markup::get_instance(), 'get_search_markup' ),
 				),
 				'context'   => astra_addon_builder_helper()->general_tab,
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 			),
 		);
 

@@ -45,20 +45,33 @@ if ( ! class_exists( 'Astra_Site_Layout_Configuration' ) ) {
 				 * Option: Site Layout
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-layout]',
-					'default'  => astra_get_option( 'site-layout' ),
-					'type'     => 'control',
-					'control'  => 'ast-select',
-					'section'  => 'section-container-layout',
-					'priority' => 5,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-					'title'    => __( 'Site Layout', 'astra-addon' ),
-					'choices'  => array(
-						'ast-full-width-layout'  => __( 'Full Width', 'astra-addon' ),
-						'ast-box-layout'         => __( 'Max Width', 'astra-addon' ),
-						'ast-padded-layout'      => __( 'Padded', 'astra-addon' ),
-						'ast-fluid-width-layout' => __( 'Fluid', 'astra-addon' ),
+					'name'              => ASTRA_THEME_SETTINGS . '[site-layout]',
+					'type'              => 'control',
+					'control'           => 'ast-radio-image',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'section'           => 'section-container-layout',
+					'default'           => astra_get_option( 'site-layout' ),
+					'priority'          => 5,
+					'title'             => __( 'Site Layout', 'astra-addon' ),
+					'choices'           => array(
+						'ast-full-width-layout'  => array(
+							'label' => __( 'Full Width', 'astra-addon' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-full-width', false ) : '',
+						),
+						'ast-box-layout'         => array(
+							'label' => __( 'Max Width', 'astra-addon' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-max-width', false ) : '',
+						),
+						'ast-padded-layout'      => array(
+							'label' => __( 'Padded', 'astra-addon' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-padded', false ) : '',
+						),
+						'ast-fluid-width-layout' => array(
+							'label' => __( 'Fluid', 'astra-addon' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-fluid', false ) : '',
+						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 				),
 
 				/**

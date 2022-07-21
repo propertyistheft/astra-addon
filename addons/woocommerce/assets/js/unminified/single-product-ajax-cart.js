@@ -30,7 +30,7 @@
 		_bind: function()
 		{
 			if ( astraSingleProductAjax.ajax_add_to_cart_enable ) {
-				$( document ).on( 'click', 'body.single-product .product:not(.product-type-external) button.single_add_to_cart_button', astraSingleProductAjax._processAjaxRequest );
+				$( document ).on( 'click', 'body.single-product .product:not(.product-type-external) button.single_add_to_cart_button, #sticky-add-to-cart .single_add_to_cart_button', astraSingleProductAjax._processAjaxRequest );
 			}
 
 			if ( astraSingleProductAjax.quick_view_enable ) {
@@ -142,6 +142,12 @@
 				}
 
 				$( document.body ).trigger( 'wc_cart_button_updated', [ button ] );
+			}
+
+			const headerAddToCart = $( '#ast-site-header-cart' );
+
+			if( headerAddToCart.hasClass( 'ast-desktop-cart-flyout' ) ) {
+				headerAddToCart.trigger( 'click' );
 			}
 		},
 

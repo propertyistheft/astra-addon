@@ -63,6 +63,7 @@ if ( ! class_exists( 'Astra_Sticky_Below_Header_Colors_Bg_Configs' ) ) {
 						'responsive' => true,
 						'rgba'       => true,
 						'context'    => $context,
+						'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 				);
 			} else {

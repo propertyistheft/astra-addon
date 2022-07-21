@@ -69,6 +69,7 @@ class Astra_Social_Component_Configs {
 					'context'    => astra_addon_builder_helper()->general_tab,
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 			);
 

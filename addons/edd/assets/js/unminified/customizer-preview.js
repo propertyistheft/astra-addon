@@ -179,30 +179,6 @@
 		} );
 	} );
 
-	/**
-	 * Woo Checkout Form Width
-	 */
-	wp.customize( 'astra-settings[checkout-content-width]', function( setting ) {
-		setting.bind( function( value ) {
-
-			var dynamicStyle = '';
-
-			var woo_checkout_content_max_width = wp.customize('astra-settings[checkout-content-max-width]').get();
-
-			if ( 'custom' === value  && undefined !== astAddonTabletBreakpoint.value ) {
-
-				dynamicStyle += '@media (min-width: ' + astAddonTabletBreakpoint.value + 'px) {'
-				dynamicStyle += '.woocommerce-checkout form.checkout {';
-				dynamicStyle += 'max-width: ' + woo_checkout_content_max_width + 'px;';
-				dynamicStyle += 'margin: 0 auto;';
-				dynamicStyle += '} ';
-				dynamicStyle += '} ';
-			}
-			astra_add_dynamic_css( 'checkout-content-width', dynamicStyle );
-
-		} );
-	} );
-
 	// Single Typo.
 
 

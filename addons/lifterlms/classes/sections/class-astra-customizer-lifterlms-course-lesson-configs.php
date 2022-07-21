@@ -47,6 +47,20 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-distraction-free-learning-divider]',
+					'section'  => 'section-lifterlms-course-lesson',
+					'title'    => __( 'Student View', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 5,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Option: Distraction Free Learning
 				 */
 				array(
@@ -56,11 +70,8 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Distraction Free Learning', 'astra-addon' ),
-					'divider'  => array(
-						'ast_class' => 'ast-bottom-divider',
-						'ast_title' => __( 'Student View', 'astra-addon' ),
-					),
 					'priority' => 5,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -74,7 +85,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Featured Image', 'astra-addon' ),
 					'priority' => 5,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -88,7 +98,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Course Description', 'astra-addon' ),
 					'priority' => 5,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -102,7 +111,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Course Meta', 'astra-addon' ),
 					'priority' => 5,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -116,7 +124,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Instructor Detail', 'astra-addon' ),
 					'priority' => 5,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -133,6 +140,20 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-enable-visitor-divider]',
+					'section'  => 'section-lifterlms-course-lesson',
+					'title'    => __( 'Visitor View', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 10,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Option: Enable Featured Image
 				 */
 				array(
@@ -143,10 +164,7 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Featured Image', 'astra-addon' ),
 					'priority' => 10,
-					'divider'  => array(
-						'ast_class' => 'ast-bottom-divider ast-top-divider',
-						'ast_title' => __( 'Visitor View', 'astra-addon' ),
-					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -160,7 +178,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'title'    => __( 'Enable Course Description', 'astra-addon' ),
 					'priority' => 10,
 					'control'  => Astra_Theme_Extension::$switch_control,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -174,7 +191,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Course Meta', 'astra-addon' ),
 					'priority' => 10,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -188,7 +204,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'section'  => 'section-lifterlms-course-lesson',
 					'title'    => __( 'Enable Instructor Detail', 'astra-addon' ),
 					'priority' => 10,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

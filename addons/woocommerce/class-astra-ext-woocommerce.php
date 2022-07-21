@@ -54,7 +54,18 @@ if ( ! class_exists( 'Astra_Ext_WooCommerce' ) ) {
 					require_once ASTRA_ADDON_EXT_WOOCOMMERCE_DIR . 'classes/dynamic.css.php';
 				}
 			}
+		}
 
+		/**
+		 * Check if modern WooCOmmerce setup is being activated for new users.
+		 * Update defaults once user activates Astra Addon.
+		 *
+		 * @return bool true|false
+		 * @since 3.9.0
+		 */
+		public static function astra_addon_enable_modern_ecommerce_setup() {
+			$theme_options = get_option( 'astra-settings', array() );
+			return apply_filters( 'astra_get_option_modern-ecommerce-setup', isset( $theme_options['modern-ecommerce-setup'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 		}
 	}
 

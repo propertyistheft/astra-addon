@@ -41,6 +41,19 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Colors_Configs' ) ) {
 
 			$_configs = array(
 
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-shop-design-general-divider]',
+					'section'  => 'woocommerce_product_catalog',
+					'title'    => __( 'General Colors', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 228,
+					'settings' => array(),
+					'context'  => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
+				),
+
 				/**
 				 * Shop Product Title Color
 				 */
@@ -54,6 +67,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Title', 'astra-addon' ),
 					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
 							'operator' => 'contains',
@@ -61,6 +75,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Colors_Configs' ) ) {
 						),
 					),
 					'priority'          => 228,
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -76,6 +91,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Price', 'astra-addon' ),
 					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
 							'operator' => 'contains',
@@ -94,11 +110,11 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'section'           => 'woocommerce_product_catalog',
 					'control'           => 'ast-color',
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Content', 'astra-addon' ),
 					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
 							'operator' => 'contains',

@@ -65,6 +65,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'settings' => array(),
 						'priority' => 100,
 						'context'  => astra_addon_builder_helper()->design_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 					/**
 					 * Group: Primary Header Button Colors Group
@@ -80,6 +81,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'priority'   => 101,
 						'context'    => astra_addon_builder_helper()->design_tab,
 						'responsive' => true,
+						'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 
 					),
 
@@ -94,7 +96,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'priority'   => 101,
 						'context'    => astra_addon_builder_helper()->design_tab,
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					/**
@@ -173,6 +174,28 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'tab'        => __( 'Hover', 'astra-addon' ),
 					),
 
+					// Padding.
+					array(
+						'name'              => ASTRA_THEME_SETTINGS . '[sticky-header-' . $_prefix . '-padding]',
+						'default'           => astra_get_option( 'sticky-header-' . $_prefix . '-padding' ),
+						'type'              => 'control',
+						'transport'         => 'postMessage',
+						'control'           => 'ast-responsive-spacing',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+						'section'           => $_section,
+						'priority'          => 120,
+						'title'             => __( 'Sticky Header Padding', 'astra-addon' ),
+						'linked_choices'    => true,
+						'unit_choices'      => array( 'px', 'em', '%' ),
+						'choices'           => array(
+							'top'    => __( 'Top', 'astra-addon' ),
+							'right'  => __( 'Right', 'astra-addon' ),
+							'bottom' => __( 'Bottom', 'astra-addon' ),
+							'left'   => __( 'Left', 'astra-addon' ),
+						),
+						'context'           => astra_addon_builder_helper()->design_tab,
+					),
+
 					/**
 					* Option: Button Border Size
 					*/
@@ -184,7 +207,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'control'        => 'ast-border',
 						'transport'      => 'postMessage',
 						'linked_choices' => true,
-						'priority'       => 110,
+						'priority'       => 120,
 						'title'          => __( 'Border Width', 'astra-addon' ),
 						'context'        => astra_addon_builder_helper()->design_tab,
 						'choices'        => array(
@@ -193,6 +216,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 							'bottom' => __( 'Bottom', 'astra-addon' ),
 							'left'   => __( 'Left', 'astra-addon' ),
 						),
+						'divider'        => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 
 					array(
@@ -205,6 +229,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'transport'  => 'postMessage',
 						'context'    => astra_addon_builder_helper()->design_tab,
 						'responsive' => true,
+						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					/**
@@ -253,7 +278,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'section'     => $_section,
 						'control'     => 'ast-slider',
 						'transport'   => 'postMessage',
-						'priority'    => 110,
+						'priority'    => 120,
 						'context'     => astra_addon_builder_helper()->design_tab,
 						'title'       => __( 'Border Radius', 'astra-addon' ),
 						'suffix'      => 'px',
@@ -262,29 +287,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 							'step' => 1,
 							'max'  => 100,
 						),
-						'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
-					),
-
-					// Padding.
-					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[sticky-header-' . $_prefix . '-padding]',
-						'default'           => astra_get_option( 'sticky-header-' . $_prefix . '-padding' ),
-						'type'              => 'control',
-						'transport'         => 'postMessage',
-						'control'           => 'ast-responsive-spacing',
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-						'section'           => $_section,
-						'priority'          => 120,
-						'title'             => __( 'Sticky Header Padding', 'astra-addon' ),
-						'linked_choices'    => true,
-						'unit_choices'      => array( 'px', 'em', '%' ),
-						'choices'           => array(
-							'top'    => __( 'Top', 'astra-addon' ),
-							'right'  => __( 'Right', 'astra-addon' ),
-							'bottom' => __( 'Bottom', 'astra-addon' ),
-							'left'   => __( 'Left', 'astra-addon' ),
-						),
-						'context'           => astra_addon_builder_helper()->design_tab,
+						'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);
 

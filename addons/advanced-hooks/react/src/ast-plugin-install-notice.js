@@ -17,20 +17,20 @@ const AstPluginInstallNotice = () => {
 	// Text object if plugin is only installed and not activated
 	if ( ! astCustomLayout.isPluginActivated && astCustomLayout.isPluginInstalled ) {
 		currentTextObject = {
-			InitalText 		: 'Activate Ultimate Gutenberg',
-			progressText 	: 'Activating Ultimate Gutenberg...',
-			errorText 		: 'Error activating Ultimate Gutenberg',
-			SuccessText 	: 'Ultimate Gutenberg Activated',
+			InitalText 		: 'Activate Spectra',
+			progressText 	: 'Activating Spectra...',
+			errorText 		: 'Error activating Spectra',
+			SuccessText 	: 'Spectra Activated',
 		}
 	}
 
 	// Text object if plugin is not installed
 	if ( ! astCustomLayout.isPluginInstalled && ! astCustomLayout.isPluginActivated ) {
 		currentTextObject = {
-			InitalText 		: 'Install Ultimate Gutenberg',
-			progressText 	: 'Installing Ultimate Gutenberg...',
-			errorText 		: 'Error installing Ultimate Gutenberg',
-			SuccessText 	: 'Ultimate Gutenberg Installed',
+			InitalText 		: 'Install Spectra',
+			progressText 	: 'Installing Spectra...',
+			errorText 		: 'Error installing Spectra',
+			SuccessText 	: 'Spectra Installed',
 		}
 	}
 
@@ -130,11 +130,11 @@ const AstPluginInstallNotice = () => {
 		<>
 			<PluginDocumentSettingPanel
 				name="ast-plugin-install-panel"
-				title={ __( 'Ultimate Addons for Gutenberg', 'astra-addon' ) }
+				title={ __( 'Spectra – Gutenberg Blocks', 'astra-addon' ) }
 			>
 				<p>
 					{ __(
-						'Ultimate Addons for Gutenberg plugin can help you take full advantage of Custom Layouts.',
+						'Spectra – WordPress Gutenberg Blocks plugin can help you take full advantage of Custom Layouts.',
 						'astra-addon'
 					) }
 				</p>

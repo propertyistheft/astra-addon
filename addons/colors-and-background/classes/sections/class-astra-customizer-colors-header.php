@@ -83,6 +83,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 								'value'    => true,
 							),
 						),
+						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 					// Option: Site Tagline Color.
 					array(
@@ -181,7 +182,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 					array(
 						'name'        => ASTRA_THEME_SETTINGS . '[header-search-height]',
 						'section'     => 'section-header-search',
-						'priority'    => 3,
+						'priority'    => 2,
 						'transport'   => 'postMessage',
 						'default'     => astra_get_option( 'header-search-height' ),
 						'title'       => __( 'Search Height', 'astra-addon' ),
@@ -193,7 +194,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 							'step' => 1,
 							'max'  => 100,
 						),
-						'divider'     => array( 'ast_class' => 'ast-top-divider' ),
+						'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 						'context'     => array(
 							astra_addon_builder_helper()->general_tab_config,
 							array(
@@ -258,6 +259,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 						'rgba'       => true,
 						'title'      => __( 'Icon Hover Color', 'astra-addon' ),
 						'context'    => astra_addon_builder_helper()->design_tab,
+						'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 					/**
 					 * Option: Search Color.
@@ -279,7 +281,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 								'value'    => array( 'slide-search', 'search-box' ),
 							),
 						),
-						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 					/**
 					 * Search Box Background Color
@@ -310,34 +311,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 						'control'   => 'ast-color',
 						'title'     => __( 'Hover', 'astra-addon' ),
 						'context'   => astra_addon_builder_helper()->design_tab,
-					),
-					/**
-					 * Option: Search Border Size
-					 */
-					array(
-						'name'           => ASTRA_THEME_SETTINGS . '[header-search-border-size]',
-						'default'        => astra_get_option( 'header-search-border-size' ),
-						'type'           => 'control',
-						'section'        => 'section-header-search',
-						'control'        => 'ast-border',
-						'transport'      => 'postMessage',
-						'linked_choices' => true,
-						'priority'       => 9,
-						'title'          => __( 'Width', 'astra-addon' ),
-						'context'        => array(
-							astra_addon_builder_helper()->design_tab_config,
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
-								'operator' => 'in',
-								'value'    => array( 'slide-search', 'search-box' ),
-							),
-						),
-						'choices'        => array(
-							'top'    => __( 'Top', 'astra-addon' ),
-							'right'  => __( 'Right', 'astra-addon' ),
-							'bottom' => __( 'Bottom', 'astra-addon' ),
-							'left'   => __( 'Left', 'astra-addon' ),
-						),
 					),
 					/**
 					 * Group: Search Border Group
@@ -421,6 +394,36 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 								'value'    => array( 'slide-search', 'search-box' ),
 							),
 						),
+						'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
+					),
+					/**
+					 * Option: Search Border Size
+					 */
+					array(
+						'name'           => ASTRA_THEME_SETTINGS . '[header-search-border-size]',
+						'default'        => astra_get_option( 'header-search-border-size' ),
+						'type'           => 'control',
+						'section'        => 'section-header-search',
+						'control'        => 'ast-border',
+						'transport'      => 'postMessage',
+						'linked_choices' => true,
+						'priority'       => 9,
+						'title'          => __( 'Width', 'astra-addon' ),
+						'context'        => array(
+							astra_addon_builder_helper()->design_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+								'operator' => 'in',
+								'value'    => array( 'slide-search', 'search-box' ),
+							),
+						),
+						'choices'        => array(
+							'top'    => __( 'Top', 'astra-addon' ),
+							'right'  => __( 'Right', 'astra-addon' ),
+							'bottom' => __( 'Bottom', 'astra-addon' ),
+							'left'   => __( 'Left', 'astra-addon' ),
+						),
+						'divider'        => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 					/**
 					 * Option: Search text/placeholder Color

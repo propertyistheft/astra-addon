@@ -75,7 +75,7 @@
 
 .astra-mm-title-wrap {
   font-size: 18px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--ast-border-color);
   flex-shrink: 0;
   position: absolute;
   top: 0;
@@ -176,7 +176,7 @@
   font-size: 1.4em;
   vertical-align: middle;
   cursor: pointer;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid var(--ast-border-color);
 }
 
 .astra-mm-close.dashicons-no-alt:hover {
@@ -208,7 +208,7 @@
 }
 
 .ast-mm-settings .astra-mm-option-container:not(:last-child) {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--ast-border-color);
 }
 
 .ast-active.menu-item-settings {
@@ -293,7 +293,7 @@
   min-height: 300px;
   width: 405px;
   margin-left: auto;
-  border: 1px solid #aaa;
+  border: 1px solid var(--ast-border-color);
   display: none;
 }
 
@@ -442,19 +442,19 @@
   padding: 4px;
   width: 100%;
   height: 28px;
-  border: 1px solid #dddddd;
+  border: 1px solid var(--ast-border-color);
   box-shadow: none;
   padding-left: 11px;
   border-radius: 0;
 }
 
 .ast-mm-spacing-wrap .ast-mm-input:focus {
-  border-color: #ddd;
+  border-color: var(--ast-border-color);
   box-shadow: none;
 }
 
 .ast-mm-spacing-wrap .ast-mm-input:active {
-  border-color: #ddd;
+  border-color: var(--ast-border-color);
   box-shadow: none;
 }
 

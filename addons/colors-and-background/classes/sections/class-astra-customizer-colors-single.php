@@ -45,6 +45,23 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Single' ) ) {
 
 			$_configs = array(
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[entry-title-layout-divider]',
+					'section'  => 'section-blog-single',
+					'title'    => __( 'Post / Page', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					12 : 19,
+					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+				),
+
 				// Option: Single Post / Page Title Color.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[entry-title-color]',
@@ -52,9 +69,9 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Single' ) ) {
 					'control'   => 'ast-color',
 					'default'   => astra_get_option( 'entry-title-color' ),
 					'transport' => 'postMessage',
-					'title'     => __( 'Post / Page Title Color', 'astra-addon' ),
+					'title'     => __( 'Title Color', 'astra-addon' ),
 					'section'   => 'section-blog-single',
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					'priority'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 					12 : 19,
 					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?

@@ -49,7 +49,6 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Configs' ) ) {
 					'type'     => 'control',
 					'section'  => 'section-edd-single',
 					'title'    => __( 'Disable Add To Cart Button', 'astra-addon' ),
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					'priority' => 18,
 					'control'  => Astra_Theme_Extension::$switch_control,
 				),
@@ -66,7 +65,6 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Configs' ) ) {
 					'section'   => 'section-edd-single',
 					'transport' => 'postMessage',
 					'priority'  => 233,
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**

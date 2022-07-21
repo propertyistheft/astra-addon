@@ -111,6 +111,21 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_General_Configs' ) ) {
 					'section'  => 'section-lifterlms-general',
 					'title'    => __( 'Enable Header Profile Link', 'astra-addon' ),
 					'priority' => 5,
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-distraction-free-checkout-divider]',
+					'section'  => 'section-lifterlms-general',
+					'title'    => __( 'Checkout', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 10,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -124,10 +139,21 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_General_Configs' ) ) {
 					'section'  => 'section-lifterlms-general',
 					'title'    => __( 'Distraction Free Checkout', 'astra-addon' ),
 					'priority' => 10,
-					'divider'  => array(
-						'ast_class' => 'ast-top-divider',
-						'ast_title' => __( 'Checkout', 'astra-addon' ),
-					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[llms-my-account-divider]',
+					'section'  => 'section-lifterlms-general',
+					'title'    => __( 'My Account', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 15,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -141,10 +167,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_General_Configs' ) ) {
 					'section'  => 'section-lifterlms-general',
 					'title'    => __( 'Display Tabs Vertically', 'astra-addon' ),
 					'priority' => 15,
-					'divider'  => array(
-						'ast_class' => 'ast-top-divider',
-						'ast_title' => __( 'My Account', 'astra-addon' ),
-					),
 				),
 
 			);

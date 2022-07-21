@@ -47,6 +47,21 @@ if ( ! class_exists( 'Astra_Customizer_Sidebar_Spacing_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[sidebar-spacing-divider]',
+					'section'  => 'section-sidebars',
+					'title'    => __( 'Sidebar Spacing', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 25,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+				),
+
+				/**
 				 * Option - Sidebar Space
 				 */
 				array(
@@ -60,10 +75,10 @@ if ( ! class_exists( 'Astra_Customizer_Sidebar_Spacing_Configs' ) ) {
 					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 					'priority'          => 25,
-					'title'             => __( 'Outside Sidebar Spacing', 'astra-addon' ),
+					'title'             => __( 'Outside', 'astra-addon' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 					'choices'           => array(
 						'top'    => __( 'Top', 'astra-addon' ),
 						'right'  => __( 'Right', 'astra-addon' ),
@@ -86,7 +101,7 @@ if ( ! class_exists( 'Astra_Customizer_Sidebar_Spacing_Configs' ) ) {
 					'priority'          => 25,
 					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
-					'title'             => __( 'Inside Sidebar Spacing', 'astra-addon' ),
+					'title'             => __( 'Inside', 'astra-addon' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(

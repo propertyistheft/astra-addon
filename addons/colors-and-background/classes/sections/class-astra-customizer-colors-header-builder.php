@@ -69,7 +69,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 						'context'    => astra_addon_builder_helper()->design_tab,
 						'responsive' => true,
 						'divider'    => array(
-							'ast_class' => 'ast-top-divider',
 							'ast_title' => __( 'Submenu Color', 'astra-addon' ),
 						),
 					),
@@ -271,6 +270,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 							),
 						),
 					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				array(
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 					'section'    => 'section-header-account',
 					'transport'  => 'postMessage',
 					'priority'   => 19,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'context'    => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
@@ -540,6 +540,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 6,
 					'context'   => astra_addon_builder_helper()->design_tab,
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -589,7 +590,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 					'control'    => Astra_Theme_Extension::$group_control,
 					'title'      => __( 'Link', 'astra-addon' ),
 					'divider'    => array(
-						'ast_class' => 'ast-top-divider',
 						'ast_title' => __( 'Submenu Color', 'astra-addon' ),
 					),
 					'section'    => 'section-header-mobile-menu',
@@ -609,7 +609,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 					'transport'  => 'postMessage',
 					'context'    => astra_addon_builder_helper()->design_tab,
 					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option: Submenu Color.
@@ -725,7 +724,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 					'default'   => astra_get_option( 'section-hb-language-switcher-color' ),
 					'type'      => 'control',
 					'section'   => 'section-hb-language-switcher',
-					'priority'  => 21,
+					'priority'  => 2,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Color', 'astra-addon' ),
@@ -737,14 +736,14 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 						),
 						astra_addon_builder_helper()->design_tab_config,
 					),
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[section-fb-language-switcher-color]',
 					'default'   => astra_get_option( 'section-fb-language-switcher-color' ),
 					'type'      => 'control',
 					'section'   => 'section-fb-language-switcher',
-					'priority'  => 21,
+					'priority'  => 2,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'title'     => __( 'Color', 'astra-addon' ),
@@ -756,6 +755,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 						),
 						astra_addon_builder_helper()->design_tab_config,
 					),
+					'divider'   => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 				),
 			);
 

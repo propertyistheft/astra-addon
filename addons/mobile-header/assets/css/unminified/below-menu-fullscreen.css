@@ -25,7 +25,7 @@
   background: transparent !important;
   border-width: 0;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-menu > .menu-item:first-child > .menu-link:before {

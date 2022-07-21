@@ -68,6 +68,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 								'value'    => 'custom',
 							),
 						),
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					/**
@@ -91,6 +92,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 							),
 						),
 						'responsive' => true,
+						'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 					array(
 						'name'       => ASTRA_THEME_SETTINGS . '[sticky-header-social-' . $index . '-background-color-group]',
@@ -110,7 +112,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 							),
 						),
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					/**

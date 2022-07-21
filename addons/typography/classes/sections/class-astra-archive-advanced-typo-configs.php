@@ -127,7 +127,6 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
@@ -141,7 +140,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 150,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
@@ -242,23 +241,31 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 				/**
 				 * Option: Post Meta Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-post-meta',
-					'parent'      => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
-					'section'     => 'section-blog',
-					'title'       => __( 'Size', 'astra-addon' ),
-					'default'     => astra_get_option( 'font-size-post-meta' ),
-					'transport'   => 'postMessage',
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
+					'name'              => 'font-size-post-meta',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
+					'section'           => 'section-blog',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 5,
+					'default'           => astra_get_option( 'font-size-post-meta' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-					'priority'    => 5,
 				),
 
 				/**
@@ -347,23 +354,31 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 				/**
 				 * Option: Pagination Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-post-pagination',
-					'parent'      => ASTRA_THEME_SETTINGS . '[blog-content-pagination-typo]',
-					'section'     => 'section-blog',
-					'default'     => astra_get_option( 'font-size-post-pagination' ),
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra-addon' ),
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
+					'name'              => 'font-size-post-pagination',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-pagination-typo]',
+					'type'              => 'sub-control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => 'section-blog',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 5,
+					'default'           => astra_get_option( 'font-size-post-pagination' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-					'priority'    => 5,
 				),
 			);
 

@@ -90,7 +90,7 @@
 .ast-fullscreen-menu-enable.ast-header-break-point .ast-merge-header-navigation-wrap .ast-above-header-menu-items .menu-item.menu-item-has-children .menu-link:before,
 .ast-fullscreen-menu-enable.ast-header-break-point .ast-merge-header-navigation-wrap .ast-below-header-menu-items .menu-item .menu-link:before,
 .ast-fullscreen-menu-enable.ast-header-break-point .ast-merge-header-navigation-wrap .ast-below-header-menu-items .menu-item.menu-item-has-children .menu-link:before {
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid var(--ast-border-color);
   content: '';
   right: 0;
   left: 0;
@@ -150,7 +150,7 @@
   background: transparent;
   border-width: 0;
   border-style: solid;
-  border-color: #dadada;
+  border-color: var(--ast-border-color);
 }
 
 @media screen and (min-width: 480px) {

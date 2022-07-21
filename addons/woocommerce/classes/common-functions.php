@@ -75,7 +75,7 @@ if ( ! function_exists( 'astra_two_step_checkout_form_wrapper_div' ) ) :
 		?>
 			<ul class="ast-checkout-control-nav">
 				<li><a href="#"><?php esc_html_e( 'Billing details', 'astra-addon' ); ?></a></li>
-				<li><a href="#"><?php esc_html_e( 'Your Order', 'astra-addon' ); ?></a></li>
+				<li><a href="#"><?php esc_html_e( 'Payments', 'astra-addon' ); ?></a></li>
 			</ul>
 			<?php
 	}
@@ -152,3 +152,26 @@ if ( ! function_exists( 'astra_woo_remove_shop_page_description' ) ) :
 		return $description;
 	}
 endif;
+
+
+/**
+ * Array of order review toggler text.
+ *
+ * @param string $text array key to get specific value.
+ *
+ * @return string
+ */
+function order_review_toggle_texts( $text = 'show_text' ) {
+
+	$toggle_texts = apply_filters(
+		'astra_addon_order_review_toggle_texts',
+		array(
+			'show_text' => esc_html__( 'Show Order Summary', 'astra-addon' ),
+			'hide_text' => esc_html__( 'Hide Order Summary', 'astra-addon' ),
+		)
+	);
+
+	return $toggle_texts[ $text ];
+}
+
+
