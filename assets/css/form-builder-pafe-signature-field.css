@@ -1,0 +1,14 @@
+.pafe-signature {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.pafe-signature canvas {
+	margin-bottom: 10px;
+	border: 1px solid #818a91;
+}
+
+.pafe-signature .elementor-field {
+	display: none !important;
+}

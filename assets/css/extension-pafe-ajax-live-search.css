@@ -1,0 +1,21 @@
+.pafe-ajax-live-search-results-item {
+	display: block;
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: all ease .3s;
+	background: #fff;
+}
+
+.pafe-ajax-live-search-results {
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	left: 0;
+	top: 100%;
+	overflow: hidden;
+	display: none;
+}
+
+.pafe-ajax-live-search-results.active {
+	display: block;
+}

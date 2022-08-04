@@ -1,0 +1,7 @@
+.pafe-sticky-header-fixed,
+.pafe-sticky-header-fixed-start {
+	position: fixed !important;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+} 

@@ -1,0 +1,12 @@
+.pafe-acf-repeater {
+	display: flex;
+	flex-wrap: wrap; 
+}
+
+.pafe-acf-repeater-item {
+	width: 100%;
+}
+
+.pafe-acf-repeater-item:last-child {
+	margin-bottom: 0 !important;
+}

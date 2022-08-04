@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'piotnet addons for elementor';
+  src: url('../../fonts/piotnet-addons-for-elementor.eot');
+  src: url('../../fonts/piotnet-addons-for-elementor.eot?#iefix') format('embedded-opentype'),
+       url('../../fonts/piotnet-addons-for-elementor.woff') format('woff'),
+       url('../../fonts/piotnet-addons-for-elementor.ttf') format('truetype'),
+       url('../../fonts/piotnet-addons-for-elementor.svg#piotnet-addons-for-elementor') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.elementor-control-pafe_responsive_background_color.elementor-control-type-color>.elementor-control-content>.elementor-control-field>.elementor-control-title {
+	width: 60px;
+} 
+
+.elementor-panel .elementor-control.forms-field-shortcode .elementor-control-raw-html {
+    width: 55%;
+}
+
+.elementor-panel .elementor-control.forms-field-shortcode .elementor-control-title {
+    width: 45%;
+} 
+
+.elementor-panel .elementor-control.forms-field-shortcode .elementor-control-content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.elementor-panel .elementor-tab-control-tab_pafe {
+    height: 59px;
+    transform: translateY(2px);
+}
+
+.elementor-panel .elementor-tab-control-tab_pafe a:before{
+    display: inline-block;
+    font-family: 'piotnet addons for elementor' !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content:'\0046';
+}
+
+.forms-field-shortcode-edit-post.elementor-control-content {
+  flex-wrap: wrap;
+}
+
+.forms-field-shortcode-edit-post .elementor-control-content .elementor-control-title {
+  margin-bottom: 10px !important;
+}
+
+/* getresponse api */
+.pafe-getresponse-list__inner, .pafe-getresponse-custom-fields__inner, .pafe-ajax-active-campaign-list, .pafe-sendinblue-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* active campaign */
+.pafe-active-campaign-list{
+  margin-top: 10px;
+}
+button.pafe-admin-button-ajax i{
+  display: none;
+}
+button.pafe-admin-button-ajax.elementor-button.elementor-button-default.loading i{
+  display: inline-block;
+}
+
+/* MailChimp */
+.pafe-mailchimp-list__item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.elementor-control-mailchimp_get_merge_fields i{
+  display: none;
+}
+.elementor-control-mailchimp_get_merge_fields.loading i{
+  display: inline-block;
+}
+.data-mailchimp-merge-field__inner, .piotnet-mailchimp-api__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mailchimp-group-title, .mailchimp-fields-title{
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+/* Mail poet */
+.piotnet-button-mailpoet-get-fields i{
+  display: none;
+}
+button.elementor-button.elementor-button-default.piotnet-button-mailpoet-get-fields.loading i{
+  display: inline-flex;
+}
+.piotnet-mailpoet-custom-field__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+/* Zoho */
+.piotnet-zoho-field, .pafe-mailerlite-group-result-item, .pafe-mailerlite-fields-result-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pafe-mailerlite-group-result{
+  margin-top: 10px;
+}
+.mailerlite-title{
+  font-weight: 600 !important;
+  margin-bottom: 5px;
+}
+.pafe-sendinblue-group-result{
+  margin-top: 10px;
+}
+.pafe-sendinblue-title{
+  font-weight: bold !important;
+  font-size: 14px !important;
+}
+.pafe-sendinblue-item{
+  margin-left: 10px;
+}
+.pafe-metadata-shortcode-item, .pafe-convertkit-form-item, .pafe-convertkit-field{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pafe-multiselectpicklist-field{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  font-style: italic;
+}
+.pafe-converkit-title{
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.piotnet-constant-contact-item, .piotnet-constant-contact-list-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.piotnet-constant-contact-list-item:first-child{
+  margin-top: 10px;
+}

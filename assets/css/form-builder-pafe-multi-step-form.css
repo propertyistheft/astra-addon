@@ -1,0 +1,96 @@
+.pafe-multi-step-form__progressbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    counter-reset: step;
+}
+
+.pafe-progressbar-hidden {
+    display: none;
+}
+
+.pafe-multi-step-form__progressbar-item {
+    position: relative;
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    flex: 1;
+}
+
+.pafe-multi-step-form__progressbar-item-step {
+	width: 20px;
+    line-height: 20px;
+    display: block; 
+    color: #333;
+    background: #ececec;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.pafe-multi-step-form__progressbar-item-step-number {
+	position: relative;
+}
+
+.pafe-multi-step-form__progressbar-item-step-number::after {
+    content: '';
+    width: calc(100% + 30px);
+    height: 2px;
+    background: #ececec;
+    position: absolute;
+    left: calc(-50% - 20px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rtl .pafe-multi-step-form__progressbar-item-step-number::after {
+    left: calc(50%);
+}
+
+
+.pafe-multi-step-form__progressbar-item:first-child .pafe-multi-step-form__progressbar-item-step-number::after {
+	display: none;
+}
+
+.active .pafe-multi-step-form__progressbar-item-step, .pafe-multi-step-form__progressbar-item.active .pafe-multi-step-form__progressbar-item-step-number::after {
+    background: #27AE60;
+    color: #fff;
+}
+
+.pafe-multi-step-form__content-item {
+	display: none;
+}
+
+.pafe-multi-step-form__content-item.active {
+	display: block;
+}
+
+.pafe-multi-step-form__content-item-buttons {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.pafe-multi-step-form__content-item:first-child .pafe-multi-step-form__content-item-buttons {
+	justify-content: center;
+}
+
+.pafe-multi-step-form__content-item-button .elementor-button {
+	background: #27AE60;
+	cursor: pointer;
+}
+
+.pafe-multi-step-form .elementor-message {
+	display: none;
+	text-align: center;
+}
+
+.pafe-multi-step-form .elementor-message.visible {
+	display: block;
+}
+.pafe-pdf-canvas{
+    border: 1px solid #cccccc;
+}

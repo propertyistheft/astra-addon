@@ -1,0 +1,323 @@
+
+.pafe-advanced-search_form {
+	display: flex;
+	margin-bottom: 15px;
+}
+
+.pafe-advanced-search button:focus {
+	outline:0;
+}
+
+.pafe-advanced-search a:focus {
+	outline:0; 
+}
+
+.pafe-advanced-search_form-input {
+	background-color: #ffffff;
+	display: flex;
+	border: 1px solid #e1e5eb; 
+	margin-right: 0px;
+	border-radius: 3px;
+	flex: 1 1 auto;
+	flex-wrap: wrap;
+}
+
+@media all and (max-width: 768px) {
+  .pafe-advanced-search_form-input {
+		flex-direction: column;
+	}
+
+	.pafe-advanced-search_form {
+		display: flex;
+		flex-direction:column;
+	}
+}
+
+.pafe-advanced-search_form-input-wrapper {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+	background-color: transparent;
+	width: 66%;
+	border: 0px solid #e1e5eb;
+}
+
+.pafe-advanced-search_form-input-icon {
+	margin-top: 3px;
+	display: none;
+}
+
+.pafe-advanced-search input {
+  	background-color: transparent;
+  	color: #77818c;
+	box-shadow: none;
+	padding: 0px; 
+	margin-left: 10px;
+	display: flex;
+	justify-content: center;
+	flex: 1 1 auto;
+	border-width: 0;
+}
+
+.pafe-advanced-search input:focus {
+  	background-color: transparent;
+  	color: #77818c;
+	box-shadow: none;
+	padding: 0px;
+	display: flex;
+	justify-content: center;
+	outline: none;
+}
+
+.pafe-advanced-search-cat__wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 32%;
+	border: solid #e1e5eb;
+	border-width: 0px 0px 0px 1px;
+}
+
+@media all and (max-width: 768px) {
+	.pafe-advanced-search-cat__wrapper {
+		width: 100% !important;
+		border: solid #e1e5eb;
+		border-width: 1px 0px 0px 0px;
+	}
+}
+
+.pafe-advanced-search-cat__inner {
+	position: relative;
+	width: 100% !important;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	width: 100%;
+	display: inline-flex;
+} 
+
+@media all and (max-width: 768px) {
+  .pafe-advanced-search-cat__inner {
+    display: flex;
+  }
+}
+
+.pafe-advanced-search-cat__inner select {
+	display: none;
+	width: 0;
+}
+
+.pafe-advanced-search select {
+  	background-color: #ffffff;
+  	color: #77818c;
+  	height: 100%;
+  	border: none;
+}
+
+.pafe-advanced-search select:focus {
+  	background-color: #ffffff;
+  	color: #77818c;
+  	height: 100%;
+  	border: none;
+  	outline: none;
+}
+
+.pafe_advanced_search__select-items{
+	position: absolute;
+ 	background-color: #ffffff;
+  	top: 140%;
+  	left: 0;
+  	right: 0;
+  	z-index: 9999;
+  	padding: 10px;
+  	box-shadow: 0px 3px 10px 0px rgba(32,61,90,0.15);
+  	width: 100%;
+  	max-height: 250px;
+  	overflow-y: auto;
+  	border: 1px solid #e1e5eb;
+
+}
+
+.pafe_advanced_search__select-items div {
+	color: #77818c;
+	padding: 8px 16px;
+	cursor: pointer;
+	margin-bottom: 2px;
+	white-space: nowrap;
+	width: 100%;
+  	display: flex;
+  	flex-wrap: nowrap;
+  	user-select: none;
+}
+
+.pafe_advanced_search__select-selected {
+	background-color: transparent;
+	color: #77818c;
+	padding: 8px 16px;
+	cursor: pointer;
+	white-space: nowrap;
+	width: 100%;
+	user-select: none;
+}
+
+.pafe_advanced_search__select-items-hide {
+	visibility: hidden;
+}
+
+.pafe_advanced_search__select-items div:hover, .pafe_advanced_search__same-as-selected-option {
+  background-color: #6ec1e4;
+  color: #ffffff !important;
+}
+
+.pafe_advanced_search__categories-select-icon {
+	padding: 0 10px 0 0;
+}
+
+.pafe-advanced-search__submit {
+	color: #ffffff;
+    background-color: #6ec1e4;
+    box-shadow: 2px 6px 10px 0px rgba(66,104,193,0.3);
+    padding: 14px 28px 14px 28px;
+    margin: 0px 0px 0px 11px;
+    border-radius: 3px;
+	border: 1px solid #e1e5eb;
+	display: none;
+}
+
+@media all and (max-width: 768px) {
+	.pafe-advanced-search__submit {
+    	margin: 0px 0px 0px 0px;
+	}
+}
+ .pafe-advanced-search .show {
+	padding: 10px;
+	border: 1px solid #e1e5eb;
+	border-radius: 3px;
+	z-index: 9999;
+}
+
+.pafe-advanced-search__results-item-link {
+	display: flex;
+}
+
+.pafe-advanced-search__results-item-link:hover .pafe-advanced-search__results-item-title {
+	text-decoration: none;
+}
+
+.hentry .entry-content a:not(.button) {
+    text-decoration: none;
+}
+
+.pafe-advanced-search__results-item {
+	border: 1px solid #e1e5eb;
+	margin-bottom: 10px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.pafe-advanced-search__results-item-thumbnail-image {
+	object-fit: cover;
+	position: absolute;
+	height: 100% !important;
+	width: 100% !important;
+}
+
+.pafe-advanced-search__results-item-thumbnail{
+	padding: 1px;
+	width: 25%;
+	position: relative;
+	display: none;
+	&::after{
+		content:"";
+		display: block;
+		padding-top: 75%; 
+	}
+}
+
+.pafe-advanced-search__results-item-title{
+	text-decoration: none;
+	color: #162b40;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 21px;
+	margin-bottom: 7px;
+}
+
+.pafe-advanced-search__results-item-title:hover{
+	color: #6ec1e4;
+	text-decoration: none;
+}
+
+.pafe-advanced-search__results-item-content{
+	text-decoration: none;
+	color: #6b7e92;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 14px;
+}
+
+.pafe-advanced-search__results-item-content-wrapper {
+	-webkit-box-flex: 1;
+	flex: 1 1 auto;
+	overflow: hidden;
+	padding: 10px 10px;
+	width: 70%;
+}
+
+.pafe-advanced-search .pagination {
+	border: none !important;
+}
+
+.pafe-advanced-search .pagination ul {
+	margin-bottom: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -3px; 
+	margin-right: -3px; 
+}
+
+.pafe_pagination li {
+	list-style-type: none;
+	display: block;
+	padding: 3px;
+	cursor: pointer;
+}
+
+.pafe_pagination li span {
+	background-color: #ddd;
+	padding: 7px 10px;
+	color: #77818c;
+}
+
+
+.pafe_pagination .page-link-active {
+	background-color: #6ec1e4 ;
+	color: #fff;
+}
+
+.pafe-advanced-search__results-full {
+	background-color: transparent;
+	color: #6ec1e4;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 21px;
+	margin: 10px 0;
+	padding: 0;
+	border: none;
+}
+
+.pafe-advanced-search__results-full:hover {
+	color: #0D96D1;
+}
+
+.pafe-advanced-search__results-footer {
+	display: none;
+}
+.pafe-advanced-search__results-full:hover {
+	background-color: transparent;
+}

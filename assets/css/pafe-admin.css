@@ -1,0 +1,355 @@
+@font-face {
+  font-family: 'piotnet addons for elementor';
+  src: url('../../fonts/piotnet-addons-for-elementor.eot');
+  src: url('../../fonts/piotnet-addons-for-elementor.eot?#iefix') format('embedded-opentype'),
+       url('../../fonts/piotnet-addons-for-elementor.woff') format('woff'),
+       url('../../fonts/piotnet-addons-for-elementor.ttf') format('truetype'),
+       url('../../fonts/piotnet-addons-for-elementor.svg#piotnet-addons-for-elementor') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.pafe-wrap img {
+  max-width: 100%;
+}
+
+[class*='dashicons-pafe-']:before{
+  display: inline-block;
+  font-family: 'piotnet addons for elementor';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.dashicons-pafe-icon:before{content:'\0046';}
+ 
+.pafe-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #261979;
+}
+
+.pafe-header .elementor-message {
+  display: none !important;
+}
+
+.pafe-header__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pafe-header__left>* {
+  display: none;
+}
+
+@media (max-width: 1099px) {
+  .pafe-header__left {
+    width: 100%;
+  }
+}
+
+.pafe-header__logo {
+  display: block;
+}
+
+.pafe-header__logo img {
+  width: 50px;
+}
+
+.pafe-header__headline {
+  display: block;
+  color: #fff;
+  margin: 0;
+  padding-left: 20px;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.pafe-header__right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1099px) {
+  .pafe-header__right {
+    width: 100%;
+    padding: 20px 0 20px 20px;
+  }
+}
+
+.pafe-header__button {
+  margin-right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 100px;
+  transition: all .4s;
+  font-weight: bold;
+}
+
+.pafe-header__button:hover {
+  background: #fff !important;
+  color: #27134c;
+}
+
+a.pafe-header__button {
+  text-decoration: none;
+}
+
+.pafe-header__button--border {
+  border: solid 2px #fff;
+}
+
+.pafe-header__button--gradient {
+  padding: 12px 20px;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: #f2295b;
+}
+
+.pafe-wrap {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pafe-wrap * {
+  box-sizing: border-box;
+}
+
+.pafe-wrap a {
+  outline: none;
+  text-decoration: none;
+}
+
+.pafe-wrap h3 {
+  font-size: 24px;
+  color: #23282d !important;
+  text-decoration: none;
+}
+
+.pafe-features {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+.pafe-features__headline {
+  text-align: center;
+  font-size: 24px;
+}
+
+.pafe-features>li {
+  padding: 15px;
+  display: flex;
+}
+
+.pafe-features a {
+  width: calc(100% - 49px);
+  padding-left: 10px;
+  font-size: 14px;
+  color: #23282d;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (min-width: 768px) {
+  .pafe-features>li {
+    width: 33.33%;
+  }
+}
+
+.pafe-pro-version {
+  position: relative;
+  display: inline-block!important;
+  vertical-align: middle;
+  padding: 0 0 3px 8px;
+  transform: translateY(1px);
+}
+
+.pafe-pro-version::after {
+  content: "PRO";
+  display: block;
+  padding: 0 5px;
+  border-radius: 2px;
+  color: #fff;
+  background: #e62560;
+  font-size: 9px;
+}
+
+.pafe-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.pafe-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pafe-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pafe-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .pafe-slider {
+  background-color: #2196F3;
+}
+
+input:focus + .pafe-slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .pafe-slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded pafe-sliders */
+.pafe-slider.round {
+  border-radius: 28px;
+}
+
+.pafe-slider.round:before {
+  border-radius: 50%;
+}
+
+.pafe-bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pafe-bottom__left,
+.pafe-bottom__right {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .pafe-bottom__left {
+    width: 33.33%;
+    padding-right: 40px;
+  }
+  .pafe-bottom__right {
+    width: 66.66%;
+  }
+  .pafe-license {
+    padding-left: 10px;
+    max-width: 600px;
+  }
+}
+
+.pafe-license__description {
+  margin-bottom: 20px;
+  padding-right: 10px;
+}
+
+.pafe-toggle-features {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  text-align: center
+}
+
+.pafe-toggle-features__button {
+  display: inline-block;
+  margin: 0 10px 15px;
+  padding: 10px 20px;
+  background: #2196f3;
+  border-radius: 100px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+a.pafe-toggle-features__button {
+  margin: 0 !important;
+}
+
+a.pafe-toggle-features__button:hover {
+  color: #fff !important;
+}
+
+.pafe-toggle-features__button--disable {
+  background: #ccc;
+}
+
+.pafe-form-database td {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border: solid 1px #ccc;
+}
+
+[data-pafe-dropdown-content] {
+  display: none;
+}
+/* Zoho button */
+.piotnet-addons-zoho-admin-api{
+  display: flex;
+}
+.piotnet-addons-zoho-admin-api p.submit{
+  margin-right: 15px;
+}
+#pafe-pdf-font-url{
+  width: 70%;
+}
+
+/* Tooltip container */
+.pafe-tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.pafe-tooltip .pafe-tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+
+  top: -5px;
+  left: 105%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.pafe-tooltip:hover .pafe-tooltiptext {
+  visibility: visible;
+}

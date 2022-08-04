@@ -1,0 +1,23 @@
+[data-pafe-crossfade-multiple-background-images] {
+	position: relative;
+}
+
+[data-pafe-crossfade-multiple-background-images] div {
+	z-index: 4;
+}
+
+[data-pafe-crossfade-multiple-background-images] .pafe-crossfade-multiple-background-images__item {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+[data-pafe-crossfade-multiple-background-images] .pafe-crossfade-multiple-background-images__item.active {
+	z-index: 3;
+}

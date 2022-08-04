@@ -1,0 +1,11 @@
+[data-pafe-parallax-new-version],
+[data-pafe-parallax-new-version]>.elementor-widget-container,
+[data-pafe-parallax-new-version]>.elementor-column-wrap {
+	transition: none !important;
+}
+
+.pafe-parallax,
+.pafe-parallax>.elementor-widget-container,
+.pafe-parallax>.elementor-column-wrap {
+	z-index: 2;
+}  

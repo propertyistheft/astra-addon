@@ -1,0 +1,20 @@
+.pafe-advanced-nav-menu-styling-image i {
+	display: none;
+}
+
+.pafe-advanced-nav-menu-styling-image .elementor-menu-toggle {
+	padding: 0;
+	background: none;
+}
+
+.pafe-advanced-nav-menu-styling-image-close {
+	display: none;
+}
+
+.elementor-menu-toggle.elementor-active .pafe-advanced-nav-menu-styling-image-close {
+	display: inline-block;
+}
+
+.elementor-menu-toggle.elementor-active .pafe-advanced-nav-menu-styling-image-toggle {
+	display: none;
+}

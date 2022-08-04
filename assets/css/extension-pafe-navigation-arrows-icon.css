@@ -1,0 +1,18 @@
+.pafe-navigation-arrows-icon .slick-arrow,
+.pafe-navigation-arrows-icon .elementor-swiper-button {
+	display: none !important;
+}
+
+.pafe-navigation-arrows-icon-arrows {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all ease 0.3s;
+	height: auto;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.pafe-navigation-arrows-icon-arrows:hover {
+	opacity: 1 !important;
+}

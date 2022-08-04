@@ -1,0 +1,10 @@
+[data-pafe-toggle-content-type="trigger-close"],
+[data-pafe-toggle-content-type="trigger-close"].inactive,
+[data-pafe-toggle-content-type="trigger-open"].inactive {
+	display: none !important;
+}
+
+[data-pafe-toggle-content-type="trigger-close"].active {
+	display: block !important;
+}
+
