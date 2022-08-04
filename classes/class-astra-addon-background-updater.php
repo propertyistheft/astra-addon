@@ -26,45 +26,45 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.2.0'        => array(
+			'2.2.0' => array(
 				'astra_addon_page_builder_button_color_compatibility',
 			),
-			'2.3.0'        => array(
+			'2.3.0' => array(
 				'astra_addon_page_header_parallax_device',
 			),
-			'2.3.3'        => array(
+			'2.3.3' => array(
 				'astra_addon_css_gen_multi_site_fix',
 			),
-			'2.4.0'        => array(
+			'2.4.0' => array(
 				'astra_responsive_content_background_option',
 				'astra_addon_update_theme_tablet_breakpoint',
 			),
-			'2.5.0'        => array(
+			'2.5.0' => array(
 				'custom_layout_compatibility_having_code_posts',
 				'astra_addon_page_header_submenu_color_options',
 			),
-			'2.6.0'        => array(
+			'2.6.0' => array(
 				'astra_addon_header_css_optimizations',
 			),
-			'3.5.0'        => array(
+			'3.5.0' => array(
 				'astra_addon_page_headers_support_to_builder_layout',
 			),
-			'3.5.1'        => array(
+			'3.5.1' => array(
 				'astra_addon_headings_font_support',
 				'astra_addon_cart_color_not_working_in_old_header',
 			),
-			'3.5.7'        => array(
+			'3.5.7' => array(
 				'astra_addon_outline_cart_bg_color_support',
 				'astra_addon_remove_header_sections_deps_new_builder',
 				'astra_addon_swap_section_not_working_in_old_header',
 			),
-			'3.5.8'        => array(
+			'3.5.8' => array(
 				'astra_sticky_header_site_title_tagline_css',
 			),
-			'3.5.9'        => array(
+			'3.5.9' => array(
 				'astra_addon_remove_responsive_account_menu_colors_support',
 			),
-			'3.9.0'        => array(
+			'3.9.0' => array(
 				'astra_addon_responsive_shop_content_alignment',
 				'astra_addon_responsive_shop_button_padding',
 				'astra_addon_shop_box_shadow_migration',

@@ -1,3 +1,9 @@
+v3.9.1
+- Fix: Mobile menu flyout mode not working properly when old Header layout is active.
+- Fix: WooCommerce - Button variation is displaying the old deleted product attributes on single product.
+- Fix: WooCommerce - Shop active filter toggle not working properly due to incorrect customizer option handle.
+- Fix: Theme version rollback does not work on the initial page load of Astra Options.
+
 v3.9.0
 - New: Redesigned the entire customizer UI for better user experience.
 - New: WooCommerce - General - Quantity Plus Minus Button Options With Multiple Designs.

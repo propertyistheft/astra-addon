@@ -247,9 +247,13 @@
 
 		_close_offcanvas: function(e) {
 
-			const offCanvasWrap = $(".astra-off-canvas-sidebar");
+			const offCanvasWrap = $( ".astra-off-canvas-sidebar" );
 
-			if (e.target.parentNode.parentNode === this || e.type === 'astraMenuHashLinkClicked' || ( ! offCanvasWrap.is(e.target) && offCanvasWrap.has(e.target).length === 0 ) ) {
+			const commonCondition = e.target.parentNode.parentNode === this || e.type === 'astraMenuHashLinkClicked';
+
+			const condition = offCanvasWrap.length ? commonCondition || ( ! offCanvasWrap.is(e.target) && offCanvasWrap.has(e.target).length === 0 ) : commonCondition; 
+
+			if ( condition ) {
 
 				e.data = e.data || {};
 				e.data.class = e.data.class || "ast-flyout-menu-overlay ast-offcanvas-active";

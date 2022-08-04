@@ -66,7 +66,7 @@ class Astra_Rollback_Version_Manager {
 		}
 		?>
 		</select>
-			<a data-placeholder-text=" <?php echo esc_html__( 'Rollback', 'astra-addon' ); ?>" href="<?php echo esc_url( add_query_arg( 'version_no', $theme_versions[0], wp_nonce_url( admin_url( 'index.php?action=astra_rollback' ), 'astra_rollback' ) ) ); ?>"
+			<a data-placeholder-text=" <?php echo esc_html__( 'Rollback', 'astra-addon' ); ?>" href="<?php echo esc_url( add_query_arg( 'version_no', $theme_versions[0], wp_nonce_url( admin_url( 'index.php?action=astra-rollback' ), 'astra_rollback' ) ) ); ?>"
 			data-placeholder-url="<?php echo esc_url( wp_nonce_url( admin_url( 'index.php?action=astra-rollback&version_no=VERSION' ), 'astra_rollback' ) ); ?>" class="button ast-rollback-button"><?php echo esc_html__( 'Rollback', 'astra-addon' ); ?> </a>
 		</select>
 		<?php

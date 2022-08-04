@@ -944,7 +944,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 						case 'filters':
 							if ( $is_visible ) {
 								add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_button' ), $priority );
-								if ( astra_get_option( 'shop-active-filters-d1isplay' ) ) {
+								if ( astra_get_option( 'shop-active-filters-display' ) ) {
 									add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_applied_filters' ), $priority + 10 );
 								}
 								// Collapsible filter.
@@ -3137,21 +3137,51 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		public function single_product_variations_custom_html( $html, $args ) {
 			echo $html;  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			?>
-				<div class="ast-variation-button-group">
+			<div class="ast-variation-button-group">
 				<?php
-				if ( isset( $args['options'] ) ) {
-					foreach ( $args['options'] as $slug ) {
-						$term = get_term_by( 'slug', $slug, $args['attribute'] );
-						$name = ! empty( $term->name ) ? $term->name : $slug;
-						?>
-						<div class="ast-single-variation" data-slug="<?php echo esc_attr( $slug ); ?>" >
-						<?php echo esc_attr( $name ); ?>
-						</div>
-						<?php
+					$options   = isset( $args['options'] ) ? $args['options'] : array();
+					$product   = isset( $args['product'] ) ? $args['product'] : array();
+					$attribute = isset( $args['attribute'] ) ? $args['attribute'] : array();
+
+				if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
+					$attributes = $product->get_variation_attributes();
+					$options    = $attributes[ $attribute ];
+				}
+
+				if ( ! empty( $options ) ) {
+					if ( $product && taxonomy_exists( $attribute ) ) {
+						// Get terms if this is a taxonomy - ordered. We need the names too.
+						$terms = wc_get_product_terms(
+							$product->get_id(),
+							$attribute,
+							array(
+								'fields' => 'all',
+							)
+						);
+
+						foreach ( $terms as $term ) {
+							if ( in_array( $term->slug, $options, true ) ) {
+								?>
+										<div class="ast-single-variation" data-slug="<?php echo esc_attr( $term->slug ); ?>" >
+										<?php echo esc_html( apply_filters( 'astra_variation_option_name', $term->name, $term, $attribute, $product ) ); ?>
+										</div>
+									<?php
+							}
+						}
+					} else {
+						foreach ( $options as $option ) {
+							// This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
+							?>
+									<div class="ast-single-variation" data-slug="<?php echo esc_attr( $option ); ?>" >
+									<?php echo esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ); ?>
+									</div>
+								<?php
+						}
 					}
 				}
+
 				?>
-				</div>
+			</div>
 			<?php
 		}
 
