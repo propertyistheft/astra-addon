@@ -54,7 +54,6 @@ final class Astra_Addon_Builder_Customizer {
 		// Base Config Files.
 
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-addon-base-configs.php';
-		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/dynamic-css/class-astra-addon-base-dynamic-css.php';
 
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-divider-component-configs.php';
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-addon-button-component-configs.php';

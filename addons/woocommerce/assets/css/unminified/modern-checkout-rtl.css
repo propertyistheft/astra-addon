@@ -99,16 +99,17 @@
   margin: 0;
 }
 
-.ast-modern-checkout .woocommerce form.woocommerce-checkout .woocommerce-billing-fields-custom h3 {
+.ast-modern-checkout .woocommerce form.woocommerce-checkout .woocommerce-billing-fields-custom .ast-checkout-form-heading {
   -js-display: flex;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.ast-modern-checkout .woocommerce form.woocommerce-checkout .woocommerce-billing-fields-custom h3 .woocommerce-billing-fields__customer-login-label {
-  font-size: .7em;
+.ast-modern-checkout .woocommerce form.woocommerce-checkout .woocommerce-billing-fields-custom .ast-checkout-form-heading .woocommerce-billing-fields__customer-login-label {
   text-transform: none;
+  font-weight: 600;
+  margin-top: 0.9em;
 }
 
 .ast-modern-checkout .woocommerce form.woocommerce-checkout .ast-customer-info__notice {

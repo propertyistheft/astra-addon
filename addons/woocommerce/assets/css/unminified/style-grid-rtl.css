@@ -714,14 +714,6 @@
   margin-left: -1px;
 }
 
-.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap {
-  line-height: 1.8;
-}
-
-.ast-site-header-cart.ast-menu-cart-fill i.astra-icon {
-  font-size: 1.1em;
-}
-
 li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after {
   padding-right: 2px;
 }

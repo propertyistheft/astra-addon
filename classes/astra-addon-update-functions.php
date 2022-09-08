@@ -422,24 +422,6 @@ function astra_addon_update_product_gallery_layout() {
 }
 
 /**
- * Migrate old user data to new responsive format layout for shop's summary box content alignment.
- *
- * @since 3.9.0
- * @return void
- */
-function astra_addon_responsive_shop_content_alignment() {
-	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['shop-product-align-responsive'] ) && isset( $theme_options['shop-product-align'] ) ) {
-		$theme_options['shop-product-align-responsive'] = array(
-			'desktop' => $theme_options['shop-product-align'],
-			'tablet'  => $theme_options['shop-product-align'],
-			'mobile'  => $theme_options['shop-product-align'],
-		);
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
  * Migrate old user data to new responsive format for shop's cart button padding.
  *
  * @since 3.9.0

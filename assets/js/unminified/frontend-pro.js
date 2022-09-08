@@ -23,19 +23,20 @@
 		menuToggleAllLength = menu_toggle_all.length;
     } else {
 
-        if ( body.classList.contains('ast-header-break-point') ) {
+		if ( body.classList.contains('ast-header-break-point') ) {
 
-            var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
-                menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
-        } else {
+			var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
+				menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+				menuToggleAllLength = menu_toggle_all.length;
+				flag = menuToggleAllLength > 0 ? false : true;
+				menuToggleAllLength = flag ? 1 : menuToggleAllLength;
+		} else {
 
-            var __main_header_all = document.querySelectorAll( '#ast-desktop-header' ),
-                menu_toggle_all   = document.querySelectorAll( '#ast-desktop-header .main-header-menu-toggle' );
+			var __main_header_all = document.querySelectorAll( '#ast-desktop-header' ),
+				menu_toggle_all = document.querySelectorAll('#ast-desktop-header .main-header-menu-toggle');
+				menuToggleAllLength = menu_toggle_all.length;
 		}
-		menuToggleAllLength = menu_toggle_all.length;
-		flag = menuToggleAllLength > 0 ? false : true;
-		menuToggleAllLength = flag ? 1 : menuToggleAllLength;
-    }
+	}
 
 	if ( menuToggleAllLength > 0 || flag ) {
 

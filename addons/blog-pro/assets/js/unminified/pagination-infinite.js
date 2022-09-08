@@ -91,7 +91,7 @@
 				request.onload = function() {
 					var string = request.response;
 					var data = new DOMParser().parseFromString(string, 'text/html');
-					var boxes = data.querySelectorAll( 'article.post' );
+					var boxes = data.querySelectorAll( 'article.ast-article-post' );
 
 					//	Disable loader
 					loader.style.display = 'none';

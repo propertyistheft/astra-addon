@@ -39,42 +39,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$clonning_attr    = array();
-			$add_to_cart_attr = array();
-			/**
-			 * Single product payment control.
-			 */
-
-			$clonning_attr['single-product-payments'] = array(
-				'clone'       => false,
-				'is_parent'   => true,
-				'main_index'  => 'single-product-payments',
-				'clone_limit' => 2,
-				'title'       => __( 'Payments', 'astra-addon' ),
-			);
-
-			/**
-			 * Single product extras control.
-			 */
-			$clonning_attr['summary-extras'] = array(
-				'clone'       => false,
-				'is_parent'   => true,
-				'main_index'  => 'summary-extras',
-				'clone_limit' => 2,
-				'title'       => __( 'Extras', 'astra-addon' ),
-			);
-
-			/**
-			 * Single product add to cart control.
-			 */
-			$add_to_cart_attr['add_cart'] = array(
-				'clone'       => false,
-				'is_parent'   => true,
-				'main_index'  => 'add_cart',
-				'clone_limit' => 2,
-				'title'       => __( 'Add To Cart', 'astra-addon' ),
-			);
-
 			/**
 			 * Condition to check if the user is new or old and display product layout choices accordiongly.
 			 */
@@ -120,15 +84,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 			}
 
 			$_configs = array(
-
-				array(
-					'name'        => 'section-woo-shop-single-ast-context-tabs',
-					'section'     => 'section-woo-shop-single',
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
 
 				/**
 				 * Option: Divider
@@ -221,48 +176,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 						'max'  => 70,
 					),
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
-				),
-
-				/**
-				 * Option: Divider.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[woo-single-product-structure-divider]',
-					'section'  => 'section-woo-shop-single',
-					'title'    => __( 'Single Product Structure', 'astra-addon' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 5,
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-				),
-
-				/**
-				 * Option: Single Post Meta
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-					'default'           => astra_get_option( 'single-product-structure' ),
-					'type'              => 'control',
-					'control'           => 'ast-sortable',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-					'section'           => 'section-woo-shop-single',
-					'priority'          => 15,
-					'choices'           => array_merge(
-						array(
-							'title'   => __( 'Title', 'astra-addon' ),
-							'price'   => __( 'Price', 'astra-addon' ),
-							'ratings' => __( 'Ratings', 'astra-addon' ),
-						),
-						$add_to_cart_attr,
-						array(
-							'short_desc' => __( 'Short Description', 'astra-addon' ),
-							'meta'       => __( 'Meta', 'astra-addon' ),
-							'category'   => __( 'Category', 'astra-addon' ),
-						),
-						$clonning_attr
-					),
-					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -760,15 +673,20 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'context'           => array(
 						astra_addon_builder_helper()->general_tab_config,
+						'relation' => 'AND',
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-related-display]',
-							'operator' => '==',
-							'value'    => true,
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-up-sells-display]',
-							'operator' => '==',
-							'value'    => true,
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[single-product-related-display]',
+								'operator' => '==',
+								'value'    => true,
+							),
+
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[single-product-up-sells-display]',
+								'operator' => '==',
+								'value'    => true,
+							),
 						),
 					),
 					'priority'          => 70,
@@ -792,247 +710,25 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'title'    => __( 'No. of Related Product', 'astra-addon' ),
 					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
+						'relation' => 'AND',
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-related-display]',
-							'operator' => '==',
-							'value'    => true,
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-up-sells-display]',
-							'operator' => '==',
-							'value'    => true,
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[single-product-related-display]',
+								'operator' => '==',
+								'value'    => true,
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[single-product-up-sells-display]',
+								'operator' => '==',
+								'value'    => true,
+							),
 						),
 					),
 					'control'  => 'number',
 					'priority' => 75,
 				),
 
-				/**
-				 * Option: Divider.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-divider]',
-					'section'  => 'section-woo-shop-single',
-					'title'    => __( 'Sticky Add To Cart', 'astra-addon' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 76,
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-				),
-
-				/**
-				* Option: Sticky add to cart.
-				*/
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-					'default'     => astra_get_option( 'single-product-sticky-add-to-cart' ),
-					'type'        => 'control',
-					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Enable Sticky Add to Cart', 'astra-addon' ),
-					'description' => __( 'This works for only desktop devices', 'astra-addon' ),
-					'control'     => Astra_Theme_Extension::$switch_control,
-					'priority'    => 76,
-					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
-				),
-
-				/**
-				 * Option: Sticky add to cart position.
-				 */
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-position]',
-					'default'    => astra_get_option( 'single-product-sticky-add-to-cart-position' ),
-					'type'       => 'control',
-					'control'    => Astra_Theme_Extension::$selector_control,
-					'section'    => 'section-woo-shop-single',
-					'priority'   => 76,
-					'title'      => __( 'Sticky Placement ', 'astra-addon' ),
-					'choices'    => array(
-						'top'    => __( 'Top', 'astra-addon' ),
-						'bottom' => __( 'Bottom', 'astra-addon' ),
-					),
-					'transport'  => 'postMessage',
-					'renderAs'   => 'text',
-					'responsive' => false,
-					'context'    => array(
-						astra_addon_builder_helper()->general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
-				),
-
-				/**
-				 * Option: Divider.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[woo-single-product-sticky-color-divider]',
-					'section'  => 'section-woo-shop-single',
-					'title'    => __( 'Sticky Add To Cart Colors', 'astra-addon' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 82,
-					'settings' => array(),
-					'context'  => array(
-						astra_addon_builder_helper()->design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-				),
-
-				/**
-				 * Option: Sticky add to cart text color.
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-text-color]',
-					'default'           => astra_get_option( 'single-product-sticky-add-to-cart-text-color' ),
-					'type'              => 'control',
-					'section'           => 'section-woo-shop-single',
-					'control'           => 'ast-color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'transport'         => 'postMessage',
-					'title'             => __( 'Text Color', 'astra-addon' ),
-					'context'           => array(
-						astra_addon_builder_helper()->design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-					'priority'          => 82,
-					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
-				),
-
-				/**
-				 * Option: Sticky add to cart background color.
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-bg-color]',
-					'default'           => astra_get_option( 'single-product-sticky-add-to-cart-bg-color' ),
-					'type'              => 'control',
-					'section'           => 'section-woo-shop-single',
-					'control'           => 'ast-color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'transport'         => 'postMessage',
-					'title'             => __( 'Background Color', 'astra-addon' ),
-					'context'           => array(
-						astra_addon_builder_helper()->design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-					'priority'          => 82,
-				),
-
-				/**
-				* Option: Sticky add to cart button text color.
-				*/
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-btn-color]',
-					'default'   => astra_get_option( 'single-product-sticky-add-to-cart-btn-color' ),
-					'type'      => 'control',
-					'control'   => Astra_Theme_Extension::$group_control,
-					'title'     => __( 'Button Text', 'astra-addon' ),
-					'section'   => 'section-woo-shop-single',
-					'transport' => 'postMessage',
-					'priority'  => 82,
-					'context'   => array(
-						astra_addon_builder_helper()->design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
-
-				// Option: Link Color.
-				array(
-					'type'     => 'sub-control',
-					'priority' => 76,
-					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-btn-color]',
-					'section'  => 'section-woo-shop-single',
-					'control'  => 'ast-color',
-					'default'  => astra_get_option( 'single-product-sticky-add-to-cart-btn-n-color' ),
-					'name'     => 'single-product-sticky-add-to-cart-btn-n-color',
-					'title'    => __( 'Normal', 'astra-addon' ),
-					'tab'      => __( 'Normal', 'astra-addon' ),
-				),
-
-				// Option: Link Hover Color.
-				array(
-					'type'              => 'sub-control',
-					'priority'          => 82,
-					'parent'            => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-btn-color]',
-					'section'           => 'section-woo-shop-single',
-					'control'           => 'ast-color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'default'           => astra_get_option( 'single-product-sticky-add-to-cart-btn-h-color' ),
-					'transport'         => 'postMessage',
-					'name'              => 'single-product-sticky-add-to-cart-btn-h-color',
-					'title'             => __( 'Hover', 'astra-addon' ),
-					'tab'               => __( 'Hover', 'astra-addon' ),
-				),
-
-				/**
-				 * Option: Sticky add to cart button background color.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-btn-bg-color]',
-					'default'   => astra_get_option( 'single-product-sticky-add-to-cart-btn-bg-color' ),
-					'type'      => 'control',
-					'control'   => Astra_Theme_Extension::$group_control,
-					'title'     => __( 'Button Background', 'astra-addon' ),
-					'section'   => 'section-woo-shop-single',
-					'transport' => 'postMessage',
-					'priority'  => 82,
-					'context'   => array(
-						astra_addon_builder_helper()->design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-							'operator' => '==',
-							'value'    => true,
-						),
-					),
-				),
-
-				// Option: Link Color.
-				array(
-					'type'     => 'sub-control',
-					'priority' => 82,
-					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-btn-bg-color]',
-					'section'  => 'section-woo-shop-single',
-					'control'  => 'ast-color',
-					'default'  => astra_get_option( 'single-product-sticky-add-to-cart-btn-bg-n-color' ),
-					'name'     => 'single-product-sticky-add-to-cart-btn-bg-n-color',
-					'title'    => __( 'Normal', 'astra-addon' ),
-					'tab'      => __( 'Normal', 'astra-addon' ),
-				),
-
-				// Option: Link Hover Color.
-				array(
-					'type'              => 'sub-control',
-					'priority'          => 82,
-					'parent'            => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart-btn-bg-color]',
-					'section'           => 'section-woo-shop-single',
-					'control'           => 'ast-color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-					'default'           => astra_get_option( 'single-product-sticky-add-to-cart-btn-bg-h-color' ),
-					'transport'         => 'postMessage',
-					'name'              => 'single-product-sticky-add-to-cart-btn-bg-h-color',
-					'title'             => __( 'Hover', 'astra-addon' ),
-					'tab'               => __( 'Hover', 'astra-addon' ),
-				),
 			);
 
 			/**
@@ -1054,175 +750,40 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 			);
 
 			/**
-			 * Single product payment sub control Visa.
+			 * Single product extras heading text.
 			 */
 			$_configs[] = array(
-				'name'      => 'single-product-payment-visa',
+				'name'      => 'single-product-extras-text',
 				'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'   => astra_get_option( 'single-product-payment-visa' ),
-				'linked'    => 'single-product-payments',
-				'type'      => 'sub-control',
-				'control'   => 'ast-toggle',
-				'section'   => 'section-woo-shop-single',
-				'priority'  => 10,
-				'title'     => __( 'Show Visa', 'astra-addon' ),
-				'transport' => 'postMessage',
-			);
-
-			/**
-			 * Single product payment sub control MasterCard.
-			 */
-			$_configs[] = array(
-				'name'      => 'single-product-payment-mastercard',
-				'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'   => astra_get_option( 'single-product-payment-mastercard' ),
-				'linked'    => 'single-product-payments',
-				'type'      => 'sub-control',
-				'control'   => 'ast-toggle',
-				'section'   => 'section-woo-shop-single',
-				'priority'  => 10,
-				'title'     => __( 'Show MasterCard', 'astra-addon' ),
-				'transport' => 'postMessage',
-			);
-
-			/**
-			 * Single product payment sub control Amex.
-			 */
-			$_configs[] = array(
-				'name'      => 'single-product-payment-amex',
-				'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'   => astra_get_option( 'single-product-payment-amex' ),
-				'linked'    => 'single-product-payments',
-				'type'      => 'sub-control',
-				'control'   => 'ast-toggle',
-				'section'   => 'section-woo-shop-single',
-				'priority'  => 10,
-				'title'     => __( 'Show Amex', 'astra-addon' ),
-				'transport' => 'postMessage',
-			);
-
-			/**
-			 * Single product payment sub control Discover.
-			 */
-			$_configs[] = array(
-				'name'      => 'single-product-payment-discover',
-				'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'   => astra_get_option( 'single-product-payment-discover' ),
-				'linked'    => 'single-product-payments',
-				'type'      => 'sub-control',
-				'control'   => 'ast-toggle',
-				'section'   => 'section-woo-shop-single',
-				'priority'  => 10,
-				'title'     => __( 'Show Discover', 'astra-addon' ),
-				'transport' => 'postMessage',
-			);
-
-			/**
-			 * Single product payment sub control Paypal.
-			 */
-			$_configs[] = array(
-				'name'      => 'single-product-payment-paypal',
-				'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'   => astra_get_option( 'single-product-payment-paypal' ),
-				'linked'    => 'single-product-payments',
-				'type'      => 'sub-control',
-				'control'   => 'ast-toggle',
-				'section'   => 'section-woo-shop-single',
-				'priority'  => 10,
-				'title'     => __( 'Show Paypal', 'astra-addon' ),
-				'transport' => 'postMessage',
-			);
-
-			/**
-			 * Single product payment sub control Apple Pay.
-			 */
-			$_configs[] = array(
-				'name'      => 'single-product-payment-apple-pay',
-				'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'   => astra_get_option( 'single-product-payment-apple-pay' ),
-				'linked'    => 'single-product-payments',
-				'type'      => 'sub-control',
-				'control'   => 'ast-toggle',
-				'section'   => 'section-woo-shop-single',
-				'priority'  => 10,
-				'title'     => __( 'Show Apple Pay', 'astra-addon' ),
-				'transport' => 'postMessage',
-			);
-
-			/**
-			 * Single product payment icon color style.
-			 */
-			$_configs[] = array(
-				'name'       => 'single-product-payment-icon-color',
-				'parent'     => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'    => astra_get_option( 'single-product-payment-icon-color' ),
-				'linked'     => 'single-product-payments',
-				'type'       => 'sub-control',
-				'control'    => 'ast-selector',
-				'section'    => 'section-woo-shop-single',
-				'priority'   => 5,
-				'title'      => __( 'Choose Icon Colors', 'astra-addon' ),
-				'choices'    => array(
-					'inherit'            => __( 'Default', 'astra-addon' ),
-					'inherit_text_color' => __( 'Grayscale', 'astra-addon' ),
-				),
-				'transport'  => 'postMessage',
-				'responsive' => false,
-				'renderAs'   => 'text',
-			);
-
-			/**
-			 * Single product payment heading text.
-			 */
-			$_configs[] = array(
-				'name'      => 'single-product-payment-text',
-				'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'   => astra_get_option( 'single-product-payment-text' ),
-				'linked'    => 'single-product-payments',
+				'default'   => astra_get_option( 'single-product-extras-text' ),
+				'linked'    => 'summary-extras',
 				'type'      => 'sub-control',
 				'control'   => 'ast-text-input',
 				'section'   => 'section-woo-shop-single',
 				'priority'  => 5,
 				'transport' => 'postMessage',
-				'title'     => __( 'Payment Title', 'astra-addon' ),
+				'title'     => 'Extras Title',
 				'settings'  => array(),
 			);
 
-				/**
-				 * Single product extras heading text.
-				 */
-				$_configs[] = array(
-					'name'      => 'single-product-extras-text',
-					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-					'default'   => astra_get_option( 'single-product-extras-text' ),
-					'linked'    => 'summary-extras',
-					'type'      => 'sub-control',
-					'control'   => 'ast-text-input',
-					'section'   => 'section-woo-shop-single',
-					'priority'  => 5,
-					'transport' => 'postMessage',
-					'title'     => 'Extras Title',
-					'settings'  => array(),
-				);
+			/**
+			 * Single product extras list.
+			 */
+			$_configs[] = array(
+				'name'     => 'single-product-extras-list',
+				'parent'   => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+				'default'  => astra_get_option( 'single-product-extras-list' ),
+				'linked'   => 'summary-extras',
+				'type'     => 'sub-control',
+				'control'  => 'ast-list-icons',
+				'section'  => 'section-woo-shop-single',
+				'priority' => 10,
+				'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+			);
 
-				/**
-				 * Single product extras list.
-				 */
-				$_configs[] = array(
-					'name'     => 'single-product-extras-list',
-					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-					'default'  => astra_get_option( 'single-product-extras-list' ),
-					'linked'   => 'summary-extras',
-					'type'     => 'sub-control',
-					'control'  => 'ast-list-icons',
-					'section'  => 'section-woo-shop-single',
-					'priority' => 10,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-				);
+			$configurations = array_merge( $configurations, $_configs );
 
-				$configurations = array_merge( $configurations, $_configs );
-
-				return $configurations;
+			return $configurations;
 
 		}
 	}

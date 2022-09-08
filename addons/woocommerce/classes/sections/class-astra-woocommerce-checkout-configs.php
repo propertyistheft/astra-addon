@@ -42,6 +42,19 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Context for Checkout section.
+				 */
+
+				array(
+					'name'        => 'section-woo-checkout-ast-context-tabs',
+					'section'     => 'woocommerce_checkout',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				),
+
+				/**
 				 * Option: Divider.
 				 */
 
@@ -147,6 +160,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'renderAs'   => 'text',
 					'responsive' => false,
 					'context'    => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -179,6 +193,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_place_order_text' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -204,6 +219,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 5,
 					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -224,6 +240,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 5,
 					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -244,6 +261,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'priority' => 5,
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -265,6 +283,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 5,
 					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -285,6 +304,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'priority' => 5,
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -345,6 +365,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'title'    => __( 'Enable Checkout Note', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -412,6 +433,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_one_title' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -443,6 +465,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_one_sub_title' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -474,6 +497,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_title' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -505,6 +529,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_sub_title' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -536,6 +561,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_button_text' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -567,6 +593,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_button_sub_text' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
 							'operator' => '==',
@@ -636,6 +663,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 							'operator' => '==',
 							'value'    => 'default',
 						),
+						astra_addon_builder_helper()->general_tab_config,
 					),
 				),
 
@@ -666,6 +694,77 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'priority' => 5,
 					'settings' => array(),
 					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
+				),
+
+				/**
+				 * Option: Divider Order Summary.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-order-summary-color-divider]',
+					'section'  => 'woocommerce_checkout',
+					'title'    => __( 'Order Summary', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 4,
+					'settings' => array(),
+					'context'  => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
+				),
+
+				/**
+				 * Option: Order Summary Background Color.
+				 */
+
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[order-summary-background-color]',
+					'default'           => astra_get_option( 'order-summary-background-color' ),
+					'type'              => 'control',
+					'section'           => 'woocommerce_checkout',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Content Background', 'astra-addon' ),
+					'priority'          => 4,
+					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
+				),
+
+				/**
+				 * Option: Divider Payment Option.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-payment-option-color-divider]',
+					'section'  => 'woocommerce_checkout',
+					'title'    => __( 'Payment Option', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 4,
+					'settings' => array(),
+					'context'  => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
+				 * Option: Order Summary Header Background Color.
+				 */
+
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[payment-option-content-background-color]',
+					'default'           => astra_get_option( 'payment-option-content-background-color' ),
+					'type'              => 'control',
+					'section'           => 'woocommerce_checkout',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Content Background', 'astra-addon' ),
+					'priority'          => 4,
+					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
 				),
 
 			);

@@ -1,3 +1,29 @@
+v3.9.2
+- New: WooCommerce - Checkout - Order summary & payment box background color options.
+- Improvement: Introduced filter 'astra_addon_override_single_product_layout' to enable/disable vertical & horizontal slider gallery layout in case if Single Product layout built using any page builder themer.
+- Improvement: Action 'astra_addon_woo_quick_view_before' for firing before Quick View popup trigger.
+- Improvement: WooCommerce - Introduced new JavaScript event 'astraInfinitePaginationLoaded' after shop infinite pagination loaded.
+- Fix: WooCommerce - Single Product - Default variation option not working with Change Dropdown to Buttons option in variable type product.
+- Fix: WooCommerce - Single Product - Gallery thumbnail slider not in sync when product variations changes.
+- Fix: WooCommerce - Checkout - String 'Customer information' is not translatable.
+- Fix: WooCommerce - Checkout - Email validation not working for non admin users when trying to login through the checkout page when the modern layout is active.
+- Fix: WooCommerce - My Account - Download items UI gets messed up in modern layout.
+- Fix: WooCommerce - Checkout - Login button font-size does not match with their surrounding label in modern checkout style.
+- Fix: WooCommerce - Checkout - Country/Region misalignment in checkout form on single country selection when modern input style enabled.
+- Fix: WooCommerce - Single Product - Misalignment with quantity updater when vertical style is applied.
+- Fix: WooCommerce - Shop - Product cards box shadow not working when old header footer is active.
+- Fix: WooCommerce - Single Product - Product gallery missing when single product layout build using theme builder layouts.
+- Fix: WooCommerce - Removing white background color being added to minicart icon when style is selected as outline.
+- Fix: WooCommerce - 'View Cart' secondary link is hidden when product added to that cart from the single product page.
+- Fix: WooCommerce - Shop - Active filter misalignment on the frontend.
+- Fix: WooCommerce - Modern Checkout layout support for Germanized for WooCommerce plugin.
+- Fix: Showing deprecated function warning on frontend after installing Elementor with theme.
+- Fix: Customizer range slider control not accepting decimal values for 'em' unit.
+- Fix: Need to double click for dropdown menu to open sub-menus on desktop in rare cases.
+- Fix: Blog - Infinite scroll is not working with Custom Post types.
+- Fix: W3 validation - aria-label attribute is missing for button in Full search style.
+- Fix: Updated product columns option dependency on individual Related and Upsell enable setting.
+
 v3.9.1
 - Fix: Mobile menu flyout mode not working properly when old Header layout is active.
 - Fix: WooCommerce - Button variation is displaying the old deleted product attributes on single product.

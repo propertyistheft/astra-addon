@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="ast-orders-table__row shop_table shop_table_responsive order_details">
 		<?php foreach ( $args['downloads'] as $download ) : ?>
-
+			<div class="ast-dl-single">
 			<?php echo '<div class="ast-woo-order-image-wrap">' . get_the_post_thumbnail( $download['product_id'], apply_filters( 'astra_downloaded_product_image_size', array( 60, 60 ) ) ) . '</div>'; ?>
 
 			<?php foreach ( wc_get_account_downloads_columns() as $column_id => $column_name ) : ?>
@@ -38,7 +38,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					if ( has_action( 'woocommerce_account_downloads_column_' . $column_id ) ) {
 						do_action( 'woocommerce_account_downloads_column_' . $column_id, $download );
 					} else {
-
 						switch ( $column_id ) {
 							case 'download-product':
 								if ( $download['product_url'] ) {
@@ -67,6 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 				</div>
 			<?php endforeach; ?>
+			</div>
 		<?php endforeach; ?>
 	</div>
 </section>

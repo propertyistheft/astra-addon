@@ -65,6 +65,7 @@ if ( ! class_exists( 'Astra_Addon_Builder_Loader' ) ) {
 			 * Customizer - Configs.
 			 */
 			require_once ASTRA_EXT_DIR . 'classes/builder/class-astra-addon-builder-customizer.php';
+			require_once ASTRA_EXT_DIR . 'classes/builder/type/base/dynamic-css/class-astra-addon-base-dynamic-css.php';
 		}
 	}
 

@@ -123,6 +123,8 @@
 
 					// Complete the process 'loadStatus'
 					loadStatus = true;
+
+					document.dispatchEvent( new CustomEvent( "astraInfinitePaginationLoaded",  { "detail": {} }) );
 				}
 		}
 	}

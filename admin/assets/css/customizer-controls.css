@@ -283,9 +283,3 @@ body.rtl #customize-control-astra-settings-mobile-header-logo .customize-control
 #sub-accordion-section-woocommerce_checkout .customize-control-title {
     text-transform: capitalize;
 }
-/**
- * Hide core shop/archive WooCommerce options on Design tab.
- */
- #sub-accordion-section-woocommerce_product_catalog.open.ast-active-design-tab li[ID*="customize-control-woocommerce_"] {
-	display: none;
-}

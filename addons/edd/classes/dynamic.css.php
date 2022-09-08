@@ -79,7 +79,7 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$headings_font_family = astra_get_option( 'headings-font-family' );
 
 	// Supporting color setting for default icon as well.
-	$can_update_cart_color   = Astra_Addon_Update_Filter_Function::astra_cart_color_default_icon_old_header();
+	$can_update_cart_color   = is_callable( 'astra_cart_color_default_icon_old_header' ) && astra_cart_color_default_icon_old_header();
 	$header_cart_count_color = ( $can_update_cart_color ) ? $header_cart_icon_color : $theme_color;
 
 	/**

@@ -53,9 +53,16 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 			$post_type = get_post_type( $post_id );
 
 			if ( class_exists( '\Elementor\Plugin' ) ) {
-				if ( ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) &&
-					'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $post_id ) ) || Elementor\Plugin::$instance->db->is_built_with_elementor( $post_id ) ) {
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$document = Elementor\Plugin::$instance->documents->get( $post_id ); // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+				if ( $document ) {
+					$deprecated_handle = $document->is_built_with_elementor();
+				} else {
+					$deprecated_handle = false;
+				}
 
+				if ( ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) &&
+					'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $post_id ) ) || $deprecated_handle ) {
 					return Astra_Addon_Elementor_Compatibility::get_instance();
 				}
 			}

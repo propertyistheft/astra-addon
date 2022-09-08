@@ -45,46 +45,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 
 			$cart_outline_width_context = ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? astra_addon_builder_helper()->design_tab_config : astra_addon_builder_helper()->general_tab_config;
 
-			$cart_icon_choices = array();
-
-			$woo_cart_icon_new_user = astra_get_option( 'astra-woocommerce-cart-icons-flag', true );
-
-			if ( apply_filters( 'astra_woocommerce_cart_icon', $woo_cart_icon_new_user ) ) {
-
-				$default_icon_value = 'bag';
-
-				if ( 'default' === astra_get_option( 'woo-header-cart-icon' ) ) {
-					astra_update_option( 'woo-header-cart-icon', $default_icon_value );
-				}
-
-				$cart_icon_choices = array(
-					'bag'    => 'shopping-bag',
-					'cart'   => 'shopping-cart',
-					'basket' => 'shopping-basket',
-				);
-
-			} else {
-
-				$default_icon_value = 'default';
-
-				$cart_icon_choices = array(
-					'default' => 'shopping-default',
-					'bag'     => 'shopping-bag',
-					'cart'    => 'shopping-cart',
-					'basket'  => 'shopping-basket',
-				);
-			}
-
 			$_configs = array(
-
-				array(
-					'name'        => 'section-woo-general-tabs',
-					'section'     => 'section-woo-misc',
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
 
 				/**
 				 * Option: Woocommerce input styles.
@@ -156,30 +117,14 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'title'    => __( 'Quantity Plus and Minus', 'astra-addon' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'priority' => 59,
+					'priority' => 58,
 					'settings' => array(),
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
-				 * Option: Enable Quantity Plus and Minus.
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-product-plus-minus-button]',
-					'default'     => astra_get_option( 'single-product-plus-minus-button' ),
-					'type'        => 'control',
-					'section'     => 'section-woo-misc',
-					'title'       => __( 'Enable Quantity Plus and Minus', 'astra-addon' ),
-					'description' => __( 'Adds plus and minus buttons besides product quantity', 'astra-addon' ),
-					'priority'    => 59,
-					'control'     => Astra_Theme_Extension::$switch_control,
-					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
-				),
-
-				/**
 				 * Option: Add to cart Plus Minus Button Option.
 				 */
-
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[cart-plus-minus-button-type]',
 					'default'    => astra_get_option( 'cart-plus-minus-button-type' ),
@@ -523,7 +468,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Enable Quantity Plus and Minus.
+				 * Option: Enable sale border radius.
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[woo-enable-sale-border-radius]',
@@ -664,80 +609,6 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'context'    => array(
 						astra_addon_builder_helper()->general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Header Cart Icon
-				 */
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon]',
-					'default'    => astra_get_option( 'woo-header-cart-icon', $default_icon_value ),
-					'type'       => 'control',
-					'control'    => Astra_Theme_Extension::$selector_control,
-					'section'    => $_section,
-					'priority'   => 3,
-					'title'      => __( 'Select Cart Icon', 'astra-addon' ),
-					'choices'    => $cart_icon_choices,
-					'transport'  => 'postMessage',
-					'context'    => array(
-						astra_addon_builder_helper()->general_tab_config,
-					),
-					'responsive' => false,
-					'divider'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array( 'ast_class' => 'ast-top-spacing ast-bottom-section-divider' ) : array( 'ast_class' => 'ast-section-spacing' ),
-				),
-
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-product-count-color-group]',
-					'default'    => astra_get_option( 'woo-header-cart-product-count-color-group' ),
-					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Count Color', 'astra-addon' ),
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'priority'   => 45,
-					'context'    => array(
-						Astra_Builder_Helper::$design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-					),
-					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
-				),
-
-				array(
-					'type'       => 'sub-control',
-					'parent'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-product-count-color-group]',
-					'section'    => $_section,
-					'control'    => 'ast-responsive-color',
-					'transport'  => 'postMessage',
-					'name'       => 'woo-header-cart-product-count-color',
-					'default'    => astra_get_option( 'woo-header-cart-product-count-color' ),
-					'title'      => __( 'Normal', 'astra-addon' ),
-					'responsive' => false,
-					'rgba'       => true,
-					'priority'   => 45,
-					'context'    => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
-				 * Option: Icon Hover Color section
-				 */
-				array(
-					'type'       => 'sub-control',
-					'control'    => 'ast-responsive-color',
-					'parent'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-product-count-color-group]',
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'name'       => 'woo-header-cart-product-count-h-color',
-					'default'    => astra_get_option( 'woo-header-cart-product-count-h-color' ),
-					'title'      => __( 'Hover', 'astra-addon' ),
-					'responsive' => false,
-					'rgba'       => true,
-					'priority'   => 45,
-					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**

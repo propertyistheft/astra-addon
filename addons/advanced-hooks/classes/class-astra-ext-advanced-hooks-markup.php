@@ -1014,7 +1014,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
 				return ( 'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $id ) );
 			} else {
-				return Elementor\Plugin::$instance->db->is_built_with_elementor( $id );
+				$elementor_document = Elementor\Plugin::$instance->documents->get( $id );
+				if ( $elementor_document ) {
+					return $elementor_document->is_built_with_elementor();
+				} else {
+					return false;
+				}
 			}
 
 			return false;

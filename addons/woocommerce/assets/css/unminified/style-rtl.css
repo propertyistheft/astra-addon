@@ -869,23 +869,3 @@
 .ast-icon-next:before {
   transform: rotate(90deg);
 }
-
-.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap {
-  line-height: 1.8;
-}
-
-.ast-site-header-cart.ast-menu-cart-fill i.astra-icon {
-  font-size: 1.1em;
-}
-
-li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after {
-  padding-right: 2px;
-}
-
-.ast-hfb-header .ast-addon-cart-wrap {
-  padding: 0.2em .6em;
-}
-
-.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
-  display: none;
-}

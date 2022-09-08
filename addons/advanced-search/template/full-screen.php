@@ -17,7 +17,7 @@
 						<label for="s" class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?></label>
 						<input name="s" class="search-field" autocomplete="off" type="text" value="" placeholder="<?php echo esc_attr( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?>">
 					</span>
-					<button class="button search-submit"><i class="astra-search-icon"></i></button>
+					<button aria-label="<?php esc_attr_e( 'Search', 'astra-addon' ); ?>" class="button search-submit"><i class="astra-search-icon"></i></button>
 				</fieldset>
 			</form>
 		</div>

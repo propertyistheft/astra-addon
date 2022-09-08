@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 						),
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 20,
 						),
 					),
@@ -228,7 +228,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 						),
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 20,
 						),
 					),
@@ -315,7 +315,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 						),
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 20,
 						),
 					),
@@ -342,7 +342,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'input_attrs'       => array(
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 5,
 						),
 					),

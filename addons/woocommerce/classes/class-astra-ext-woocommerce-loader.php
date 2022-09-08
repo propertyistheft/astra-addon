@@ -93,17 +93,12 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$astra_addon_update_modern_shop_defaults = Astra_Ext_WooCommerce::astra_addon_enable_modern_ecommerce_setup();
 
 			// Shop page.
-			$defaults['shop-style']                            = $astra_addon_update_modern_shop_defaults ? 'shop-page-modern-style' : 'shop-page-grid-style';
-			$defaults['shop-page-list-style-alignment']        = array(
+			$defaults['shop-page-list-style-alignment'] = array(
 				'desktop' => 'center',
 				'tablet'  => 'center',
 				'mobile'  => 'center',
 			);
-			$defaults['shop-product-align-responsive']         = array(
-				'desktop' => 'align-left',
-				'tablet'  => 'align-left',
-				'mobile'  => 'align-left',
-			);
+
 			$defaults['shop-toolbar-structure']                = array(
 				'results',
 				'sorting',
@@ -242,7 +237,6 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			// Single product page.
 			$defaults['single-product-related-display']         = true;
 			$defaults['single-product-image-zoom-effect']       = true;
-			$defaults['single-product-plus-minus-button']       = true;
 			$defaults['single-product-ajax-add-to-cart']        = false;
 			$defaults['single-product-related-upsell-grid']     = array(
 				'desktop' => 4,
@@ -284,19 +278,6 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 					),
 			);
 
-			// Add to cart Plus minus button type.
-			$defaults['cart-plus-minus-button-type'] = 'normal';
-
-			$defaults['single-product-structure'] = array(
-				'category',
-				'title',
-				'ratings',
-				'price',
-				'short_desc',
-				'add_cart',
-				'meta',
-			);
-
 			$defaults['single-product-tabs-display']             = true;
 			$defaults['single-product-heading-tab-normal-color'] = '';
 			$defaults['single-product-heading-tab-hover-color']  = '';
@@ -331,15 +312,13 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['two-step-checkout-modern-step-2-sub-text'] = __( 'Of your order', 'astra-addon' );
 
 			// General.
-			$defaults['astra-woocommerce-cart-icons-flag']     = true;
-			$defaults['woo-header-cart-icon-style']            = 'none';
-			$defaults['woo-header-cart-icon-color']            = '';
-			$defaults['woo-header-cart-border-width']          = 2;
-			$defaults['woo-header-cart-icon-radius']           = 3;
-			$defaults['woo-header-cart-total-display']         = true;
-			$defaults['woo-header-cart-title-display']         = true;
-			$defaults['woo-header-cart-product-count-color']   = '';
-			$defaults['woo-header-cart-product-count-h-color'] = '';
+			$defaults['astra-woocommerce-cart-icons-flag'] = true;
+			$defaults['woo-header-cart-icon-style']        = 'none';
+			$defaults['woo-header-cart-icon-color']        = '';
+			$defaults['woo-header-cart-border-width']      = 2;
+			$defaults['woo-header-cart-icon-radius']       = 3;
+			$defaults['woo-header-cart-total-display']     = true;
+			$defaults['woo-header-cart-title-display']     = true;
 
 			// General Product Price Typo.
 			$defaults['font-family-product-price'] = 'inherit';
@@ -470,20 +449,6 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['single-product-rating-color'] = '';
 			$defaults['product-sale-color']          = '';
 			$defaults['product-sale-bg-color']       = '';
-
-			// Sticky add to cart.
-			$defaults['single-product-sticky-add-to-cart']          = false;
-			$defaults['single-product-sticky-add-to-cart-position'] = 'top';
-
-			// Single Product Payments.
-			$defaults['single-product-payment-icon-color'] = 'inherit';
-			$defaults['single-product-payment-text']       = __( 'Guaranteed Safe Checkout', 'astra-addon' );
-			$defaults['single-product-payment-visa']       = true;
-			$defaults['single-product-payment-mastercard'] = true;
-			$defaults['single-product-payment-amex']       = true;
-			$defaults['single-product-payment-discover']   = true;
-			$defaults['single-product-payment-paypal']     = false;
-			$defaults['single-product-payment-apple-pay']  = false;
 
 			// Cart.
 			$defaults['cart-modern-layout']      = ( $astra_addon_update_modern_shop_defaults && ! defined( 'ELEMENTOR_PRO_VERSION' ) ) ? true : false;

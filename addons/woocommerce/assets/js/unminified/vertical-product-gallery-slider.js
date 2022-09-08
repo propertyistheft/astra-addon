@@ -1,6 +1,9 @@
-let savePrevious = 0; 
-
 document.addEventListener( "DOMContentLoaded" , function () {
+
+  const savePreviousParent = document.querySelector( '#ast-vertical-slider-inner' );
+  if( savePreviousParent ) {
+      savePreviousParent.setAttribute( 'ast-translate', 0 ); 
+  }
 
   // Gets current thumbnail wrapper selector.
   const currentThumbnailSelector = document.querySelector( '#ast-gallery-thumbnails' );
@@ -38,6 +41,12 @@ document.addEventListener( "DOMContentLoaded" , function () {
 
   focusSlideOnClick();
 
+  const articleSingle = document.querySelector('.ast-article-single');
+
+  if( articleSingle && articleSingle.classList.contains( 'ast-product-single-variable' ) ) {
+    scrollToSlideVariableProduct( prevButton, nextButton );
+  }
+
   enableDisableNavigationArrows( prevButton, nextButton );
 
   saleBadgeAlignment();
@@ -57,11 +66,6 @@ document.addEventListener( "DOMContentLoaded" , function () {
 
 // Adds dynamic heights for vertical slider.
 function dynamicImageResize( carouselInit, carousel ) {
-  const arrowNavigationClass   = 'flex-disabled';
-  const slideCountSelector     = document.querySelectorAll( '#ast-vertical-slider-inner .ast-woocommerce-product-gallery__image' );
-  const prevButton             = document.querySelector( '#ast-vertical-navigation-prev' );
-  const nextButton             = document.querySelector( '#ast-vertical-navigation-next' );
-  const parentDiv              = document.querySelector( '#ast-vertical-slider-inner' );
   const carouselParent         = document.querySelector( '#ast-vertical-thumbnail-wrapper' );
   const thumbnailWrapperSingle = carousel.getElementsByTagName( 'div' )[0];
 
@@ -89,16 +93,6 @@ function dynamicImageResize( carouselInit, carousel ) {
     }
 
   }
-
-  //Resets to first slide.
-  if( slideCountSelector && parentDiv && nextButton && prevButton ) {
-    if( parseInt( slideCountSelector.length ) > 4 ) {
-      savePrevious = 0;
-      parentDiv.style.transform = `translate3d( 0, -${savePrevious}px, 0 )`;
-      nextButton.classList.remove( arrowNavigationClass );
-      prevButton.classList.add( arrowNavigationClass );
-    }
-  }
 }
 
 // Moves slides forwards or backwards.
@@ -106,7 +100,7 @@ function MoveSlide( type, prevButton, nextButton ) {
   const parentDiv = document.querySelector( '#ast-vertical-slider-inner' );
   if( parentDiv ) {
     const imageHeight = parentDiv.querySelector( 'img' ).clientHeight + 10;
-  
+    let savePrevious = parseInt( parentDiv.getAttribute( 'ast-translate' ) );
     if( imageHeight ) {
         if( 'next' === type ) {
           savePrevious += imageHeight;
@@ -168,7 +162,7 @@ function enableDisableNavigationArrows( prevButton, nextButton, translateX = 0, 
     const currentSlide         = slideCount - 4;
     const arrowNavigationClass = 'flex-disabled';
 
-    if( 1 > parseInt( translateX ) ||  parseInt( translateX ) < parseInt( initialTranslateX * currentSlide ) ) {
+    if( 1 > parseInt( translateX ) || parseInt( translateX ) < parseInt( initialTranslateX * currentSlide ) ) {
       nextButton.classList.remove( arrowNavigationClass );
       prevButton.classList.remove( arrowNavigationClass );
     }
@@ -204,5 +198,50 @@ function saleBadgeAlignment() {
       }
     }
   }
-
 }
+
+function scrollToSlideVariableProduct( prevButton, nextButton ) {
+  const img              = document.querySelector(".woocommerce-product-gallery .woocommerce-product-gallery__image");
+  const thumbnail_images = document.querySelectorAll('.woocommerce-product-gallery .ast-woocommerce-product-gallery__image img');
+  
+  if( img && thumbnail_images) {
+      observer = new MutationObserver((changes) => {
+          changes.forEach(change => {
+              if( change.attributeName.includes('data-thumb') ){
+                thumbnail_images.forEach(element => {
+                    if( element.getAttribute( 'srcset' ).includes( img.getAttribute('data-thumb') ) ) {
+                        element.click();
+                        const parentDiv = document.querySelector( '#ast-vertical-slider-inner' );
+
+                      if( parentDiv ) {
+                        const imageHeight = parentDiv.querySelector( 'img' ).clientHeight + 10;
+                        const getPosition = element.closest('.ast-woocommerce-product-gallery__image').getAttribute( 'data-slide-number' );
+
+                        if( imageHeight && imageHeight && getPosition ) {
+                          const firstSectionHeight = imageHeight * 4;
+                          const getNumber = parseInt(getPosition) + 1;
+
+                          if( getNumber > 4 ) {
+                            const currentSectionHeight = imageHeight * ( getNumber );
+                            const currentSlidePosition = currentSectionHeight - firstSectionHeight;
+                             parentDiv.style.transform = `translate3d( 0, -${ currentSlidePosition }px, 0 )`;
+                            parentDiv.setAttribute( 'ast-translate' ,  currentSlidePosition );
+                            enableDisableNavigationArrows( prevButton, nextButton, parentDiv.getAttribute( 'ast-translate' ) , imageHeight );
+                          } else {
+                            parentDiv.setAttribute( 'ast-translate' ,  0 );
+                            parentDiv.style.transform = `translate3d( 0, 0px, 0 )`;
+                            enableDisableNavigationArrows( prevButton, nextButton,  parentDiv.getAttribute( 'ast-translate' ) , imageHeight );
+                          }
+                          parentDiv.style.transition = `.3s`;
+
+                        }
+                      }
+                    }
+                });
+              }
+          });
+      });
+      observer.observe(img, {attributes : true});
+  }
+}
+
