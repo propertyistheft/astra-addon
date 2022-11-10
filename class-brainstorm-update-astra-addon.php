@@ -210,7 +210,7 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 
 			$purchase_url = apply_filters( 'astra_addon_licence_url', $purchase_url );
 
-			$message = "<p><a target='_blank' href='" . esc_url( $purchase_url ) . "'>" . esc_html__( 'Get the license >>', 'astra-addon' ) . '</a></p>';
+			$message = "<p><a target='_blank' href='" . esc_url( $purchase_url ) . "'>" . esc_html__( 'Get the license »', 'astra-addon' ) . '</a></p>';
 			return $message;
 		}
 

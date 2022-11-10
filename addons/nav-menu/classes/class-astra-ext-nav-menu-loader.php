@@ -232,9 +232,11 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 * @return array modified arguments.
 		 */
 		public function modify_nav_menu_args( $args ) {
-			if ( 'primary' == $args['theme_location'] || 'secondary_menu' == $args['theme_location'] || 'above_header_menu' == $args['theme_location'] || 'below_header_menu' == $args['theme_location'] || 'mobile_menu' == $args['theme_location'] ) {
+			$mega_menu_custom_navmenus = apply_filters( 'astra_nav_mega_menu_support', array() );
+			if ( 'primary' == $args['theme_location'] || 'secondary_menu' == $args['theme_location'] || 'above_header_menu' == $args['theme_location'] || 'below_header_menu' == $args['theme_location'] || 'mobile_menu' == $args['theme_location'] || ( ! empty( $mega_menu_custom_navmenus ) && in_array( $args['theme_location'], $mega_menu_custom_navmenus ) ) ) {
 				$args['walker'] = new Astra_Custom_Nav_Walker();
 			}
+
 			return $args;
 		}
 

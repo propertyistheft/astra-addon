@@ -80,6 +80,12 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 					);
 				}
 
+				if ( isset( $this->megamenu_margin_top ) && '' != $this->megamenu_margin_top ) {
+					$style[ '.ast-hfb-header.ast-desktop .main-header-menu > .menu-item-' . $this->menu_megamenu_item_id . ' > .sub-menu:before' ] = array(
+						'height' => astra_calculate_spacing( $this->megamenu_margin_top . 'px', '+', '5', 'px' ),
+					);
+				}
+
 				if ( isset( $this->megamenu_bg_image ) ) {
 
 					$bg_object = array(

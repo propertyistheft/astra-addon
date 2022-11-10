@@ -895,6 +895,16 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				$hooks['footer']['hooks']  = $mast_footer_after;
 			}
 
+			$hooks['custom'] = array(
+				'title' => __( 'Custom', 'astra-addon' ),
+				'hooks' => array(
+					'custom_hook' => array(
+						'title'       => __( 'Custom Hook', 'astra-addon' ),
+						'description' => __( 'Trigger your content or snippet on your custom action.', 'astra-addon' ),
+					),
+				),
+			);
+
 			self::$layouts = apply_filters( 'astra_custom_layouts_layout', $layouts );
 			self::$hooks   = apply_filters( 'astra_custom_layouts_hooks', $hooks );
 
@@ -1010,6 +1020,10 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'ast-advanced-hook-priority'  => array(
+						'default'  => '',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-custom-hook'             => array(
 						'default'  => '',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -1238,7 +1252,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 						/* translators: %s layout. */
 						$notice = sprintf( __( 'Another %s Layout is selected for the same display rules.', 'astra-addon' ), $layout );
 
-						echo '<div class="error">';
+						echo '<div class="notice notice-warning">';
 						echo '<p>' . $notice . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo '</div>';
 
@@ -1483,6 +1497,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			$content           = ( isset( $meta['ast-advanced-hook-content']['default'] ) ) ? $meta['ast-advanced-hook-content']['default'] : array();
 			$display_devices   = ( isset( $meta['ast-advanced-display-device']['default'] ) ) ? $meta['ast-advanced-display-device']['default'] : array();
 			$time_duration     = ( isset( $meta['ast-advanced-time-duration']['default'] ) ) ? $meta['ast-advanced-time-duration']['default'] : array();
+			$custom_action     = ( isset( $meta['ast-custom-hook']['default'] ) ) ? $meta['ast-custom-hook']['default'] : '';
 
 			$ast_advanced_hooks = array(
 				'include-locations' => $display_locations,
@@ -1498,6 +1513,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				'content'           => $content,
 				'display-devices'   => $display_devices,
 				'time-duration'     => $time_duration,
+				'custom-action'     => $custom_action,
 			);
 			do_action( 'astra_advanced_hooks_settings_markup_before', $meta );
 			$this->page_header_tab( $ast_advanced_hooks );
@@ -1851,6 +1867,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 							<?php endif; ?>
 						</select>
 						<p class="description ast-advanced-hook-action-desc <?php echo ( '' == $description ) ? 'ast-no-desc' : ''; ?>"><?php echo esc_html( $description ); ?></p>
+					</td>
+				</tr>
+				<tr class="ast-advanced-hook-row ast-layout-hooks-required ast-custom-action-wrap">
+					<td class="ast-advanced-hook-row-heading">
+						<label><?php esc_html_e( 'Custom Hook Name', 'astra-addon' ); ?></label>
+					</td>
+					<td class="ast-advanced-hook-row-content">
+					<input type="text" name="ast-custom-hook" value="<?php echo esc_attr( $options['custom-action'] ); ?>"/>
 					</td>
 				</tr>
 				<tr class="ast-advanced-hook-row ast-layout-hooks-required">

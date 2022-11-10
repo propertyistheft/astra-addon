@@ -13,7 +13,7 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 
     for ( var index = 1; index <= divider_count; index++ ) {
 
-		let selector = ( 'header' === builder_type ) ? '.ast-header-divider-' + index : '.footer-widget-area[data-section="section-fb-divider-' + index + '"]';
+		let selector = ( 'header' === builder_type ) ? '.ast-header-divider-' + index : '.ast-builder-grid-row-container-inner .footer-widget-area[data-section="section-fb-divider-' + index + '"]';
 
 		let section = ( 'header' === builder_type ) ? 'section-hb-divider-' + index : 'section-fb-divider-' + index;
 
@@ -118,7 +118,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
 							dynamicStyle += selector + '.ast-fb-divider-layout-horizontal .ast-divider-layout-horizontal {';
 							dynamicStyle += 'width: ' + size.desktop + '%' + ';';
 							dynamicStyle += '} ';
-
 							dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 							dynamicStyle += selector + '.ast-fb-divider-layout-horizontal .ast-divider-layout-horizontal {';
 							dynamicStyle += 'width: ' + size.tablet + '%' + ';';

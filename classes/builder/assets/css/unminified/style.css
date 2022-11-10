@@ -118,7 +118,7 @@
 }
 
 .ast-desktop .ast-account-nav-menu {
-  width: 260px;
+  width: 240px;
   background: #fff;
   left: -999em;
   position: absolute;
@@ -142,6 +142,11 @@
   left: 100%;
 }
 
+.ast-desktop .ast-account-nav-menu .ast-left-align-sub-menu.menu-item.focus > .sub-menu,
+.ast-desktop .ast-account-nav-menu .ast-left-align-sub-menu.menu-item:hover > .sub-menu {
+  left: -100%;
+}
+
 .ast-desktop .ast-account-nav-menu .menu-item .menu-link {
   padding: .9em 1em;
 }
@@ -162,6 +167,7 @@
 .ast-desktop .ast-below-header-bar .main-header-menu.ast-account-nav-menu > .menu-item {
   height: auto;
   line-height: unset;
+  bottom: -5px;
 }
 
 .site-header-section-left .ast-header-account-wrap.focus .ast-account-nav-menu,

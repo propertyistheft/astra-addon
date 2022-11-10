@@ -634,7 +634,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 			$dependent_js_files = self::get_dependent_js_files();
 
-			if ( count( $dependent_js_files ) > 0 ) {
+			if ( is_array( $dependent_js_files ) && ! empty( $dependent_js_files ) && ( count( $dependent_js_files ) > 0 ) ) {
 
 				foreach ( $dependent_js_files as $handle => $src ) {
 

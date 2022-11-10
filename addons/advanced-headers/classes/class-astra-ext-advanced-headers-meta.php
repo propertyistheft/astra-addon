@@ -179,7 +179,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							'primary-submenu-bg-color'     => '',
 							'primary-submenu-color'        => '',
 							'primary-submenu-h-color'      => '',
-							'primary-submenu-a-color'	   => '',
+							'primary-submenu-a-color'      => '',
 
 							'above-header-bg-color'        => '',
 							'above-header-text-link-color' => '',
@@ -350,7 +350,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				'primary-submenu-bg-color'      => '',
 				'primary-submenu-color'         => '',
 				'primary-submenu-h-color'       => '',
-				'primary-submenu-a-color'		=> '',
+				'primary-submenu-a-color'       => '',
 
 				'above-header-bg-color'         => '',
 				'above-header-text-link-color'  => '',

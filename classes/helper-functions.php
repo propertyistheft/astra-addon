@@ -504,6 +504,70 @@ $astra_addon_bsf_analytics->set_entity(
 );
 
 /**
+ * Prepare Astra's megamenu data to pass BSF-Analytics.
+ *
+ * @since 3.9.3
+ *
+ * @return void
+ */
+function astra_addon_get_addon_usage() {
+
+	$all_menus               = wp_get_nav_menus();
+	$megamenu_analytics_data = array();
+
+	if ( ! is_array( $all_menus ) && empty( $all_menus ) ) {
+		return;
+	}
+
+	foreach ( $all_menus as $key => $menu_term ) {
+		$menu_items = wp_get_nav_menu_items( $menu_term->term_id );
+		foreach ( $menu_items as $menu_item ) {
+			// Enable Megamenu.
+			$is_enable = isset( $menu_item->megamenu ) ? $menu_item->megamenu : '';
+			if ( 'megamenu' === $is_enable ) {
+				$megamenu_analytics_data['megamenu-is-enabled'][] = 'yes';
+			}
+
+			// Width type.
+			$width_type = isset( $menu_item->megamenu_width ) ? $menu_item->megamenu_width : '';
+			if ( '' !== $width_type ) {
+				$megamenu_analytics_data['menu-container-types'][] = $width_type;
+			}
+
+			// Content source.
+			$content_source = isset( $menu_item->megamenu_content_src ) ? $menu_item->megamenu_content_src : '';
+			if ( '' !== $content_source ) {
+				$megamenu_analytics_data['sub-menus-content-source'][] = $content_source;
+			}
+
+			// Enabled heading.
+			$enabled_heading = isset( $menu_item->megamenu_enable_heading ) ? $menu_item->megamenu_enable_heading : '';
+			if ( '' !== $enabled_heading ) {
+				$megamenu_analytics_data['sub-menus-heading-enabled'][] = $enabled_heading;
+			}
+		}
+	}
+
+	update_option( 'ast_extension_data', $megamenu_analytics_data );
+}
+
+add_action( 'astra_addon_get_addon_usage', 'astra_addon_get_addon_usage' );
+
+/**
+ * Run scheduled job for BSF-Analytics.
+ *
+ * @since 3.9.3
+ * @return void
+ */
+function astra_addon_run_scheduled_analytic_job() {
+	if ( ! wp_next_scheduled( 'astra_addon_get_addon_usage' ) && ! wp_installing() ) {
+		wp_schedule_event( time(), 'daily', 'astra_addon_get_addon_usage' );
+	}
+}
+
+add_filter( 'init', 'astra_addon_run_scheduled_analytic_job' );
+
+/**
  * Pass addon specific stats to BSF analytics.
  *
  * @since 2.6.4
@@ -515,6 +579,7 @@ function astra_addon_get_specific_stats( $default_stats ) {
 		'astra-addon-version' => ASTRA_EXT_VER,
 		'astra-theme-version' => ASTRA_THEME_VERSION,
 		'breadcrumb-position' => astra_get_option( 'breadcrumb-position', false ),
+		'mega-menu-details'   => get_option( 'ast_extension_data', array() ),
 	);
 	return $default_stats;
 }

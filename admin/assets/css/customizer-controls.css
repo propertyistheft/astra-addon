@@ -279,7 +279,6 @@ body.rtl #customize-control-astra-settings-mobile-header-logo .customize-control
 /* WooCommerce controls label CSS */
 #sub-accordion-section-woocommerce_store_notice .customize-control-title,
 #sub-accordion-section-woocommerce_product_catalog .customize-control-title,
-#sub-accordion-section-woocommerce_product_images .customize-control-title,
-#sub-accordion-section-woocommerce_checkout .customize-control-title {
+#sub-accordion-section-woocommerce_product_images .customize-control-title {
     text-transform: capitalize;
 }

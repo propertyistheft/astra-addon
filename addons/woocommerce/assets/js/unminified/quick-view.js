@@ -1,4 +1,4 @@
-(function($){
+(function(){
 
 	if( typeof astra === 'undefined' ) {
         return;
@@ -23,19 +23,23 @@
 			/**
 			 * Set Max Height Width For Wrappers.
 			 */
-			$('#ast-quick-view-content,#ast-quick-view-content div.product').css({
-				'max-width'  : parseFloat( $(window).width() ) - 120,
-				'max-height' : parseFloat( $(window).height() ) - 120
-			});
+			const maxWidthWrappers = parseFloat(window.innerWidth) - 120,
+			 maxHeightWrappers   = parseFloat(window.innerHeight) - 120;
+			 const quickViewContent = document.getElementById('ast-quick-view-content');
+
+			 if( quickViewContent ) {
+				quickViewContent.style.maxWidth = maxWidthWrappers + 'px';
+				quickViewContent.style.maxHeight = maxHeightWrappers + 'px';
+			 }
 
 			/**
 			 * Remove HREF from the links.
 			 */
-			var on_img_click_els = $('.ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link');
+			let on_img_click_els = document.querySelectorAll('.ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link');
 
 			if ( on_img_click_els.length > 0 ) {
-				on_img_click_els.each(function(e) {
-					$(this).attr('href', 'javascript:void(0)' );
+				on_img_click_els.forEach(element => {
+					element.setAttribute('href', 'javascript:void(0)');
 				});
 			}
 		},
@@ -46,12 +50,30 @@
 		_bind: function()
 		{
 			// Open Quick View.
-			$(document).off( 'click', '.ast-quick-view-button, .ast-quick-view-text, .ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link, .ast-quick-view-trigger' ).on( 'click', '.ast-quick-view-button, .ast-quick-view-text, .ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link, .ast-quick-view-trigger', AstraProQuickView._open_quick_view);
+
+			let on_img_click_els = document.querySelectorAll('.ast-quick-view-button, .ast-quick-view-text, .ast-qv-on-image-click .astra-shop-thumbnail-wrap .woocommerce-LoopProduct-link, .ast-quick-view-trigger');
+
+			if ( on_img_click_els.length > 0 ) {
+				on_img_click_els.forEach(element => {
+					element.removeEventListener('click', AstraProQuickView._open_quick_view );
+					element.addEventListener('click', AstraProQuickView._open_quick_view );
+				});
+			}
 
 			// Close Quick View.
-			$(document).on( 'click', '#ast-quick-view-close', AstraProQuickView._close_quick_view);
-			$(document).on( 'click', '.ast-content-main-wrapper', AstraProQuickView._close_quick_view_on_overlay_click);
-			$(document).on( 'keyup', AstraProQuickView._close_quick_view_on_esc_keypress);
+			let astQuickViewClose          = document.querySelector('#ast-quick-view-close');
+			let astQuickViewCloseOnOverlay = document.querySelector('.ast-content-main-wrapper');
+
+			if (astQuickViewClose) {
+				astQuickViewClose.addEventListener( 'click', AstraProQuickView._close_quick_view );
+			}
+
+			if (astQuickViewCloseOnOverlay) {
+				astQuickViewCloseOnOverlay.addEventListener( 'click', AstraProQuickView._close_quick_view_on_overlay_click );
+			}
+
+			document.addEventListener( 'keyup', AstraProQuickView._close_quick_view_on_esc_keypress );
+
 		},
 
 		/**
@@ -63,43 +85,48 @@
 		_open_quick_view: function( e ) {
 			e.preventDefault();
 
-			var self       	  = $(this),
+			let self       	  = e.currentTarget,
 				wrap 		  = self.closest('li.product'),
-				quick_view    = $(document).find( '#ast-quick-view-modal' ),
-				quick_view_bg = $(document).find( '.ast-quick-view-bg' );
+				quick_view    = document.querySelector( '#ast-quick-view-modal' ),
+				quick_view_bg = document.querySelector( '.ast-quick-view-bg' );
 
-			var product_id = self.data( 'product_id' );
+			let product_id = self.getAttribute( 'data-product_id' );
 
-			if ( wrap.hasClass( 'ast-qv-on-image-click' )  ) {
-				product_id = wrap.find('.ast-quick-view-data').data( 'product_id' );
+			if ( wrap && wrap.classList.contains( 'ast-qv-on-image-click' ) ) {
+				product_id = wrap.querySelector('.ast-quick-view-data').getAttribute( 'data-product_id' );
 			}
 
-			if( ! quick_view.hasClass( 'loading' ) ) {
-				quick_view.addClass('loading');
+			if ( quick_view && ! quick_view.classList.contains( 'loading' ) ) {
+				quick_view.classList.add('loading');
 			}
 
-			if ( ! quick_view_bg.hasClass( 'ast-quick-view-bg-ready' ) ) {
-				quick_view_bg.addClass( 'ast-quick-view-bg-ready' );
+			if ( quick_view_bg && ! quick_view_bg.classList.contains( 'ast-quick-view-bg-ready' ) ) {
+				quick_view_bg.classList.add( 'ast-quick-view-bg-ready' );
 			}
 
 			// stop loader
-			$(document).trigger( 'ast_quick_view_loading' );
+			document.dispatchEvent(new Event("ast_quick_view_loading"));
 
 			// Append the single product markup into the popup.
 			// Process the AJAX to open the product.
-			$.ajax({
-				url        : astra.ajax_url,
-				type       : 'POST',
-				dataType   : 'html',
-				data       : {
-					action     : 'ast_load_product_quick_view',
-					product_id : product_id
-				},
-				success: function (data) {
-					$(document).find( '#ast-quick-view-modal' ).find( '#ast-quick-view-content' ).html(data);
-					AstraProQuickView._after_markup_append_process();
+			let xhrRequest = new XMLHttpRequest();
+			xhrRequest.open('POST', astra.ajax_url, true);
+			xhrRequest.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8' );
+			xhrRequest.send( 'action=ast_load_product_quick_view&product_id= ' + product_id );
+			xhrRequest.responseType = 'text';
+			xhrRequest.onreadystatechange = function () {
+				const string = xhrRequest.responseText;
+
+				if ( xhrRequest.readyState == XMLHttpRequest.DONE ) {   // XMLHttpRequest.DONE == 4
+					if ( 200 <= xhrRequest.status || 400 <= xhrRequest.status ) {
+
+						const quickViewMarkup = document.querySelector('#ast-quick-view-modal');
+						quickViewMarkup.querySelector('#ast-quick-view-content').innerHTML = string;
+
+						AstraProQuickView._after_markup_append_process();
+					}
 				}
-			});
+			}
 		},
 
 		/**
@@ -107,25 +134,34 @@
 		 */
 		_after_markup_append_process: function() {
 
-			var quick_view 		   = $(document).find( '#ast-quick-view-modal' ),
-				quick_view_content = quick_view.find( '#ast-quick-view-content' ),
-				form_variation     = quick_view_content.find('.variations_form');
+			let quick_view 		   = document.querySelector( '#ast-quick-view-modal' ),
+				quick_view_content = quick_view.querySelector( '#ast-quick-view-content' ),
+				form_variation     = quick_view_content.querySelectorAll('.variations_form');
 
-			if ( ! quick_view.hasClass('open') ) {
+				if ( quick_view && ! quick_view.classList.contains('open') ) {
 
-				var modal_height  = quick_view_content.outerHeight(),
-					window_height = $(window).height(),
-					$html 		  = $('html');
+					let modal_height  = quick_view_content.outerHeight,
+						window_height = window.innerHeight,
+						$html 		  = document.querySelector( 'html' );
 
-				if( modal_height > window_height ) {
-					$html.css( 'margin-right', AstraProQuickView._get_scrollbar_width() );
-				} else {
-					$html.css( 'margin-right', '' );
-					$html.find( '.ast-sticky-active, .ast-header-sticky-active, .ast-custom-footer' ).css( 'max-width', '100%' );
+					if( modal_height > window_height ) {
+						$html.style.marginRight = AstraProQuickView._get_scrollbar_width();
+					} else {
+						$html.style.marginRight = '';
+						if ( $html.querySelector('.ast-sticky-active') ) {
+							$html.querySelector('.ast-sticky-active').style.maxWidth = '100%';
+						}
+						if ( $html.querySelector('.ast-header-sticky-active') ) {
+							$html.querySelector('.ast-header-sticky-active').style.maxWidth = '100%';
+						}
+						if ($html.querySelector('.ast-custom-footer')) {
+							$html.querySelector('.ast-custom-footer').style.maxWidth = '100%';
+						}
+					}
+
+					$html.classList.add('ast-quick-view-is-open');
 				}
 
-				$html.addClass('ast-quick-view-is-open');
-			}
 
 			// Initialize variable form.
 			if ( form_variation.length > 0 ) {
@@ -136,12 +172,12 @@
 
 				// Trigger variation form.
 				form_variation.wc_variation_form();
-				form_variation.find('select').change();
+				form_variation.querySelector('select').change();
 			}
 
 			// Initialize flex slider.
-			var image_slider_wrap = quick_view.find('.ast-qv-image-slider');
-			if ( image_slider_wrap.find('li').length > 1 ) {
+			const image_slider_wrap = quick_view.querySelector('.ast-qv-image-slider');
+			if ( image_slider_wrap.querySelector('li').length > 1 ) {
 				image_slider_wrap.flexslider();
 			}
 
@@ -149,14 +185,13 @@
 				AstraProQuickView._auto_set_content_height_by_image();
 
 				// Add popup open class.
-				quick_view.removeClass('loading').addClass('open');
-				$('.ast-quick-view-bg').addClass('open');
+				quick_view.classList.remove('loading');
+				quick_view.classList.add('open');
+				document.querySelector('.ast-quick-view-bg').classList.add('open');
 			}, 100);
 
-			document.dispatchEvent( new CustomEvent( "astUpdateSingleProductVariations",  { "detail": {} }) );
-
 			// stop loader
-			$(document).trigger('ast_quick_view_loader_stop');
+			document.dispatchEvent( new Event( "ast_quick_view_loader_stop" ) );
 		},
 
 		/**
@@ -166,17 +201,14 @@
 		 */
 		_auto_set_content_height_by_image: function() {
 
-			$('#ast-quick-view-modal').imagesLoaded()
-			.always( function( instance ) {
+			imagesLoaded( document.querySelector('#ast-quick-view-modal'), function() {
 
-				var quick_view 		   = $(document).find( '#ast-quick-view-modal' );
-					image_height 	   = quick_view.find( '.woocommerce-product-gallery__image img' ).outerHeight(),
-					summary    		   = quick_view.find('.product .summary.entry-summary'),
-					content    		   = summary.css('content'),
-					summary_content_ht = quick_view.find( '.summary-content' ).outerHeight();
+				let quick_view 		   = document.getElementById('ast-quick-view-modal');
+				let image_height = quick_view.querySelector('.woocommerce-product-gallery__image img').getBoundingClientRect().height,
+					summary = quick_view.querySelector('.product .summary.entry-summary');
 
 				// No Image.
-				var featured_image = quick_view.find('.woocommerce-product-gallery__image img, .ast-qv-slides img');
+				let featured_image = quick_view.querySelectorAll('.woocommerce-product-gallery__image img, .ast-qv-slides img');
 
 				/**
 				 * Auto height to the content as per image height.
@@ -184,26 +216,25 @@
 				 * @param  {[type]} AstraProQuickView.auto_popup_height_by_image [description]
 				 * @return {[type]}                                              [description]
 				 */
-				var popup_height = parseFloat( $(window).height() ) - 120,
-					image_height = parseFloat( image_height );
+				let popup_height = parseFloat( window.innerHeight ) - 120;
+				image_height = parseFloat( image_height );
 
 				if( AstraProQuickView.auto_popup_height_by_image ) {
 					if( featured_image.length ) {
 
 						// If image height is less then popup/window height the set max height of `image` to the summery.
-						if( image_height < popup_height ) {
-							summary.css('max-height', parseFloat( image_height ) );
+						if (image_height < popup_height) {
+							summary.style.maxHeight = parseFloat(image_height) + 'px';
 
 						// Or set the popup/window height.
 						} else {
-							summary.css('max-height', popup_height );
+							summary.style.maxHeight = popup_height + 'px';
 						}
 					} else {
-						summary.css('width', '100%' );
+						summary.style.width = '100%';
 					}
 				} else {
-					console.log( 'here' );
-					summary.css('max-height', parseFloat( popup_height ) );
+					summary.style.maxHeight = parseFloat(popup_height) + 'px';
 				}
 
 				/**
@@ -214,10 +245,10 @@
 				 */
 				if( AstraProQuickView.stick_add_to_cart ) {
 
-					quick_view.addClass('stick-add-to-cart');
+					quick_view.classList.add('stick-add-to-cart');
 
-					var cart_height  = quick_view.find('.cart').outerHeight();
-					var summery_height = parseFloat(popup_height) - parseFloat(cart_height);
+					let cart_height  = quick_view.querySelector('.cart').getBoundingClientRect().height;
+					let summery_height = parseFloat(popup_height) - parseFloat(cart_height);
 
 					// Reset the summery height:
 					// If Image height is large than the stick cart form
@@ -225,23 +256,23 @@
 					if( image_height > cart_height ) {
 
 						// Stick Class.
-						quick_view.find('.cart').addClass('stick');
+						quick_view.querySelector('.cart').classList.add('stick');
 
 						// Recalculate the outer heights,
 						// Because, These are change after adding `stick` class to the form.
-						var popup_height   = $('#ast-quick-view-content').outerHeight();
-						var cart_height    = quick_view.find('.cart').outerHeight();
-						var summery_height = parseFloat(popup_height) - parseFloat(cart_height);
+						popup_height   = document.querySelector('#ast-quick-view-content').getBoundingClientRect().height;
+						cart_height    = quick_view.querySelector('.cart').getBoundingClientRect().height;
+						summery_height = parseFloat(popup_height) - parseFloat(cart_height);
 
-						summary.css('max-height', parseFloat( summery_height ) );
+						summary.style.maxHeight = parseFloat(summery_height) + 'px';
 
 					} else {
 
 						// If image height is less then popup/window height the set max height of `image` to the summery.
-						if( popup_height > summery_height ) {
-							summary.css('max-height', parseFloat( popup_height ) );
+						if (popup_height > summery_height) {
+							summary.style.maxHeight = parseFloat(popup_height) + 'px';
 						} else {
-							summary.css('max-height', '' );
+							summary.style.maxHeight = '';
 						}
 					}
 				}
@@ -267,20 +298,20 @@
 		 * @param  {[type]} e [description]
 		 * @return {[type]}   [description]
 		 */
-		_close_quick_view: function( e ) {
+		 _close_quick_view: function( e ) {
 
 			if( e ) {
 				e.preventDefault();
 			}
 
-			$(document).find( '.ast-quick-view-bg' ).removeClass( 'ast-quick-view-bg-ready' );
-			$(document).find( '#ast-quick-view-modal' ).removeClass('open').removeClass('loading');
-			$('.ast-quick-view-bg').removeClass('open');
-			$('html').removeClass('ast-quick-view-is-open');
-			$('html').css( 'margin-right', '' );
+			document.querySelector( '.ast-quick-view-bg' ).classList.remove('ast-quick-view-bg-ready' );
+			document.querySelector( '#ast-quick-view-modal' ).classList.remove( 'open', 'loading');
+			document.querySelector( '.ast-quick-view-bg' ).classList.remove('open');
+			document.querySelector( 'html' ).classList.remove('ast-quick-view-is-open');
+			document.querySelector( 'html' ).style.marginRight = "";
 
 			setTimeout(function () {
-				$(document).find( '#ast-quick-view-modal' ).find( '#ast-quick-view-content' ).html('');
+				document.querySelector( '#ast-quick-view-modal' ).querySelector( '#ast-quick-view-content' ).innerHTML = '';
 			}, 600);
 		},
 
@@ -301,14 +332,32 @@
 		 *
 		 * @return {[type]} [description]
 		 */
-		_get_scrollbar_width: function () {
+		 _get_scrollbar_width: function () {
 			// Append our div, do our calculation and then remove it.
-			var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div>');
-			$('body').append(div);
-			var w1 = $('div', div).innerWidth();
-			div.css('overflow-y', 'scroll');
-			var w2 = $('div', div).innerWidth();
-			$(div).remove();
+			const divElement = document.createElement("div");
+
+			divElement.classList.add('ast-get-scrollbar-width');
+			divElement.style.width = '50px';
+			divElement.style.height = '50px';
+			divElement.style.overflow = 'hidden';
+			divElement.style.position = 'absolute';
+			divElement.style.top = '-200px';
+			divElement.style.left = '-200px';
+
+			const childElement = document.createElement("div");
+
+			childElement.style.height = '100px';
+
+			divElement.appendChild(childElement);
+			document.querySelector("body").appendChild(divElement);
+
+			const w1 = document.querySelector('.ast-get-scrollbar-width').clientWidth;
+
+			divElement.style.overflowY = 'scroll';
+
+			const w2 = document.querySelector('.ast-get-scrollbar-width').clientWidth;
+
+			document.querySelector('.ast-get-scrollbar-width').remove();
 
 			return (w1 - w2);
 		}
@@ -318,8 +367,11 @@
 	/**
 	 * Initialization
 	 */
-	$(function(){
+	const domReady = function(callback) {
+		document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+	};
+	domReady(function() {
 		AstraProQuickView.init();
 	});
 
-})(jQuery);
+})();

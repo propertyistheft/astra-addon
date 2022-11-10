@@ -394,7 +394,7 @@
 			'astra-builder',
 			'astra-settings[header-' + prefix + '-submenu-bg-color-responsive]',
 			'background',
-			selector + ' .sub-menu .menu-item .menu-link'
+			selector + ' .sub-menu'
 		);
 
 		// Sub-Menu - Hover Background

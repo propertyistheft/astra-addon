@@ -1,3 +1,35 @@
+v3.9.3
+- New: Header Builder - Menu - Filter to add mega menu compatibility with registered nav menus. ( https://wpastra.com/docs/mega-menu-support-for-all-builder-menus/ )
+- New: Custom Layout - Custom action hook support added to trigger layout content or snippet on a specific location.
+- New: WooCommerce - Single Product - Recently viewed product feature.
+- New: WooCommerce - Checkout - Back to cart button feature.
+- Improvement: Custom Layout - Redesigned admin posts list & editor meta settings with better UI/UX.
+- Improvement: WooCommerce - Removed jQuery dependency from Quick View addon.
+- Improvement: Introduced action 'astra_checkout_login_field_before' to trigger custom snippet before WooCommerce checkout's login fields.
+- Improvement: Introduced action 'astra_checkout_login_field_after' to trigger custom snippet after WooCommerce checkout's login fields.
+- Improvement: Added notice to install Astra theme if plugin directly starts. (Props - https://gist.github.com/mattyza)
+- Improvement: WooCommerce - Single Product - Selected active variant style design updated via filter 'astra_addon_update_wc_variant_style'.
+- Improvement: Page Header - Repeated target rule error notice type changed to warning notice type with disabling the trigger.
+- Fix: WooCommerce - Single Product - Payment list styling is broken inside the quick view popup.
+- Fix: WooCommerce - My Account - Placeholder added if product image is not available on the order and download section.
+- Fix: WooCommerce - Composite product plugin compatibility on a single product.
+- Fix: WooCommerce - Updated Related and Upsell products sub-option dependency.
+- Fix: WooCommerce - Border removed on single product gallery sliders.
+- Fix: Custom layout content before not working with the WPML targeted pages.
+- Fix: WooCommerce - Quick view console error on all pages.
+- Fix: Header Builder - Menu - Megamenu container get hides when hovering in between Top Offset spacing.
+- Fix: W3 validation - WooCommerce - Quick view and Checkout's Apply Coupon text having accessibility issues.
+- Fix: Fatal error 'Uncaught TypeError in Count function' for invalid argument issue on the frontend for cache files, in some rare cases.
+- Fix: WooCommerce - Checkout - Password required when guest checkout is active.
+- Fix: Header Builder - Menu - Active colour from sticky header options not applying to menu items.
+- Fix: Custom Layout - Inside post/page content displays multiple times with entry content hooks used.
+- Fix: WooCommerce - Remove product icon misalignment issue on the cart page with the safari browser.
+- Fix: Builder - Account Element - Changed direction for submenu opening does not work for account menu. (https://wpastra.com/docs/change-the-direction-for-submenu-opening/)
+- Fix: WooCommerce - Single Product - The product gallery looks improper when a single product layout builds using a theme builder layout and the first image large gallery option selected from the customizer setting.
+- Fix: Footer Builder - Divider Element - Hide on Desktop option is not working.
+- Fix: WooCommerce - Off-Canvas Sidebar Filters - Close link trigger is not crawlable due to javascript:void(0) href.
+- Fix: Header Builder - Menu - Sub-menu background colour overrides the border-radius of the submenu in the customizer.
+
 v3.9.2
 - New: WooCommerce - Checkout - Order summary & payment box background color options.
 - Improvement: Introduced filter 'astra_addon_override_single_product_layout' to enable/disable vertical & horizontal slider gallery layout in case if Single Product layout built using any page builder themer.

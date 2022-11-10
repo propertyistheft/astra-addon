@@ -75,4 +75,16 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['remove-header-sections-deps-in-new-header'] = isset( $astra_settings['remove-header-sections-deps-in-new-header'] ) ? false : true;
 		return apply_filters( 'astra_remove_header_sections_dependency', $astra_settings['remove-header-sections-deps-in-new-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
+
+	/**
+	 * Check whether to update variant selected style or not.
+	 *
+	 * @since 3.9.3
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_update_variant_active_style() {
+		$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings['can-update-variant-active-style'] = isset( $astra_settings['can-update-variant-active-style'] ) ? false : true;
+		return apply_filters( 'astra_addon_update_wc_variant_style', $astra_settings['can-update-variant-active-style'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+	}
 }

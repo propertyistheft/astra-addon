@@ -160,7 +160,14 @@
 		action_description: function() {
 			$('#ast-advanced-hook-action').on('change', function(e) {
 				var desc_wrap    = $(this).next('.ast-advanced-hook-action-desc'),
-					desc_content = $(this).find('option:selected').attr('data-desc');
+					desc_content = $(this).find('option:selected').attr('data-desc'),
+					action      = $( '#ast-advanced-hook-action' ).val();
+
+				if( 'custom_hook' === action ) {
+					$( '.ast-custom-action-wrap' ).show();
+				} else {
+					$( '.ast-custom-action-wrap' ).hide();
+				}
 
 				if ( 'undefined' != typeof desc_content && '' != desc_content ) {
 					desc_wrap.removeClass('ast-no-desc');
@@ -181,9 +188,10 @@
 		initLayoutSettings: function()
 		{
 			var layout      = $( '#ast-advanced-hook-layout' ).val(),
-			    sticky_header      = $( 'input[name="ast-advanced-hook-header[sticky]"]' );
-			    sticky_footer      = $( 'input[name="ast-advanced-hook-footer[sticky]"]' );
-				content_location      = $( '#ast-advanced-hook-content-location' ).val();
+				action      = $( '#ast-advanced-hook-action' ).val(),
+				sticky_header    = $( 'input[name="ast-advanced-hook-header[sticky]"]' ),
+				sticky_footer    = $( 'input[name="ast-advanced-hook-footer[sticky]"]' ),
+				content_location = $( '#ast-advanced-hook-content-location' ).val();
 
 			$( '.ast-layout-content-after-blocks, .ast-layout-content-before-heading, .ast-layout-content-location-required, .ast-inside-content-notice' ).hide();
 
@@ -199,6 +207,11 @@
 				$( '.ast-layout-required' ).show();
 				$( '.ast-layout-footer-required' ).hide();
 				$( '.ast-404-layout-required' ).hide();
+				if( 'custom_hook' === action ) {
+					$( '.ast-custom-action-wrap' ).show();
+				} else {
+					$( '.ast-custom-action-wrap' ).hide();
+				}
 			} else if( 'footer' == layout ) {
 				$( '.ast-layout-header-required' ).hide();
 				$( '.ast-layout-hooks-required' ).hide();

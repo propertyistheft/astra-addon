@@ -3,7 +3,7 @@
  * Plugin Name: Astra Pro
  * Plugin URI: https://wpastra.com/
  * Description: This plugin is an add-on for the Astra WordPress Theme. It offers premium features & functionalities that enhance your theming experience at next level.
- * Version: 3.9.2
+ * Version: 3.9.3
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Text Domain: astra-addon
@@ -11,7 +11,45 @@
  * @package Astra Addon
  */
 
+/**
+ * Stops further processing if Astra theme is not installed & activate. Also display same notice for users.
+ *
+ * @since 3.9.3
+ */
 if ( 'astra' !== get_template() ) {
+
+	/**
+	 * Display the notice about theme installation & activation.
+	 *
+	 * @since 3.9.3
+	 */
+	function astra_addon_theme_requirement_notice() {
+		?>
+			<div class="notice notice-error is-dismissible">
+				<p>
+					<?php
+						printf(
+							wp_kses(
+								/* translators: %s - Astra theme install URL. */
+								__( 'Astra Pro requires <strong> Astra </strong> to be your active theme. <a href="%s">Install and activate now.</a>', 'astra-addon' ),
+								array(
+									'a'      => array(
+										'href'   => array(),
+										'target' => array(),
+										'rel'    => array(),
+									),
+									'strong' => array(),
+								)
+							),
+							esc_url( self_admin_url( 'theme-install.php?theme=astra' ) )
+						);
+					?>
+				</p>
+			</div>
+		<?php
+	}
+
+	add_action( 'admin_notices', 'astra_addon_theme_requirement_notice' );
 	return;
 }
 
@@ -22,7 +60,7 @@ define( 'ASTRA_EXT_FILE', __FILE__ ); // phpcs:ignore WordPress.NamingConvention
 define( 'ASTRA_EXT_BASE', plugin_basename( ASTRA_EXT_FILE ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 define( 'ASTRA_EXT_DIR', plugin_dir_path( ASTRA_EXT_FILE ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 define( 'ASTRA_EXT_URI', plugins_url( '/', ASTRA_EXT_FILE ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
-define( 'ASTRA_EXT_VER', '3.9.2' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+define( 'ASTRA_EXT_VER', '3.9.3' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 define( 'ASTRA_EXT_TEMPLATE_DEBUG_MODE', false ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 
 /**

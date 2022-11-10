@@ -427,7 +427,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'title'    => __( 'Enable Product Description', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 30,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -468,6 +468,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 
 				/**
@@ -618,7 +619,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[single-product-related-divider]',
 					'section'  => 'section-woo-shop-single',
-					'title'    => __( 'Related & Up Sell Products', 'astra-addon' ),
+					'title'    => __( 'Related, Recently & Up Sell', 'astra-addon' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 60,
@@ -637,7 +638,41 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'title'    => __( 'Display Related Products', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 65,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
+				 * Option: Display recently products
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-recently-viewed-display]',
+					'default'  => astra_get_option( 'single-product-recently-viewed-display' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Display Recently Viewed Products', 'astra-addon' ),
+					'control'  => Astra_Theme_Extension::$switch_control,
+					'priority' => 65,
+				),
+
+				/**
+				 * Option: Recently viewed products text
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-recently-viewed-text]',
+					'default'  => astra_get_option( 'single-product-recently-viewed-text' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Recently Viewed Products Text', 'astra-addon' ),
+					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-recently-viewed-display]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'control'  => 'text',
+					'priority' => 65,
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
 				),
 
 				/**
@@ -687,6 +722,11 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 								'operator' => '==',
 								'value'    => true,
 							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[single-product-recently-viewed-display]',
+								'operator' => '==',
+								'value'    => true,
+							),
 						),
 					),
 					'priority'          => 70,
@@ -700,15 +740,22 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 				),
 
 				/**
-				 * Option: No. of Related Product
+				 * Option: No. of Related / Recently Viewed Products.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-related-upsell-per-page]',
-					'default'  => astra_get_option( 'single-product-related-upsell-per-page' ),
-					'type'     => 'control',
-					'section'  => 'section-woo-shop-single',
-					'title'    => __( 'No. of Related Product', 'astra-addon' ),
-					'context'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-product-related-upsell-per-page]',
+					'default'     => astra_get_option( 'single-product-related-upsell-per-page' ),
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'section'     => 'section-woo-shop-single',
+					'title'       => __( 'No. of Products', 'astra-addon' ),
+					'priority'    => 75,
+					'input_attrs' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 20,
+					),
+					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -723,10 +770,13 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 								'operator' => '==',
 								'value'    => true,
 							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[single-product-recently-viewed-display]',
+								'operator' => '==',
+								'value'    => true,
+							),
 						),
 					),
-					'control'  => 'number',
-					'priority' => 75,
 				),
 
 			);

@@ -43,8 +43,6 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 
 			$context = ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab;
 
-			$cart_outline_width_context = ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? astra_addon_builder_helper()->design_tab_config : astra_addon_builder_helper()->general_tab_config;
-
 			$_configs = array(
 
 				/**
@@ -611,39 +609,6 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					),
 				),
 
-				/**
-				 * Option: Border Width
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[woo-header-cart-border-width]',
-					'default'     => astra_get_option( 'woo-header-cart-border-width' ),
-					'type'        => 'control',
-					'transport'   => 'postMessage',
-					'section'     => $_section,
-					'context'     => array(
-						$cart_outline_width_context,
-						'relation' => 'AND',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
-							'operator' => '==',
-							'value'    => 'outline',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon]',
-							'operator' => '!=',
-							'value'    => 'default',
-						),
-					),
-					'title'       => __( 'Border Width', 'astra-addon' ),
-					'control'     => 'ast-slider',
-					'suffix'      => 'px',
-					'priority'    => 46,
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 20,
-					),
-				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

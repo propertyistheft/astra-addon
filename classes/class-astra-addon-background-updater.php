@@ -72,6 +72,9 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 				'astra_addon_update_toolbar_seperations',
 				'astra_addon_apply_modern_ecommerce_setup',
 			),
+			'3.9.3' => array(
+				'astra_addon_update_variant_active_state',
+			),
 		);
 
 		/**

@@ -1300,10 +1300,23 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 				$location = isset( $option['location'] ) ? esc_sql( $option['location'] ) : '';
 
+				$wpml_translate_query           = '';
+				$wpml_translate_query_condition = '';
+				$check_wpml                     = false;
+				if ( class_exists( 'SitePress' ) ) {
+					global $sitepress;
+					$check_wpml                     = true;
+					$current_language               = $sitepress->get_current_language();
+					$wpml_translate_query           = "INNER JOIN {$wpdb->prefix}icl_translations as icl ON pm.post_id = icl.element_id";
+					$wpml_translate_query_condition = "AND icl.language_code = '{$current_language}'";
+				}
+
 				$query = "SELECT p.ID, pm.meta_value FROM {$wpdb->postmeta} as pm
 						   INNER JOIN {$wpdb->posts} as p ON pm.post_id = p.ID
+						   $wpml_translate_query
 						   WHERE pm.meta_key = '{$location}'
 						   AND p.post_type = '{$post_type}'
+						   $wpml_translate_query_condition
 						   AND p.post_status = 'publish'";
 
 				$orderby = ' ORDER BY p.post_date DESC';
@@ -1350,9 +1363,8 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 					case 'is_singular':
 						$current_id = esc_sql( get_the_id() );
 
-						if ( class_exists( 'SitePress' ) ) {
-							$default_language = wpml_get_default_language();
-							$current_id       = icl_object_id( $current_id, $current_post_type, true, $default_language );
+						if ( $check_wpml ) {
+							$current_id = icl_object_id( $current_id, $current_post_type, true, $current_language );
 						}
 
 						$current_post_id = $current_id;
@@ -1556,7 +1568,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						/* translators: %s post title. */
 						$notice = sprintf( __( 'The same display setting is already exist in %s post/s.', 'astra-addon' ), $rule_set_titles );
 
-						echo '<div class="error">';
+						echo '<div class="notice notice-warning is-dismissible">';
 						echo '<p>' . $notice . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo '</div>';
 

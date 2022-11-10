@@ -294,11 +294,6 @@
 	} );
 
 	/**
-	 * Cart Border Width.
-	 */
-	astra_css( 'astra-settings[woo-header-cart-border-width]', 'border-width', '.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-theme-transparent-header .ast-menu-cart-outline .ast-addon-cart-wrap', 'px' );
-
-	/**
 	 * Button Border Radius
 	 */
 	wp.customize( 'astra-settings[woo-header-cart-icon-radius]', function( setting ) {

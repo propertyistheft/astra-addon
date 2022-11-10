@@ -44,8 +44,15 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 								<?php
 							elseif ( 'order-number' === $column_id ) :
+
+
+								$product_filter_image_size = apply_filters( 'astra_ordered_product_image_size', array( 60, 60 ) );
+								$placeholder_image         = sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( $product_filter_image_size ) ), esc_html__( 'Awaiting product image', 'astra-addon' ) );
+
 								foreach ( $order->get_items() as $item_id => $item_values ) {
-									echo get_the_post_thumbnail( $item_values->get_product_id(), apply_filters( 'astra_ordered_product_image_size', array( 60, 60 ) ) );
+									$product_image  = get_the_post_thumbnail( $item_values->get_product_id(), $product_filter_image_size );
+									$featured_image = $product_image ? $product_image : $placeholder_image;
+									echo wp_kses_post( $featured_image );
 									break;
 								}
 								?>

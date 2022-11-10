@@ -13,6 +13,7 @@ function slideInAndOutContent(trigger, triggerContent) {
                 if( ! e.currentTarget.classList.contains( 'active' ) ) {
                     if( collapseContent ) {
                         e.currentTarget.classList.add( 'active' );
+                        collapseContentWrapper.style.display = 'block';
                         collapseContentWrapper.style.maxHeight = `${collapseContent.clientHeight}px`;
                         if( orderReviewText ) {
                             orderReviewText.textContent = astraAddon.order_review_toggle_texts.toggle_hide_text;
@@ -40,6 +41,9 @@ function slideInAndOutContent(trigger, triggerContent) {
 				} else {
 					e.currentTarget.classList.remove( 'active' );
 					collapseContentWrapper.style.maxHeight = 0;
+                    setTimeout(() => {
+                        collapseContentWrapper.style.display = 'none';
+                    }, 300);
 					if( orderReviewText ) {
 						orderReviewText.textContent = astraAddon.order_review_toggle_texts.toggle_show_text;
 					}
@@ -165,7 +169,7 @@ function validateInlineEmail() {
 
                                 if( createAccountSection ) {
 
-                                    const createAccountCheckbox = createAccountSection.querySelector( 'create-account label.checkbox' );
+                                    const createAccountCheckbox = createAccountSection.querySelector( '.create-account label.checkbox' );
 
                                     // LearnDash fix.
                                     if( createAccountCheckbox ) {

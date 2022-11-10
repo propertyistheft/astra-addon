@@ -87,3 +87,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 document.addEventListener( "astUpdateSingleProductVariations", function() {
 	productVariation();
 });
+
+// Composite product plugin compatibility.
+jQuery('.composite_data').on('wc-composite-initializing', function (event, composite) {
+    composite.actions.add_action('component_scripts_initialized', function () {
+        productVariation();
+    }, 100)
+})

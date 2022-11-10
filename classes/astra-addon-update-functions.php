@@ -692,3 +692,17 @@ function astra_addon_apply_modern_ecommerce_setup() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Improve active/selected variant for WooCommerce single product.
+ *
+ * @since 3.9.3
+ * @return void
+ */
+function astra_addon_update_variant_active_state() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['can-update-variant-active-style'] ) ) {
+		$theme_options['can-update-variant-active-style'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

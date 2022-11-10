@@ -119,7 +119,7 @@
         }
     }
 	.ast-account-nav-menu {
-        width: 260px;
+        width: 240px;
         background: #fff;
         left: -999em;
         position: absolute;
@@ -139,6 +139,12 @@
         .menu-item:hover {
             > .sub-menu {
                 left: 100%;
+            }
+        }
+        .ast-left-align-sub-menu.menu-item.focus,
+        .ast-left-align-sub-menu.menu-item:hover {
+            > .sub-menu {
+                left: -100%;
             }
         }
         .menu-item {
@@ -163,6 +169,7 @@
 			> .menu-item {
 				height: auto;
 				line-height: unset;
+                bottom:-5px;
 			}
 		}
 	}

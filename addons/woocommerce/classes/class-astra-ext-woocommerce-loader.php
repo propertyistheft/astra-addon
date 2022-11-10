@@ -236,6 +236,8 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 
 			// Single product page.
 			$defaults['single-product-related-display']         = true;
+			$defaults['single-product-recently-viewed-display'] = false;
+			$defaults['single-product-recently-viewed-text']    = __( 'Recently Viewed Products', 'astra-addon' );
 			$defaults['single-product-image-zoom-effect']       = true;
 			$defaults['single-product-ajax-add-to-cart']        = false;
 			$defaults['single-product-related-upsell-grid']     = array(
@@ -260,6 +262,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
 							'label'   => __( 'No-Risk Money Back Guarantee!', 'astra-addon' ),
+							'image'   => '',
 						),
 						array(
 							'id'      => 'item-2',
@@ -267,6 +270,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
 							'label'   => __( 'No Hassle Refunds', 'astra-addon' ),
+							'image'   => '',
 						),
 						array(
 							'id'      => 'item-3',
@@ -274,6 +278,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
 							'label'   => __( 'Secure Payments', 'astra-addon' ),
+							'image'   => '',
 						),
 					),
 			);
@@ -290,6 +295,8 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			// Checkout.
 			$defaults['two-step-checkout']                        = false;
 			$defaults['checkout-labels-as-placeholders']          = false;
+			$defaults['checkout-back-to-cart-button']             = false;
+			$defaults['checkout-back-to-cart-button-text']        = __( '« Back to Cart', 'astra-addon' );
 			$defaults['checkout-order-notes-display']             = true;
 			$defaults['checkout-coupon-display']                  = true;
 			$defaults['checkout-persistence-form-data']           = false;
@@ -313,12 +320,13 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 
 			// General.
 			$defaults['astra-woocommerce-cart-icons-flag'] = true;
-			$defaults['woo-header-cart-icon-style']        = 'none';
-			$defaults['woo-header-cart-icon-color']        = '';
-			$defaults['woo-header-cart-border-width']      = 2;
-			$defaults['woo-header-cart-icon-radius']       = 3;
-			$defaults['woo-header-cart-total-display']     = true;
-			$defaults['woo-header-cart-title-display']     = true;
+			if ( false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
+				$defaults['woo-header-cart-icon-style'] = 'none';
+			}
+			$defaults['woo-header-cart-icon-color']    = '';
+			$defaults['woo-header-cart-icon-radius']   = 3;
+			$defaults['woo-header-cart-total-display'] = true;
+			$defaults['woo-header-cart-title-display'] = true;
 
 			// General Product Price Typo.
 			$defaults['font-family-product-price'] = 'inherit';

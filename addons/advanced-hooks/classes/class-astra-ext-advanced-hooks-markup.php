@@ -31,6 +31,13 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		private $is_layout_content_in_process = false;
 
 		/**
+		 * Member Variable
+		 *
+		 * @var string parent_hook_enable
+		 */
+		public static $parent_hook_enable = '';
+
+		/**
 		 *  Initiator
 		 */
 		public static function get_instance() {
@@ -300,6 +307,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						$priority
 					);
 				} else {
+					if ( 'custom_hook' === $action ) {
+						$action = get_post_meta( $post_id, 'ast-custom-hook', true );
+					}
 					add_action(
 						$action,
 						function() use ( $post_id ) {
@@ -637,6 +647,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 
 					}
 					if ( isset( $layout[0] ) && '0' != $layout[0] && 'header' != $layout[0] && 'footer' != $layout[0] ) {
+						if ( 'custom_hook' === $action ) {
+							$action = get_post_meta( $post_id, 'ast-custom-hook', true );
+						}
 						// Add Action for advanced-hooks.
 						add_action(
 							$action,
@@ -723,7 +736,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			return $classes;
 		}
 
-
 		/**
 		 * Check if post eligible to show on time duration
 		 *
@@ -766,8 +778,13 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			if ( false === apply_filters( 'astra_addon_render_custom_layout_content', true, $post_id ) || 'no' === $enabled ) {
 				return;
 			}
-
 			if ( ! static::get_time_duration_eligibility( $post_id ) ) {
+				return;
+			}
+
+			if ( '' === self::$parent_hook_enable ) {
+				self::$parent_hook_enable = 'parent-hook-' . $post_id;
+			} else {
 				return;
 			}
 
@@ -799,8 +816,13 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			}
 
 			if ( $with_wrapper ) {
+
 				echo '</div>';
 			}
+			if ( 'parent-hook-' . $post_id === self::$parent_hook_enable ) {
+				self::$parent_hook_enable = '';
+			}
+
 		}
 
 		/**

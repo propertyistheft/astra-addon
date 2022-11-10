@@ -94,6 +94,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			}
 
 			add_action( 'wp_ajax_ast_advanced_hook_display_toggle', array( $this, 'ast_advanced_hook_display_toggle' ) );
+			add_action( 'wp_ajax_ast_advanced_layout_quick_preview', array( $this, 'ast_advanced_layout_quick_preview' ) );
+
+			add_action( 'admin_footer', array( $this, 'layout_preview_template' ) );
 		}
 
 		/**
@@ -223,11 +226,10 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			unset( $columns['date'] );
 
-			$columns['advanced_hook_action']        = __( 'Action', 'astra-addon' );
-			$columns['advanced_hook_display_rules'] = __( 'Display Rules', 'astra-addon' );
-			$columns['date']                        = __( 'Date', 'astra-addon' );
-			$columns['enable_disable']              = __( 'Enable/Disable', 'astra-addon' );
-			$columns['advanced_hook_shortcode']     = __( 'Shortcode', 'astra-addon' );
+			$columns['advanced_hook_action']     = __( 'Action', 'astra-addon' );
+			$columns['advanced_hook_shortcode']  = __( 'Shortcode', 'astra-addon' ) . '<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="' . esc_attr__( 'Make sure to set display rule to post/page where you will be adding the Shortcode.', 'astra-addon' ) . '"></i>';
+			$columns['advanced_hook_quick_view'] = __( 'Quick View', 'astra-addon' );
+			$columns['enable_disable']           = __( 'Enable/Disable', 'astra-addon' );
 
 			return apply_filters( 'astra_advanced_hooks_list_action_column_headings', $columns );
 		}
@@ -241,98 +243,32 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 		 * @return void
 		 */
 		public function column_content( $column, $post_id ) {
-
-			$icon_style = 'font-size:17px;';
-
-			if ( 'advanced_hook_action' == $column ) {
-				$layout = get_post_meta( $post_id, 'ast-advanced-hook-layout', true );
-
-				if ( 'hooks' === $layout ) {
-					$action = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
-				} else {
-					$action = $layout;
-				}
-
-				echo apply_filters( 'astra_advanced_hooks_list_action_column', $action ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			} elseif ( 'advanced_hook_display_rules' == $column ) {
-
-				$locations = get_post_meta( $post_id, 'ast-advanced-hook-location', true );
-				if ( ! empty( $locations ) ) {
-					echo '<div class="ast-advanced-hook-location-wrap ast-advanced-hook-wrap">';
-					echo '<strong>' . esc_attr( __( 'Display', 'astra-addon' ) ) . ': </strong>';
-
-					if ( empty( $locations['rule'] ) || ( ! empty( $locations['rule'] ) && ( 1 === count( $locations['rule'] ) && isset( $locations['rule'][0] ) && 'clflag' === $locations['rule'][0] ) ) ) {
-						echo esc_attr( __( '[UNSET]', 'astra-addon' ) );
+			switch ( $column ) {
+				case 'advanced_hook_action':
+					$layout = get_post_meta( $post_id, 'ast-advanced-hook-layout', true );
+					if ( 'hooks' === $layout ) {
+						$action = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
 					} else {
-						$this->column_display_location_rules( $locations );
+						$action = $layout;
 					}
-					echo '</div>';
-				}
-
-				$locations = get_post_meta( $post_id, 'ast-advanced-hook-exclusion', true );
-				if ( ! empty( $locations ) ) {
-					echo '<div class="ast-advanced-hook-exclusion-wrap ast-advanced-hook-wrap">';
-					echo '<strong>' . esc_attr( __( 'Exclusion', 'astra-addon' ) ) . ': </strong>';
-					$this->column_display_location_rules( $locations );
-					echo '</div>';
-				}
-
-				$users = get_post_meta( $post_id, 'ast-advanced-hook-users', true );
-				if ( isset( $users ) && is_array( $users ) ) {
-					$user_label = array();
-					foreach ( $users as $user ) {
-						$user_label[] = Astra_Target_Rules_Fields::get_user_by_key( $user );
+					echo apply_filters( 'astra_advanced_hooks_list_action_column', $action ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					break;
+				case 'advanced_hook_shortcode':
+					echo '<div> <label class="layout-status"> <span class="ast-layout-' . esc_attr( $post_id ) . '">[astra_custom_layout id=' . esc_attr( $post_id ) . ']</span> </label> <a href="javascript:void(0)" class="ast-copy-layout-shortcode" title="' . esc_attr__( 'Copy to Clipboard', 'astra-addon' ) . '" data-linked_span="ast-layout-' . esc_attr( $post_id ) . '"> <span class="dashicons dashicons-admin-page"></span> </a> </div>';
+					break;
+				case 'advanced_hook_quick_view':
+					echo '<a href="javascript:void(0)" data-layout_id="' . esc_attr( $post_id ) . '" title="Preview" class="advanced_hook_data_trigger"> <span class="dashicons dashicons-visibility"></span> </a>';
+					break;
+				case 'enable_disable':
+					$switch_class = 'ast-custom-layout-switch ast-option-switch';
+					$enabled      = get_post_meta( $post_id, 'ast-advanced-hook-enabled', 'yes' );
+					if ( 'no' !== $enabled ) {
+						$switch_class .= ' ast-active';
 					}
-					echo '<div class="ast-advanced-hook-users-wrap ast-advanced-hook-wrap">';
-					echo '<strong>' . esc_attr( __( 'Users', 'astra-addon' ) ) . ': </strong>';
-					echo esc_html( join( ', ', $user_label ) );
-					echo '</div>';
-				}
-
-				$display_devices = get_post_meta( $post_id, 'ast-advanced-display-device', true );
-				if ( is_array( $display_devices ) ) {
-					echo '<div class="ast-advanced-hook-display-devices-wrap ast-advanced-hook-wrap">';
-					echo '<strong>' . esc_attr( __( 'Devices', 'astra-addon' ) ) . ': </strong>';
-					foreach ( $display_devices as $display_device ) {
-						switch ( $display_device ) {
-							case 'desktop':
-								echo '<span style=' . esc_attr( $icon_style ) . ' class="dashicons dashicons-desktop"></span>';
-								break;
-							case 'tablet':
-								echo '<span style=' . esc_attr( $icon_style ) . ' class="dashicons dashicons-tablet"></span>';
-								break;
-							case 'mobile':
-								echo '<span style=' . esc_attr( $icon_style ) . ' class="dashicons dashicons-smartphone"></span>';
-								break;
-						}
-					}
-					echo '</div>';
-				}
-
-				$time_duration = get_post_meta( $post_id, 'ast-advanced-time-duration', true );
-				if ( isset( $time_duration ) && is_array( $time_duration ) && isset( $time_duration['enabled'] ) ) {
-					echo '<div class="ast-advanced-hook-time-duration-wrap ast-advanced-hook-wrap">';
-					echo '<strong>' . esc_attr( __( 'Time Duration Eligible', 'astra-addon' ) ) . ': </strong>';
-
-					if ( ! Astra_Ext_Advanced_Hooks_Markup::get_time_duration_eligibility( $post_id ) ) {
-						echo '<span style=' . esc_attr( $icon_style ) . ' class="dashicons dashicons-no"></span>';
-					} else {
-						echo '<span style=' . esc_attr( $icon_style ) . ' class="dashicons dashicons-yes-alt"></span>';
-					}
-
-					echo '</div>';
-				}
-			} elseif ( 'advanced_hook_shortcode' === $column ) {
-				echo '<div class = "ast-shrotcut"> <input type="text" onfocus="this.select();" readonly="readonly" value="[astra_custom_layout id=' . esc_attr( $post_id ) . ']" />
-				<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" style="vertical-align: text-bottom;" title="' . esc_attr__( 'Make sure to set display rule to post/page where you will be adding the Shortcode.', 'astra-addon' ) . '"></i></div>';
-			} elseif ( 'enable_disable' == $column ) {
-				$switch_class = 'ast-custom-layout-switch ast-option-switch';
-				$enabled      = get_post_meta( $post_id, 'ast-advanced-hook-enabled', 'yes' );
-				if ( 'no' !== $enabled ) {
-					$switch_class .= ' ast-active';
-				}
-
-				echo '<div class="' . esc_attr( $switch_class ) . '" data-post_id = "' . esc_attr( $post_id ) . '"><span></div>';
+					echo '<div class="' . esc_attr( $switch_class ) . '" data-post_id = "' . esc_attr( $post_id ) . '"><span></div>';
+					break;
+				default:
+					break;
 			}
 		}
 
@@ -361,9 +297,19 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				}
 			}
 
-			$location_label = array_diff( $location_label, array( 'clflag' ) );
+			$location_label = array_diff( $location_label, array( 'clflag', '' ) );
 
-			echo esc_html( join( ', ', $location_label ) );
+			if ( empty( $location_label ) ) {
+				return;
+			}
+
+			$ruleset_markup = '<ul class="ast-layout-visibility-list">';
+			foreach ( $location_label as $key => $rule ) {
+				$ruleset_markup .= '<li class="layout-list-item">' . esc_attr( $rule ) . '</li>';
+			}
+			$ruleset_markup .= '</ul>';
+
+			return $ruleset_markup;
 		}
 
 		/**
@@ -501,24 +447,23 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			}
 
 			if ( isset( $_GET['post_type'] ) && 'astra-advanced-hook' === $_GET['post_type'] ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
-
 				if ( SCRIPT_DEBUG ) {
-					wp_enqueue_script( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/unminified/advanced-hooks-enable-disable.js', array(), ASTRA_EXT_VER, false );
+					wp_enqueue_script( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/unminified/advanced-hooks-list-page.js', array( 'wp-util' ), ASTRA_EXT_VER, false );
 					wp_enqueue_style( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/unminified/astra-advanced-hooks-admin-list.css', null, ASTRA_EXT_VER );
 				} else {
-					wp_enqueue_script( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/advanced-hooks-enable-disable.min.js', array(), ASTRA_EXT_VER, false );
+					wp_enqueue_script( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/advanced-hooks-list-page.min.js', array( 'wp-util' ), ASTRA_EXT_VER, false );
 					wp_enqueue_style( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/astra-advanced-hooks-admin-list.min.css', null, ASTRA_EXT_VER );
 				}
 				wp_localize_script(
 					'advanced-hook-admin-list',
 					'astHooksData',
 					array(
-						'url'   => admin_url( 'admin-ajax.php' ),
-						'nonce' => wp_create_nonce( 'astra-addon-enable-tgl-nonce' ),
+						'url'              => admin_url( 'admin-ajax.php' ),
+						'quick_view_nonce' => wp_create_nonce( 'astra-addon-quick-layout-view-nonce' ),
+						'nonce'            => wp_create_nonce( 'astra-addon-enable-tgl-nonce' ),
 					)
 				);
 			}
-
 		}
 
 		/**
@@ -642,6 +587,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'userRoles'                  => Astra_Target_Rules_Fields::get_user_selections(),
 					'ResponsiveVisibilityStatus' => $responsive_visibility_status,
 					'siteurl'                    => get_option( 'siteurl' ),
+					'isWhitelabelled'            => Astra_Ext_White_Label_Markup::show_branding(),
 				)
 			);
 
@@ -928,6 +874,17 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				)
 			);
 
+			register_post_meta(
+				ASTRA_ADVANCED_HOOKS_POST_TYPE,
+				'ast-custom-hook',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+
 			// Register Meta for Action Hook padding.
 			register_post_meta(
 				ASTRA_ADVANCED_HOOKS_POST_TYPE,
@@ -1103,6 +1060,203 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			update_post_meta( $post_id, 'ast-advanced-hook-enabled', $enabled );
 			wp_send_json_success( array() );
+		}
+
+		/**
+		 * HTML Template for custom layout preview.
+		 *
+		 * @since 3.9.3
+		 */
+		public function layout_preview_template() {
+			?>
+			<div class="ast-custom-layout-preview-wrapper"></div>
+			<script type="text/template" id="tmpl-ast-modal-view-layout-details">
+				<div class="ast-layout-modal ast-data-preview">
+					<div class="ast-layout-modal-content">
+						<section class="ast-layout-modal-main" role="main">
+							<header class="ast-layout-modal-header">
+								<mark class="layout-status"><span>{{ data.layout_type }}</span></mark>
+								<h1> {{ data.title }} </h1>
+								<button id="modal-close-link" class="modal-close modal-close-link dashicons dashicons-no-alt">
+									<span class="screen-reader-text"><?php esc_html_e( 'Close modal panel', 'astra-addon' ); ?></span>
+								</button>
+							</header>
+							<article>
+								<?php do_action( 'astra_addon_custom_layout_preview_start' ); ?>
+								<div class="ast-layout-preview-row">
+									<div class="ast-layout-preview-col">
+										<h3><?php esc_html_e( 'Display On:', 'astra-addon' ); ?></h3>
+									</div>
+									<div class="ast-layout-preview-col right">
+										{{{ data.display_rules }}}
+									</div>
+									<div class="ast-layout-preview-col">
+										<h3><?php esc_html_e( 'Do Not Display On:', 'astra-addon' ); ?></h3>
+									</div>
+									<div class="ast-layout-preview-col right">
+										{{{ data.exclusion_rules }}}
+									</div>
+									<div class="ast-layout-preview-col">
+										<h3><?php esc_html_e( 'Display for Users:', 'astra-addon' ); ?></h3>
+									</div>
+									<div class="ast-layout-preview-col right">
+										{{{ data.user_rules }}}
+									</div>
+									<div class="ast-layout-preview-col">
+										<h3><?php esc_html_e( 'Display on Devices:', 'astra-addon' ); ?></h3>
+									</div>
+									<div class="ast-layout-preview-col right">
+										{{{ data.display_devices_rules }}}
+									</div>
+									<div class="ast-layout-preview-col">
+										<h3><?php esc_html_e( 'Time Rule:', 'astra-addon' ); ?></h3>
+									</div>
+									<div class="ast-layout-preview-col right">
+										{{{ data.time_duration_rule }}}
+									</div>
+								</div>
+								<?php do_action( 'astra_addon_custom_layout_preview_end' ); ?>
+							</article>
+							<footer>
+								<div class="inner">
+									<div class="ast-layout-action-button-group">
+										<label> <strong> <?php esc_html_e( 'Status: ', 'astra-addon' ); ?> </strong> {{ data.status }} </label> |
+										<label> <strong> <?php esc_html_e( 'Published date: ', 'astra-addon' ); ?> </strong> {{ data.post_date }} </label>
+									</div>
+									<a class="button button-primary button-large" aria-label="<?php esc_attr_e( 'Edit this layout', 'astra-addon' ); ?>" href="{{ data.edit_link }}"><?php esc_html_e( 'Edit Layout', 'astra-addon' ); ?></a>
+								</div>
+							</footer>
+						</section>
+					</div>
+				</div>
+				<div class="ast-layout-modal-backdrop modal-close"></div>
+			</script>
+			<?php
+		}
+
+		/**
+		 * Get Custom Layout details to send to the AJAX endpoint for quick-preview.
+		 *
+		 * @param  int $layout_id Custom Layout ID.
+		 * @return array
+		 */
+		public function get_layout_details( $layout_id ) {
+			if ( ! $layout_id ) {
+				return array();
+			}
+
+			$display_rules = __( 'No Conditions', 'astra-addon' );
+			$locations     = get_post_meta( $layout_id, 'ast-advanced-hook-location', true );
+			if ( ! empty( $locations ) ) {
+				if ( ! ( empty( $locations['rule'] ) || ( ! empty( $locations['rule'] ) && ( 1 === count( $locations['rule'] ) && isset( $locations['rule'][0] ) && 'clflag' === $locations['rule'][0] ) ) ) ) {
+					$display_rules = $this->column_display_location_rules( $locations );
+				}
+			}
+
+			$exclusion_rules = __( 'No Conditions', 'astra-addon' );
+			$locations       = get_post_meta( $layout_id, 'ast-advanced-hook-exclusion', true );
+			if ( ! empty( $locations ) ) {
+				if ( ! ( empty( $locations['rule'] ) || ( ! empty( $locations['rule'] ) && ( 1 === count( $locations['rule'] ) && isset( $locations['rule'][0] ) && 'clflag' === $locations['rule'][0] ) ) ) ) {
+					$exclusion_rules = $this->column_display_location_rules( $locations );
+				}
+			}
+
+			$user_rules = __( 'No Conditions', 'astra-addon' );
+			$users      = get_post_meta( $layout_id, 'ast-advanced-hook-users', true );
+			if ( is_array( $users ) && ! empty( $users ) ) {
+				$user_rules = '<ul class="ast-layout-user-list">';
+				foreach ( $users as $user ) {
+					if ( 'Clflag' !== ucfirst( $user ) ) {
+						$user_rules .= '<li class="layout-list-item">' . Astra_Target_Rules_Fields::get_user_by_key( $user ) . '</li>';
+					}
+				}
+				$user_rules .= '</ul>';
+			}
+
+			$display_devices_rules = __( 'No Conditions', 'astra-addon' );
+			$icon_style            = 'font-size:17px;line-height:21px;';
+			$display_devices       = get_post_meta( $layout_id, 'ast-advanced-display-device', true );
+			if ( is_array( $display_devices ) && ! empty( $display_devices ) ) {
+				$display_devices_rules  = '<div class="ast-advanced-hook-display-devices-wrap ast-advanced-hook-wrap">';
+				$display_devices_rules .= '<ul>';
+				foreach ( $display_devices as $display_device ) {
+					switch ( $display_device ) {
+						case 'desktop':
+							$display_devices_rules .= '<li class="ast-desktop">' . esc_attr( __( 'Desktop', 'astra-addon' ) ) . '</li>';
+							break;
+						case 'tablet':
+							$display_devices_rules .= '<li class="ast-tablet">' . esc_attr( __( 'Tablet', 'astra-addon' ) ) . '</li>';
+							break;
+						case 'mobile':
+							$display_devices_rules .= '<li class="ast-mobile">' . esc_attr( __( 'Mobile', 'astra-addon' ) ) . '</li>';
+							break;
+					}
+				}
+				$display_devices_rules .= '</ul>';
+				$display_devices_rules .= '</div>';
+			}
+
+			$time_duration_rule = __( 'No Conditions', 'astra-addon' );
+			$time_duration      = get_post_meta( $layout_id, 'ast-advanced-time-duration', true );
+			if ( isset( $time_duration ) && is_array( $time_duration ) && isset( $time_duration['enabled'] ) ) {
+				$time_duration_rule  = '<div class="ast-advanced-hook-time-duration-wrap ast-advanced-hook-wrap">';
+				$time_duration_rule .= '<strong>' . esc_attr( __( 'Visibility', 'astra-addon' ) ) . ': </strong>';
+
+				if ( ! Astra_Ext_Advanced_Hooks_Markup::get_time_duration_eligibility( $layout_id ) ) {
+					$time_duration_rule .= '<p class="ast-advance-hook-visibility-icon">' . esc_attr( __( 'Not visible', 'astra-addon' ) ) . '<span style=' . esc_attr( $icon_style ) . ' class="dashicons dashicons-no"></span></p>';
+				} else {
+					$start_dt = isset( $time_duration['start-dt'] ) ? gmdate( 'F j, Y, g:i a', strtotime( $time_duration['start-dt'] ) ) : '—';
+					$end_dt   = isset( $time_duration['end-dt'] ) ? gmdate( 'F j, Y, g:i a', strtotime( $time_duration['end-dt'] ) ) : '—';
+
+					$time_duration_rule .= '<p class="ast-advance-hook-visibility-icon">' . esc_attr( __( 'Visible', 'astra-addon' ) ) . '<span style=' . esc_attr( $icon_style ) . ' class="dashicons dashicons-yes-alt"></span></p>';
+					$time_duration_rule .= '<p class="layout-time-field start"><strong>' . __( 'Start Date: ', 'astra-addon' ) . '</strong>' . $start_dt . '</p>';
+					$time_duration_rule .= '<p class="layout-time-field end"><strong>' . __( 'End Date: ', 'astra-addon' ) . '</strong>' . $end_dt . '</p>';
+				}
+
+				$time_duration_rule .= '</div>';
+			}
+
+			$post_title = get_the_title( $layout_id ) ? get_the_title( $layout_id ) : esc_attr( __( '(no title)', 'astra-addon' ) );
+
+			return apply_filters(
+				'astra_addon_custom_layout_preview_details',
+				array(
+					'layout_id'             => $layout_id,
+					'layout_type'           => ucfirst( get_post_meta( $layout_id, 'ast-advanced-hook-layout', true ) ),
+					'status'                => ucfirst( get_post_status( $layout_id ) ),
+					'title'                 => $post_title,
+					'edit_link'             => admin_url( '/post.php?post=' . $layout_id . '&action=edit' ),
+					'display_rules'         => $display_rules,
+					'exclusion_rules'       => $exclusion_rules,
+					'display_devices_rules' => $display_devices_rules,
+					'time_duration_rule'    => $time_duration_rule,
+					'user_rules'            => $user_rules,
+					'post_date'             => get_the_date( '', $layout_id ),
+				),
+				$layout_id
+			);
+		}
+
+		/**
+		 * Quick View popup Ajax request to render dynamic content.
+		 *
+		 * @since 3.9.3
+		 */
+		public function ast_advanced_layout_quick_preview() {
+			check_ajax_referer( 'astra-addon-quick-layout-view-nonce', 'nonce' );
+
+			if ( ! current_user_can( 'edit_posts' ) || ! isset( $_REQUEST['post_id'] ) ) {
+				wp_die( -1 );
+			}
+
+			$post_id = absint( $_REQUEST['post_id'] );
+			$data    = $this->get_layout_details( $post_id );
+
+			if ( $post_id ) {
+				wp_send_json_success( $data );
+			}
+
+			wp_die();
 		}
 	}
 }
