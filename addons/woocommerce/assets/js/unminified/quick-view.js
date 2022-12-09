@@ -23,9 +23,9 @@
 			/**
 			 * Set Max Height Width For Wrappers.
 			 */
-			const maxWidthWrappers = parseFloat(window.innerWidth) - 120,
-			 maxHeightWrappers   = parseFloat(window.innerHeight) - 120;
-			 const quickViewContent = document.getElementById('ast-quick-view-content');
+			 const maxWidthWrappers = parseFloat(window.innerWidth) - 120,
+			    maxHeightWrappers   = parseFloat(window.innerHeight) - 120,
+			    quickViewContent = document.getElementById('ast-quick-view-content');
 
 			 if( quickViewContent ) {
 				quickViewContent.style.maxWidth = maxWidthWrappers + 'px';
@@ -162,24 +162,25 @@
 					$html.classList.add('ast-quick-view-is-open');
 				}
 
-
-			// Initialize variable form.
-			if ( form_variation.length > 0 ) {
-
-				// Trigger variation form actions.
-				form_variation.trigger( 'check_variations' );
-				form_variation.trigger( 'reset_image' );
-
-				// Trigger variation form.
-				form_variation.wc_variation_form();
-				form_variation.querySelector('select').change();
-			}
-
-			// Initialize flex slider.
-			const image_slider_wrap = quick_view.querySelector('.ast-qv-image-slider');
-			if ( image_slider_wrap.querySelector('li').length > 1 ) {
-				image_slider_wrap.flexslider();
-			}
+				// Here we use Jquery intentionally because of some critical cases 
+				let quick_view_box = jQuery(document).find('#ast-quick-view-modal');
+				// Initialize variable form.
+				if ( quick_view_box.length > 0 ) {
+	
+					// Trigger variation form actions.
+					quick_view_box.find('.variations_form').trigger( 'check_variations' );
+					quick_view_box.find('.variations_form').trigger( 'reset_image' );
+	
+					// Trigger variation form.
+					quick_view_box.find('.variations_form').wc_variation_form();
+					quick_view_box.find('.variations_form select').change();
+				}
+	
+				// Initialize flex slider.
+				const image_slider_wrap = quick_view_box.find('.ast-qv-image-slider');
+				 if ( image_slider_wrap.find('li').length > 1 ) {
+					 image_slider_wrap.flexslider();
+				}
 
 			setTimeout(function() {
 				AstraProQuickView._auto_set_content_height_by_image();

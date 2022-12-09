@@ -1,3 +1,8 @@
+v3.9.4
+- Fix: WooCommerce - Variable product is not working with quick view.
+- Fix: WooCommerce - Product gallery is not working in quick view.
+- Fix: Custom Layout - When WPML Multilingual CMS plugin is active custom header/footers are not working. ( Props - https://wpml.org/errata/astra-pro-3-9-3-enabling-custom-layouts-blocks-loading-scripts-added-in-the-header-or-footer/ )
+
 v3.9.3
 - New: Header Builder - Menu - Filter to add mega menu compatibility with registered nav menus. ( https://wpastra.com/docs/mega-menu-support-for-all-builder-menus/ )
 - New: Custom Layout - Custom action hook support added to trigger layout content or snippet on a specific location.

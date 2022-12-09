@@ -1305,10 +1305,14 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$check_wpml                     = false;
 				if ( class_exists( 'SitePress' ) ) {
 					global $sitepress;
-					$check_wpml                     = true;
-					$current_language               = $sitepress->get_current_language();
-					$wpml_translate_query           = "INNER JOIN {$wpdb->prefix}icl_translations as icl ON pm.post_id = icl.element_id";
-					$wpml_translate_query_condition = "AND icl.language_code = '{$current_language}'";
+					$cpt_translation_mode = apply_filters( 'wpml_sub_setting', false, 'custom_posts_sync_option', 'astra-advanced-hook' );
+				 
+					if ( $cpt_translation_mode != false ) {
+						$check_wpml                     = true;
+						$current_language               = $sitepress->get_current_language();
+						$wpml_translate_query           = "INNER JOIN {$wpdb->prefix}icl_translations as icl ON pm.post_id = icl.element_id";
+						$wpml_translate_query_condition = "AND icl.language_code = '{$current_language}'";
+					}   
 				}
 
 				$query = "SELECT p.ID, pm.meta_value FROM {$wpdb->postmeta} as pm
