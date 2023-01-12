@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'priority'          => 5,
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 					'choices'           => array(
 						'edd-archive-page-grid-style' => array(
 							'label' => __( 'Grid View', 'astra-addon' ),

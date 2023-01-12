@@ -376,7 +376,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 				'<div class="%1$s" %2$s role="img" %3$s>',
 				$combined . $parallax . $full_screen . $vertical_center,
 				( ! empty( $parallax ) ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
-				$this->get_header_background_image_alt_text() // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				'aria-label="' . esc_attr( $this->get_header_background_image_alt_text() ) . '"'
 			);
 		}
 
@@ -419,7 +419,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 					'<div class="%1$s" %2$s role="img" %3$s>',
 					$combined . $parallax . $full_screen . $vertical_center,
 					( ! empty( $parallax ) ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
-					$this->get_header_background_image_alt_text() // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'aria-label="' . esc_attr( $this->get_header_background_image_alt_text() ) . '"'
 				);
 			}
 
@@ -648,7 +648,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			$img_alt_text = get_post_meta( attachment_url_to_postid( $title_bar_bg_img ), '_wp_attachment_image_alt', true );
 
 			if ( ! empty( $img_alt_text ) ) {
-				return 'aria-label="' . esc_attr( $img_alt_text ) . '"';
+				return esc_attr( $img_alt_text );
 			}
 			return __return_empty_string();
 		}

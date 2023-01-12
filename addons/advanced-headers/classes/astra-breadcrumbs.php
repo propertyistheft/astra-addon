@@ -52,7 +52,7 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 			if ( ! $args['echo'] ) {
 				return $breadcrumbs;
 			} else {
-				echo $breadcrumbs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo wp_kses_post( $breadcrumbs );
 			}
 		}
 	}

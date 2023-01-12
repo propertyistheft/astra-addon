@@ -45,9 +45,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-
 			add_action( 'init', array( $this, 'advanced_hooks_post_type' ) );
-			add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 100 );
 			add_action( 'astra_addon_activated', array( $this, 'astra_addon_activated_callback' ) );
 			add_filter( 'postbox_classes_ ' . ASTRA_ADVANCED_HOOKS_POST_TYPE . ' -advanced-hook-settings', array( $this, 'add_class_to_metabox' ) );
 
@@ -60,9 +58,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				// Filters.
 				add_filter( 'manage_' . ASTRA_ADVANCED_HOOKS_POST_TYPE . '_posts_columns', array( $this, 'column_headings' ) );
 			}
-
-			// Custom layout tabs based on type.
-			add_filter( 'views_edit-' . ASTRA_ADVANCED_HOOKS_POST_TYPE, array( $this, 'admin_print_tabs' ) );
 
 			// Show only active tab posts in custom layout.
 			add_action( 'parse_query', array( $this, 'admin_query_filter_types' ) );
@@ -97,73 +92,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			add_action( 'wp_ajax_ast_advanced_layout_quick_preview', array( $this, 'ast_advanced_layout_quick_preview' ) );
 
 			add_action( 'admin_footer', array( $this, 'layout_preview_template' ) );
-		}
-
-		/**
-		 * Print admin tabs.
-		 *
-		 * Used to output the custom layouts on basis of their types.
-		 *
-		 * Fired by `views_edit-astra-advanced-hook` filter.
-		 *
-		 * @since 3.6.4
-		 * @access public
-		 *
-		 * @param array $views An array of available list table views.
-		 *
-		 * @return array An updated array of available list table views.
-		 */
-		public function admin_print_tabs( $views ) {
-
-			$current_type = '';
-			$active_class = ' nav-tab-active';
-			$current_tab  = $this->get_active_tab();
-
-			if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				$current_type = $_REQUEST['layout_type']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				$active_class = '';
-			}
-
-			$url_args = array(
-				'post_type'   => ASTRA_ADVANCED_HOOKS_POST_TYPE,
-				'layout_type' => $current_tab,
-			);
-
-			$custom_layout_types = array(
-				'header'   => __( 'Header', 'astra-addon' ),
-				'footer'   => __( 'Footer', 'astra-addon' ),
-				'hooks'    => __( 'Hooks', 'astra-addon' ),
-				'404-page' => __( '404 Page', 'astra-addon' ),
-				'content'  => __( 'Page Content', 'astra-addon' ),
-			);
-
-			$baseurl = add_query_arg( $url_args, admin_url( 'edit.php' ) );
-
-			?>
-				<div class="nav-tab-wrapper ast-custom-layout-tabs-wrapper">
-					<a class="nav-tab<?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( admin_url( 'edit.php?post_type=' . ASTRA_ADVANCED_HOOKS_POST_TYPE ) ); ?>">
-						<?php
-							echo esc_html__( 'All', 'astra-addon' );
-						?>
-					</a>
-					<?php
-					foreach ( $custom_layout_types as $type => $title ) {
-						$type_url     = esc_url( add_query_arg( 'layout_type', $type, $baseurl ) );
-						$active_class = ( $current_type === $type ) ? ' nav-tab-active' : '';
-
-						?>
-								<a class="nav-tab<?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $type_url ); ?>">
-								<?php
-									echo esc_attr( $title );
-								?>
-								</a>
-							<?php
-					}
-					?>
-				</div>
-			<?php
-
-			return $views;
+			add_action( 'in_admin_header', array( $this, 'ast_advanced_admin_top_header' ) );
 		}
 
 		/**
@@ -386,25 +315,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 		}
 
 		/**
-		 * Register the admin menu for Custom Layouts
-		 *
-		 * @since  1.2.1
-		 *         Moved the menu under Appearance -> Custom Layouts
-		 */
-		public function register_admin_menu() {
-
-			$custom_layouts_capability = apply_filters( 'astra_custom_layouts_capability', 'edit_theme_options' );
-
-			add_submenu_page(
-				'themes.php',
-				__( 'Custom Layouts', 'astra-addon' ),
-				__( 'Custom Layouts', 'astra-addon' ),
-				$custom_layouts_capability,
-				'edit.php?post_type=' . ASTRA_ADVANCED_HOOKS_POST_TYPE
-			);
-		}
-
-		/**
 		 * Enqueues scripts and styles for the theme layout
 		 * post type on the WordPress admin edit post screen.
 		 *
@@ -444,9 +354,43 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					wp_enqueue_style( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/astra-advanced-hooks-admin-edit.min.css', null, ASTRA_EXT_VER );
 					wp_enqueue_script( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/advanced-hooks.min.js', array( 'jquery', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
 				}
+
+				$white_labelled_icon = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'icon' );
+				if ( false !== $white_labelled_icon ) {
+					$dark_active_variation = $white_labelled_icon;
+					if ( false !== strpos( $white_labelled_icon, 'whitelabel-branding.svg' ) ) {
+						$white_labelled_icon = ASTRA_EXT_URI . 'admin/core/assets/images/whitelabel-branding-dark.svg';
+					}
+					wp_add_inline_style(
+						'advanced-hook-admin-edit',
+						'.components-button svg[data-ast-logo] * {
+							display: none;
+						}
+						.components-button svg[data-ast-logo] {
+							background-image: url( ' . esc_url( $white_labelled_icon ) . ' ) !important;
+							background-size: 24px 24px;
+							background-repeat: no-repeat;
+							background-position: center;
+						}
+						button.components-button.is-pressed svg[data-ast-logo] {
+							background-image: url( ' . esc_url( $dark_active_variation ) . ' ) !important;
+						}'
+					);
+				}
+
+				wp_localize_script(
+					'advanced-hook-admin-edit',
+					'astraCustomHookVars',
+					apply_filters(
+						'astra_addon_custom_hook_edit_localization',
+						array(
+							'home_slug' => apply_filters( 'astra_theme_page_slug', 'astra' ),
+						)
+					)
+				);
 			}
 
-			if ( isset( $_GET['post_type'] ) && 'astra-advanced-hook' === $_GET['post_type'] ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type && 'edit.php' === $pagenow ) {
 				if ( SCRIPT_DEBUG ) {
 					wp_enqueue_script( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/unminified/advanced-hooks-list-page.js', array( 'wp-util' ), ASTRA_EXT_VER, false );
 					wp_enqueue_style( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/unminified/astra-advanced-hooks-admin-list.css', null, ASTRA_EXT_VER );
@@ -454,6 +398,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					wp_enqueue_script( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/minified/advanced-hooks-list-page.min.js', array( 'wp-util' ), ASTRA_EXT_VER, false );
 					wp_enqueue_style( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/astra-advanced-hooks-admin-list.min.css', null, ASTRA_EXT_VER );
 				}
+
+				wp_enqueue_style( 'astra-admin-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap', array(), ASTRA_EXT_VER ); // Styles.
+
+				if ( defined( 'ASTRA_THEME_ADMIN_URL' ) && ASTRA_THEME_ADMIN_URL ) {
+					wp_enqueue_style( 'astra-admin-dashboard-app', ASTRA_THEME_ADMIN_URL . 'assets/build/dashboard-app.css', null, ASTRA_EXT_VER );
+				}
+				wp_enqueue_style( 'astra-addon-admin-dashboard-app', ASTRA_EXT_URI . 'admin/core/assets/css/admin-custom.css', null, ASTRA_EXT_VER );
+
 				wp_localize_script(
 					'advanced-hook-admin-list',
 					'astHooksData',
@@ -1132,6 +1084,23 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				<div class="ast-layout-modal-backdrop modal-close"></div>
 			</script>
 			<?php
+		}
+
+		/**
+		 * HTML Template for custom layout header preview.
+		 *
+		 * @since 4.0.0
+		 */
+		public function ast_advanced_admin_top_header() {
+			$screen = get_current_screen();
+			global $pagenow;
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type && 'edit.php' === $pagenow ) {
+				$title       = __( 'Custom Layouts', 'astra-addon' );
+				$tabs        = true;
+				$button_url  = '/post-new.php?post_type=astra-advanced-hook';
+				$kb_docs_url = 'https://wpastra.com/docs-category/astra-pro-modules/custom-layouts-module/?utm_source=wp&utm_medium=dashboard';
+				Astra_Addon_Admin_Loader::admin_dashboard_header( $title, $tabs, $button_url, $kb_docs_url );
+			}
 		}
 
 		/**

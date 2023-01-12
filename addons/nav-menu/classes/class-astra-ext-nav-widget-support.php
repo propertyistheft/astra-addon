@@ -94,10 +94,9 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		 * @return void
 		 */
 		public function add_widget() {
-
 			$menu_item_id = sanitize_text_field( $_POST['menu_item_id'] );
 
-			check_ajax_referer( 'ast-drop-widget-' . $menu_item_id, 'security_nonce' );
+			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
 
 			if ( ! current_user_can( 'edit_theme_options' ) ) {
 				wp_die();
@@ -211,11 +210,14 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		 */
 		private function render_widget( $widget_id, $title ) {
 
+			$nonce = wp_create_nonce( 'ast-edit-widget-' . $widget_id );
+
 			$html  = '<div class="widget" title="' . esc_attr( $title ) . '" id="' . $widget_id . '" data-type="widget" data-id="' . $widget_id . '">';
 			$html .= '    <div class="widget-top">';
 			$html .= '        <div class="widget-title-action">';
 
 			$html .= '            <a class="widget-option widget-action item-edit" title="' . esc_attr__( 'Edit', 'astra-addon' ) . '"><span class="screen-reader-text">Edit</span></a>';
+			$html .= '            <input type="hidden" class="ast-nonce-field ast-edit-widget-nonce" name="ast-edit-widget-nonce-' . esc_attr( $widget_id ) . '" value="' . esc_attr( $nonce ) . '">';
 			$html .= '        </div>';
 			$html .= '        <div class="widget-title">';
 			$html .= '            <h4>' . esc_html( $title ) . '</h4>';
@@ -241,7 +243,9 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 				wp_die();
 			}
 
-			$widget_id = sanitize_text_field( $_POST['widget_id'] ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$widget_id = sanitize_text_field( $_POST['widget_id'] );
+
+			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
 
 			global $wp_registered_widget_controls;
 
@@ -258,7 +262,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 				<input type='hidden' name='id_base'   class="id_base" value='<?php echo esc_attr( $id_base ); ?>' />
 				<input type='hidden' name='widget_id' value='<?php echo esc_attr( $widget_id ); ?>' />
 				<input type='hidden' name='_wpnonce'  value='<?php echo esc_attr( $nonce ); ?>' />
-
 				<input type="hidden" class="ast-nonce-field ast-delete-widget-nonce" name="ast-delete-widget-nonce-<?php echo esc_attr( $widget_id ); ?>" value="<?php echo esc_attr( wp_create_nonce( 'ast-delete-widget-' . $widget_id ) ); ?>">
 
 				<div class='widget-content'>
@@ -323,7 +326,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 
 			$widget_id = sanitize_text_field( $_POST['widget_id'] );
 
-			check_ajax_referer( 'ast-delete-widget-' . $widget_id, 'security_nonce' );
+			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
 
 			$this->remove_widget_from_sidebar( $widget_id );
 			$this->remove_widget_instance( $widget_id );
@@ -390,7 +393,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 
 			$menu_item_id = sanitize_text_field( $_POST['menu_item_id'] );
 
-			check_ajax_referer( 'ast-render-widgets-' . $menu_item_id, 'security_nonce' );
+			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
 
 			if ( ! current_user_can( 'edit_theme_options' ) ) {
 				wp_die();

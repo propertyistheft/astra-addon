@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Nav_Menu_Below_Header_Typography' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'below-header-megamenu-heading-font-family' ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[below-header-megamenu-heading-font-weight]',
 				),
 
@@ -95,18 +95,24 @@ if ( ! class_exists( 'Astra_Nav_Menu_Below_Header_Typography' ) ) {
 					'name'        => 'below-header-megamenu-heading-font-size',
 					'parent'      => ASTRA_THEME_SETTINGS . '[below-header-megamenu-typography-styling]',
 					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra-addon' ),
+					'title'       => __( 'Font Size', 'astra-addon' ),
 					'type'        => 'sub-control',
 					'section'     => 'section-below-header',
-					'control'     => 'ast-responsive',
 					'responsive'  => false,
 					'default'     => astra_get_option( 'below-header-megamenu-heading-font-size' ),
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -120,7 +126,7 @@ if ( ! class_exists( 'Astra_Nav_Menu_Below_Header_Typography' ) ) {
 					'font_type'         => 'ast-font-weight',
 					'default'           => astra_get_option( 'below-header-megamenu-heading-font-weight' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'below-header-megamenu-heading-font-family',
 				),
 

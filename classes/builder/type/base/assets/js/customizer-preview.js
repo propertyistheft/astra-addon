@@ -541,14 +541,13 @@ function astra_addon_box_shadow_css( prefix, selector ) {
 function astra_addon_button_css( builder_type = 'header', button_count ) {
 
 	for ( var index = 1; index <= button_count; index++ ) {
-
 		(function (index) {
 			var selector = '.ast-' + builder_type + '-button-' + index + ' .ast-builder-button-wrap .ast-custom-button';
 
 			// Box Shadow CSS Generation.
 			astra_addon_box_shadow_css( builder_type + '-button' + index, selector );
+			astra_font_extras_css( builder_type + '-button' + index + '-font-extras', selector );
 		})(index);
-
 	}
 }
 

@@ -114,11 +114,10 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 		 * @since 1.6.0
 		 */
 		public function render_content( $post_id ) {
-
 			$current_post = get_post( $post_id, OBJECT );
 			ob_start();
 			echo do_shortcode( $current_post->post_content );
-			echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required to echo builder based content.
 		}
 
 		/**

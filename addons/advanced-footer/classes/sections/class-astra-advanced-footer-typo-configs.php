@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Typo_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[footer-adv-wgt-title-font-weight]',
 				),
 
@@ -81,14 +81,20 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Typo_Configs' ) ) {
 					'type'        => 'sub-control',
 					'parent'      => ASTRA_THEME_SETTINGS . '[footer-widget-title-typography-group]',
 					'section'     => 'section-footer-adv',
-					'title'       => __( 'Size', 'astra-addon' ),
-					'control'     => 'ast-responsive',
+					'title'       => __( 'Font Size', 'astra-addon' ),
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -101,7 +107,7 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Typo_Configs' ) ) {
 					'section'           => 'section-footer-adv',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'footer-adv-wgt-title-font-family',
 				),
 
@@ -169,7 +175,7 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Typo_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[footer-adv-wgt-content-font-weight]',
 				),
 
@@ -179,14 +185,20 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Typo_Configs' ) ) {
 					'type'        => 'sub-control',
 					'parent'      => ASTRA_THEME_SETTINGS . '[footer-widget-content-typography-group]',
 					'section'     => 'section-footer-adv',
-					'title'       => __( 'Size', 'astra-addon' ),
-					'control'     => 'ast-responsive',
+					'title'       => __( 'Font Size', 'astra-addon' ),
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -199,7 +211,7 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Typo_Configs' ) ) {
 					'section'           => 'section-footer-adv',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'footer-adv-wgt-content-font-family',
 				),
 

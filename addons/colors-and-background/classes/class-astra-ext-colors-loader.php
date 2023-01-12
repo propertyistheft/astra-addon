@@ -53,45 +53,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
-			if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
-
-				/**
-				* Body
-				*/
-				$defaults['content-bg-obj-responsive'] = array(
-					'desktop' => array(
-						'background-color'      => '#ffffff',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-						'background-type'       => '',
-						'background-media'      => '',
-					),
-					'tablet'  => array(
-						'background-color'      => '#ffffff',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-						'background-type'       => '',
-						'background-media'      => '',
-					),
-					'mobile'  => array(
-						'background-color'      => '#ffffff',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-						'background-type'       => '',
-						'background-media'      => '',
-					),
-				);
-			}
-
 			/**
 			* Heading Tags <h1> to <h6>
 			*/
@@ -267,11 +228,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			);
 
 			/**
-			* Single Post / Page Title
-			*/
-			$defaults['entry-title-color'] = '';
-
-			/**
 			* Sidebar
 			*/
 			$defaults['sidebar-bg-obj']             = array(
@@ -292,13 +248,10 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			/**
 			* Blog / Archive
 			*/
-			$defaults['archive-summary-box-bg-color']    = '';
-			$defaults['archive-summary-box-title-color'] = '';
-			$defaults['archive-summary-box-text-color']  = '';
-			$defaults['page-title-color']                = '';
-			$defaults['post-meta-color']                 = '';
-			$defaults['post-meta-link-color']            = '';
-			$defaults['post-meta-link-h-color']          = '';
+			$defaults['page-title-color']       = '';
+			$defaults['post-meta-color']        = '';
+			$defaults['post-meta-link-color']   = '';
+			$defaults['post-meta-link-h-color'] = '';
 
 			/**
 			* Footer
@@ -353,7 +306,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 				require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-primary-menu.php';
 			}
 			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-sidebar.php';
-			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-single.php';
 			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-header-builder.php';
 
 		}
@@ -372,17 +324,15 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			wp_enqueue_script( 'astra-ext-colors-customize-preview-js', ASTRA_ADDON_EXT_COLORS_URI . $js_path, array( 'customize-preview', 'astra-customizer-preview-js', 'astra-addon-customizer-preview-js' ), ASTRA_EXT_VER, true );
 
 			$localize_array = array(
-				'tablet_break_point'           => astra_addon_get_tablet_breakpoint(),
-				'mobile_break_point'           => astra_addon_get_mobile_breakpoint(),
-				'component_limit'              => astra_addon_builder_helper()->component_limit,
-				'astra_not_updated'            => version_compare( ASTRA_THEME_VERSION, '3.2.0', '<' ),
-				'is_content_bg_option_to_load' => astra_addon_has_gcp_typo_preset_compatibility(),
+				'tablet_break_point' => astra_addon_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_addon_get_mobile_breakpoint(),
+				'component_limit'    => astra_addon_builder_helper()->component_limit,
+				'astra_not_updated'  => version_compare( ASTRA_THEME_VERSION, '3.2.0', '<' ),
 			);
 
 			wp_localize_script( 'astra-ext-colors-customize-preview-js', 'astColors', $localize_array );
 
 		}
-
 	}
 }
 

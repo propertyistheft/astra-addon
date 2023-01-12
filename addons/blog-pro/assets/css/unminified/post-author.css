@@ -64,6 +64,6 @@
   }
 }
 
-.single.ast-plain-container .ast-single-author-box, .single.ast-page-builder-template .ast-single-author-box {
+.single.ast-plain-container .ast-single-author-box, .single.ast-page-builder-template .ast-single-author-box, .single.ast-narrow-container .ast-single-author-box {
   padding-top: 2em;
 }

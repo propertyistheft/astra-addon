@@ -41,83 +41,6 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 
 			$_configs = array(
 
-				/**
-				 * Option: Archive Summary Box - Title Font Family
-				 */
-				array(
-					'name'      => 'font-family-archive-summary-title',
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
-					'section'   => 'section-blog',
-					'type'      => 'sub-control',
-					'control'   => 'ast-font',
-					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
-					'default'   => astra_get_option( 'font-family-archive-summary-title' ),
-					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-archive-summary-title]',
-					'priority'  => 7,
-				),
-
-				/**
-				 * Option: Archive Summary Box Title Font Weight
-				 */
-				array(
-					'name'              => 'font-weight-archive-summary-title',
-					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
-					'section'           => 'section-blog',
-					'type'              => 'sub-control',
-					'control'           => 'ast-font',
-					'font_type'         => 'ast-font-weight',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'font-weight-archive-summary-title' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'connect'           => 'font-family-archive-summary-title',
-					'priority'          => 11,
-				),
-
-				/**
-				 * Option: Archive Summary Box Title Line Height
-				 */
-				array(
-					'name'              => 'line-height-archive-summary-title',
-					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
-					'section'           => 'section-blog',
-					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'line-height-archive-summary-title' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'type'              => 'sub-control',
-					'control'           => 'ast-slider',
-					'priority'          => 30,
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Archive Summary Box Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-archive-summary-title',
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
-					'section'   => 'section-blog',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'transport' => 'postMessage',
-					'type'      => 'sub-control',
-					'control'   => 'ast-select',
-					'default'   => astra_get_option( 'text-transform-archive-summary-title' ),
-					'priority'  => 12,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
 					'default'   => astra_get_option( 'blog-content-post-meta-typo' ),
@@ -145,6 +68,19 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+					'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Post Title Font', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 140,
+					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+				),
+
 				/**
 				 * Option: Blog - Post Title Font Family
 				 */
@@ -156,9 +92,10 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-page-title' ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-page-title]',
 					'priority'  => 1,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -173,53 +110,53 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'font-weight-page-title' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-page-title',
-					'priority'          => 3,
+					'priority'          => 1,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
-				 * Option: Blog - Post Title Line Height
+				 * Option: Blog - Post Title Font Size
 				 */
 				array(
-					'name'              => 'line-height-page-title',
+					'name'              => 'font-size-page-title',
 					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
-					'section'           => 'section-blog',
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'default'           => astra_get_option( 'line-height-page-title' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'type'              => 'sub-control',
-					'control'           => 'ast-slider',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => 'section-blog',
 					'transport'         => 'postMessage',
-					'priority'          => 6,
-					'suffix'            => 'em',
+					'title'             => __( 'Font Size', 'astra-addon' ),
+					'priority'          => 2,
+					'default'           => astra_get_option( 'font-size-page-title' ),
+					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
 				/**
-				 * Option: Blog - Post Title Text Transform
+				 * Option: Blog - Post Title Font Extras
 				 */
 				array(
-					'name'      => 'text-transform-page-title',
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
-					'section'   => 'section-blog',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'default'   => astra_get_option( 'text-transform-page-title' ),
-					'transport' => 'postMessage',
-					'type'      => 'sub-control',
-					'control'   => 'ast-select',
-					'priority'  => 4,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
+					'name'     => 'font-extras-page-title',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-blog',
+					'priority' => 30,
+					'default'  => astra_get_option( 'font-extras-page-title' ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 
 				/**
@@ -233,9 +170,28 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-post-meta' ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-meta]',
 					'priority'  => 5,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Post Meta Font Weight
+				 */
+				array(
+					'name'              => 'font-weight-post-meta',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
+					'section'           => 'section-blog',
+					'type'              => 'sub-control',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'font-weight-post-meta' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'connect'           => 'font-family-post-meta',
+					'priority'          => 5,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -250,7 +206,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'type'              => 'sub-control',
 					'transport'         => 'postMessage',
-					'title'             => __( 'Size', 'astra-addon' ),
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'priority'          => 5,
 					'default'           => astra_get_option( 'font-size-post-meta' ),
 					'suffix'            => array( 'px', 'em' ),
@@ -269,64 +225,17 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Post Meta Font Weight
+				 * Option: Post Meta Font Extras
 				 */
 				array(
-					'name'              => 'font-weight-post-meta',
-					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
-					'section'           => 'section-blog',
-					'type'              => 'sub-control',
-					'control'           => 'ast-font',
-					'font_type'         => 'ast-font-weight',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'font-weight-post-meta' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'connect'           => 'font-family-post-meta',
-					'priority'          => 5,
-				),
-
-				/**
-				 * Option: Post Meta Line Height
-				 */
-				array(
-					'name'              => 'line-height-post-meta',
-					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
-					'section'           => 'section-blog',
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'type'              => 'sub-control',
-					'control'           => 'ast-slider',
-					'default'           => astra_get_option( 'line-height-post-meta' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'transport'         => 'postMessage',
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-					'priority'          => 7,
-				),
-
-				/**
-				 * Option: Post Meta Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-post-meta',
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
-					'section'   => 'section-blog',
-					'type'      => 'sub-control',
-					'control'   => 'ast-select',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'default'   => astra_get_option( 'text-transform-post-meta' ),
-					'transport' => 'postMessage',
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-					'priority'  => 5,
+					'name'     => 'font-extras-post-meta',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-blog',
+					'priority' => 7,
+					'default'  => astra_get_option( 'font-extras-post-meta' ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 
 				/**
@@ -349,6 +258,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
 					),
 					'priority'  => 6,
+					'divider'   => array( 'ast_class' => 'ast-sub-top-dotted-divider' ),
 				),
 
 				/**
@@ -363,7 +273,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'section-blog',
 					'transport'         => 'postMessage',
-					'title'             => __( 'Size', 'astra-addon' ),
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'priority'          => 5,
 					'default'           => astra_get_option( 'font-size-post-pagination' ),
 					'suffix'            => array( 'px', 'em' ),

@@ -10,7 +10,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 	/**
 	 * Meta Boxes setup
 	 */
-	class Astra_Ext_Advanced_Headers_Meta { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Advanced_Headers_Meta {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
 
 		/**
 		 * Instance
@@ -90,12 +91,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				$current_tab = isset( $_POST['advanced-headers-current-tab'] ) ? esc_attr( $_POST['advanced-headers-current-tab'] ) : '';
 
 				if ( '' !== $current_tab ) {
-					$location = esc_url_raw( add_query_arg(
-						array(
-							'current-tab' => $current_tab,
-						),
-						$location
-					) );
+					$location = esc_url_raw(
+						add_query_arg(
+							array(
+								'current-tab' => $current_tab,
+							),
+							$location
+						)
+					);
 				}
 			}
 
@@ -109,11 +112,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 		 * @since  1.0.0
 		 */
 		public function menu_highlight() {
-			global $parent_file, $submenu_file, $post_type;
+			global $post_type;
 			if ( 'astra_adv_header' == $post_type ) :
-				$parent_file  = 'themes.php'; // phpcs:ignoreFile WordPress.WP.GlobalVariablesOverride.Prohibited
-				$submenu_file = 'edit.php?post_type=astra_adv_header'; // phpcs:ignoreFile WordPress.WP.GlobalVariablesOverride.Prohibited
-
 				/* Same display rule assign notice */
 				$option = array(
 					'location'  => 'ast-advanced-headers-location',
@@ -122,7 +122,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				);
 				Astra_Target_Rules_Fields::same_display_on_notice( 'astra_adv_header', $option );
 			endif;
-
 		}
 
 
@@ -194,7 +193,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							'below-header-text-link-color' => '',
 							'below-header-h-color'         => '',
 							'below-header-a-color'         => '',
-							'below-header-submenu-bg-color'=> '',
+							'below-header-submenu-bg-color' => '',
 							'below-header-submenu-link-color' => '',
 							'below-header-submenu-h-color' => '',
 							'below-header-submenu-a-color' => '',
@@ -326,62 +325,62 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				'below-header-enabled'       => $default_below_header,
 			);
 			$ast_advanced_headers_design = ( isset( $meta['ast-advanced-headers-design']['default'] ) ) ? $meta['ast-advanced-headers-design']['default'] : array(
-				'title-color'                   => '#ffffff',
-				'b-text-color'                  => '',
-				'b-link-color'                  => '',
-				'b-link-hover-color'            => '',
-				'background-color'              => 'rgba(44,62,80,0.50)',
-				'bg-image-id'                   => '',
-				'bg-image'                      => '',
-				'page-post-featured'            => 'enabled',
-				'logo-id'                       => '',
-				'logo-url'                      => '',
-				'retina-logo-id'                => '',
-				'retina-logo-url'               => '',
-				'header-logo-width'             => '',
-				'header-bg-color'               => '',
-				'site-title-color'              => '',
-				'site-title-h-color'            => '',
-				'site-tagline-color'            => '',
-				'primary-menu-bg-color'         => '',
-				'primary-menu-color'            => '',
-				'primary-menu-h-color'          => '',
-				'primary-menu-a-color'          => '',
-				'primary-submenu-bg-color'      => '',
-				'primary-submenu-color'         => '',
-				'primary-submenu-h-color'       => '',
-				'primary-submenu-a-color'       => '',
+				'title-color'                     => '#ffffff',
+				'b-text-color'                    => '',
+				'b-link-color'                    => '',
+				'b-link-hover-color'              => '',
+				'background-color'                => 'rgba(44,62,80,0.50)',
+				'bg-image-id'                     => '',
+				'bg-image'                        => '',
+				'page-post-featured'              => 'enabled',
+				'logo-id'                         => '',
+				'logo-url'                        => '',
+				'retina-logo-id'                  => '',
+				'retina-logo-url'                 => '',
+				'header-logo-width'               => '',
+				'header-bg-color'                 => '',
+				'site-title-color'                => '',
+				'site-title-h-color'              => '',
+				'site-tagline-color'              => '',
+				'primary-menu-bg-color'           => '',
+				'primary-menu-color'              => '',
+				'primary-menu-h-color'            => '',
+				'primary-menu-a-color'            => '',
+				'primary-submenu-bg-color'        => '',
+				'primary-submenu-color'           => '',
+				'primary-submenu-h-color'         => '',
+				'primary-submenu-a-color'         => '',
 
-				'above-header-bg-color'         => '',
-				'above-header-text-link-color'  => '',
-				'above-header-h-color'          => '',
-				'above-header-a-color'         => '',
-				'above-header-submenu-bg-color' => '',
+				'above-header-bg-color'           => '',
+				'above-header-text-link-color'    => '',
+				'above-header-h-color'            => '',
+				'above-header-a-color'            => '',
+				'above-header-submenu-bg-color'   => '',
 				'above-header-submenu-link-color' => '',
-				'above-header-submenu-h-color' => '',
-				'above-header-submenu-a-color' => '',
+				'above-header-submenu-h-color'    => '',
+				'above-header-submenu-a-color'    => '',
 
-				'below-header-bg-color'         => '',
-				'below-header-text-link-color'  => '',
-				'below-header-h-color'          => '',
-				'below-header-a-color'         => '',
-				'below-header-submenu-bg-color'=> '',
+				'below-header-bg-color'           => '',
+				'below-header-text-link-color'    => '',
+				'below-header-h-color'            => '',
+				'below-header-a-color'            => '',
+				'below-header-submenu-bg-color'   => '',
 				'below-header-submenu-link-color' => '',
-				'below-header-submenu-h-color' => '',
-				'below-header-submenu-a-color' => '',
+				'below-header-submenu-h-color'    => '',
+				'below-header-submenu-a-color'    => '',
 
-				'header-main-sep'               => '',
-				'header-main-sep-color'         => '',
-				'bg-size'                       => 'custom-bg-size',
-				'bg-custom-size-top-padding'    => '5',
-				'bg-custom-size-bottom-padding' => '5',
-				'parallax-device'               => 'none',
-				'overlay-bg-color'              => '',
-				'custom-menu'                   => '',
-				'custom-menu-item'              => 'default',
-				'custom-menu-item-outside'      => '',
-				'custom-menu-item-text-html'    => '',
-				'search-style'                  => 'default',
+				'header-main-sep'                 => '',
+				'header-main-sep-color'           => '',
+				'bg-size'                         => 'custom-bg-size',
+				'bg-custom-size-top-padding'      => '5',
+				'bg-custom-size-bottom-padding'   => '5',
+				'parallax-device'                 => 'none',
+				'overlay-bg-color'                => '',
+				'custom-menu'                     => '',
+				'custom-menu-item'                => 'default',
+				'custom-menu-item-outside'        => '',
+				'custom-menu-item-text-html'      => '',
+				'search-style'                    => 'default',
 			);
 
 			$display_locations = ( isset( $meta['ast-advanced-headers-location']['default'] ) ) ? $meta['ast-advanced-headers-location']['default'] : '';
@@ -391,29 +390,29 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 			// settings added after published/updated the meta.
 			$unsaved_array           = array();
 			$independent_addon_array = array(
-				'site-title-color'             => '',
-				'site-title-h-color'           => '',
-				'site-tagline-color'           => '',
+				'site-title-color'                => '',
+				'site-title-h-color'              => '',
+				'site-tagline-color'              => '',
 
-				'above-header-bg-color'        => '',
-				'above-header-text-link-color' => '',
-				'above-header-h-color'         => '',
-				'above-header-a-color'         => '',
-				'above-header-submenu-bg-color' => '',
+				'above-header-bg-color'           => '',
+				'above-header-text-link-color'    => '',
+				'above-header-h-color'            => '',
+				'above-header-a-color'            => '',
+				'above-header-submenu-bg-color'   => '',
 				'above-header-submenu-link-color' => '',
-				'above-header-submenu-h-color' => '',
-				'above-header-submenu-a-color' => '',
+				'above-header-submenu-h-color'    => '',
+				'above-header-submenu-a-color'    => '',
 
-				'below-header-bg-color'        => '',
-				'below-header-text-link-color' => '',
-				'below-header-h-color'         => '',
-				'below-header-a-color'         => '',
-				'below-header-submenu-bg-color'=> '',
+				'below-header-bg-color'           => '',
+				'below-header-text-link-color'    => '',
+				'below-header-h-color'            => '',
+				'below-header-a-color'            => '',
+				'below-header-submenu-bg-color'   => '',
 				'below-header-submenu-link-color' => '',
-				'below-header-submenu-h-color' => '',
-				'below-header-submenu-a-color' => '',
+				'below-header-submenu-h-color'    => '',
+				'below-header-submenu-a-color'    => '',
 
-				'custom-menu-item'             => '',
+				'custom-menu-item'                => '',
 			);
 
 			foreach ( $independent_addon_array as $key => $value ) {
@@ -465,7 +464,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							}
 
 							$class       = '';
-							$current_tab = isset( $_GET['current-tab'] ) ? esc_attr( $_GET['current-tab'] ) : '';
+							$current_tab = isset( $_GET['current-tab'] ) ? esc_attr( $_GET['current-tab'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Required for admin tabgroup active tab.
 
 							if ( '' != $current_tab && 'ast-adv-headers-tab-' . esc_attr( $slug ) == $current_tab ) {
 								$class = 'nav-tab-active';
@@ -984,12 +983,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				</tr>
 
 				<?php
-				if ( astra_addon_check_theme_3_5_0_version() ) {
-					$site_title = astra_get_option( 'display-site-title' );
-				}else{
-					$site_title_setting = astra_get_option( 'display-site-title-responsive' );
-					$site_title         = ( $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ) ? true : false;
-				}
+				$site_title_setting = astra_get_option( 'display-site-title-responsive' );
+				$site_title         = ( $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ) ? true : false;
 				if ( $site_title ) {
 					?>
 					<tr class="ast-advanced-headers-row">
@@ -1014,12 +1009,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					</tr>
 					<?php
 				}
-				if ( astra_addon_check_theme_3_5_0_version() ) {
-					$display_site_tagline = astra_get_option( 'display-site-tagline' );
-				}else{
-					$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );
-					$display_site_tagline         = ( $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ) ? true : false;
-				}
+				$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );
+				$display_site_tagline = ( $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ) ? true : false;
 				if ( $display_site_tagline ) {
 					?>
 
@@ -1610,12 +1601,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				</tr>
 
 				<?php
-				if ( astra_addon_check_theme_3_5_0_version() ) {
-					$site_title = astra_get_option( 'display-site-title' );
-				}else{
-					$site_title_setting = astra_get_option( 'display-site-title-responsive' );
-					$site_title         = ( $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ) ? true : false;
-				}
+				$site_title_setting = astra_get_option( 'display-site-title-responsive' );
+				$site_title         = ( $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ) ? true : false;
 				if ( $site_title ) {
 					?>
 					<tr class="ast-advanced-headers-row">
@@ -1640,12 +1627,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					</tr>
 					<?php
 				}
-				if ( astra_addon_check_theme_3_5_0_version() ) {
-					$display_site_tagline = astra_get_option( 'display-site-tagline' );
-				}else{
-					$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );
-					$display_site_tagline         = ( $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ) ? true : false;
-				}
+				$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );
+				$display_site_tagline = ( $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ) ? true : false;
 				if ( $display_site_tagline ) {
 					?>
 
@@ -2136,6 +2119,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 		 * @return array
 		 */
 		public static function logo_image_sizes( $sizes, $metadata ) {
+
+			$is_valid_nonce = ( isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( $_POST['astra-advanced-headers'], basename( __FILE__ ) ) ) ? true : false;
+
+			if ( ! $is_valid_nonce ) {
+				return;
+			}
 
 			$logo_width = sanitize_key( $_POST['ast-advanced-headers-design']['header-logo-width'] );
 

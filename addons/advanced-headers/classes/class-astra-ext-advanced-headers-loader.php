@@ -45,9 +45,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-
 			add_action( 'init', array( $this, 'advanced_headers_post_type' ) );
-			add_action( 'admin_menu', array( $this, 'register_admin_menu' ), 100 );
+			add_action( 'in_admin_header', array( $this, 'ast_advanced_admin_top_header' ) );
 			add_filter( 'postbox_classes_astra_adv_header_astra_advanced_headers_settings', array( $this, 'add_class_to_metabox' ) );
 
 			add_filter( 'post_updated_messages', array( $this, 'custom_post_type_post_update_messages' ) );
@@ -201,25 +200,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 		}
 
 		/**
-		 * Register the admin menu for Page Headers
-		 *
-		 * @since  1.2.1
-		 *         Moved the menu under Appearance -> Page Headers
-		 */
-		public function register_admin_menu() {
-
-			$page_header_capability = apply_filters( 'astra_page_header_capability', 'edit_theme_options' );
-
-			add_submenu_page(
-				'themes.php',
-				__( 'Page Headers', 'astra-addon' ),
-				__( 'Page Headers', 'astra-addon' ),
-				$page_header_capability,
-				'edit.php?post_type=astra_adv_header'
-			);
-		}
-
-		/**
 		 * Enqueues scripts and styles for the theme layout
 		 * post type on the WordPress admin edit post screen.
 		 *
@@ -233,7 +213,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && 'astra_adv_header' == $screen->post_type ) {
+			if ( ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && 'astra_adv_header' == $screen->post_type ) ||
+			( 'astra_adv_header' == $screen->post_type && 'edit.php' === $pagenow ) ) {
 				$rtl = '';
 				if ( is_rtl() ) {
 					$rtl = '-rtl';
@@ -282,6 +263,43 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 
 					wp_enqueue_script( 'astra-advanced-headers-admin', ASTRA_ADDON_EXT_ADVANCED_HEADERS_URL . 'assets/js/minified/astra-advanced-headers-admin.min.js', array( 'jquery', 'wp-color-picker', 'astra-color-alpha', 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
 				}
+
+				wp_localize_script(
+					'astra-advanced-headers-admin',
+					'astraPageHeaderVars',
+					apply_filters(
+						'astra_addon_page_headers_edit_localization',
+						array(
+							'home_slug' => apply_filters( 'astra_theme_page_slug', 'astra' ),
+						)
+					)
+				);
+			}
+
+			if ( 'astra_adv_header' == $screen->post_type && 'edit.php' === $pagenow ) {
+				wp_enqueue_style( 'astra-admin-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap', array(), ASTRA_EXT_VER ); // Styles.
+
+				if ( defined( 'ASTRA_THEME_ADMIN_URL' ) && ASTRA_THEME_ADMIN_URL ) {
+					wp_enqueue_style( 'astra-admin-dashboard-app', ASTRA_THEME_ADMIN_URL . 'assets/build/dashboard-app.css', null, ASTRA_EXT_VER );
+				}
+				wp_enqueue_style( 'astra-addon-admin-dashboard-app', ASTRA_EXT_URI . 'admin/core/assets/css/admin-custom.css', null, ASTRA_EXT_VER );
+			}
+		}
+
+		/**
+		 * HTML Template for custom layout header preview.
+		 *
+		 * @since 4.0.0
+		 */
+		public function ast_advanced_admin_top_header() {
+			$screen = get_current_screen();
+			global $pagenow;
+			if ( 'astra_adv_header' === $screen->post_type && 'edit.php' === $pagenow ) {
+				$title       = __( 'Page Headers', 'astra-addon' );
+				$tabs        = false;
+				$button_url  = '/post-new.php?post_type=astra_adv_header';
+				$kb_docs_url = 'https://wpastra.com/docs-category/astra-pro-modules/page-headers/?utm_source=wp&utm_medium=dashboard';
+				Astra_Addon_Admin_Loader::admin_dashboard_header( $title, $tabs, $button_url, $kb_docs_url );
 			}
 		}
 

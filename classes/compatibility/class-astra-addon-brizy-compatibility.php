@@ -127,7 +127,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 				'wp_head',
 				function() use ( $post ) {
 					$html = new Brizy_Editor_CompiledHtml( $post->get_compiled_html() );
-					echo $html->get_head(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo $html->get_head(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required for processing compiled markup content.
 				}
 			);
 

@@ -29,16 +29,12 @@ class Astra_Addon_Colors_Dynamic_CSS {
 	 */
 	public function astra_ext_colors_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-		$blog_layout           = astra_get_option( 'blog-layout' );
-		$blog_grid             = astra_get_option( 'blog-grid' );
-		$site_container_layout = astra_get_option( 'site-content-layout' );
-		$link_color            = astra_get_option( 'link-color' );
-		$h1_color              = astra_get_option( 'h1-color' );
-		$h2_color              = astra_get_option( 'h2-color' );
-		$h3_color              = astra_get_option( 'h3-color' );
-		$h4_color              = astra_get_option( 'h4-color' );
-		$h5_color              = astra_get_option( 'h5-color' );
-		$h6_color              = astra_get_option( 'h6-color' );
+		$h1_color = astra_get_option( 'h1-color' );
+		$h2_color = astra_get_option( 'h2-color' );
+		$h3_color = astra_get_option( 'h3-color' );
+		$h4_color = astra_get_option( 'h4-color' );
+		$h5_color = astra_get_option( 'h5-color' );
+		$h6_color = astra_get_option( 'h6-color' );
 
 		$header_bg_obj           = astra_get_option( 'header-bg-obj-responsive' );
 		$desktop_header_bg_color = isset( $header_bg_obj['desktop']['background-color'] ) ? $header_bg_obj['desktop']['background-color'] : '';
@@ -61,12 +57,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		$primary_submenu_a_bg_color = astra_get_option( 'primary-submenu-a-bg-color-responsive' );
 		$primary_submenu_a_color    = astra_get_option( 'primary-submenu-a-color-responsive' );
 
-		$entry_title_color = astra_get_option( 'entry-title-color' );
-		$page_title_color  = astra_get_option( 'page-title-color' );
-
-		$archive_summary_bg_color    = astra_get_option( 'archive-summary-box-bg-color' );
-		$archive_summary_title_color = astra_get_option( 'archive-summary-box-title-color' );
-		$archive_summary_text_color  = astra_get_option( 'archive-summary-box-text-color' );
+		$page_title_color = astra_get_option( 'page-title-color' );
 
 		$post_meta_color        = astra_get_option( 'post-meta-color' );
 		$post_meta_link_color   = astra_get_option( 'post-meta-link-color' );
@@ -84,7 +75,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		$header_break_point  = astra_header_break_point(); // Header Break Point.
 
 		/**
-		 * Normal Colors without reponsive option.
+		 * Normal Colors without responsive option.
 		 * [1]. Header Colors
 		 * [2]. Content Colors
 		 *      - Single Post / Page Title Colors
@@ -99,7 +90,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		 */
 
 		/**
-		 * Normal Colors without reponsive option.
+		 * Normal Colors without responsive option.
 		 * [1]. Header Colors
 		 * [2]. Content Colors
 		 *      - Single Post / Page Title Color
@@ -113,46 +104,39 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			/**
 			 * Content <h1> to <h6> headings
 			 */
-			'h1, .entry-content h1'                      => array(
+			'h1, .entry-content h1'      => array(
 				'color' => esc_attr( $h1_color ),
 			),
-			'h2, .entry-content h2'                      => array(
+			'h2, .entry-content h2'      => array(
 				'color' => esc_attr( $h2_color ),
 			),
-			'h3, .entry-content h3'                      => array(
+			'h3, .entry-content h3'      => array(
 				'color' => esc_attr( $h3_color ),
 			),
-			'h4, .entry-content h4'                      => array(
+			'h4, .entry-content h4'      => array(
 				'color' => esc_attr( $h4_color ),
 			),
-			'h5, .entry-content h5'                      => array(
+			'h5, .entry-content h5'      => array(
 				'color' => esc_attr( $h5_color ),
 			),
-			'h6, .entry-content h6'                      => array(
+			'h6, .entry-content h6'      => array(
 				'color' => esc_attr( $h6_color ),
-			),
-
-			/**
-			 * Single Post / Page Title Color
-			 */
-			'.ast-single-post .entry-title, .page-title' => array(
-				'color' => esc_attr( $entry_title_color ),
 			),
 
 			/**
 			 * Sidebar
 			 */
-			'.sidebar-main'                              => astra_get_background_obj( $sidebar_bg_obj ),
+			'.sidebar-main'              => astra_get_background_obj( $sidebar_bg_obj ),
 			'.secondary .widget-title, .secondary .widget-title *' => array(
 				'color' => esc_attr( $sidebar_wgt_title_color ),
 			),
-			'.secondary'                                 => array(
+			'.secondary'                 => array(
 				'color' => esc_attr( $sidebar_text_color ),
 			),
-			'.secondary a'                               => array(
+			'.secondary a'               => array(
 				'color' => esc_attr( $sidebar_link_color ),
 			),
-			'.secondary a:hover'                         => array(
+			'.secondary a:hover'         => array(
 				'color' => esc_attr( $sidebar_link_h_color ),
 			),
 			'.secondary .tagcloud a:hover, .secondary .tagcloud a.current-item' => array(
@@ -166,7 +150,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			/**
 			 * Blog / Archive Title
 			 */
-			'.entry-title a'                             => array(
+			'.entry-title a'             => array(
 				'color' => esc_attr( $page_title_color ),
 			),
 
@@ -180,126 +164,27 @@ class Astra_Addon_Colors_Dynamic_CSS {
 				'color' => esc_attr( $post_meta_link_color ),
 			),
 
-			'.entry-meta, .entry-meta *'                 => array(
+			'.entry-meta, .entry-meta *' => array(
 				'color' => esc_attr( $post_meta_color ),
 			),
 
 			/**
 			 * Footer
 			 */
-			'.ast-small-footer'                          => array(
+			'.ast-small-footer'          => array(
 				'color' => esc_attr( $footer_color ),
 			),
-			'.ast-small-footer a'                        => array(
+			'.ast-small-footer a'        => array(
 				'color' => esc_attr( $footer_link_color ),
 			),
-			'.ast-small-footer a:hover'                  => array(
+			'.ast-small-footer a:hover'  => array(
 				'color' => esc_attr( $footer_link_h_color ),
 			),
 
 		);
 
-		/**
-		 * Restricting this CSS to load because we introduced color controls in theme directly for Site Title & Tagline.
-		 *
-		 * @since 3.5.0
-		 */
-		if ( astra_addon_check_theme_3_5_0_version() ) {
-			$header_color_site_title   = astra_get_option( 'header-color-site-title' );
-			$header_color_h_site_title = astra_get_option( 'header-color-h-site-title' );
-			$header_color_site_tagline = astra_get_option( 'header-color-site-tagline' );
-			/**
-			 * Header
-			 */
-			$css_output['.site-title a, .site-title a:focus, .site-title a:hover, .site-title a:visited'] = array(
-				'color' => esc_attr( $header_color_site_title ),
-			);
-			$css_output['.site-header .site-title a:hover'] = array(
-				'color' => esc_attr( $header_color_h_site_title ),
-			);
-			$css_output['.site-header .site-description']   = array(
-				'color' => esc_attr( $header_color_site_tagline ),
-			);
-		}
-
 		/* Parse CSS from array() */
 		$css_output = astra_parse_css( $css_output );
-
-		// Container Layout Colors.
-		$separate_container_css = array(
-
-			/**
-			 * Archive Summary Background Color
-			 */
-			'.ast-separate-container .ast-archive-description' => array(
-				'background-color' => esc_attr( $archive_summary_bg_color ),
-			),
-
-			'.ast-archive-description'             => array(
-				'color' => esc_attr( $archive_summary_text_color ),
-			),
-
-			'.ast-archive-description .page-title' => array(
-				'color' => esc_attr( $archive_summary_title_color ),
-			),
-		);
-
-		if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
-
-			$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
-
-			$separate_container_css['.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comment-respond,.ast-separate-container .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content'] = astra_get_responsive_background_obj( $content_bg_obj, 'desktop' );
-
-			// Container Layout Colors.
-			$separate_container_css_tablet = array(
-				'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comment-respond,.ast-separate-container .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
-			);
-			// Container Layout Colors.
-			$separate_container_css_mobile = array(
-				'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comment-respond,.ast-separate-container .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
-			);
-
-			// Blog Pro Layout Colors.
-			if ( 'blog-layout-1' == $blog_layout && 1 != $blog_grid ) {
-				$blog_layouts        = array(
-					'.ast-separate-container .blog-layout-1, .ast-separate-container .blog-layout-2, .ast-separate-container .blog-layout-3' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
-				);
-				$blog_layouts_tablet = array(
-					'.ast-separate-container .blog-layout-1, .ast-separate-container .blog-layout-2, .ast-separate-container .blog-layout-3' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
-				);
-				$blog_layouts_mobile = array(
-					'.ast-separate-container .blog-layout-1, .ast-separate-container .blog-layout-2, .ast-separate-container .blog-layout-3' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
-				);
-			} else {
-				$blog_layouts        = array(
-					'.ast-separate-container .ast-article-post' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
-				);
-				$blog_layouts_tablet = array(
-					'.ast-separate-container .ast-article-post' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
-				);
-				$blog_layouts_mobile = array(
-					'.ast-separate-container .ast-article-post' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
-				);
-				$inner_layout        = array(
-					'.ast-separate-container .blog-layout-1, .ast-separate-container .blog-layout-2, .ast-separate-container .blog-layout-3' => array(
-						'background-color' => 'transparent',
-						'background-image' => 'none',
-					),
-				);
-				$css_output         .= astra_parse_css( $inner_layout );
-			}
-
-			$css_output .= astra_parse_css( $blog_layouts );
-			$css_output .= astra_parse_css( $blog_layouts_tablet, '', astra_addon_get_tablet_breakpoint() );
-			$css_output .= astra_parse_css( $blog_layouts_mobile, '', astra_addon_get_mobile_breakpoint() );
-		}
-
-		$css_output .= astra_parse_css( $separate_container_css );
-
-		if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
-			$css_output .= astra_parse_css( $separate_container_css_tablet, '', astra_addon_get_tablet_breakpoint() );
-			$css_output .= astra_parse_css( $separate_container_css_mobile, '', astra_addon_get_mobile_breakpoint() );
-		}
 
 		// Sidebar Foreground color.
 		if ( ! empty( $sidebar_link_color ) ) {

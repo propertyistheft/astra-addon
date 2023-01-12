@@ -30,6 +30,29 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 		// @codingStandardsIgnoreEnd
 
 		/**
+		 * Get the customizer defaults for font-extras control.
+		 *
+		 * @param string $font_extras_key Font extras key.
+		 * @param string $line_height_key Line height key.
+		 * @param string $text_transform_key Text transform key.
+		 * @return array
+		 *
+		 * @since 4.0.0
+		 */
+		private function get_font_extras_default( $font_extras_key, $line_height_key, $text_transform_key ) {
+			$astra_options = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
+
+			return array(
+				'line-height'         => ! isset( $astra_options[ $font_extras_key ] ) && isset( $astra_options[ $line_height_key ] ) ? $astra_options[ $line_height_key ] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options[ $font_extras_key ] ) && isset( $astra_options[ $text_transform_key ] ) ? $astra_options[ $text_transform_key ] : '',
+				'text-decoration'     => '',
+			);
+		}
+
+		/**
 		 * Get the configs for the typos.
 		 *
 		 * @param string $_section section id.
@@ -50,10 +73,11 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $_section,
 					'font_type' => 'ast-font-weight',
 					'type'      => 'sub-control',
-					'default'   => astra_get_option( 'font-weight-' . $_section ),
-					'title'     => __( 'Weight', 'astra-addon' ),
+					'default'   => astra_get_option( 'font-weight-' . $_section, 'inherit' ),
+					'title'     => __( 'Font Weight', 'astra-addon' ),
 					'priority'  => 14,
 					'connect'   => 'font-family-' . $_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -66,175 +90,28 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $_section,
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'default'   => astra_get_option( 'font-family-' . $_section ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'default'   => astra_get_option( 'font-family-' . $_section, 'inherit' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 13,
 					'connect'   => 'font-weight-' . $_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
-				 * Option: Line Height.
+				 * Option: Font Extras
 				 */
 				array(
-					'name'              => 'line-height-' . $_section,
-					'type'              => 'sub-control',
-					'parent'            => $parent,
-					'section'           => $_section,
-					'default'           => astra_get_option( 'line-height-' . $_section ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'transport'         => 'postMessage',
-					'control'           => 'ast-slider',
-					'priority'          => 17,
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-' . $_section,
-					'type'      => 'sub-control',
-					'parent'    => $parent,
-					'section'   => $_section,
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'text-transform-' . $_section ),
-					'control'   => 'ast-select',
-					'priority'  => 16,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
+					'name'     => 'font-extras-' . $_section,
+					'parent'   => $parent,
+					'section'  => $_section,
+					'type'     => 'sub-control',
+					'control'  => 'ast-font-extras',
+					'priority' => 17,
+					'default'  => astra_get_option( 'font-extras-' . $_section, $this->get_font_extras_default( 'font-extras-' . $_section, 'line-height-' . $_section, 'text-transform-' . $_section ) ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 			);
 		}
-
-
-		/**
-		 * Get the configs for the typos by builder.
-		 *
-		 * @param string $_section section id.
-		 * @param string $_prefix sub control.
-		 * @return array
-		 */
-		private function get_typo_configs_by_builder_type( $_section, $_prefix ) {
-			return array(
-
-				/**
-				 * Option: Primary Header Button Font Family
-				 */
-				array(
-					'name'      => $_prefix . '-font-family',
-					'default'   => astra_get_option( $_prefix . '-font-family' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'type'      => 'sub-control',
-					'section'   => $_section,
-					'control'   => 'ast-font',
-					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
-					'context'   => astra_addon_builder_helper()->general_tab,
-					'connect'   => $_prefix . '-font-weight',
-					'priority'  => 1,
-				),
-
-				/**
-				 * Option: Primary Footer Button Font Weight
-				 */
-				array(
-					'name'              => $_prefix . '-font-weight',
-					'default'           => astra_get_option( $_prefix . '-font-weight' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'type'              => 'sub-control',
-					'section'           => $_section,
-					'control'           => 'ast-font',
-					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'connect'           => $_prefix . '-font-family',
-					'priority'          => 3,
-					'context'           => astra_addon_builder_helper()->general_tab,
-				),
-
-				/**
-				 * Option: Primary Footer Button Text Transform
-				 */
-				array(
-					'name'      => $_prefix . '-text-transform',
-					'default'   => astra_get_option( $_prefix . '-text-transform' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'type'      => 'sub-control',
-					'section'   => $_section,
-					'control'   => 'ast-select',
-					'priority'  => 3,
-					'context'   => astra_addon_builder_helper()->general_tab,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
-				 * Option: Primary Footer Button Line Height
-				 */
-				array(
-					'name'              => $_prefix . '-line-height',
-					'default'           => astra_get_option( $_prefix . '-line-height' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'section'           => $_section,
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'suffix'            => 'em',
-					'context'           => astra_addon_builder_helper()->general_tab,
-					'priority'          => 4,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Primary Footer Button Letter Spacing
-				 */
-				array(
-					'name'              => $_prefix . '-letter-spacing',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'default'           => astra_get_option( $_prefix . '-letter-spacing' ),
-					'section'           => $_section,
-					'title'             => __( 'Letter Spacing', 'astra-addon' ),
-					'suffix'            => 'px',
-					'priority'          => 5,
-					'context'           => astra_addon_builder_helper()->general_tab,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-			);
-		}
-
 
 		/**
 		 * Get the widget configs for the typos by builder.
@@ -258,7 +135,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $_section,
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'context'   => astra_addon_builder_helper()->general_tab,
 					'connect'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-font-weight]',
 					'priority'  => 1,
@@ -269,13 +146,13 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'              => $_prefix . '-font-weight',
-					'default'           => astra_get_option( $_prefix . '-font-weight' ),
+					'default'           => astra_get_option( $_prefix . '-font-weight', 'inherit' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
 					'type'              => 'sub-control',
 					'section'           => $_section,
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'connect'           => $_prefix . '-font-family',
 					'priority'          => 3,
@@ -283,72 +160,18 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Header Widget Title Text Transform
+				 * Option: Header widget title font extras
 				 */
 				array(
-					'name'      => $_prefix . '-text-transform',
-					'default'   => astra_get_option( $_prefix . '-text-transform' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'type'      => 'sub-control',
-					'section'   => $_section,
-					'control'   => 'ast-select',
-					'priority'  => 3,
-					'context'   => astra_addon_builder_helper()->general_tab,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
-				 * Option: Header Widget Title Line Height
-				 */
-				array(
-					'name'              => $_prefix . '-line-height',
-					'default'           => astra_get_option( $_prefix . '-line-height' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'section'           => $_section,
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'suffix'            => 'em',
-					'context'           => astra_addon_builder_helper()->general_tab,
-					'priority'          => 4,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Header Widget Title Letter Spacing
-				 */
-				array(
-					'name'              => $_prefix . '-letter-spacing',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'default'           => astra_get_option( $_prefix . '-letter-spacing' ),
-					'section'           => $_section,
-					'title'             => __( 'Letter Spacing', 'astra-addon' ),
-					'suffix'            => 'px',
-					'priority'          => 5,
-					'context'           => astra_addon_builder_helper()->general_tab,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
+					'name'     => $_prefix . '-font-extras',
+					'default'  => astra_get_option( $_prefix . '-font-extras', $this->get_font_extras_default( $_prefix . '-font-extras', $_prefix . '-line-height', $_prefix . '-text-transform' ) ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
+					'type'     => 'sub-control',
+					'section'  => $_section,
+					'control'  => 'ast-font-extras',
+					'priority' => 4,
+					'title'    => __( 'Font Extras', 'astra-addon' ),
+					'context'  => astra_addon_builder_helper()->general_tab,
 				),
 
 				/**
@@ -362,7 +185,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $_section,
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'context'   => astra_addon_builder_helper()->general_tab,
 					'connect'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-content-font-weight]',
 					'priority'  => 1,
@@ -373,13 +196,13 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'              => $_prefix . '-content-font-weight',
-					'default'           => astra_get_option( $_prefix . '-content-font-weight' ),
+					'default'           => astra_get_option( $_prefix . '-content-font-weight', 'inherit' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-content-typography]',
 					'type'              => 'sub-control',
 					'section'           => $_section,
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'connect'           => $_prefix . '-content-font-family',
 					'priority'          => 3,
@@ -387,72 +210,18 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Header Widget Content Text Transform
+				 * Option: Header widget content font extras
 				 */
 				array(
-					'name'      => $_prefix . '-content-transform',
-					'default'   => astra_get_option( $_prefix . '-content-transform' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-content-typography]',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'type'      => 'sub-control',
-					'section'   => $_section,
-					'control'   => 'ast-select',
-					'priority'  => 3,
-					'context'   => astra_addon_builder_helper()->general_tab,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
-				 * Option: Header Widget Content Line Height
-				 */
-				array(
-					'name'              => $_prefix . '-content-line-height',
-					'default'           => astra_get_option( $_prefix . '-content-line-height' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-content-typography]',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'section'           => $_section,
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'suffix'            => 'em',
-					'context'           => astra_addon_builder_helper()->general_tab,
-					'priority'          => 4,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Header Widget Content Letter Spacing
-				 */
-				array(
-					'name'              => $_prefix . '-content-letter-spacing',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-content-typography]',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'default'           => astra_get_option( $_prefix . '-content-letter-spacing' ),
-					'section'           => $_section,
-					'title'             => __( 'Letter Spacing', 'astra-addon' ),
-					'suffix'            => 'px',
-					'priority'          => 5,
-					'context'           => astra_addon_builder_helper()->general_tab,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
+					'name'     => $_prefix . '-content-font-extras',
+					'default'  => astra_get_option( $_prefix . '-content-font-extras', $this->get_font_extras_default( $_prefix . '-content-font-extras', $_prefix . '-content-line-height', $_prefix . '-content-transform' ) ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
+					'type'     => 'sub-control',
+					'section'  => $_section,
+					'control'  => 'ast-font-extras',
+					'priority' => 4,
+					'title'    => __( 'Font Extras', 'astra-addon' ),
+					'context'  => astra_addon_builder_helper()->general_tab,
 				),
 			);
 		}
@@ -507,7 +276,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'transport' => 'postMessage',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 22,
 					'connect'   => 'mobile-header-label-font-weight',
 					'context'   => astra_addon_builder_helper()->design_tab,
@@ -516,7 +285,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				// Option: Trigger Font Weight.
 				array(
 					'name'              => 'mobile-header-label-font-weight',
-					'default'           => astra_get_option( 'mobile-header-label-font-weight' ),
+					'default'           => astra_get_option( 'mobile-header-label-font-weight', 'inherit' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
 					'section'           => $_section,
 					'type'              => 'sub-control',
@@ -524,52 +293,25 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'priority'          => 24,
 					'connect'           => 'mobile-header-label-font-family',
 					'context'           => astra_addon_builder_helper()->design_tab,
 				),
 
-				// Option: Trigger Text Transform.
+				/**
+				 * Option: Font extras
+				 */
 				array(
-					'name'      => 'mobile-header-label-text-transform',
-					'default'   => astra_get_option( 'mobile-header-label-text-transform' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
-					'section'   => $_section,
-					'type'      => 'sub-control',
-					'control'   => 'ast-select',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'priority'  => 25,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-					'context'   => astra_addon_builder_helper()->design_tab,
-				),
-
-				// Option: Trigger Line Height.
-				array(
-					'name'              => 'mobile-header-label-line-height',
-					'parent'            => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
-					'section'           => $_section,
-					'type'              => 'sub-control',
-					'priority'          => 26,
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'mobile-header-label-line-height' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'control'           => 'ast-slider',
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 10,
-					),
-					'context'           => astra_addon_builder_helper()->design_tab,
+					'name'     => 'mobile-header-label-font-extras',
+					'default'  => astra_get_option( 'mobile-header-label-font-extras', $this->get_font_extras_default( 'mobile-header-label-font-extras', 'mobile-header-label-line-height', 'mobile-header-label-text-transform' ) ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[mobile-header-label-typography]',
+					'type'     => 'sub-control',
+					'section'  => $_section,
+					'control'  => 'ast-font-extras',
+					'priority' => 25,
+					'title'    => __( 'Font Extras', 'astra-addon' ),
+					'context'  => astra_addon_builder_helper()->design_tab,
 				),
 			);
 
@@ -591,10 +333,11 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $_section,
 					'font_type' => 'ast-font-weight',
 					'type'      => 'sub-control',
-					'default'   => astra_get_option( 'font-weight-' . $_section ),
-					'title'     => __( 'Weight', 'astra-addon' ),
+					'default'   => astra_get_option( 'font-weight-' . $_section, 'inherit' ),
+					'title'     => __( 'Font Weight', 'astra-addon' ),
 					'priority'  => 14,
 					'connect'   => 'font-family-' . $_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -608,53 +351,24 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-' . $_section ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 13,
 					'connect'   => 'font-weight-' . $_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
-				 * Option: Line Height.
+				 * Option: Font Extras
 				 */
 				array(
-					'name'              => 'line-height-' . $_section,
-					'type'              => 'sub-control',
-					'parent'            => $parent,
-					'section'           => $_section,
-					'default'           => astra_get_option( 'line-height-' . $_section ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'transport'         => 'postMessage',
-					'control'           => 'ast-slider',
-					'priority'          => 17,
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-' . $_section,
-					'type'      => 'sub-control',
-					'parent'    => $parent,
-					'section'   => $_section,
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'text-transform-' . $_section ),
-					'control'   => 'ast-select',
-					'priority'  => 16,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
+					'name'     => 'font-extras-' . $_section,
+					'type'     => 'sub-control',
+					'parent'   => $parent,
+					'control'  => 'ast-font-extras',
+					'section'  => $_section,
+					'priority' => 17,
+					'default'  => astra_get_option( 'font-extras-' . $_section, $this->get_font_extras_default( 'font-extras-' . $_section, 'line-height-' . $_section, 'text-transform-' . $_section ) ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 			);
 
@@ -677,6 +391,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'     => __( 'Menu Font', 'astra-addon' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'priority'  => 22,
 					'context'   => array(
 						array(
@@ -698,7 +413,8 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'transport' => 'postMessage',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'priority'  => 22,
 					'connect'   => $_section . '-menu-font-weight',
 					'context'   => astra_addon_builder_helper()->general_tab,
@@ -707,39 +423,19 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				// Option: Menu Font Weight.
 				array(
 					'name'              => $_section . '-menu-font-weight',
-					'default'           => astra_get_option( $_section . '-menu-font-weight' ),
+					'default'           => astra_get_option( $_section . '-menu-font-weight', 'inherit' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-typography]',
 					'section'           => $_section,
 					'type'              => 'sub-control',
 					'control'           => 'ast-font',
 					'transport'         => 'postMessage',
 					'font_type'         => 'ast-font-weight',
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'priority'          => 24,
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'priority'          => 22,
 					'connect'           => $_section . '-menu-font-family',
 					'context'           => astra_addon_builder_helper()->general_tab,
-				),
-
-				// Option: Menu Text Transform.
-				array(
-					'name'      => $_section . '-menu-text-transform',
-					'default'   => astra_get_option( $_section . '-menu-text-transform' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-typography]',
-					'section'   => $_section,
-					'type'      => 'sub-control',
-					'control'   => 'ast-select',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'priority'  => 25,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-					'context'   => astra_addon_builder_helper()->general_tab,
 				),
 
 				// Option: Menu Font Size.
@@ -750,38 +446,38 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'     => $_section,
 					'type'        => 'sub-control',
 					'priority'    => 23,
-					'title'       => __( 'Size', 'astra-addon' ),
-					'control'     => 'ast-responsive',
+					'title'       => __( 'Font Size', 'astra-addon' ),
 					'transport'   => 'postMessage',
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 					'context'     => astra_addon_builder_helper()->general_tab,
 				),
 
-				// Option: Menu Line Height.
+				/**
+				 * Option: Font extras
+				 */
 				array(
-					'name'              => $_section . '-menu-line-height',
-					'parent'            => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-typography]',
-					'section'           => $_section,
-					'type'              => 'sub-control',
-					'priority'          => 26,
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'transport'         => 'postMessage',
-					'default'           => 'em',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'control'           => 'ast-slider',
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 10,
-					),
-					'context'           => astra_addon_builder_helper()->general_tab,
+					'name'     => $_section . '-menu-font-extras',
+					'default'  => astra_get_option( $_section . '-menu-font-extras', $this->get_font_extras_default( $_section . '-menu-font-extras', $_section . '-menu-line-height', $_section . '-menu-text-transform' ) ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-typography]',
+					'type'     => 'sub-control',
+					'section'  => $_section,
+					'control'  => 'ast-font-extras',
+					'priority' => 25,
+					'title'    => __( 'Font Extras', 'astra-addon' ),
+					'context'  => astra_addon_builder_helper()->general_tab,
 				),
 
 				/**
@@ -813,16 +509,22 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-popup-typography]',
 					'section'     => $_section,
 					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
 					'priority'    => 1,
 					'title'       => __( 'Label / Input Text Size', 'astra-addon' ),
 					'transport'   => 'postMessage',
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 					'context'     => astra_addon_builder_helper()->general_tab,
 				),
@@ -834,16 +536,22 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-popup-typography]',
 					'section'     => $_section,
 					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
 					'priority'    => 2,
 					'title'       => __( 'Button Font Size', 'astra-addon' ),
 					'transport'   => 'postMessage',
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 					'context'     => astra_addon_builder_helper()->general_tab,
 				),
@@ -889,9 +597,10 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-' . $hb_lswitcher_section ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 13,
 					'connect'   => 'font-weight-' . $hb_lswitcher_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -904,10 +613,11 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $hb_lswitcher_section,
 					'font_type' => 'ast-font-weight',
 					'type'      => 'sub-control',
-					'default'   => astra_get_option( 'font-weight-' . $hb_lswitcher_section ),
-					'title'     => __( 'Weight', 'astra-addon' ),
-					'priority'  => 15,
+					'default'   => astra_get_option( 'font-weight-' . $hb_lswitcher_section, 'inherit' ),
+					'title'     => __( 'Font Weight', 'astra-addon' ),
+					'priority'  => 14,
 					'connect'   => 'font-family-' . $hb_lswitcher_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -921,8 +631,8 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'control'           => 'ast-responsive-slider',
 					'default'           => astra_get_option( 'font-size-' . $hb_lswitcher_section ),
 					'transport'         => 'postMessage',
-					'priority'          => 14,
-					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 15,
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -940,47 +650,17 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Line Height.
+				 * Option: Font Extras
 				 */
 				array(
-					'name'              => 'line-height-' . $hb_lswitcher_section,
-					'type'              => 'sub-control',
-					'parent'            => $parent,
-					'section'           => $hb_lswitcher_section,
-					'default'           => astra_get_option( 'line-height-' . $hb_lswitcher_section ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'transport'         => 'postMessage',
-					'control'           => 'ast-slider',
-					'priority'          => 17,
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
-				 * Option: Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-' . $hb_lswitcher_section,
-					'type'      => 'sub-control',
-					'parent'    => $parent,
-					'section'   => $hb_lswitcher_section,
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'text-transform-' . $hb_lswitcher_section ),
-					'control'   => 'ast-select',
-					'priority'  => 16,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
+					'name'     => 'font-extras-' . $hb_lswitcher_section,
+					'parent'   => $parent,
+					'section'  => $hb_lswitcher_section,
+					'type'     => 'sub-control',
+					'control'  => 'ast-font-extras',
+					'priority' => 15,
+					'default'  => astra_get_option( 'font-extras-' . $hb_lswitcher_section, $this->get_font_extras_default( 'font-extras-' . $hb_lswitcher_section, 'line-height-' . $hb_lswitcher_section, 'text-transform-' . $hb_lswitcher_section ) ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 
 			);
@@ -1025,9 +705,10 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-' . $fb_lswitcher_section ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 13,
 					'connect'   => 'font-weight-' . $fb_lswitcher_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -1040,10 +721,11 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'   => $fb_lswitcher_section,
 					'font_type' => 'ast-font-weight',
 					'type'      => 'sub-control',
-					'default'   => astra_get_option( 'font-weight-' . $fb_lswitcher_section ),
-					'title'     => __( 'Weight', 'astra-addon' ),
-					'priority'  => 15,
+					'default'   => astra_get_option( 'font-weight-' . $fb_lswitcher_section, 'inherit' ),
+					'title'     => __( 'Font Weight', 'astra-addon' ),
+					'priority'  => 14,
 					'connect'   => 'font-family-' . $fb_lswitcher_section,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -1058,8 +740,8 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'control'           => 'ast-responsive-slider',
 					'default'           => astra_get_option( 'font-size-' . $fb_lswitcher_section ),
 					'transport'         => 'postMessage',
-					'priority'          => 14,
-					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 15,
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -1075,48 +757,19 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 						),
 					),
 				),
-				/**
-				 * Option: Line Height.
-				 */
-				array(
-					'name'              => 'line-height-' . $fb_lswitcher_section,
-					'type'              => 'sub-control',
-					'parent'            => $parent,
-					'section'           => $fb_lswitcher_section,
-					'default'           => astra_get_option( 'line-height-' . $fb_lswitcher_section ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'transport'         => 'postMessage',
-					'control'           => 'ast-slider',
-					'priority'          => 17,
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
 
 				/**
-				 * Option: Text Transform
+				 * Option: Font Extras
 				 */
 				array(
-					'name'      => 'text-transform-' . $fb_lswitcher_section,
-					'type'      => 'sub-control',
-					'parent'    => $parent,
-					'section'   => $fb_lswitcher_section,
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'text-transform-' . $fb_lswitcher_section ),
-					'control'   => 'ast-select',
-					'priority'  => 16,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
+					'name'     => 'font-extras-' . $fb_lswitcher_section,
+					'parent'   => $parent,
+					'section'  => $fb_lswitcher_section,
+					'type'     => 'sub-control',
+					'control'  => 'ast-font-extras',
+					'priority' => 15,
+					'default'  => astra_get_option( 'font-extras-' . $fb_lswitcher_section, $this->get_font_extras_default( 'font-extras-' . $fb_lswitcher_section, 'line-height-' . $fb_lswitcher_section, 'text-transform-' . $fb_lswitcher_section ) ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 			);
 

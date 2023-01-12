@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 				add_action(
 					'wp_footer',
 					function() {
-						echo Astra_Ext_Adv_Search_Markup::get_instance()->get_search_form_shortcode( 'full-screen' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						astra_addon_get_template( 'advanced-search/template/full-screen.php' );
 					}
 				);
 			} elseif ( 'cover' === $atts['style'] ) {
@@ -131,13 +131,8 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 			}
 
 			$classes = implode( ' ', $classes );
-			ob_start();
-			?>
-			<div class="<?php echo esc_attr( $classes ); ?>">
-				<?php echo $markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</div>
-			<?php
-			return ob_get_clean();
+
+			return '<div class="' . esc_attr( $classes ) . '">' . $markup . '</div>';
 		}
 
 		/**

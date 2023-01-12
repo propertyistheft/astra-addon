@@ -1,3 +1,29 @@
+v4.0.0
+- New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
+- New: Redesigned the entire mega menu area with better user experience. ( https://wpastra.com/docs/nav-menu-module/ )
+- New: White Label - Agency icon field for re-branding software.
+- New: Introduced admin bar quick links for easy navigation to edit Custom Layout & Page Header posts.
+- New: Nav Menu - Custom icon & position support for mega menu items.
+- New: Nav Menu - Enhanced options to customize the color and the background inside the mega menu.
+- New: Nav Menu - Introducing divider color and styles for mega menu items.
+- Fix: Sidebar design tab in customizer does not show up when Colors & Background is disabled.
+- Fix: Custom Layout - Specific selection rule not working correctly if multiple specific selections added in rule engine.
+- Fix: WooCommerce - Shop - Content inside filter clipping when filter accordion is enabled.
+- Fix: Single post - Top-Bottom inside container spacing is not work on mobile devices.
+- Fix: Header Builder - Menu - Dropdown Menu on mobile device is not scrollable when Sticky Header is activated.
+- Fix: PHP error when bsf-analytics data submitted for breadcrumb-position.
+- Fix: Site title and tagline not displaying on Sticky Header after uploading different logo for sticky header.
+- Fix: Blog/Archive - Enable/disable for Blog title & post meta does not work for blog layout 2 & 3.
+- Fix: Scroll to top trigger position gets misaligned with padded layout.
+- Fix: Sticky Header - Due to assigned custom margin to header, it gets misaligned.
+- Fix: WooCommerce - Product catalog filter is not showing properly on mobile devices when modern layout is active.
+- Fix: When WPML Multilingual CMS plugin is active custom Page Headers are not visible/working.
+- Fix: WooCommerce - Variable product is not working with quick view.
+- Fix: WooCommerce - Product gallery is not working in quick view.
+- Fix: WooCommerce - Getting console error on product category pages when infinite scroll pagination-type is selected.
+- Fix: Header Builder - Account - Text font family not working on the frontend.
+- Fix: Custom Layout - Nested custom layouts not working on the frontend.
+
 v3.9.4
 - Fix: WooCommerce - Variable product is not working with quick view.
 - Fix: WooCommerce - Product gallery is not working in quick view.
@@ -20,6 +46,7 @@ v3.9.3
 - Fix: WooCommerce - Composite product plugin compatibility on a single product.
 - Fix: WooCommerce - Updated Related and Upsell products sub-option dependency.
 - Fix: WooCommerce - Border removed on single product gallery sliders.
+- Fix: Search - In 'Full Screen' style search icon missing when Astra SVG icons available on site.
 - Fix: Custom layout content before not working with the WPML targeted pages.
 - Fix: WooCommerce - Quick view console error on all pages.
 - Fix: Header Builder - Menu - Megamenu container get hides when hovering in between Top Offset spacing.

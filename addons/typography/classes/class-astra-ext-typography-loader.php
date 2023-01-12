@@ -39,7 +39,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-
 			add_action( 'init', array( $this, 'disale_qm_cap_checking' ) );
 
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
@@ -50,7 +49,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			add_filter( 'uabb_theme_button_font_family', array( $this, 'button_font_family' ), 11 );
 			add_filter( 'uabb_theme_button_font_size', array( $this, 'button_font_size' ), 11 );
 			add_filter( 'uabb_theme_button_text_transform', array( $this, 'button_text_transform' ), 11 );
-
 		}
 
 		/**
@@ -81,14 +79,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$font_weight_primary_dropdown_menu = astra_get_option( 'font-weight-primary-dropdown-menu' );
 			Astra_Fonts::add_font( $font_family_primary_dropdown_menu, $font_weight_primary_dropdown_menu );
 
-			$font_family_single_entry_title = astra_get_option( 'font-family-entry-title' );
-			$font_weight_single_entry_title = astra_get_option( 'font-weight-entry-title' );
-			Astra_Fonts::add_font( $font_family_single_entry_title, $font_weight_single_entry_title );
-
-			$font_family_archive_summary_title = astra_get_option( 'font-family-archive-summary-title' );
-			$font_weight_archive_summary_title = astra_get_option( 'font-weight-archive-summary-title' );
-			Astra_Fonts::add_font( $font_family_archive_summary_title, $font_weight_archive_summary_title );
-
 			$font_family_archive_page_title = astra_get_option( 'font-family-page-title' );
 			$font_weight_archive_page_title = astra_get_option( 'font-weight-page-title' );
 			Astra_Fonts::add_font( $font_family_archive_page_title, $font_weight_archive_page_title );
@@ -109,33 +99,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$font_weight_footer_content = astra_get_option( 'font-weight-footer-content' );
 			Astra_Fonts::add_font( $font_family_footer_content, $font_weight_footer_content );
 
-			if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
-
-				$font_family_h1 = astra_get_option( 'font-family-h1' );
-				$font_weight_h1 = astra_get_option( 'font-weight-h1' );
-				Astra_Fonts::add_font( $font_family_h1, $font_weight_h1 );
-
-				$font_family_h2 = astra_get_option( 'font-family-h2' );
-				$font_weight_h2 = astra_get_option( 'font-weight-h2' );
-				Astra_Fonts::add_font( $font_family_h2, $font_weight_h2 );
-
-				$font_family_h3 = astra_get_option( 'font-family-h3' );
-				$font_weight_h3 = astra_get_option( 'font-weight-h3' );
-				Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
-
-				$font_family_h4 = astra_get_option( 'font-family-h4' );
-				$font_weight_h4 = astra_get_option( 'font-weight-h4' );
-				Astra_Fonts::add_font( $font_family_h4, $font_weight_h4 );
-
-				$font_family_h5 = astra_get_option( 'font-family-h5' );
-				$font_weight_h5 = astra_get_option( 'font-weight-h5' );
-				Astra_Fonts::add_font( $font_family_h5, $font_weight_h5 );
-
-				$font_family_h6 = astra_get_option( 'font-family-h6' );
-				$font_weight_h6 = astra_get_option( 'font-weight-h6' );
-				Astra_Fonts::add_font( $font_family_h6, $font_weight_h6 );
-			}
-
 			$font_family_button = astra_get_option( 'font-family-button' );
 			$font_weight_button = astra_get_option( 'font-weight-button' );
 			Astra_Fonts::add_font( $font_family_button, $font_weight_button );
@@ -155,9 +118,13 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				 * Header - Account
 				 */
 				if ( Astra_Addon_Builder_Helper::is_component_loaded( 'account', 'header' ) ) {
-					$account_font_family = astra_get_option( 'section-header-account-menu-font-family' );
-					$account_font_weight = astra_get_option( 'section-header-account-menu-font-weight' );
+					$account_font_family = astra_get_option( 'font-family-section-header-account' );
+					$account_font_weight = astra_get_option( 'font-weight-section-header-account' );
 					Astra_Fonts::add_font( $account_font_family, $account_font_weight );
+
+					$account_menu_font_family = astra_get_option( 'section-header-account-menu-font-family' );
+					$account_menu_font_weight = astra_get_option( 'section-header-account-menu-font-weight' );
+					Astra_Fonts::add_font( $account_menu_font_family, $account_menu_font_weight );
 				}
 
 				/**
@@ -340,16 +307,31 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
-			// Header.
-			$defaults['font-family-site-title']    = 'inherit';
-			$defaults['font-weight-site-title']    = 'inherit';
-			$defaults['text-transform-site-title'] = '';
-			$defaults['line-height-site-title']    = '';
+			$astra_options                       = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
+			$apply_new_default_color_typo_values = is_callable( 'Astra_Dynamic_CSS::astra_check_default_color_typo' ) ? Astra_Dynamic_CSS::astra_check_default_color_typo() : false;
 
-			$defaults['font-family-site-tagline']    = 'inherit';
-			$defaults['font-weight-site-tagline']    = 'inherit';
-			$defaults['text-transform-site-tagline'] = '';
-			$defaults['line-height-site-tagline']    = '';
+			// Header.
+			$defaults['font-family-site-title'] = 'inherit';
+			$defaults['font-weight-site-title'] = 'inherit';
+			$defaults['font-extras-site-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-site-title'] ) && isset( $astra_options['line-height-site-title'] ) ? $astra_options['line-height-site-title'] : '1.23',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-site-title'] ) && isset( $astra_options['text-transform-site-title'] ) ? $astra_options['text-transform-site-title'] : '',
+				'text-decoration'     => '',
+			);
+
+			$defaults['font-family-site-tagline'] = 'inherit';
+			$defaults['font-weight-site-tagline'] = 'inherit';
+			$defaults['font-extras-site-tagline'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-site-tagline'] ) && isset( $astra_options['line-height-site-tagline'] ) ? $astra_options['line-height-site-tagline'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-site-tagline'] ) && isset( $astra_options['text-transform-site-tagline'] ) ? $astra_options['text-transform-site-tagline'] : '',
+				'text-decoration'     => '',
+			);
 
 			// Primary Menu.
 			$defaults['font-size-primary-menu']      = array(
@@ -380,32 +362,50 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$defaults['line-height-primary-dropdown-menu']    = '';
 
 			// Archive Summary Box.
-			$defaults['font-family-archive-summary-title']    = 'inherit';
-			$defaults['font-weight-archive-summary-title']    = 'inherit';
-			$defaults['text-transform-archive-summary-title'] = '';
-			$defaults['line-height-archive-summary-title']    = '';
+			$defaults['font-family-archive-summary-title'] = 'inherit';
+			$defaults['font-weight-archive-summary-title'] = 'inherit';
+			$defaults['font-extras-archive-summary-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-archive-summary-title'] ) && isset( $astra_options['line-height-archive-summary-title'] ) ? $astra_options['line-height-archive-summary-title'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-archive-summary-title'] ) && isset( $astra_options['text-transform-archive-summary-title'] ) ? $astra_options['text-transform-archive-summary-title'] : '',
+				'text-decoration'     => '',
+			);
 
 			// Archive.
-			$defaults['font-family-page-title']    = 'inherit';
-			$defaults['font-weight-page-title']    = 'inherit';
-			$defaults['text-transform-page-title'] = '';
-			$defaults['line-height-page-title']    = '';
+			$defaults['font-family-page-title'] = 'inherit';
+			$defaults['font-weight-page-title'] = $apply_new_default_color_typo_values ? '500' : 'inherit';
+			$defaults['font-extras-page-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-page-title'] ) && isset( $astra_options['line-height-page-title'] ) ? $astra_options['line-height-page-title'] : '1.23',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-page-title'] ) && isset( $astra_options['text-transform-page-title'] ) ? $astra_options['text-transform-page-title'] : '',
+				'text-decoration'     => '',
+			);
 
-			$defaults['font-size-post-meta']      = array(
-				'desktop'      => '',
+			$defaults['font-size-post-meta']   = array(
+				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
 				'tablet'       => '',
 				'mobile'       => '',
 				'desktop-unit' => 'px',
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
-			$defaults['font-family-post-meta']    = 'inherit';
-			$defaults['font-weight-post-meta']    = 'inherit';
-			$defaults['text-transform-post-meta'] = '';
-			$defaults['line-height-post-meta']    = '';
+			$defaults['font-family-post-meta'] = 'inherit';
+			$defaults['font-weight-post-meta'] = 'inherit';
+			$defaults['font-extras-post-meta'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-post-meta'] ) && isset( $astra_options['line-height-post-meta'] ) ? $astra_options['line-height-post-meta'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-post-meta'] ) && isset( $astra_options['text-transform-post-meta'] ) ? $astra_options['text-transform-post-meta'] : '',
+				'text-decoration'     => '',
+			);
 
 			$defaults['font-size-post-pagination']      = array(
-				'desktop'      => '',
+				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
 				'tablet'       => '',
 				'mobile'       => '',
 				'desktop-unit' => 'px',
@@ -415,26 +415,39 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$defaults['text-transform-post-pagination'] = '';
 
 			// Single.
-			$defaults['font-family-entry-title']    = 'inherit';
-			$defaults['font-weight-entry-title']    = 'inherit';
-			$defaults['text-transform-entry-title'] = '';
-			$defaults['line-height-entry-title']    = '';
+			$defaults['font-family-entry-title'] = 'inherit';
+			$defaults['font-weight-entry-title'] = 'inherit';
+			$defaults['font-extras-entry-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-entry-title'] ) && isset( $astra_options['line-height-entry-title'] ) ? $astra_options['line-height-entry-title'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-entry-title'] ) && isset( $astra_options['text-transform-entry-title'] ) ? $astra_options['text-transform-entry-title'] : '',
+				'text-decoration'     => '',
+			);
 
 			// Button.
-			$defaults['font-size-button']      = array(
-				'desktop'      => '',
+			$defaults['font-size-button']   = array(
+				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
 				'tablet'       => '',
 				'mobile'       => '',
 				'desktop-unit' => 'px',
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
-			$defaults['font-weight-button']    = 'inherit';
-			$defaults['font-family-button']    = 'inherit';
-			$defaults['text-transform-button'] = '';
+			$defaults['font-weight-button'] = $apply_new_default_color_typo_values ? '500' : 'inherit';
+			$defaults['font-family-button'] = 'inherit';
 
 			// Sidebar.
-			$defaults['font-size-widget-title']      = array(
+			$defaults['font-size-widget-title']   = array(
+				'desktop'      => $apply_new_default_color_typo_values ? 26 : '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+			$defaults['font-size-sidebar-title']  = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -442,28 +455,26 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
-			$defaults['font-size-sidebar-title']     = array(
-				'desktop'      => '',
-				'tablet'       => '',
-				'mobile'       => '',
-				'desktop-unit' => 'px',
-				'tablet-unit'  => 'px',
-				'mobile-unit'  => 'px',
+			$defaults['font-family-widget-title'] = 'inherit';
+			$defaults['font-weight-widget-title'] = 'inherit';
+			$defaults['font-extras-widget-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-widget-title'] ) && isset( $astra_options['line-height-widget-title'] ) ? $astra_options['line-height-widget-title'] : '1.23',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-widget-title'] ) && isset( $astra_options['text-transform-widget-title'] ) ? $astra_options['text-transform-widget-title'] : '',
+				'text-decoration'     => '',
 			);
-			$defaults['font-family-widget-title']    = 'inherit';
-			$defaults['font-weight-widget-title']    = 'inherit';
-			$defaults['text-transform-widget-title'] = '';
-			$defaults['line-height-widget-title']    = '';
 
-			$defaults['font-size-widget-content']      = array(
-				'desktop'      => '',
+			$defaults['font-size-widget-content']   = array(
+				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
 				'tablet'       => '',
 				'mobile'       => '',
 				'desktop-unit' => 'px',
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
-			$defaults['font-size-sidebar-content']     = array(
+			$defaults['font-size-sidebar-content']  = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -471,10 +482,17 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				'tablet-unit'  => 'em',
 				'mobile-unit'  => 'em',
 			);
-			$defaults['font-family-widget-content']    = 'inherit';
-			$defaults['font-weight-widget-content']    = 'inherit';
-			$defaults['text-transform-widget-content'] = '';
-			$defaults['line-height-widget-content']    = '';
+			$defaults['font-family-widget-content'] = 'inherit';
+			$defaults['font-weight-widget-content'] = 'inherit';
+			$defaults['line-height-widget-content'] = '';
+			$defaults['font-extras-widget-content'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-widget-content'] ) && isset( $astra_options['line-height-widget-content'] ) ? $astra_options['line-height-widget-content'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-widget-content'] ) && isset( $astra_options['text-transform-widget-content'] ) ? $astra_options['text-transform-widget-content'] : '',
+				'text-decoration'     => '',
+			);
 
 			// Footer.
 			$defaults['font-size-footer-content']      = array(
@@ -507,26 +525,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$defaults['font-weight-h3']    = 'inherit';
 			$defaults['text-transform-h3'] = '';
 			$defaults['line-height-h3']    = '';
-
-			if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
-				// Header <H4>.
-				$defaults['font-family-h4']    = 'inherit';
-				$defaults['font-weight-h4']    = 'inherit';
-				$defaults['text-transform-h4'] = '';
-				$defaults['line-height-h4']    = '';
-
-				// Header <H5>.
-				$defaults['font-family-h5']    = 'inherit';
-				$defaults['font-weight-h5']    = 'inherit';
-				$defaults['text-transform-h5'] = '';
-				$defaults['line-height-h5']    = '';
-
-				// Header <H6>.
-				$defaults['font-family-h6']    = 'inherit';
-				$defaults['font-weight-h6']    = 'inherit';
-				$defaults['text-transform-h6'] = '';
-				$defaults['line-height-h6']    = '';
-			}
 
 			// Outside Menu Item.
 			$defaults['outside-menu-font-size']   = array(
@@ -582,6 +580,33 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$defaults['font-family-section-hb-language-switcher']      = 'inherit';
 			$defaults['font-family-section-fb-language-switcher']      = 'inherit';
 
+			$defaults['font-extras-section-hb-language-switcher'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-section-hb-language-switcher'] ) && isset( $astra_options['line-height-section-hb-language-switcher'] ) ? $astra_options['line-height-section-hb-language-switcher'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-section-hb-language-switcher'] ) && isset( $astra_options['text-transform-section-hb-language-switcher'] ) ? $astra_options['text-transform-section-hb-language-switcher'] : '',
+				'text-decoration'     => '',
+			);
+
+			$defaults['font-extras-section-fb-language-switcher'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-section-fb-language-switcher'] ) && isset( $astra_options['line-height-section-fb-language-switcher'] ) ? $astra_options['line-height-section-fb-language-switcher'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-section-fb-language-switcher'] ) && isset( $astra_options['text-transform-section-fb-language-switcher'] ) ? $astra_options['text-transform-section-fb-language-switcher'] : '',
+				'text-decoration'     => '',
+			);
+
+			$defaults['font-extras-section-footer-copyright'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['line-height-section-footer-copyright'] ) ? $astra_options['line-height-section-footer-copyright'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['text-transform-section-footer-copyright'] ) ? $astra_options['text-transform-section-footer-copyright'] : '',
+				'text-decoration'     => '',
+			);
+
 			/**
 			 * Footer > Social Icon Defaults.
 			 */
@@ -634,14 +659,12 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			 */
 			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/class-astra-typo-panel-section-configs.php';
 			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-archive-advanced-typo-configs.php';
-			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-content-advanced-typo-configs.php';
 			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-site-header-typo-configs.php';
 			if ( astra_addon_existing_header_footer_configs() ) {
 				require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-primary-menu-typo-configs.php';
 				require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-footer-typo-configs.php';
 			}
 			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-sidebar-typo-configs.php';
-			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-single-advanced-typo-configs.php';
 			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-builder-menu-configs.php';
 			require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/sections/class-astra-header-builder-typo-configs.php';
 		}
@@ -696,7 +719,7 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 		 * Button Text Transform
 		 */
 		public function button_text_transform() {
-			return astra_get_option( 'text-transform-button' );
+			return astra_addon_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-transform' );
 		}
 
 		/**

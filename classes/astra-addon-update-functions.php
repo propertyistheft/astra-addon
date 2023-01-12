@@ -706,3 +706,47 @@ function astra_addon_update_variant_active_state() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Version 4.0.0 backward handle.
+ *
+ * 1. Migrating Post Structure & Meta options in title area meta parts.
+ * 2. Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
+ *
+ * @since 4.0.0
+ * @return void
+ */
+function astra_addon_background_updater_4_0_0() {
+	// Dynamic customizer migration setup starts here.
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['addon-dynamic-customizer-support'] ) ) {
+		$theme_options['addon-dynamic-customizer-support'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+
+	// Admin dashboard migration starts here.
+	$admin_dashboard_settings = get_option( 'astra_admin_settings', array() );
+	if ( ! isset( $admin_dashboard_settings['addon-setup-admin-migrated'] ) ) {
+
+		// Insert fallback whitelabel icon for agency users to maintain their branding.
+		if ( is_multisite() ) {
+			$branding = get_site_option( '_astra_ext_white_label' );
+		} else {
+			$branding = get_option( '_astra_ext_white_label' );
+		}
+		if ( ( isset( $branding['astra-agency']['hide_branding'] ) && true === (bool) $branding['astra-agency']['hide_branding'] ) && ! isset( $branding['astra']['icon'] ) ) {
+
+			$branding['astra']['icon'] = ASTRA_EXT_URI . 'admin/core/assets/images/whitelabel-branding.svg';
+
+			if ( is_multisite() ) {
+				update_site_option( '_astra_ext_white_label', $branding );
+			} else {
+				update_option( '_astra_ext_white_label', $branding );
+			}
+		}
+
+		// Consider admin part from addon side migrated.
+		$admin_dashboard_settings['addon-setup-admin-migrated'] = true;
+		update_option( 'astra_admin_settings', $admin_dashboard_settings );
+	}
+}

@@ -56,7 +56,6 @@ if ( ! class_exists( 'Astra_Customizer_Single_Post_Spacing_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 24,
-					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),

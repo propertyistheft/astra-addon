@@ -114,7 +114,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'   => 'section-woo-shop-single',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'connect'   => 'font-weight-product-title',
 					'priority'  => 4,
 				),
@@ -131,37 +132,15 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'connect'           => 'font-family-product-title',
 					'priority'          => 5,
 				),
 
 				/**
-					 * Option: Single Product Title Text Transform
-					 */
-				array(
-					'name'      => 'text-transform-product-title',
-					'default'   => astra_get_option( 'text-transform-product-title' ),
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-title-group]',
-					'section'   => 'section-woo-shop-single',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'control'   => 'ast-select',
-					'priority'  => 5,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
 				 * Option: Single Product Title Font Size
 				 */
-
 				array(
 					'name'              => 'font-size-product-title',
 					'default'           => astra_get_option( 'font-size-product-title' ),
@@ -170,8 +149,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-slider',
-					'priority'          => 4,
-					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 5,
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -189,25 +168,16 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Single Product Title Line Height
+				 * Option: Single Product Title Text Transform
 				 */
 				array(
-					'name'              => 'line-height-product-title',
-					'default'           => astra_get_option( 'line-height-product-title' ),
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[single-product-title-group]',
-					'section'           => 'section-woo-shop-single',
-					'transport'         => 'postMessage',
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'control'           => 'ast-slider',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'priority'          => 5,
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
+					'name'     => 'font-extras-product-title',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-title-group]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-woo-shop-single',
+					'priority' => 5,
+					'default'  => astra_get_option( 'font-extras-product-title' ),
 				),
 
 				/**
@@ -243,7 +213,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'   => 'section-woo-shop-single',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-product-price]',
 					'priority'  => 9,
 				),
@@ -260,7 +231,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'connect'           => 'font-family-product-price',
 					'priority'          => 10,
 				),
@@ -276,8 +248,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-slider',
-					'priority'          => 9,
-					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 10,
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -295,24 +267,16 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Single Product Price Line Height
+				 * Option: Single Product Price font extras
 				 */
 				array(
-					'name'        => 'line-height-product-price',
-					'default'     => astra_get_option( 'line-height-product-price' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[single-product-price-group]',
-					'section'     => 'section-woo-shop-single',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Line Height', 'astra-addon' ),
-					'control'     => 'ast-slider',
-					'priority'    => 10,
-					'suffix'      => 'em',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
+					'name'     => 'font-extras-product-price',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-price-group]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-woo-shop-single',
+					'priority' => 10,
+					'default'  => astra_get_option( 'font-extras-product-price' ),
 				),
 
 				/**
@@ -325,8 +289,9 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-category-group]',
 					'section'   => 'section-woo-shop-single',
 					'control'   => 'ast-font',
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-product-category]',
 					'priority'  => 9,
 				),
@@ -343,7 +308,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-product-category',
 					'priority'          => 10,
 				),
@@ -360,8 +326,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-slider',
-					'priority'          => 9,
-					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 10,
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -379,46 +345,16 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Single Product Category Text Transform
+				 * Option: Single Product Category Text extras.
 				 */
 				array(
-					'name'      => 'text-transform-product-category',
-					'default'   => astra_get_option( 'text-transform-product-category' ),
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-category-group]',
-					'section'   => 'section-woo-shop-single',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'control'   => 'ast-select',
-					'priority'  => 10,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
-				 * Option: Single Product category Line Height
-				 */
-				array(
-					'name'        => 'line-height-product-category',
-					'default'     => astra_get_option( 'line-height-product-category' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[single-product-category-group]',
-					'section'     => 'section-woo-shop-single',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Line Height', 'astra-addon' ),
-					'control'     => 'ast-slider',
-					'priority'    => 10,
-					'suffix'      => 'em',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
+					'name'     => 'font-extras-product-category',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-category-group]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-woo-shop-single',
+					'priority' => 10,
+					'default'  => astra_get_option( 'font-extras-product-category' ),
 				),
 
 				/**
@@ -454,7 +390,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'   => 'section-woo-shop-single',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-product-breadcrumb]',
 					'priority'  => 14,
 				),
@@ -471,37 +408,15 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'connect'           => 'font-family-product-breadcrumb',
 					'priority'          => 15,
 				),
 
 				/**
-					 * Option: Single Product Breadcrumb Text Transform
-					 */
-				array(
-					'name'      => 'text-transform-product-breadcrumb',
-					'default'   => astra_get_option( 'text-transform-product-breadcrumb' ),
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-group]',
-					'section'   => 'section-woo-shop-single',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'control'   => 'ast-select',
-					'priority'  => 15,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
 				 * Option: Single Product Breadcrumb Font Size
 				 */
-
 				array(
 					'name'              => 'font-size-product-breadcrumb',
 					'default'           => astra_get_option( 'font-size-product-breadcrumb' ),
@@ -510,8 +425,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-slider',
-					'priority'          => 14,
-					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 15,
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -527,25 +442,18 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 						),
 					),
 				),
+
 				/**
-				 * Option: Single Product Breadcrumb Line Height
+				 * Option: Single Product Breadcrumb Text extras.
 				 */
 				array(
-					'name'        => 'line-height-product-breadcrumb',
-					'default'     => astra_get_option( 'line-height-product-breadcrumb' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-group]',
-					'section'     => 'section-woo-shop-single',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Line Height', 'astra-addon' ),
-					'control'     => 'ast-slider',
-					'priority'    => 15,
-					'suffix'      => 'em',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
+					'name'     => 'font-extras-product-breadcrumb',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-group]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-woo-shop-single',
+					'priority' => 15,
+					'default'  => astra_get_option( 'font-extras-product-breadcrumb' ),
 				),
 
 				/**
@@ -573,8 +481,9 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-content-group]',
 					'section'   => 'section-woo-shop-single',
 					'control'   => 'ast-font',
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-product-content]',
 					'priority'  => 19,
 				),
@@ -591,37 +500,15 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'connect'           => 'font-family-product-content',
 					'priority'          => 20,
 				),
 
 				/**
-					 * Option: Single Product Content Text Transform
-					 */
-				array(
-					'name'      => 'text-transform-product-content',
-					'default'   => astra_get_option( 'text-transform-product-content' ),
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-content-group]',
-					'section'   => 'section-woo-shop-single',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'control'   => 'ast-select',
-					'priority'  => 20,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
 				 * Option: Single Product Content Font Size
 				 */
-
 				array(
 					'name'              => 'font-size-product-content',
 					'default'           => astra_get_option( 'font-size-product-content' ),
@@ -630,8 +517,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 					'section'           => 'section-woo-shop-single',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-responsive-slider',
-					'priority'          => 19,
-					'title'             => __( 'Size', 'astra-addon' ),
+					'priority'          => 20,
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -649,26 +536,17 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Single Product Content Line Height
+				 * Option: Single Product Content Text Transform
 				 */
 				array(
-					'name'        => 'line-height-product-content',
-					'default'     => astra_get_option( 'line-height-product-content' ),
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[single-product-content-group]',
-					'section'     => 'section-woo-shop-single',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Line Height', 'astra-addon' ),
-					'control'     => 'ast-slider',
-					'priority'    => 20,
-					'suffix'      => 'em',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
+					'name'     => 'font-extras-product-content',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[single-product-content-group]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-woo-shop-single',
+					'priority' => 20,
+					'default'  => astra_get_option( 'font-extras-product-content' ),
 				),
-
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
@@ -679,10 +557,4 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 	}
 }
 
-
 new Astra_Woocommerce_Shop_Single_Typo_Configs();
-
-
-
-
-

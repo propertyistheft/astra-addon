@@ -129,17 +129,49 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 				'icon-' . $icon,
 			);
 
-			$output = sprintf(
-				'<span class="%1$s">%2$s</span>',
-				implode( ' ', $classes ),
-				$output
+			$output = apply_filters(
+				'astra_svg_icon', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+				sprintf(
+					'<span class="%1$s">%2$s</span>',
+					implode( ' ', $classes ),
+					$output
+				),
+				$icon
 			);
 
 			if ( ! $is_echo ) {
-				return apply_filters( 'astra_svg_icon', $output, $icon ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+				return $output;
 			}
 
-			echo apply_filters( 'astra_svg_icon', $output, $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+			echo wp_kses(
+				$output,
+				array(
+					'span'  => array( 'class' => array() ),
+					'svg'   => array(
+						'xmlns:xlink'       => array(),
+						'version'           => array(),
+						'id'                => array(),
+						'x'                 => array(),
+						'y'                 => array(),
+						'enable-background' => array(),
+						'xml:space'         => array(),
+						'class'             => array(),
+						'aria-hidden'       => array(),
+						'aria-labelledby'   => array(),
+						'role'              => array(),
+						'xmlns'             => array(),
+						'width'             => array(),
+						'height'            => array(),
+						'viewbox'           => array(),
+					),
+					'g'     => array( 'fill' => array() ),
+					'title' => array( 'title' => array() ),
+					'path'  => array(
+						'd'    => array(),
+						'fill' => array(),
+					),
+				)
+			);
 		}
 	}
 	new Astra_Icons();

@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Footer_Typo_Configs' ) ) {
 					'name'      => 'font-family-footer-content',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'type'      => 'sub-control',
 					'parent'    => ASTRA_THEME_SETTINGS . '[footer-bar-typography-group]',
 					'section'   => 'section-footer-small',
@@ -84,18 +84,24 @@ if ( ! class_exists( 'Astra_Footer_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-footer-content',
 					'default'     => astra_get_option( 'font-size-footer-content' ),
-					'title'       => __( 'Size', 'astra-addon' ),
+					'title'       => __( 'Font Size', 'astra-addon' ),
 					'transport'   => 'postMessage',
 					'type'        => 'sub-control',
 					'parent'      => ASTRA_THEME_SETTINGS . '[footer-bar-typography-group]',
 					'section'     => 'section-footer-small',
-					'control'     => 'ast-responsive',
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -110,7 +116,7 @@ if ( ! class_exists( 'Astra_Footer_Typo_Configs' ) ) {
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'default'           => astra_get_option( 'font-weight-footer-content' ),
 					'connect'           => 'font-family-footer-content',
 				),
@@ -156,6 +162,7 @@ if ( ! class_exists( 'Astra_Footer_Typo_Configs' ) ) {
 						'max'  => 5,
 					),
 				),
+
 			);
 
 			return array_merge( $configurations, $_configs );

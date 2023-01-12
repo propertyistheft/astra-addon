@@ -11,8 +11,8 @@ const toggelSwitch = function() {
 	const enable = self.classList.contains('ast-active') ? 'yes' : 'no'
 	// Ajax request.
 	const xhttp = new XMLHttpRequest();
-	astHooksData.url += '?action=ast_advanced_hook_display_toggle&post_id=' + self.dataset.post_id + '&enable=' + enable + '&nonce=' + astHooksData.nonce;
-	xhttp.open("GET", astHooksData.url);
+	const ajaxUrl = astHooksData.url + '?action=ast_advanced_hook_display_toggle&post_id=' + self.dataset.post_id + '&enable=' + enable + '&nonce=' + astHooksData.nonce;
+	xhttp.open("GET", ajaxUrl);
 	xhttp.send();
 }
 const quickViewPopup = function( event ) {
@@ -21,8 +21,8 @@ const quickViewPopup = function( event ) {
 
 	// Ajax request.
 	const xhttp = new XMLHttpRequest();
-	astHooksData.url += '?action=ast_advanced_layout_quick_preview&post_id=' + self.dataset.layout_id + '&nonce=' + astHooksData.quick_view_nonce;
-	xhttp.open( "GET", astHooksData.url );
+	const ajaxUrl = astHooksData.url + '?action=ast_advanced_layout_quick_preview&post_id=' + self.dataset.layout_id + '&nonce=' + astHooksData.quick_view_nonce;
+	xhttp.open( "GET", ajaxUrl );
 	xhttp.send();
 	xhttp.onload = function() {
 		const response = JSON.parse( xhttp.response );

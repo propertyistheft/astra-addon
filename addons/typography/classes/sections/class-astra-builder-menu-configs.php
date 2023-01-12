@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 						'control'   => 'ast-font',
 						'transport' => 'postMessage',
 						'font_type' => 'ast-font-family',
-						'title'     => __( 'Family', 'astra-addon' ),
+						'title'     => __( 'Font Family', 'astra-addon' ),
 						'priority'  => 28,
 						'connect'   => 'header-font-weight-' . $_prefix . '-sub-menu',
 						'context'   => array(
@@ -87,6 +87,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 								'value'   => 'general',
 							),
 						),
+						'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					),
 
 					// Option: Primary Submenu Font Weight.
@@ -100,8 +101,8 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 						'transport'         => 'postMessage',
 						'font_type'         => 'ast-font-weight',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-						'title'             => __( 'Weight', 'astra-addon' ),
-						'priority'          => 30,
+						'title'             => __( 'Font Weight', 'astra-addon' ),
+						'priority'          => 29,
 						'connect'           => 'header-font-family-' . $_prefix . '-sub-menu',
 						'context'           => array(
 							array(
@@ -109,32 +110,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 								'value'   => 'general',
 							),
 						),
-					),
-
-					// Option: Primary Submenu Text Transform.
-					array(
-						'name'      => 'header-text-transform-' . $_prefix . '-sub-menu',
-						'default'   => astra_get_option( 'header-text-transform-' . $_prefix . '-sub-menu' ),
-						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-sub-menu-typography]',
-						'section'   => $_section,
-						'type'      => 'sub-control',
-						'title'     => __( 'Text Transform', 'astra-addon' ),
-						'transport' => 'postMessage',
-						'priority'  => 31,
-						'control'   => 'ast-select',
-						'choices'   => array(
-							''           => __( 'Inherit', 'astra-addon' ),
-							'none'       => __( 'None', 'astra-addon' ),
-							'capitalize' => __( 'Capitalize', 'astra-addon' ),
-							'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-							'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-						),
-						'context'   => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					),
 
 					// Option: Primary Submenu Font Size.
@@ -146,8 +122,8 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 						'type'              => 'sub-control',
 						'transport'         => 'postMessage',
 						'control'           => 'ast-responsive-slider',
-						'priority'          => 29,
-						'title'             => __( 'Size', 'astra-addon' ),
+						'priority'          => 30,
+						'title'             => __( 'Font Size', 'astra-addon' ),
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 						'suffix'            => array( 'px', 'em' ),
 						'input_attrs'       => array(
@@ -170,30 +146,18 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 						),
 					),
 
-					// Option: Primary Submenu Line Height.
+					/**
+					 * Option: Primary Sub Menu Font Extras
+					 */
 					array(
-						'name'              => 'header-line-height-' . $_prefix . '-sub-menu',
-						'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-sub-menu-typography]',
-						'section'           => $_section,
-						'type'              => 'sub-control',
-						'priority'          => 32,
-						'title'             => __( 'Line Height', 'astra-addon' ),
-						'transport'         => 'postMessage',
-						'default'           => astra_get_option( 'header-line-height-' . $_prefix . '-sub-menu' ),
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-						'control'           => 'ast-slider',
-						'suffix'            => 'em',
-						'input_attrs'       => array(
-							'min'  => 1,
-							'step' => 0.01,
-							'max'  => 5,
-						),
-						'context'           => array(
-							array(
-								'setting' => 'ast_selected_tab',
-								'value'   => 'general',
-							),
-						),
+						'name'     => 'header-font-extras-' . $_prefix . '-sub-menu',
+						'parent'   => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-sub-menu-typography]',
+						'section'  => $_section,
+						'type'     => 'sub-control',
+						'control'  => 'ast-font-extras',
+						'priority' => 32,
+						'default'  => astra_get_option( 'header-font-extras-' . $_prefix . '-sub-menu' ),
+						'title'    => __( 'Font Extras', 'astra-addon' ),
 					),
 				);
 
@@ -227,7 +191,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'section'   => $_section,
 							'control'   => 'ast-font',
 							'font_type' => 'ast-font-family',
-							'title'     => __( 'Family', 'astra-addon' ),
+							'title'     => __( 'Font Family', 'astra-addon' ),
 							'connect'   => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-megamenu-heading-font-weight]',
 							'priority'  => 10,
 							'context'   => array(
@@ -236,6 +200,30 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 									'value'   => 'general',
 								),
 							),
+							'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+						),
+
+						// Option: Primary Megamenu Header Menu Font Weight.
+						array(
+							'name'              => 'header-' . $_prefix . '-megamenu-heading-font-weight',
+							'default'           => astra_get_option( 'header-' . $_prefix . '-megamenu-heading-font-weight' ),
+							'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-mega-menu-col-typography]',
+							'type'              => 'sub-control',
+							'section'           => $_section,
+							'control'           => 'ast-font',
+							'font_type'         => 'ast-font-weight',
+							'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+							'title'             => __( 'Font Weight', 'astra-addon' ),
+							'connect'           => 'header-' . $_prefix . '-megamenu-heading-font-family',
+							'priority'          => 19,
+							'transport'         => 'postMessage',
+							'context'           => array(
+								array(
+									'setting' => 'ast_selected_tab',
+									'value'   => 'general',
+								),
+							),
+							'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 						),
 
 						// Option: Primary Megamenu Header Menu Font Size.
@@ -244,7 +232,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'default'           => astra_get_option( 'header-' . $_prefix . '-megamenu-heading-font-size' ),
 							'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-mega-menu-col-typography]',
 							'transport'         => 'postMessage',
-							'title'             => __( 'Size', 'astra-addon' ),
+							'title'             => __( 'Font Size', 'astra-addon' ),
 							'type'              => 'sub-control',
 							'section'           => $_section,
 							'control'           => 'ast-responsive-slider',
@@ -271,47 +259,19 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							),
 						),
 
-						// Option: Primary Megamenu Header Menu Font Weight.
+						/**
+						 * Option: Primary Menu Font Extras
+						 */
 						array(
-							'name'              => 'header-' . $_prefix . '-megamenu-heading-font-weight',
-							'default'           => astra_get_option( 'header-' . $_prefix . '-megamenu-heading-font-weight' ),
-							'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-mega-menu-col-typography]',
-							'type'              => 'sub-control',
-							'section'           => $_section,
-							'control'           => 'ast-font',
-							'font_type'         => 'ast-font-weight',
-							'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-							'title'             => __( 'Weight', 'astra-addon' ),
-							'connect'           => 'header-' . $_prefix . '-megamenu-heading-font-family',
-							'priority'          => 30,
-							'transport'         => 'postMessage',
-							'context'           => array(
-								array(
-									'setting' => 'ast_selected_tab',
-									'value'   => 'general',
-								),
-							),
-						),
-
-						// Option: Primary Megamenu Header Menu Text Transform.
-						array(
-							'name'      => 'header-' . $_prefix . '-megamenu-heading-text-transform',
-							'default'   => astra_get_option( 'header-' . $_prefix . '-megamenu-heading-text-transform' ),
-							'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-mega-menu-col-typography]',
-							'type'      => 'sub-control',
-							'section'   => $_section,
-							'control'   => 'ast-select',
-							'title'     => __( 'Text Transform', 'astra-addon' ),
-							'transport' => 'postMessage',
-							'choices'   => array(
-								''           => __( 'Inherit', 'astra-addon' ),
-								'none'       => __( 'None', 'astra-addon' ),
-								'capitalize' => __( 'Capitalize', 'astra-addon' ),
-								'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-								'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-							),
-							'priority'  => 40,
-							'context'   => array(
+							'name'     => 'header-' . $_prefix . '-megamenu-heading-font-extras',
+							'parent'   => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-mega-menu-col-typography]',
+							'section'  => $_section,
+							'type'     => 'sub-control',
+							'control'  => 'ast-font-extras',
+							'priority' => 40,
+							'default'  => astra_get_option( 'header-' . $_prefix . '-megamenu-heading-font-extras' ),
+							'title'    => __( 'Font Extras', 'astra-addon' ),
+							'context'  => array(
 								array(
 									'setting' => 'ast_selected_tab',
 									'value'   => 'general',
@@ -341,8 +301,9 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'transport' => 'postMessage',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 22,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'connect'   => 'footer-menu-font-weight',
 					'context'   => astra_addon_builder_helper()->general_tab,
 				),
@@ -357,53 +318,26 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'control'           => 'ast-font',
 					'transport'         => 'postMessage',
 					'font_type'         => 'ast-font-weight',
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'priority'          => 24,
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'priority'          => 22,
 					'connect'           => 'footer-menu-font-family',
 					'context'           => astra_addon_builder_helper()->general_tab,
 				),
 
-				// Option: Menu Text Transform.
+				/**
+				 * Option: Footer Content Font Extras
+				 */
 				array(
-					'name'      => 'footer-menu-text-transform',
-					'default'   => astra_get_option( 'footer-menu-text-transform' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
-					'section'   => $_section,
-					'type'      => 'sub-control',
-					'control'   => 'ast-select',
-					'transport' => 'postMessage',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'priority'  => 25,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-					'context'   => astra_addon_builder_helper()->general_tab,
-				),
-
-				// Option: Menu Line Height.
-				array(
-					'name'              => 'footer-menu-line-height',
-					'parent'            => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
-					'section'           => $_section,
-					'type'              => 'sub-control',
-					'priority'          => 26,
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'suffix'            => 'em',
-					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'footer-menu-line-height' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'control'           => 'ast-slider',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 10,
-					),
-					'context'           => astra_addon_builder_helper()->general_tab,
+					'name'     => 'footer-menu-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
+					'control'  => 'ast-font-extras',
+					'section'  => $_section,
+					'priority' => 26,
+					'default'  => astra_get_option( 'footer-menu-font-extras' ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 			);
 
@@ -438,7 +372,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'control'   => 'ast-font',
 					'transport' => 'postMessage',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 28,
 					'connect'   => 'header-font-weight-mobile-menu-sub-menu',
 					'context'   => array(
@@ -447,6 +381,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'value'   => 'general',
 						),
 					),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				// Option: Primary Submenu Font Weight.
@@ -460,8 +395,8 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'priority'          => 30,
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'priority'          => 29,
 					'connect'           => 'header-font-family-mobile-menu-sub-menu',
 					'context'           => array(
 						array(
@@ -469,32 +404,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'value'   => 'general',
 						),
 					),
-				),
-
-				// Option: Primary Submenu Text Transform.
-				array(
-					'name'      => 'header-text-transform-mobile-menu-sub-menu',
-					'default'   => astra_get_option( 'header-text-transform-mobile-menu-sub-menu' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[header-mobile-menu-sub-menu-typography]',
-					'section'   => 'section-header-mobile-menu',
-					'type'      => 'sub-control',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'transport' => 'postMessage',
-					'priority'  => 31,
-					'control'   => 'ast-select',
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-					'context'   => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				// Option: Primary Submenu Font Size.
@@ -503,7 +413,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'default'           => astra_get_option( 'header-font-size-mobile-menu-sub-menu' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[header-mobile-menu-sub-menu-typography]',
 					'section'           => 'section-header-mobile-menu',
-					'title'             => __( 'Size', 'astra-addon' ),
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
 					'transport'         => 'postMessage',
@@ -529,30 +439,19 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 						),
 					),
 				),
-				// Option: Primary Submenu Line Height.
+
+				/**
+				 * Option: Font Extras
+				 */
 				array(
-					'name'              => 'header-line-height-mobile-menu-sub-menu',
-					'parent'            => ASTRA_THEME_SETTINGS . '[header-mobile-menu-sub-menu-typography]',
-					'section'           => 'section-header-mobile-menu',
-					'type'              => 'sub-control',
-					'priority'          => 32,
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'header-line-height-mobile-menu-sub-menu' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'control'           => 'ast-slider',
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-					'context'           => array(
-						array(
-							'setting' => 'ast_selected_tab',
-							'value'   => 'general',
-						),
-					),
+					'name'     => 'font-extras-mobile-menu-sub-menu',
+					'parent'   => ASTRA_THEME_SETTINGS . '[header-mobile-menu-sub-menu-typography]',
+					'section'  => 'section-header-mobile-menu',
+					'type'     => 'sub-control',
+					'control'  => 'ast-font-extras',
+					'priority' => 29,
+					'default'  => astra_get_option( 'font-extras-mobile-menu-sub-menu' ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 			);
 

@@ -422,7 +422,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'default'  => astra_get_option( 'blog-load-more-text' ),
 					'type'     => 'control',
 					'section'  => 'section-blog',
-					'priority' => 90,
+					'priority' => 113,
 					'title'    => __( 'Load More Text', 'astra-addon' ),
 					'control'  => 'text',
 					'context'  => array(

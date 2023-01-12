@@ -149,7 +149,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 				$blog_single_image_width  = astra_get_option( 'blog-single-post-image-width' );
 				$blog_single_image_height = astra_get_option( 'blog-single-post-image-height' );
 
-				$blog_single_post_structure = astra_get_option( 'blog-single-post-structure' );
+				$blog_single_post_structure = is_callable( 'astra_banner_elements_order' ) ? astra_get_option( 'ast-dynamic-single-title-post-structure', array( 'ast-dynamic-single-title-post-title', 'ast-dynamic-single-title-post-breadcrumb' ) ) : astra_get_option( 'blog-single-post-structure' );
 
 				$attributes = array(
 					'width'  => empty( $blog_single_image_width ) ? false : $blog_single_image_width,

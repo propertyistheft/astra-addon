@@ -131,7 +131,92 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 											<a href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $item['label'] ); ?>" class="ast-builder-language-switcher-item">
 												<?php if ( $show_flag && 'zz-other' !== $item['id'] ) { ?>
 													<span class="ast-lswitcher-item-<?php echo esc_attr( $builder_type ); ?>">
-														<?php echo self::fetch_flags_svg( $item['id'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+														<?php
+															echo wp_kses(
+																self::fetch_flags_svg( $item['id'] ),
+																array(
+																	'span'      => array(
+																		'class'      => array(),
+																	),
+																	'svg'    => array(
+																		'xmlns:xlink'       => array(),
+																		'version'           => array(),
+																		'x'                 => array(),
+																		'y'                 => array(),
+																		'enable-background' => array(),
+																		'xml:space'         => array(),
+																		'class'             => array(),
+																		'aria-hidden'       => array(),
+																		'aria-labelledby'   => array(),
+																		'role'              => array(),
+																		'xmlns'             => array(),
+																		'width'             => array(),
+																		'fill' => array(),
+																		'height'            => array(),
+																		'viewbox'           => array(),
+																	),
+																	'g'      => array(
+																		'fill'      => array(),
+																		'stroke-width' => array(),
+																		'transform' => array(),
+																		'stroke' => array(),
+																		'id' => array(),
+																		'clip-path' => array(),
+																	),
+																	'use'      => array(
+																		'xlink:href'      => array(),
+																		'clip-path' => array(),
+																		'stroke-width' => array(),
+																		'id' => array(),
+																		'stroke' => array(),
+																		'fill' => array(),
+																		'transform' => array(),
+																	),
+																	'polyline'      => array(
+																		'fill'      => array(),
+																		'points' => array(),
+																		'transform' => array(),
+																		'id' => array(),
+																	),
+																	'clippath'  => array( 'id' => array() ),
+																	'title'  => array( 'title' => array() ),
+																	'path'   => array(
+																		'd'    => array(),
+																		'fill' => array(),
+																		'id' => array(),
+																		'clip-path' => array(),
+																		'stroke' => array(),
+																		'transform' => array(),
+																		'stroke-width' => array(),
+																	),
+																	'circle'   => array(
+																		'cx'    => array(),
+																		'cy'    => array(),
+																		'r'    => array(),
+																		'fill' => array(),
+																		'fill' => array(),
+																		'style' => array(),
+																		'transform' => array(),
+																	),
+																	'rect'   => array(
+																		'y'    => array(),
+																		'x'    => array(),
+																		'r'    => array(),
+																		'style' => array(),
+																		'id' => array(),
+																		'fill' => array(),
+																		'width' => array(),
+																		'height' => array(),
+																	),
+																	'polygon'   => array(
+																		'style' => array(),
+																		'points' => array(),
+																		'fill' => array(),
+																		'transform' => array(),
+																	),
+																)
+															);
+														?>
 													</span>
 												<?php } ?>
 												<?php if ( $show_label ) { ?>
@@ -165,7 +250,41 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 				<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra-addon' ); ?>"
 						title="<?php esc_attr_e( 'Click to edit this element.', 'astra-addon' ); ?>"
 						class="customize-partial-edit-shortcut-button item-customizer-focus">
-					<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'edit' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php
+					echo wp_kses(
+						Astra_Builder_UI_Controller::fetch_svg_icon( 'edit' ),
+						array(
+							'svg'   => array(
+								'xmlns:xlink'       => array(),
+								'version'           => array(),
+								'x'                 => array(),
+								'y'                 => array(),
+								'enable-background' => array(),
+								'xml:space'         => array(),
+								'class'             => array(),
+								'aria-hidden'       => array(),
+								'aria-labelledby'   => array(),
+								'role'              => array(),
+								'xmlns'             => array(),
+								'width'             => array(),
+								'fill'              => array(),
+								'height'            => array(),
+								'viewbox'           => array(),
+							),
+							'g'     => array(
+								'fill'      => array(),
+								'clip-path' => array(),
+							),
+							'title' => array( 'title' => array() ),
+							'path'  => array(
+								'd'            => array(),
+								'fill'         => array(),
+								'stroke'       => array(),
+								'stroke-width' => array(),
+							),
+						)
+					);
+					?>
 				</button>
 			</div>
 			<?php

@@ -26,7 +26,8 @@
 		if(	typeof infinite_event != '' ) {
 			switch( infinite_event ) {
 				case 'click':
-							astShopLoadMore.addEventListener('click',function(event) {
+					if(astShopLoadMore){
+						astShopLoadMore.addEventListener('click',function(event) {
 							event.preventDefault();
 							//	For Click
 							if( count != 'undefined' && count != ''&& total != 'undefined' && total != '' ) {
@@ -36,6 +37,8 @@
 									count++;
 								}
 							});
+
+					}
 
 					break;
 

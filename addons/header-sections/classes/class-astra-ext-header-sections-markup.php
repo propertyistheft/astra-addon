@@ -204,7 +204,7 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 							<ul id="primary-menu" class="main-header-menu" aria-expanded="false">
 								<?php do_action( 'astra_merge_header_before_menu' ); ?>
 
-								<?php echo $above_header_markup . $below_header_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php echo $above_header_markup . $below_header_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Echoing required markup on the frontend for dynamic section. ?>
 
 								<?php do_action( 'astra_merge_header_after_menu' ); ?>
 							</ul>
@@ -928,7 +928,7 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 						echo '<div class="below-header-user-select ' . esc_attr( $section_class ) . '">';
 						foreach ( $sections as $key => $value ) {
 							echo '<div class="user-select">';
-							echo $value; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo $value; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Echoing required markup on the frontend for dynamic section.
 							echo '</div>';
 						}
 						echo '</div>';
@@ -947,7 +947,7 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 					$output = apply_filters( 'astra_get_dynamic_header_content', '', $section, $value );
 					if ( ! empty( $output ) ) {
 						echo '<div class="below-header-user-select ' . esc_attr( $section_class ) . '">';
-						echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo wp_kses_post( $output );
 						echo '</div>';
 					}
 			}

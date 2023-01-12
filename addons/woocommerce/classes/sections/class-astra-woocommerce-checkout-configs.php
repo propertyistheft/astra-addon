@@ -687,23 +687,23 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 				/**
 				* Option: Back to cart button text on checkout.
 				*/
-			   array(
-				   'name'     => ASTRA_THEME_SETTINGS . '[checkout-back-to-cart-button-text]',
-				   'default'  => astra_get_option( 'checkout-back-to-cart-button-text' ),
-				   'type'     => 'control',
-				   'section'  => 'woocommerce_checkout',
-				   'title'    => __( 'Back to Cart Text', 'astra-addon' ),
-				   'context'  => array(
-					   astra_addon_builder_helper()->general_tab_config,
-					   array(
-						   'setting'  => ASTRA_THEME_SETTINGS . '[checkout-back-to-cart-button]',
-						   'operator' => '==',
-						   'value'    => true,
-					   ),
-				   ),
-				   'control'  => 'text',
-				   'priority' => 5,
-			   ),
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[checkout-back-to-cart-button-text]',
+					'default'  => astra_get_option( 'checkout-back-to-cart-button-text' ),
+					'type'     => 'control',
+					'section'  => 'woocommerce_checkout',
+					'title'    => __( 'Back to Cart Text', 'astra-addon' ),
+					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-back-to-cart-button]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'control'  => 'text',
+					'priority' => 5,
+				),
 
 				/*
 				 * Option: Preserve form data.

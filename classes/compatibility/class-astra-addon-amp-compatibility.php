@@ -45,14 +45,6 @@ class Astra_Addon_AMP_Compatibility {
 			add_action( 'wp_enqueue_scripts', array( Astra_Minify::get_instance(), 'enqueue_scripts' ), 7 );
 		}
 
-		// Scroll to top Addon.
-		if ( true === Astra_Ext_Extension::is_active( 'scroll-to-top' ) && is_callable( 'Astra_Ext_Scroll_To_Top_Markup::get_instance' ) ) {
-			remove_action( 'wp_footer', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'html_markup_loader' ) );
-			remove_action( 'astra_addon_get_css_files', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'add_styles' ) );
-			remove_action( 'astra_addon_get_js_files', array( Astra_Ext_Scroll_To_Top_Markup::get_instance(), 'add_scripts' ) );
-			remove_filter( 'astra_addon_dynamic_css', 'astra_addon_scroll_to_top_dynamic_css' );
-		}
-
 		// Sticky Header.
 		if ( true === Astra_Ext_Extension::is_active( 'sticky-header' ) && is_callable( 'Astra_Ext_Sticky_Header_Markup::get_instance' ) ) {
 			remove_action( 'astra_addon_get_css_files', array( Astra_Ext_Sticky_Header_Markup::get_instance(), 'add_styles' ) );

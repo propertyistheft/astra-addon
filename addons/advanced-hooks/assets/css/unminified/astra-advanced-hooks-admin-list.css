@@ -209,7 +209,6 @@ tfoot .ast-advanced-hook-heading-help {
 .ast-data-preview footer .button.button-large {
 	background-color: #007CBA;
 	height: 36px;
-	line-height: 36px;
 }
 .layout-status {
 	-js-display: inline-flex;
@@ -345,11 +344,6 @@ tfoot .ast-advanced-hook-heading-help {
 	right: 0;
 	top: 50%;
 	transform: translateY(-50%);
-	display: none;
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
 }
 .ast-copy-layout-shortcode:focus {
 	box-shadow: none;
@@ -366,15 +360,7 @@ tfoot .ast-advanced-hook-heading-help {
 	font-size: 25px;
 	margin-left: -5px;
 }
-.type-astra-advanced-hook .advanced_hook_quick_view,
-.type-astra-advanced-hook .column-enable_disable,
-.type-astra-advanced-hook .advanced_hook_shortcode,
-.type-astra-advanced-hook .column-advanced_hook_action {
-	vertical-align: middle;
-}
 .advanced_hook_shortcode .layout-status {
-	width: 100%;
-	max-width: 240px;
 	border: 1px solid #8C8F94;
 	font-size: 14px;
 	font-weight: 500;

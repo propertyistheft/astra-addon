@@ -19,7 +19,10 @@
 
 	<div class="post-content <?php echo astra_attr( 'ast-grid-col-6' ); ?>">
 
-		<?php astra_get_blog_post_title_meta(); ?>
+		<?php
+		if ( ! astra_addon_is_blog_title_meta_disabled() ) {
+			astra_get_blog_post_title_meta(); }
+		?>
 
 		<div class="entry-content clear"
 		<?php

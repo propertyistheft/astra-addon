@@ -330,11 +330,11 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 * @return void
 		 */
 		public function megamenu_style() {
-
 			if ( '' != self::$mega_menu_style ) {
-				echo "<style type='text/css' class='astra-megamenu-inline-style'>";
-				echo self::$mega_menu_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo '</style>';
+				// Placeholder style.
+				wp_register_style( 'astra-addon-megamenu-dynamic', false ); // phpcs:ignore
+				wp_enqueue_style( 'astra-addon-megamenu-dynamic' );
+				wp_add_inline_style( 'astra-addon-megamenu-dynamic', self::$mega_menu_style );
 			}
 		}
 
@@ -372,12 +372,202 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 
 
 		/**
+		 * Megamenu Defaults
+		 *
+		 * @param string $default_id Default id.
+		 * @param bool   $menu_item_id Menu id.
+		 * @return mixed
+		 * @since 4.0.0
+		 */
+		public static function get_megamenu_default( $default_id, $menu_item_id ) {
+			/**
+			 * Default Spacing
+			 */
+			$default_spacing = array(
+				'desktop'      => array(
+					'top'    => '2',
+					'right'  => '2',
+					'bottom' => '2',
+					'left'   => '2',
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+
+			/**
+			 * Default Corner spacing
+			 */
+			$default_corner_spacing = array(
+				'desktop'      => array(
+					'top-left'     => '50',
+					'top-right'    => '50',
+					'bottom-left'  => '50',
+					'bottom-right' => '50',
+				),
+				'tablet'       => array(
+					'top-left'     => '',
+					'top-right'    => '',
+					'bottom-left'  => '',
+					'bottom-right' => '',
+				),
+				'mobile'       => array(
+					'top-left'     => '',
+					'top-right'    => '',
+					'bottom-left'  => '',
+					'bottom-right' => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+
+			$megamenu_margin_top    = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_top', true );
+			$megamenu_margin_right  = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_right', true );
+			$megamenu_margin_bottom = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_bottom', true );
+			$megamenu_margin_left   = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_left', true );
+
+			/**
+			 * Default margin values
+			 */
+			$default_megamenu_margin = array(
+				'desktop'      => array(
+					'top'    => $megamenu_margin_top ? $megamenu_margin_top : '',
+					'right'  => $megamenu_margin_right ? $megamenu_margin_right : '',
+					'bottom' => $megamenu_margin_bottom ? $megamenu_margin_bottom : '',
+					'left'   => $megamenu_margin_left ? $megamenu_margin_left : '',
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+
+			$megamenu_padding_top    = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_top', true );
+			$megamenu_padding_right  = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_right', true );
+			$megamenu_padding_bottom = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_bottom', true );
+			$megamenu_padding_left   = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_left', true );
+
+			/**
+			 * Default padding values
+			 */
+			$default_megamenu_padding = array(
+				'desktop'      => array(
+					'top'    => $megamenu_padding_top ? $megamenu_padding_top : '',
+					'right'  => $megamenu_padding_right ? $megamenu_padding_right : '',
+					'bottom' => $megamenu_padding_bottom ? $megamenu_padding_bottom : '',
+					'left'   => $megamenu_padding_left ? $megamenu_padding_left : '',
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+
+			$default_icon = array(
+				'source' => 'none',
+				'icon'   => '',
+				'image'  => '',
+			);
+
+			$megamenu_text_color_normal = get_post_meta( $menu_item_id, '_menu_item_megamenu_text_color', true );
+			$megamenu_text_color_hover  = get_post_meta( $menu_item_id, '_menu_item_megamenu_text_h_color', true );
+
+			$default_text_link_color = array(
+				'normal' => $megamenu_text_color_normal ? $megamenu_text_color_normal : '',
+				'hover'  => $megamenu_text_color_hover ? $megamenu_text_color_hover : '',
+			);
+
+			$default_heading_color = array(
+				'normal' => '',
+				'hover'  => '',
+			);
+
+			$megamenu_width                = get_post_meta( $menu_item_id, '_menu_item_megamenu_width', true );
+			$megamenu_icon_source          = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_source', true );
+			$megamenu_icon_size            = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_size', true );
+			$megamenu_icon_spacing         = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_spacing', true );
+			$megamenu_icon_padding         = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_padding', true );
+			$megamenu_icon_primary_color   = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_primary_color', true );
+			$megamenu_icon_secondary_color = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_secondary_color', true );
+			$megamenu_icon_border_width    = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_border_width', true );
+			$megamenu_icon_corner_radius   = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_corner_radius', true );
+			$megamenu_icon_position        = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_position', true );
+			$megamenu_icon_view            = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_view', true );
+			$megamenu_margin               = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin', true );
+			$megamenu_padding              = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding', true );
+			$megamenu_bg_type              = get_post_meta( $menu_item_id, '_menu_item_megamenu_background_type', true );
+			$megamenu_text_color           = get_post_meta( $menu_item_id, '_menu_item_megamenu_text_color_group', true );
+			$megamenu_heading_color        = get_post_meta( $menu_item_id, '_menu_item_megamenu_heading_color_group', true );
+			$megamenu_disable_title        = get_post_meta( $menu_item_id, '_menu_item_megamenu_disable_title', true );
+
+			$config = array(
+				'width'                => $megamenu_width ? $megamenu_width : 'content',
+				'icon_source'          => $megamenu_icon_source ? $megamenu_icon_source : $default_icon,
+				'icon_size'            => $megamenu_icon_size ? $megamenu_icon_size : 20,
+				'icon_spacing'         => $megamenu_icon_spacing ? $megamenu_icon_spacing : 5,
+				'icon_padding'         => $megamenu_icon_padding ? $megamenu_icon_padding : 5,
+				'icon_primary_color'   => $megamenu_icon_primary_color ? $megamenu_icon_primary_color : '',
+				'icon_secondary_color' => $megamenu_icon_secondary_color ? $megamenu_icon_secondary_color : '',
+				'icon_border_width'    => $megamenu_icon_border_width ? $megamenu_icon_border_width : $default_spacing,
+				'icon_corner_radius'   => $megamenu_icon_corner_radius ? $megamenu_icon_corner_radius : $default_corner_spacing,
+				'icon_position'        => $megamenu_icon_position ? $megamenu_icon_position : 'before-label',
+				'icon_view'            => $megamenu_icon_view ? $megamenu_icon_view : 'default',
+				'margin'               => $megamenu_margin ? $megamenu_margin : $default_megamenu_margin,
+				'padding'              => $megamenu_padding ? $megamenu_padding : $default_megamenu_padding,
+				'bg_type'              => $megamenu_bg_type ? $megamenu_bg_type : 'image',
+				'text_color'           => $megamenu_text_color ? $megamenu_text_color : $default_text_link_color,
+				'heading_color'        => $megamenu_heading_color ? $megamenu_heading_color : $default_heading_color,
+				'disable_title'        => $megamenu_disable_title ? $megamenu_disable_title : '',
+			);
+
+			return $config[ $default_id ];
+
+		}
+
+		/**
 		 * Set Options Default Values
 		 *
 		 * @param  array $defaults  Astra options default value array.
 		 * @return array
 		 */
 		public function theme_defaults( $defaults ) {
+
+			$astra_options = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
 
 			$component_limit = astra_addon_builder_helper()->component_limit;
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
@@ -436,7 +626,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				/**
 				 * Sub Menu - Typography.
 				 */
-				$defaults[ 'header-font-size-' . $_prefix . '-sub-menu' ]      = array(
+				$defaults[ 'header-font-size-' . $_prefix . '-sub-menu' ]   = array(
 					'desktop'      => '',
 					'tablet'       => '',
 					'mobile'       => '',
@@ -444,10 +634,16 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 					'tablet-unit'  => 'px',
 					'mobile-unit'  => 'px',
 				);
-				$defaults[ 'header-font-family-' . $_prefix . '-sub-menu' ]    = '';
-				$defaults[ 'header-font-weight-' . $_prefix . '-sub-menu' ]    = '';
-				$defaults[ 'header-text-transform-' . $_prefix . '-sub-menu' ] = '';
-				$defaults[ 'header-line-height-' . $_prefix . '-sub-menu' ]    = '';
+				$defaults[ 'header-font-family-' . $_prefix . '-sub-menu' ] = 'inherit';
+				$defaults[ 'header-font-weight-' . $_prefix . '-sub-menu' ] = 'inherit';
+				$defaults[ 'header-font-extras-' . $_prefix . '-sub-menu' ] = array(
+					'line-height'         => ! isset( $astra_options[ 'header-font-extras-' . $_prefix . '-sub-menu' ] ) && isset( $astra_options[ 'header-line-height-' . $_prefix . '-sub-menu' ] ) ? $astra_options[ 'header-line-height-' . $_prefix . '-sub-menu' ] : '',
+					'line-height-unit'    => 'em',
+					'letter-spacing'      => '',
+					'letter-spacing-unit' => 'px',
+					'text-transform'      => ! isset( $astra_options[ 'header-font-extras-' . $_prefix . '-sub-menu' ] ) && isset( $astra_options[ 'header-text-transform-' . $_prefix . '-sub-menu' ] ) ? $astra_options[ 'header-text-transform-' . $_prefix . '-sub-menu' ] : '',
+					'text-decoration'     => '',
+				);
 
 				if ( $index < 3 ) {
 					/**
@@ -465,10 +661,17 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 					/**
 					 * Mega Menu Typography.
 					 */
-					$defaults[ 'header-' . $_prefix . '-megamenu-heading-font-family' ]    = 'inherit';
-					$defaults[ 'header-' . $_prefix . '-megamenu-heading-font-weight' ]    = '700';
-					$defaults[ 'header-' . $_prefix . '-megamenu-heading-text-transform' ] = '';
-					$defaults[ 'header-' . $_prefix . '-megamenu-heading-font-size' ]      = array(
+					$defaults[ 'header-' . $_prefix . '-megamenu-heading-font-family' ] = 'inherit';
+					$defaults[ 'header-' . $_prefix . '-megamenu-heading-font-weight' ] = '700';
+					$defaults[ 'header-' . $_prefix . '-megamenu-heading-font-extras' ] = array(
+						'line-height'         => '',
+						'line-height-unit'    => 'em',
+						'letter-spacing'      => '',
+						'letter-spacing-unit' => 'px',
+						'text-transform'      => ! isset( $astra_options[ 'header-' . $_prefix . '-megamenu-heading-font-extras' ] ) && isset( $astra_options[ 'header-' . $_prefix . '-megamenu-heading-text-transform' ] ) ? $astra_options[ 'header-' . $_prefix . '-megamenu-heading-text-transform' ] : '',
+						'text-decoration'     => '',
+					);
+					$defaults[ 'header-' . $_prefix . '-megamenu-heading-font-size' ]   = array(
 						'desktop'      => '',
 						'tablet'       => '',
 						'mobile'       => '',
@@ -546,7 +749,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 			/**
 			 * Sub Menu - Typography.
 			 */
-			$defaults['header-font-size-mobile-menu-sub-menu']      = array(
+			$defaults['header-font-size-mobile-menu-sub-menu']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -554,10 +757,17 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
-			$defaults['header-font-family-mobile-menu-sub-menu']    = '';
-			$defaults['header-font-weight-mobile-menu-sub-menu']    = '';
-			$defaults['header-text-transform-mobile-menu-sub-menu'] = '';
-			$defaults['header-line-height-mobile-menu-sub-menu']    = '';
+			$defaults['header-font-family-mobile-menu-sub-menu'] = 'inherit';
+			$defaults['header-font-weight-mobile-menu-sub-menu'] = 'inherit';
+
+			$defaults['font-extras-mobile-menu-sub-menu'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-mobile-menu-sub-menu'] ) && isset( $astra_options['header-line-height-mobile-menu-sub-menu'] ) ? $astra_options['header-line-height-mobile-menu-sub-menu'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-mobile-menu-sub-menu'] ) && isset( $astra_options['header-text-transform-mobile-menu-sub-menu'] ) ? $astra_options['header-text-transform-mobile-menu-sub-menu'] : '',
+				'text-decoration'     => '',
+			);
 
 			// Above Header.
 			$defaults['above-header-megamenu-heading-color']          = '';

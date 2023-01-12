@@ -58,7 +58,6 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				add_filter( 'astra_menu_page_title', array( $this, 'menu_page_title' ), 10, 1 );
 				add_filter( 'astra_theme_name', array( $this, 'menu_page_title' ), 10, 1 );
 				add_filter( 'astra_addon_name', array( $this, 'addon_page_name' ), 10, 1 );
-				add_filter( 'astra_addon_list_tagline', array( $this, 'addon_addon_list_tagline' ), 10, 1 );
 
 				// Theme welcome Page right sections filter.
 				add_filter( 'astra_support_link', array( $this, 'agency_author_link' ), 10, 1 );
@@ -66,12 +65,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				add_filter( 'astra_knowledge_base_documentation_link', array( $this, 'agency_author_link' ), 10, 1 );
 				add_filter( 'astra_starter_sites_documentation_link', array( $this, 'agency_author_link' ), 10, 1 );
 
-				// Astra Addon List filter.
-				add_filter( 'astra_addon_list', array( $this, 'astra_addon_list' ) );
-
 				add_filter( 'astra_site_url', array( $this, 'agency_author_link' ), 10, 1 );
-				add_action( 'astra_welcome_page_header_title', array( $this, 'welcome_page_header_site_title' ) );
-				add_filter( 'astra_page_top_icon', array( $this, 'astra_welcome_page_icon' ), 10, 1 );
 
 				if ( false !== self::get_whitelabel_string( 'astra', 'name', false ) ) {
 					// Gettext filter.
@@ -83,11 +77,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				}
 
 				// Add menu item.
-				if ( self::show_branding() ) {
-					add_action( 'astra_menu_white_label_action', array( $this, 'settings_page' ) );
-				} else {
-					add_action( 'init', array( $this, 'white_label_hide_settings' ) );
-					add_filter( 'astra_welcome_wrapper_class', array( $this, 'welcome_wrapper_class' ), 10, 1 );
+				if ( ! self::show_branding() ) {
 
 					// Remove Action Heading if white label is enabled.
 					add_filter( 'astra_advanced_hooks_list_action_column_headings', array( $this, 'remove_white_label_action' ), 10, 1 );
@@ -105,9 +95,6 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 
 					add_filter( 'bsf_white_label_options', array( $this, 'astra_bsf_analytics_white_label' ) );
 				}
-
-				// White label save action.
-				add_action( 'admin_init', array( $this, 'settings_save' ) );
 
 				// Add menu item.
 				add_filter( 'astra_addon_licence_url', array( $this, 'addon_licence_url' ), 10, 1 );
@@ -130,6 +117,10 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 			if ( false !== self::get_whitelabel_string( 'astra', 'screenshot' ) ) {
 				add_filter( 'bsf_product_icons_astra-addon', array( $this, 'astra_pro_branded_icons' ) );
 			}
+
+			if ( false !== self::get_whitelabel_string( 'astra', 'icon' ) ) {
+				add_filter( 'astra_admin_menu_icon', array( $this, 'update_admin_brand_logo' ) );
+			}
 		}
 
 		/**
@@ -142,13 +133,12 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		public function astra_page_admin_classes( $classes ) {
 			$current_screen = get_current_screen();
 
-			if ( 'appearance_page_' . $this->astra_whitelabelled_slug( 'astra' ) === $current_screen->base ) {
-				$classes = $classes . ' appearance_page_astra';
+			if ( 'toplevel_page_' . $this->astra_whitelabelled_slug( 'astra' ) === $current_screen->base ) {
+				$classes = $classes . ' toplevel_page_astra';
 			}
 
 			return $classes;
 		}
-
 
 		/**
 		 * Provide White Label array().
@@ -171,6 +161,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 						'name'        => '',
 						'description' => '',
 						'screenshot'  => '',
+						'icon'        => '',
 					),
 					'astra-pro'    => array(
 						'name'        => '',
@@ -190,7 +181,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		 *
 		 * @param String $product Product Slug for which whitelabel value is to be received.
 		 * @param String $key whitelabel key to be received from the database.
-		 * @param mixed  $default default value to be retturned if the whitelabel value is not aset by user.
+		 * @param mixed  $default default value to be returned if the whitelabel value is not set by user.
 		 *
 		 * @return mixed.
 		 */
@@ -531,90 +522,6 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		}
 
 		/**
-		 * Astra Pro Welcome Page tagline
-		 *
-		 * @param string $title Page Title.
-		 * @return string
-		 */
-		public function addon_addon_list_tagline( $title ) {
-
-			if ( false !== self::astra_pro_whitelabel_name() ) {
-				/* translators: %s: white label pro name */
-				$title = sprintf( __( 'Available %s Modules:', 'astra-addon' ), self::astra_pro_whitelabel_name() );
-			} else {
-				$title = __( 'Available Astra Pro Modules:', 'astra-addon' );
-			}
-
-			return $title;
-		}
-
-		/**
-		 * Setting Page
-		 */
-		public function settings_page() {
-			require_once ASTRA_EXT_DIR . 'includes/view-white-label.php';
-		}
-
-		/**
-		 * Save Settings
-		 */
-		public function settings_save() {
-
-			if ( isset( $_POST['ast-white-label-nonce'] ) && wp_verify_nonce( $_POST['ast-white-label-nonce'], 'white-label' ) ) {
-				$url             = $_SERVER['HTTP_REFERER'];
-				$stored_settings = self::get_white_labels();
-				$input_settings  = array();
-				$new_settings    = array();
-
-				if ( isset( $_POST['ast_white_label'] ) ) {
-
-					$input_settings = $_POST['ast_white_label'];
-
-					// Loop through the input and sanitize each of the values.
-					foreach ( $input_settings as $key => $val ) {
-
-						if ( is_array( $val ) ) {
-							foreach ( $val as $k => $v ) {
-								$new_settings[ $key ][ $k ] = ( isset( $val[ $k ] ) ) ? sanitize_text_field( stripslashes( $v ) ) : '';
-							}
-						} else {
-							$new_settings[ $key ] = ( isset( $input_settings[ $key ] ) ) ? sanitize_text_field( stripslashes( $val ) ) : '';
-						}
-					}
-				}
-
-				$new_settings = wp_parse_args( $new_settings, $stored_settings );
-
-				if ( ! isset( $new_settings['astra-agency']['hide_branding'] ) ) {
-					$new_settings['astra-agency']['hide_branding'] = false;
-				} else {
-					$url = str_replace( 'white-label', 'general', $url );
-				}
-
-				Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_white_label', $new_settings, true );
-
-				// Change the theme page slug only if the value if added by user.
-				$theme_whitelabelled_name = self::get_whitelabel_string( 'astra', 'name', false );
-				if ( false !== $theme_whitelabelled_name && ! empty( $theme_whitelabelled_name ) ) {
-					$url = remove_query_arg( 'page', $url );
-					$url = add_query_arg( 'page', $this->astra_whitelabelled_slug( $theme_whitelabelled_name ), $url );
-				}
-
-				$query = array(
-					'message' => 'saved',
-				);
-
-				$redirect_to = esc_url_raw( add_query_arg( $query, $url ) );
-
-				// Flush rewrite rules on publish action of custom layout.
-				flush_rewrite_rules();
-
-				wp_safe_redirect( $redirect_to );
-				exit;
-			}
-		}
-
-		/**
 		 * Licence Url
 		 *
 		 * @param string $purchase_url Actions.
@@ -629,36 +536,6 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		}
 
 		/**
-		 * Remove Sidebar from Astra Welcome Page for white label
-		 *
-		 * @since 1.2.2
-		 */
-		public function white_label_hide_settings() {
-			remove_action( 'astra_welcome_page_right_sidebar_content', 'Astra_Admin_Settings::astra_welcome_page_starter_sites_section', 10 );
-			remove_action( 'astra_welcome_page_right_sidebar_content', 'Astra_Admin_Settings::astra_welcome_page_knowledge_base_scetion', 11 );
-			remove_action( 'astra_welcome_page_right_sidebar_content', 'Astra_Admin_Settings::astra_welcome_page_community_scetion', 12 );
-			remove_action( 'astra_welcome_page_right_sidebar_content', 'Astra_Admin_Settings::astra_welcome_page_five_star_scetion', 13 );
-			remove_action( 'astra_welcome_page_right_sidebar_content', 'Astra_Admin_Settings::astra_welcome_page_cloudways_scetion', 14 );
-
-			// Remove Beta Updates if white label is enabled.
-			$theme_ext_class = Astra_Theme_Extension::get_instance();
-			remove_action( 'astra_welcome_page_right_sidebar_content', array( $theme_ext_class, 'astra_beta_updates_form' ), 50 );
-		}
-
-		/**
-		 * Add class to welcome wrapper
-		 *
-		 * @since 1.2.1
-		 * @param array $classes astra welcome page classes.
-		 * @return array $classes updated astra welcome page classes.
-		 */
-		public function welcome_wrapper_class( $classes ) {
-			$classes[] = 'ast-hide-white-label';
-
-			return $classes;
-		}
-
-		/**
 		 * Astra Theme Url
 		 *
 		 * @param string $url Author Url if given.
@@ -670,51 +547,6 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 			}
 
 			return $url;
-		}
-
-		/**
-		 * Astra Welcome Page Icon
-		 *
-		 * @since 1.2.1
-		 * @param string $icon Theme Welcome icon.
-		 * @return string $icon Updated Theme Welcome icon.
-		 */
-		public function astra_welcome_page_icon( $icon ) {
-			if ( false !== self::get_whitelabel_string( 'astra', 'name', false ) ) {
-				$icon = false;
-			}
-
-			return $icon;
-		}
-
-		/**
-		 * Astra Welcome Page Site Title
-		 *
-		 * @since 1.2.1
-		 */
-		public function welcome_page_header_site_title() {
-			if ( false !== self::get_whitelabel_string( 'astra', 'name', false ) ) {
-				echo '<span>' . esc_html( self::get_whitelabel_string( 'astra', 'name', false ) ) . '</span>';
-			}
-		}
-
-		/**
-		 * Modify Astra Addon List
-		 *
-		 * @since 1.2.1
-		 * @param array $addons Astra addon list.
-		 * @return array $addons Updated Astra addon list.
-		 */
-		public function astra_addon_list( $addons = array() ) {
-
-			foreach ( $addons as $addon_slug => $value ) {
-				// Remove each addon link to the respective documentation if pro is white labled.
-				if ( false !== self::astra_pro_whitelabel_name() ) {
-					$addons[ $addon_slug ]['title_url'] = '';
-				}
-			}
-
-			return $addons;
 		}
 
 		/**
@@ -775,6 +607,22 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 			return array(
 				'default' => self::get_whitelabel_string( 'astra', 'screenshot' ),
 			);
+		}
+
+		/**
+		 * Get whitelabelled icon for admin dashboard.
+		 *
+		 * @since 4.0.0
+		 * @param string $admin_logo Default Astra icon.
+		 * @return string URL for updated whitelabelled icon.
+		 */
+		public function update_admin_brand_logo( $admin_logo ) {
+			$admin_logo = self::get_whitelabel_string( 'astra', 'icon' );
+			// Dark version logo support for white admin canvas.
+			if ( false !== strpos( $admin_logo, 'whitelabel-branding.svg' ) ) {
+				$admin_logo = ASTRA_EXT_URI . 'admin/core/assets/images/whitelabel-branding-dark.svg';
+			}
+			return esc_url( $admin_logo );
 		}
 
 		/**
@@ -851,8 +699,24 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		public function updates_core_page() {
 			global $pagenow;
 
+			if ( false !== self::get_whitelabel_string( 'astra', 'icon' ) ) {
+				echo '<style>
+					#toplevel_page_' . esc_attr( $this->astra_whitelabelled_slug( 'astra' ) ) . ' .wp-menu-image {
+						background-image: url( ' . esc_url( self::get_whitelabel_string( 'astra', 'icon' ) ) . ' ) !important;
+						opacity: 0.6;
+						background-size: 20px 34px;
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+					#toplevel_page_' . esc_attr( $this->astra_whitelabelled_slug( 'astra' ) ) . '.wp-menu-open .wp-menu-image,
+					#toplevel_page_' . esc_attr( $this->astra_whitelabelled_slug( 'astra' ) ) . ' .wp-has-current-submenu .wp-menu-image {
+						opacity: 1;
+					}
+				</style>';
+			}
+
 			if ( 'update-core.php' == $pagenow ) {
-				$default_screenshot = sprintf( '%s/astra/screenshot.jpg', get_theme_root_uri() );
+				$default_screenshot = sprintf( '%s/astra/screenshot.jpg?ver=%s', get_theme_root_uri(), ASTRA_THEME_VERSION );
 				$branded_screenshot = self::get_whitelabel_string( 'astra', 'screenshot', false );
 
 				$default_name = 'Astra';

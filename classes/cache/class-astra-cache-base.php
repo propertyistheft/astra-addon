@@ -253,7 +253,7 @@ class Astra_Cache_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGl
 			wp_die();
 		}
 
-		check_ajax_referer( 'astra-addon-module-nonce', 'nonce' );
+		check_ajax_referer( 'astra_addon_update_admin_setting', 'security' );
 
 		$this->init_cache();
 		astra_addon_filesystem()->reset_filesystem_access_status();

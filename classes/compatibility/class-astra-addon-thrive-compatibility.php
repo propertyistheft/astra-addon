@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
 			$current_post = get_post( $post_id, OBJECT );
 
 			global $post;
-			$post = $current_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			$post = $current_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Required to render builder content
 
 			$tve_content = apply_filters( 'the_content', $current_post->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
 				$tve_content = str_replace( 'id="tve_editor"', '', $tve_content );
 			}
 
-			echo $tve_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $tve_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required to echo builder based content.
 
 			wp_reset_postdata();
 		}

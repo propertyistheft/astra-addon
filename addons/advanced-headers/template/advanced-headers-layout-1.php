@@ -26,6 +26,8 @@ if ( $astra_addon_show_breadcrumb ) {
 				<?php do_action( 'astra_advanced_header_layout_1_wrap_top' ); ?>
 				<?php
 				if ( $astra_addon_header_title ) {
+					$astra_addon_header_title     = apply_filters( 'astra_advanced_header_layout_1_title', $astra_addon_header_title );
+					$astra_addon_header_title_tag = apply_filters( 'astra_advanced_header_layout_1_title_tag', 'h1' );
 					echo sprintf(
 						'<%1$s class="ast-advanced-headers-title">
 							%2$s
@@ -39,18 +41,19 @@ if ( $astra_addon_show_breadcrumb ) {
 						 *
 						 * @param string $tags string containing the HTML tags for Advanced Header title.
 						 */
-						esc_html( apply_filters( 'astra_advanced_header_layout_1_title_tag', 'h1' ) ),
-						do_action( 'astra_advanced_header_layout_1_before_title' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						apply_filters( 'astra_advanced_header_layout_1_title', $astra_addon_header_title ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						do_action( 'astra_advanced_header_layout_1_after_title' ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						esc_html( $astra_addon_header_title_tag ),
+						wp_kses_post( do_action( 'astra_advanced_header_layout_1_before_title' ) ),
+						esc_attr( $astra_addon_header_title ),
+						wp_kses_post( do_action( 'astra_advanced_header_layout_1_after_title' ) )
 					);
 				}
 				do_action( 'astra_advanced_header_layout_1_after_title_tag' );
 				if ( $astra_addon_header_description ) {
+					$astra_addon_header_description = apply_filters( 'astra_advanced_header_layout_1_description', $astra_addon_header_description );
 					?>
 				<div class="taxonomy-description">
 					<?php do_action( 'astra_advanced_header_layout_1_before_description' ); ?>
-					<?php echo apply_filters( 'astra_advanced_header_layout_1_description', wp_kses_post( $astra_addon_header_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo wp_kses_post( $astra_addon_header_description ); ?>
 					<?php do_action( 'astra_advanced_header_layout_1_after_description' ); ?>
 				</div>
 				<?php } ?>

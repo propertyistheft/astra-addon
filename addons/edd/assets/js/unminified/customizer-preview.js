@@ -185,34 +185,29 @@
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-edd-product-title]', '.single-download .entry-title' );
 	astra_css( 'astra-settings[font-weight-edd-product-title]', 'font-weight', '.single-download .entry-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-edd-product-title]', '.single-download .entry-title' );
-	astra_css( 'astra-settings[line-height-edd-product-title]', 'line-height', '.single-download .entry-title' );
-	astra_css( 'astra-settings[text-transform-edd-product-title]', 'text-transform', '.single-download .entry-title' );
+	astra_font_extras_css( 'font-extras-edd-product-title', '.single-download .entry-title' );
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-edd-product-content]', '.single-download .entry-content' );
 	astra_css( 'astra-settings[font-weight-edd-product-content]', 'font-weight', '.single-download .entry-content' );
 	astra_responsive_font_size( 'astra-settings[font-size-edd-product-content]', '.single-download .entry-content' );
-	astra_css( 'astra-settings[line-height-edd-product-content]', 'line-height', '.single-download .entry-content' );
-	astra_css( 'astra-settings[text-transform-edd-product-content]', 'text-transform', '.single-download .entry-content' );
+	astra_font_extras_css( 'font-extras-edd-product-content', '.single-download .entry-content' );
 
 	// Shop Typo.
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-edd-archive-product-title]', '.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' );
 	astra_css( 'astra-settings[font-weight-edd-archive-product-title]', 'font-weight', '.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' );
 	astra_responsive_font_size( 'astra-settings[font-size-edd-archive-product-title]', '.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' );
-	astra_css( 'astra-settings[line-height-edd-archive-product-title]', 'line-height', '.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' );
-	astra_css( 'astra-settings[text-transform-edd-archive-product-title]', 'text-transform', '.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' );
+	astra_font_extras_css( 'font-extras-edd-archive-product-title', '.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' );
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-edd-archive-product-price]', '.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' );
 	astra_css( 'astra-settings[font-weight-edd-archive-product-price]', 'font-weight', '.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' );
 	astra_responsive_font_size( 'astra-settings[font-size-edd-archive-product-price]', '.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' );
-	astra_css( 'astra-settings[line-height-edd-archive-product-price]', 'line-height', '.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' );
-	astra_css( 'astra-settings[text-transform-edd-archive-product-price]', 'text-transform', '.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' );
+	astra_font_extras_css( 'font-extras-edd-archive-product-price', '.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' );
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-edd-archive-product-content]', '.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' );
 	astra_css( 'astra-settings[font-weight-edd-archive-product-content]', 'font-weight', '.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' );
 	astra_responsive_font_size( 'astra-settings[font-size-edd-archive-product-content]', '.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' );
-	astra_css( 'astra-settings[line-height-edd-archive-product-content]', 'line-height', '.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' );
-	astra_css( 'astra-settings[text-transform-edd-archive-product-content]', 'text-transform', '.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' );
+	astra_font_extras_css( 'font-extras-edd-archive-product-content', '.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' );
 
 	// Single Product Colors.
 	astra_css( 'astra-settings[edd-single-product-title-color]', 'color', '.single-download .entry-title' );

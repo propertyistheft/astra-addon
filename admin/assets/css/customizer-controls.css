@@ -5,21 +5,6 @@
 /**
  * Typography Control Style
  */
-.customize-pane-child > li[id*="-font-weight"],
-.customize-pane-child > li[id*="-text-transform"] {
-    width: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    clear: none;
-}
-
-.customize-pane-child > li[id*="-font-weight"] {
-    padding-right: 5px;
-}
-
-.customize-pane-child > li[id*="-text-transform"] {
-    padding-left: 5px;
-}
 
 .customize-pane-child > #customize-control-astra-settings-font-weight-product-price,
 .customize-pane-child > #customize-control-astra-settings-font-weight-shop-product-price,

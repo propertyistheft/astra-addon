@@ -80,7 +80,6 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 			);
 			$parse_css                  .= astra_parse_css( $css_megamenu_output_desktop );
 		}
-
 		$css_output_desktop = array(
 			// Sub Menu.
 			$selector . ' .sub-menu'            => array(

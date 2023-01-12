@@ -89,11 +89,17 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 			$defaults['disable-edd-single-product-add-to-cart'] = false;
 
 			// Single Product Title Typo.
-			$defaults['font-family-edd-product-title']    = 'inherit';
-			$defaults['font-weight-edd-product-title']    = 'inherit';
-			$defaults['text-transform-edd-product-title'] = '';
-			$defaults['line-height-edd-product-title']    = '';
-			$defaults['font-size-edd-product-title']      = array(
+			$defaults['font-family-edd-product-title'] = 'inherit';
+			$defaults['font-weight-edd-product-title'] = 'inherit';
+			$defaults['font-extras-edd-product-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-edd-product-title'] ) && isset( $astra_options['line-height-edd-product-title'] ) ? $astra_options['line-height-edd-product-title'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-edd-product-title'] ) && isset( $astra_options['text-transform-edd-product-title'] ) ? $astra_options['text-transform-edd-product-title'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-edd-product-title']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -102,11 +108,17 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 				'mobile-unit'  => 'px',
 			);
 
-			$defaults['font-family-edd-product-content']    = 'inherit';
-			$defaults['font-weight-edd-product-content']    = 'inherit';
-			$defaults['text-transform-edd-product-content'] = '';
-			$defaults['line-height-edd-product-content']    = '';
-			$defaults['font-size-edd-product-content']      = array(
+			$defaults['font-family-edd-product-content'] = 'inherit';
+			$defaults['font-weight-edd-product-content'] = 'inherit';
+			$defaults['font-extras-edd-product-content'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-edd-product-content'] ) && isset( $astra_options['line-height-edd-product-content'] ) ? $astra_options['line-height-edd-product-content'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-edd-product-content'] ) && isset( $astra_options['text-transform-edd-product-content'] ) ? $astra_options['text-transform-edd-product-content'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-edd-product-content']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -116,11 +128,17 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 			);
 
 			// Shop Product Title Typo.
-			$defaults['font-family-edd-archive-product-title']    = 'inherit';
-			$defaults['font-weight-edd-archive-product-title']    = 'inherit';
-			$defaults['text-transform-edd-archive-product-title'] = '';
-			$defaults['line-height-edd-archive-product-title']    = '';
-			$defaults['font-size-edd-archive-product-title']      = array(
+			$defaults['font-family-edd-archive-product-title'] = 'inherit';
+			$defaults['font-weight-edd-archive-product-title'] = 'inherit';
+			$defaults['font-extras-edd-archive-product-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-edd-archive-product-title'] ) && isset( $astra_options['line-height-edd-archive-product-title'] ) ? $astra_options['line-height-edd-archive-product-title'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-edd-archive-product-title'] ) && isset( $astra_options['text-transform-edd-archive-product-title'] ) ? $astra_options['text-transform-edd-archive-product-title'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-edd-archive-product-title']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -132,7 +150,14 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 			// Shop Product Price Typo.
 			$defaults['font-family-edd-archive-product-price'] = 'inherit';
 			$defaults['font-weight-edd-archive-product-price'] = 'inherit';
-			$defaults['line-height-edd-archive-product-price'] = '';
+			$defaults['font-extras-edd-archive-product-price'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-edd-archive-product-price'] ) && isset( $astra_options['line-height-edd-archive-product-price'] ) ? $astra_options['line-height-edd-archive-product-price'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
 			$defaults['font-size-edd-archive-product-price']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
@@ -143,11 +168,17 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 			);
 
 			// Shop Product Category Typo.
-			$defaults['font-family-edd-archive-product-content']    = 'inherit';
-			$defaults['font-weight-edd-archive-product-content']    = 'inherit';
-			$defaults['text-transform-edd-archive-product-content'] = '';
-			$defaults['line-height-edd-archive-product-content']    = '';
-			$defaults['font-size-edd-archive-product-content']      = array(
+			$defaults['font-family-edd-archive-product-content'] = 'inherit';
+			$defaults['font-weight-edd-archive-product-content'] = 'inherit';
+			$defaults['font-extras-edd-archive-product-content'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-edd-archive-product-content'] ) && isset( $astra_options['line-height-edd-archive-product-content'] ) ? $astra_options['line-height-edd-archive-product-content'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-edd-archive-product-content'] ) && isset( $astra_options['text-transform-edd-archive-product-content'] ) ? $astra_options['text-transform-edd-archive-product-content'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-edd-archive-product-content']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',

@@ -21,18 +21,13 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	 */
 	$page_width            = '100%';
 	$parse_css             = '';
-	$header_break_point    = astra_header_break_point(); // Header Break Point.
-	$secondary_width       = astra_get_option( 'site-sidebar-width' );
-	$primary_width         = 100 - $secondary_width;
 	$layout                = astra_get_option( 'site-layout', 'ast-full-width-layout' );
-	$site_container_layout = astra_get_option( 'site-content-layout' );
 	$single_post_max       = astra_get_option( 'blog-single-width' );
 	$single_post_max_width = astra_get_option( 'blog-single-max-width' );
 	$blog_width            = astra_get_option( 'blog-width' );
 	$blog_max_width        = astra_get_option( 'blog-max-width' );
 
-	$woo_shop_archive_width     = astra_get_option( 'shop-archive-width' );
-	$woo_shop_archive_max_width = astra_get_option( 'shop-archive-max-width' );
+	$woo_shop_archive_width = astra_get_option( 'shop-archive-width' );
 
 	// set page width depending on site layout.
 	if ( 'ast-box-layout' == $layout ) {
@@ -273,6 +268,56 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 			$single_blog_css .= '}';
 			$parse_css       .= $single_blog_css;
 		endif;
+	endif;
+
+	/** Scroll to top compatibility with padded layout. */
+	if ( 'ast-padded-layout' === $layout && true === astra_get_option( 'scroll-to-top-enable', true ) ) :
+		$scroll_to_top_icon_alignment = astra_get_option( 'scroll-to-top-icon-position' );
+		$scroll_to_top_padded_padding = apply_filters( 'astra_scroll_top_padded_padding', 30 );
+		$padded_layout_padding        = astra_get_option( 'site-layout-padded-pad' );
+
+		if ( 'em' === $padded_layout_padding['desktop-unit'] || 'em' === $padded_layout_padding['tablet-unit'] || 'em' === $padded_layout_padding['mobile-unit'] ) {
+			$scroll_to_top_padded_padding = apply_filters( 'astra_scroll_top_padded_padding', 2 );
+		}
+
+		if ( '%' === $padded_layout_padding['desktop-unit'] || '%' === $padded_layout_padding['tablet-unit'] || '%' === $padded_layout_padding['mobile-unit'] ) {
+			$scroll_to_top_padded_padding = apply_filters( 'astra_scroll_top_padded_padding', 4 );
+		}
+
+		$padded_spacing = array(
+			/**
+			 * Add spacing based on padded layout spacing
+			 */
+			'.ast-padded-layout .ast-scroll-to-top-' . $scroll_to_top_icon_alignment => array(
+				$scroll_to_top_icon_alignment => astra_get_css_value( intval( $padded_layout_padding['desktop'][ $scroll_to_top_icon_alignment ] ) + $scroll_to_top_padded_padding, $padded_layout_padding['desktop-unit'] ),
+				'bottom'                      => astra_get_css_value( intval( $padded_layout_padding['desktop']['bottom'] ) + $scroll_to_top_padded_padding, $padded_layout_padding['desktop-unit'] ),
+			),
+		);
+
+		$tablet_padded_spacing = array(
+			/**
+			 * Add spacing based on padded layout spacing
+			 */
+			'.ast-padded-layout .ast-scroll-to-top-' . $scroll_to_top_icon_alignment => array(
+				$scroll_to_top_icon_alignment => astra_get_css_value( intval( $padded_layout_padding['tablet'][ $scroll_to_top_icon_alignment ] ) + $scroll_to_top_padded_padding, $padded_layout_padding['tablet-unit'] ),
+				'bottom'                      => astra_get_css_value( intval( $padded_layout_padding['tablet']['bottom'] ) + $scroll_to_top_padded_padding, $padded_layout_padding['tablet-unit'] ),
+			),
+		);
+
+		$mobile_padded_spacing = array(
+			/**
+			 * Add spacing based on padded layout spacing
+			 */
+			'.ast-padded-layout .ast-scroll-to-top-' . $scroll_to_top_icon_alignment => array(
+				$scroll_to_top_icon_alignment => astra_get_css_value( intval( $padded_layout_padding['mobile'][ $scroll_to_top_icon_alignment ] ) + $scroll_to_top_padded_padding, $padded_layout_padding['mobile-unit'] ),
+				'bottom'                      => astra_get_css_value( intval( $padded_layout_padding['mobile']['bottom'] ) + $scroll_to_top_padded_padding, $padded_layout_padding['mobile-unit'] ),
+			),
+		);
+
+		/* Parse CSS from array() */
+		$parse_css .= astra_parse_css( $padded_spacing );
+		$parse_css .= astra_parse_css( $tablet_padded_spacing, '', astra_addon_get_tablet_breakpoint() );
+		$parse_css .= astra_parse_css( $mobile_padded_spacing, '', astra_addon_get_mobile_breakpoint() );
 	endif;
 
 	return $dynamic_css . $parse_css;

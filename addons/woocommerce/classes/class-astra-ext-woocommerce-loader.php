@@ -91,6 +91,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 		public function theme_defaults( $defaults ) {
 
 			$astra_addon_update_modern_shop_defaults = Astra_Ext_WooCommerce::astra_addon_enable_modern_ecommerce_setup();
+			$astra_options                           = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
 
 			// Shop page.
 			$defaults['shop-page-list-style-alignment'] = array(
@@ -328,16 +329,18 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['woo-header-cart-total-display'] = true;
 			$defaults['woo-header-cart-title-display'] = true;
 
-			// General Product Price Typo.
-			$defaults['font-family-product-price'] = 'inherit';
-			$defaults['font-weight-product-price'] = 'inherit';
-
 			// Single Product Title Typo.
-			$defaults['font-family-product-title']    = 'inherit';
-			$defaults['font-weight-product-title']    = 'inherit';
-			$defaults['text-transform-product-title'] = '';
-			$defaults['line-height-product-title']    = '';
-			$defaults['font-size-product-title']      = array(
+			$defaults['font-family-product-title'] = 'inherit';
+			$defaults['font-weight-product-title'] = 'inherit';
+			$defaults['font-extras-product-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-product-title'] ) && isset( $astra_options['line-height-product-title'] ) ? $astra_options['line-height-product-title'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-product-title'] ) && isset( $astra_options['text-transform-product-title'] ) ? $astra_options['text-transform-product-title'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-product-title']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -346,11 +349,17 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 				'mobile-unit'  => 'px',
 			);
 
-			$defaults['font-family-product-content']    = 'inherit';
-			$defaults['font-weight-product-content']    = 'inherit';
-			$defaults['text-transform-product-content'] = '';
-			$defaults['line-height-product-content']    = '';
-			$defaults['font-size-product-content']      = array(
+			$defaults['font-family-product-content'] = 'inherit';
+			$defaults['font-weight-product-content'] = 'inherit';
+			$defaults['font-extras-product-content'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-product-content'] ) && isset( $astra_options['line-height-product-content'] ) ? $astra_options['line-height-product-content'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-product-content'] ) && isset( $astra_options['text-transform-product-content'] ) ? $astra_options['text-transform-product-content'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-product-content']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -360,11 +369,17 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			);
 
 			// Single Product Category Typo.
-			$defaults['font-family-product-category']    = 'inherit';
-			$defaults['font-weight-product-category']    = 'inherit';
-			$defaults['text-transform-product-category'] = '';
-			$defaults['line-height-product-category']    = '';
-			$defaults['font-size-product-category']      = array(
+			$defaults['font-family-product-category'] = 'inherit';
+			$defaults['font-weight-product-category'] = 'inherit';
+			$defaults['font-extras-product-category'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-product-category'] ) && isset( $astra_options['line-height-product-category'] ) ? $astra_options['line-height-product-category'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-product-category'] ) && isset( $astra_options['text-transform-product-category'] ) ? $astra_options['text-transform-product-category'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-product-category']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -376,7 +391,14 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			// Single Product Price Typo.
 			$defaults['font-family-product-price'] = 'inherit';
 			$defaults['font-weight-product-price'] = 'inherit';
-			$defaults['line-height-product-price'] = '';
+			$defaults['font-extras-product-price'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-product-price'] ) && isset( $astra_options['line-height-product-price'] ) ? $astra_options['line-height-product-price'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
 			$defaults['font-size-product-price']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
@@ -387,11 +409,17 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			);
 
 			// Single Product Breadcrumb Typo.
-			$defaults['font-family-product-breadcrumb']    = 'inherit';
-			$defaults['font-weight-product-breadcrumb']    = 'inherit';
-			$defaults['text-transform-product-breadcrumb'] = '';
-			$defaults['line-height-product-breadcrumb']    = '';
-			$defaults['font-size-product-breadcrumb']      = array(
+			$defaults['font-family-product-breadcrumb'] = 'inherit';
+			$defaults['font-weight-product-breadcrumb'] = 'inherit';
+			$defaults['font-extras-product-breadcrumb'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-product-breadcrumb'] ) && isset( $astra_options['line-height-product-breadcrumb'] ) ? $astra_options['line-height-product-breadcrumb'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-product-breadcrumb'] ) && isset( $astra_options['text-transform-product-breadcrumb'] ) ? $astra_options['text-transform-product-breadcrumb'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-product-breadcrumb']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -401,11 +429,17 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			);
 
 			// Shop Product Title Typo.
-			$defaults['font-family-shop-product-title']    = 'inherit';
-			$defaults['font-weight-shop-product-title']    = 'inherit';
-			$defaults['text-transform-shop-product-title'] = '';
-			$defaults['line-height-shop-product-title']    = '';
-			$defaults['font-size-shop-product-title']      = array(
+			$defaults['font-family-shop-product-title'] = 'inherit';
+			$defaults['font-weight-shop-product-title'] = 'inherit';
+			$defaults['font-extras-shop-product-title'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-shop-product-title'] ) && isset( $astra_options['line-height-shop-product-title'] ) ? $astra_options['line-height-shop-product-title'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-shop-product-title'] ) && isset( $astra_options['text-transform-shop-product-title'] ) ? $astra_options['text-transform-shop-product-title'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-shop-product-title']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -417,7 +451,14 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			// Shop Product Price Typo.
 			$defaults['font-family-shop-product-price'] = 'inherit';
 			$defaults['font-weight-shop-product-price'] = 'inherit';
-			$defaults['line-height-shop-product-price'] = '';
+			$defaults['font-extras-shop-product-price'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-shop-product-price'] ) && isset( $astra_options['line-height-shop-product-price'] ) ? $astra_options['line-height-shop-product-price'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
 			$defaults['font-size-shop-product-price']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
@@ -428,11 +469,17 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			);
 
 			// Shop Product Category Typo.
-			$defaults['font-family-shop-product-content']    = 'inherit';
-			$defaults['font-weight-shop-product-content']    = 'inherit';
-			$defaults['text-transform-shop-product-content'] = '';
-			$defaults['line-height-shop-product-content']    = '';
-			$defaults['font-size-shop-product-content']      = array(
+			$defaults['font-family-shop-product-content'] = 'inherit';
+			$defaults['font-weight-shop-product-content'] = 'inherit';
+			$defaults['font-extras-shop-product-content'] = array(
+				'line-height'         => ! isset( $astra_options['font-extras-shop-product-content'] ) && isset( $astra_options['line-height-shop-product-content'] ) ? $astra_options['line-height-shop-product-content'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['font-extras-shop-product-content'] ) && isset( $astra_options['text-transform-shop-product-content'] ) ? $astra_options['text-transform-shop-product-content'] : '',
+				'text-decoration'     => '',
+			);
+			$defaults['font-size-shop-product-content']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',

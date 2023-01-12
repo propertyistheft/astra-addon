@@ -160,6 +160,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Sidebar' ) ) {
 					'priority'    => 0,
 					'description' => '',
 				);
+
 			} else {
 
 				$_configs[] = array(

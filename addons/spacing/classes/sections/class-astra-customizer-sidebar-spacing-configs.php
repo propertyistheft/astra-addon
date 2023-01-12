@@ -113,6 +113,17 @@ if ( ! class_exists( 'Astra_Customizer_Sidebar_Spacing_Configs' ) ) {
 				),
 			);
 
+			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
+				$_configs[] = array(
+					'name'        => 'section-sidebars-ast-context-tabs',
+					'section'     => 'section-sidebars',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				);
+			}
+
 			return array_merge( $configurations, $_configs );
 		}
 	}

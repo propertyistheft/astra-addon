@@ -31,13 +31,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		private $is_layout_content_in_process = false;
 
 		/**
-		 * Member Variable
-		 *
-		 * @var string parent_hook_enable
-		 */
-		public static $parent_hook_enable = '';
-
-		/**
 		 *  Initiator
 		 */
 		public static function get_instance() {
@@ -380,7 +373,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				}
 				ob_start();
 				// @codingStandardsIgnoreStart
-				eval( '?>' . $code . '<?php ' );
+				eval( '?>' . $code . '<?php ' ); // phpcs:ignore Squiz.PHP.Eval.Discouraged -- Ignored PHP standards to execute PHP code snipett.
 				// @codingStandardsIgnoreEnd
 				return ob_get_clean();
 			}
@@ -782,12 +775,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				return;
 			}
 
-			if ( '' === self::$parent_hook_enable ) {
-				self::$parent_hook_enable = 'parent-hook-' . $post_id;
-			} else {
-				return;
-			}
-
 			$action                 = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
 			$display_device_classes = $this->get_display_device( $post_id );
 
@@ -795,15 +782,15 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			$exclude_wrapper_hooks = array( 'astra_html_before', 'astra_body_top', 'astra_head_top', 'astra_head_bottom', 'wp_head', 'astra_body_bottom', 'wp_footer' );
 			$with_wrapper          = ! in_array( $action, $exclude_wrapper_hooks );
 			if ( $with_wrapper ) {
-				echo '<div class="astra-advanced-hook-' . esc_attr( $post_id ) . ' ' . esc_attr( $display_device_classes ) . '">';
+				?>
+					<div class="astra-advanced-hook-<?php echo esc_attr( $post_id ); ?> <?php echo esc_attr( $display_device_classes ); ?>">
+				<?php
 			}
 
 			$php_snippet = $this->get_php_snippet( $post_id );
 			if ( $php_snippet ) {
 				echo $php_snippet; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 			} else {
-
 				if ( class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) {
 
 					$page_builder_base_instance = Astra_Addon_Page_Builder_Compatibility::get_instance();
@@ -816,13 +803,10 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			}
 
 			if ( $with_wrapper ) {
-
-				echo '</div>';
+				?>
+					</div>
+				<?php
 			}
-			if ( 'parent-hook-' . $post_id === self::$parent_hook_enable ) {
-				self::$parent_hook_enable = '';
-			}
-
 		}
 
 		/**

@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-below-header-primary-menu' ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-below-header-primary-menu]',
 				),
 
@@ -64,17 +64,23 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'name'        => 'font-size-below-header-primary-menu',
 					'transport'   => 'postMessage',
 					'parent'      => ASTRA_THEME_SETTINGS . '[below-header-menu-typography-styling]',
-					'title'       => __( 'Size', 'astra-addon' ),
+					'title'       => __( 'Font Size', 'astra-addon' ),
 					'type'        => 'sub-control',
 					'section'     => 'section-below-header',
-					'control'     => 'ast-responsive',
 					'default'     => astra_get_option( 'font-size-below-header-primary-menu' ),
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -90,7 +96,7 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'font_type'         => 'ast-font-weight',
 					'default'           => astra_get_option( 'font-weight-below-header-primary-menu' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-below-header-primary-menu',
 				),
 
@@ -125,7 +131,7 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'section'   => 'section-below-header',
 					'font_type' => 'ast-font-family',
 					'parent'    => ASTRA_THEME_SETTINGS . '[below-header-submenu-typography-styling]',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'default'   => astra_get_option( 'font-family-below-header-dropdown-menu' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-below-header-dropdown-menu]',
 				),
@@ -137,17 +143,23 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'name'        => 'font-size-below-header-dropdown-menu',
 					'transport'   => 'postMessage',
 					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
 					'section'     => 'section-below-header',
 					'parent'      => ASTRA_THEME_SETTINGS . '[below-header-submenu-typography-styling]',
-					'title'       => __( 'Size', 'astra-addon' ),
+					'title'       => __( 'Font Size', 'astra-addon' ),
 					'default'     => astra_get_option( 'font-size-below-header-dropdown-menu' ),
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -163,7 +175,7 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'default'           => astra_get_option( 'font-weight-below-header-dropdown-menu' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[below-header-submenu-typography-styling]',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-below-header-dropdown-menu',
 				),
 
@@ -200,7 +212,7 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'section'   => 'section-below-header',
 					'font_type' => 'ast-font-family',
 					'parent'    => ASTRA_THEME_SETTINGS . '[below-header-content-typography-styling]',
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => 'font-weight-below-header-content',
 				),
 
@@ -213,15 +225,21 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'font-size-below-header-content' ),
 					'parent'      => ASTRA_THEME_SETTINGS . '[below-header-content-typography-styling]',
-					'title'       => __( 'Size', 'astra-addon' ),
-					'control'     => 'ast-responsive',
+					'title'       => __( 'Font Size', 'astra-addon' ),
 					'section'     => 'section-below-header',
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -237,7 +255,7 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'section'           => 'section-below-header',
 					'font_type'         => 'ast-font-weight',
 					'parent'            => ASTRA_THEME_SETTINGS . '[below-header-content-typography-styling]',
-					'title'             => __( 'Weight', 'astra-addon' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-below-header-content',
 				),
 

@@ -32,6 +32,11 @@
 		 */
 		_bind: function()
 		{
+			// Instead of updating PHP globals $parent_file, $submenu_file, used following JS for making Custom Layout menu active while editing any post.
+			$( 'li#menu-appearance.wp-has-current-submenu, li#menu-appearance.wp-has-current-submenu > a' ).removeClass('wp-has-current-submenu');
+			$( 'li#toplevel_page_' + astraPageHeaderVars.home_slug + ', li#toplevel_page_' + astraPageHeaderVars.home_slug + ' > a' ).removeClass('wp-not-current-submenu').addClass('wp-has-current-submenu');
+			$( 'li#toplevel_page_' + astraPageHeaderVars.home_slug + ' a[href="edit.php?post_type=astra_adv_header"]' ).parent().addClass('current');
+
 			// Call Tooltip
 			$('.ast-advanced-headers-heading-help').tooltip({
 				content: function() {
@@ -80,15 +85,15 @@
 			$( '#ast-advanced-header-layout-merged' ).on( 'change', this._astrPageTitleMergeChecked );
 
 			$( '#ast-advanced-header-design-bg-size' ).on( 'change', this._astrPageTitleBgSizeChecked );
-			
+
 			$( '#ast-advanced-header-layout-above-header' ).on( 'change', this._astrAboveHeaderChecked );
 
 			$( '#ast-advanced-header-layout-below-header' ).on( 'change', this._astrBelowHeaderChecked );
-			
+
 			$( '#ast-advanced-headers-design-custom-menu-item' ).on( 'change', this._astrCustomMenuChanged );
 
 			$( '#ast-advanced-headers-design-custom-menu-item' ).trigger('change');
-			
+
 			// Force disable transparent header on archive pages.
 			$('input[name="ast-advanced-headers-layout[force-transparent-disabled]"]').on('change', function() {
 			   $('input[name="ast-advanced-headers-layout[force-transparent-disabled]"]').not(this).prop('checked', false);
@@ -132,7 +137,7 @@
 				file_frame.on( 'select', function() {
 
 					var attachment = file_frame.state().get( 'selection' ).first().toJSON();
-					
+
 					// place first attachment in field
 					window.inputWrapper.find( '#ast-advanced-headers-preview-img' ).children('.saved-image').remove();
 					window.inputWrapper.find( '#ast-advanced-headers-preview-img' ).append('<img src="' + attachment.url + '" width="150" class="saved-image" style="margin-bottom:12px;" />');
@@ -155,7 +160,7 @@
 				    closeRow.find( '.ast-advanced-headers-bg-image-id' ).val('');
 				    closeRow.find( '.ast-advanced-headers-bg-image' ).val('');
 				    button.hide();
-				
+
 			});
 
 			// Logo Upload.
@@ -180,7 +185,7 @@
 				file_frame.on( 'select', function() {
 
 					var attachment = file_frame.state().get( 'selection' ).first().toJSON();
-					
+
 					// place first attachment in field
 					window.inputWrapper.find( '#ast-advanced-headers-preview-logo' ).children('.saved-image').remove();
 					window.inputWrapper.find( '#ast-advanced-headers-preview-logo' ).append('<img src="' + attachment.url + '" class="saved-image" style="margin-bottom:12px;max-width:150px;" />');
@@ -203,7 +208,7 @@
 				    closeRow.find( '.ast-advanced-headers-logo-id' ).val('');
 				    closeRow.find( '.ast-advanced-headers-logo' ).val('');
 				    button.hide();
-				
+
 			});
 
 			var file_frame;
@@ -229,7 +234,7 @@
 			}
 		},
 
-		
+
 		/**
 		 * Callback for when the button to launch the
 		 * builder is clicked.
@@ -392,7 +397,7 @@
 
 			if( ! mergeHeaderCheck.is(':checked') ) {
 				$('.require-merge-ast-advanced-header').hide();
-				
+
 			}
 			if ( 'custom-bg-size' != backgroundSizeCheck ) {
 				$('.ast-advanced-haeders-design-bg-custom-size-wrap').hide();
@@ -452,13 +457,13 @@
 				}
 		},
 
-		_astrToggleLogo: function() 
+		_astrToggleLogo: function()
 		{
-			if( $(this).is(':checked') ){ 
+			if( $(this).is(':checked') ){
 				$( ".ast-logo-settings-wrap" ).show();
 				$( ".ast-diff-header-retina-logo" ).show();
 
-				if( $(this).is(':checked') && $( '#ast-advanced-header-diff-header-retina-logo' ).is(':checked') ){ 
+				if( $(this).is(':checked') && $( '#ast-advanced-header-diff-header-retina-logo' ).is(':checked') ){
 					$( ".ast-retina-logo-settings-wrap" ).show();
 				} else {
 					$( ".ast-retina-logo-settings-wrap" ).hide();
@@ -468,7 +473,7 @@
 				$( ".ast-logo-settings-wrap" ).hide();
 				$( ".ast-diff-header-retina-logo" ).hide();
 
-				if( $(this).is(':checked') && $( '#ast-advanced-header-diff-header-retina-logo' ).is(':checked') ){ 
+				if( $(this).is(':checked') && $( '#ast-advanced-header-diff-header-retina-logo' ).is(':checked') ){
 					$( ".ast-retina-logo-settings-wrap" ).show();
 				} else {
 					$( ".ast-retina-logo-settings-wrap" ).hide();
@@ -476,9 +481,9 @@
 			}
 		},
 
-		_astrToggleRetinaLogo: function() 
+		_astrToggleRetinaLogo: function()
 		{
-			if( $(this).is(':checked') && $( '#ast-advanced-header-diff-header-logo' ).is(':checked') ){ 
+			if( $(this).is(':checked') && $( '#ast-advanced-header-diff-header-logo' ).is(':checked') ){
 				$( ".ast-retina-logo-settings-wrap" ).show();
 			} else {
 				$( ".ast-retina-logo-settings-wrap" ).hide();

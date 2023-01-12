@@ -38,9 +38,6 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-			if ( Astra_Ext_Extension::is_active( 'typography' ) ) {
-				add_filter( 'astra_block_editor_dynamic_css', array( $this, 'typography_addon_gutenberg_dynamic_css' ) );
-			}
 			if ( Astra_Ext_Extension::is_active( 'colors-and-background' ) ) {
 				add_filter( 'astra_block_editor_dynamic_css', array( $this, 'colors_and_background_addon_gutenberg_dynamic_css' ) );
 			}
@@ -50,115 +47,6 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 			if ( Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
 				add_filter( 'astra_block_editor_dynamic_css', array( $this, 'woo_gb_blocks_dynamic_css' ) );
 			}
-		}
-
-		/**
-		 * Dynamic CSS - Typography
-		 *
-		 * @since  1.6.2
-		 * @param  string $dynamic_css          Astra Gutenberg Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Gutenberg Dynamic CSS Filters.
-		 * @return string
-		 */
-		public function typography_addon_gutenberg_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
-			$h1_font_family    = astra_get_option( 'font-family-h1' );
-			$h1_font_weight    = astra_get_option( 'font-weight-h1' );
-			$h1_line_height    = astra_get_option( 'line-height-h1' );
-			$h1_text_transform = astra_get_option( 'text-transform-h1' );
-
-			$h2_font_family    = astra_get_option( 'font-family-h2' );
-			$h2_font_weight    = astra_get_option( 'font-weight-h2' );
-			$h2_line_height    = astra_get_option( 'line-height-h2' );
-			$h2_text_transform = astra_get_option( 'text-transform-h2' );
-
-			$h3_font_family    = astra_get_option( 'font-family-h3' );
-			$h3_font_weight    = astra_get_option( 'font-weight-h3' );
-			$h3_line_height    = astra_get_option( 'line-height-h3' );
-			$h3_text_transform = astra_get_option( 'text-transform-h3' );
-
-			$h4_font_family    = astra_get_option( 'font-family-h4' );
-			$h4_font_weight    = astra_get_option( 'font-weight-h4' );
-			$h4_line_height    = astra_get_option( 'line-height-h4' );
-			$h4_text_transform = astra_get_option( 'text-transform-h4' );
-
-			$h5_font_family    = astra_get_option( 'font-family-h5' );
-			$h5_font_weight    = astra_get_option( 'font-weight-h5' );
-			$h5_line_height    = astra_get_option( 'line-height-h5' );
-			$h5_text_transform = astra_get_option( 'text-transform-h5' );
-
-			$h6_font_family    = astra_get_option( 'font-family-h6' );
-			$h6_font_weight    = astra_get_option( 'font-weight-h6' );
-			$h6_line_height    = astra_get_option( 'line-height-h6' );
-			$h6_text_transform = astra_get_option( 'text-transform-h6' );
-
-			$parse_css = '';
-			/**
-			 * Typography
-			 */
-			$typography_css_output = array(
-				/**
-				 * Heading - <h1>
-				 */
-				'.edit-post-visual-editor h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1, .edit-post-visual-editor h1.block-editor-block-list__block' => array(
-					'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
-					'line-height'    => esc_attr( $h1_line_height ),
-					'text-transform' => esc_attr( $h1_text_transform ),
-				),
-
-				/**
-				 * Heading - <h2>
-				 */
-				'.edit-post-visual-editor h2, .wp-block-heading h2.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h2, .edit-post-visual-editor h2.block-editor-block-list__block' => array(
-					'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
-					'line-height'    => esc_attr( $h2_line_height ),
-					'text-transform' => esc_attr( $h2_text_transform ),
-				),
-
-				/**
-				 * Heading - <h3>
-				 */
-				'.edit-post-visual-editor h3, .wp-block-heading h3.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h3, .edit-post-visual-editor h3.block-editor-block-list__block' => array(
-					'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
-					'line-height'    => esc_attr( $h3_line_height ),
-					'text-transform' => esc_attr( $h3_text_transform ),
-				),
-
-				/**
-				 * Heading - <h4>
-				 */
-				'.edit-post-visual-editor h4, .wp-block-heading h4.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h4, .edit-post-visual-editor h4.block-editor-block-list__block' => array(
-					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
-					'line-height'    => esc_attr( $h4_line_height ),
-					'text-transform' => esc_attr( $h4_text_transform ),
-				),
-
-				/**
-				 * Heading - <h5>
-				 */
-				'.edit-post-visual-editor h5, .wp-block-heading h5.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h5, .edit-post-visual-editor h5.block-editor-block-list__block' => array(
-					'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
-					'line-height'    => esc_attr( $h5_line_height ),
-					'text-transform' => esc_attr( $h5_text_transform ),
-				),
-
-				/**
-				 * Heading - <h6>
-				 */
-				'.edit-post-visual-editor h6, .wp-block-heading h6.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h6, .edit-post-visual-editor h6.block-editor-block-list__block' => array(
-					'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
-					'line-height'    => esc_attr( $h6_line_height ),
-					'text-transform' => esc_attr( $h6_text_transform ),
-				),
-			);
-			$parse_css .= astra_parse_css( $typography_css_output );
-
-			return $dynamic_css . $parse_css;
 		}
 
 		/**
@@ -176,7 +64,7 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 			$h4_color                = astra_get_option( 'h4-color' );
 			$h5_color                = astra_get_option( 'h5-color' );
 			$h6_color                = astra_get_option( 'h6-color' );
-			$single_post_title_color = astra_get_option( 'entry-title-color' );
+			$single_post_title_color = astra_get_option( 'ast-dynamic-single-' . esc_attr( strval( get_post_type() ) ) . '-banner-title-color' );
 
 			$parse_css = '';
 			/**
@@ -248,15 +136,6 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 						'padding' => '20px',
 					),
 				);
-
-				if ( astra_addon_has_gcp_typo_preset_compatibility() ) {
-
-					$boxed_container['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'desktop' );
-
-					$boxed_container_tablet['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'tablet' );
-
-					$boxed_container_mobile['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
-				}
 			}
 
 			$parse_css .= astra_parse_css( $boxed_container );
@@ -352,22 +231,12 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 		 */
 		public function woo_gb_blocks_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-			$body_font_family = astra_body_font_family();
-
 			// Shop Typo.
-			$shop_product_title_font_size      = astra_get_option( 'font-size-shop-product-title' );
-			$shop_product_title_line_height    = astra_get_option( 'line-height-shop-product-title' );
-			$shop_product_title_font_family    = astra_get_option( 'font-family-shop-product-title' );
-			$shop_product_title_font_weight    = astra_get_option( 'font-weight-shop-product-title' );
-			$shop_product_title_text_transform = astra_get_option( 'text-transform-shop-product-title' );
+			$shop_product_title_font_size = astra_get_option( 'font-size-shop-product-title' );
 
 			// Shop Product Title color.
-			$shop_product_title_color = astra_get_option( 'shop-product-title-color' );
-
-			$shop_product_price_font_family = astra_get_option( 'font-family-shop-product-price' );
-			$shop_product_price_font_weight = astra_get_option( 'font-weight-shop-product-price' );
-			$shop_product_price_font_size   = astra_get_option( 'font-size-shop-product-price' );
-			$shop_product_price_line_height = astra_get_option( 'line-height-shop-product-price' );
+			$shop_product_title_color     = astra_get_option( 'shop-product-title-color' );
+			$shop_product_price_font_size = astra_get_option( 'font-size-shop-product-price' );
 
 			// Shop Product Price color.
 			$shop_product_price_color = astra_get_option( 'shop-product-price-color' );
@@ -380,21 +249,8 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 			 * Set font sizes
 			 */
 			$css_output = array(
-				'.wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-title' => array(
-					'font-size'      => astra_responsive_font( $shop_product_title_font_size, 'desktop' ),
-					'line-height'    => esc_attr( $shop_product_title_line_height ),
-					'font-weight'    => astra_get_css_value( $shop_product_title_font_weight, 'font' ),
-					'font-family'    => astra_get_css_value( $shop_product_title_font_family, 'font', $body_font_family ),
-					'text-transform' => esc_attr( $shop_product_title_text_transform ),
-					'color'          => esc_attr( $shop_product_title_color ),
-				),
-				'.wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-price' => array(
-					'font-family' => astra_get_css_value( $shop_product_price_font_family, 'font', $body_font_family ),
-					'font-weight' => astra_get_css_value( $shop_product_price_font_weight, 'font' ),
-					'font-size'   => astra_responsive_font( $shop_product_price_font_size, 'desktop' ),
-					'line-height' => esc_attr( $shop_product_price_line_height ),
-					'color'       => esc_attr( $shop_product_price_color ),
-				),
+				'.wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-title' => astra_addon_get_font_array_css( astra_get_option( 'font-family-shop-product-title' ), astra_get_option( 'font-weight-shop-product-title' ), $shop_product_title_font_size, 'font-extras-shop-product-title', $shop_product_title_color ),
+				'.wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-price' => astra_addon_get_font_array_css( astra_get_option( 'font-family-shop-product-price' ), astra_get_option( 'font-weight-shop-product-price' ), $shop_product_price_font_size, 'font-extras-shop-product-price', $shop_product_price_color ),
 			);
 
 			/* Parse CSS from array() */

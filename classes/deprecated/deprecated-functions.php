@@ -13,26 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'astar' ) ) :
-
-	/**
-	 * Get a specific property of an array without needing to check if that property exists.
-	 *
-	 * @since 1.6.2
-	 * @deprecated 1.6.2 Use astra_get_prop()
-	 * @param array  $array   Array from which the property's value should be retrieved.
-	 * @param string $prop    Name of the property to be retrieved.
-	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
-	 * @see astra_get_prop()
-	 *
-	 * @return null|string|mixed The value
-	 */
-	function astar( $array, $prop, $default = null ) {
-		return astra_get_prop( $array, $prop, $default );
-	}
-
-endif;
-
 if ( ! function_exists( 'astra_pagination_infinite' ) ) :
 
 	/**
@@ -143,22 +123,6 @@ function astra_check_is_hex( $string ) { // phpcs:ignore WordPress.NamingConvent
 function is_support_swap_mobile_below_header_sections() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 	_deprecated_function( __FUNCTION__, '3.6.2', 'astra_addon_swap_mobile_below_header_sections()' );
 	return astra_addon_swap_mobile_below_header_sections();
-}
-
-/**
- * Deprecating is_astra_theme_3_5_0_version function.
- *
- * Checking theme version with v3.5.0.
- *
- * @since 3.6.2
- * @deprecated 3.6.2 Use astra_addon_check_theme_3_5_0_version()
- * @see astra_addon_check_theme_3_5_0_version()
- *
- * @return bool true|false
- */
-function is_astra_theme_3_5_0_version() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
-	_deprecated_function( __FUNCTION__, '3.6.2', 'astra_addon_check_theme_3_5_0_version()' );
-	return astra_addon_check_theme_3_5_0_version();
 }
 
 /**

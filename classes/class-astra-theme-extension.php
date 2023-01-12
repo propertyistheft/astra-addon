@@ -79,26 +79,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 
 				add_action( 'admin_init', array( $this, 'min_theme_version__error' ) );
 
-				add_filter( 'astra_menu_options', array( $this, 'extension_menu_options' ), 9, 1 );
-
-				// Enqueue Admin Scripts.
-				add_action( 'astra_admin_settings_scripts', array( $this, 'admin_scripts' ) );
-
-				// Ajax requests.
-				add_action( 'wp_ajax_astra_addon_activate_module', array( $this, 'activate_module' ) );
-				add_action( 'wp_ajax_astra_addon_deactivate_module', array( $this, 'deactivate_module' ) );
-
-				add_action( 'wp_ajax_astra_addon_bulk_activate_modules', array( $this, 'bulk_activate_modules' ) );
-				add_action( 'wp_ajax_astra_addon_bulk_deactivate_modules', array( $this, 'bulk_deactivate_modules' ) );
-
-				add_action( 'wp_ajax_astra_addon_clear_cache', array( $this, 'clear_cache' ) );
-
-				// Enable/Disable beta updates.
-				add_action( 'wp_ajax_astra_beta_updates', array( $this, 'enable_disable_beta_updates' ) );
-
-				// Enable/Disable file generation.
-				add_action( 'wp_ajax_astra_file_generation', array( $this, 'enable_disable_file_generation' ) );
-
 				// Admin enqueue script alpha color picker.
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_color_picker_scripts' ) );
 			}
@@ -123,28 +103,13 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 
 			// Astra Addon List filter.
 			add_filter( 'astra_addon_list', array( $this, 'astra_addon_list' ) );
-			add_filter( 'astra_quick_settings', array( $this, 'astra_addon_quick_settings' ) );
-			add_action( 'astra_addon_bulk_action', array( $this, 'astra_addon_bulk_action_markup' ) );
 
 			add_action( 'plugin_action_links_' . ASTRA_EXT_BASE, array( $this, 'action_links' ) );
-
-			if ( Astra_Ext_White_Label_Markup::show_branding() ) {
-				add_action( 'astra_welcome_page_right_sidebar_before', array( $this, 'addon_licence_form' ) );
-			} else {
-				// if White Lebel settings is selected to Hide setting.
-				add_action( 'astra_welcome_page_content_after', array( $this, 'addon_licence_form' ) );
-			}
-
-			add_action( 'astra_welcome_page_right_sidebar_content', array( $this, 'version_rollback_form' ), 30 );
-
-			add_action( 'astra_welcome_page_right_sidebar_content', array( $this, 'astra_refresh_assets_files' ), 40 );
-
-			add_action( 'astra_welcome_page_right_sidebar_content', array( $this, 'astra_beta_updates_form' ), 50 );
 
 			// Redirect if old addon screen rendered.
 			add_action( 'admin_init', array( $this, 'redirect_addon_listing_page' ) );
 
-			add_action( 'enqueue_block_editor_assets', array( $this, 'addon_gutenberg_assets' ) );
+			add_action( 'enqueue_block_editor_assets', array( $this, 'addon_gutenberg_assets' ), 11 );
 
 			add_filter( 'astra_svg_icons', array( $this, 'astra_addon_svg_icons' ), 1, 10 );
 
@@ -170,165 +135,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 				do_action( 'astra_addon_deactivated', $deactivate_transient );
 				delete_transient( 'astra_addon_deactivated_transient' );
 			}
-		}
-
-		/**
-		 * Activate module
-		 */
-		public function activate_module() {
-
-			check_ajax_referer( 'astra-addon-module-nonce', 'nonce' );
-
-			$module_id                = sanitize_text_field( $_POST['module_id'] );
-			$extensions               = Astra_Ext_Extension::get_enabled_addons();
-			$extensions[ $module_id ] = $module_id;
-			$extensions               = array_map( 'esc_attr', $extensions );
-			Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_enabled_extensions', $extensions );
-
-			if ( 'http2' == $module_id ) {
-				Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_http2', true );
-			}
-
-			set_transient( 'astra_addon_activated_transient', $module_id );
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * Deactivate module
-		 */
-		public function deactivate_module() {
-
-			check_ajax_referer( 'astra-addon-module-nonce', 'nonce' );
-			$module_id                = sanitize_text_field( $_POST['module_id'] );
-			$extensions               = Astra_Ext_Extension::get_enabled_addons();
-			$extensions[ $module_id ] = false;
-			$extensions               = array_map( 'esc_attr', $extensions );
-			Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_enabled_extensions', $extensions );
-
-			if ( 'http2' == $module_id ) {
-				Astra_Admin_Helper::delete_admin_settings_option( '_astra_ext_http2' );
-			}
-
-			set_transient( 'astra_addon_deactivated_transient', $module_id );
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * Activate all module
-		 */
-		public function bulk_activate_modules() {
-
-			check_ajax_referer( 'astra-addon-module-nonce', 'nonce' );
-
-			// Get all extensions.
-			$all_extensions = Astra_Ext_Extension::get_addons();
-
-			// Sanitize Addon list.
-			foreach ( $all_extensions as $key => $value ) {
-				$all_extensions[ sanitize_key( $key ) ] = $value;
-			}
-
-			$new_extensions = array();
-
-			// Set all extension to enabled.
-			foreach ( $all_extensions  as $slug => $value ) {
-				$new_extensions[ $slug ] = $slug;
-			}
-
-			// Escape attrs.
-			$new_extensions = array_map( 'esc_attr', $new_extensions );
-
-			// Update new_extensions.
-			Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_enabled_extensions', $new_extensions );
-
-			Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_http2', true );
-
-			set_transient( 'astra_addon_activated_transient', $new_extensions );
-
-			echo 'success';
-
-			die();
-		}
-
-		/**
-		 * Deactivate all module
-		 */
-		public function bulk_deactivate_modules() {
-
-			check_ajax_referer( 'astra-addon-module-nonce', 'nonce' );
-
-			// Get all extensions.
-			$old_extensions = array_map( 'sanitize_text_field', Astra_Ext_Extension::get_enabled_addons() );
-			$new_extensions = array();
-
-			// Set all extension to enabled.
-			foreach ( $old_extensions  as $slug => $value ) {
-				$new_extensions[ $slug ] = false;
-			}
-
-			// Escape attrs.
-			$new_extensions = array_map( 'esc_attr', $new_extensions );
-
-			// Update new_extensions.
-			Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_enabled_extensions', $new_extensions );
-
-			Astra_Admin_Helper::delete_admin_settings_option( '_astra_ext_http2' );
-
-			set_transient( 'astra_addon_deactivated_transient', $new_extensions );
-
-			echo 'success';
-
-			die();
-		}
-
-		/**
-		 * Clear assets cache.
-		 */
-		public function clear_cache() {
-
-			Astra_Minify::refresh_assets();
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * Ajax handler to enable / disable the beta updates for Astra Theme and Astra Pro.
-		 *
-		 * @since 1.5.1
-		 * @return void
-		 */
-		public function enable_disable_beta_updates() {
-			check_ajax_referer( 'astra-addon-module-nonce', 'nonce' );
-
-			$status = isset( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : false;
-
-			if ( false !== $status ) {
-				Astra_Admin_Helper::update_admin_settings_option( '_astra_beta_updates', $status, true );
-				wp_send_json_success();
-			}
-
-			wp_send_json_error();
-		}
-
-		/**
-		 * Ajax handler to enable / disable the file generation of scripts/styles for Astra Theme and Astra Pro.
-		 *
-		 * @since 1.5.1
-		 * @return void
-		 */
-		public function enable_disable_file_generation() {
-			check_ajax_referer( 'astra-addon-module-nonce', 'nonce' );
-
-			$status = isset( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : false;
-
-			if ( false !== $status ) {
-				update_option( '_astra_file_generation', $status );
-				wp_send_json_success();
-			}
-
-			wp_send_json_error();
 		}
 
 		/**
@@ -492,59 +298,10 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 
 			// AMP Compatibility.
 			require_once ASTRA_EXT_DIR . 'classes/compatibility/class-astra-addon-amp-compatibility.php';
-			require_once ASTRA_EXT_DIR . 'admin/astra-rollback/class-astra-rollback-version.php';
-			require_once ASTRA_EXT_DIR . 'admin/astra-rollback/class-astra-rollback-version-manager.php';
-		}
-
-		/**
-		 * Add extension option in menu page
-		 *
-		 * @param  array $actions   Array of actions.
-		 * @return array            Return the actions.
-		 */
-		public function extension_menu_options( $actions ) {
-
-			$actions['addons'] = array(
-				'label' => esc_html__( 'Addons', 'astra-addon' ),
-				'show'  => ! is_network_admin(),
-			);
-			return $actions;
-		}
-
-		/**
-		 * Admin Scripts
-		 */
-		public function admin_scripts() {
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
-		}
-
-		/**
-		 * Admin Scripts Callback
-		 */
-		public function enqueue_admin_scripts() {
-
-			// Styles.
-			wp_enqueue_style( 'ast-ext-admin-settings', ASTRA_EXT_URI . 'admin/assets/css/ast-ext-admin-settings.css', array(), ASTRA_EXT_VER );
-
-			// Scripts.
-			wp_enqueue_script( 'astra-ext-admin-settings', ASTRA_EXT_URI . 'admin/assets/js/ast-ext-admin-settings.js', array( 'jquery-ui-tooltip' ), ASTRA_EXT_VER, false );
-
-			$options = array(
-				'ajax_nonce'                 => wp_create_nonce( 'astra-addon-module-nonce' ),
-				'activate'                   => __( 'Activate', 'astra-addon' ),
-				'deactivate'                 => __( 'Deactivate', 'astra-addon' ),
-				'enableBetaUpdates'          => __( 'Enable Beta Updates', 'astra-addon' ),
-				'disableBetaUpdates'         => __( 'Disable Beta Updates', 'astra-addon' ),
-				'enableFileGeneration'       => __( 'Enable File Generation', 'astra-addon' ),
-				'disableFileGeneration'      => __( 'Disable File Generation', 'astra-addon' ),
-				'assetsRefreshingButtonText' => __( 'Refreshing', 'astra-addon' ),
-				'assetsRefreshedButtonText'  => __( 'Refreshed', 'astra-addon' ),
-				'adminUrl'                   => admin_url( 'post-new.php?post_type=' ),
-				'customLayoutText'           => __( 'Custom Layouts', 'astra-addon' ),
-				'pageHeadersText'            => __( 'Page Headers', 'astra-addon' ),
-			);
-
-			wp_localize_script( 'astra-ext-admin-settings', 'astraAddonModules', $options );
+			if ( ASTRA_ADDON_BSF_PACKAGE ) {
+				require_once ASTRA_EXT_DIR . 'admin/astra-rollback/class-astra-rollback-version.php';
+				require_once ASTRA_EXT_DIR . 'admin/astra-rollback/class-astra-rollback-version-manager.php';
+			}
 		}
 
 		/**
@@ -605,6 +362,28 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			if ( ! defined( 'ASTRA_THEME_VERSION' ) ) {
 				return;
 			}
+			$white_labelled_icon = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'icon' );
+			if ( false !== $white_labelled_icon ) {
+				$dark_active_variation = $white_labelled_icon;
+				if ( false !== strpos( $white_labelled_icon, 'whitelabel-branding.svg' ) ) {
+					$white_labelled_icon = ASTRA_EXT_URI . 'admin/core/assets/images/whitelabel-branding-dark.svg';
+				}
+				wp_add_inline_style(
+					'astra-meta-box',
+					'.components-button svg[data-ast-logo] * {
+						display: none;
+					}
+					.components-button svg[data-ast-logo] {
+						background-image: url( ' . esc_url( $white_labelled_icon ) . ' ) !important;
+						background-size: 24px 24px;
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+					button.components-button.is-pressed svg[data-ast-logo] {
+						background-image: url( ' . esc_url( $dark_active_variation ) . ' ) !important;
+					}'
+				);
+			}
 			// Gutenberg dynamic css for Astra Addon.
 			require_once ASTRA_EXT_DIR . 'classes/class-addon-gutenberg-editor-css.php';
 		}
@@ -617,8 +396,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		 */
 		public function controls_scripts() {
 
-			wp_enqueue_script( 'ast-ext-admin-settings', ASTRA_EXT_URI . 'admin/assets/js/customizer-controls.js', array(), ASTRA_EXT_VER, false );
-
 			// Enqueue Customizer React.JS script.
 			$custom_controls_react_deps = array(
 				'astra-custom-control-plain-script',
@@ -630,19 +407,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			);
 
 			wp_enqueue_script( 'astra-ext-custom-control-react-script', ASTRA_EXT_URI . 'classes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, ASTRA_EXT_VER, true );
-
-			if ( function_exists( 'astra_get_option' ) ) {
-				$show_deprecated_no_toggle_style = 'no-toggle' == astra_get_option( 'mobile-menu-style' ) ? true : false;
-
-				wp_localize_script(
-					'ast-ext-admin-settings',
-					'astAdminLacalizeVars',
-					array(
-						'astra_no_toggle_menu_style_deprecate' => apply_filters( 'astra_no_toggle_menu_style_deprecate', $show_deprecated_no_toggle_style ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-					)
-				);
-			}
-
 		}
 
 		/**
@@ -828,28 +592,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			}
 		}
 
-
-		/**
-		 * Modified Astra Quick settings links update based on the activated plugins
-		 *
-		 * @since 1.2.1
-		 * @param array $quick_settings quick settings list.
-		 * @return array $quick_settings Updated quick settings list.
-		 */
-		public function astra_addon_quick_settings( $quick_settings = array() ) {
-			$enabled_extensions = Astra_Ext_Extension::get_addons();
-			// Update the quick setting link for header group.
-			$headers_addons = array( 'header-sections', 'transparent-header', 'sticky-header' );
-
-			foreach ( $enabled_extensions as $addon_slug => $value ) {
-				if ( ! in_array( $addon_slug, $headers_addons ) || ! Astra_Ext_Extension::is_active( $addon_slug ) ) {
-					continue;
-				}
-				$quick_settings['header']['quick_url'] = admin_url( 'customize.php?autofocus[panel]=panel-header-group' );
-			}
-			return $quick_settings;
-		}
-
 		/**
 		 * Modified Astra Addon List
 		 *
@@ -859,117 +601,152 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		 */
 		public function astra_addon_list( $addons = array() ) {
 
-			$enabled_extensions  = Astra_Ext_Extension::get_addons();
-			$extension_slugs     = array_keys( $enabled_extensions );
-			$extension_slugs[]   = 'white-label';
-			$ext_activate_notice = __( 'This plugin needs to be installed/activated', 'astra-addon' );
+			$enabled_extensions = Astra_Ext_Extension::get_addons();
+			$extension_slugs    = array_keys( $enabled_extensions );
+			$extension_slugs[]  = 'white-label';
+			$whitelabelled      = Astra_Ext_White_Label_Markup::show_branding();
 
 			foreach ( $addons as $addon_slug => $value ) {
 				if ( ! in_array( $addon_slug, $extension_slugs ) ) {
 					continue;
 				}
 				$class = 'deactive';
-				$links = array(
-					array(
-						'link_class' => 'ast-activate-module',
-						'link_text'  => __( 'Activate', 'astra-addon' ),
-						'link_url'   => '',
-					),
-				);
-
-				if ( Astra_Ext_Extension::is_active( $addon_slug ) ) {
-					$class = 'active';
-					$links = array(
-						array(
-							'link_class' => 'ast-deactivate-module',
-							'link_text'  => __( 'Deactivate', 'astra-addon' ),
-							'link_url'   => '',
-						),
-					);
-				}
+				$links = isset( $addons[ $addon_slug ]['links'] ) ? $addons[ $addon_slug ]['links'] : array();
+				$links = $whitelabelled ? $links : array();
 
 				switch ( $addon_slug ) {
+					case 'colors-and-background':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-colors-background' ),
+						);
+						break;
+					case 'typography':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-typography' ),
+						);
+						break;
+					case 'spacing':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php' ),
+						);
+						break;
+					case 'blog-pro':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-blog-group' ),
+						);
+						break;
+					case 'mobile-header':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[panel]=panel-header-group' ),
+						);
+						break;
+					case 'header-sections':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[panel]=panel-header-group' ),
+						);
+						break;
+					case 'sticky-header':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-sticky-header' ),
+						);
+						break;
+					case 'site-layouts':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-container-layout' ),
+						);
+						break;
+					case 'advanced-footer':
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-footer-group' ),
+						);
+						break;
 					case 'advanced-hooks':
 							$links[] = array(
 								'link_class' => 'advanced-module',
-								'link_text'  => __( 'Settings', 'astra-addon' ),
+								'link_text'  => ! $whitelabelled ? __( 'Settings', 'astra-addon' ) : __( ' | Settings', 'astra-addon' ),
 								'link_url'   => admin_url( '/edit.php?post_type=astra-advanced-hook' ),
 							);
 						break;
 					case 'advanced-headers':
 							$links[] = array(
 								'link_class' => 'advanced-module',
-								'link_text'  => __( 'Settings', 'astra-addon' ),
+								'link_text'  => ! $whitelabelled ? __( 'Settings', 'astra-addon' ) : __( ' | Settings', 'astra-addon' ),
 								'link_url'   => admin_url( '/edit.php?post_type=astra_adv_header' ),
 							);
 						break;
 
+					case 'nav-menu':
+						$class  .= ' nav-menu';
+						$links[] = array(
+							'link_class' => 'advanced-module',
+							'link_text'  => ! $whitelabelled ? __( 'Settings', 'astra-addon' ) : __( ' | Settings', 'astra-addon' ),
+							'link_url'   => admin_url( '/nav-menus.php' ),
+						);
+						break;
+
 					case 'white-label':
 							$class   = 'white-label';
-							$links   = false;
+							$links   = isset( $addons[ $addon_slug ]['links'] ) ? $addons[ $addon_slug ]['links'] : array();
 							$links[] = array(
 								'link_class'   => 'advanced-module',
-								'link_text'    => __( 'Settings', 'astra-addon' ),
-								'link_url'     => Astra_Admin_Settings::get_page_url( $addon_slug ),
+								'link_text'    => ! $whitelabelled ? __( 'Settings', 'astra-addon' ) : __( ' | Settings', 'astra-addon' ),
+								'link_url'     => is_callable( 'Astra_Menu::get_theme_page_slug' ) ? admin_url( 'admin.php?page=' . Astra_Menu::get_theme_page_slug() . '&path=settings&settings=white-label' ) : '#',
 								'target_blank' => false,
 							);
 						break;
 
 					case 'woocommerce':
-						$class .= ' woocommerce';
-						if ( ! class_exists( 'WooCommerce' ) ) {
-							$class .= ' ast-disable ast-modules-not-activated';
-							$links  = array(
-								array(
-									'link_class' => 'ast-deactivate-module',
-									'link_text'  => $ext_activate_notice,
-									'link_url'   => '',
-								),
-							);
-						}
-
+						$class  .= ' woocommerce';
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[panel]=woocommerce' ),
+						);
 						break;
 
 					case 'learndash':
-						$class .= ' learndash';
-						if ( ! class_exists( 'SFWD_LMS' ) ) {
-							$class .= ' ast-disable ast-modules-not-activated';
-							$links  = array(
-								array(
-									'link_class' => 'ast-deactivate-module',
-									'link_text'  => $ext_activate_notice,
-									'link_url'   => '',
-								),
-							);
-						}
+						$class  .= ' learndash';
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-learndash' ),
+						);
 						break;
 
 					case 'lifterlms':
-						$class .= ' lifterlms';
-						if ( ! class_exists( 'LifterLMS' ) ) {
-							$class .= ' ast-disable ast-modules-not-activated';
-							$links  = array(
-								array(
-									'link_class' => 'ast-deactivate-module',
-									'link_text'  => $ext_activate_notice,
-									'link_url'   => '',
-								),
-							);
-						}
+						$class  .= ' lifterlms';
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-lifterlms' ),
+						);
 						break;
 
 					case 'edd':
-						$class .= ' edd';
-						if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
-							$class .= ' ast-disable ast-modules-not-activated';
-							$links  = array(
-								array(
-									'link_class' => 'ast-deactivate-module',
-									'link_text'  => $ext_activate_notice,
-									'link_url'   => '',
-								),
-							);
-						}
+						$class  .= ' edd';
+						$links[] = array(
+							'link_class' => 'customize-module',
+							'link_text'  => ! $whitelabelled ? __( 'Customize', 'astra-addon' ) : __( ' | Customize', 'astra-addon' ),
+							'link_url'   => admin_url( '/customize.php?autofocus[section]=section-edd-group' ),
+						);
 						break;
 				}
 
@@ -983,20 +760,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			}
 
 			return $addons;
-		}
-
-		/**
-		 * Astra Addon Bulk action
-		 *
-		 * @since 1.2.1
-		 */
-		public function astra_addon_bulk_action_markup() {
-			?>
-				<div class="ast-bulk-actions-wrap">
-					<a class="bulk-action ast-activate-all button"> <?php esc_html_e( 'Activate All', 'astra-addon' ); ?> </a>
-					<a class="bulk-action ast-deactivate-all button"> <?php esc_html_e( 'Deactivate All', 'astra-addon' ); ?> </a>
-				</div>
-			<?php
 		}
 
 		/**
@@ -1031,240 +794,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 				wp_safe_redirect( admin_url( '/themes.php?page=astra' ), 301 );
 				exit;
 			}
-		}
-
-		/**
-		 * Addon Activation / Deactivation markup
-		 *
-		 * @since 1.2.1
-		 * @return void
-		 */
-		public function addon_licence_form() {
-
-			if ( is_multisite() ) {
-				$white_label = get_site_option( '_astra_ext_white_label' );
-			} else {
-				$white_label = get_option( '_astra_ext_white_label' );
-			}
-
-			$pro_name = __( 'Astra Pro License', 'astra-addon' );
-
-			if ( ! empty( $white_label['astra-pro']['name'] ) ) {
-				/* translators: %s: Astra Pro name */
-				$pro_name = sprintf( __( '%s License', 'astra-addon' ), $white_label['astra-pro']['name'] );
-			}
-
-			$pro_whitelabelled_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-pro', 'name', false );
-
-			if ( false !== $pro_whitelabelled_name ) {
-				/* translators: %s: Astra Pro name */
-				$pro_name = sprintf( __( '%s License', 'astra-addon' ), $pro_whitelabelled_name );
-			}
-
-			/* translators: %s: Astra Pro name */
-			$not_active_status = sprintf( __( 'Please enter your valid %s license key to receive updates and support.', 'astra-addon' ), $pro_name );
-
-			?>
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php echo esc_html( $pro_name ); ?></span></h2>
-				<div class="inside">
-				<?php
-					$bsf_product_id = bsf_extract_product_id( ASTRA_EXT_DIR );
-					$args           = array(
-						'product_id'                       => $bsf_product_id,
-						'button_text_activate'             => esc_html__( 'Activate License', 'astra-addon' ),
-						'button_text_deactivate'           => esc_html__( 'Deactivate License', 'astra-addon' ),
-						'license_form_title'               => '',
-						'license_deactivate_status'        => esc_html__( 'Your license is not active!', 'astra-addon' ),
-						'license_activate_status'          => esc_html__( 'Your license is activated!', 'astra-addon' ),
-						'submit_button_class'              => 'astra-product-license button-default',
-						'form_class'                       => 'form-wrap bsf-license-register-' . esc_attr( $bsf_product_id ),
-						'bsf_license_form_heading_class'   => 'astra-license-heading',
-						'bsf_license_active_class'         => 'success-message',
-						'bsf_license_not_activate_message' => 'license-error',
-						'size'                             => 'regular',
-						'bsf_license_allow_email'          => false,
-						'bsf_license_active_status'        => __( 'Active!', 'astra-addon' ),
-						'bsf_license_not_active_status'    => $not_active_status,
-					);
-					echo bsf_license_activation_form( $args ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					?>
-				</div>
-			</div>
-			<?php
-		}
-
-		/**
-		 * Astra Theme and Pro rollback version form.
-		 *
-		 * @since 3.6.1
-		 * @return bool
-		 */
-		public function version_rollback_form() {
-
-			$bsf_product_id = bsf_extract_product_id( ASTRA_EXT_DIR );
-			if ( ! bsf_display_rollback_version_form( $bsf_product_id ) ) {
-				return false;
-			}
-
-			$them_name = Astra_Rollback_version::astra_get_white_lable_name();
-			$pro_name  = bsf_get_white_lable_product_name( $bsf_product_id, 'Astra Pro' );
-			?>
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php echo esc_html__( 'Rollback Version', 'astra-addon' ); ?></span></h2>
-				<div class="inside">
-				<h4 class="ast-normal-cusror"><span><?php echo esc_html( $them_name ); ?></span></h4>
-				<?php
-					// Display Theme Rollback version form.
-					render_theme_rollback_form();
-				?>
-				<div class="hndle rollback-divider"></div>
-				<h4 class="ast-normal-cusror"><span><?php echo esc_html( $pro_name ); ?></span></h4>
-				<?php
-					// Display Addon Rollback version form.
-					bsf_get_version_rollback_form( $bsf_product_id );
-				?>
-				</div>
-			</div>
-
-			<?php
-		}
-
-		/**
-		 * Include Welcome page right side Astra community content
-		 *
-		 * @since 1.2.4
-		 */
-		public function astra_beta_updates_form() {
-			$allow_beta = Astra_Admin_Helper::get_admin_settings_option( '_astra_beta_updates', true, 'disable' );
-			?>
-
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
-					<span class="dashicons dashicons-update"></span>
-					<span>
-						<?php
-							esc_html_e( 'Allow Beta updates', 'astra-addon' );
-						?>
-				</h2>
-				<div class="inside">
-					<p>
-						<?php esc_html_e( 'Enable this option to receive update notifications for beta versions.', 'astra-addon' ); ?>
-					</p>
-					<p>
-					<?php
-						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . esc_url( 'https://wpastra.com/docs/automatic-beta-updates-for-astra/?utm_source=welcome_page&utm_medium=sidebar&utm_campaign=astra_pro' ) . '">';
-						$a_tag_close = '</a>';
-
-						printf(
-							/* translators: %1$s: a tag open. */
-							__( 'Please read %1$s this article %2$s to know more.', 'astra-addon' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							$a_tag_open, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							$a_tag_close // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						);
-					?>
-					</p>
-
-					<label for="astra_beta_updates">
-						<?php
-
-						if ( 'disable' === $allow_beta ) {
-							$beta_string = __( 'Enable Beta Updates', 'astra-addon' );
-						} else {
-							$beta_string = __( 'Disable Beta Updates', 'astra-addon' );
-						}
-						?>
-						<button class="button astra-beta-updates" id="astra_beta_updates" data-value="<?php echo esc_attr( $allow_beta ); ?>">
-							<?php echo esc_html( $beta_string ); ?>
-						</button>
-					</label>
-				</div>
-			</div>
-			<?php
-		}
-
-		/**
-		 * Include the refresh button to delete and regenerate new assets files.
-		 *
-		 * @since 1.2.4
-		 */
-		public function astra_refresh_assets_files() {
-
-			if ( ! function_exists( 'astra_addon_filesystem' ) ) {
-				return;
-			}
-
-			$allow_file_generation = get_option( '_astra_file_generation', 'disable' );
-
-			$file_generation_message  = esc_html__( 'Enable this option to generate CSS files.', 'astra-addon' );
-			$file_generation_doc_link = esc_url( 'https://wpastra.com/astra-2-1/?utm_source=welcome_page&utm_medium=sidebar&utm_campaign=astra_pro' );
-
-			if ( astra_addon_filesystem()->can_access_filesystem() ) {
-				$refresh_assets_button_text = esc_html__( 'Refresh', 'astra-addon' );
-				$refresh_assets_message     = esc_html__( 'Click on the \'Refresh\' button to regenerate CSS files.', 'astra-addon' );
-				$refresh_assets_doc_link    = esc_url( '#' );
-			} else {
-				$refresh_assets_button_text = esc_html__( 'Recheck', 'astra-addon' );
-				$refresh_assets_message     = esc_html__( 'Click on the \'Recheck\' button to check if the uploads folder has write access.', 'astra-addon' );
-				$refresh_assets_doc_link    = esc_url( '#' );
-			}
-			?>
-
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
-					<span class="dashicons dashicons-admin-page"></span>
-					<span>
-						<?php esc_html_e( 'CSS File Generation', 'astra-addon' ); ?>
-					</span>
-				</h2>
-				<div class="inside">
-					<p class="warning">
-					</p>
-						<?php echo esc_html( $file_generation_message ); ?>
-					<p>
-					<?php
-					if ( Astra_Ext_White_Label_Markup::show_branding() ) {
-
-						$a_tag_open  = '<a target="_blank" rel="noopener" href="' . $file_generation_doc_link . '">';
-						$a_tag_close = '</a>';
-
-						printf(
-							/* translators: %1$s: a tag open. */
-							__( 'Please read %1$s this article %2$s to know more.', 'astra-addon' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							$a_tag_open, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							$a_tag_close // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						);
-					}
-					?>
-					</p>
-					<label for="astra_file_generation">
-						<?php
-
-						if ( 'disable' === $allow_file_generation ) {
-							$file_generation_string = __( 'Enable File Generation', 'astra-addon' );
-						} else {
-							$file_generation_string = __( 'Disable File Generation', 'astra-addon' );
-						}
-						?>
-						<button class="button astra-beta-updates" id="astra_file_generation" data-value="<?php echo esc_attr( $allow_file_generation ); ?>">
-							<?php echo esc_html( $file_generation_string ); ?>
-						</button>
-					</label>
-						<div class="astra-refresh-assets-wrapper" style="<?php echo ( 'disable' === $allow_file_generation ) ? 'display: none' : 'display: block'; ?>">
-							<p class="warning">
-								<?php echo esc_html( $refresh_assets_message ); ?>
-							</p>
-
-							<label for="astra_refresh_assets">
-								<button class="button astra-refresh-assets" id="astra_refresh_assets">
-									<span class="ast-loader"></span>
-									<span class="ast-refresh-btn-text"><?php echo esc_html( $refresh_assets_button_text ); ?></span>
-								</button>
-							</label>
-						</div>
-				</div>
-			</div>
-			<?php
 		}
 
 		/**

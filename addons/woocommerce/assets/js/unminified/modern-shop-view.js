@@ -47,7 +47,9 @@ function astraUpdateShopToolbar() {
 				dummyPara = document.createElement( "p" );
 
 			dummyPara.className = 'woocommerce-result-count';
-			dummyPara.innerHTML = document.querySelector( '.woocommerce-result-count' ).innerHTML;
+			if ( null !== document.querySelector( '.woocommerce-result-count'  ) ) {
+				dummyPara.innerHTML = document.querySelector( '.woocommerce-result-count' ).innerHTML;
+			}
 
 			noticeWrapper = document.querySelector('.woocommerce-notices-wrapper');
 

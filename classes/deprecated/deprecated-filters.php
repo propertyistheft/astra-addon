@@ -20,8 +20,8 @@ if ( function_exists( 'astra_apply_filters_deprecated' ) ) {
 	 *
 	 * @since 3.5.7
 	 */
-	$post_type = 'any';  // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-	astra_apply_filters_deprecated( 'astra_infinite_pagination_post_type', array( $post_type ), '3.5.7' );
+	$astra_addon_post_type_condition = 'any';
+	astra_apply_filters_deprecated( 'astra_infinite_pagination_post_type', array( $astra_addon_post_type_condition ), '3.5.7' );
 }
 
 // Deprecating astra_bb_render_content_by_id filter.

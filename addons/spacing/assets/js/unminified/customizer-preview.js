@@ -254,18 +254,18 @@
 	/**
 	 * Container Outside Spacing
 	 */
-	astra_responsive_spacing( 'astra-settings[container-outside-spacing]','.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-plain-container #primary', 'margin',  ['top', 'bottom' ] );
-	astra_responsive_spacing( 'astra-settings[container-outside-spacing]','.ast-left-sidebar #primary, .ast-right-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary', 'padding',  ['left', 'right' ] );
+	astra_responsive_spacing( 'astra-settings[container-outside-spacing]','.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-plain-container #primary, .ast-narrow-container #primary', 'margin',  ['top', 'bottom' ] );
+	astra_responsive_spacing( 'astra-settings[container-outside-spacing]','.ast-left-sidebar #primary, .ast-right-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-narrow-container #primary', 'padding',  ['left', 'right' ] );
 	// Remove padding top to container if padding top is given to Container Outer Spacing.
 	wp.customize( 'astra-settings[container-outside-spacing]', function( value ) {
 		value.bind( function( padding ) {
 
 			var dynamicStyle = '';
 			if( padding.desktop.top != '' || padding.tablet.top != '' || padding.mobile.top != '' ) {
-				dynamicStyle += '.ast-separate-container #primary { padding-top: 0px;} ';
+				dynamicStyle += '.ast-separate-container #primary, .ast-narrow-container #primary { padding-top: 0px;} ';
 			}
 			if( padding.desktop.bottom != '' || padding.tablet.bottom != '' || padding.mobile.bottom != '' ) {
-				dynamicStyle += '.ast-separate-container #primary { padding-bottom: 0px;} ';
+				dynamicStyle += '.ast-separate-container #primary, .ast-narrow-container #primary { padding-bottom: 0px;} ';
 			}
 			astra_add_dynamic_css( 'remove-header-spacing', dynamicStyle );
 
@@ -275,8 +275,13 @@
 	/**
 	 * Boxed Content Spacing
 	 */
-	astra_responsive_spacing( 'astra-settings[container-inside-spacing]','.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond, .single.ast-separate-container .ast-author-details, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .ast-single-related-posts-container', 'padding', [ 'top', 'bottom' ] );
-	astra_responsive_spacing( 'astra-settings[container-inside-spacing]','.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper, .single.ast-separate-container .ast-author-details, .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .ast-single-related-posts-container', 'padding', [ 'left', 'right' ] );
+	const narrow_inside_spacing_selectors = [
+		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .single.ast-narrow-container .ast-author-details, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container',
+		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .comments-count-wrapper, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .ast-narrow-container .related-posts-title-wrapper, .ast-narrow-container .related-posts-title-wrapper, .single.ast-narrow-container .ast-author-details, .single.ast-narrow-container .about-author-title-wrapper, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container'
+	];
+	astra_responsive_spacing( 'astra-settings[container-inside-spacing]','.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond, .single.ast-separate-container .ast-author-details, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .ast-single-related-posts-container' + ',' + narrow_inside_spacing_selectors[0], 'padding', [ 'top', 'bottom' ] );
+	astra_responsive_spacing( 'astra-settings[container-inside-spacing]','.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper, .single.ast-separate-container .ast-author-details, .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .ast-single-related-posts-container' + ',' + narrow_inside_spacing_selectors[1], 'padding', [ 'left', 'right' ] );
+
 	// Remove Featured Image Padding for single posty
 	wp.customize( 'astra-settings[container-inside-spacing]', function( setting ) {
 		setting.bind( function( padding ) {
@@ -295,8 +300,13 @@
 	/**
 	 * Boxed Content Spacing
 	 */
-	astra_responsive_spacing( 'astra-settings[single-post-inside-spacing]','.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond, .single.ast-separate-container.ast-single-post .ast-author-details, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container, .ast-separate-container .ast-single-related-posts-container', 'padding', [ 'top', 'bottom' ] );
-	astra_responsive_spacing( 'astra-settings[single-post-inside-spacing]','.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single, .ast-separate-container.ast-single-post .comments-count-wrapper, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond,.ast-separate-container.ast-single-post .related-posts-title-wrapper,.ast-separate-container.ast-single-post .related-posts-title-wrapper, .single.ast-separate-container.ast-single-post .ast-author-details, .single.ast-separate-container.ast-single-post .about-author-title-wrapper, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container', 'padding', [ 'left', 'right' ] );
+	 const narrow_single_inside_spacing_selectors = [
+		'.ast-narrow-container.ast-single-post .ast-article-post, .ast-narrow-container.ast-single-post .ast-article-single, .ast-narrow-container.ast-single-post .ast-comment-list li.depth-1, .ast-narrow-container.ast-single-post .comment-respond, .single.ast-narrow-container.ast-single-post .ast-author-details, .ast-narrow-container.ast-single-post .ast-related-posts-wrap, .ast-narrow-container.ast-single-post .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container',
+		'.ast-narrow-container.ast-single-post .ast-article-post, .ast-narrow-container.ast-single-post .ast-article-single, .ast-narrow-container.ast-single-post .comments-count-wrapper, .ast-narrow-container.ast-single-post .ast-comment-list li.depth-1, .ast-narrow-container.ast-single-post .comment-respond,.ast-narrow-container.ast-single-post .related-posts-title-wrapper,.ast-narrow-container.ast-single-post .related-posts-title-wrapper, .single.ast-narrow-container.ast-single-post .ast-author-details, .single.ast-narrow-container.ast-single-post .about-author-title-wrapper, .ast-narrow-container.ast-single-post .ast-related-posts-wrap, .ast-narrow-container.ast-single-post .ast-woocommerce-container'
+	];
+	astra_responsive_spacing( 'astra-settings[single-post-inside-spacing]','.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond, .single.ast-separate-container.ast-single-post .ast-author-details, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container, .ast-separate-container .ast-single-related-posts-container' + ',' + narrow_single_inside_spacing_selectors[0], 'padding', [ 'top', 'bottom' ] );
+	astra_responsive_spacing( 'astra-settings[single-post-inside-spacing]','.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single, .ast-separate-container.ast-single-post .comments-count-wrapper, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond,.ast-separate-container.ast-single-post .related-posts-title-wrapper,.ast-separate-container.ast-single-post .related-posts-title-wrapper, .single.ast-separate-container.ast-single-post .ast-author-details, .single.ast-separate-container.ast-single-post .about-author-title-wrapper, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container' + ',' + narrow_single_inside_spacing_selectors[1], 'padding', [ 'left', 'right' ] );
+
 	// Remove Featured Image Padding for single posty
 	wp.customize( 'astra-settings[single-post-inside-spacing]', function( setting ) {
 		setting.bind( function( padding ) {
@@ -342,17 +352,20 @@
 	 */
 	 // Apply margin only if grid is selected 1 column or Blog Layout is selected as 2 or 3.
 	if ( ! ast_preview.blog_pro_enabled || jQuery( 'body' ).hasClass( 'ast-blog-grid-1' ) || jQuery( 'body' ).hasClass( 'ast-blog-layout-2' ) || jQuery( 'body' ).hasClass( 'ast-blog-layout-3' ) ) {
-		astra_responsive_spacing( 'astra-settings[blog-post-outside-spacing]', '.ast-separate-container .ast-article-post, .ast-separate-container .ast-separate-posts.ast-article-post', 'margin', ['top', 'right', 'bottom', 'left' ] );
-		astra_responsive_spacing( 'astra-settings[blog-post-inside-spacing]', '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-post', 'padding', ['top', 'right', 'bottom', 'left' ] );
+		astra_responsive_spacing( 'astra-settings[blog-post-outside-spacing]', '.ast-separate-container .ast-article-post, .ast-separate-container .ast-separate-posts.ast-article-post, .ast-narrow-container .ast-article-post, .ast-narrow-container .ast-separate-posts.ast-article-post', 'margin', ['top', 'right', 'bottom', 'left' ] );
+		astra_responsive_spacing( 'astra-settings[blog-post-inside-spacing]', '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-post, .ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-post', 'padding', ['top', 'right', 'bottom', 'left' ] );
 	} else{
 		// Blog Grid Outside Spacing.
-		astra_responsive_spacing( 'astra-settings[blog-post-outside-spacing]', '.ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+1), .ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+1), .ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+1)', 'padding', ['top', 'right', 'bottom', 'left' ] );
+		const narrow_blog_grid_outside_spacing_selector = '.ast-narrow-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-narrow-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+1), .ast-narrow-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-narrow-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+1), .ast-narrow-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-narrow-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+1)';
+		astra_responsive_spacing( 'astra-settings[blog-post-outside-spacing]', '.ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+1), .ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+1), .ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+0), .ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+1)' + ',' + narrow_blog_grid_outside_spacing_selector, 'padding', ['top', 'right', 'bottom', 'left' ] );
+
 		// Reset Masonary.
 		wp.customize( 'astra-settings[blog-post-outside-spacing]', function( setting ) {
 			setting.bind( function( margin ) {
 				var dynamicStyle = '';
 				if( margin.desktop.bottom != '' || margin.tablet.bottom != '' || margin.mobile.bottom != '' ) {
 					dynamicStyle += '.ast-separate-container .ast-separate-posts.ast-article-post{ margin-bottom: 0px;} ';
+					dynamicStyle += '.ast-narrow-container .ast-separate-posts.ast-article-post{ margin-bottom: 0px;} ';
 				}
 				astra_add_dynamic_css( 'remove-blog-outside-spacing', dynamicStyle );
 
@@ -364,7 +377,9 @@
 		} );
 
 		// Blog Grid Inside Spacing.
-		astra_responsive_spacing( 'astra-settings[blog-post-inside-spacing]', '.ast-separate-container .ast-grid-2 .blog-layout-1, .ast-separate-container .ast-grid-2 .blog-layout-2, .ast-separate-container .ast-grid-2 .blog-layout-3, .ast-separate-container .ast-grid-3 .blog-layout-1, .ast-separate-container .ast-grid-3 .blog-layout-2, .ast-separate-container .ast-grid-3 .blog-layout-3, .ast-separate-container .ast-grid-4 .blog-layout-1, .ast-separate-container .ast-grid-4 .blog-layout-2, .ast-separate-container .ast-grid-4 .blog-layout-3', 'padding', ['top', 'right', 'bottom', 'left' ] );
+		const narrow_blog_grid_inside_spacing_selector = '.ast-narrow-container .ast-grid-2 .blog-layout-1, .ast-narrow-container .ast-grid-2 .blog-layout-2, .ast-narrow-container .ast-grid-2 .blog-layout-3, .ast-narrow-container .ast-grid-3 .blog-layout-1, .ast-narrow-container .ast-grid-3 .blog-layout-2, .ast-narrow-container .ast-grid-3 .blog-layout-3, .ast-narrow-container .ast-grid-4 .blog-layout-1, .ast-narrow-container .ast-grid-4 .blog-layout-2, .ast-narrow-container .ast-grid-4 .blog-layout-3';
+		astra_responsive_spacing( 'astra-settings[blog-post-inside-spacing]', '.ast-separate-container .ast-grid-2 .blog-layout-1, .ast-separate-container .ast-grid-2 .blog-layout-2, .ast-separate-container .ast-grid-2 .blog-layout-3, .ast-separate-container .ast-grid-3 .blog-layout-1, .ast-separate-container .ast-grid-3 .blog-layout-2, .ast-separate-container .ast-grid-3 .blog-layout-3, .ast-separate-container .ast-grid-4 .blog-layout-1, .ast-separate-container .ast-grid-4 .blog-layout-2, .ast-separate-container .ast-grid-4 .blog-layout-3' + ',' + narrow_blog_grid_inside_spacing_selector, 'padding', ['top', 'right', 'bottom', 'left' ] );
+
 		// Reset Masonary.
 		wp.customize( 'astra-settings[blog-post-inside-spacing]', function( setting ) {
 			setting.bind( function( padding ) {

@@ -16,24 +16,11 @@ add_filter( 'astra_addon_dynamic_css', 'astra_edd_dynamic_css' );
  */
 function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$link_h_color = astra_get_option( 'link-h-color' );
-	$theme_color  = astra_get_option( 'theme-color' );
-	$link_color   = astra_get_option( 'link-color', $theme_color );
-
-	$body_font_family = astra_body_font_family();
-
-	$product_title_font_size      = astra_get_option( 'font-size-edd-product-title' );
-	$product_title_line_height    = astra_get_option( 'line-height-edd-product-title' );
-	$product_title_font_family    = astra_get_option( 'font-family-edd-product-title' );
-	$product_title_font_weight    = astra_get_option( 'font-weight-edd-product-title' );
-	$product_title_text_transform = astra_get_option( 'text-transform-edd-product-title' );
+	$theme_color = astra_get_option( 'theme-color' );
 
 	// Single Product Content Typo.
-	$product_content_font_size      = astra_get_option( 'font-size-edd-product-content' );
-	$product_content_line_height    = astra_get_option( 'line-height-edd-product-content' );
-	$product_content_font_family    = astra_get_option( 'font-family-edd-product-content' );
-	$product_content_font_weight    = astra_get_option( 'font-weight-edd-product-content' );
-	$product_content_text_transform = astra_get_option( 'text-transform-edd-product-content' );
+	$product_content_font_size = astra_get_option( 'font-size-edd-product-content' );
+	$product_title_font_size   = astra_get_option( 'font-size-edd-product-title' );
 
 	// Single Product Colors.
 	$product_title_color      = astra_get_option( 'edd-single-product-title-color' );
@@ -41,24 +28,11 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$product_navigation_color = astra_get_option( 'edd-single-product-navigation-color' );
 
 	// EDD archive Typo.
-	$edd_archive_product_title_font_size      = astra_get_option( 'font-size-edd-archive-product-title' );
-	$edd_archive_product_title_line_height    = astra_get_option( 'line-height-edd-archive-product-title' );
-	$edd_archive_product_title_font_family    = astra_get_option( 'font-family-edd-archive-product-title' );
-	$edd_archive_product_title_font_weight    = astra_get_option( 'font-weight-edd-archive-product-title' );
-	$edd_archive_product_title_text_transform = astra_get_option( 'text-transform-edd-archive-product-title' );
-
-	$edd_archive_product_price_font_family = astra_get_option( 'font-family-edd-archive-product-price' );
-	$edd_archive_product_price_font_weight = astra_get_option( 'font-weight-edd-archive-product-price' );
+	$edd_archive_product_title_font_size   = astra_get_option( 'font-size-edd-archive-product-title' );
 	$edd_archive_product_price_font_size   = astra_get_option( 'font-size-edd-archive-product-price' );
-	$edd_archive_product_price_line_height = astra_get_option( 'line-height-edd-archive-product-price' );
+	$edd_archive_product_content_font_size = astra_get_option( 'font-size-edd-archive-product-content' );
 
-	$edd_archive_product_content_font_family    = astra_get_option( 'font-family-edd-archive-product-content' );
-	$edd_archive_product_content_font_weight    = astra_get_option( 'font-weight-edd-archive-product-content' );
-	$edd_archive_product_content_line_height    = astra_get_option( 'line-height-edd-archive-product-content' );
-	$edd_archive_product_content_text_transform = astra_get_option( 'text-transform-edd-archive-product-content' );
-	$edd_archive_product_content_font_size      = astra_get_option( 'font-size-edd-archive-product-content' );
-
-	// EDD Archvive Colors.
+	// EDD archive Colors.
 	$edd_archive_product_title_color   = astra_get_option( 'edd-archive-product-title-color' );
 	$edd_archive_product_price_color   = astra_get_option( 'edd-archive-product-price-color' );
 	$edd_archive_product_content_color = astra_get_option( 'edd-archive-product-content-color' );
@@ -74,9 +48,6 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$header_cart_icon_radius   = astra_get_option( 'edd-header-cart-icon-radius' );
 	$cart_h_color              = astra_get_foreground_color( $header_cart_icon_color );
 	$cart_products_count_color = astra_get_option( 'edd-header-cart-product-count-color', astra_get_foreground_color( $theme_color ) );
-
-	// Default headings font family.
-	$headings_font_family = astra_get_option( 'headings-font-family' );
 
 	// Supporting color setting for default icon as well.
 	$can_update_cart_color   = is_callable( 'astra_cart_color_default_icon_old_header' ) && astra_cart_color_default_icon_old_header();
@@ -99,54 +70,20 @@ function astra_edd_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			'color'      => $cart_products_count_color,
 		),
 
-		'.single-download .entry-title'       => array(
-			'font-size'      => astra_responsive_font( $product_title_font_size, 'desktop' ),
-			'line-height'    => esc_attr( $product_title_line_height ),
-			'font-weight'    => astra_get_css_value( $product_title_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $product_title_font_family, 'font', $headings_font_family ),
-			'text-transform' => esc_attr( $product_title_text_transform ),
-			'color'          => esc_attr( $product_title_color ),
-		),
+		'.single-download .entry-title'       => astra_addon_get_font_array_css( astra_get_option( 'font-family-edd-product-title' ), astra_get_option( 'font-weight-edd-product-title' ), $product_title_font_size, 'font-extras-edd-product-title', $product_title_color ),
+
 		// Single Product Content.
-		'.single-download .entry-content'     => array(
-			'font-size'      => astra_responsive_font( $product_content_font_size, 'desktop' ),
-			'line-height'    => esc_attr( $product_content_line_height ),
-			'font-weight'    => astra_get_css_value( $product_content_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $product_content_font_family, 'font', $body_font_family ),
-			'text-transform' => esc_attr( $product_content_text_transform ),
-			'color'          => esc_attr( $product_content_color ),
-		),
+		'.single-download .entry-content'     => astra_addon_get_font_array_css( astra_get_option( 'font-family-edd-product-content' ), astra_get_option( 'font-weight-edd-product-content' ), $product_content_font_size, 'font-extras-edd-product-content', $product_content_color ),
 
-		'.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' => array(
-			'font-size'      => astra_responsive_font( $edd_archive_product_title_font_size, 'desktop' ),
-			'line-height'    => esc_attr( $edd_archive_product_title_line_height ),
-			'font-weight'    => astra_get_css_value( $edd_archive_product_title_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $edd_archive_product_title_font_family, 'font', $body_font_family ),
-			'text-transform' => esc_attr( $edd_archive_product_title_text_transform ),
-			'color'          => esc_attr( $edd_archive_product_title_color ),
-		),
+		'.ast-edd-archive-block-wrap .edd_download_title a, .edd_downloads_list .edd_download_title a' => astra_addon_get_font_array_css( astra_get_option( 'font-family-edd-archive-product-title' ), astra_get_option( 'font-weight-edd-archive-product-title' ), $edd_archive_product_title_font_size, 'font-extras-edd-archive-product-title', $edd_archive_product_title_color ),
 
-		'.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' => array(
-			'font-family' => astra_get_css_value( $edd_archive_product_price_font_family, 'font', $body_font_family ),
-			'font-weight' => astra_get_css_value( $edd_archive_product_price_font_weight, 'font' ),
-			'font-size'   => astra_responsive_font( $edd_archive_product_price_font_size, 'desktop' ),
-			'line-height' => esc_attr( $edd_archive_product_price_line_height ),
-			'color'       => esc_attr( $edd_archive_product_price_color ),
-		),
+		'.ast-edd-archive-block-wrap .edd_price, .edd_downloads_list .edd_price,.ast-edd-archive-block-wrap .edd_price_options, .edd_downloads_list .edd_price_options' => astra_addon_get_font_array_css( astra_get_option( 'font-family-edd-archive-product-price' ), astra_get_option( 'font-weight-edd-archive-product-price' ), $edd_archive_product_price_font_size, 'font-extras-edd-archive-product-price', $edd_archive_product_price_color ),
 
 		'.single-download .post-navigation a' => array(
 			'color' => esc_attr( $product_navigation_color ),
 		),
 
-		'.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' => array(
-			'font-family'    => astra_get_css_value( $edd_archive_product_content_font_family, 'font', $body_font_family ),
-			'font-weight'    => astra_get_css_value( $edd_archive_product_content_font_weight, 'font' ),
-			'font-size'      => astra_responsive_font( $edd_archive_product_content_font_size, 'desktop' ),
-			'text-transform' => esc_attr( $edd_archive_product_content_text_transform ),
-			'line-height'    => esc_attr( $edd_archive_product_content_line_height ),
-			'color'          => esc_attr( $edd_archive_product_content_color ),
-		),
-
+		'.ast-edd-archive-block-wrap .edd_download_excerpt p, .edd_downloads_list .edd_download_excerpt p' => astra_addon_get_font_array_css( astra_get_option( 'font-family-edd-archive-product-content' ), astra_get_option( 'font-weight-edd-archive-product-content' ), $edd_archive_product_content_font_size, 'font-extras-edd-archive-product-content', $edd_archive_product_content_color ),
 	);
 
 	if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && $can_update_cart_color && 'default' === astra_get_option( 'edd-header-cart-icon' ) ) {

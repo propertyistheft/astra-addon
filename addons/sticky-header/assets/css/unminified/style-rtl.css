@@ -10,8 +10,6 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 100%;
-  /** Internet browser does move the sticky header to the left side due to `margin: 0 auto;`. To fix this we have set the 100% width. */
 }
 
 .ast-nav-up {
@@ -71,11 +69,6 @@
 
 .ast-sticky-custom-logo .ast-header-sticked .sticky-custom-logo {
   display: inline-block;
-}
-
-.ast-sticky-custom-logo .ast-header-sticked .site-title,
-.ast-sticky-custom-logo .ast-header-sticked .site-description {
-  display: none;
 }
 
 .ast-sticky-custom-logo.ast-primary-sticky-header-active.ast-header-break-point.ast-replace-site-logo-transparent.ast-theme-transparent-header .transparent-custom-logo {
@@ -312,4 +305,9 @@
 .ast-flyout-menu-enable.ast-primary-sticky-enabled .main-header-bar,
 .ast-flyout-menu-enable.ast-primary-sticky-enabled .ast-stick-primary-below-wrapper {
   overflow-y: unset !important;
+}
+
+#ast-mobile-header .content-align-flex-start {
+  max-height: 60vh;
+  overflow: auto;
 }

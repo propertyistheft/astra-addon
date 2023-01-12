@@ -358,7 +358,56 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 		}
 
 		if ( $echo ) {
-			echo $result; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo wp_kses(
+				$result,
+				array(
+					'span'   => array( 'class' => array() ),
+					'label'  => array( 'class' => array() ),
+					'i'      => array( 'class' => array() ),
+					'input'  => array(
+						'type'        => array(),
+						'class'       => array(),
+						'placeholder' => array(),
+						'value'       => array(),
+						'name'        => array(),
+					),
+					'form'   => array(
+						'role'   => array(),
+						'method' => array(),
+						'class'  => array(),
+						'action' => array(),
+					),
+					'button' => array(
+						'type'       => array(),
+						'class'      => array(),
+						'value'      => array(),
+						'aria-label' => array(),
+						'value'      => array(),
+					),
+					'svg'    => array(
+						'xmlns:xlink'       => array(),
+						'version'           => array(),
+						'x'                 => array(),
+						'y'                 => array(),
+						'enable-background' => array(),
+						'xml:space'         => array(),
+						'class'             => array(),
+						'aria-hidden'       => array(),
+						'aria-labelledby'   => array(),
+						'role'              => array(),
+						'xmlns'             => array(),
+						'width'             => array(),
+						'height'            => array(),
+						'viewbox'           => array(),
+					),
+					'g'      => array( 'fill' => array() ),
+					'title'  => array( 'title' => array() ),
+					'path'   => array(
+						'd'    => array(),
+						'fill' => array(),
+					),
+				)
+			);
 		} else {
 			return $result;
 		}
@@ -461,11 +510,63 @@ function astra_addon_get_megamenu_spacing_css( $spacing_obj ) {
 }
 
 /**
- * Check the Astra 3.5.0 version is using or not.
- * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
+ * Check whether blogs post structure title & meta is disabled or not.
  *
- * @since  3.5.0
+ * @since 4.0.0
+ * @return bool True if blogs post structure title & meta is disabled else false.
  */
-function astra_addon_check_theme_3_5_0_version() {
-	return version_compare( ASTRA_THEME_VERSION, '3.5.0', '<' );
+function astra_addon_is_blog_title_meta_disabled() {
+	$blog_title_meta = astra_get_option( 'blog-post-structure' );
+	if ( is_array( $blog_title_meta ) && ! in_array( 'title-meta', $blog_title_meta ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Function which will return CSS for font-extras control.
+ * It includes - line-height, letter-spacing, text-decoration, font-style.
+ *
+ * @param array  $config contains extra font settings.
+ * @param string $setting basis on this setting will return.
+ * @param mixed  $unit Unit.
+ *
+ * @since 4.0.0
+ */
+function astra_addon_get_font_extras( $config, $setting, $unit = false ) {
+	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
+
+	if ( $unit && $css ) {
+		$css .= isset( $config[ $unit ] ) ? $config[ $unit ] : '';
+	}
+
+	return $css;
+}
+
+/**
+ * Function which will return CSS array for font specific props for further parsing CSS.
+ * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
+ *
+ * @param string $font_family Font family.
+ * @param string $font_weight Font weight.
+ * @param array  $font_size Font size.
+ * @param string $font_extras contains all font controls.
+ * @param string $color In most of cases color is also added, so included optional param here.
+ *
+ * @return array
+ *
+ * @since 4.0.0
+ */
+function astra_addon_get_font_array_css( $font_family, $font_weight, $font_size, $font_extras, $color = '' ) {
+	$font_extras_ast_option = astra_get_option( $font_extras );
+	return array(
+		'color'           => esc_attr( $color ),
+		'font-family'     => astra_get_css_value( $font_family, 'font' ),
+		'font-weight'     => astra_get_css_value( $font_weight, 'font' ),
+		'font-size'       => ! empty( $font_size ) ? astra_responsive_font( $font_size, 'desktop' ) : '',
+		'line-height'     => astra_addon_get_font_extras( $font_extras_ast_option, 'line-height', 'line-height-unit' ),
+		'text-transform'  => astra_addon_get_font_extras( $font_extras_ast_option, 'text-transform' ),
+		'letter-spacing'  => astra_addon_get_font_extras( $font_extras_ast_option, 'letter-spacing', 'letter-spacing-unit' ),
+		'text-decoration' => astra_addon_get_font_extras( $font_extras_ast_option, 'text-decoration' ),
+	);
 }

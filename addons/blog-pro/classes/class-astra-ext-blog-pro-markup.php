@@ -136,7 +136,10 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 						</div>
 						<?php if ( 'click' == $infinite_event ) { ?>
 							<span class="ast-load-more active">
-								<?php echo apply_filters( 'astra_load_more_text', esc_html( $load_more_text ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php
+									$load_more_text = apply_filters( 'astra_load_more_text', $load_more_text );
+									echo esc_html( $load_more_text );
+								?>
 							</span>
 						<?php } ?>
 					</nav>
@@ -229,7 +232,20 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 				?>
 				<a href="<?php echo esc_url( get_permalink() ); ?>" >
 					<div class="ast-date-meta <?php echo esc_attr( $date_box_style ); ?>">
-						<span class="posted-on"><?php echo $posted_on; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+						<span class="posted-on">
+							<?php
+								echo wp_kses(
+									$posted_on,
+									array(
+										'time' => array(
+											'class'    => array(),
+											'datetime' => array(),
+										),
+										'span' => array( 'class' => array() ),
+									)
+								);
+							?>
+						</span>
 					</div>
 				</a>
 				<?php

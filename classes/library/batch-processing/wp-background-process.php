@@ -197,11 +197,7 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 
 			$key = $wpdb->esc_like( $this->identifier . '_batch_' ) . '%';
 
-			$count = $wpdb->get_var( $wpdb->prepare( "
-			SELECT COUNT(*)
-			FROM {$table}
-			WHERE {$column} LIKE %s
-		", $key ) );
+			$count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table} WHERE {$column} LIKE %s ", $key ) ); // phpcs:ignore -- Ignoring for safer side as it conflicts with other batch processes like importing starter templates.
 
 			return ( $count > 0 ) ? false : true;
 		}
@@ -272,13 +268,8 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 
 			$key = $wpdb->esc_like( $this->identifier . '_batch_' ) . '%';
 
-			$query = $wpdb->get_row( $wpdb->prepare( "
-			SELECT *
-			FROM {$table}
-			WHERE {$column} LIKE %s
-			ORDER BY {$key_column} ASC
-			LIMIT 1
-		", $key ) );
+			$query = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE {$column} LIKE %s ORDER BY {$key_column} ASC
+			LIMIT 1", $key ) ); // phpcs:ignore -- Ignoring for safer side as it conflicts with other batch processes like importing starter templates.
 
 			$batch       = new stdClass();
 			$batch->key  = $query->$column;
@@ -475,7 +466,6 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 		 * Cancel Process
 		 *
 		 * Stop processing queue items, clear cronjob and delete batch.
-		 *
 		 */
 		public function cancel_process() {
 			if ( ! $this->is_queue_empty() ) {

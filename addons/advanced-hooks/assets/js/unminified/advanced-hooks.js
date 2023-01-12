@@ -98,6 +98,11 @@
 
 		bind: function()
 		{
+			// Instead of updating PHP globals $parent_file, $submenu_file, used following JS for making Custom Layout menu active while editing any post.
+			$( 'li#toplevel_page_' + astraCustomHookVars.home_slug + ', li#toplevel_page_' + astraCustomHookVars.home_slug + ' > a' ).removeClass('wp-not-current-submenu').addClass('wp-has-current-submenu');
+			$( 'li#toplevel_page_' + astraCustomHookVars.home_slug + ' a[href="edit.php?post_type=astra-advanced-hook"]' ).parent().addClass('current');
+			$( 'li#menu-appearance.wp-has-current-submenu, li#menu-appearance.wp-has-current-submenu > a' ).removeClass('wp-has-current-submenu');
+
 			$( 'input[name="ast-advanced-hook-header[sticky]"]' ).on( 'change', AstraAdvancedHooks.stickyHeaderChanged );
 			$( 'input[name="ast-advanced-hook-footer[sticky]"]' ).on( 'change', AstraAdvancedHooks.stickyFooterChanged );
 			$( 'select[name="ast-advanced-hook-layout"]' ).on( 'change', AstraAdvancedHooks.layoutChanged );

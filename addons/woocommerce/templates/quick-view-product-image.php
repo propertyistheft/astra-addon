@@ -18,17 +18,17 @@ global $post, $product, $woocommerce;
 	if ( has_post_thumbnail() ) {
 		$astra_addon_image_attachment_ids = $product->get_gallery_image_ids();
 		$astra_addon_image_props          = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
-		$astra_addon_product_image        = get_the_post_thumbnail(
-			$post->ID,
-			'shop_single',
-			array(
-				'title' => $astra_addon_image_props['title'],
-				'alt'   => $astra_addon_image_props['alt'],
-			)
-		);
+
 		echo sprintf(
 			'<li class="woocommerce-product-gallery__image">%s</li>',
-			$astra_addon_product_image // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			get_the_post_thumbnail(
+				$post->ID,
+				'shop_single',
+				array(
+					'title' => $astra_addon_image_props['title'],
+					'alt'   => $astra_addon_image_props['alt'],
+				)
+			)
 		);
 
 		if ( $astra_addon_image_attachment_ids ) {

@@ -33,13 +33,13 @@ if ( empty( $astra_addon_abv_header_section_1 ) && empty( $astra_addon_abv_heade
 			<div class="ast-flex ast-above-header-section-wrap">
 				<?php if ( ! empty( $astra_addon_abv_header_section_1 ) ) { ?>
 					<div class="ast-above-header-section ast-above-header-section-1 ast-flex ast-justify-content-flex-start <?php echo esc_attr( $astra_addon_section_1_value ); ?>-above-header" >
-						<?php echo $astra_addon_abv_header_section_1; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php echo $astra_addon_abv_header_section_1; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Echoing required markup on the frontend for dynamic section. ?>
 					</div>
 				<?php } ?>
 
 				<?php if ( ! empty( $astra_addon_abv_header_section_2 ) ) { ?>
 					<div class="ast-above-header-section ast-above-header-section-2 ast-flex ast-justify-content-flex-end <?php echo esc_attr( $astra_addon_section_2_value ); ?>-above-header" >
-						<?php echo $astra_addon_abv_header_section_2; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php echo $astra_addon_abv_header_section_2; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Echoing required markup on the frontend for dynamic section. ?>
 					</div>
 				<?php } ?>
 			</div>

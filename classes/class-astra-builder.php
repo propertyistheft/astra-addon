@@ -244,9 +244,24 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 					if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
 						Astra_Builder_UI_Controller::render_customizer_edit_button();
 					}
-					echo function_exists( 'astra_markup_open' ) ? astra_markup_open( 'header-widget-div', array( 'echo' => false ) ) : '<div class="header-widget-area-inner site-info-inner">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+					if ( function_exists( 'astra_markup_open' ) ) {
+						astra_markup_open( 'header-widget-div', array( 'echo' => true ) );
+					} else {
+						?>
+							<div class="header-widget-area-inner site-info-inner">
+						<?php
+					}
+
 					astra_get_sidebar( 'header-' . str_replace( '_', '-', $slug ) );
-					echo function_exists( 'astra_markup_close' ) ? astra_markup_close( 'header-widget-div', array( 'echo' => false ) ) : '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+					if ( function_exists( 'astra_markup_close' ) ) {
+						astra_markup_close( 'header-widget-div', array( 'echo' => true ) );
+					} else {
+						?>
+							</div>
+						<?php
+					}
 					?>
 				</aside>
 				<?php
@@ -332,9 +347,23 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 				?>
 				>
 				<?php
-					echo function_exists( 'astra_markup_open' ) ? astra_markup_open( 'footer-widget-div', array( 'echo' => false ) ) : '<div class="footer-widget-area-inner site-info-inner">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				if ( function_exists( 'astra_markup_open' ) ) {
+					astra_markup_open( 'footer-widget-div', array( 'echo' => true ) );
+				} else {
+					?>
+						<div class="footer-widget-area-inner site-info-inner">
+					<?php
+				}
+
 					astra_get_sidebar( 'footer-' . str_replace( '_', '-', $slug ) );
-					echo function_exists( 'astra_markup_close' ) ? astra_markup_close( 'footer-widget-div', array( 'echo' => false ) ) : '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+				if ( function_exists( 'astra_markup_close' ) ) {
+					astra_markup_close( 'footer-widget-div', array( 'echo' => true ) );
+				} else {
+					?>
+						</div>
+					<?php
+				}
 				?>
 				</aside>
 				<?php

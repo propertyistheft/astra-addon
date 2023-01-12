@@ -52,31 +52,56 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 
 			$indent = str_repeat( "\t", $depth );
 
-			$style = '';
+			$style = array();
 
 			if ( 0 === $depth && '' != $this->megamenu && 'ast-hf-mobile-menu' !== $args->menu_id && 'ast-desktop-toggle-menu' !== $args->menu_id ) {
 
-				$style = array(
-					'.ast-desktop .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item > .menu-link, .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .sub-menu > .menu-link, .ast-desktop .ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item:hover' => array(
-						'color' => $this->megamenu_text_color,
-					),
-					'.ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .sub-menu .menu-item:hover, .ast-desktop .ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .menu-link:hover, .ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .sub-menu .menu-link:hover' => array(
-						'color' => $this->megamenu_text_h_color,
-					),
-				);
+				if ( isset( $this->megamenu_text_color_group ) && '' != $this->megamenu_text_color_group ) {
+
+					if ( isset( $this->megamenu_text_color_group['normal'] ) && $this->megamenu_text_color_group['normal'] ) {
+
+						$style[ '.ast-desktop .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item > .menu-link, .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .sub-menu > .menu-link, .ast-desktop .ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item:hover' ] = array(
+							'color' => $this->megamenu_text_color_group['normal'],
+						);
+					}
+
+					if ( isset( $this->megamenu_text_color_group['hover'] ) && $this->megamenu_text_color_group['hover'] ) {
+						$style[ '.ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .sub-menu .menu-item:hover, .ast-desktop .ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .menu-link:hover, .ast-container .menu-item-' . $this->menu_megamenu_item_id . ' .menu-item .sub-menu .menu-link:hover' ] = array(
+							'color' => $this->megamenu_text_color_group['hover'],
+						);
+					}
+				}
 
 				$megamenu_divider_class = '';
 
-				if ( isset( $this->megamenu_divider_color ) && '' != $this->megamenu_divider_color ) {
-					$megamenu_divider_class = ' astra-megamenu-has-divider';
-					$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ':hover .astra-megamenu > .menu-item' ] = array(
-						'border-right' => '1px solid ' . $this->megamenu_divider_color,
+				if ( isset( $this->megamenu_top_border_width ) && '' != $this->megamenu_top_border_width ) {
+					$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu' ] = array(
+						'border-top-width' => $this->megamenu_top_border_width . 'px',
 					);
 				}
 
-				if ( isset( $this->megamenu_separator_color ) && '' != $this->megamenu_separator_color ) {
-					$style['.ast-desktop .astra-megamenu-li .sub-menu .menu-item-heading > .menu-link'] = array(
-						'border-bottom' => '1px solid ' . $this->megamenu_separator_color,
+				if ( isset( $this->megamenu_column_divider_width ) && '' != $this->megamenu_column_divider_width ) {
+					$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu > .menu-item' ] = array(
+						'border-right-width' => $this->megamenu_column_divider_width . 'px',
+					);
+				}
+
+				if ( isset( $this->megamenu_top_border_color ) && '' != $this->megamenu_top_border_color ) {
+					$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu' ] = array(
+						'border-color' => $this->megamenu_top_border_color,
+					);
+				}
+
+				if ( isset( $this->megamenu_column_divider_color ) && '' != $this->megamenu_column_divider_color ) {
+					$megamenu_divider_class = ' astra-megamenu-has-divider';
+					$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu > .menu-item' ] = array(
+						'border-right' => '1px solid ' . $this->megamenu_column_divider_color,
+					);
+				}
+
+				if ( isset( $this->megamenu_divider_style ) && '' != $this->megamenu_divider_style ) {
+					$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu, .ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu > .menu-item' ] = array(
+						'border-style' => $this->megamenu_divider_style,
 					);
 				}
 
@@ -86,17 +111,40 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 					);
 				}
 
-				if ( isset( $this->megamenu_bg_image ) ) {
+				if ( isset( $this->megamenu_heading_color_group ) && '' != $this->megamenu_heading_color_group ) {
 
-					$bg_object = array(
-						'background-color'    => $this->megamenu_bg_color,
-						'background-image'    => $this->megamenu_bg_image,
-						'background-repeat'   => $this->megamenu_bg_repeat,
-						'background-size'     => $this->megamenu_bg_size,
-						'background-position' => $this->megamenu_bg_position,
-					);
+					if ( isset( $this->megamenu_heading_color_group['normal'] ) && $this->megamenu_heading_color_group['normal'] ) {
 
-					$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-full-megamenu-wrapper, .ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-mega-menu-width-menu-container, .ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-mega-menu-width-content, .ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-mega-menu-width-custom' ] = astra_addon_get_megamenu_background_obj( $bg_object );
+						$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .menu-item-heading > .menu-link' ] = array(
+							'color' => $this->megamenu_heading_color_group['normal'],
+						);
+					}
+
+					if ( isset( $this->megamenu_heading_color_group['hover'] ) && $this->megamenu_heading_color_group['hover'] ) {
+						$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .menu-item-heading > .menu-link:hover' ] = array(
+							'color' => $this->megamenu_heading_color_group['hover'],
+						);
+					}
+				}
+
+				if ( isset( $this->megamenu_bg_type ) && ( isset( $this->megamenu_bg_image ) || isset( $this->megamenu_bg_gradient ) ) ) {
+
+					if ( 'image' === $this->megamenu_bg_type ) {
+
+						$bg_object = array(
+							'background-color'    => $this->megamenu_bg_color,
+							'background-image'    => $this->megamenu_bg_image,
+							'background-repeat'   => $this->megamenu_bg_repeat,
+							'background-size'     => $this->megamenu_bg_size,
+							'background-position' => $this->megamenu_bg_position,
+						);
+					} else {
+						$bg_object = array(
+							'background' => $this->megamenu_bg_gradient,
+						);
+					}
+
+					$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-full-megamenu-wrapper, .ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-mega-menu-width-menu-container, .ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-mega-menu-width-content, .ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-mega-menu-width-custom' ] = 'image' === $this->megamenu_bg_type ? astra_addon_get_megamenu_background_obj( $bg_object ) : $bg_object;
 				}
 
 				if ( 'custom' === $this->megamenu_width ) {
@@ -173,13 +221,15 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 			if ( 0 === $depth ) {
 				$this->megamenu = get_post_meta( $item->ID, '_menu_item_megamenu', true );
 
-				$this->megamenu_width        = get_post_meta( $item->ID, '_menu_item_megamenu_width', true );
+				$this->megamenu_width = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'width', $item->ID );
+
 				$this->megamenu_custom_width = get_post_meta( $item->ID, '_menu_item_megamenu_custom_width', true );
 
 				$this->megamenu_bg_image = get_post_meta( $item->ID, '_menu_item_megamenu_background_image', true );
 
-				$this->megamenu_text_color   = get_post_meta( $item->ID, '_menu_item_megamenu_text_color', true );
-				$this->megamenu_text_h_color = get_post_meta( $item->ID, '_menu_item_megamenu_text_h_color', true );
+				$this->megamenu_text_color_group = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'text_color', $item->ID );
+
+				$this->megamenu_bg_type = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'bg_type', $item->ID );
 
 				$this->megamenu_bg_size     = get_post_meta( $item->ID, '_menu_item_megamenu_bg_size', true );
 				$this->megamenu_bg_repeat   = get_post_meta( $item->ID, '_menu_item_megamenu_bg_repeat', true );
@@ -187,26 +237,48 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 
 				$this->megamenu_bg_color = get_post_meta( $item->ID, '_menu_item_megamenu_bg_color', true );
 
-				$this->megamenu_divider_color = get_post_meta( $item->ID, '_menu_item_megamenu_column_divider_color', true );
+				$this->megamenu_bg_gradient = get_post_meta( $item->ID, '_menu_item_megamenu_gradient', true );
+
+				$this->megamenu_divider_width = get_post_meta( $item->ID, '_menu_item_megamenu_divider_width', true );
+
+				// Common divider.
+				$this->megamenu_divider_style = get_post_meta( $item->ID, '_menu_item_megamenu_divider_style', true );
+
+				// Top border.
+				$this->megamenu_top_border_color = get_post_meta( $item->ID, '_menu_item_megamenu_top_border_color', true );
+				$this->megamenu_top_border_width = get_post_meta( $item->ID, '_menu_item_megamenu_top_border_width', true );
+
+				// Column divider.
+				$this->megamenu_column_divider_color = get_post_meta( $item->ID, '_menu_item_megamenu_column_divider_color', true );
+				$this->megamenu_column_divider_width = get_post_meta( $item->ID, '_menu_item_megamenu_column_divider_width', true );
+
+				// Row divider.
+				$this->megamenu_row_divider_width = get_post_meta( $item->ID, '_menu_item_megamenu_row_divider_width', true );
+
+				$this->megamenu_heading_color_group = get_post_meta( $item->ID, '_menu_item_megamenu_heading_color_group', true );
 
 				$this->num_of_columns = 0;
 
 				$this->menu_megamenu_item_id = $item->ID;
 
-				$this->megamenu_margin_top    = get_post_meta( $item->ID, '_menu_item_megamenu_margin_top', true );
-				$this->megamenu_margin_right  = get_post_meta( $item->ID, '_menu_item_megamenu_margin_right', true );
-				$this->megamenu_margin_bottom = get_post_meta( $item->ID, '_menu_item_megamenu_margin_bottom', true );
-				$this->megamenu_margin_left   = get_post_meta( $item->ID, '_menu_item_megamenu_margin_left', true );
+				$margin_defaults = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'margin', $item->ID );
 
-				$this->megamenu_padding_top    = get_post_meta( $item->ID, '_menu_item_megamenu_padding_top', true );
-				$this->megamenu_padding_right  = get_post_meta( $item->ID, '_menu_item_megamenu_padding_right', true );
-				$this->megamenu_padding_bottom = get_post_meta( $item->ID, '_menu_item_megamenu_padding_bottom', true );
-				$this->megamenu_padding_left   = get_post_meta( $item->ID, '_menu_item_megamenu_padding_left', true );
+				$this->megamenu_margin_top    = $margin_defaults['desktop']['top'];
+				$this->megamenu_margin_right  = $margin_defaults['desktop']['right'];
+				$this->megamenu_margin_bottom = $margin_defaults['desktop']['bottom'];
+				$this->megamenu_margin_left   = $margin_defaults['desktop']['left'];
+
+				$padding_defaults = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'padding', $item->ID );
+
+				$this->megamenu_padding_top    = $padding_defaults['desktop']['top'];
+				$this->megamenu_padding_right  = $padding_defaults['desktop']['right'];
+				$this->megamenu_padding_bottom = $padding_defaults['desktop']['bottom'];
+				$this->megamenu_padding_left   = $padding_defaults['desktop']['left'];
 			}
 
 			$this->menu_megamenu_individual_item_id = $item->ID;
 			$this->megamenu_disable_link            = get_post_meta( $item->ID, '_menu_item_megamenu_disable_link', true );
-			$this->megamenu_disable_title           = get_post_meta( $item->ID, '_menu_item_megamenu_disable_title', true );
+			$this->megamenu_disable_title           = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'disable_title', $item->ID );
 			$this->megamenu_enable_heading          = get_post_meta( $item->ID, '_menu_item_megamenu_enable_heading', true );
 			$this->megamenu_separator_color         = get_post_meta( $item->ID, '_menu_item_megamenu_heading_separator_color', true );
 
@@ -220,12 +292,17 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 				$classes[] = 'menu-item-heading';
 			}
 
-			if ( isset( $this->megamenu_separator_color ) && '' != $this->megamenu_separator_color ) {
+			$row_border_width = $this->megamenu_row_divider_width ? $this->megamenu_row_divider_width . esc_attr( 'px' ) : esc_attr( '1px' );
+			$row_border_style = $this->megamenu_divider_style ? $this->megamenu_divider_style : esc_attr( 'solid' );
+
+			if ( ( isset( $this->megamenu_separator_color ) && '' != $this->megamenu_separator_color ) ) {
+
 				$style = array(
 					'.ast-desktop .astra-megamenu-li .menu-item-' . $this->menu_megamenu_individual_item_id . '.menu-item-heading > .menu-link, .ast-desktop .ast-mega-menu-enabled.submenu-with-border .astra-megamenu-li .menu-item-' . $this->menu_megamenu_individual_item_id . '.menu-item-heading > .menu-link, .ast-desktop .ast-mega-menu-enabled .astra-megamenu-li .menu-item-' . $this->menu_megamenu_individual_item_id . '.menu-item-heading > .menu-link' => array(
-						'border-bottom' => '1px solid ' . $this->megamenu_separator_color,
+						'border-bottom' => $row_border_width . ' ' . $row_border_style . ' ' . $this->megamenu_separator_color,
 					),
 				);
+
 				Astra_Ext_Nav_Menu_Loader::add_css( astra_parse_css( $style ) );
 			}
 
@@ -373,6 +450,165 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 				Astra_Ext_Nav_Menu_Loader::add_css( astra_parse_css( $style ) );
 
 				$title .= '<span class="astra-mm-highlight-label">' . esc_html( $item->megamenu_highlight_label ) . '</span>';
+			}
+
+			if ( isset( $item->megamenu_icon_source ) && '' != $item->megamenu_icon_source && 'none' !== $item->megamenu_icon_source ) {
+
+				$mm_megamenu_icon_main            = $item->megamenu_icon_source;
+				$mm_megamenu_icon_source          = isset( $mm_megamenu_icon_main['source'] ) ? $mm_megamenu_icon_main['source'] : '';
+				$mm_megamenu_icon                 = isset( $mm_megamenu_icon_main['icon'] ) ? $mm_megamenu_icon_main['icon'] : '';
+				$mm_megamenu_image                = isset( $mm_megamenu_icon_main['image'] ) ? $mm_megamenu_icon_main['image'] : '';
+				$mm_megamenu_icon_spacing         = isset( $item->megamenu_icon_spacing ) ? $item->megamenu_icon_spacing : '';
+				$mm_megamenu_icon_position        = isset( $item->megamenu_icon_position ) ? $item->megamenu_icon_position : '';
+				$mm_megamenu_icon_view            = isset( $item->megamenu_icon_view ) ? $item->megamenu_icon_view : '';
+				$mm_megamenu_icon_primary_color   = isset( $item->megamenu_icon_primary_color ) ? $item->megamenu_icon_primary_color : '';
+				$mm_megamenu_icon_secondary_color = isset( $item->megamenu_icon_secondary_color ) ? $item->megamenu_icon_secondary_color : '';
+				$mm_megamenu_icon_size            = isset( $item->megamenu_icon_size ) ? $item->megamenu_icon_size : '';
+				$mm_megamenu_icon_padding         = isset( $item->megamenu_icon_padding ) ? $item->megamenu_icon_padding : '';
+				$mm_megamenu_icon_corner_radius   = isset( $item->megamenu_icon_corner_radius ) ? $item->megamenu_icon_corner_radius : '';
+				$mm_megamenu_icon_border_width    = isset( $item->megamenu_icon_border_width ) ? $item->megamenu_icon_border_width : '';
+				$mm_image                         = '';
+
+				if ( 'icon' === $mm_megamenu_icon_source ) {
+					$mm_image = ( class_exists( 'Astra_Builder_UI_Controller' ) && $mm_megamenu_icon ) ? Astra_Builder_UI_Controller::fetch_svg_icon( $mm_megamenu_icon, false ) : '';
+				}
+
+				if ( 'image' === $mm_megamenu_icon_source ) {
+					$mm_image = $mm_megamenu_image ? '<img src="' . $mm_megamenu_image . '" alt="mm-ast-icon">' : '';
+				}
+
+				$icon_array_slug       = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID;
+				$icon_array_slug_image = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' > img';
+				$icon_array_slug_svg   = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' svg';
+				$icon_style            = array();
+				$icon_tablet_style     = array();
+				$icon_mobile_style     = array();
+
+				$icon_style[ $icon_array_slug ]['display']        = esc_attr( 'inline-block' );
+				$icon_style[ $icon_array_slug ]['vertical-align'] = esc_attr( 'middle' );
+				$icon_style[ $icon_array_slug ]['line-height']    = esc_attr( 0 );
+
+				// Defaults for icon.
+				if ( 'default' === $mm_megamenu_icon_view ) {
+					if ( ! $mm_megamenu_icon_primary_color ) {
+						$icon_style[ $icon_array_slug_svg ]['color'] = 'var(--ast-global-color-0)';
+						$icon_style[ $icon_array_slug_svg ]['fill']  = 'var(--ast-global-color-0)';
+					}
+				}
+
+				if ( 'stacked' === $mm_megamenu_icon_view ) {
+					if ( ! $mm_megamenu_icon_primary_color ) {
+						$icon_style[ $icon_array_slug_svg ]['color'] = '#fff';
+						$icon_style[ $icon_array_slug_svg ]['fill']  = '#fff';
+					}
+
+					if ( ! $mm_megamenu_icon_secondary_color ) {
+						$icon_style[ $icon_array_slug ]['background-color'] = 'var(--ast-global-color-0)';
+					}
+				}
+
+				if ( 'framed' === $mm_megamenu_icon_view ) {
+					if ( ! $mm_megamenu_icon_primary_color ) {
+						$icon_style[ $icon_array_slug_svg ]['color']    = 'var(--ast-global-color-0)';
+						$icon_style[ $icon_array_slug_svg ]['fill']     = 'var(--ast-global-color-0)';
+						$icon_style[ $icon_array_slug ]['border-color'] = 'var(--ast-global-color-0)';
+					}
+
+					if ( ! $mm_megamenu_icon_secondary_color ) {
+						$global_palette = astra_get_option( 'global-color-palette' );
+						if ( $global_palette && isset( $global_palette['palette'][0] ) && function_exists( 'astra_hex_to_rgba' ) ) {
+							$icon_style[ $icon_array_slug ]['background-color'] = astra_hex_to_rgba( $global_palette['palette'][0], .15 );
+						}
+					}
+				}
+
+				if ( $mm_megamenu_icon_spacing ) {
+					$icon_style[ $icon_array_slug ]['margin'] = $mm_megamenu_icon_spacing . 'px';
+				}
+
+				if ( $mm_megamenu_icon_size ) {
+
+					if ( 'image' === $mm_megamenu_icon_source ) {
+						$icon_style[ $icon_array_slug_image ]['width']  = $mm_megamenu_icon_size . 'px';
+						$icon_style[ $icon_array_slug_image ]['height'] = $mm_megamenu_icon_size . 'px';
+
+					} else {
+						$icon_style[ $icon_array_slug_svg ]['width']  = $mm_megamenu_icon_size . 'px';
+						$icon_style[ $icon_array_slug_svg ]['height'] = $mm_megamenu_icon_size . 'px';
+					}
+				}
+
+				if ( $mm_megamenu_icon_primary_color ) {
+					$icon_style[ $icon_array_slug_svg ]['color'] = $mm_megamenu_icon_primary_color;
+					$icon_style[ $icon_array_slug_svg ]['fill']  = $mm_megamenu_icon_primary_color;
+				}
+
+				if ( 'stacked' === $mm_megamenu_icon_view || 'framed' === $mm_megamenu_icon_view ) {
+
+					if ( $mm_megamenu_icon_padding ) {
+						$icon_style[ $icon_array_slug ]['padding'] = $mm_megamenu_icon_padding . 'px';
+					}
+
+					if ( $mm_megamenu_icon_secondary_color ) {
+						$icon_style[ $icon_array_slug ]['background-color'] = $mm_megamenu_icon_secondary_color;
+					}
+
+					if ( $mm_megamenu_icon_corner_radius && isset( $mm_megamenu_icon_corner_radius['desktop'] ) && isset( $mm_megamenu_icon_corner_radius['desktop-unit'] ) ) {
+
+						if ( isset( $mm_megamenu_icon_corner_radius['desktop']['top-left'] ) && $mm_megamenu_icon_corner_radius['desktop']['top-left'] ) {
+							$icon_style[ $icon_array_slug ]['border-top-left-radius'] = $mm_megamenu_icon_corner_radius['desktop']['top-left'] . $mm_megamenu_icon_corner_radius['desktop-unit'];
+						}
+
+						if ( isset( $mm_megamenu_icon_corner_radius['desktop']['top-right'] ) && $mm_megamenu_icon_corner_radius['desktop']['top-right'] ) {
+							$icon_style[ $icon_array_slug ]['border-top-right-radius'] = $mm_megamenu_icon_corner_radius['desktop']['top-right'] . $mm_megamenu_icon_corner_radius['desktop-unit'];
+						}
+
+						if ( isset( $mm_megamenu_icon_corner_radius['desktop']['bottom-left'] ) && $mm_megamenu_icon_corner_radius['desktop']['bottom-left'] ) {
+							$icon_style[ $icon_array_slug ]['border-bottom-left-radius'] = $mm_megamenu_icon_corner_radius['desktop']['bottom-left'] . $mm_megamenu_icon_corner_radius['desktop-unit'];
+						}
+
+						if ( isset( $mm_megamenu_icon_corner_radius['desktop']['bottom-right'] ) && $mm_megamenu_icon_corner_radius['desktop']['bottom-right'] ) {
+							$icon_style[ $icon_array_slug ]['border-bottom-right-radius'] = $mm_megamenu_icon_corner_radius['desktop']['bottom-right'] . $mm_megamenu_icon_corner_radius['desktop-unit'];
+						}
+					}
+				}
+
+				if ( 'framed' === $mm_megamenu_icon_view ) {
+
+					if ( $mm_megamenu_icon_corner_radius || $mm_megamenu_icon_border_width ) {
+						$icon_style[ $icon_array_slug ]['border-style'] = esc_attr( 'solid' );
+						$icon_style[ $icon_array_slug ]['border-width'] = esc_attr( 'inherit' );
+					}
+
+					if ( $mm_megamenu_icon_border_width && isset( $mm_megamenu_icon_border_width['desktop'] ) && isset( $mm_megamenu_icon_border_width['desktop-unit'] ) ) {
+						if ( isset( $mm_megamenu_icon_border_width['desktop']['top'] ) && $mm_megamenu_icon_border_width['desktop']['top'] ) {
+							$icon_style[ $icon_array_slug ]['border-top-width'] = $mm_megamenu_icon_border_width['desktop']['top'] . $mm_megamenu_icon_border_width['desktop-unit'];
+						}
+						if ( isset( $mm_megamenu_icon_border_width['desktop']['bottom'] ) && $mm_megamenu_icon_border_width['desktop']['bottom'] ) {
+							$icon_style[ $icon_array_slug ]['border-bottom-width'] = $mm_megamenu_icon_border_width['desktop']['bottom'] . $mm_megamenu_icon_border_width['desktop-unit'];
+						}
+						if ( isset( $mm_megamenu_icon_border_width['desktop']['left'] ) && $mm_megamenu_icon_border_width['desktop']['left'] ) {
+							$icon_style[ $icon_array_slug ]['border-left-width'] = $mm_megamenu_icon_border_width['desktop']['left'] . $mm_megamenu_icon_border_width['desktop-unit'];
+						}
+						if ( isset( $mm_megamenu_icon_border_width['desktop']['right'] ) && $mm_megamenu_icon_border_width['desktop']['right'] ) {
+							$icon_style[ $icon_array_slug ]['border-right-width'] = $mm_megamenu_icon_border_width['desktop']['right'] . $mm_megamenu_icon_border_width['desktop-unit'];
+						}
+					}
+
+					if ( $mm_megamenu_icon_primary_color ) {
+						$icon_style[ $icon_array_slug ]['border-color'] = $mm_megamenu_icon_primary_color;
+					}
+				}
+
+				if ( ! empty( $icon_style ) || ! empty( $icon_tablet_style ) || ! empty( $icon_mobile_style ) ) {
+					Astra_Ext_Nav_Menu_Loader::add_css( astra_parse_css( $icon_style ) );
+				}
+
+				if ( $mm_image ) {
+					$icon_source   = 'icon' === $mm_megamenu_icon_source ? $mm_image : wp_kses_post( $mm_image );
+					$icon_position = $icon_source ? '<span class="astra-mm-icon-label icon-item-' . $item->ID . '">' . $icon_source . '</span>' : '';
+					$title         = 'after-label' === $mm_megamenu_icon_position ? $title . $icon_position : $icon_position . $title;
+				}
 			}
 
 			$item_output .= Astra_Icons::get_icons( 'arrow' );

@@ -84,8 +84,26 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-widget-title' ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-widget-title]',
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Widget Title Font Weight
+				 */
+				array(
+					'name'              => 'font-weight-widget-title',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-title-typography-group]',
+					'section'           => 'section-sidebars',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'font-weight-widget-title' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'connect'           => 'font-family-widget-title',
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -99,7 +117,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'font-size-widget-title' ),
 					'control'           => 'ast-responsive-slider',
-					'title'             => __( 'Size', 'astra-addon' ),
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -117,61 +135,16 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Widget Title Font Weight
+				 * Option: Widget Title Font Extras
 				 */
 				array(
-					'name'              => 'font-weight-widget-title',
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-title-typography-group]',
-					'section'           => 'section-sidebars',
-					'control'           => 'ast-font',
-					'font_type'         => 'ast-font-weight',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'font-weight-widget-title' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'connect'           => 'font-family-widget-title',
-				),
-
-				/**
-				 * Option: Widget Title Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-widget-title',
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[sidebar-title-typography-group]',
-					'section'   => 'section-sidebars',
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'default'   => astra_get_option( 'text-transform-widget-title' ),
-					'control'   => 'ast-select',
-					'transport' => 'postMessage',
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
-				 * Option: Widget Title Line Height
-				 */
-				array(
-					'name'              => 'line-height-widget-title',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-title-typography-group]',
-					'section'           => 'section-sidebars',
-					'default'           => astra_get_option( 'line-height-widget-title' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'control'           => 'ast-slider',
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
+					'name'    => 'font-extras-widget-title',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[sidebar-title-typography-group]',
+					'control' => 'ast-font-extras',
+					'section' => 'section-sidebars',
+					'default' => astra_get_option( 'font-extras-widget-title' ),
+					'title'   => __( 'Font Extras', 'astra-addon' ),
 				),
 
 				/**
@@ -201,8 +174,26 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'parent'    => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
 					'section'   => 'section-sidebars',
 					'default'   => astra_get_option( 'font-family-widget-content' ),
-					'title'     => __( 'Family', 'astra-addon' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-widget-content]',
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Widget Content Font Weight
+				 */
+				array(
+					'name'              => 'font-weight-widget-content',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
+					'section'           => 'section-sidebars',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'font-weight-widget-content' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'connect'           => 'font-family-widget-content',
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -216,7 +207,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'section'           => 'section-sidebars',
 					'control'           => 'ast-responsive-slider',
 					'default'           => astra_get_option( 'font-size-widget-content' ),
-					'title'             => __( 'Size', 'astra-addon' ),
+					'title'             => __( 'Font Size', 'astra-addon' ),
 					'transport'         => 'postMessage',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
@@ -235,61 +226,16 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Widget Content Font Weight
+				 * Option: Widget Content Font Extras
 				 */
 				array(
-					'name'              => 'font-weight-widget-content',
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
-					'section'           => 'section-sidebars',
-					'control'           => 'ast-font',
-					'font_type'         => 'ast-font-weight',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'font-weight-widget-content' ),
-					'title'             => __( 'Weight', 'astra-addon' ),
-					'connect'           => 'font-family-widget-content',
-				),
-
-				/**
-				 * Option: Widget Content Text Transform
-				 */
-				array(
-					'name'      => 'text-transform-widget-content',
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
-					'section'   => 'section-sidebars',
-					'default'   => astra_get_option( 'text-transform-widget-content' ),
-					'title'     => __( 'Text Transform', 'astra-addon' ),
-					'transport' => 'postMessage',
-					'control'   => 'ast-select',
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra-addon' ),
-						'none'       => __( 'None', 'astra-addon' ),
-						'capitalize' => __( 'Capitalize', 'astra-addon' ),
-						'uppercase'  => __( 'Uppercase', 'astra-addon' ),
-						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
-					),
-				),
-
-				/**
-				 * Option: Widget Content Line Height
-				 */
-				array(
-					'name'              => 'line-height-widget-content',
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
-					'section'           => 'section-sidebars',
-					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'line-height-widget-content' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra-addon' ),
-					'control'           => 'ast-slider',
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
+					'name'    => 'font-extras-widget-content',
+					'type'    => 'sub-control',
+					'parent'  => ASTRA_THEME_SETTINGS . '[sidebar-content-typography-group]',
+					'control' => 'ast-font-extras',
+					'section' => 'section-sidebars',
+					'default' => astra_get_option( 'font-extras-widget-content' ),
+					'title'   => __( 'Font Extras', 'astra-addon' ),
 				),
 
 				/**
@@ -350,6 +296,17 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 			);
+
+			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
+				$_configs[] = array(
+					'name'        => 'section-sidebars-ast-context-tabs',
+					'section'     => 'section-sidebars',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				);
+			}
 
 			return array_merge( $configurations, $_configs );
 		}

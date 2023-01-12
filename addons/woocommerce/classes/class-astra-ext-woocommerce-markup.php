@@ -373,9 +373,38 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @return void
 		 */
 		public function get_off_canvas_sidebar() {
+			$icon              = Astra_Icons::get_icons( 'close' );
+			$icon_allowed_html = array(
+				'span'  => array(
+					'class' => array(),
+				),
+				'svg'   => array(
+					'xmlns:xlink'       => array(),
+					'version'           => array(),
+					'x'                 => array(),
+					'y'                 => array(),
+					'enable-background' => array(),
+					'xml:space'         => array(),
+					'class'             => array(),
+					'aria-hidden'       => array(),
+					'aria-labelledby'   => array(),
+					'role'              => array(),
+					'xmlns'             => array(),
+					'width'             => array(),
+					'height'            => array(),
+					'viewbox'           => array(),
+				),
+				'g'     => array( 'fill' => array() ),
+				'title' => array( 'title' => array() ),
+				'path'  => array(
+					'd'    => array(),
+					'fill' => array(),
+				),
+			);
 
 			if ( in_array( 'filters', astra_get_option( 'shop-toolbar-structure', array() ) ) && ( is_shop() || is_product_taxonomy() ) && 'shop-filter-flyout' === astra_get_option( 'shop-filter-position' ) ) {
-				echo '<div class="astra-off-canvas-sidebar-wrapper from-left"><div class="astra-off-canvas-sidebar"><span id="cart-accessibility" class="ast-shop-filter-close close" aria-label="' . esc_attr__( 'Close Off-Canvas Sidebar', 'astra-addon' ) . '">' . Astra_Icons::get_icons( 'close' ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+				echo '<div class="astra-off-canvas-sidebar-wrapper from-left"><div class="astra-off-canvas-sidebar"><span id="cart-accessibility" class="ast-shop-filter-close close" aria-label="' . esc_attr__( 'Close Off-Canvas Sidebar', 'astra-addon' ) . '">' . wp_kses( $icon, $icon_allowed_html ) . '</span>';
 				astra_get_footer_widget( 'astra-woo-product-off-canvas-sidebar' );
 				echo '</div></div>';
 			}
@@ -566,6 +595,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				$load_more_text = __( 'Load More', 'astra-addon' );
 			}
 
+			$load_more_text = apply_filters( 'astra_load_more_text', $load_more_text );
+
 			if ( $wp_query->max_num_pages > 1 ) {
 				?>
 				<nav class="ast-shop-pagination-infinite">
@@ -576,7 +607,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 					</div>
 					<?php if ( 'click' == $infinite_event ) { ?>
 						<span class="ast-shop-load-more active">
-							<?php echo apply_filters( 'astra_load_more_text', esc_html( $load_more_text ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<?php echo esc_html( $load_more_text ); ?>
 						</span>
 					<?php } ?>
 				</nav>
@@ -998,15 +1029,43 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				$filter_text = '<span class="astra-woo-filter-text">' . $trigger_link . '</span>';
 			}
 
-			$icon       = ( self::astra_is_shop_page_modern_style() && true === Astra_Icons::is_svg_icons() ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'sliders-h', false ) : Astra_Icons::get_icons( 'menu-bars' );
-			$icon_close = ! self::astra_is_shop_page_modern_style() ? Astra_Icons::get_icons( 'close' ) : '';
+			$icon              = ( self::astra_is_shop_page_modern_style() && true === Astra_Icons::is_svg_icons() ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'sliders-h', false ) : Astra_Icons::get_icons( 'menu-bars' );
+			$icon_close        = ! self::astra_is_shop_page_modern_style() ? Astra_Icons::get_icons( 'close' ) : '';
+			$icon_allowed_html = array(
+				'span'  => array(
+					'class' => array(),
+				),
+				'svg'   => array(
+					'xmlns:xlink'       => array(),
+					'version'           => array(),
+					'x'                 => array(),
+					'y'                 => array(),
+					'enable-background' => array(),
+					'xml:space'         => array(),
+					'class'             => array(),
+					'aria-hidden'       => array(),
+					'aria-labelledby'   => array(),
+					'role'              => array(),
+					'xmlns'             => array(),
+					'width'             => array(),
+					'height'            => array(),
+					'viewbox'           => array(),
+				),
+				'g'     => array( 'fill' => array() ),
+				'title' => array( 'title' => array() ),
+				'path'  => array(
+					'd'    => array(),
+					'fill' => array(),
+				),
+			);
+
 			switch ( astra_get_option( 'shop-off-canvas-trigger-type' ) ) {
 				case 'link':
-					echo '<a href="#" class="' . esc_attr( $class_attribute ) . '" data-selector="astra-off-canvas-sidebar-wrapper"><span class="' . $icon_class . '">' . $icon . ' ' . $icon_close . '</span>' . $filter_text . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<a href="#" class="' . esc_attr( $class_attribute ) . '" data-selector="astra-off-canvas-sidebar-wrapper"><span class="' . esc_attr( $icon_class ) . '">' . wp_kses( $icon, $icon_allowed_html ) . ' ' . wp_kses( $icon_close, $icon_allowed_html ) . '</span>' . wp_kses( $filter_text, array( 'span' => array( 'class' => true ) ) ) . '</a>';
 					break;
 
 				case 'button':
-					echo '<button class="' . esc_attr( $class_attribute ) . '" data-selector="astra-off-canvas-sidebar-wrapper"><span class="' . $icon_class . '">' . $icon . ' ' . $icon_close . '</span>' . $filter_text . '</button>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<button class="' . esc_attr( $class_attribute ) . '" data-selector="astra-off-canvas-sidebar-wrapper"><span class="' . esc_attr( $icon_class ) . '">' . wp_kses( $icon, $icon_allowed_html ) . ' ' . wp_kses( $icon_close, $icon_allowed_html ) . '</span>' . wp_kses( $filter_text, array( 'span' => array( 'class' => true ) ) ) . '</button>';
 					break;
 			}
 
@@ -1876,7 +1935,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			// load content template.
 			astra_addon_get_template( 'woocommerce/templates/quick-view-product.php' );
 
-			echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required for rendering dynamic markup for product strcture & price updater.
 
 			die();
 		}
@@ -1921,7 +1980,19 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			$button .= '</div>';
 			$button  = apply_filters( 'astra_woo_add_quick_view_button_html', $button, $label, $product );
 
-			echo $button; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo wp_kses(
+				$button,
+				array(
+					'div' => array(
+						'class' => array(),
+					),
+					'a'   => array(
+						'href'            => array(),
+						'class'           => array(),
+						'data-product_id' => array(),
+					),
+				)
+			);
 		}
 
 		/**
@@ -1939,7 +2010,16 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			$button = '<a href="#" class="ast-quick-view-text" data-product_id="' . $product_id . '">' . $label . '</a>';
 			$button = apply_filters( 'astra_woo_add_quick_view_text_html', $button, $label, $product );
 
-			echo $button; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo wp_kses(
+				$button,
+				array(
+					'a' => array(
+						'data-product_id' => array(),
+						'class'           => array(),
+						'href'            => array(),
+					),
+				)
+			);
 		}
 
 		/**
@@ -1954,7 +2034,15 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			$button = '<div class="ast-quick-view-data" data-product_id="' . $product_id . '"></div>';
 			$button = apply_filters( 'astra_woo_add_quick_view_data_html', $button, $product );
 
-			echo $button; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo wp_kses(
+				$button,
+				array(
+					'div' => array(
+						'data-product_id' => array(),
+						'class'           => array(),
+					),
+				)
+			);
 		}
 
 		/**
@@ -2388,7 +2476,6 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				add_filter( 'woocommerce_dropdown_variation_attribute_options_html', array( $this, 'single_product_variations_custom_html' ), 999, 2 );
 			}
 		}
-
 
 		/**
 		 * Filter list to buttons.

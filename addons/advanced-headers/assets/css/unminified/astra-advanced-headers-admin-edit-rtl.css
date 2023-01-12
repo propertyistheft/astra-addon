@@ -141,7 +141,7 @@
 	vertical-align: middle;
 }
 .ast-advanced-headers-row td *{
-	vertical-align: middle;	
+	vertical-align: middle;
 }
 .ast-advanced-headers-row:last-child td {
 	border-bottom: none;
@@ -315,3 +315,7 @@
 }
 
 /* WP Beta 5.3 compatibility CSS - Start */
+
+.target_rule-specific-page-wrap {
+	display: none;
+}
