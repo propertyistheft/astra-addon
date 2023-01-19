@@ -43,7 +43,7 @@ if ( $astra_addon_show_breadcrumb ) {
 						 */
 						esc_html( $astra_addon_header_title_tag ),
 						wp_kses_post( do_action( 'astra_advanced_header_layout_1_before_title' ) ),
-						esc_attr( $astra_addon_header_title ),
+						wp_kses_post( $astra_addon_header_title ),
 						wp_kses_post( do_action( 'astra_advanced_header_layout_1_after_title' ) )
 					);
 				}

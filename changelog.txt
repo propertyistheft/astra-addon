@@ -1,3 +1,6 @@
+v4.0.1
+- Fix: Page Header showing author HTML markup on frontend on author archive page.
+
 v4.0.0
 - New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
 - New: Redesigned the entire mega menu area with better user experience. ( https://wpastra.com/docs/nav-menu-module/ )

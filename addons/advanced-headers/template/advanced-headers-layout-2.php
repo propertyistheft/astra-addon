@@ -41,7 +41,7 @@ if ( $astra_addon_show_breadcrumb ) {
 						 */
 						esc_html( apply_filters( 'astra_advanced_header_layout_2_title_tag', 'h1' ) ),
 						wp_kses_post( do_action( 'astra_advanced_header_layout_2_before_title' ) ),
-						esc_attr( $astra_advanced_header_layout_2_title ),
+						wp_kses_post( $astra_advanced_header_layout_2_title ),
 						wp_kses_post( do_action( 'astra_advanced_header_layout_2_after_title' ) )
 					);
 				}
