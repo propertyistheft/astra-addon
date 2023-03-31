@@ -3,8 +3,6 @@
  * Mega Menu Options configurations.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.6.0
  */

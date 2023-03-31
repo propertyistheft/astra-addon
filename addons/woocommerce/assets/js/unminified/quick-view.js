@@ -127,6 +127,12 @@
 					}
 				}
 			}
+			
+			const closeCart = document.querySelector('.astra-cart-drawer-close');
+
+			if( closeCart && astra.woo_cart_empty_featured_product ) {
+				document.querySelector('.astra-cart-drawer-close').click();
+			}
 		},
 
 		/**
@@ -179,6 +185,13 @@
 					const image_slider_wrap = quick_view_box.find('.ast-qv-image-slider');
 					if ( image_slider_wrap.find('li').length > 1 ) {
 						image_slider_wrap.flexslider();
+
+						try {
+								productVariation(image_slider_wrap);
+						}
+						catch(err) {
+						}
+
 					}
 				}
 
@@ -374,5 +387,22 @@
 	domReady(function() {
 		AstraProQuickView.init();
 	});
+
+	const cart_flyout = document.getElementById('astra-mobile-cart-drawer');
+
+	document.addEventListener( 'astra_on_slide_In_cart_open', function() {
+		if( astra.woo_cart_empty_featured_product && cart_flyout && cart_flyout.classList.contains( 'active' ) ) {
+			AstraProQuickView.init(); 
+		}
+	})
+	
+	document.addEventListener( 'astra_on_slide_in_cart_empty', function() {
+		if( astra.woo_cart_empty_featured_product && cart_flyout && cart_flyout.classList.contains( 'active' ) ) {
+			AstraProQuickView.init(); 
+		}
+	});
+	document.addEventListener( 'astraInfinitePaginationLoaded' , function() {
+		AstraProQuickView.init();
+	})
 
 })();

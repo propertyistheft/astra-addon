@@ -259,27 +259,27 @@ msgid "Read More »"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:649
-msgid "Action to add your content on WooCommerce checkout footer content bottom."
+msgid "Placement to add your content on WooCommerce checkout footer content bottom."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:645
-msgid "Action to add your content on WooCommerce checkout footer content top."
+msgid "Placement to add your content on WooCommerce checkout footer content top."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:641
-msgid "Action to add your content on WooCommerce checkout masthead bottom."
+msgid "Placement to add your content on WooCommerce checkout masthead bottom."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:637
-msgid "Action to add your content on WooCommerce checkout main header bar bottom."
+msgid "Placement to add your content on WooCommerce checkout main header bar bottom."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:633
-msgid "Action to add your content on WooCommerce checkout main header bar top."
+msgid "Placement to add your content on WooCommerce checkout main header bar top."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:629
-msgid "Action to add your content on WooCommerce checkout masthead top."
+msgid "Placement to add your content on WooCommerce checkout masthead top."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:625
@@ -287,11 +287,11 @@ msgid "WooCommerce - Distraction Free Checkout"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:253
-msgid "astra_footer_inside_container_bottom - Action to add your content or snippet at bottom of the footer container."
+msgid "astra_footer_inside_container_bottom - Placement to add your content or snippet at bottom of the footer container."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:249
-msgid "astra_footer_inside_container_top - Action to add your content or snippet at top of the footer container."
+msgid "astra_footer_inside_container_top - Placement to add your content or snippet at top of the footer container."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1082
@@ -671,27 +671,27 @@ msgid "Enable Classic Editor"
 msgstr "Activar editor clásico"
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:269
-msgid "wp_footer - Action to add your content or snippet at end of the document."
+msgid "wp_footer - Placement to add your content or snippet at end of the document."
 msgstr "wp_footer - Acción para añadir contenido o snippet al final del documento."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:265
-msgid "astra_body_bottom - Action to add your content or snippet at bottom of the <body> tag."
+msgid "astra_body_bottom - Placement to add your content or snippet at bottom of the <body> tag."
 msgstr "astra_body_bottom - Acción para añadir contenido o snippet en la parte inferior de la etiqueta <body>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:261
-msgid "astra_footer_after - Action to add your content or snippet after the closing <footer> tag."
+msgid "astra_footer_after - Placement to add your content or snippet after the closing <footer> tag."
 msgstr "astra_footer_after - Acción para añadir contenido o snippet después del cierre de la etiqueta <footer>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:257
-msgid "astra_footer_content_bottom - Action to add your content or snippet at bottom of the <footer> tag."
+msgid "astra_footer_content_bottom - Placement to add your content or snippet at bottom of the <footer> tag."
 msgstr "astra_footer_content_bottom - Acción para añadir contenido o snippet en la parte inferior de la etiqueta <footer>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:245
-msgid "astra_footer_content_top - Action to add your content or snippet at top of the <footer> tag."
+msgid "astra_footer_content_top - Placement to add your content or snippet at top of the <footer> tag."
 msgstr "astra_footer_content_top - Acción para añadir contenido o snippet en la parte superior de la etiqueta <footer>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:241
-msgid "astra_footer_before - Action to add your content or snippet before the opening <footer> tag."
+msgid "astra_footer_before - Placement to add your content or snippet before the opening <footer> tag."
 msgstr "astra_footer_before - Acción para añadir contenido o snippet antes de la apertura de la etiqueta <footer>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:59
@@ -702,11 +702,11 @@ msgid "Footer"
 msgstr "Pie de página"
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:232
-msgid "astra_sidebars_after - Action to add your content or snippet after closing of sidebar wrapper."
+msgid "astra_sidebars_after - Placement to add your content or snippet after closing of sidebar wrapper."
 msgstr "astra_sidebars_after - Acción para añadir contenido o snippet después del cierre del contenedor de la barra lateral."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:228
-msgid "astra_sidebars_before - Action to add your content or snippet before opening of sidebar wrapper."
+msgid "astra_sidebars_before - Placement to add your content or snippet before opening of sidebar wrapper."
 msgstr "astra_sidebars_before - Acción para añadir contenido o snippet antes de la apertura del contenedor de la barra lateral."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:224
@@ -716,11 +716,11 @@ msgid "Sidebar"
 msgstr "Barra lateral"
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:219
-msgid "astra_comments_after - Action to add your content or snippet after closing of comment wrapper."
+msgid "astra_comments_after - Placement to add your content or snippet after closing of comment wrapper."
 msgstr "astra_comments_after - Acción para añadir contenido o snippet después del cierre del contenedor del comentario."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:215
-msgid "astra_comments_before - Action to add your content or snippet before opening of comment start."
+msgid "astra_comments_before - Placement to add your content or snippet before opening of comment start."
 msgstr "astra_comments_before - Acción para añadir contenido o snippet antes de la apertura del comentario."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:211
@@ -728,75 +728,75 @@ msgid "Comment"
 msgstr "Comentario"
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:206
-msgid "astra_content_after - Action to add your content or snippet after main content."
+msgid "astra_content_after - Placement to add your content or snippet after main content."
 msgstr "astra_content_after - Acción para añadir contenido o snippet después del contenido principal."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:202
-msgid "astra_content_bottom - Action to add your content or snippet at bottom of the main content."
+msgid "astra_content_bottom - Placement to add your content or snippet at bottom of the main content."
 msgstr "astra_content_bottom - Acción para añadir contenido o snippet en la parte inferior del contenido principal."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:198
-msgid "astra_content_while_after - Action to add your content or snippet after loop end."
+msgid "astra_content_while_after - Placement to add your content or snippet after loop end."
 msgstr "astra_content_while_after - Acción para añadir contenido o snippet después del final del bucle."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:194
-msgid "astra_primary_content_bottom - Action to add your content or snippet at bottom of the primary content."
+msgid "astra_primary_content_bottom - Placement to add your content or snippet at bottom of the primary content."
 msgstr "astra_primary_content_bottom - Acción para añadir contenido o snippet en la parte inferior del contenido primario."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:190
-msgid "astra_entry_after - Action to add your content or snippet after closing <article> tag."
+msgid "astra_entry_after - Placement to add your content or snippet after closing <article> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:186
-msgid "astra_entry_bottom - Action to add your content or snippet at bottom of the <article> tag."
+msgid "astra_entry_bottom - Placement to add your content or snippet at bottom of the <article> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:182
-msgid "astra_entry_content_after - Action to add your content or snippet after post content"
+msgid "astra_entry_content_after - Placement to add your content or snippet after post content"
 msgstr "astra_entry_content_after - Acción para añadir contenido o snippet después del contenido de entrada individual."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:178
-msgid "astra_entry_content_before - Action to add your content or snippet before post content."
+msgid "astra_entry_content_before - Placement to add your content or snippet before post content."
 msgstr "astra_entry_content_before - Acción para añadir contenido o snippet antes del contenido de entrada individual."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:174
-msgid "astra_single_header_after - Action to add your content or snippet after single post header."
+msgid "astra_single_header_after - Placement to add your content or snippet after single post header."
 msgstr "astra_single_header_after - Acción para añadir contenido o snippet después de la cabecera de entrada individual."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:170
-msgid "astra_single_header_bottom - Action to add your content or snippet at bottom of the single post header."
+msgid "astra_single_header_bottom - Placement to add your content or snippet at bottom of the single post header."
 msgstr "astra_single_header_bottom - Acción para añadir contenido o snippet en la parte inferior de la cabecera de entrada individual."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:166
-msgid "astra_single_header_top - Action to add your content or snippet at top of the single post header."
+msgid "astra_single_header_top - Placement to add your content or snippet at top of the single post header."
 msgstr "astra_single_header_top - Acción para añadir contenido o snippet en la parte superior de la cabecera de entrada individual."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:162
-msgid "astra_single_header_before - Action to add your content or snippet before single post header."
+msgid "astra_single_header_before - Placement to add your content or snippet before single post header."
 msgstr "astra_single_header_before - Acción para añadir contenido o snippet antes de la cabecera de entrada individual."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:158
-msgid "astra_entry_top - Action to add your content or snippet at top of the <article> tag."
+msgid "astra_entry_top - Placement to add your content or snippet at top of the <article> tag."
 msgstr "astra_entry_top - Acción para añadir contenido o snippet en la parte superior de la etiqueta <article>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:154
-msgid "astra_entry_before - Action to add your content or snippet before <article> tag."
+msgid "astra_entry_before - Placement to add your content or snippet before <article> tag."
 msgstr "astra_entry_before - Acción para añadir contenido o snippet antes de la etiqueta <article>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:150
-msgid "astra_content_while_before - Action to add your content or snippet before loop start."
+msgid "astra_content_while_before - Placement to add your content or snippet before loop start."
 msgstr "astra_content_while_before - Acción para añadir contenido o snippet antes del inicio del bucle."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:146
-msgid "astra_primary_content_top - Action to add your content or snippet at top of the primary content."
+msgid "astra_primary_content_top - Placement to add your content or snippet at top of the primary content."
 msgstr "astra_primary_content_top - Acción para añadir contenido o snippet en la parte superior del contenido primario."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:142
-msgid "astra_content_top - Action to add your content or snippet at top of main content."
+msgid "astra_content_top - Placement to add your content or snippet at top of main content."
 msgstr "astra_content_top - Acción para añadir contenido o snippet en la parte superior del contenido principal."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:138
-msgid "astra_content_before - Action to add your content or snippet before main content."
+msgid "astra_content_before - Placement to add your content or snippet before main content."
 msgstr "astra_content_before - Acción para añadir contenido o snippet antes del contenido principal."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:134
@@ -805,43 +805,43 @@ msgid "Content"
 msgstr "Contenido"
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:129
-msgid "astra_header_after - Action to add your content or snippet after the closing <header> tag."
+msgid "astra_header_after - Placement to add your content or snippet after the closing <header> tag."
 msgstr "astra_header_after - Acción para añadir contenido o snippet después del cierre de la etiqueta <header>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:125
-msgid "astra_masthead_bottom - Action to add your content or snippet at  bottom of the <header> tag."
+msgid "astra_masthead_bottom - Placement to add your content or snippet at  bottom of the <header> tag."
 msgstr "astra_masthead_bottom - Acción para añadir contenido o snippet en la parte inferior de la etiqueta <header>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:121
-msgid "astra_main_header_bar_bottom - Action to add your content or snippet after at bottom of the Main header."
+msgid "astra_main_header_bar_bottom - Placement to add your content or snippet after at bottom of the Main header."
 msgstr "astra_main_header_bar_bottom - Acción para añadir contenido o snippet después en la parte inferior de la cabecera principal."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:117
-msgid "astra_masthead_toggle_buttons_after - Action to add your content or snippet after responsive menu toggle button."
+msgid "astra_masthead_toggle_buttons_after - Placement to add your content or snippet after responsive menu toggle button."
 msgstr "astra_masthead_toggle_buttons_after - Acción para añadir contenido o snippet después del botón del menú adaptable."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:113
-msgid "astra_masthead_toggle_buttons_before - Action to add your content or snippet before responsive menu toggle button."
+msgid "astra_masthead_toggle_buttons_before - Placement to add your content or snippet before responsive menu toggle button."
 msgstr "astra_masthead_toggle_buttons_before - Acción para añadir contenido o snippet antes del botón del menú adaptable."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:109
-msgid "astra_masthead_content - Action to add your content or snippet in <header> tag."
+msgid "astra_masthead_content - Placement to add your content or snippet in <header> tag."
 msgstr "astra_masthead_content - Acción para añadir contenido o snippet en la etiqueta <header>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:105
-msgid "astra_main_header_bar_top - Action to add your content or snippet at top of the Main header."
+msgid "astra_main_header_bar_top - Placement to add your content or snippet at top of the Main header."
 msgstr "astra_main_header_bar_top - Acción para añadir contenido o snippet en la parte superior de la cabecera principal."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:101
-msgid "astra_masthead_top - Action to add your content or snippet at  top of the <header> tag."
+msgid "astra_masthead_top - Placement to add your content or snippet at  top of the <header> tag."
 msgstr "astra_masthead_top - Acción para añadir contenido o snippet en la parte superior de la etiqueta <header>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:97
-msgid "astra_header_before - Action to add your content or snippet just before the opening <header> tag."
+msgid "astra_header_before - Placement to add your content or snippet just before the opening <header> tag."
 msgstr "astra_header_before - Acción para añadir contenido o snippet justo antes de la apertura de la etiqueta <header>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:93
-msgid "astra_body_top - Action to add your content or snippet at top of the <body> tag."
+msgid "astra_body_top - Placement to add your content or snippet at top of the <body> tag."
 msgstr "astra_body_top - Acción para añadir contenido o snippet en la parte superior de la etiqueta <body>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:56
@@ -858,15 +858,15 @@ msgid "wp_head - Action to add custom style, script and meta at the bottom of <h
 msgstr "wp_head - Acción para añadir estilo personalizado, script y meta en la parte inferior de la etiqueta <head>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:80
-msgid "astra_head_bottom - Action to add your content or snippet at bottom of the <head> tag."
+msgid "astra_head_bottom - Placement to add your content or snippet at bottom of the <head> tag."
 msgstr "astra_head_bottom - Acción para añadir contenido o snippet en la parte inferior de la etiqueta <head>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:76
-msgid "astra_head_top - Action to add your content or snippet at top of the <head> tag."
+msgid "astra_head_top - Placement to add your content or snippet at top of the <head> tag."
 msgstr "astra_head_top - Acción para añadir contenido o snippet en la parte superior de la etiqueta <head>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:72
-msgid "astra_html_before - Action to add your content or snippet just before the opening of <html> tag."
+msgid "astra_html_before - Placement to add your content or snippet just before the opening of <html> tag."
 msgstr "astra_html_before - Acción para añadir contenido o snippet justo antes de la apertura de la etiqueta <html>."
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:68
@@ -3105,15 +3105,15 @@ msgid "Astra"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:667
-msgid "Action to add your content after WooCommerce account navigation."
+msgid "Placement to add your content after WooCommerce account navigation."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:663
-msgid "Action to add your content on WooCommerce account navigation."
+msgid "Placement to add your content on WooCommerce account navigation."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:659
-msgid "Action to add your content before WooCommerce account navigation."
+msgid "Placement to add your content before WooCommerce account navigation."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:655
@@ -3121,87 +3121,87 @@ msgid "WooCommerce - Account"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:619
-msgid "Action to add your content after WooCommerce checkout form."
+msgid "Placement to add your content after WooCommerce checkout form."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:615
-msgid "Action to add your content after WooCommerce checkout order review."
+msgid "Placement to add your content after WooCommerce checkout order review."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:611
-msgid "Action to add your content after WooCommerce order payment."
+msgid "Placement to add your content after WooCommerce order payment."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:607
-msgid "Action to add your content after WooCommerce order submit."
+msgid "Placement to add your content after WooCommerce order submit."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:603
-msgid "Action to add your content before WooCommerce order submit."
+msgid "Placement to add your content before WooCommerce order submit."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:599
-msgid "Action to add your content before WooCommerce order payment."
+msgid "Placement to add your content before WooCommerce order payment."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:595
-msgid "Action to add your content after WooCommerce review order total."
+msgid "Placement to add your content after WooCommerce review order total."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:591
-msgid "Action to add your content before WooCommerce review order total."
+msgid "Placement to add your content before WooCommerce review order total."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:587
-msgid "Action to add your content after WooCommerce review order cart contents."
+msgid "Placement to add your content after WooCommerce review order cart contents."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:583
-msgid "Action to add your content before WooCommerce review order cart contents."
+msgid "Placement to add your content before WooCommerce review order cart contents."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:579
-msgid "Action to add your content on checkout order review action."
+msgid "Placement to add your content on checkout order review action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:575
-msgid "Action to add your content before WooCommerce checkout order review."
+msgid "Placement to add your content before WooCommerce checkout order review."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:571
-msgid "Action to add your content on checkout shipping action."
+msgid "Placement to add your content on checkout shipping action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:567
-msgid "Action to add your content after WooCommerce order notes."
+msgid "Placement to add your content after WooCommerce order notes."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:563
-msgid "Action to add your content before WooCommerce order notes."
+msgid "Placement to add your content before WooCommerce order notes."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:559
-msgid "Action to add your content after WooCommerce checkout billing form."
+msgid "Placement to add your content after WooCommerce checkout billing form."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:555
-msgid "Action to add your content before WooCommerce checkout billing form."
+msgid "Placement to add your content before WooCommerce checkout billing form."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:551
-msgid "Action to add your content on checkout billing."
+msgid "Placement to add your content on checkout billing."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:547
-msgid "Action to add your content after WooCommerce customer details."
+msgid "Placement to add your content after WooCommerce customer details."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:543
-msgid "Action to add your content before WooCommerce customer details."
+msgid "Placement to add your content before WooCommerce customer details."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:539
-msgid "Action to add your content before WooCommerce checkout form."
+msgid "Placement to add your content before WooCommerce checkout form."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:535
@@ -3209,91 +3209,91 @@ msgid "WooCommerce - Checkout"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:529
-msgid "Action to add your content after WooCommerce cart."
+msgid "Placement to add your content after WooCommerce cart."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:525
-msgid "Action to add your content after WooCommerce cart totals."
+msgid "Placement to add your content after WooCommerce cart totals."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:521
-msgid "Action to add your content on proceed to checkout action."
+msgid "Placement to add your content on proceed to checkout action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:517
-msgid "Action to add your content after WooCommerce order total."
+msgid "Placement to add your content after WooCommerce order total."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:513
-msgid "Action to add your content before WooCommerce order total."
+msgid "Placement to add your content before WooCommerce order total."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:509
-msgid "Action to add your content before WooCommerce cart totals."
+msgid "Placement to add your content before WooCommerce cart totals."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:505
-msgid "Action to add your content on cart collaterals."
+msgid "Placement to add your content on cart collaterals."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:501
-msgid "Action to add your content after WooCommerce cart table."
+msgid "Placement to add your content after WooCommerce cart table."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:497
-msgid "Action to add your content on cart actions."
+msgid "Placement to add your content on cart actions."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:493
-msgid "Action to add your content on cart coupon."
+msgid "Placement to add your content on cart coupon."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:489
-msgid "Action to add your content after WooCommerce cart contents."
+msgid "Placement to add your content after WooCommerce cart contents."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:485
-msgid "Action to add your content on cart contents."
+msgid "Placement to add your content on cart contents."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:481
-msgid "Action to add your content before WooCommerce cart contents."
+msgid "Placement to add your content before WooCommerce cart contents."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:477
-msgid "Action to add your content before WooCommerce cart table."
+msgid "Placement to add your content before WooCommerce cart table."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:473
-msgid "Action to add your content before WooCommerce cart."
+msgid "Placement to add your content before WooCommerce cart."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:469
-msgid "Action to add your content after WooCommerce calculate totals."
+msgid "Placement to add your content after WooCommerce calculate totals."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:465
-msgid "Action to add your content on cart calculate fees."
+msgid "Placement to add your content on cart calculate fees."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:461
-msgid "Action to add your content before WooCommerce calculate totals."
+msgid "Placement to add your content before WooCommerce calculate totals."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:457
-msgid "Action to add your content on check cart is empty."
+msgid "Placement to add your content on check cart is empty."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:453
-msgid "Action to add your content on cart update."
+msgid "Placement to add your content on cart update."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:449
-msgid "Action to add your content on cart reset."
+msgid "Placement to add your content on cart reset."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:445
-msgid "Action to add your content on check cart items action."
+msgid "Placement to add your content on check cart items action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:441
@@ -3301,63 +3301,63 @@ msgid "WooCommerce - Cart"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:435
-msgid "Action to add your content after WooCommerce single product."
+msgid "Placement to add your content after WooCommerce single product."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:431
-msgid "Action to add your content on share action."
+msgid "Placement to add your content on share action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:427
-msgid "Action to add your content on WooCommerce product meta end action."
+msgid "Placement to add your content on WooCommerce product meta end action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:423
-msgid "Action to add your content on WooCommerce product meta start action."
+msgid "Placement to add your content on WooCommerce product meta start action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:419
-msgid "Action to add your content after WooCommerce add to cart form."
+msgid "Placement to add your content after WooCommerce add to cart form."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:415
-msgid "Action to add your content after WooCommerce add to cart button."
+msgid "Placement to add your content after WooCommerce add to cart button."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:411
-msgid "Action to add your content after WooCommerce add to cart quantity."
+msgid "Placement to add your content after WooCommerce add to cart quantity."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:407
-msgid "Action to add your content before WooCommerce add to cart quantity."
+msgid "Placement to add your content before WooCommerce add to cart quantity."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:403
-msgid "Action to add your content before WooCommerce add to cart button."
+msgid "Placement to add your content before WooCommerce add to cart button."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:399
-msgid "Action to add your content before WooCommerce add to cart form."
+msgid "Placement to add your content before WooCommerce add to cart form."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:395
-msgid "Action to add your content on simple add to cart action."
+msgid "Placement to add your content on simple add to cart action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:391
-msgid "Action to add your content after WooCommerce single product summary."
+msgid "Placement to add your content after WooCommerce single product summary."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:387
-msgid "Action to add your content on WooCommerce single product summary action."
+msgid "Placement to add your content on WooCommerce single product summary action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:382
-msgid "Action to add your content before WooCommerce single product summary."
+msgid "Placement to add your content before WooCommerce single product summary."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:378
-msgid "Action to add your content before WooCommerce single product."
+msgid "Placement to add your content before WooCommerce single product."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:374
@@ -3365,63 +3365,63 @@ msgid "WooCommerce - Product"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:368
-msgid "Action to add your content after WooCommerce shop loop."
+msgid "Placement to add your content after WooCommerce shop loop."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:364
-msgid "Action to add your content after WooCommerce shop cart."
+msgid "Placement to add your content after WooCommerce shop cart."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:360
-msgid "Action to add your content before WooCommerce shop cart."
+msgid "Placement to add your content before WooCommerce shop cart."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:356
-msgid "Action to add your content after WooCommerce shop price."
+msgid "Placement to add your content after WooCommerce shop price."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:352
-msgid "Action to add your content before WooCommerce shop price."
+msgid "Placement to add your content before WooCommerce shop price."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:348
-msgid "Action to add your content after WooCommerce shop rating."
+msgid "Placement to add your content after WooCommerce shop rating."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:344
-msgid "Action to add your content before WooCommerce shop rating."
+msgid "Placement to add your content before WooCommerce shop rating."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:340
-msgid "Action to add your content after WooCommerce shop title."
+msgid "Placement to add your content after WooCommerce shop title."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:336
-msgid "Action to add your content before WooCommerce shop title."
+msgid "Placement to add your content before WooCommerce shop title."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:332
-msgid "Action to add your content after WooCommerce shop category."
+msgid "Placement to add your content after WooCommerce shop category."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:328
-msgid "Action to add your content before WooCommerce shop category."
+msgid "Placement to add your content before WooCommerce shop category."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:324
-msgid "Action to add your content after WooCommerce shop loop item."
+msgid "Placement to add your content after WooCommerce shop loop item."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:320
-msgid "Action to add your content before WooCommerce shop loop item."
+msgid "Placement to add your content before WooCommerce shop loop item."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:316
-msgid "Action to add your content before WooCommerce shop loop."
+msgid "Placement to add your content before WooCommerce shop loop."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:312
-msgid "Action to add your content on archive_description action."
+msgid "Placement to add your content on archive_description action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:308
@@ -3429,27 +3429,27 @@ msgid "WooCommerce - Shop"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:302
-msgid "Action to add your content after WooCommerce template part."
+msgid "Placement to add your content after WooCommerce template part."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:298
-msgid "Action to add your content before WooCommerce template part."
+msgid "Placement to add your content before WooCommerce template part."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:294
-msgid "Action to add your content on WooCommerce breadcrumb action."
+msgid "Placement to add your content on WooCommerce breadcrumb action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:290
-msgid "Action to add your content on WooCommerce sidebar action."
+msgid "Placement to add your content on WooCommerce sidebar action."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:286
-msgid "Action to add your content after the WooCommerce main content."
+msgid "Placement to add your content after the WooCommerce main content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:282
-msgid "Action to add your content before the WooCommerce main content."
+msgid "Placement to add your content before the WooCommerce main content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:278

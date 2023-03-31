@@ -16,7 +16,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Search' ) ) {
 	 * @since 1.4.8
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Advanced_Search { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Advanced_Search {
 		// @codingStandardsIgnoreEnd
 
 		/**

@@ -3,8 +3,6 @@
  * Advanced Footer Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.0.0
  */
@@ -25,7 +23,7 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Configs' ) ) {
 	 * Register Advanced Footer Customizer Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Advanced_Footer_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Advanced_Footer_Configs extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

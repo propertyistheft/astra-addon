@@ -21,7 +21,7 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Panels_Configs' ) ) {
 	 * Register Advanced Footer Layout Customizer Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Advanced_Footer_Panels_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Advanced_Footer_Panels_Configs extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

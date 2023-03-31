@@ -515,7 +515,6 @@
 	} );
 
 
-
 } )( jQuery );
 
 // Refresh cart icon sessionstorage for woocommerce cart fragments.

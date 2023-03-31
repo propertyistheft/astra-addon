@@ -3,8 +3,6 @@
  * Shop Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 1.6.10
  */
@@ -25,7 +23,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Colors_Configs' ) ) {
 	 * Register Blog Single Layout Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Edd_Archive_Colors_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Edd_Archive_Colors_Configs extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

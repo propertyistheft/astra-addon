@@ -19,7 +19,7 @@ if ( ! class_exists( 'Astra_Customizer_Header_Sections_Partials' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Customizer_Header_Sections_Partials { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Customizer_Header_Sections_Partials {
 		// @codingStandardsIgnoreEnd
 
 		/**

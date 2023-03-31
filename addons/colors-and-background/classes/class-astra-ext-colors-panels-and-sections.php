@@ -3,8 +3,6 @@
  * Astra Theme Customizer Configuration Base.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.4.3
  */
@@ -31,7 +29,7 @@ if ( ! class_exists( 'Astra_Ext_Colors_Panels_And_Sections' ) ) {
 	 * Register Blog Pro Panels and sections Customizer Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Colors_Panels_And_Sections extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Colors_Panels_And_Sections extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

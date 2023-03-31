@@ -1,3 +1,20 @@
+.ast-media-tab .components-tab-panel__tabs > button:before {
+  top: 6px;
+  bottom: 0;
+}
+
+.ast-media-tab .components-tab-panel__tabs [ID*="-none"]:before {
+  content: "\f14f";
+}
+
+.ast-media-tab .components-tab-panel__tabs [ID*="-image"]:before {
+  content: "\f317";
+}
+
+.ast-media-tab .components-tab-panel__tabs [ID*="-icon"]:before {
+  content: "\f533";
+}
+
 .select2-container.select2-container--open {
   z-index: 99999;
 }

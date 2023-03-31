@@ -341,9 +341,9 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 			<label>
 				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra-addon' ) . '</span>
-				<input type="search" class="search-field" placeholder="' . esc_html( $astra_search_input_placeholder ) . '" value="' . get_search_query() . '" name="s" />
+				<input type="search" class="search-field" placeholder="' . esc_attr( $astra_search_input_placeholder ) . '" value="' . get_search_query() . '" name="s" />
 			</label>
-			<button type="submit" class="search-submit" value="' . esc_html__( 'Search', 'astra-addon' ) . '" aria-label= "' . esc_attr__( 'Search', 'astra-addon' ) . '"><i class="astra-search-icon"> ' . Astra_Icons::get_icons( 'search' ) . ' </i></button>
+			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra-addon' ) . '" aria-label= "' . esc_attr__( 'Search', 'astra-addon' ) . '"><i class="astra-search-icon"> ' . Astra_Icons::get_icons( 'search' ) . ' </i></button>
 		</form>';
 
 		/**
@@ -358,56 +358,7 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 		}
 
 		if ( $echo ) {
-			echo wp_kses(
-				$result,
-				array(
-					'span'   => array( 'class' => array() ),
-					'label'  => array( 'class' => array() ),
-					'i'      => array( 'class' => array() ),
-					'input'  => array(
-						'type'        => array(),
-						'class'       => array(),
-						'placeholder' => array(),
-						'value'       => array(),
-						'name'        => array(),
-					),
-					'form'   => array(
-						'role'   => array(),
-						'method' => array(),
-						'class'  => array(),
-						'action' => array(),
-					),
-					'button' => array(
-						'type'       => array(),
-						'class'      => array(),
-						'value'      => array(),
-						'aria-label' => array(),
-						'value'      => array(),
-					),
-					'svg'    => array(
-						'xmlns:xlink'       => array(),
-						'version'           => array(),
-						'x'                 => array(),
-						'y'                 => array(),
-						'enable-background' => array(),
-						'xml:space'         => array(),
-						'class'             => array(),
-						'aria-hidden'       => array(),
-						'aria-labelledby'   => array(),
-						'role'              => array(),
-						'xmlns'             => array(),
-						'width'             => array(),
-						'height'            => array(),
-						'viewbox'           => array(),
-					),
-					'g'      => array( 'fill' => array() ),
-					'title'  => array( 'title' => array() ),
-					'path'   => array(
-						'd'    => array(),
-						'fill' => array(),
-					),
-				)
-			);
+			echo wp_kses( $result, Astra_Addon_Kses::astra_addon_form_with_post_kses_protocols() );
 		} else {
 			return $result;
 		}

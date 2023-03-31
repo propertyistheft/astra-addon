@@ -3,8 +3,6 @@
  * Easy Digital Downloads General Options for our theme.
  *
  * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.6.10
  */
@@ -25,7 +23,7 @@ if ( ! class_exists( 'Astra_Edd_General_Configs' ) ) {
 	 * Register Easy Digital Downloads General Layout Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Edd_General_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Edd_General_Configs extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

@@ -3,8 +3,6 @@
  * Colors Primary Menu Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.4.3
  */
@@ -30,7 +28,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 	 * Register General Customizer Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Customizer_Colors_Header_Builder extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Customizer_Colors_Header_Builder extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -591,6 +589,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header_Builder' ) ) {
 					'title'      => __( 'Link', 'astra-addon' ),
 					'divider'    => array(
 						'ast_title' => __( 'Submenu Color', 'astra-addon' ),
+						'ast_class' => '',
 					),
 					'section'    => 'section-header-mobile-menu',
 					'priority'   => 100,

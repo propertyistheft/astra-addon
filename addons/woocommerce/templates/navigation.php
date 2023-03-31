@@ -80,9 +80,10 @@ do_action( 'woocommerce_before_account_navigation' );
 					$icon = Astra_Builder_UI_Controller::fetch_svg_icon( 'bars', false );
 					break;
 			}
+			$endpoint_icon = apply_filters( 'astra_addon_woo_account_menu_icon', $icon, $endpoint );
 			?>
-			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint );  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
-				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo apply_filters( 'astra_addon_woo_account_menu_icon', $icon, $endpoint ) . '<span class="ast-woo-nav-link-name">' . esc_html( $label ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
+			<li class="<?php echo esc_html( wc_get_account_menu_item_classes( $endpoint ) ); ?>">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo wp_kses( $endpoint_icon, Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) . '<span class="ast-woo-nav-link-name">' . esc_html( $label ) . '</span>'; ?></a>
 			</li>
 		<?php endforeach; ?>
 	</ul>

@@ -951,147 +951,150 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			if ( isset( $rules['rule'] ) && is_array( $rules['rule'] ) && ! empty( $rules['rule'] ) ) {
 				foreach ( $rules['rule'] as $key => $rule ) {
 
-					if ( strrpos( $rule, 'all' ) !== false ) {
-						$rule_case = 'all';
-					} else {
-						$rule_case = $rule;
-					}
+					if ( ! empty( $rule ) ) {
 
-					switch ( $rule_case ) {
-						case 'basic-global':
-							$display = true;
-							break;
+						if ( strrpos( $rule, 'all' ) !== false ) {
+							$rule_case = 'all';
+						} else {
+							$rule_case = $rule;
+						}
 
-						case 'basic-singulars':
-							if ( is_singular() ) {
+						switch ( $rule_case ) {
+							case 'basic-global':
 								$display = true;
-							}
-							break;
+								break;
 
-						case 'basic-archives':
-							if ( is_archive() ) {
-								$display = true;
-							}
-							break;
-
-						case 'special-404':
-							if ( is_404() ) {
-								$display = true;
-							}
-							break;
-
-						case 'special-search':
-							if ( is_search() ) {
-								$display = true;
-							}
-							break;
-
-						case 'special-blog':
-							if ( is_home() ) {
-								$display = true;
-							}
-							break;
-
-						case 'special-front':
-							if ( is_front_page() ) {
-								$display = true;
-							}
-							break;
-
-						case 'special-date':
-							if ( is_date() ) {
-								$display = true;
-							}
-							break;
-
-						case 'special-author':
-							if ( is_author() ) {
-								$display = true;
-							}
-							break;
-
-						case 'special-woo-shop':
-							if ( function_exists( 'is_shop' ) && is_shop() ) {
-								$display = true;
-							}
-							break;
-
-						case 'all':
-							$rule_data = explode( '|', $rule );
-
-							$post_type     = isset( $rule_data[0] ) ? $rule_data[0] : false;
-							$archieve_type = isset( $rule_data[2] ) ? $rule_data[2] : false;
-							$taxonomy      = isset( $rule_data[3] ) ? $rule_data[3] : false;
-							if ( false === $archieve_type ) {
-
-								$current_post_type = get_post_type( $post_id );
-
-								if ( false !== $post_id && $current_post_type == $post_type ) {
-
+							case 'basic-singulars':
+								if ( is_singular() ) {
 									$display = true;
 								}
-							} else {
+								break;
 
+							case 'basic-archives':
 								if ( is_archive() ) {
+									$display = true;
+								}
+								break;
 
-									$current_post_type = get_post_type();
-									if ( $current_post_type == $post_type ) {
-										if ( 'archive' == $archieve_type ) {
-											$display = true;
-										} elseif ( 'taxarchive' == $archieve_type ) {
+							case 'special-404':
+								if ( is_404() ) {
+									$display = true;
+								}
+								break;
 
-											$obj              = get_queried_object();
-											$current_taxonomy = '';
-											if ( '' !== $obj && null !== $obj ) {
-												$current_taxonomy = $obj->taxonomy;
+							case 'special-search':
+								if ( is_search() ) {
+									$display = true;
+								}
+								break;
+
+							case 'special-blog':
+								if ( is_home() ) {
+									$display = true;
+								}
+								break;
+
+							case 'special-front':
+								if ( is_front_page() ) {
+									$display = true;
+								}
+								break;
+
+							case 'special-date':
+								if ( is_date() ) {
+									$display = true;
+								}
+								break;
+
+							case 'special-author':
+								if ( is_author() ) {
+									$display = true;
+								}
+								break;
+
+							case 'special-woo-shop':
+								if ( function_exists( 'is_shop' ) && is_shop() ) {
+									$display = true;
+								}
+								break;
+
+							case 'all':
+								$rule_data = explode( '|', $rule );
+
+								$post_type     = isset( $rule_data[0] ) ? $rule_data[0] : false;
+								$archieve_type = isset( $rule_data[2] ) ? $rule_data[2] : false;
+								$taxonomy      = isset( $rule_data[3] ) ? $rule_data[3] : false;
+								if ( false === $archieve_type ) {
+
+									$current_post_type = get_post_type( $post_id );
+
+									if ( false !== $post_id && $current_post_type == $post_type ) {
+
+										$display = true;
+									}
+								} else {
+
+									if ( is_archive() ) {
+
+										$current_post_type = get_post_type();
+										if ( $current_post_type == $post_type ) {
+											if ( 'archive' == $archieve_type ) {
+												$display = true;
+											} elseif ( 'taxarchive' == $archieve_type ) {
+
+												$obj              = get_queried_object();
+												$current_taxonomy = '';
+												if ( '' !== $obj && null !== $obj ) {
+													$current_taxonomy = $obj->taxonomy;
+												}
+
+												if ( $current_taxonomy == $taxonomy ) {
+													$display = true;
+												}
 											}
+										}
+									}
+								}
+								break;
 
-											if ( $current_taxonomy == $taxonomy ) {
+							case 'specifics':
+								if ( isset( $rules['specific'] ) && is_array( $rules['specific'] ) ) {
+									foreach ( $rules['specific'] as $specific_page ) {
+
+										$specific_data = explode( '-', $specific_page );
+
+										$specific_post_type = isset( $specific_data[0] ) ? $specific_data[0] : false;
+										$specific_post_id   = isset( $specific_data[1] ) ? $specific_data[1] : false;
+										if ( 'post' == $specific_post_type ) {
+											if ( $specific_post_id == $post_id ) {
+												$display = true;
+											}
+										} elseif ( isset( $specific_data[2] ) && ( 'single' == $specific_data[2] ) && 'tax' == $specific_post_type ) {
+
+											if ( is_singular() ) {
+												$term_details = get_term( $specific_post_id );
+
+												if ( isset( $term_details->taxonomy ) ) {
+													$has_term = has_term( (int) $specific_post_id, $term_details->taxonomy, $post_id );
+
+													if ( $has_term ) {
+														$display = true;
+													}
+												}
+											}
+										} elseif ( 'tax' == $specific_post_type ) {
+											$tax_id = get_queried_object_id();
+											if ( $specific_post_id == $tax_id ) {
 												$display = true;
 											}
 										}
 									}
 								}
-							}
-							break;
+								break;
 
-						case 'specifics':
-							if ( isset( $rules['specific'] ) && is_array( $rules['specific'] ) ) {
-								foreach ( $rules['specific'] as $specific_page ) {
-
-									$specific_data = explode( '-', $specific_page );
-
-									$specific_post_type = isset( $specific_data[0] ) ? $specific_data[0] : false;
-									$specific_post_id   = isset( $specific_data[1] ) ? $specific_data[1] : false;
-									if ( 'post' == $specific_post_type ) {
-										if ( $specific_post_id == $post_id ) {
-											$display = true;
-										}
-									} elseif ( isset( $specific_data[2] ) && ( 'single' == $specific_data[2] ) && 'tax' == $specific_post_type ) {
-
-										if ( is_singular() ) {
-											$term_details = get_term( $specific_post_id );
-
-											if ( isset( $term_details->taxonomy ) ) {
-												$has_term = has_term( (int) $specific_post_id, $term_details->taxonomy, $post_id );
-
-												if ( $has_term ) {
-													$display = true;
-												}
-											}
-										}
-									} elseif ( 'tax' == $specific_post_type ) {
-										$tax_id = get_queried_object_id();
-										if ( $specific_post_id == $tax_id ) {
-											$display = true;
-										}
-									}
-								}
-							}
-							break;
-
-						default:
-							break;
+							default:
+								break;
+						}
 					}
 
 					if ( $display ) {
@@ -1440,12 +1443,13 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						$meta_args      .= " OR pm.meta_value LIKE '%\"basic-singulars\"%'";
 						$meta_args      .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all\"%'";
 						$meta_args      .= " OR pm.meta_value LIKE '%\"post-{$current_id}\"%'";
+						if ( is_object( $q_obj ) ) {
+							$taxonomies = get_object_taxonomies( $q_obj->post_type );
+							$terms      = wp_get_post_terms( $q_obj->ID, $taxonomies );
 
-						$taxonomies = get_object_taxonomies( $q_obj->post_type );
-						$terms      = wp_get_post_terms( $q_obj->ID, $taxonomies );
-
-						foreach ( $terms as $key => $term ) {
-							$meta_args .= " OR pm.meta_value LIKE '%\"tax-{$term->term_id}-single-{$term->taxonomy}\"%'";
+							foreach ( $terms as $key => $term ) {
+								$meta_args .= " OR pm.meta_value LIKE '%\"tax-{$term->term_id}-single-{$term->taxonomy}\"%'";
+							}
 						}
 
 						break;
@@ -1457,7 +1461,10 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						break;
 				}
 
-				$posts = $wpdb->get_results( $wpdb->prepare( "SELECT p.ID, pm.meta_value FROM {$wpdb->postmeta} as pm INNER JOIN {$wpdb->posts} as p ON pm.post_id = p.ID {$wpml_translate_query} WHERE pm.meta_key = ('%1s') AND p.post_type = ('%2s') {$wpml_translate_query_condition} AND p.post_status = 'publish' AND ({$meta_args}) ORDER BY p.post_date DESC", $location, $post_type ) ); // phpcs:ignore -- Required meta_args as built from previous operations & conditions.
+				$wpdb->ast_meta_args                      = $meta_args;
+				$wpdb->ast_wpml_translate_query           = $wpml_translate_query;
+				$wpdb->ast_wpml_translate_query_condition = $wpml_translate_query_condition;
+				$posts                                    = $wpdb->get_results( $wpdb->prepare( "SELECT p.ID, pm.meta_value FROM {$wpdb->postmeta} as pm INNER JOIN {$wpdb->posts} as p ON pm.post_id = p.ID {$wpdb->ast_wpml_translate_query} WHERE pm.meta_key = ('%1s') AND p.post_type = ('%2s') {$wpdb->ast_wpml_translate_query_condition} AND p.post_status = 'publish' AND ({$wpdb->ast_meta_args}) ORDER BY p.post_date DESC", $location, $post_type ) );
 
 				foreach ( $posts as $local_post ) {
 					self::$current_page_data[ $post_type ][ $local_post->ID ] = array(
@@ -1633,7 +1640,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						$notice = sprintf( __( 'The same display setting is already exist in %s post/s.', 'astra-addon' ), $rule_set_titles );
 
 						echo '<div class="notice notice-warning is-dismissible">';
-						echo '<p>' . $notice . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<p>' . wp_kses( $notice, array( 'strong' => true ) ) . '</p>';
 						echo '</div>';
 
 					}

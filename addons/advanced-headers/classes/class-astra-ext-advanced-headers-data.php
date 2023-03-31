@@ -11,14 +11,13 @@
  * @since 1.0.0
  */
 // @codingStandardsIgnoreStart
-final class Astra_Ext_Advanced_Headers_Data { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+final class Astra_Ext_Advanced_Headers_Data {
 	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Cached layout data for the current page indexed by type.
 	 *
 	 * @since 1.0.0
-	 * @access Private
 	 * @var    array $current_page_layouts
 	 */
 	private static $current_page_layouts = null;
@@ -27,7 +26,6 @@ final class Astra_Ext_Advanced_Headers_Data { // phpcs:ignore WordPress.NamingCo
 	 * Current page header ID
 	 *
 	 * @since  1.0.0
-	 * @access  Private
 	 * @var int
 	 */
 	private static $current_page_header = null;

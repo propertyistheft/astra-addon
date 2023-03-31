@@ -33,16 +33,16 @@ if ( $astra_addon_show_breadcrumb ) {
 							%4$s
 						</%1$s>',
 						/**
-						 * Filters the tags for Advanced Header Title - Lyaout 2.
+						 * Filters the tags for Advanced Header Title - Layout 2.
 						 *
 						 * @since 2.1.3
 						 *
 						 * @param string $tags string containing the HTML tags for Advanced Header title.
 						 */
 						esc_html( apply_filters( 'astra_advanced_header_layout_2_title_tag', 'h1' ) ),
-						wp_kses_post( do_action( 'astra_advanced_header_layout_2_before_title' ) ),
-						wp_kses_post( $astra_advanced_header_layout_2_title ),
-						wp_kses_post( do_action( 'astra_advanced_header_layout_2_after_title' ) )
+						do_shortcode( do_action( 'astra_advanced_header_layout_2_before_title' ) ),
+						do_shortcode( $astra_advanced_header_layout_2_title ),
+						do_shortcode( do_action( 'astra_advanced_header_layout_2_after_title' ) )
 					);
 				}
 				do_action( 'astra_advanced_header_layout_2_after_title_tag' );
@@ -51,7 +51,7 @@ if ( $astra_addon_show_breadcrumb ) {
 					?>
 				<div class="taxonomy-description">
 					<?php do_action( 'astra_advanced_header_layout_2_before_description' ); ?>
-					<?php echo wp_kses_post( $astra_advanced_header_layout_2_description ); ?>
+					<?php echo do_shortcode( $astra_advanced_header_layout_2_description ); ?>
 					<?php do_action( 'astra_advanced_header_layout_2_after_description' ); ?>
 				</div>
 				<?php } ?>

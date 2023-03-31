@@ -14,7 +14,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 	 * @since 1.4.8
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Adv_Search_Shortcodes { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Adv_Search_Shortcodes {
 		// @codingStandardsIgnoreEnd
 
 		/**

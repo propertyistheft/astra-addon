@@ -1,4 +1,4 @@
-const productVariation = () => {
+const productVariation = (image_slider_wrap) => {
     const productSingleVariations = document.querySelectorAll( '.ast-single-variation' );
     const productVariationReset   = document.querySelector( '.reset_variations' );
 
@@ -48,18 +48,21 @@ const productVariation = () => {
                                 });
 
                                 const buttons = select.nextElementSibling;
-                                const buttonList = buttons.querySelectorAll( '.ast-single-variation');
+                                const buttonList = buttons !== null ? buttons.querySelectorAll('.ast-single-variation') : null;                                
 
-                                buttonList.forEach( element => {
-                                    if( ! node.includes( element.getAttribute('data-slug') ) ) {
-                                        element.style.opacity = '.5';
-                                        element.style.pointerEvents = 'none';
-                                    } else {
-                                        element.style.opacity = '1';
-                                        element.style.pointerEvents = 'inherit';
-                                    }
-
-                                } );
+                                if (buttonList !== null) {
+                                    buttonList.forEach(button => {
+                                        buttonList.forEach( element => {
+                                            if( ! node.includes( element.getAttribute('data-slug') ) ) {
+                                                element.style.opacity = '.5';
+                                                element.style.pointerEvents = 'none';
+                                            } else {
+                                                element.style.opacity = '1';
+                                                element.style.pointerEvents = 'inherit';
+                                            }
+        
+                                        } );                                    });
+                                }
 
                             } );
                         }, 100 );
@@ -75,6 +78,10 @@ const productVariation = () => {
                     currentTarget.value = currentSlug;
                     currentTarget.dispatchEvent( new Event( 'change', { 'bubbles': true } ) )
                 }
+
+                if (image_slider_wrap != null) {
+					image_slider_wrap.flexslider(0);
+				}
             } );
         } );
     }
@@ -93,4 +100,4 @@ jQuery('.composite_data').on('wc-composite-initializing', function (event, compo
     composite.actions.add_action('component_scripts_initialized', function () {
         productVariation();
     }, 100)
-})
+});

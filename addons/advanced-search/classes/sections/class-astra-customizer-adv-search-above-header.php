@@ -3,8 +3,6 @@
  * Above Header
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.4.8
  */
@@ -30,7 +28,7 @@ if ( ! class_exists( 'Astra_Customizer_Adv_Search_Above_Header' ) ) {
 	 * Register General Customizer Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Customizer_Adv_Search_Above_Header extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Customizer_Adv_Search_Above_Header extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

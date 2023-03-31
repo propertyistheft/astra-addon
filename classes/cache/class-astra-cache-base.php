@@ -3,8 +3,6 @@
  * Astra Cache
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 2.1.0
  */
@@ -13,7 +11,7 @@
  * Class Astra_Cache_Base.
  */
 // @codingStandardsIgnoreStart
-class Astra_Cache_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+class Astra_Cache_Base {
 	// @codingStandardsIgnoreEnd
 
 	/**

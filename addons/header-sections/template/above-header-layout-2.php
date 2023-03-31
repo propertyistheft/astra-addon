@@ -27,9 +27,9 @@ if ( empty( $astra_addon_abv_header_section_type ) ) {
 		<?php do_action( 'astra_above_header_top' ); ?>
 		<div class="ast-container">
 			<div class="ast-flex ast-above-header-section-wrap">
-		<?php if ( $astra_addon_abv_header_section_type ) { ?>
+				<?php if ( $astra_addon_abv_header_section_type ) { ?>
 					<div class="ast-above-header-section ast-above-header-section-1 ast-flex ast-justify-content-center <?php echo esc_attr( $astra_addon_abv_header_section_value ); ?>-above-header" >
-						<?php echo $astra_addon_abv_header_section_type; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Echoing required markup on the frontend for dynamic section. ?>
+						<?php echo do_shortcode( $astra_addon_abv_header_section_type ); ?>
 					</div>
 				<?php } ?>
 			</div>

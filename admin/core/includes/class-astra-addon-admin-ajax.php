@@ -28,7 +28,6 @@ class Astra_Addon_Admin_Ajax {
 	/**
 	 * Instance
 	 *
-	 * @access private
 	 * @var object Class object.
 	 * @since 4.0.0
 	 */
@@ -124,8 +123,8 @@ class Astra_Addon_Admin_Ajax {
 			wp_send_json_error( $response_data );
 		}
 
-		$module_id     = sanitize_text_field( $_POST['module_id'] );
-		$module_status = sanitize_text_field( $_POST['module_status'] );
+		$module_id     = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
+		$module_status = isset( $_POST['module_status'] ) ? sanitize_text_field( $_POST['module_status'] ) : '';
 
 		$extensions               = Astra_Ext_Extension::get_enabled_addons();
 		$extensions[ $module_id ] = 'activate' === $module_status ? $module_id : false;
@@ -348,11 +347,11 @@ class Astra_Addon_Admin_Ajax {
 		}
 
 		$white_label_settings = Astra_Ext_White_Label_Markup::get_white_labels();
-		$data                 = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( $_POST['data'] ), true ) ) : array();
+		$data                 = isset( $_POST['data'] ) ? array_map( 'sanitize_text_field', json_decode( stripslashes( sanitize_text_field( $_POST['data'] ) ), true ) ) : array();
 
 		$parent = isset( $_POST['parent'] ) ? sanitize_text_field( $_POST['parent'] ) : false;
 		$key    = isset( $_POST['key'] ) ? sanitize_text_field( $_POST['key'] ) : false;
-		$value  = isset( $_POST['value'] ) ? sanitize_text_field( stripslashes( $_POST['value'] ) ) : false;
+		$value  = isset( $_POST['value'] ) ? stripslashes( sanitize_text_field( $_POST['value'] ) ) : false;
 
 		if ( $parent && $key ) {
 			if ( ! $parent || ! $key || ! $value ) {

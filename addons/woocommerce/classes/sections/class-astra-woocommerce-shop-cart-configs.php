@@ -3,8 +3,6 @@
  * Shop Options for Astra.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       3.9.0
  */

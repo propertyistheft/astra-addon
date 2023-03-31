@@ -47,15 +47,14 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'astra-addon' ) );
 			$html .= '</div>';
 		}
-
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+		$markup = apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id );
+		echo wp_kses_post( $markup );
 
 		do_action( 'woocommerce_product_thumbnails' );
 		?>
 	</figure>
 
 	<?php
-		global $product;
 		$attachment_ids = $product->get_gallery_image_ids();
 	?>
 	<!-- Product gallery thumbnail -->
@@ -74,7 +73,7 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 					<?php
 
 					if ( $post_thumbnail_id ) {
-						echo get_gallery_thumbnail( $post_thumbnail_id, 0 ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+						echo wp_kses_post( get_gallery_thumbnail( $post_thumbnail_id, 0 ) );
 					}
 
 						/**
@@ -84,7 +83,7 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 					if ( $attachment_ids && $product->get_image_id() ) {
 						$slide_number = 1;
 						foreach ( $attachment_ids as $attachment_id ) {
-							echo get_gallery_thumbnail( $attachment_id, $slide_number ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+							echo wp_kses_post( get_gallery_thumbnail( $attachment_id, $slide_number ) );
 							$slide_number++;
 						}
 					}
@@ -102,7 +101,7 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 				<?php
 
 				if ( $post_thumbnail_id ) {
-					echo get_gallery_thumbnail( $post_thumbnail_id, 0 ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+					echo wp_kses_post( get_gallery_thumbnail( $post_thumbnail_id, 0 ) );
 				}
 					/**
 					 *  Implement code inside do_action( 'woocommerce_product_thumbnails' ); without the 'woocommerce_single_product_image_thumbnail_html' filter
@@ -111,7 +110,7 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 				if ( $attachment_ids && $product->get_image_id() ) {
 					$slide_number = 1;
 					foreach ( $attachment_ids as $attachment_id ) {
-						echo get_gallery_thumbnail( $attachment_id, $slide_number ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+						echo wp_kses_post( get_gallery_thumbnail( $attachment_id, $slide_number ) );
 						$slide_number++;
 					}
 				}

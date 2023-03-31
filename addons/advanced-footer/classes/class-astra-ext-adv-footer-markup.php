@@ -13,7 +13,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Markup' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Adv_Footer_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Adv_Footer_Markup {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Markup' ) ) {
 
 			if ( ! isset( $meta_option['footer-adv-display'] ) ) {
 				$meta_option['footer-adv-display'] = array(
-					'sanitize' => 'FILTER_DEFAULT',
+					'sanitize' => 'FILTER_SANITIZE_STRING',
 				);
 			}
 			return $meta_option;

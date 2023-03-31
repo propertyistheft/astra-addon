@@ -267,3 +267,7 @@ body.rtl #customize-control-astra-settings-mobile-header-logo .customize-control
 #sub-accordion-section-woocommerce_product_images .customize-control-title {
     text-transform: capitalize;
 }
+
+#customize-control-astra-settings-single-post-social-sharing-border-radius .ast-spacing-input-item .ast-spacing-title{
+    font-size: 8px;
+}

@@ -3,8 +3,6 @@
  * Minify Loader Class
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 1.0.0
  */
@@ -19,14 +17,13 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 	 * Astra_Minify
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Minify { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Minify {
 		// @codingStandardsIgnoreEnd
 
 		/**
 		 * WordPress Filesystem
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @var bool $_in_customizer_preview
 		 */
 		private static $astra_addon_filesystem = null;
@@ -35,7 +32,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Directory Info
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @var bool $_dir_info
 		 */
 		private static $_dir_info = null; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
@@ -45,7 +41,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * preview or not.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @var bool $_in_customizer_preview
 		 */
 		private static $_in_customizer_preview = false; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
@@ -55,7 +50,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * database for the cached CSS file key.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @var string $_css_key
 		 */
 		private static $_css_key = 'astra_theme_css_key'; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
@@ -65,7 +59,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * database for the cached JS file key.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @var string $_js_key
 		 */
 		private static $_js_key = 'astra_theme_js_key'; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
@@ -99,7 +92,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 *
 		 * @since 1.6.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;
@@ -391,7 +383,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Returns the prefix slug for the CSS cache file.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @return string
 		 */
 		private static function _asset_slug() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
@@ -678,7 +669,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Compiles the cached CSS file.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @return void
 		 */
 		private static function render_http2_css() {
@@ -694,7 +684,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Compiles the cached CSS file.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @return void|false Checks early if cache directory was emptied before generating the new files
 		 */
 		private static function render_css() {
@@ -753,7 +742,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Render HTTP/2 CSS : enqueue individual CSS file.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @return void
 		 */
 		private static function enqueue_http2_css() {
@@ -786,7 +774,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Fallback to enqueue individual CSS file.
 		 *
 		 * @since 1.0
-		 * @access private
 		 * @return void
 		 */
 		private static function render_fallback_css() {

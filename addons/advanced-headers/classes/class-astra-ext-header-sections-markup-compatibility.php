@@ -3,8 +3,6 @@
  * Advanced Header Markup.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2021, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       3.3.0
  */
@@ -15,7 +13,7 @@
  * @since 3.3.0
  */
 // @codingStandardsIgnoreStart
-class Astra_Ext_Header_Sections_Markup_Compatibility { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+class Astra_Ext_Header_Sections_Markup_Compatibility {
 	// @codingStandardsIgnoreEnd
 
 	/**

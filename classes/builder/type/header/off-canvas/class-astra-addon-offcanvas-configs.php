@@ -3,8 +3,6 @@
  * Astra Addon Customizer Configuration Off Canvas.
  *
  * @package     astra-addon
- * @author      Astra Addon
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       3.3.0
  */

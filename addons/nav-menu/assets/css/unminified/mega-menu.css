@@ -115,6 +115,10 @@
   padding-right: 0;
 }
 
+.ast-desktop .ast-mega-menu-enabled .astra-megamenu-li .astra-megamenu .ast-header-navigation-arrow {
+  display: none;
+}
+
 .ast-desktop .ast-mega-menu-enabled .astra-megamenu-li .astra-full-megamenu-wrapper.astra-megamenu-wrapper-focus {
   opacity: 1;
   visibility: visible;

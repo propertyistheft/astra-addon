@@ -3,8 +3,6 @@
  * Footer Button component.
  *
  * @package     Astra Builder
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 3.1.0
  */
@@ -22,7 +20,7 @@ define( 'ASTRA_ADDON_EXT_FOOTER_BUTTON_URI', ASTRA_EXT_URI . 'classes/builder/ty
  * @since 3.1.0
  */
 // @codingStandardsIgnoreStart
-class Astra_Ext_Footer_Button_Component { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+class Astra_Ext_Footer_Button_Component {
 	// @codingStandardsIgnoreEnd
 
 	/**

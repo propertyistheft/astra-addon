@@ -1035,8 +1035,6 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
  *
  * If filter `astra_include_achors_in_headings_typography` is set to true or Astra Option `include-headings-in-typography` is set to true, This will return selectors with anchors. Else This will return selectors without anchors.
  *
- * @access Private.
- *
  * @since 1.5.0
  * @param String $selectors_with_achors CSS Selectors with anchors.
  * @param String $selectors_without_achors CSS Selectors withour annchors.

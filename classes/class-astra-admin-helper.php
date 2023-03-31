@@ -5,8 +5,6 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0
  */
@@ -17,7 +15,7 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 	 * Admin Helper
 	 */
 	// @codingStandardsIgnoreStart
-	final class Astra_Admin_Helper { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	final class Astra_Admin_Helper {
 		// @codingStandardsIgnoreEnd
 
 		/**

@@ -60,6 +60,9 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$tablet_sticky_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-header-bg-color-responsive' ), 'tablet' );
 	$mobile_sticky_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-header-bg-color-responsive' ), 'mobile' );
 
+	$sticky_header_bg_blur           = astra_get_option( 'sticky-header-bg-blur' );
+	$sticky_header_bg_blur_intensity = astra_get_option( 'sticky-header-bg-blur-intensity' );
+
 	$sticky_header_menu_bg_color = astra_get_option( 'sticky-header-menu-bg-color-responsive' );
 
 	$desktop_sticky_header_color_site_title = astra_get_prop( astra_get_option( 'sticky-header-color-site-title-responsive' ), 'desktop', '#222' );
@@ -171,7 +174,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		'#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg' => array(
 			'width' => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px' ),
 		),
-		'.site-logo-img .sticky-custom-logo img' => array(
+		'.ast-hfb-header .site-logo-img .sticky-custom-logo img' => array(
 			'max-width' => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px' ),
 		),
 	);
@@ -182,7 +185,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		'#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg' => array(
 			'width' => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px' ),
 		),
-		'.site-logo-img .sticky-custom-logo img' => array(
+		'.ast-hfb-header .site-logo-img .sticky-custom-logo img' => array(
 			'max-width' => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px' ),
 		),
 	);
@@ -193,7 +196,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		'#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg' => array(
 			'width' => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px' ),
 		),
-		'.site-logo-img .sticky-custom-logo img' => array(
+		'.ast-hfb-header .site-logo-img .sticky-custom-logo img' => array(
 			'max-width' => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px' ),
 		),
 	);
@@ -267,7 +270,8 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			 * Header
 			 */
 			'.ast-transparent-header.ast-primary-sticky-header-active .main-header-bar-wrap .main-header-bar, .ast-primary-sticky-header-active .main-header-bar-wrap .main-header-bar, .ast-primary-sticky-header-active.ast-header-break-point .main-header-bar-wrap .main-header-bar, .ast-transparent-header.ast-primary-sticky-enabled .ast-main-header-wrap .main-header-bar.ast-header-sticked, .ast-primary-sticky-enabled .ast-main-header-wrap .main-header-bar.ast-header-sticked, .ast-primary-sticky-header-ast-primary-sticky-enabled .ast-main-header-wrap .main-header-bar.ast-header-sticked'                      => array(
-				'background' => esc_attr( $desktop_sticky_header_bg_color ),
+				'background'      => esc_attr( $desktop_sticky_header_bg_color ),
+				'backdrop-filter' => $sticky_header_bg_blur && $sticky_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_header_bg_blur_intensity ) . 'px )' : 'unset',
 			),
 
 			/**
@@ -523,7 +527,8 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'color' => esc_attr( $desktop_sticky_header_color_site_tagline ),
 			),
 			'.ast-transparent-header #ast-fixed-header .main-header-bar, .ast-transparent-header.ast-primary-sticky-enabled .ast-main-header-wrap .main-header-bar.ast-header-sticked, .ast-primary-sticky-enabled .ast-main-header-wrap .main-header-bar.ast-header-sticked, .ast-primary-sticky-header-ast-primary-sticky-enabled .ast-main-header-wrap .main-header-bar.ast-header-sticked, #ast-fixed-header .main-header-bar, #ast-fixed-header .ast-masthead-custom-menu-items .ast-inline-search .search-field, #ast-fixed-header .ast-masthead-custom-menu-items .ast-inline-search .search-field:focus' => array(
-				'background' => esc_attr( $desktop_sticky_header_bg_color ),
+				'background'      => esc_attr( $desktop_sticky_header_bg_color ),
+				'backdrop-filter' => $sticky_header_bg_blur && $sticky_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_header_bg_blur_intensity ) . 'px )' : 'unset',
 			),
 			/**
 			 * Primary Header Menu

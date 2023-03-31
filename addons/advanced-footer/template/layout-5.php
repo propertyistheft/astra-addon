@@ -33,19 +33,19 @@ $astra_addon_footer_layout_classes   = implode( ' ', $astra_addon_footer_layout_
 		<div class="ast-container">
 			<?php do_action( 'astra_footer_inside_container_top' ); ?>
 			<div class="ast-row">
-				<div class="<?php echo astra_attr( 'ast-layout-5-grid' ); ?> footer-adv-widget footer-adv-widget-1">
+				<div class="<?php echo esc_html( apply_filters( 'astra_attr_ast-layout-5-grid_output', 'ast-layout-5-grid' ) ); ?> footer-adv-widget footer-adv-widget-1">
 					<?php Astra_Ext_Adv_Footer_Markup::get_sidebar( 'advanced-footer-widget-1' ); ?>
 				</div>
-				<div class="<?php echo astra_attr( 'ast-layout-5-grid' ); ?> footer-adv-widget footer-adv-widget-2">
+				<div class="<?php echo esc_html( apply_filters( 'astra_attr_ast-layout-5-grid_output', 'ast-layout-5-grid' ) ); ?> footer-adv-widget footer-adv-widget-2">
 					<?php Astra_Ext_Adv_Footer_Markup::get_sidebar( 'advanced-footer-widget-2' ); ?>
 				</div>
-				<div class="<?php echo astra_attr( 'ast-layout-5-grid' ); ?> footer-adv-widget footer-adv-widget-3">
+				<div class="<?php echo esc_html( apply_filters( 'astra_attr_ast-layout-5-grid_output', 'ast-layout-5-grid' ) ); ?> footer-adv-widget footer-adv-widget-3">
 					<?php Astra_Ext_Adv_Footer_Markup::get_sidebar( 'advanced-footer-widget-3' ); ?>
 				</div>
-				<div class="<?php echo astra_attr( 'ast-layout-5-grid' ); ?> footer-adv-widget footer-adv-widget-4">
+				<div class="<?php echo esc_html( apply_filters( 'astra_attr_ast-layout-5-grid_output', 'ast-layout-5-grid' ) ); ?> footer-adv-widget footer-adv-widget-4">
 					<?php Astra_Ext_Adv_Footer_Markup::get_sidebar( 'advanced-footer-widget-4' ); ?>
 				</div>
-				<div class="<?php echo astra_attr( 'ast-layout-5-grid' ); ?> footer-adv-widget footer-adv-widget-5">
+				<div class="<?php echo esc_html( apply_filters( 'astra_attr_ast-layout-5-grid_output', 'ast-layout-5-grid' ) ); ?> footer-adv-widget footer-adv-widget-5">
 					<?php Astra_Ext_Adv_Footer_Markup::get_sidebar( 'advanced-footer-widget-5' ); ?>
 				</div>
 			</div><!-- .ast-row -->

@@ -3,8 +3,6 @@
  * Sticky Header Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.0.0
  */
@@ -470,7 +468,53 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 							'rgba'       => true,
 							'context'    => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 							astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
-							'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
+							'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
+						),
+
+						/**
+						 * Option: Sticky Background Blur.
+						 */
+						array(
+							'name'        => ASTRA_THEME_SETTINGS . '[sticky-header-bg-blur]',
+							'default'     => astra_get_option( 'sticky-header-bg-blur' ),
+							'type'        => 'control',
+							'control'     => Astra_Theme_Extension::$switch_control,
+							'section'     => $header_primary_section,
+							'priority'    => $header_primary_color_priority,
+							'title'       => __( 'Background Blur', 'astra-addon' ),
+							'description' => __( 'Background blur is dependent on the background color opacity', 'astra-addon' ),
+							'context'     => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+									astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+						),
+
+						/**
+						 * Option: Sticky Background Blur Intensity.
+						 */
+						array(
+							'name'        => ASTRA_THEME_SETTINGS . '[sticky-header-bg-blur-intensity]',
+							'default'     => astra_get_option( 'sticky-header-bg-blur-intensity' ),
+							'type'        => 'control',
+							'section'     => $header_primary_section,
+							'priority'    => $header_primary_color_priority,
+							'title'       => __( 'Background Blur Intensity', 'astra-addon' ),
+							'control'     => 'ast-slider',
+							'suffix'      => 'px',
+							'context'     => array(
+								( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+								astra_addon_builder_helper()->design_tab_config : astra_addon_builder_helper()->general_tab_config,
+								'relation' => 'AND',
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[sticky-header-bg-blur]',
+									'operator' => '==',
+									'value'    => true,
+								),
+							),
+							'input_attrs' => array(
+								'min'  => 1,
+								'step' => 1,
+								'max'  => 20,
+							),
+							'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 						),
 					);
 

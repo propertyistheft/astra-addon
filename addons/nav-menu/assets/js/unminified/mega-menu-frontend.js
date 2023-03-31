@@ -158,6 +158,10 @@ function apply_megamenu_width_styles() {
 				$this.find( '.astra-full-megamenu-wrapper' ).css( { 'left': '', 'width': '', 'background-image': '' } );
 			}
 		} );
+
+        jQuery( container ).mouseenter( function() {
+            document.dispatchEvent( new CustomEvent( "astra_mega_menu_on_hover",  { "detail": {} }) );
+        });
 	});
 }
 
@@ -182,9 +186,13 @@ document.addEventListener( 'astMenuHoverStyleChanged', function() {
     }
 
     $this.find( '.menu-link' ).focusin(function( e ) {
-        $this.find( '.sub-menu' ).addClass( 'astra-megamenu-focus' );
+
+        if( ! astra.is_header_footer_builder_active ) {
+            $this.find( '.sub-menu' ).addClass( 'astra-megamenu-focus' );
+            $this.find( '.astra-full-megamenu-wrapper' ).addClass( 'astra-megamenu-wrapper-focus' );
+        }
+
         $this.find( '.sub-menu' ).removeClass( 'ast-hidden' );
-        $this.find( '.astra-full-megamenu-wrapper' ).addClass( 'astra-megamenu-wrapper-focus' );
         if ( ( parseInt( jQuery(window).width() ) > parseInt( astra.break_point ) ) && 'ast-hf-mobile-menu' !== $this.parent().attr("id") && 'ast-desktop-toggle-menu' !== $this.parent().attr("id") ) {
 
             var $menuWidth           = $main_container.width(),
@@ -249,22 +257,26 @@ document.addEventListener( 'astMenuHoverStyleChanged', function() {
         }
     });
 
-    $this.find( '.menu-link' ).keydown(function (e) {
-    if (e.which  == 9 && e.shiftKey) {
-        $this.find( '.sub-menu' ).removeClass( 'astra-megamenu-focus' );
-        $this.find( '.astra-full-megamenu-wrapper' ).removeClass( 'astra-megamenu-wrapper-focus' );
+    if( ! astra.is_header_footer_builder_active ) {
+    
+        $this.find( '.menu-link' ).keydown(function (e) {
+            if (e.which  == 9 && e.shiftKey) {
+                $this.find( '.sub-menu' ).removeClass( 'astra-megamenu-focus' );
+                $this.find( '.astra-full-megamenu-wrapper' ).removeClass( 'astra-megamenu-wrapper-focus' );
+            }
+        });
+    
+        jQuery( container ).find( '.sub-menu .menu-item' ).last().focusout(function() {
+            $this.find( '.sub-menu' ).removeClass( 'astra-megamenu-focus' );
+            $this.find( '.astra-full-megamenu-wrapper' ).removeClass( 'astra-megamenu-wrapper-focus' );
+        });
+    
+        jQuery(window).click(function() {
+            $this.find( '.sub-menu' ).removeClass( 'astra-megamenu-focus' );
+            $this.find( '.astra-full-megamenu-wrapper' ).removeClass( 'astra-megamenu-wrapper-focus' );
+        });
+
     }
-    });
-
-    jQuery( container ).find( '.sub-menu .menu-item' ).last().focusout(function() {
-        $this.find( '.sub-menu' ).removeClass( 'astra-megamenu-focus' );
-        $this.find( '.astra-full-megamenu-wrapper' ).removeClass( 'astra-megamenu-wrapper-focus' );
-    });
-
-    jQuery(window).click(function() {
-        $this.find( '.sub-menu' ).removeClass( 'astra-megamenu-focus' );
-        $this.find( '.astra-full-megamenu-wrapper' ).removeClass( 'astra-megamenu-wrapper-focus' );
-    });
 
     $this.click(function(event){
         if ( ! jQuery(event.target).hasClass('menu-item') ){

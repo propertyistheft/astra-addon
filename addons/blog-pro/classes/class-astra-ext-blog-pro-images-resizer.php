@@ -14,7 +14,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 	 * @since 1.5.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Blog_Pro_Images_Resizer { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Blog_Pro_Images_Resizer {
 		// @codingStandardsIgnoreEnd
 
 		/**

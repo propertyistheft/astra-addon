@@ -6,7 +6,7 @@
  * https://www.opensource.org/licenses/gpl-license.php
  */
 
-defined( 'WPINC' ) or die;
+defined( 'WPINC' ) || die;
 
 require_once ASTRA_EXT_DIR . 'classes/library/batch-processing/wp-async-request.php';
 require_once ASTRA_EXT_DIR . 'classes/library/batch-processing/wp-background-process.php';

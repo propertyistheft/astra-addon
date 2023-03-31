@@ -13,7 +13,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Theme_Extension { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Theme_Extension {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -219,9 +219,10 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			if ( false !== $theme_whitelabelled_name && ! empty( $theme_whitelabelled_name ) ) {
 				$slug = Astra_Ext_White_Label_Markup::get_instance()->astra_whitelabelled_slug( 'astra' );
 			}
+			$admin_base = is_callable( 'Astra_Menu::get_theme_page_slug' ) ? 'admin.php' : 'themes.php';
 
 			$action_links = array(
-				'settings' => '<a href="' . esc_url( admin_url( 'themes.php?page=' . $slug ) ) . '" aria-label="' . esc_attr__( 'View Astra Pro settings', 'astra-addon' ) . '">' . esc_html__( 'Settings', 'astra-addon' ) . '</a>',
+				'settings' => '<a href="' . esc_url( admin_url( $admin_base . '?page=' . $slug ) ) . '" aria-label="' . esc_attr__( 'View Astra Pro settings', 'astra-addon' ) . '">' . esc_html__( 'Settings', 'astra-addon' ) . '</a>',
 			);
 
 			return array_merge( $action_links, $links );
@@ -235,7 +236,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 
 			add_rewrite_endpoint( 'partial', EP_PERMALINK );
 			// flush rewrite rules.
-			flush_rewrite_rules();
+			flush_rewrite_rules(); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules -- Used for specific cases and kept to minimal use.
 
 			// Force check graupi bundled products.
 			update_site_option( 'bsf_force_check_extensions', true );
@@ -264,7 +265,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		 */
 		public function deactivation_reset() {
 			// flush rewrite rules.
-			flush_rewrite_rules();
+			flush_rewrite_rules(); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules -- Used for specific cases and kept to minimal use.
 		}
 
 		/**
@@ -578,17 +579,19 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 					update_user_meta( get_current_user_id(), 'theme-min-version-notice-min-ver', ASTRA_THEME_MIN_VER );
 				}
 
-				Astra_Notices::add_notice(
-					array(
-						'id'                         => 'theme-min-version-notice',
-						'type'                       => 'warning',
-						'message'                    => $message,
-						'show_if'                    => true,
-						'repeat-notice-after'        => false,
-						'priority'                   => 20,
-						'display-with-other-notices' => true,
-					)
-				);
+				if ( class_exists( 'Astra_Notices' ) ) {
+					Astra_Notices::add_notice(
+						array(
+							'id'                         => 'theme-min-version-notice',
+							'type'                       => 'warning',
+							'message'                    => $message,
+							'show_if'                    => true,
+							'repeat-notice-after'        => false,
+							'priority'                   => 20,
+							'display-with-other-notices' => true,
+						)
+					);
+				}
 			}
 		}
 

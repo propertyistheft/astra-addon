@@ -194,7 +194,7 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 	function astra_check_is_ie() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		$is_ie      = false;
-		$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : false;
+		$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ) : false;
 		$ua         = htmlentities( $user_agent, ENT_QUOTES, 'UTF-8' );
 		if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
 			$is_ie = true;
@@ -349,8 +349,6 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 	 * Provide a default value if you want to return a specific value if the property is not set.
 	 *
 	 * @since  1.4.0
-	 * @access public
-	 * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
 	 * @link  https://www.gravityforms.com/
 	 *
 	 * @param array  $array   Array from which the property's value should be retrieved.

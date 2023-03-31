@@ -13,7 +13,7 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 	 * @since 1.6.10
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Edd_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Edd_Loader {
 		// @codingStandardsIgnoreEnd
 
 		/**

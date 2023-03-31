@@ -55,6 +55,7 @@
 		lastScrollTop 		= 0,
 		delta 				= 5,
 		navbarHeight 		= 0,
+		loginPopup			= document.querySelector('#ast-hb-account-login-wrap') !== null,
 		should_stick		= true,
 		hideScrollInterval;
 
@@ -191,7 +192,7 @@
 					fixed_header.addClass('ast-header-slide');
 					fixed_header.css( 'visibility', 'visible' );
 					fixed_header.addClass( 'ast-sticky-active' ).stop().css({
-						'transform':'translateY(0)',
+						'transform': loginPopup ? 'none' : 'translateY(0)',
 					});
 					$('html').addClass('ast-header-stick-slide-active');
 					$( document ).trigger( "addStickyClass" );
@@ -405,7 +406,7 @@
 
 			}else if ( 'slide' == self.options.header_style ) {
 				fixed_header.removeClass( 'ast-sticky-active' ).stop().css({
-					'transform':'translateY(-100%)',
+					'transform': loginPopup ? 'translateY(-100vh)' : 'translateY(-100%)',
 				});
 				fixed_header.css({
 					'visibility' : 'hidden',

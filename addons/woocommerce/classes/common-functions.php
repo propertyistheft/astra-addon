@@ -162,12 +162,14 @@ endif;
  * @return string
  */
 function order_review_toggle_texts( $text = 'show_text' ) {
+	$order_summary_show_text = astra_get_option( 'checkout-show-summary-text' );
+	$order_summary_hide_text = astra_get_option( 'checkout-hide-summary-text' );
 
 	$toggle_texts = apply_filters(
 		'astra_addon_order_review_toggle_texts',
 		array(
-			'show_text' => esc_html__( 'Show Order Summary', 'astra-addon' ),
-			'hide_text' => esc_html__( 'Hide Order Summary', 'astra-addon' ),
+			'show_text' => esc_html( $order_summary_show_text ),
+			'hide_text' => esc_html( $order_summary_hide_text ),
 		)
 	);
 

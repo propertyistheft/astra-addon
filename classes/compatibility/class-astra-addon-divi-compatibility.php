@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 		 *
 		 * @since 1.6.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;
@@ -50,8 +49,7 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 
 			$current_post = get_post( $post_id, OBJECT );
 
-			global $post;
-			$post = $current_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Required to render builder content further.
+			wp( 'p=' . $post_id );
 
 			$current_post->post_content = self::add_divi_wrap( $current_post->post_content );
 
@@ -61,7 +59,7 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 				$current_post->post_content = self::add_main_divi_wrapper( $current_post->post_content );
 			}
 
-			echo $current_post->post_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required to echo builder based content.
+			echo do_shortcode( $current_post->post_content );
 
 			wp_reset_postdata();
 		}

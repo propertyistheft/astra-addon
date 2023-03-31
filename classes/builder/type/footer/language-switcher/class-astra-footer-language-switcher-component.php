@@ -3,8 +3,6 @@
  * HTML component.
  *
  * @package     Astra Builder
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 3.1.0
  */
@@ -22,7 +20,7 @@ define( 'ASTRA_ADDON_FOOTER_LANGUAGE_SWITCHER_URI', ASTRA_EXT_URI . 'classes/bui
  * @since 3.1.0
  */
 // @codingStandardsIgnoreStart
-class Astra_Footer_Language_Switcher_Component { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+class Astra_Footer_Language_Switcher_Component {
 	// @codingStandardsIgnoreEnd
 
 	/**

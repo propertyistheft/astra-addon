@@ -264,7 +264,10 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 		}
 		while ( $parent_id ) {
 			$parent    = get_term( $parent_id, $taxonomy );
-			$parents[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( get_term_link( $parent, $taxonomy ) ) . '" title="' . esc_attr( $parent->name ) . '">' . $parent->name . '</a></span>';
+			$term_link = get_term_link( $parent, $taxonomy );
+			if ( ! is_string( $term_link ) ) {
+				$parents[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( $term_link ) . '" title="' . esc_attr( $parent->name ) . '">' . $parent->name . '</a></span>';
+			}
 			$parent_id = $parent->parent;
 		}
 		if ( $parents ) {

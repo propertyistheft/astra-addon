@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Addon_Customizer' ) ) :
 		 *
 		 * @since 1.0.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;

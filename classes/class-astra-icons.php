@@ -3,8 +3,6 @@
  * Icons for Astra Addon.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2021, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra Addon 3.3.0
  */
@@ -17,7 +15,7 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 	 * @since 3.3.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Icons { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Icons {
 		// @codingStandardsIgnoreEnd
 
 		/**

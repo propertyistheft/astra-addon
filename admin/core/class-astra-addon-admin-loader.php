@@ -20,7 +20,6 @@ class Astra_Addon_Admin_Loader {
 	/**
 	 * Instance
 	 *
-	 * @access private
 	 * @var object Class object.
 	 * @since 4.0.0
 	 */
@@ -29,7 +28,6 @@ class Astra_Addon_Admin_Loader {
 	/**
 	 * Option name
 	 *
-	 * @access private
 	 * @var string $option_name DB option name.
 	 * @since 4.0.0
 	 */
@@ -38,7 +36,6 @@ class Astra_Addon_Admin_Loader {
 	/**
 	 * Admin settings dataset
 	 *
-	 * @access private
 	 * @var array $astra_admin_settings Settings array.
 	 * @since 4.0.0
 	 */
@@ -191,7 +188,6 @@ class Astra_Addon_Admin_Loader {
 	 * @param string $product astra-theme|astra-addon.
 	 * @return array
 	 * @since 4.0.0
-	 * @access public
 	 */
 	public static function astra_get_rollback_versions( $product = 'astra-theme' ) {
 		$rollback_versions_options = array();
@@ -258,7 +254,7 @@ class Astra_Addon_Admin_Loader {
 	 */
 	public function settings_admin_scripts() {
 		// Enqueue admin scripts.
-		if ( ! empty( $_GET['page'] ) && ( self::$plugin_slug === $_GET['page'] || false !== strpos( $_GET['page'], self::$plugin_slug . '_' ) ) ) { //phpcs:ignore
+		if ( ! empty( $_GET['page'] ) && ( self::$plugin_slug === sanitize_text_field( $_GET['page'] ) || false !== strpos( sanitize_text_field( $_GET['page'] ), self::$plugin_slug . '_' ) ) ) { //phpcs:ignore
 			add_action( 'admin_enqueue_scripts', array( $this, 'styles_scripts' ) );
 		}
 	}
@@ -362,7 +358,7 @@ class Astra_Addon_Admin_Loader {
 		$current_tab = $default;
 
 		if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$current_tab = $_REQUEST['layout_type']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$current_tab = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		}
 
 		return $current_tab;
@@ -389,31 +385,32 @@ class Astra_Addon_Admin_Loader {
 									<img src="<?php echo esc_url( apply_filters( 'astra_admin_menu_icon', ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound ?>" class="lg:block h-[2.6rem] w-auto ast-theme-icon" alt="Workflow" >
 								</a>
 								<div class="flex items-center">
-									<h5 class="text-lg sm:text-xl leading-6 font-semibold mr-3 pl-6 border-l border-slate-200"><?php echo esc_attr( $title ); ?></h5>
+									<h5 class="text-lg sm:text-xl leading-6 font-semibold mr-3 pl-6 border-l border-slate-200"><?php echo esc_html( $title ); ?></h5>
 									<a href="<?php echo esc_url( admin_url( $button_url ) ); ?>" class="text-xs text-astra font-medium leading-4 px-3 py-2 rounded-[0.1875rem] border border-astra bg-[#F6F7F7]">Add New</a>
 								</div>
 							</div>
 							<div class="flex justify-end items-center font-inter">
 								<?php if ( ! astra_is_white_labelled() ) { ?>
 									<div class="text-xs sm:text-sm font-medium sm:leading-[0.875rem] text-slate-600 pr-4 sm:pr-8 border-r border-slate-200">
-										<a href="<?php echo esc_url( $kb_docs_url ); ?>" target="_blank"><?php esc_html_e( 'Knowledge base', 'astra-addon' ); ?></a>
+										<a href="<?php echo esc_url( $kb_docs_url ); ?>" target="_blank"><?php esc_html_e( 'Knowledge Base', 'astra-addon' ); ?></a>
 									</div>
 								<?php } ?>
 								<div class="flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-3 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3">
 									<div class="flex items-center">
-										<span><?php echo esc_attr( ASTRA_THEME_VERSION ); ?></span>
+										<span><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
 										<span class="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] border border-slate-400 font-medium rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> <?php esc_html_e( 'CORE', 'astra-addon' ); ?> </span>
 									</div>
 									<div class="flex items-center pl-3">
-										<span><?php echo esc_attr( ASTRA_EXT_VER ); ?></span>
+										<span><?php echo esc_html( ASTRA_EXT_VER ); ?></span>
 										<span class="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] text-white font-medium border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> <?php esc_html_e( 'PRO', 'astra-addon' ); ?> </span>
 									</div>
 									<?php
 									if ( ASTRA_ADDON_BSF_PACKAGE ) {
-										$highlight_class = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? 'text-[#4AB866]' : '';
+										$highlight_class     = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? 'text-[#4AB866]' : '';
+										$license_status_text = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? __( 'License activated', 'astra-addon' ) : __( 'License not activated', 'astra-addon' );
 										?>
 										<div class="pl-3 font-inter <?php echo esc_attr( $highlight_class ); ?>">
-											<?php esc_html_e( BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? __( 'License activated', 'astra-addon' ) : __( 'License not activated', 'astra-addon' ) ); ?>
+											<?php echo esc_attr( $license_status_text ); ?>
 										</div>
 									<?php } ?>
 								</div>
@@ -421,7 +418,7 @@ class Astra_Addon_Admin_Loader {
 								if ( Astra_Ext_White_Label_Markup::show_branding() ) {
 									?>
 										<a href="<?php echo esc_url( 'https://wpastra.com/changelog/?utm_source=wp&utm_medium=dashboard' ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200">
-											<?php echo ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'horn', false ) : '';  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+											<?php echo ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'horn', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
 										</a>
 									<?php
 								}
@@ -437,7 +434,7 @@ class Astra_Addon_Admin_Loader {
 					$current_tab  = self::get_active_tab();
 
 					if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-						$current_type = $_REQUEST['layout_type']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+						$current_type = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 						$active_class = '';
 					}
 

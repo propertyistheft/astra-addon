@@ -42,9 +42,9 @@ if ( $astra_addon_show_breadcrumb ) {
 						 * @param string $tags string containing the HTML tags for Advanced Header title.
 						 */
 						esc_html( $astra_addon_header_title_tag ),
-						wp_kses_post( do_action( 'astra_advanced_header_layout_1_before_title' ) ),
-						wp_kses_post( $astra_addon_header_title ),
-						wp_kses_post( do_action( 'astra_advanced_header_layout_1_after_title' ) )
+						do_shortcode( do_action( 'astra_advanced_header_layout_1_before_title' ) ),
+						do_shortcode( $astra_addon_header_title ),
+						do_shortcode( do_action( 'astra_advanced_header_layout_1_after_title' ) )
 					);
 				}
 				do_action( 'astra_advanced_header_layout_1_after_title_tag' );
@@ -53,7 +53,7 @@ if ( $astra_addon_show_breadcrumb ) {
 					?>
 				<div class="taxonomy-description">
 					<?php do_action( 'astra_advanced_header_layout_1_before_description' ); ?>
-					<?php echo wp_kses_post( $astra_addon_header_description ); ?>
+					<?php echo do_shortcode( $astra_addon_header_description ); ?>
 					<?php do_action( 'astra_advanced_header_layout_1_after_description' ); ?>
 				</div>
 				<?php } ?>

@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Addon_Elementor_Compatibility' ) ) :
 		 *
 		 * @since 1.6.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;
@@ -50,7 +49,7 @@ if ( ! class_exists( 'Astra_Addon_Elementor_Compatibility' ) ) :
 
 			// set post to glabal post.
 			$elementor_instance = Elementor\Plugin::instance();
-			echo $elementor_instance->frontend->get_builder_content_for_display( $post_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required to echo builder based content.
+			echo do_shortcode( $elementor_instance->frontend->get_builder_content_for_display( $post_id ) );
 		}
 
 		/**

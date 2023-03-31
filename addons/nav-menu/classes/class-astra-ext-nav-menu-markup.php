@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 
 			?>
 				<style>
-					<?php echo $css;  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo esc_html( $css ); ?>
 				</style>
 			<?php
 		}
@@ -128,7 +128,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		/**
 		 * Add custom megamenu fields data to the menu.
 		 *
-		 * @access public
 		 * @param int    $id menu item id.
 		 * @param object $item A single menu item.
 		 * @param int    $depth menu item depth.
@@ -161,7 +160,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		/**
 		 * Add custom menu style fields data to the menu.
 		 *
-		 * @access public
 		 * @param object $menu_item A single menu item.
 		 * @return object The menu item.
 		 */
@@ -382,20 +380,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		 * @return void
 		 */
 		public function add_mega_menu_wrap() {
-
-			ob_start();
-			?>
-				<div class="ast-mega-menu-wrap ast-offcanvas-wrapper">
-					<div class="ast-mega-menu-overlay">
-					</div>
-					<div class="ast-mega-menu-content astra-mm-options-wrap" id="ast-mega-menu-content">
-
-					</div>
-				</div>
-			<?php
-
-			echo ob_get_clean();  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+			astra_addon_get_template( 'nav-menu/template/canvas.php' );
 		}
 
 		/**

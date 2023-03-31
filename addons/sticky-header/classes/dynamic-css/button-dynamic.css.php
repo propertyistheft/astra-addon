@@ -31,8 +31,8 @@ function astra_sticky_header_button_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$_section = 'section-hb-button-' . $index;
 		$selector = '.ast-header-sticked .ast-header-button-' . $index;
 
-		$button_border_width  = astra_get_option( 'sticky-header-' . $_prefix . '-border-size' );
-		$button_border_radius = astra_get_option( 'sticky-header-' . $_prefix . '-border-radius' );
+		$button_border_width         = astra_get_option( 'sticky-header-' . $_prefix . '-border-size' );
+		$button_border_radius_fields = astra_get_option( 'sticky-header-' . $_prefix . '-border-radius-fields' );
 		// Normal Responsive Colors.
 		$button_bg_color_desktop = astra_get_prop( astra_get_option( 'sticky-header-' . $_prefix . '-back-color' ), 'desktop' );
 		$button_bg_color_tablet  = astra_get_prop( astra_get_option( 'sticky-header-' . $_prefix . '-back-color' ), 'tablet' );
@@ -77,21 +77,24 @@ function astra_sticky_header_button_dynamic_css( $dynamic_css, $dynamic_css_filt
 			 */
 			$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
 				// Colors.
-				'color'               => $button_color_desktop,
-				'background'          => $button_bg_color_desktop,
+				'color'                      => $button_color_desktop,
+				'background'                 => $button_bg_color_desktop,
 
 				// Border.
-				'border-color'        => $button_border_color_desktop,
-				'border-top-width'    => $button_border_width_top,
-				'border-bottom-width' => $button_border_width_bottom,
-				'border-left-width'   => $button_border_width_left,
-				'border-right-width'  => $button_border_width_right,
-				'border-radius'       => astra_get_css_value( $button_border_radius, 'px' ),
+				'border-color'               => $button_border_color_desktop,
+				'border-top-width'           => $button_border_width_top,
+				'border-bottom-width'        => $button_border_width_bottom,
+				'border-left-width'          => $button_border_width_left,
+				'border-right-width'         => $button_border_width_right,
+				'border-top-left-radius'     => astra_responsive_spacing( $button_border_radius_fields, 'top', 'desktop' ),
+				'border-top-right-radius'    => astra_responsive_spacing( $button_border_radius_fields, 'right', 'desktop' ),
+				'border-bottom-right-radius' => astra_responsive_spacing( $button_border_radius_fields, 'bottom', 'desktop' ),
+				'border-bottom-left-radius'  => astra_responsive_spacing( $button_border_radius_fields, 'left', 'desktop' ),
 				// Padding.
-				'padding-top'         => astra_responsive_spacing( $padding, 'top', 'desktop' ),
-				'padding-bottom'      => astra_responsive_spacing( $padding, 'bottom', 'desktop' ),
-				'padding-left'        => astra_responsive_spacing( $padding, 'left', 'desktop' ),
-				'padding-right'       => astra_responsive_spacing( $padding, 'right', 'desktop' ),
+				'padding-top'                => astra_responsive_spacing( $padding, 'top', 'desktop' ),
+				'padding-bottom'             => astra_responsive_spacing( $padding, 'bottom', 'desktop' ),
+				'padding-left'               => astra_responsive_spacing( $padding, 'left', 'desktop' ),
+				'padding-right'              => astra_responsive_spacing( $padding, 'right', 'desktop' ),
 			),
 			// Hover Options.
 			$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
@@ -111,14 +114,18 @@ function astra_sticky_header_button_dynamic_css( $dynamic_css, $dynamic_css_filt
 			 */
 			$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
 				// Colors.
-				'color'          => $button_color_tablet,
-				'background'     => $button_bg_color_tablet,
-				'border-color'   => $button_border_color_tablet,
+				'color'                      => $button_color_tablet,
+				'background'                 => $button_bg_color_tablet,
+				'border-color'               => $button_border_color_tablet,
+				'border-top-left-radius'     => astra_responsive_spacing( $button_border_radius_fields, 'top', 'tablet' ),
+				'border-top-right-radius'    => astra_responsive_spacing( $button_border_radius_fields, 'right', 'tablet' ),
+				'border-bottom-right-radius' => astra_responsive_spacing( $button_border_radius_fields, 'bottom', 'tablet' ),
+				'border-bottom-left-radius'  => astra_responsive_spacing( $button_border_radius_fields, 'left', 'tablet' ),
 				// Padding.
-				'padding-top'    => astra_responsive_spacing( $padding, 'top', 'tablet' ),
-				'padding-bottom' => astra_responsive_spacing( $padding, 'bottom', 'tablet' ),
-				'padding-left'   => astra_responsive_spacing( $padding, 'left', 'tablet' ),
-				'padding-right'  => astra_responsive_spacing( $padding, 'right', 'tablet' ),
+				'padding-top'                => astra_responsive_spacing( $padding, 'top', 'tablet' ),
+				'padding-bottom'             => astra_responsive_spacing( $padding, 'bottom', 'tablet' ),
+				'padding-left'               => astra_responsive_spacing( $padding, 'left', 'tablet' ),
+				'padding-right'              => astra_responsive_spacing( $padding, 'right', 'tablet' ),
 			),
 			// Hover Options.
 			$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
@@ -138,14 +145,18 @@ function astra_sticky_header_button_dynamic_css( $dynamic_css, $dynamic_css_filt
 			 */
 			$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
 				// Colors.
-				'color'          => $button_color_mobile,
-				'background'     => $button_bg_color_mobile,
-				'border-color'   => $button_border_color_mobile,
+				'color'                      => $button_color_mobile,
+				'background'                 => $button_bg_color_mobile,
+				'border-color'               => $button_border_color_mobile,
+				'border-top-left-radius'     => astra_responsive_spacing( $button_border_radius_fields, 'top', 'mobile' ),
+				'border-top-right-radius'    => astra_responsive_spacing( $button_border_radius_fields, 'right', 'mobile' ),
+				'border-bottom-right-radius' => astra_responsive_spacing( $button_border_radius_fields, 'bottom', 'mobile' ),
+				'border-bottom-left-radius'  => astra_responsive_spacing( $button_border_radius_fields, 'left', 'mobile' ),
 				// Padding.
-				'padding-top'    => astra_responsive_spacing( $padding, 'top', 'mobile' ),
-				'padding-bottom' => astra_responsive_spacing( $padding, 'bottom', 'mobile' ),
-				'padding-left'   => astra_responsive_spacing( $padding, 'left', 'mobile' ),
-				'padding-right'  => astra_responsive_spacing( $padding, 'right', 'mobile' ),
+				'padding-top'                => astra_responsive_spacing( $padding, 'top', 'mobile' ),
+				'padding-bottom'             => astra_responsive_spacing( $padding, 'bottom', 'mobile' ),
+				'padding-left'               => astra_responsive_spacing( $padding, 'left', 'mobile' ),
+				'padding-right'              => astra_responsive_spacing( $padding, 'right', 'mobile' ),
 			),
 			// Hover Options.
 			$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(

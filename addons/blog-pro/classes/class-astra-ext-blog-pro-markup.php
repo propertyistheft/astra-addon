@@ -13,7 +13,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Blog_Pro_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Blog_Pro_Markup {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			add_action( 'wp_head', array( $this, 'blog_customization' ) );
 			add_filter( 'astra_blog_post_featured_image_after', array( $this, 'date_box' ), 10, 1 );
 			add_filter( 'astra_related_post_featured_image_after', array( $this, 'date_box' ), 10, 1 );
-			add_action( 'astra_entry_after', array( $this, 'author_info_markup' ) );
+			add_action( 'astra_entry_after', array( $this, 'author_info_markup' ), 9 );
 			add_action( 'astra_entry_after', array( $this, 'single_post_navigation_markup' ), 9 );
 
 			add_filter( 'astra_theme_js_localize', array( $this, 'blog_js_localize' ) );
@@ -60,6 +60,12 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			add_filter( 'astra_meta_case_read-time', array( $this, 'reading_time_content' ), 10, 3 );
 
 			add_action( 'init', array( $this, 'init_action' ) );
+
+			// Load Google fonts.
+			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+
+			// Social Sharing.
+			add_action( 'wp', array( $this, 'astra_social_sharing' ) );
 		}
 
 		/**
@@ -198,19 +204,15 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 			if ( $enable_date_box ) :
 
-				$time_string = '<time class="entry-date published updated" datetime="%1$s"><span class="date-month">%2$s</span> <span class="date-day">%3$s</span> <span class="date-year">%4$s</span></time>';
-				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-					$time_string = '<time class="entry-date published" datetime="%1$s"><span class="date-month">%2$s</span> <span class="date-day">%3$s</span> <span class="date-year">%4$s</span></time><time class="updated" datetime="%5$s">%6$s</time>';
-				}
+				$date_type   = astra_get_option( 'blog-meta-date-type', 'published' );
+				$time_string = '<time class="entry-date published" datetime="%1$s"><span class="date-month">%2$s</span> <span class="date-day">%3$s</span> <span class="date-year">%4$s</span></time>';
 
 				$time_string = sprintf(
 					$time_string,
-					esc_attr( get_the_date( 'c' ) ),
-					esc_html( get_the_date( 'M' ) ),
-					esc_html( get_the_date( 'j' ) ),
-					esc_html( get_the_date( 'Y' ) ),
-					esc_attr( get_the_modified_date( 'c' ) ),
-					esc_html( get_the_modified_date() )
+					( 'updated' === $date_type ) ? esc_attr( get_the_modified_date( 'c' ) ) : esc_attr( get_the_date( 'c' ) ),
+					( 'updated' === $date_type ) ? esc_attr( get_the_modified_date( 'M' ) ) : esc_html( get_the_date( 'M' ) ),
+					( 'updated' === $date_type ) ? esc_attr( get_the_modified_date( 'j' ) ) : esc_html( get_the_date( 'j' ) ),
+					( 'updated' === $date_type ) ? esc_attr( get_the_modified_date( 'Y' ) ) : esc_html( get_the_date( 'Y' ) )
 				);
 
 				/**
@@ -764,8 +766,173 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 			return $class;
 		}
-	}
 
+		/**
+		 * Social sharing.
+		 *
+		 * @since 4.1.0
+		 */
+		public function astra_social_sharing() {
+			$social_sharing_position   = astra_get_option( 'single-post-social-sharing-icon-position' );
+			$is_social_sharing_enabled = astra_get_option( 'single-post-social-sharing-icon-enable' );
+			if ( $is_social_sharing_enabled ) {
+				if ( is_single() ) {
+					if ( 'below-post-title' === $social_sharing_position ) {
+						add_action( 'astra_single_post_banner_after', array( $this, 'astra_render_social_sharing' ) );
+					} else {
+						add_action( 'astra_entry_bottom', array( $this, 'astra_render_social_sharing' ) );
+					}
+				}
+			}
+		}
+
+		/**
+		 * Enqueue google fonts.
+		 *
+		 * @return void
+		 */
+		public function add_fonts() {
+
+			// Single post social sharing - Label font.
+			$label_font_family = astra_get_option( 'single-post-social-sharing-icon-label-font-family' );
+			$label_font_weight = astra_get_option( 'single-post-social-sharing-icon-label-font-weight' );
+			Astra_Fonts::add_font( $label_font_family, $label_font_weight );
+
+			// Single post social sharing - Label font.
+			$heading_font_family = astra_get_option( 'single-post-social-sharing-heading-font-family' );
+			$heading_font_weight = astra_get_option( 'single-post-social-sharing-heading-font-weight' );
+			Astra_Fonts::add_font( $heading_font_family, $heading_font_weight );
+		}
+
+		/**
+		 * Render social sharing.
+		 *
+		 * @since 4.1.0
+		 */
+		public function astra_render_social_sharing() {
+
+			$items                 = astra_get_option( 'single-post-social-sharing-icon-list' );
+			$items                 = isset( $items['items'] ) ? $items['items'] : array();
+			$post_categories       = wp_strip_all_tags( get_the_category_list( ',' ) );
+			$post_title            = get_the_title();
+			$post_link             = urlencode( get_the_permalink() ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
+			$email_title           = str_replace( '&', '%26', $post_title );
+			$enable_heading        = astra_get_option( 'single-post-social-sharing-heading-enable' );
+			$heading_text          = astra_get_option( 'single-post-social-sharing-heading-text' );
+			$heading_position      = astra_get_option( 'single-post-social-sharing-heading-position' );
+			$show_label            = astra_get_option( 'single-post-social-sharing-icon-label' );
+			$show_label_class      = $show_label ? 'social-show-label-true' : 'social-show-label-false';
+			$color_type            = astra_get_option( 'single-post-social-sharing-icon-color-type' );
+			$label_position        = astra_get_option( 'single-post-social-sharing-icon-label-position' );
+			$social_icon_condition = array( 'facebook', 'pinterest', 'linkedin', 'reddit', 'whatsapp', 'sms' );
+
+			if ( $items ) {
+				ob_start();
+				?>
+					<div class="ast-post-social-sharing">
+						<?php if ( $enable_heading && 'above' === $heading_position ) { ?>
+							<h3 class="ast-social-sharing-heading"> <?php echo esc_html( $heading_text ); ?></h3>
+						<?php } ?>
+						<div class="ast-social-inner-wrap element-social-inner-wrap <?php echo esc_attr( $show_label_class ); ?> ast-social-color-type-<?php echo esc_attr( $color_type ); ?>">
+							<?php
+							if ( is_array( $items ) && ! empty( $items ) ) {
+
+								foreach ( $items as $item ) {
+
+									if ( $item['enabled'] ) {
+
+										$link = $item['url'];
+
+										switch ( $item['id'] ) {
+											case 'facebook':
+												$link = add_query_arg(
+													array(
+														'u' => $post_link,
+													),
+													'https://www.facebook.com/sharer.php'
+												);
+												break;
+											case 'twitter':
+												$link = add_query_arg(
+													array(
+														'url'      => $post_link,
+														'text'     => rawurlencode( html_entity_decode( wp_strip_all_tags( $post_title ), ENT_COMPAT, 'UTF-8' ) ),
+														'hashtags' => $post_categories,
+													),
+													'http://twitter.com/share'
+												);
+												break;
+											case 'email':
+												$link = add_query_arg(
+													array(
+														'subject' => wp_strip_all_tags( $email_title ),
+														'body'    => $post_link,
+													),
+													'mailto:'
+												);
+												break;
+											case 'pinterest':
+												$link = 'https://pinterest.com/pin/create/bookmarklet/?media=' . get_the_post_thumbnail_url() . '&url=' . $post_link . '&description=' . $post_title;
+												break;
+											case 'linkedin':
+												$link = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $post_link . '&title=' . urlencode( $post_title ) . '&source=' . urlencode( get_bloginfo( 'name' ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
+												break;
+											case 'tumblr':
+												$link = 'http://www.tumblr.com/share/link?url=' . $post_link . '&title=' . $post_title;
+												break;
+											case 'reddit':
+												$link = 'https://reddit.com/submit?url=' . $post_link . '&title=' . $post_title;
+												break;
+											case 'whatsapp':
+												$link = 'https://wa.me/?text=' . $post_link;
+												break;
+											case 'sms':
+												$link = 'sms://?&body=' . $post_title . ' - ' . $post_link;
+												break;
+											case 'vk':
+												$link = 'http://vk.com/share.php?url=' . urlencode( $post_link ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
+												break;
+										}
+
+										$aria_label        = $item['label'] ? $item['label'] : $item['id'];
+										$is_phone_or_email = 'phone' === $item['id'] || 'email' === $item['id'];
+										$add_target        = $is_phone_or_email ? '' : '_blank';
+										$add_rel           = $is_phone_or_email ? '' : 'noopener noreferrer';
+										?>
+											<a href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>" target="<?php echo esc_attr( $add_target ); ?>" rel="<?php echo esc_attr( $add_rel ); ?>" class="ast-inline-flex ast-social-icon-a">
+											<?php
+											if ( $show_label && $label_position && 'above' === $label_position ) {
+												?>
+													<span class="social-item-label"> <?php echo esc_html( $item['label'] ); ?> </span>
+												<?php } ?>
+												<?php
+													$icon_color            = ! empty( $item['color'] ) ? $item['color'] : '#3a3a3a';
+													$icon_background_color = ! empty( $item['background'] ) ? $item['background'] : 'transparent';
+												?>
+												<div style="--color: <?php echo esc_attr( $icon_color ); ?>; --background-color:<?php echo esc_attr( $icon_background_color ); ?>;" class="ast-social-element ast-<?php echo esc_attr( $item['id'] ); ?>-social-item">
+													<?php echo do_shortcode( Astra_Builder_UI_Controller::fetch_svg_icon( in_array( $item['icon'], $social_icon_condition ) ? $item['icon'] . '-fill' : $item['icon'] ) ); ?>
+												</div>
+												<?php
+												if ( $show_label && $label_position && 'below' === $label_position ) {
+													?>
+														<span class="social-item-label"> <?php echo esc_html( $item['label'] ); ?> </span>
+												<?php } ?>
+											</a>
+										<?php
+									}
+								}
+							}
+							?>
+						</div>
+						<?php if ( $enable_heading && 'below' === $heading_position ) { ?>
+							<h3 class="ast-social-sharing-heading"> <?php echo esc_html( $heading_text ); ?></h3>
+						<?php } ?>
+					</div>
+				<?php
+				echo do_shortcode( ob_get_clean() );
+			}
+		}
+	}
 }
 
 /**

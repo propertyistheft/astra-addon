@@ -1,5 +1,45 @@
-v4.0.1
-- Fix: Page Header showing author HTML markup on frontend on author archive page.
+*** Astra Pro Changelog ***
+
+2023-03-30 - version 4.1.3
+* Fix: WooCommerce & WordPress marketplace users getting subscription notification when plugin purchased from Brainstorm Force store.
+
+2023-03-29 - version 4.1.2
+* Fix: Backward managing cron run into infinite loop which exhausted CPU usage on server.
+* Fix: PHP notice "Uncaught error array_map() requires 2nd parameter as array" while saving code editor from Custom Layout.
+* Fix: PHP error "Uncaught Error: Call to a member function is_type() on string" for WooCommerce product.
+* Fix: PHP error for "Uncaught Error: class Astra_Notices not found" in some cases.
+
+2023-03-28 - version 4.1.1
+* Fix: PHP error "Uncaught Error: Access to undeclared static property" for clonned header builder button's padding.
+
+2023-03-28 - version 4.1.0
+* New: Single Post - Social Sharing feature. ( https://wpastra.com/docs/social-sharing/ )
+* New: WooCommerce - Introducing new add to cart trigger actions for shop and single product pages. ( https://wpastra.com/docs/introducing-new-add-to-cart-trigger-actions-for-shop-and-single-product-pages/ )
+* New: Header Builder - Cart - Showcase featured products in the cart instead of showing it empty when no products added into it. ( https://wpastra.com/docs/showcase-featured-products-in-the-cart-instead-of-showing-it-empty-when-no-products-are-added/ )
+* New: Header Builder - Sticky header - Blur background options for above, primary and below header. ( https://wpastra.com/docs/sticky-header-blur-background/ )
+* New: WooCommerce - Added option to change strings for WooCommerce special pages like shop, cart, checkout, my-account.
+* Improvement: Hardened the security.
+* Improvement: Compatibility with PHP-8.1.
+* Improvement: Compatibility with WordPress-6.2.
+* Improvement: Single Post - Moved author info box before post navigation.
+* Improvement: Accessibility for header mega menu navigation.
+* Improvement: Button - Slider input field for sticky header's border-radius control changed to spacing control to manage all direction sizes easily.
+* Improvement: Custom Layout - Provided actions support of banner title area for single post & archive.
+* Fix: Login popup issue when Sticky header with slide animation is enabled.
+* Fix: Sidebar design tab in customizer does not show up when "Colors & Background" addon is disabled.
+* Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
+* Fix: WooCommerce - Stripe Google pay button is not working on two-column checkout layout page.
+* Fix: Custom Layout - Specific selection rule not working correctly if multiple specific selections added in rule engine.
+* Fix: Sticky logo width option is not working with Enable Shrink Effect.
+* Fix: Custom Layout - content_top and content_bottom hook's layout misaligned on the frontend.
+* Fix: WooCommerce - Quick view does not work with infinite scroll.
+* Fix: Page Header showing author HTML markup on frontend on author archive page.
+* Fix: Page Header - Showing PHP notice for 'Function astra_addon_get_template was called incorrectly' on WooCommerce single products.
+* Fix: Select option hidden when dropdown to button option is active for a WooCommerce Composite Product.
+* Fix: WooCommerce - Shop - Sorting Filters not working with Shop Card Design Layout 2 on Mobile View.
+* Fix: Custom Layout & Page Headers admin - Edit content list posts gets overlapped with WordPress admin footer.
+* Fix: Inside container spacing for single posts affecting the related posts section.
+* Fix: WooCommerce - Variation button does not work in Quick View modal.
 
 v4.0.0
 - New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
@@ -24,6 +64,7 @@ v4.0.0
 - Fix: WooCommerce - Variable product is not working with quick view.
 - Fix: WooCommerce - Product gallery is not working in quick view.
 - Fix: WooCommerce - Getting console error on product category pages when infinite scroll pagination-type is selected.
+- Fix: WooCommerce - Username validation error on login form in modern checkout page.
 - Fix: Header Builder - Account - Text font family not working on the frontend.
 - Fix: Custom Layout - Nested custom layouts not working on the frontend.
 

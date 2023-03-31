@@ -2788,7 +2788,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( $single_product_variation_select ) {
 		if ( is_rtl() ) {
 			$woo_single_product_variation = '
-				.woocommerce div.product form.cart .variations select {
+				.woocommerce div.product form.cart .variations .ast-variation-button-group + select {
 					display: none;
 				}
 				.woocommerce div.product form.cart .variations th {
@@ -2811,7 +2811,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			';
 		} else {
 			$woo_single_product_variation = '
-				.woocommerce div.product form.cart .variations select {
+				.woocommerce div.product form.cart .variations .ast-variation-button-group + select {
 					display: none;
 				}
 				.woocommerce div.product form.cart .variations th {
@@ -2891,6 +2891,17 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					'background-color' => $order_summary_bg_color,
 				);
 			}
+			if ( 'modern' === $checkout_layout_type && 'two-column-checkout' === $modern_checkout_layout_type && ( defined( 'WCPAY_MIN_WC_ADMIN_VERSION' ) || defined( 'WC_STRIPE_VERSION' ) ) ) {
+				// Strip payment Google-pay icon css.
+				$strip_payment_layout_css = array(
+					// Order Summary Content Bg - Color Options CSS (NORMAL).
+					'[ID*="-payment-request-wrapper"], [ID*="-payment-request-button"]' => array(
+						'width' => '100%',
+					),
+				);
+				$css_output              .= astra_parse_css( $strip_payment_layout_css );
+			}
+
 			$css_output .= astra_parse_css( $order_summary_bg_color_css );
 		}
 
@@ -2993,17 +3004,20 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
 			}
 
-			$place_order_button = array(
-				'#place_order'       => array(
-					'color' => $btn_color,
-				),
+			$astra_global_woo_support = is_callable( 'Astra_Dynamic_CSS::astra_woo_support_global_settings' ) ? Astra_Dynamic_CSS::astra_woo_support_global_settings() : false;
+			if ( ! $astra_global_woo_support ) {
+				$place_order_button = array(
+					'#place_order'       => array(
+						'color' => $btn_color,
+					),
 
-				'#place_order:hover' => array(
-					'color' => $btn_h_color,
-				),
-			);
+					'#place_order:hover' => array(
+						'color' => $btn_h_color,
+					),
+				);
 
-			$css_output .= astra_parse_css( $place_order_button );
+				$css_output .= astra_parse_css( $place_order_button );
+			}
 
 			// Enable padlock on checkout place order button.
 			$enable_checkout_button_padlock = astra_get_option( 'checkout-modern-checkout-button-padlock' );
@@ -4310,6 +4324,42 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 		);
 		$css_output                          .= astra_parse_css( $single_product_template_hide_tns_css, '', astra_addon_get_tablet_breakpoint() );
+	}
+
+	$woo_empty_cart_featured_product = astra_get_option( 'woo-cart-empty-featured-product' );
+
+	if ( $woo_empty_cart_featured_product ) {
+		$woo_empty_cart_featured_product_css = array(
+
+			'.astra-cart-drawer-content .ast-mini-cart-empty .ast-mini-cart-message, #ast-site-header-cart .ast-empty-cart-content' => array(
+				'display' => 'none',
+			),
+
+			'.astra-cart-drawer-content .ast-empty-cart-content' => array(
+				'padding'  => '1.5em 1em 1em 1em',
+				'overflow' => 'auto',
+			),
+
+			'.astra-cart-drawer .ast-empty-cart-content > .woocommerce, .astra-cart-drawer-content .ast-empty-cart-content > h2' => array(
+				'max-width' => '300px',
+				'margin'    => '0 auto',
+			),
+
+			'.astra-cart-drawer-content .ast-empty-cart-content > h2' => array(
+				'margin-bottom' => '1em',
+			),
+
+			'#astra-mobile-cart-drawer .ast-empty-cart-content .products' => array(
+				'grid-template-columns' => 'auto',
+			),
+
+			'.astra-cart-drawer .ast-empty-cart-content .products .product' => array(
+				'padding-bottom' => '0',
+				'margin-bottom'  => '0',
+			),
+		);
+
+		$css_output .= astra_parse_css( $woo_empty_cart_featured_product_css );
 	}
 
 	return $dynamic_css . $css_output;

@@ -106,19 +106,46 @@
 				data:'action=astra_add_cart_single_product&add-to-cart='+product_id+'&'+cartFormData,
 				success:function(results) {
 
+					if( 0 === results.length ) {
+						location.reload();
+						return false;
+					}
+
 					// Trigger event so themes can refresh other areas.
 					$( document.body ).trigger( 'wc_fragment_refresh' );
 					$( document.body ).trigger( 'added_to_cart', [ results.fragments, results.cart_hash, $thisbutton ] );
 
-					if ( typeof wc_add_to_cart_params === 'undefined' ) {
-						return;
+
+					if( astra.is_single_product ) {
+						const slideInCart = $( '#astra-mobile-cart-drawer' );
+
+						if( 'slide_in_cart' === astra.add_to_cart_options_single && slideInCart ) {
+							slideInCart.addClass( 'active' );
+							$( 'html' ).addClass( 'ast-mobile-cart-active' );
+						}
+
+						if( 'redirect_cart_page' === astra.add_to_cart_options_single ) {
+							window.open( astra.cart_url ,"_self");
+						}
+
+						if( 'redirect_checkout_page' === astra.add_to_cart_options_single ) {
+							window.open( astra.checkout_url ,"_self");
+						}
+
+						if( 'default' === astra.add_to_cart_options_single ) {
+
+							if ( typeof wc_add_to_cart_params === 'undefined' ) {
+								return;
+							}
+
+							// Redirect to cart option.
+							if ( wc_add_to_cart_params.cart_redirect_after_add === 'yes' ) {
+								window.location = wc_add_to_cart_params.cart_url;
+								return;
+							}
+						}
 					}
 
-					// Redirect to cart option.
-					if ( wc_add_to_cart_params.cart_redirect_after_add === 'yes' ) {
-						window.location = wc_add_to_cart_params.cart_url;
-						return;
-					}
 				}
 			});
 		},
@@ -131,7 +158,7 @@
 			button = typeof button === 'undefined' ? false : button;
 
 			if ( $( 'button.single_add_to_cart_button' ).length ) {
-				
+
 				$( button ).removeClass( 'loading' );
 				$( button ).addClass( 'added' );
 
@@ -144,11 +171,6 @@
 				$( document.body ).trigger( 'wc_cart_button_updated', [ button ] );
 			}
 
-			const headerAddToCart = $( '#ast-site-header-cart' );
-
-			if( headerAddToCart.hasClass( 'ast-desktop-cart-flyout' ) ) {
-				headerAddToCart.trigger( 'click' );
-			}
 		},
 
 		/**

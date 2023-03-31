@@ -3,8 +3,6 @@
  * My Account Options for our theme.
  *
  * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2022, Astra
  * @link        https://wpastra.com/
  * @since       Astra 3.9.0
  */
@@ -144,7 +142,7 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 			),
 
 			/**
-			 * Enable grid orders view.
+			 * Option: Enable grid orders view.
 			 */
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[show-woo-grid-orders]',
@@ -164,6 +162,248 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 				'control'  => Astra_Theme_Extension::$switch_control,
 				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
+
+			/**
+			 * Option: Divider.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[my-account-input-divider]',
+				'section'  => 'section-ast-woo-my-account',
+				'title'    => __( 'My Account Text', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 15,
+				'settings' => array(),
+				'context'  => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[show-woo-grid-orders]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+			),
+
+			/**
+			 * Option: Download text.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[my-account-download-text]',
+				'default'  => astra_get_option( 'my-account-download-text' ),
+				'section'  => 'section-ast-woo-my-account',
+				'title'    => __( 'Download Text', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'text',
+				'priority' => 15,
+				'context'  => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[show-woo-grid-orders]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Download remaining text.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[my-account-download-remaining-text]',
+				'default'  => astra_get_option( 'my-account-download-remaining-text' ),
+				'section'  => 'section-ast-woo-my-account',
+				'title'    => __( 'Download Remaining Text', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'text',
+				'priority' => 15,
+				'context'  => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[show-woo-grid-orders]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Download expire text.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[my-account-download-expire-text]',
+				'default'  => astra_get_option( 'my-account-download-expire-text' ),
+				'section'  => 'section-ast-woo-my-account',
+				'title'    => __( 'Download Expire Text', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'text',
+				'priority' => 15,
+				'context'  => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[show-woo-grid-orders]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Download expire alt text.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[my-account-download-expire-alt-text]',
+				'default'  => astra_get_option( 'my-account-download-expire-alt-text' ),
+				'section'  => 'section-ast-woo-my-account',
+				'title'    => __( 'Download Expire Alt Text', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'text',
+				'priority' => 15,
+				'context'  => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[show-woo-grid-orders]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Divider.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[login-register-divider]',
+				'section'  => 'section-ast-woo-my-account',
+				'title'    => __( 'Login and Register', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 15,
+				'settings' => array(),
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'context'  => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Register text.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[my-account-register-text]',
+				'default'   => astra_get_option( 'my-account-register-text' ),
+				'section'   => 'section-ast-woo-my-account',
+				'title'     => __( 'Register Text', 'astra-addon' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'transport' => 'postMessage',
+				'priority'  => 15,
+				'context'   => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Register description text.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[my-account-register-description-text]',
+				'default'   => astra_get_option( 'my-account-register-description-text' ),
+				'section'   => 'section-ast-woo-my-account',
+				'title'     => __( 'Register Description', 'astra-addon' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'transport' => 'postMessage',
+				'priority'  => 15,
+				'context'   => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Login text.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[my-account-login-text]',
+				'default'   => astra_get_option( 'my-account-login-text' ),
+				'section'   => 'section-ast-woo-my-account',
+				'title'     => __( 'Login Text', 'astra-addon' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'transport' => 'postMessage',
+				'priority'  => 15,
+				'context'   => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Login description text.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[my-account-login-description-text]',
+				'default'   => astra_get_option( 'my-account-login-description-text' ),
+				'section'   => 'section-ast-woo-my-account',
+				'title'     => __( 'Login Description Text', 'astra-addon' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'transport' => 'postMessage',
+				'priority'  => 15,
+				'context'   => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[modern-woo-account-view]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
+			),
+
 		);
 
 		$configurations = array_merge( $configurations, $_configs );

@@ -94,16 +94,14 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		 * @return void
 		 */
 		public function add_widget() {
-			$menu_item_id = sanitize_text_field( $_POST['menu_item_id'] );
-
+			$menu_item_id = isset( $_POST['menu_item_id'] ) ? sanitize_text_field( $_POST['menu_item_id'] ) : '';
 			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
 
 			if ( ! current_user_can( 'edit_theme_options' ) ) {
-				wp_die();
+				wp_send_json_error( __( 'Insufficient permissions', 'astra-addon' ) );
 			}
-
-			$widget_id = sanitize_text_field( $_POST['widget_id'] );
-			$title     = sanitize_text_field( $_POST['title'] );
+			$widget_id = isset( $_POST['widget_id'] ) ? sanitize_text_field( $_POST['widget_id'] ) : '';
+			$title     = isset( $_POST['title'] ) ? sanitize_text_field( $_POST['title'] ) : '';
 
 			require_once ABSPATH . 'wp-admin/includes/widgets.php';
 
@@ -240,10 +238,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		public function edit_widget() {
 
 			if ( ! current_user_can( 'edit_theme_options' ) ) {
-				wp_die();
+				wp_send_json_error( __( 'Insufficient permissions', 'astra-addon' ) );
 			}
 
-			$widget_id = sanitize_text_field( $_POST['widget_id'] );
+			$widget_id = isset( $_POST['widget_id'] ) ? sanitize_text_field( $_POST['widget_id'] ) : '';
 
 			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
 
@@ -324,9 +322,13 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		 */
 		public function delete_widget() {
 
-			$widget_id = sanitize_text_field( $_POST['widget_id'] );
+			$widget_id = isset( $_POST['widget_id'] ) ? sanitize_text_field( $_POST['widget_id'] ) : '';
 
 			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
+
+			if ( ! current_user_can( 'edit_theme_options' ) ) {
+				wp_send_json_error( __( 'Insufficient permissions', 'astra-addon' ) );
+			}
 
 			$this->remove_widget_from_sidebar( $widget_id );
 			$this->remove_widget_instance( $widget_id );
@@ -391,7 +393,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		 */
 		public function render_widgets() {
 
-			$menu_item_id = sanitize_text_field( $_POST['menu_item_id'] );
+			$menu_item_id = isset( $_POST['menu_item_id'] ) ? sanitize_text_field( $_POST['menu_item_id'] ) : '';
 
 			check_ajax_referer( 'wp_widget_nonce', 'security_nonce' );
 
@@ -508,7 +510,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		 */
 		public function save_widget() {
 
-			$widget_id = sanitize_text_field( $_POST['widget-id'] );
+			$widget_id = isset( $_POST['widget-id'] ) ? sanitize_text_field( $_POST['widget-id'] ) : '';
 
 			check_ajax_referer( 'ast_save_widget_' . $widget_id );
 
@@ -516,7 +518,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 				wp_die();
 			}
 
-			$id_base = sanitize_text_field( $_POST['id_base'] );
+			$id_base = isset( $_POST['id_base'] ) ? sanitize_text_field( $_POST['id_base'] ) : '';
 
 			global $wp_registered_widget_updates;
 

@@ -134,13 +134,75 @@ final class Astra_Addon_Builder_Helper {
 
 		if ( property_exists( 'Astra_Addon_Builder_Helper', $property_name ) ) {
 			// Directly override theme helper properties.
-			$return_value = self::${$property_name};
+			$return_value = self::astra_addon_get_addon_helper_static( $property_name );
 		} else {
-			$return_value = property_exists( 'Astra_Builder_Helper', $property_name ) ? Astra_Builder_Helper::${$property_name} : false;
+			$return_value = property_exists( 'Astra_Builder_Helper', $property_name ) ? self::astra_addon_get_theme_helper_static( $property_name ) : false;
 		}
 		self::$cached_properties[ $property_name ] = $return_value;
 
 		return $return_value;
+	}
+
+	/**
+	 * Callback to get theme's static property.
+	 *
+	 * @param string $prop_name function name.
+	 * @return mixed
+	 */
+	public static function astra_addon_get_theme_helper_static( $prop_name ) {
+		$theme_static_sets = array(
+			'general_tab'                       => Astra_Builder_Helper::$general_tab,
+			'general_tab_config'                => Astra_Builder_Helper::$general_tab_config,
+			'design_tab'                        => Astra_Builder_Helper::$design_tab,
+			'design_tab_config'                 => Astra_Builder_Helper::$design_tab_config,
+			'tablet_device'                     => Astra_Builder_Helper::$tablet_device,
+			'mobile_device'                     => Astra_Builder_Helper::$mobile_device,
+			'responsive_devices'                => Astra_Builder_Helper::$responsive_devices,
+			'responsive_general_tab'            => Astra_Builder_Helper::$responsive_general_tab,
+			'desktop_general_tab'               => Astra_Builder_Helper::$desktop_general_tab,
+			'default_responsive_spacing'        => Astra_Builder_Helper::$default_responsive_spacing,
+			'default_button_responsive_spacing' => isset( Astra_Builder_Helper::$default_button_responsive_spacing ) ? Astra_Builder_Helper::$default_button_responsive_spacing : Astra_Builder_Helper::$default_responsive_spacing,
+			'tablet_general_tab'                => Astra_Builder_Helper::$tablet_general_tab,
+			'mobile_general_tab'                => Astra_Builder_Helper::$mobile_general_tab,
+			'component_limit'                   => Astra_Builder_Helper::$component_limit,
+			'component_count_array'             => Astra_Builder_Helper::$component_count_array,
+			'num_of_footer_widgets'             => Astra_Builder_Helper::$num_of_footer_widgets,
+			'num_of_footer_html'                => Astra_Builder_Helper::$num_of_footer_html,
+			'num_of_header_widgets'             => Astra_Builder_Helper::$num_of_header_widgets,
+			'num_of_header_menu'                => Astra_Builder_Helper::$num_of_header_menu,
+			'num_of_header_button'              => Astra_Builder_Helper::$num_of_header_button,
+			'num_of_footer_button'              => Astra_Builder_Helper::$num_of_footer_button,
+			'num_of_header_html'                => Astra_Builder_Helper::$num_of_header_html,
+			'num_of_footer_columns'             => Astra_Builder_Helper::$num_of_footer_columns,
+			'num_of_header_social_icons'        => Astra_Builder_Helper::$num_of_header_social_icons,
+			'num_of_footer_social_icons'        => Astra_Builder_Helper::$num_of_footer_social_icons,
+			'num_of_header_divider'             => Astra_Builder_Helper::$num_of_header_divider,
+			'num_of_footer_divider'             => Astra_Builder_Helper::$num_of_footer_divider,
+			'is_header_footer_builder_active'   => Astra_Builder_Helper::$is_header_footer_builder_active,
+			'footer_row_layouts'                => Astra_Builder_Helper::$footer_row_layouts,
+			'header_desktop_items'              => Astra_Builder_Helper::$header_desktop_items,
+			'footer_desktop_items'              => Astra_Builder_Helper::$footer_desktop_items,
+			'header_mobile_items'               => Astra_Builder_Helper::$header_mobile_items,
+			'loaded_grid'                       => Astra_Builder_Helper::$loaded_grid,
+			'grid_size_mapping'                 => Astra_Builder_Helper::$grid_size_mapping,
+		);
+		return isset( $theme_static_sets[ $prop_name ] ) ? $theme_static_sets[ $prop_name ] : $prop_name;
+	}
+
+	/**
+	 * Callback to get addon's static property.
+	 *
+	 * @param string $prop_name function name.
+	 * @return mixed
+	 */
+	public static function astra_addon_get_addon_helper_static( $prop_name ) {
+		$addon_static_sets = array(
+			'component_count_array' => self::$component_count_array,
+			'component_limit'       => self::$component_limit,
+			'num_of_header_divider' => self::$num_of_header_divider,
+			'num_of_footer_divider' => self::$num_of_footer_divider,
+		);
+		return isset( $addon_static_sets[ $prop_name ] ) ? $addon_static_sets[ $prop_name ] : $prop_name;
 	}
 
 	/**
@@ -171,9 +233,7 @@ final class Astra_Addon_Builder_Helper {
 		$return_value                    = call_user_func_array( array( $class_name, $function_name ), $function_agrs );
 		self::$cached_properties[ $key ] = $return_value;
 		return $return_value;
-
 	}
-
 }
 
 /**

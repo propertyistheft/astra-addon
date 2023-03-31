@@ -86,9 +86,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				return $location;
 			}
 
-			if ( isset( $_POST['advanced_header_post_update'] ) && wp_verify_nonce( $_POST['advanced_header_post_update'], 'advanced_header_post_update' ) ) {
+			if ( isset( $_POST['advanced_header_post_update'] ) && wp_verify_nonce( sanitize_text_field( $_POST['advanced_header_post_update'] ), 'advanced_header_post_update' ) ) {
 
-				$current_tab = isset( $_POST['advanced-headers-current-tab'] ) ? esc_attr( $_POST['advanced-headers-current-tab'] ) : '';
+				$current_tab = isset( $_POST['advanced-headers-current-tab'] ) ? esc_attr( sanitize_text_field( $_POST['advanced-headers-current-tab'] ) ) : '';
 
 				if ( '' !== $current_tab ) {
 					$location = esc_url_raw(
@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							'above-header-enabled'       => $default_above_header,
 							'below-header-enabled'       => $default_below_header,
 						),
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-advanced-headers-design'    => array(
 						'default'  => array(
@@ -211,19 +211,19 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							'custom-menu-item-text-html'   => '',
 							'search-style'                 => 'default',
 						),
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-advanced-headers-location'  => array(
 						'default'  => array(),
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-advanced-headers-exclusion' => array(
 						'default'  => array(),
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-advanced-headers-users'     => array(
 						'default'  => array(),
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 				)
 			);
@@ -464,7 +464,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							}
 
 							$class       = '';
-							$current_tab = isset( $_GET['current-tab'] ) ? esc_attr( $_GET['current-tab'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Required for admin tabgroup active tab.
+							$current_tab = isset( $_GET['current-tab'] ) ? esc_attr( sanitize_text_field( $_GET['current-tab'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Required for admin tabgroup active tab.
 
 							if ( '' != $current_tab && 'ast-adv-headers-tab-' . esc_attr( $slug ) == $current_tab ) {
 								$class = 'nav-tab-active';
@@ -528,7 +528,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 			$is_autosave = wp_is_post_autosave( $post_id );
 			$is_revision = wp_is_post_revision( $post_id );
 
-			$is_valid_nonce = ( isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( $_POST['astra-advanced-headers'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = ( isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( sanitize_text_field( $_POST['astra-advanced-headers'] ), basename( __FILE__ ) ) ) ? true : false;
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
@@ -546,15 +546,15 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 			foreach ( $post_meta as $key => $data ) {
 				if ( in_array( $key, $advanced_headers_meta ) ) {
-					$meta_value = array_map( 'esc_attr', $_POST[ $key ] );
-					$meta_value = array_map( 'stripslashes', $_POST[ $key ] );
+					$meta_value = isset( $_POST[ $key ] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST[ $key ] ) ) : array();
 				} elseif ( in_array( $key, array( 'ast-advanced-headers-users' ) ) ) {
-					$index = array_search( '', $_POST[ $key ] );
+					$meta_key = ! empty( $_POST[ $key ] ) ? array_map( 'sanitize_text_field', $_POST[ $key ] ) : array();
+					$index    = array_search( '', $meta_key );
 					if ( false !== $index ) {
-						unset( $_POST[ $key ][ $index ] );
+						unset( $meta_key[ $index ] );
 					}
-					$meta_value = array_map( 'esc_attr', $_POST[ $key ] );
-					$meta_value = array_map( 'stripslashes', $_POST[ $key ] );
+					$meta_value = array_map( 'esc_attr', $meta_key );
+					$meta_value = array_map( 'stripslashes', $meta_key );
 				} elseif ( in_array(
 					$key,
 					array(
@@ -565,11 +565,13 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						$meta_value = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, $key );
 				} else {
 					// Sanitize values.
-					$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
+					$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_SANITIZE_STRING';
 
 					switch ( $sanitize_filter ) {
 
+						default:
 						case 'FILTER_SANITIZE_STRING':
+							// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- This deprecation will be addressed later.
 							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
 							break;
 
@@ -581,8 +583,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_NUMBER_INT );
 							break;
 
-						default:
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );
+						case 'FILTER_DEFAULT':
+							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );  // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter -- Default filter after all other cases, keeping this filter for backward compatibility.
 							break;
 					}
 				}
@@ -595,7 +597,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				}
 			}
 
-			$logo_id = sanitize_key( $_POST['ast-advanced-headers-design']['logo-id'] );
+			$logo_id = isset( $_POST['ast-advanced-headers-design']['logo-id'] ) ? sanitize_key( $_POST['ast-advanced-headers-design']['logo-id'] ) : '';
 			if ( '' != $logo_id ) {
 				self::generate_logo_by_width( $logo_id );
 			}
@@ -2120,16 +2122,15 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 		 */
 		public static function logo_image_sizes( $sizes, $metadata ) {
 
-			$is_valid_nonce = ( isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( $_POST['astra-advanced-headers'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = ( isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( sanitize_text_field( $_POST['astra-advanced-headers'] ), basename( __FILE__ ) ) ) ? true : false;
 
 			if ( ! $is_valid_nonce ) {
 				return;
 			}
 
-			$logo_width = sanitize_key( $_POST['ast-advanced-headers-design']['header-logo-width'] );
+			$logo_width = isset( $_POST['ast-advanced-headers-design']['header-logo-width'] ) ? sanitize_key( $_POST['ast-advanced-headers-design']['header-logo-width'] ) : '';
 
-			if ( is_array( $sizes ) && '' != $logo_width ) {
-
+			if ( is_array( $sizes ) && '' !== $logo_width ) {
 				$sizes['ast-adv-header-logo-size'] = array(
 					'width'  => (int) $logo_width,
 					'height' => 0,

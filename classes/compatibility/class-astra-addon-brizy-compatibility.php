@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 		 *
 		 * @since 1.6.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;
@@ -127,7 +126,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 				'wp_head',
 				function() use ( $post ) {
 					$html = new Brizy_Editor_CompiledHtml( $post->get_compiled_html() );
-					echo $html->get_head(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required for processing compiled markup content.
+					echo do_shortcode( $html->get_head() );
 				}
 			);
 
@@ -146,12 +145,11 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 							'meta'  => array(),
 						);
 
-					if ( true === $wp_admin_bar->get_node( 'brizy_Edit_page_link' ) ) { // PHPCS:ignore Generic.WhiteSpace.ScopeIndent.IncorrectExact
+						if ( true === $wp_admin_bar->get_node( 'brizy_Edit_page_link' ) ) {
 							$args['parent'] = 'brizy_Edit_page_link';
-					} // PHPCS:ignore Generic.WhiteSpace.ScopeIndent.IncorrectExact
+						}
 
 						$wp_admin_bar->add_node( $args );
-
 					},
 					1000
 				);

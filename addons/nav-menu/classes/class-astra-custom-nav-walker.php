@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 		/**
 		 * Use full width mega menu?
 		 *
-		 * @access  private
 		 * @var string
 		 */
 		private $menu_megamenu_width = '';
@@ -28,7 +27,6 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 		/**
 		 * How many columns should the mega menu have?
 		 *
-		 * @access  private
 		 * @var int
 		 */
 		private $num_of_columns = 0;
@@ -36,7 +34,6 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 		/**
 		 * Menu item ID.
 		 *
-		 * @access  private
 		 * @var int
 		 */
 		private $menu_megamenu_item_id = 0;
@@ -613,13 +610,18 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 
 			$item_output .= Astra_Icons::get_icons( 'arrow' );
 
-			$item_output .= $args->link_before . $title . $args->link_after;
+			$item_output     .= $args->link_before . $title . $args->link_after;
+			$astra_arrow_icon = Astra_Icons::get_icons( 'arrow' );
 
-			if ( $args->walker->has_children ) {
-				$item_output .= Astra_Icons::get_icons( 'arrow' );
+			$role = 'application';
+
+			$custom_tabindex = true === astra_addon_builder_helper()->is_header_footer_builder_active ? 'tabindex="0"' : '';
+
+			if ( $args->walker->has_children && ( true === astra_addon_builder_helper()->is_header_footer_builder_active || Astra_Icons::is_svg_icons() ) ) {
+				$item_output .= $astra_arrow_icon ? '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle ast-header-navigation-arrow" ' . $custom_tabindex . ' aria-expanded="false" aria-label="' . esc_attr__( 'Menu Toggle', 'astra-addon' ) . '"  >' . $astra_arrow_icon . '</span>' : '';
 			}
 
-			if ( 0 == $depth && 'ast-hf-mobile-menu' !== $args->menu_id && 'ast-desktop-toggle-menu' !== $args->menu_id ) {
+			if ( 0 == $depth && 'ast-hf-mobile-menu' !== $args->menu_id && 'ast-desktop-toggle-menu' !== $args->menu_id && false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 				$item_output .= '<span class="sub-arrow"></span>';
 			}
 

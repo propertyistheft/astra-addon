@@ -11,7 +11,7 @@
  * @since 3.2.0
  */
 // @codingStandardsIgnoreStart
-class Astra_WP_Block_Parser extends WP_Block_Parser { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+class Astra_WP_Block_Parser extends WP_Block_Parser {
 	// @codingStandardsIgnoreEnd
 
 	/**
@@ -24,12 +24,11 @@ class Astra_WP_Block_Parser extends WP_Block_Parser { // phpcs:ignore WordPress.
 
 		$current_index         = 0;
 		$current_heading_index = 0;
-
 		foreach ( $result as $index => $first_level_block ) {
 			$result[ $index ]['firstLevelBlock'] = true;
 			$inner_html                          = trim( $first_level_block['innerHTML'] );
 
-			if ( ! empty( $inner_html ) ) {
+			if ( ! empty( $inner_html ) && ! empty( $first_level_block['blockName'] ) ) {
 				$result[ $index ]['firstLevelBlockIndex'] = $current_index++;
 
 				if (

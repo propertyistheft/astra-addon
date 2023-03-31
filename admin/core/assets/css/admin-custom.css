@@ -192,7 +192,7 @@ a.bsf-core-license-form-btn {
 	padding-left: 0;
 }
 .post-type-astra-advanced-hook #wpbody-content, .post-type-astra_adv_header #wpbody-content {
-	padding: 0 0 0 20px;
+	padding: 0 0 65px 20px;
 }
 .post-type-astra-advanced-hook table.wp-list-table, .post-type-astra_adv_header table.wp-list-table {
 	position: relative;

@@ -54,6 +54,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
+			$astra_options                            = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
 			$defaults['header-main-shrink']           = 1;
 			$defaults['different-sticky-logo']        = 0;
 			$defaults['different-sticky-retina-logo'] = 0;
@@ -76,11 +77,15 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			/**
 			* Sticky Header
 			*/
-			$defaults['sticky-header-bg-color-responsive']         = array(
+			$defaults['sticky-header-bg-color-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',
 				'mobile'  => '',
 			);
+
+			$defaults['sticky-header-bg-blur']           = false;
+			$defaults['sticky-header-bg-blur-intensity'] = 10;
+
 			$defaults['sticky-header-color-site-title-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -94,6 +99,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			$component_limit = astra_addon_builder_helper()->component_limit;
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
 
+				$sticky_header_button_border_radius = ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius-fields' ] ) && isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] : '';
 				/**
 				* Sticky Header > Menu color configs.
 				*/
@@ -159,6 +165,29 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 				);
 				$defaults[ 'sticky-header-menu' . $index . '-header-megamenu-heading-color' ]   = '';
 				$defaults[ 'sticky-header-menu' . $index . '-header-megamenu-heading-h-color' ] = '';
+				$defaults[ 'sticky-header-button' . $index . '-border-radius-fields' ]          = array(
+					'desktop'      => array(
+						'top'    => $sticky_header_button_border_radius,
+						'right'  => $sticky_header_button_border_radius,
+						'bottom' => $sticky_header_button_border_radius,
+						'left'   => $sticky_header_button_border_radius,
+					),
+					'tablet'       => array(
+						'top'    => '',
+						'right'  => '',
+						'bottom' => '',
+						'left'   => '',
+					),
+					'mobile'       => array(
+						'top'    => '',
+						'right'  => '',
+						'bottom' => '',
+						'left'   => '',
+					),
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
 			}
 
 			$defaults['sticky-header-color-site-tagline-responsive'] = array(
@@ -239,6 +268,10 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 				'tablet'  => '',
 				'mobile'  => '',
 			);
+
+			$defaults['sticky-above-header-bg-blur']           = false;
+			$defaults['sticky-above-header-bg-blur-intensity'] = 10;
+
 			// Above Header Menu.
 			$defaults['sticky-above-header-menu-bg-color-responsive']     = array(
 				'desktop' => '',
@@ -306,6 +339,10 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 				'tablet'  => '',
 				'mobile'  => '',
 			);
+
+			$defaults['sticky-below-header-bg-blur']           = false;
+			$defaults['sticky-below-header-bg-blur-intensity'] = 10;
+
 			// below Header Menu.
 			$defaults['sticky-below-header-menu-bg-color-responsive']     = array(
 				'desktop' => '',

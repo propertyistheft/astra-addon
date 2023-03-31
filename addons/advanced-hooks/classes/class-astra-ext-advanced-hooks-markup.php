@@ -13,7 +13,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Advanced_Hooks_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Advanced_Hooks_Markup {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 			add_action( 'astra_advanced_hook_template', array( $this, 'template_empty_content' ) );
 
-			add_filter( 'wp_enqueue_scripts', array( $this, 'advanced_hook_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'advanced_hook_scripts' ) );
 			add_filter( 'the_content', array( $this, 'advanced_hook_content_markup' ) );
 			add_filter( 'single_template', array( $this, 'get_custom_post_type_template' ) );
 
@@ -337,12 +337,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				$post_id = get_the_id();
 
 				if ( ! static::get_time_duration_eligibility( $post_id ) ) {
-					return;
+					return '';
 				}
 
-				$php_snippet = $this->get_php_snippet( $post_id );
-				if ( $php_snippet ) {
-					$content = $php_snippet;
+				if ( ASTRA_WITH_EXTENDED_FUNCTIONALITY ) {
+					$php_snippet = astra_addon_get_php_snippet( $post_id );
+					if ( $php_snippet ) {
+						$content = $php_snippet;
+					}
 				}
 
 				$display_device_classes = $this->get_display_device( $post_id );
@@ -356,28 +358,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				}
 			}
 			return $content;
-		}
-
-		/**
-		 * Get PHP snippet if enabled.
-		 *
-		 * @param  int $post_id Post Id.
-		 * @return boolean|html
-		 */
-		public function get_php_snippet( $post_id ) {
-			$php_enabled = get_post_meta( $post_id, 'editor_type', true );
-			if ( 'code_editor' === $php_enabled ) {
-				$code = get_post_meta( $post_id, 'ast-advanced-hook-php-code', true );
-				if ( defined( 'ASTRA_ADVANCED_HOOKS_DISABLE_PHP' ) ) {
-					return $code;
-				}
-				ob_start();
-				// @codingStandardsIgnoreStart
-				eval( '?>' . $code . '<?php ' ); // phpcs:ignore Squiz.PHP.Eval.Discouraged -- Ignored PHP standards to execute PHP code snipett.
-				// @codingStandardsIgnoreEnd
-				return ob_get_clean();
-			}
-			return false;
 		}
 
 		/**
@@ -787,9 +767,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				<?php
 			}
 
-			$php_snippet = $this->get_php_snippet( $post_id );
-			if ( $php_snippet ) {
-				echo $php_snippet; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			if ( ASTRA_WITH_EXTENDED_FUNCTIONALITY && astra_addon_get_php_snippet( $post_id ) ) {
+				astra_addon_echo_php_snippet( $post_id );
 			} else {
 				if ( class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) {
 

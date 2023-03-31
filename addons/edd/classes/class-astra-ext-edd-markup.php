@@ -13,7 +13,7 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 	 * @since 1.6.10
 	 */
 	// @codingStandardsIgnoreStart
-	class ASTRA_Ext_Edd_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class ASTRA_Ext_Edd_Markup {
 		// @codingStandardsIgnoreEnd
 
 		/**

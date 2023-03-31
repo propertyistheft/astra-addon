@@ -16,7 +16,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Blog_Pro { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Blog_Pro {
 		// @codingStandardsIgnoreEnd
 
 		/**

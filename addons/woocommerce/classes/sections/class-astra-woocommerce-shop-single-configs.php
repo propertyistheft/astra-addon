@@ -3,8 +3,6 @@
  * Shop Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 1.4.3
  */
@@ -782,21 +780,43 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 			);
 
 			/**
-			 * Single product add to cart.
+			 * Option: Single product Add to cart action.
 			 */
-
 			$_configs[] = array(
-				'name'        => 'single-product-ajax-add-to-cart',
-				'parent'      => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'     => astra_get_option( 'single-product-ajax-add-to-cart' ),
-				'linked'      => 'add_cart',
-				'type'        => 'sub-control',
-				'control'     => 'ast-toggle',
-				'section'     => 'section-woo-shop-single',
-				'priority'    => 10,
-				'title'       => __( 'Real-Time Add To Cart', 'astra-addon' ),
-				'description' => __( 'Enables users to add to cart without refreshing the page', 'astra-addon' ),
-				'transport'   => 'postMessage',
+				'name'       => 'single-product-add-to-cart-action',
+				'parent'     => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+				'default'    => astra_get_option( 'single-product-add-to-cart-action' ),
+				'section'    => 'section-woo-shop-single',
+				'title'      => __( 'Add To Cart Action', 'astra-addon' ),
+				'type'       => 'sub-control',
+				'control'    => 'ast-select',
+				'linked'     => 'add_cart',
+				'priority'   => 10,
+				'choices'    => array(
+					'default'                => __( 'Default', 'astra-addon' ),
+					'rt_add_to_cart'         => __( 'Real Time Add To Cart', 'astra-addon' ),
+					'slide_in_cart'          => __( 'Slide In Cart', 'astra-addon' ),
+					'redirect_cart_page'     => __( 'Redirect To Cart Page', 'astra-addon' ),
+					'redirect_checkout_page' => __( 'Redirect To Checkout Page', 'astra-addon' ),
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'transport'  => 'postMessage',
+			);
+
+			/**
+			 * Option: Single product Add to cart action notice.
+			 */
+			$_configs[] = array(
+				'name'     => 'single-product-add-to-cart-action-notice',
+				'parent'   => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+				'type'     => 'sub-control',
+				'control'  => 'ast-description',
+				'section'  => 'section-woo-shop-single',
+				'priority' => 10,
+				'label'    => '',
+				'linked'   => 'add_cart',
+				'help'     => __( 'Please save and see changes in frontend.<br />[Slide in cart requires Cart added inside Header Builder]', 'astra-addon' ),
 			);
 
 			/**

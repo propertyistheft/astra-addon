@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Addon_Beaver_Builder_Compatibility' ) ) :
 		 *
 		 * @since 1.6.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;
@@ -50,9 +49,11 @@ if ( ! class_exists( 'Astra_Addon_Beaver_Builder_Compatibility' ) ) :
 
 			if ( ! apply_filters( 'astra_addon_bb_render_content_by_id', false ) ) {
 				if ( is_callable( 'FLBuilderShortcodes::insert_layout' ) ) {
-					echo FLBuilderShortcodes::insert_layout( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required to echo builder based content.
-						array( // WPCS: XSS OK.
-							'id' => $post_id,
+					echo do_shortcode(
+						FLBuilderShortcodes::insert_layout(
+							array( // WPCS: XSS OK.
+								'id' => $post_id,
+							)
 						)
 					);
 				}

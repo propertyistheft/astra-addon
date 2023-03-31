@@ -3,8 +3,6 @@
  * Sticky Header - Button Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.0.0
  */
@@ -269,25 +267,29 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 					),
 
 					/**
-					* Option: Button Border Radius
-					*/
+					 * Option: Button Radius Fields
+					 */
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[sticky-header-' . $_prefix . '-border-radius]',
-						'default'     => astra_get_option( 'sticky-header-' . $_prefix . '-border-radius' ),
-						'type'        => 'control',
-						'section'     => $_section,
-						'control'     => 'ast-slider',
-						'transport'   => 'postMessage',
-						'priority'    => 120,
-						'context'     => astra_addon_builder_helper()->design_tab,
-						'title'       => __( 'Border Radius', 'astra-addon' ),
-						'suffix'      => 'px',
-						'input_attrs' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 100,
+						'name'              => ASTRA_THEME_SETTINGS . '[sticky-header-' . $_prefix . '-border-radius-fields]',
+						'default'           => astra_get_option( 'sticky-header-' . $_prefix . '-border-radius-fields' ),
+						'type'              => 'control',
+						'control'           => 'ast-responsive-spacing',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+						'section'           => $_section,
+						'title'             => __( 'Border Radius', 'astra-addon' ),
+						'linked_choices'    => true,
+						'transport'         => 'postMessage',
+						'unit_choices'      => array( 'px', 'em', '%' ),
+						'choices'           => array(
+							'top'    => __( 'Top', 'astra-addon' ),
+							'right'  => __( 'Right', 'astra-addon' ),
+							'bottom' => __( 'Bottom', 'astra-addon' ),
+							'left'   => __( 'Left', 'astra-addon' ),
 						),
-						'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
+						'priority'          => 120,
+						'context'           => astra_addon_builder_helper()->design_tab,
+						'connected'         => false,
+						'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);
 

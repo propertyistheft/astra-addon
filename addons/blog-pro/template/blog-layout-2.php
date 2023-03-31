@@ -10,7 +10,7 @@
 ?>
 <div <?php astra_blog_layout_class( 'blog-layout-2' ); ?>>
 
-	<div class="post-content <?php echo astra_attr( 'ast-grid-col-6' ); ?>">
+	<div class="post-content <?php echo esc_html( apply_filters( 'astra_attr_ast-grid-col-6_output', 'ast-grid-col-6' ) ); ?>">
 
 		<?php
 		if ( ! astra_addon_is_blog_title_meta_disabled() ) {
@@ -19,11 +19,13 @@
 
 		<div class="entry-content clear"
 		<?php
-				echo astra_attr(
-					'article-entry-content-blog-layout-2',
-					array(
-						'class' => '',
-					)
+				echo wp_kses_post(
+					astra_attr(
+						'article-entry-content-blog-layout-2',
+						array(
+							'class' => '',
+						)
+					) 
 				);
 				?>
 				>
@@ -51,7 +53,7 @@
 	<?php if ( $astra_addon_featured_item ) : ?>
 		<?php
 		// Blog Post Featured Image.
-			astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ' . astra_attr( 'ast-grid-col-6' ) . '">', '</div>' );
+			astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ' . esc_html( apply_filters( 'astra_attr_ast-grid-col-6_output', 'ast-grid-col-6' ) ) . '">', '</div>' );
 		?>
 	<?php endif; ?>
 

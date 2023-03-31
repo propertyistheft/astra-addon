@@ -1,21 +1,18 @@
-(function($){
-
+(function () {
 	/**
-	 * Astra Advanced Headers 
+	 * Astra Advanced Headers
 	 *
 	 * @class AstraPageTitle
 	 * @since 1.0
 	 */
 	AstraPageTitle = {
-		
 		/**
 		 * Initializes a Astra Advanced Headers.
 		 *
 		 * @since 1.0
 		 * @method init
-		 */ 
-		init: function()
-		{
+		 */
+		init: function () {
 			// Init backgrounds.
 			AstraPageTitle._initBackgrounds();
 			AstraPageTitle._initFullScreenHeight();
@@ -27,19 +24,19 @@
 		 * @since 1.1.4
 		 * @access private
 		 * @method _initBackgrounds
-		 */ 
-		_initBackgrounds: function()
-		{
-			var win = $(window);
-			
-			// Init parallax backgrounds.
-			if( $('.ast-advanced-headers-parallax').length > 0 ) {
-
-				AstraPageTitle._scrollParallaxBackgrounds();
-				win.on('scroll', AstraPageTitle._scrollParallaxBackgrounds);
-				win.on('resize', AstraPageTitle._scrollParallaxBackgrounds);
+		 */
+		_initBackgrounds: function () {
+			if (
+				document.querySelectorAll(".ast-advanced-headers-parallax").length > 0
+			) {
+				AstraPageTitle._scrollParallaxBackground();
+				window.addEventListener("scroll", function () {
+					AstraPageTitle._scrollParallaxBackgrounds();
+				});
+				window.addEventListener("resize", function () {
+					AstraPageTitle._scrollParallaxBackgrounds();
+				});
 			}
-			
 		},
 
 		/**
@@ -49,11 +46,13 @@
 		 * @since 1.1.4
 		 * @access private
 		 * @method _scrollParallaxBackgrounds
-		 */ 
-		_scrollParallaxBackgrounds: function()
-		{
-
-			$('.ast-advanced-headers-parallax').each(AstraPageTitle._scrollParallaxBackground);
+		 */
+		_scrollParallaxBackgrounds: function () {
+			document
+				.querySelectorAll(".ast-advanced-headers-parallax")
+				.forEach((element) => {
+					AstraPageTitle._scrollParallaxBackground();
+				});
 		},
 		/**
 		 * Fires when the window is scrolled to adjust
@@ -62,33 +61,36 @@
 		 * @since 1.1.4
 		 * @access private
 		 * @method _scrollParallaxBackgrounds
-		 */ 
-		_scrollParallaxBackground: function()
-		{
+		 */
+		_scrollParallaxBackground: function () {
+			const content = document.querySelector(".ast-advanced-headers-parallax");
 
-			var win     = $(window),
-				row     = $(this),
-				content = row,
-				speed   = row.data('parallax-speed'),
-				device   = row.data('parallax-device'),
-				offset  = content.offset();
-				yPos    = -((win.scrollTop() - offset.top) / speed);
+			const rect = content.getBoundingClientRect();
 
-				if( 'both' === device ) {
-					content.css('background-position', 'center ' + yPos + 'px');
-				} else if( 'desktop' === device ) {
-					if( $( 'body' ).hasClass( 'ast-desktop' ) ) {
-						content.css('background-position', 'center ' + yPos + 'px');
-					} else {
-						content.css('background-position', '');
-					}
+			const offset = {
+				top: rect.top + window.scrollY,
+				left: rect.left + window.scrollX,
+			};
+
+			const speed = content.getAttribute("data-parallax-speed"),
+				device = content.getAttribute("data-parallax-device"),
+				yPos = -((window.scrollY - offset.top) / speed);
+
+			if ("both" === device) {
+				content.style.backgroundPosition = "center " + yPos + "px";
+			} else if ("desktop" === device) {
+				if (document.body.classList.contains("ast-desktop")) {
+					content.style.backgroundPosition = "center " + yPos + "px";
 				} else {
-					if( $( 'body' ).hasClass( 'ast-header-break-point' ) ) {
-						content.css('background-position', 'center ' + yPos + 'px');
-					} else {
-						content.css('background-position', '');
-					}
+					content.style.backgroundPosition = "";
 				}
+			} else {
+				if (document.body.classList.contains("ast-header-break-point")) {
+					content.style.backgroundPosition = "center " + yPos + "px";
+				} else {
+					content.style.backgroundPosition = "";
+				}
+			}
 		},
 		/**
 		 * Fires when the Advanced Headers full screen selected.
@@ -96,30 +98,31 @@
 		 * @since 1.1.4
 		 * @access private
 		 * @method _initFullScreenHeight
-		 */ 
-		_initFullScreenHeight: function()
-		{
-			// Set up the resize timer
-			var ResizeTime,
-			    win     = $(window);
-			if ( $('.ast-full-advanced-header')[0] ) {
+		 */
+		_initFullScreenHeight: function () {
+			let ResizeTime;
+			if (document.querySelectorAll(".ast-full-advanced-header") && document.querySelectorAll(".ast-full-advanced-header")[0]) {
 				// Initiate full window height on resize
 				AstraPageTitle._astraPageFullHeader();
 
-				var width = win.width();
-				win.resize(function() {
-					if(win.width() != width){
+				let width = window.innerWidth;
+				window.addEventListener("resize", function () {
+					if (window.innerWidth != width) {
 						clearTimeout(ResizeTime);
-						ResizeTime = setTimeout(AstraPageTitle._astraPageFullHeader, 200);
-						width = win.width();
+						ResizeTime = setTimeout(function () {
+							AstraPageTitle._astraPageFullHeader();
+						}, 200);
+						width = window.innerWidth;
 					}
 				});
-				
-				win.on( "orientationchange", function( event ) {
-					if(win.width() != width){
+
+				window.addEventListener("orientationchange", function () {
+					if (window.innerWidth != width) {
 						clearTimeout(ResizeTime);
-						ResizeTime = setTimeout(AstraPageTitle._astraPageFullHeader, 200);
-						width = win.width();
+						ResizeTime = setTimeout(function () {
+							AstraPageTitle._astraPageFullHeader();
+						}, 200);
+						width = window.innerWidth;
 					}
 				});
 			}
@@ -130,28 +133,31 @@
 		 * @since 1.1.4
 		 * @access private
 		 * @method _astraPageFullHeader
-		 */ 
-		_astraPageFullHeader: function()
-		{
-			// If we're not using a full screen element, bail.
-			if ( ! $( '.ast-full-advanced-header' ).length )
+		 */
+		_astraPageFullHeader: function () {
+			if (!document.querySelectorAll(".ast-full-advanced-header").length)
 				return;
-			
-			// Set up some variables
-			var window_height = $( window ).height();
-			
-			// Get any space above our page header
-			var offset = $(".ast-full-advanced-header").offset().top;
 
-			// Apply the height to our div
-			$( '.ast-full-advanced-header' ).css( 'height', window_height - offset + 'px' );
+			const window_height = window.innerHeight;
 
+			const rect = document
+				.querySelector(".ast-full-advanced-header")
+				.getBoundingClientRect();
+
+			const offset = rect.top + window.scrollY;
+
+			document.querySelector(".ast-full-advanced-header").style.height =
+				window_height - offset + "px";
 		},
-	}
+	};
 
 	/* Initializes the Astra Advanced Headers. */
-	$(function(){
+	const domReady = function (callback) {
+		document.readyState === "interactive" || document.readyState === "complete"
+			? callback()
+			: document.addEventListener("DOMContentLoaded", callback);
+	};
+	domReady(function () {
 		AstraPageTitle.init();
 	});
-
-})(jQuery);
+})();

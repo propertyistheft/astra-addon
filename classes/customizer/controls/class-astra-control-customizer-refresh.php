@@ -3,8 +3,6 @@
  * Customizer Control: Customizer Refresh
  *
  * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       1.5.0
  */
@@ -30,7 +28,6 @@ if ( ! class_exists( 'Astra_Control_Customizer_Refresh' ) && class_exists( 'WP_C
 		/**
 		 * The control type.
 		 *
-		 * @access public
 		 * @var string
 		 */
 		public $type = 'ast-customizer-refresh';
@@ -38,7 +35,6 @@ if ( ! class_exists( 'Astra_Control_Customizer_Refresh' ) && class_exists( 'WP_C
 		/**
 		 * The color with opacity rgba type.
 		 *
-		 * @access public
 		 * @var string
 		 */
 		public $class = '';
@@ -61,8 +57,6 @@ if ( ! class_exists( 'Astra_Control_Customizer_Refresh' ) && class_exists( 'WP_C
 		 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
 		 *
 		 * @see WP_Customize_Control::print_template()
-		 *
-		 * @access protected
 		 */
 		protected function content_template() {
 			?>

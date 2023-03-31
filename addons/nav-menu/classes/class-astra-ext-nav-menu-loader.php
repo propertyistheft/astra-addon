@@ -67,15 +67,13 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 			add_action( 'astra_addon_get_js_files', array( $this, 'add_scripts' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
-			add_filter( 'wp_footer', array( $this, 'megamenu_style' ) );
+			add_action( 'wp_footer', array( $this, 'megamenu_style' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
-
 		}
 
 		/**
 		 * Load page builder scripts and styles.
 		 *
-		 * @access public
 		 * @return void
 		 */
 		public function load_scripts() {
@@ -100,12 +98,13 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 					}
 				}
 			}
+
+			wp_register_style( 'astra-addon-megamenu-dynamic', ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/css/minified/magamenu-frontend.min.css', array(), ASTRA_EXT_VER );
 		}
 
 		/**
 		 * Load UAG scripts and styles.
 		 *
-		 * @access public
 		 * @return void
 		 *
 		 * @since 2.6.0
@@ -139,7 +138,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		/**
 		 * Include admin scripts on navigation menu screen.
 		 *
-		 * @access public
 		 * @return void
 		 */
 		public function admin_scripts() {
@@ -332,7 +330,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		public function megamenu_style() {
 			if ( '' != self::$mega_menu_style ) {
 				// Placeholder style.
-				wp_register_style( 'astra-addon-megamenu-dynamic', false ); // phpcs:ignore
 				wp_enqueue_style( 'astra-addon-megamenu-dynamic' );
 				wp_add_inline_style( 'astra-addon-megamenu-dynamic', self::$mega_menu_style );
 			}

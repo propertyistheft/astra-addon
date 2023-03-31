@@ -7,7 +7,7 @@ if ( ! function_exists( 'ipq_get_theme_image' ) ) {
 	 * image. If any of the image sizes don't currently exist, they are queued for
 	 * creation by a background process. Example:
 	 *
-	 * echo ipq_get_theme_image( 1353, array(
+	 * For echoing - echo ipq_get_theme_image( 1353, array(
 	 *         array( 600, 400, false ),
 	 *         array( 1280, 720, false ),
 	 *         array( 1600, 1067, false ),
@@ -34,7 +34,7 @@ if ( ! function_exists( 'ipq_get_theme_image_url' ) ) {
 	 * for the image. If the image size does not currently exist, it is queued for
 	 * creation by a background process. Example:
 	 *
-	 * echo ipq_get_theme_image_url( 1353, array( 600, 400, false ) );
+	 * For echoing - echo ipq_get_theme_image_url( 1353, array( 600, 400, false ) );
 	 *
 	 * @param int   $post_id
 	 * @param array $size

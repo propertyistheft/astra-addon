@@ -32,15 +32,15 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 	<div class="ast-woo-grid-orders-container">
 		<?php
 		foreach ( $customer_orders->orders as $customer_order ) {
-			$order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-			$item_count = $order->get_item_count() - $order->get_item_count_refunded();
+			$an_order   = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			$item_count = $an_order->get_item_count() - $an_order->get_item_count_refunded();
 			?>
-				<div class="ast-orders-table__row ast-orders-table__row--status-<?php echo esc_attr( $order->get_status() ); ?> order">
+				<div class="ast-orders-table__row ast-orders-table__row--status-<?php echo esc_attr( $an_order->get_status() ); ?> order">
 				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
 
 						<div class="ast-orders-table__cell ast-orders-table__cell-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
 							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
-								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
+								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $an_order ); ?>
 
 								<?php
 							elseif ( 'order-number' === $column_id ) :
@@ -49,7 +49,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 								$product_filter_image_size = apply_filters( 'astra_ordered_product_image_size', array( 60, 60 ) );
 								$placeholder_image         = sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( $product_filter_image_size ) ), esc_html__( 'Awaiting product image', 'astra-addon' ) );
 
-								foreach ( $order->get_items() as $item_id => $item_values ) {
+								foreach ( $an_order->get_items() as $item_id => $item_values ) {
 									$product_image  = get_the_post_thumbnail( $item_values->get_product_id(), $product_filter_image_size );
 									$featured_image = $product_image ? $product_image : $placeholder_image;
 									echo wp_kses_post( $featured_image );
@@ -58,23 +58,23 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 								?>
 
 							<?php elseif ( 'order-date' === $column_id ) : ?>
-								<strong class="ast-woo-order-date"> <time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time> </strong>
+								<strong class="ast-woo-order-date"> <time datetime="<?php echo esc_attr( $an_order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $an_order->get_date_created() ) ); ?></time> </strong>
 
 							<?php elseif ( 'order-status' === $column_id ) : ?>
-								<?php echo esc_html( __( 'Status - ', 'astra-addon' ) . wc_get_order_status_name( $order->get_status() ) ); ?>
+								<?php echo esc_html( __( 'Status - ', 'astra-addon' ) . wc_get_order_status_name( $an_order->get_status() ) ); ?>
 
 							<?php elseif ( 'order-total' === $column_id ) : ?>
 								<?php
 									/* translators: 1: formatted order total 2: total order items */
-									echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'astra-addon' ), $order->get_formatted_order_total(), $item_count ) );
+									echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'astra-addon' ), $an_order->get_formatted_order_total(), $item_count ) );
 								?>
 
 							<?php elseif ( 'order-actions' === $column_id ) : ?>
 								<?php
-									$actions = wc_get_account_orders_actions( $order );
+									$actions = wc_get_account_orders_actions( $an_order );
 								if ( ! empty( $actions ) ) {
-									foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-										echo '<a href="' . esc_url( $action['url'] ) . '" class="' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+									foreach ( $actions as $key => $order_action ) {
+										echo '<a href="' . esc_url( $order_action['url'] ) . '" class="' . sanitize_html_class( $key ) . '">' . esc_html( $order_action['name'] ) . '</a>';
 									}
 								}
 								?>

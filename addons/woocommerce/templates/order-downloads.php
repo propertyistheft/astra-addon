@@ -23,8 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <section class="ast-woo-grid-orders-container">
-	<?php if ( isset( $args['show_title'] ) ) : ?>
-		<h2 class="woocommerce-order-downloads__title"><?php esc_html_e( 'Downloads', 'astra-addon' ); ?></h2>
+	<?php
+	if ( isset( $args['show_title'] ) ) :
+		$my_acccount_download_title = astra_get_option( 'my-account-download-text' );
+		?>
+		<h2 class="woocommerce-order-downloads__title"><?php echo esc_html( $my_acccount_download_title ); ?></h2>
 	<?php endif; ?>
 
 	<div class="ast-orders-table__row shop_table shop_table_responsive order_details">
@@ -43,6 +46,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 					if ( has_action( 'woocommerce_account_downloads_column_' . $column_id ) ) {
 						do_action( 'woocommerce_account_downloads_column_' . $column_id, $download );
 					} else {
+
+						$download_remaining_text  = astra_get_option( 'my-account-download-remaining-text' ) . ' ';
+						$download_expire_text     = astra_get_option( 'my-account-download-expire-text' ) . ' ';
+						$download_expire_alt_text = astra_get_option( 'my-account-download-expire-alt-text' ) . ' ';
+
 						switch ( $column_id ) {
 							case 'download-product':
 								if ( $download['product_url'] ) {
@@ -52,18 +60,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 								}
 								break;
 							case 'download-file':
-								echo '<a href="' . esc_url( $download['download_url'] ) . '" class="woocommerce-MyAccount-downloads-file alt">' . Astra_Builder_UI_Controller::fetch_svg_icon( 'download', false ) . esc_html( $download['download_name'] ) . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo '<a href="' . esc_url( $download['download_url'] ) . '" class="woocommerce-MyAccount-downloads-file alt">' . wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'download', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) . esc_html( $download['download_name'] ) . '</a>';
 								break;
 							case 'download-remaining':
-								esc_html_e( 'Downloads Remaining: ', 'astra-addon' );
+								echo esc_html( $download_remaining_text );
 								echo is_numeric( $download['downloads_remaining'] ) ? esc_html( $download['downloads_remaining'] ) : esc_html__( '&infin;', 'astra-addon' );
 								break;
 							case 'download-expires':
-								esc_html_e( 'Expires: ', 'astra-addon' );
+								echo esc_html( $download_expire_text );
 								if ( ! empty( $download['access_expires'] ) ) {
-									echo '<time datetime="' . esc_attr( date( 'Y-m-d', strtotime( $download['access_expires'] ) ) ) . '" title="' . esc_attr( strtotime( $download['access_expires'] ) ) . '">' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $download['access_expires'] ) ) ) . '</time>'; // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+									echo '<time datetime="' . esc_attr( gmdate( 'Y-m-d', strtotime( $download['access_expires'] ) ) ) . '" title="' . esc_attr( strtotime( $download['access_expires'] ) ) . '">' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $download['access_expires'] ) ) ) . '</time>';
 								} else {
-									esc_html_e( 'Never', 'astra-addon' );
+									echo esc_html( $download_expire_alt_text );
 								}
 								break;
 						}

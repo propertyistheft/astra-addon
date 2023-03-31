@@ -17,7 +17,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Advanced_Hooks { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Advanced_Hooks {
 		// @codingStandardsIgnoreEnd
 
 		/**

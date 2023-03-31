@@ -94,7 +94,6 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 		/**
 		 * Load page builder scripts and styles.
 		 *
-		 * @access public
 		 * @return void
 		 */
 		public function load_scripts() {
@@ -203,9 +202,7 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 						<div class="main-navigation">
 							<ul id="primary-menu" class="main-header-menu" aria-expanded="false">
 								<?php do_action( 'astra_merge_header_before_menu' ); ?>
-
-								<?php echo $above_header_markup . $below_header_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Echoing required markup on the frontend for dynamic section. ?>
-
+								<?php echo do_shortcode( $above_header_markup . $below_header_markup ); ?>
 								<?php do_action( 'astra_merge_header_after_menu' ); ?>
 							</ul>
 					</div>
@@ -928,7 +925,7 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 						echo '<div class="below-header-user-select ' . esc_attr( $section_class ) . '">';
 						foreach ( $sections as $key => $value ) {
 							echo '<div class="user-select">';
-							echo $value; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Echoing required markup on the frontend for dynamic section.
+							echo do_shortcode( $value );
 							echo '</div>';
 						}
 						echo '</div>';
@@ -1245,11 +1242,11 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Markup' ) ) {
 		 */
 		public function add_options( $meta_option ) {
 			$meta_option['ast-below-header-display'] = array(
-				'sanitize' => 'FILTER_DEFAULT',
+				'sanitize' => 'FILTER_SANITIZE_STRING',
 				'default'  => astra_get_option( 'ast-below-header-display' ),
 			);
 			$meta_option['ast-above-header-display'] = array(
-				'sanitize' => 'FILTER_DEFAULT',
+				'sanitize' => 'FILTER_SANITIZE_STRING',
 				'default'  => '',
 			);
 			return $meta_option;

@@ -3,8 +3,6 @@
  * Menu Styling Loader for Astra Addon.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 3.3.0
  */

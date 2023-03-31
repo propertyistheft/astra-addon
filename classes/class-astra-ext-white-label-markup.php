@@ -13,7 +13,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_White_Label_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_White_Label_Markup {
 		// @codingStandardsIgnoreEnd
 
 		/**

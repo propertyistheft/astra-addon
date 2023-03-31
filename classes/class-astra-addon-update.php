@@ -17,7 +17,6 @@ if ( ! class_exists( 'Astra_Addon_Update' ) ) {
 		/**
 		 * Class instance.
 		 *
-		 * @access private
 		 * @var $instance Class instance.
 		 */
 		private static $instance;

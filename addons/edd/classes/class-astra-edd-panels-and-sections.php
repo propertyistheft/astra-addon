@@ -3,8 +3,6 @@
  * Register customizer panels & sections.
  *
  * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.6.10
  */
@@ -25,7 +23,7 @@ if ( ! class_exists( 'Astra_Edd_Panels_And_Sections' ) ) {
 	 * Register Easy Digital Downloads Panels and sections Layout Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Edd_Panels_And_Sections extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Edd_Panels_And_Sections extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

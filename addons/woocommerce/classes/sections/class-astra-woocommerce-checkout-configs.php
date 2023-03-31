@@ -3,8 +3,6 @@
  * Shop Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 1.4.3
  */
@@ -193,6 +191,124 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_place_order_text' ),
 					),
 					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
+							'operator' => '==',
+							'value'    => 'modern',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[two-step-checkout]',
+							'operator' => '==',
+							'value'    => false,
+						),
+					),
+				),
+
+				/**
+				 * Option: Checkout payment text.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[checkout-payment-text]',
+					'default'   => astra_get_option( 'checkout-payment-text' ),
+					'section'   => 'woocommerce_checkout',
+					'title'     => __( 'Payment Text', 'astra-addon' ),
+					'type'      => 'control',
+					'control'   => 'text',
+					'transport' => 'postMessage',
+					'priority'  => 5,
+					'partial'   => array(
+						'selector'            => '#ast-payment_options_heading',
+						'container_inclusive' => false,
+						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_payment_text' ),
+						'fallback_refresh'    => false,
+					),
+					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
+							'operator' => '==',
+							'value'    => 'modern',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[two-step-checkout]',
+							'operator' => '==',
+							'value'    => false,
+						),
+					),
+				),
+
+				/**
+				 * Option: Checkout customer information text.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[checkout-customer-information-text]',
+					'default'   => astra_get_option( 'checkout-customer-information-text' ),
+					'section'   => 'woocommerce_checkout',
+					'title'     => __( 'Customer information Text', 'astra-addon' ),
+					'type'      => 'control',
+					'control'   => 'text',
+					'transport' => 'postMessage',
+					'priority'  => 5,
+					'partial'   => array(
+						'selector'            => '.ast-checkout-form-heading h3',
+						'container_inclusive' => false,
+						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_customer_information_text' ),
+						'fallback_refresh'    => false,
+					),
+					'context'   => array(
+						astra_addon_builder_helper()->general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
+							'operator' => '==',
+							'value'    => 'modern',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[two-step-checkout]',
+							'operator' => '==',
+							'value'    => false,
+						),
+					),
+				),
+
+				/**
+				 * Option: Checkout show summary text.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[checkout-show-summary-text]',
+					'default'  => astra_get_option( 'checkout-show-summary-text' ),
+					'section'  => 'woocommerce_checkout',
+					'title'    => __( 'Show Summary Text', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'text',
+					'priority' => 5,
+					'context'  => array(
+						astra_addon_builder_helper()->general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
+							'operator' => '==',
+							'value'    => 'modern',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[two-step-checkout]',
+							'operator' => '==',
+							'value'    => false,
+						),
+					),
+				),
+
+				/**
+				 * Option: Checkout hide summary text.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[checkout-hide-summary-text]',
+					'default'  => astra_get_option( 'checkout-hide-summary-text' ),
+					'section'  => 'woocommerce_checkout',
+					'title'    => __( 'Hide Summary Text', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'text',
+					'priority' => 5,
+					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
@@ -431,6 +547,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'selector'            => '.ast-embed-checkout-form-steps .step-one .step-name',
 						'container_inclusive' => false,
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_one_title' ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -463,6 +580,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'selector'            => '.ast-embed-checkout-form-steps .step-one .step-sub-name',
 						'container_inclusive' => false,
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_one_sub_title' ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -495,6 +613,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'selector'            => '.ast-embed-checkout-form-steps .step-two .step-name',
 						'container_inclusive' => false,
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_title' ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -527,6 +646,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'selector'            => '.ast-embed-checkout-form-steps .step-two .step-sub-name',
 						'container_inclusive' => false,
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_sub_title' ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -559,6 +679,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'selector'            => '.ast-next-button-content .ast-button-text',
 						'container_inclusive' => false,
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_button_text' ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -591,6 +712,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'selector'            => '.ast-next-button-content .ast-button-sub-text',
 						'container_inclusive' => false,
 						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_checkout_step_two_button_sub_text' ),
+						'fallback_refresh'    => false,
 					),
 					'context'   => array(
 						astra_addon_builder_helper()->general_tab_config,

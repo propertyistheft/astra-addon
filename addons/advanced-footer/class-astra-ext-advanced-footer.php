@@ -16,7 +16,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Footer' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Advanced_Footer { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Advanced_Footer {
 		// @codingStandardsIgnoreEnd
 
 		/**

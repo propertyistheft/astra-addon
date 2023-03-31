@@ -515,22 +515,22 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 		public function add_options( $meta_option ) {
 
 			$meta_option['stick-header-meta'] = array(
-				'sanitize' => 'FILTER_DEFAULT',
+				'sanitize' => 'FILTER_SANITIZE_STRING',
 				'default'  => astra_get_option_meta( 'stick-header-meta' ),
 			);
 
 			$meta_option['header-main-stick-meta'] = array(
-				'sanitize' => 'FILTER_DEFAULT',
+				'sanitize' => 'FILTER_SANITIZE_STRING',
 				'default'  => astra_get_option_meta( 'header-main-stick-meta' ),
 			);
 
 			if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
 				$meta_option['header-above-stick-meta'] = array(
-					'sanitize' => 'FILTER_DEFAULT',
+					'sanitize' => 'FILTER_SANITIZE_STRING',
 					'default'  => astra_get_option_meta( 'header-above-stick-meta' ),
 				);
 				$meta_option['header-below-stick-meta'] = array(
-					'sanitize' => 'FILTER_DEFAULT',
+					'sanitize' => 'FILTER_SANITIZE_STRING',
 					'default'  => astra_get_option_meta( 'header-below-stick-meta' ),
 				);
 			}

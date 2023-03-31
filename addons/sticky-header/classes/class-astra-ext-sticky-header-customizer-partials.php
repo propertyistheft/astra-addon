@@ -3,8 +3,6 @@
  * Customizer Partial.
  *
  * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -32,7 +30,6 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Customizer_Partials' ) ) {
 		/**
 		 * Instance
 		 *
-		 * @access private
 		 * @var object
 		 */
 		private static $instance;

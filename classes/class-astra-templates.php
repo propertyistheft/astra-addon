@@ -14,7 +14,6 @@ if ( ! function_exists( 'astra_addon_get_template' ) ) {
 	/**
 	 * Get other templates (e.g. blog layout 2/3, advanced footer layout 1/2/3/etc) passing attributes and including the file.
 	 *
-	 * @access public
 	 * @param string $template_name template path. E.g. (directory / template.php).
 	 * @param array  $args (default: array()).
 	 * @param string $template_path (default: '').
@@ -56,7 +55,6 @@ if ( ! function_exists( 'astra_addon_locate_template' ) ) {
 	 *      yourtheme       /   $template_name
 	 *      $default_path   /   $template_name
 	 *
-	 * @access public
 	 * @param string $template_name template path. E.g. (directory / template.php).
 	 * @param string $template_path (default: '').
 	 * @param string $default_path (default: '').

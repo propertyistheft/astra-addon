@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Addon_Visual_Composer_Compatibility' ) ) :
 		 *
 		 * @since 1.6.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;

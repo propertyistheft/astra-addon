@@ -24,7 +24,7 @@
 			AstraAdvancedHooks.initLayoutSettings();
 			AstraAdvancedHooks.timeDurationEnabled();
 
-			if( document.body.classList.contains('block-editor-page') ) {
+			if( astraCustomHookVars.is_complete_package && document.body.classList.contains('block-editor-page') ) {
 				wp.data.subscribe(function () {
 					setTimeout( function () {
 						AstraAdvancedHooks.code_editor_switcher();

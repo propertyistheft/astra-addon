@@ -57,9 +57,9 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 		 * @return string
 		 */
 		public function disable_woo_cart_msg( $message, $product_id ) {
-			$is_ajax_add_to_cart = astra_get_option( 'single-product-ajax-add-to-cart' );
+			$is_ajax_add_to_cart = astra_get_option( 'single-product-add-to-cart-action' );
 
-			if ( wp_doing_ajax() && '1' == $is_ajax_add_to_cart ) {
+			if ( wp_doing_ajax() && $is_ajax_add_to_cart && 'default' !== $is_ajax_add_to_cart ) {
 				return null;
 			}
 
@@ -240,7 +240,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['single-product-recently-viewed-display'] = false;
 			$defaults['single-product-recently-viewed-text']    = __( 'Recently Viewed Products', 'astra-addon' );
 			$defaults['single-product-image-zoom-effect']       = true;
-			$defaults['single-product-ajax-add-to-cart']        = false;
+			$defaults['single-product-add-to-cart-action']      = 'default';
 			$defaults['single-product-related-upsell-grid']     = array(
 				'desktop' => 4,
 				'tablet'  => 3,
@@ -318,6 +318,14 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['two-step-checkout-modern-step-1-sub-text'] = __( 'Where to ship it?', 'astra-addon' );
 			$defaults['two-step-checkout-modern-step-2-text']     = __( 'Payment', 'astra-addon' );
 			$defaults['two-step-checkout-modern-step-2-sub-text'] = __( 'Of your order', 'astra-addon' );
+
+			$defaults['checkout-payment-text']              = __( 'Payment', 'astra-addon' );
+			$defaults['woo-coupon-text']                    = __( 'Have a coupon?', 'astra-addon' );
+			$defaults['woo-coupon-input-text']              = __( 'Coupon code', 'astra-addon' );
+			$defaults['woo-coupon-apply-text']              = __( 'Apply', 'astra-addon' );
+			$defaults['checkout-customer-information-text'] = __( 'Customer information', 'astra-addon' );
+			$defaults['checkout-show-summary-text']         = __( 'Show Order Summary', 'astra-addon' );
+			$defaults['checkout-hide-summary-text']         = __( 'Hide Order Summary', 'astra-addon' );
 
 			// General.
 			$defaults['astra-woocommerce-cart-icons-flag'] = true;
@@ -514,6 +522,17 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['modern-woo-account-view']  = $astra_addon_update_modern_shop_defaults ? true : false;
 			$defaults['my-account-user-gravatar'] = $astra_addon_update_modern_shop_defaults ? true : false;
 			$defaults['show-woo-grid-orders']     = $astra_addon_update_modern_shop_defaults ? true : false;
+
+			$defaults['my-account-download-text']            = __( 'Downloads', 'astra-addon' );
+			$defaults['my-account-download-remaining-text']  = __( 'Downloads Remaining:', 'astra-addon' );
+			$defaults['my-account-download-expire-text']     = __( 'Expires:', 'astra-addon' );
+			$defaults['my-account-download-expire-alt-text'] = __( 'Never', 'astra-addon' );
+
+			$defaults['my-account-register-description-text'] = __( 'Not a member?', 'astra-addon' );
+			$defaults['my-account-register-text']             = __( 'Register', 'astra-addon' );
+
+			$defaults['my-account-login-description-text'] = __( 'Already a member?', 'astra-addon' );
+			$defaults['my-account-login-text']             = __( 'Login', 'astra-addon' );
 
 			return $defaults;
 		}

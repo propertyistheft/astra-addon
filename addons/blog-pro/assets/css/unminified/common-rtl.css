@@ -118,7 +118,8 @@
   margin-bottom: 1em;
 }
 
-.ast-page-builder-template.single .post-navigation {
+.ast-narrow-container.single .post-navigation,
+.ast-plain-container.single .post-navigation {
   margin-top: 2em;
 }
 

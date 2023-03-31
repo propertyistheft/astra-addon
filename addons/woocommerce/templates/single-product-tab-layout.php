@@ -43,8 +43,8 @@ if ( ! empty( $product_tabs ) ) : ?>
 					<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
 					<?php
 					if ( 'accordion' === $product_tabs_type ) {
-						echo Astra_Builder_UI_Controller::fetch_svg_icon( 'plus', false );  // phpcs:ignore
-						echo Astra_Builder_UI_Controller::fetch_svg_icon( 'minus', false );  // phpcs:ignore
+						echo wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'plus', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() );
+						echo wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'minus', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() );
 					}
 					?>
 				</h3>

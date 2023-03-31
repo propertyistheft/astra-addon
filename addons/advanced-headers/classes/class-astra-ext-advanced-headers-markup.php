@@ -13,7 +13,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Advanced_Headers_Markup { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Advanced_Headers_Markup {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -423,7 +423,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 				);
 			}
 
-			if ( 'disable' !== $advanced_headers_layout ) {
+			if ( $advanced_headers_layout && 'disable' !== $advanced_headers_layout ) {
 				// Add markup.
 				astra_addon_get_template( 'advanced-headers/template/' . $advanced_headers_layout . '.php' );
 			}
@@ -431,10 +431,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			echo '</div>';
 
 			// Page Header with no content is selected.
-			if ( 'disable' != $advanced_headers_layout ) {
+			if ( $advanced_headers_layout && 'disable' !== $advanced_headers_layout ) {
 				add_filter( 'astra_the_title_enabled', '__return_false' );
 			}
-
 		}
 
 		/**
@@ -550,7 +549,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 		public function add_options( $meta_option ) {
 
 			$meta_option['adv-header-id-meta'] = array(
-				'sanitize' => 'FILTER_DEFAULT',
+				'sanitize' => 'FILTER_SANITIZE_STRING',
 				'default'  => astra_get_option_meta( 'adv-header-id-meta' ),
 			);
 

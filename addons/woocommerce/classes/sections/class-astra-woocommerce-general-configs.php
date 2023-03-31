@@ -3,8 +3,6 @@
  * Woocommerce General Options for our theme.
  *
  * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.4.3
  */
@@ -606,6 +604,87 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'priority'   => 25,
 					'context'    => array(
 						astra_addon_builder_helper()->general_tab_config,
+					),
+				),
+
+				/**
+				* Option: Woo cart empty featured product
+				*/
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[woo-cart-empty-featured-product]',
+					'default'     => astra_get_option( 'woo-cart-empty-featured-product' ),
+					'type'        => 'control',
+					'control'     => Astra_Theme_Extension::$switch_control,
+					'section'     => $_section,
+					'title'       => __( 'Show Featured Product', 'astra-addon' ),
+					'description' => __( 'Show featured product inside flyout cart when cart is empty', 'astra-addon' ),
+					'priority'    => 59,
+				),
+
+				/**
+				 * Option: Divider.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-coupon-text-divider]',
+					'section'  => 'section-woo-misc',
+					'title'    => __( 'Coupon Inputs', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 59,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
+				 * Option: Coupon text.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[woo-coupon-text]',
+					'default'   => astra_get_option( 'woo-coupon-text' ),
+					'section'   => 'section-woo-misc',
+					'title'     => __( 'Coupon Text', 'astra-addon' ),
+					'type'      => 'control',
+					'control'   => 'text',
+					'transport' => 'postMessage',
+					'priority'  => 59,
+					'partial'   => array(
+						'selector'            => '#ast-coupon-trigger',
+						'container_inclusive' => false,
+						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_coupon_text' ),
+						'fallback_refresh'    => false,
+					),
+				),
+
+				/**
+				 * Option: Coupon text.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-coupon-input-text]',
+					'default'  => astra_get_option( 'woo-coupon-input-text' ),
+					'section'  => 'section-woo-misc',
+					'title'    => __( 'Coupon Input Text', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'text',
+					'priority' => 59,
+				),
+
+				/**
+				 * Option: Coupon text.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[woo-coupon-apply-text]',
+					'default'   => astra_get_option( 'woo-coupon-apply-text' ),
+					'section'   => 'section-woo-misc',
+					'title'     => __( 'Coupon Apply Text', 'astra-addon' ),
+					'type'      => 'control',
+					'control'   => 'text',
+					'transport' => 'postMessage',
+					'priority'  => 59,
+					'partial'   => array(
+						'selector'            => '#ast-apply-coupon',
+						'container_inclusive' => false,
+						'render_callback'     => array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'render_coupon_apply_text' ),
+						'fallback_refresh'    => false,
 					),
 				),
 

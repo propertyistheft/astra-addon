@@ -3,8 +3,6 @@
  * Blog Pro General Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.4.3
  */
@@ -30,7 +28,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 	 * Register General Customizer Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Customizer_Blog_Pro_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Customizer_Blog_Pro_Configs extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -44,38 +42,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
-
-				/**
-				 * Option: Display Post Meta
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[blog-meta]',
-					'type'              => 'control',
-					'control'           => 'ast-sortable',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-					'section'           => 'section-blog',
-					'default'           => astra_get_option( 'blog-meta' ),
-					'priority'          => 50,
-					'title'             => __( 'Meta', 'astra-addon' ),
-					'choices'           => array(
-						'comments'  => __( 'Comments', 'astra-addon' ),
-						'category'  => __( 'Category', 'astra-addon' ),
-						'author'    => __( 'Author', 'astra-addon' ),
-						'date'      => __( 'Publish Date', 'astra-addon' ),
-						'tag'       => __( 'Tag', 'astra-addon' ),
-						'read-time' => __( 'Read Time', 'astra-addon' ),
-					),
-					'context'           => array(
-						astra_addon_builder_helper()->general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
-							'operator' => 'contains',
-							'value'    => 'title-meta',
-						),
-					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
-				),
-
 				/**
 				 * Option: Divider
 				 */

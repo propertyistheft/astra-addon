@@ -3,8 +3,6 @@
  * Shop Options for our theme.
  *
  * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.6.10
  */
@@ -25,7 +23,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Typo_Configs' ) ) {
 	 * Register Easy Digital Downloads Shop Typo Layout Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Edd_Shop_Typo_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Edd_Shop_Typo_Configs extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**

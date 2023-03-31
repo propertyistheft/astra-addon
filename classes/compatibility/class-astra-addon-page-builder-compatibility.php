@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 		 *
 		 * @since 1.6.0
 		 *
-		 * @access private
 		 * @var object Class object.
 		 */
 		private static $instance;
@@ -53,7 +52,6 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 			$post_type = get_post_type( $post_id );
 
 			if ( class_exists( '\Elementor\Plugin' ) ) {
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$document = Elementor\Plugin::$instance->documents->get( $post_id ); // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
 				if ( $document ) {
 					$deprecated_handle = $document->is_built_with_elementor();
@@ -92,8 +90,9 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 					if ( $post ) {
 						return Astra_Addon_Brizy_Compatibility::get_instance();
 					}
-				} catch ( Exception $exception ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
+				} catch ( Exception $exception ) {
 					// The post type is not supported by Brizy hence Brizy should not be used render the post.
+					return;
 				}
 			}
 
@@ -117,7 +116,7 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 			$current_post = get_post( $post_id, OBJECT );
 			ob_start();
 			echo do_shortcode( $current_post->post_content );
-			echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Required to echo builder based content.
+			echo do_shortcode( ob_get_clean() );
 		}
 
 		/**

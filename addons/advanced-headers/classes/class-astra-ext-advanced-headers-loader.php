@@ -14,7 +14,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 	 * @since 1.0.0
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Ext_Advanced_Headers_Loader { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Ext_Advanced_Headers_Loader {
 		// @codingStandardsIgnoreEnd
 
 		/**
@@ -79,7 +79,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 		 * Loads classes and includes.
 		 *
 		 * @since 1.0.0
-		 * @access private
 		 * @return void
 		 */
 		private static function load_files() {

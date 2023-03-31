@@ -750,3 +750,17 @@ function astra_addon_background_updater_4_0_0() {
 		update_option( 'astra_admin_settings', $admin_dashboard_settings );
 	}
 }
+
+/**
+ * Backward handle for 4.1.0
+ *
+ * @since 4.1.0
+ * @return void
+ */
+function astra_addon_background_updater_4_1_0() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['single-product-add-to-cart-action'] ) && isset( $theme_options['single-product-ajax-add-to-cart'] ) ) {
+		$theme_options['single-product-add-to-cart-action'] = 'rt_add_to_cart';
+		update_option( 'astra-settings', $theme_options );
+	}
+}

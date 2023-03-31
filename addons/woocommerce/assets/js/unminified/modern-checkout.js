@@ -53,12 +53,6 @@ function slideInAndOutContent(trigger, triggerContent) {
 	}
 }
 
-validateEmail = function ( email ) {
-    const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return email_reg.test( email );
-};
-
-
 let xhrCountEmail = 0;
 let delayTimerEmail;
 
@@ -67,6 +61,7 @@ function validateInlineEmail() {
     const emailInput = document.querySelector( '#billing_email' );
 
     if( emailInput ) {
+        // Email or username value.
         const emailText = emailInput.value;
 
         if ( 'undefined' === typeof emailText || astraAddon.is_logged_in ) {
@@ -84,15 +79,6 @@ function validateInlineEmail() {
                 validationMsgWrap.remove();
             }
 
-            if ( ! validateEmail( emailText ) ) {
-				emailInput.insertAdjacentHTML(
-                    'afterend',
-					`<span class="ast-email-validation-block error"> ${ astraAddon.email_validation_msgs.error_msg } </span>`
-				);
-
-				return false;
-			}
-
             clearTimeout( delayTimerEmail );
 
 			const seqNumber = ++xhrCountEmail;
@@ -105,7 +91,7 @@ function validateInlineEmail() {
                 // Send the proper header information along with the request
                 xhrRequest.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
 
-                xhrRequest.send( 'action=astra_woo_check_email_exist&email_address=' + emailText + '&security=' + astraAddon.check_email_exist_nonce );
+                xhrRequest.send( 'action=astra_woo_check_user_exist&user_name_email=' + emailText + '&security=' + astraAddon.check_user_exist_nonce );
                 
                 xhrRequest.onload = function () {
                     if ( xhrRequest.readyState == XMLHttpRequest.DONE ) {   // XMLHttpRequest.DONE == 4
@@ -131,7 +117,7 @@ function validateInlineEmail() {
                                 emailInput.insertAdjacentHTML(
                                     'afterend',
                                     '<span class="ast-email-validation-block success">' +
-                                        astraAddon.email_validation_msgs
+                                        astraAddon.user_validation_msgs
                                             .success_msg +
                                         '</span>'
                                 );
@@ -144,7 +130,7 @@ function validateInlineEmail() {
                                     emailInput.insertAdjacentHTML(
                                         'afterend',
                                         '<span class="ast-email-validation-block success">' +
-                                            astraAddon.email_validation_msgs
+                                            astraAddon.user_validation_msgs
                                                 .success_msg +
                                             '</span>'
                                     );
@@ -179,7 +165,7 @@ function validateInlineEmail() {
                                     createAccountSection.style.display = 'block';
                                 }
 
-                                if( loginLabel ){
+                                if( loginLabel && '' == emailText ){
                                     loginLabel.style.display = 'none';
                                 }
 
@@ -214,6 +200,32 @@ function validateInlineEmail() {
     return false;
 }
 
+function supportNativeEmailFunctionality() {
+
+	const emailInput = document.querySelector( '#billing_email' );
+
+	if( emailInput ) {
+		// Email or username value.
+		const emailText = emailInput.value;
+
+		if ( 'undefined' === typeof emailText || astraAddon.is_logged_in ) {
+			return;
+		}
+
+		const createAccountSection  = document.querySelector( '.ast-create-account-section' );
+
+		if ( createAccountSection ) {
+			if ( '' !== emailText ) {
+				createAccountSection.style.display = 'block';
+			} else {
+				createAccountSection.style.display = 'none';
+			}
+		}
+	}
+
+	return false;
+}
+
 function woocommerceUserLogin() {
     const loginButton = document.querySelector( '.ast-customer-login-section__login-button' );
 
@@ -236,7 +248,7 @@ function woocommerceUserLogin() {
         // Send the proper header information along with the request
         xhrRequest.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
 
-        xhrRequest.send( 'action=astra_woocommerce_login_user&email=' + emailAddress.value + '&password=' + password.value + '&security=' + astraAddon.woocommerce_login_nonce );
+        xhrRequest.send( 'action=astra_woocommerce_login_user&user_name_email=' + emailAddress.value + '&password=' + password.value + '&security=' + astraAddon.woocommerce_login_nonce );
 
         xhrRequest.onload = function () {
             if ( xhrRequest.readyState == XMLHttpRequest.DONE ) {   // XMLHttpRequest.DONE == 4
@@ -265,16 +277,23 @@ document.addEventListener( "DOMContentLoaded" , function( event ) {
     
     const body = document.querySelector( 'body' );
     if( ! astraAddon.cartflows_version && body && body.classList.contains( 'woocommerce-checkout' ) ) {
+		const isNotWPComPackage = astraAddon.is_complete_package;
         const emailInput = document.querySelector( '#billing_email' );
-        emailInput.addEventListener('input', validateInlineEmail);
-        validateInlineEmail();
+		if ( isNotWPComPackage ) {
+			emailInput.addEventListener('input', validateInlineEmail);
+			validateInlineEmail();
+		} else {
+			emailInput.addEventListener('input', supportNativeEmailFunctionality);
+			supportNativeEmailFunctionality();
+		}
 
         if( body && ! body.classList.contains( 'ast-woo-two-step-modern-checkout' ) ) {
             slideInAndOutContent( '#ast-order-review-toggle', '#ast-order-review-content' );
         }
 
-        slideInAndOutContent( '#ast-customer-login-url', '#ast-customer-login-section' );
-
-        woocommerceUserLogin();
+		if ( isNotWPComPackage ) {
+			slideInAndOutContent( '#ast-customer-login-url', '#ast-customer-login-section' );
+			woocommerceUserLogin();
+		}
     }
 });

@@ -3,8 +3,6 @@
  * Blog Pro Image Resizer Options for our theme.
  *
  * @package     Astra Addon
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       1.4.3
  */
@@ -30,7 +28,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 	 * Register General Customizer Configurations.
 	 */
 	// @codingStandardsIgnoreStart
-	class Astra_Customizer_Blog_Pro_Image_Resizer_Configs extends Astra_Customizer_Config_Base { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+	class Astra_Customizer_Blog_Pro_Image_Resizer_Configs extends Astra_Customizer_Config_Base {
 		// @codingStandardsIgnoreEnd
 
 		/**
