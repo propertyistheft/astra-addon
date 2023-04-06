@@ -1,5 +1,10 @@
 *** Astra Pro Changelog ***
 
+2023-04-06 - version 4.1.4
+* Fix: Header Builder - Site Logo becomes too small for the sticky header.
+* Fix: Custom Layout - Code editor strips out the code while saving and not working properly on frontend too.
+* Fix: Search - Inline search box misaligned with respect it's search icon position.
+
 2023-03-30 - version 4.1.3
 * Fix: WooCommerce & WordPress marketplace users getting subscription notification when plugin purchased from Brainstorm Force store.
 

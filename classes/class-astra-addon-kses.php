@@ -191,14 +191,14 @@ class Astra_Addon_Kses {
 			'astra_addon_form_post_kses_protocols',
 			array_merge(
 				array(
-					'div'   => array(
+					'div'    => array(
 						'class'  => array(),
 						'id'     => array(),
 						'style'  => array(),
 						'data-*' => true,
 						'align'  => array(),
 					),
-					'form'  => array(
+					'form'   => array(
 						'class'          => array(),
 						'id'             => array(),
 						'action'         => array(),
@@ -211,7 +211,7 @@ class Astra_Addon_Kses {
 						'name'           => array(),
 						'target'         => array(),
 					),
-					'input' => array(
+					'input'  => array(
 						'class'        => array(),
 						'placeholder'  => array(),
 						'data-*'       => true,
@@ -220,6 +220,13 @@ class Astra_Addon_Kses {
 						'value'        => array(),
 						'name'         => array(),
 						'autocomplete' => array(),
+					),
+					'button' => array(
+						'class'      => array(),
+						'data-*'     => true,
+						'aria-label' => array(),
+						'value'      => array(),
+						'type'       => array(),
 					),
 				),
 				self::astra_addon_svg_kses_protocols()

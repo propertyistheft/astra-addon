@@ -1086,11 +1086,11 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 					),
 					'ast-advanced-hook-with-php'  => array(
 						'default'  => '',
-						'sanitize' => 'FILTER_SANITIZE_STRING',
+						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'ast-advanced-hook-php-code'  => array(
 						'default'  => '<!-- Add your snippet here. -->',
-						'sanitize' => 'FILTER_SANITIZE_STRING',
+						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'ast-advanced-hook-users'     => array(
 						'default'  => array(),
