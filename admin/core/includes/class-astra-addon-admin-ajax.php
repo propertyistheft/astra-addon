@@ -123,9 +123,8 @@ class Astra_Addon_Admin_Ajax {
 			wp_send_json_error( $response_data );
 		}
 
-		$module_id     = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
-		$module_status = isset( $_POST['module_status'] ) ? sanitize_text_field( $_POST['module_status'] ) : '';
-
+		$module_id                = isset( $_POST['module_id'] ) ? sanitize_text_field( $_POST['module_id'] ) : '';
+		$module_status            = isset( $_POST['module_status'] ) ? sanitize_text_field( $_POST['module_status'] ) : '';
 		$extensions               = Astra_Ext_Extension::get_enabled_addons();
 		$extensions[ $module_id ] = 'activate' === $module_status ? $module_id : false;
 		$extensions               = array_map( 'esc_attr', $extensions );

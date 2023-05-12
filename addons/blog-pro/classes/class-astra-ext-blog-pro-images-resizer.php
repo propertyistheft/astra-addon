@@ -145,11 +145,11 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 			$check_is_singular_post = is_singular( $post_types );
 
 			if ( $check_is_singular_post ) {
-
+				$current_post_type        = strval( get_post_type() );
 				$blog_single_image_width  = astra_get_option( 'blog-single-post-image-width' );
 				$blog_single_image_height = astra_get_option( 'blog-single-post-image-height' );
 
-				$blog_single_post_structure = is_callable( 'astra_banner_elements_order' ) ? astra_get_option( 'ast-dynamic-single-title-post-structure', array( 'ast-dynamic-single-title-post-title', 'ast-dynamic-single-title-post-breadcrumb' ) ) : astra_get_option( 'blog-single-post-structure' );
+				$blog_single_post_structure = is_callable( 'astra_banner_elements_order' ) ? astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-structure', array( 'ast-dynamic-single-' . $current_post_type . '-title', 'ast-dynamic-single-' . $current_post_type . '-breadcrumb' ) ) : astra_get_option( 'blog-single-' . $current_post_type . '-structure' );
 
 				$attributes = array(
 					'width'  => empty( $blog_single_image_width ) ? false : $blog_single_image_width,
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 
 				$image_id = get_post_thumbnail_id( get_the_ID(), 'full' );
 
-				if ( in_array( 'single-image', $blog_single_post_structure ) ) {
+				if ( in_array( 'single-image', $blog_single_post_structure ) || in_array( 'ast-dynamic-single-' . $current_post_type . '-image', $blog_single_post_structure ) ) {
 
 					if ( $attributes && function_exists( 'ipq_get_theme_image' ) ) {
 						$output = ipq_get_theme_image(

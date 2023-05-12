@@ -202,6 +202,19 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 		}
 
 		/**
+		 * Parse post meta of particular passed key & return its value.
+		 *
+		 * @param array  $post_meta Post meta of megamenu.
+		 * @param string $key Meta item key.
+		 *
+		 * @return mixed value of meta key.
+		 * @since 4.1.5
+		 */
+		public function get_post_meta( $post_meta, $key ) {
+			return isset( $post_meta[ $key ][0] ) ? $post_meta[ $key ][0] : '';
+		}
+
+		/**
 		 * Modified the menu output.
 		 *
 		 * @param string $output Passed by reference. Used to append additional content.
@@ -211,48 +224,48 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 		 * @param int    $id     Current item ID.
 		 */
 		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-			global $wp_query;
 
-			$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+			$indent    = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+			$post_meta = get_post_meta( $item->ID );
 
 			if ( 0 === $depth ) {
-				$this->megamenu = get_post_meta( $item->ID, '_menu_item_megamenu', true );
+				$this->megamenu = $this->get_post_meta( $post_meta, '_menu_item_megamenu' );
 
 				$this->megamenu_width = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'width', $item->ID );
 
-				$this->megamenu_custom_width = get_post_meta( $item->ID, '_menu_item_megamenu_custom_width', true );
+				$this->megamenu_custom_width = $this->get_post_meta( $post_meta, '_menu_item_megamenu_custom_width' );
 
-				$this->megamenu_bg_image = get_post_meta( $item->ID, '_menu_item_megamenu_background_image', true );
+				$this->megamenu_bg_image = $this->get_post_meta( $post_meta, '_menu_item_megamenu_background_image' );
 
 				$this->megamenu_text_color_group = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'text_color', $item->ID );
 
 				$this->megamenu_bg_type = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'bg_type', $item->ID );
 
-				$this->megamenu_bg_size     = get_post_meta( $item->ID, '_menu_item_megamenu_bg_size', true );
-				$this->megamenu_bg_repeat   = get_post_meta( $item->ID, '_menu_item_megamenu_bg_repeat', true );
-				$this->megamenu_bg_position = get_post_meta( $item->ID, '_menu_item_megamenu_bg_position', true );
+				$this->megamenu_bg_size     = $this->get_post_meta( $post_meta, '_menu_item_megamenu_bg_size' );
+				$this->megamenu_bg_repeat   = $this->get_post_meta( $post_meta, '_menu_item_megamenu_bg_repeat' );
+				$this->megamenu_bg_position = $this->get_post_meta( $post_meta, '_menu_item_megamenu_bg_position' );
 
-				$this->megamenu_bg_color = get_post_meta( $item->ID, '_menu_item_megamenu_bg_color', true );
+				$this->megamenu_bg_color = $this->get_post_meta( $post_meta, '_menu_item_megamenu_bg_color' );
 
-				$this->megamenu_bg_gradient = get_post_meta( $item->ID, '_menu_item_megamenu_gradient', true );
+				$this->megamenu_bg_gradient = $this->get_post_meta( $post_meta, '_menu_item_megamenu_gradient' );
 
-				$this->megamenu_divider_width = get_post_meta( $item->ID, '_menu_item_megamenu_divider_width', true );
+				$this->megamenu_divider_width = $this->get_post_meta( $post_meta, '_menu_item_megamenu_divider_width' );
 
 				// Common divider.
-				$this->megamenu_divider_style = get_post_meta( $item->ID, '_menu_item_megamenu_divider_style', true );
+				$this->megamenu_divider_style = $this->get_post_meta( $post_meta, '_menu_item_megamenu_divider_style' );
 
 				// Top border.
-				$this->megamenu_top_border_color = get_post_meta( $item->ID, '_menu_item_megamenu_top_border_color', true );
-				$this->megamenu_top_border_width = get_post_meta( $item->ID, '_menu_item_megamenu_top_border_width', true );
+				$this->megamenu_top_border_color = $this->get_post_meta( $post_meta, '_menu_item_megamenu_top_border_color' );
+				$this->megamenu_top_border_width = $this->get_post_meta( $post_meta, '_menu_item_megamenu_top_border_width' );
 
 				// Column divider.
-				$this->megamenu_column_divider_color = get_post_meta( $item->ID, '_menu_item_megamenu_column_divider_color', true );
-				$this->megamenu_column_divider_width = get_post_meta( $item->ID, '_menu_item_megamenu_column_divider_width', true );
+				$this->megamenu_column_divider_color = $this->get_post_meta( $post_meta, '_menu_item_megamenu_column_divider_color' );
+				$this->megamenu_column_divider_width = $this->get_post_meta( $post_meta, '_menu_item_megamenu_column_divider_width' );
 
 				// Row divider.
-				$this->megamenu_row_divider_width = get_post_meta( $item->ID, '_menu_item_megamenu_row_divider_width', true );
+				$this->megamenu_row_divider_width = $this->get_post_meta( $post_meta, '_menu_item_megamenu_row_divider_width' );
 
-				$this->megamenu_heading_color_group = get_post_meta( $item->ID, '_menu_item_megamenu_heading_color_group', true );
+				$this->megamenu_heading_color_group = $this->get_post_meta( $post_meta, '_menu_item_megamenu_heading_color_group' );
 
 				$this->num_of_columns = 0;
 
@@ -260,24 +273,24 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 
 				$margin_defaults = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'margin', $item->ID );
 
-				$this->megamenu_margin_top    = $margin_defaults['desktop']['top'];
-				$this->megamenu_margin_right  = $margin_defaults['desktop']['right'];
-				$this->megamenu_margin_bottom = $margin_defaults['desktop']['bottom'];
-				$this->megamenu_margin_left   = $margin_defaults['desktop']['left'];
+				$this->megamenu_margin_top    = isset( $margin_defaults['desktop']['top'] ) ? $margin_defaults['desktop']['top'] : '';
+				$this->megamenu_margin_right  = isset( $margin_defaults['desktop']['right'] ) ? $margin_defaults['desktop']['right'] : '';
+				$this->megamenu_margin_bottom = isset( $margin_defaults['desktop']['bottom'] ) ? $margin_defaults['desktop']['bottom'] : '';
+				$this->megamenu_margin_left   = isset( $margin_defaults['desktop']['left'] ) ? $margin_defaults['desktop']['left'] : '';
 
 				$padding_defaults = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'padding', $item->ID );
 
-				$this->megamenu_padding_top    = $padding_defaults['desktop']['top'];
-				$this->megamenu_padding_right  = $padding_defaults['desktop']['right'];
-				$this->megamenu_padding_bottom = $padding_defaults['desktop']['bottom'];
-				$this->megamenu_padding_left   = $padding_defaults['desktop']['left'];
+				$this->megamenu_padding_top    = isset( $padding_defaults['desktop']['top'] ) ? $padding_defaults['desktop']['top'] : '';
+				$this->megamenu_padding_right  = isset( $padding_defaults['desktop']['right'] ) ? $padding_defaults['desktop']['right'] : '';
+				$this->megamenu_padding_bottom = isset( $padding_defaults['desktop']['bottom'] ) ? $padding_defaults['desktop']['bottom'] : '';
+				$this->megamenu_padding_left   = isset( $padding_defaults['desktop']['left'] ) ? $padding_defaults['desktop']['left'] : '';
 			}
 
 			$this->menu_megamenu_individual_item_id = $item->ID;
-			$this->megamenu_disable_link            = get_post_meta( $item->ID, '_menu_item_megamenu_disable_link', true );
+			$this->megamenu_disable_link            = $this->get_post_meta( $post_meta, '_menu_item_megamenu_disable_link' );
 			$this->megamenu_disable_title           = Astra_Ext_Nav_Menu_Loader::get_megamenu_default( 'disable_title', $item->ID );
-			$this->megamenu_enable_heading          = get_post_meta( $item->ID, '_menu_item_megamenu_enable_heading', true );
-			$this->megamenu_separator_color         = get_post_meta( $item->ID, '_menu_item_megamenu_heading_separator_color', true );
+			$this->megamenu_enable_heading          = $this->get_post_meta( $post_meta, '_menu_item_megamenu_enable_heading' );
+			$this->megamenu_separator_color         = $this->get_post_meta( $post_meta, '_menu_item_megamenu_heading_separator_color' );
 
 			// Set up empty variable.
 			$class_names = '';

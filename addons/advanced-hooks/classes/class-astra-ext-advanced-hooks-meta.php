@@ -1797,8 +1797,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 				<tr class="ast-advanced-hook-row ast-layout-content-location-required">
 					<td class="ast-advanced-hook-row-heading">
-						<label><?php esc_html_e( 'Location on post/page', 'astra-addon' ); ?></label>
-						<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Layout will be inserted at a selected location on page/post in the block editor.', 'astra-addon' ); ?>"></i>
+						<label><?php esc_html_e( 'Location on post/page', 'astra-addon' ); ?><i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Layout will be inserted at a selected location on page/post in the block editor.', 'astra-addon' ); ?>"></i></label>
 					</td>
 					<td class="ast-advanced-hook-row-content">
 					<select id="ast-advanced-hook-content-location" name="ast-advanced-hook-content[location]" style="width: 50%;" >
@@ -1942,8 +1941,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				</tr>
 				<tr class="ast-advanced-hook-row ast-layout-hooks-required">
 					<td class="ast-advanced-hook-row-heading">
-						<label><?php esc_html_e( 'Spacing', 'astra-addon' ); ?></label>
-						<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php esc_attr_e( 'Spacing can be given any positive number with or without units as &quot;5&quot; or &quot;5px&quot;. Default unit is &quot;px&quot;', 'astra-addon' ); ?>"></i>
+						<label><?php esc_html_e( 'Spacing', 'astra-addon' ); ?><i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php esc_attr_e( 'Spacing can be given any positive number with or without units as &quot;5&quot; or &quot;5px&quot;. Default unit is &quot;px&quot;', 'astra-addon' ); ?>"></i></label>
 					</td>
 					<td class="ast-advanced-hook-row-content">
 						<div class="ast-advanced-hook-padding-top-wrap">
@@ -1959,8 +1957,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 				<tr class="ast-advanced-hook-row ast-target-rules-display ast-layout-required">
 					<td class="ast-advanced-hook-row-heading">
-						<label><?php esc_html_e( 'Display On', 'astra-addon' ); ?></label>
-						<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Add locations for where this Custom Layout should appear.', 'astra-addon' ); ?>"></i>
+						<label><?php esc_html_e( 'Display On', 'astra-addon' ); ?> <i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Add locations for where this Custom Layout should appear.', 'astra-addon' ); ?>"></i> </label>
 					</td>
 					<td class="ast-advanced-hook-row-content">
 					<?php
@@ -1980,8 +1977,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				</tr>
 				<tr class="ast-advanced-hook-row ast-target-rules-exclude ast-layout-required">
 					<td class="ast-advanced-hook-row-heading">
-						<label><?php esc_html_e( 'Do Not Display On', 'astra-addon' ); ?></label>
-						<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'This Custom Layout will not appear at these locations.', 'astra-addon' ); ?>"></i>
+						<label><?php esc_html_e( 'Do Not Display On', 'astra-addon' ); ?><i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'This Custom Layout will not appear at these locations.', 'astra-addon' ); ?>"></i></label>
 					</td>
 					<td class="ast-advanced-hook-row-content">
 					<?php
@@ -2001,8 +1997,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				</tr>
 				<tr class="ast-advanced-hook-row ast-target-rules-user ast-layout-required">
 					<td class="ast-advanced-hook-row-heading">
-						<label><?php esc_html_e( 'User Roles', 'astra-addon' ); ?></label>
-						<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Target this Custom Layout based on user role.', 'astra-addon' ); ?>"></i>
+						<label><?php esc_html_e( 'User Roles', 'astra-addon' ); ?><i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Target this Custom Layout based on user role.', 'astra-addon' ); ?>"></i></label>
 					</td>
 					<td class="ast-advanced-hook-row-content">
 					<?php
@@ -2022,8 +2017,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 				<tr class="ast-advanced-hook-row ast-target-responsive-display ast-layout-required">
 					<td class="ast-advanced-hook-row-heading">
-						<label><?php esc_html_e( 'Responsive Visibility', 'astra-addon' ); ?></label>
-						<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Select Device for where this Custom Layout should appear.', 'astra-addon' ); ?>"></i>
+						<label><?php esc_html_e( 'Responsive Visibility', 'astra-addon' ); ?><i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Select Device for where this Custom Layout should appear.', 'astra-addon' ); ?>"></i></label>
 					</td>
 					<td class="ast-advanced-hook-row-content">
 						<ul class="ast-advanced-device-display-wrap">
@@ -2051,8 +2045,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 				<tr class="ast-advanced-hook-row ast-target-time-duration-display ast-layout-required">
 					<td class="ast-advanced-hook-row-heading">
-						<label><?php esc_html_e( 'Time Duration', 'astra-addon' ); ?></label>
-						<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Select Time Duration in which this Custom Layout should appear.', 'astra-addon' ); ?>"></i>
+						<label><?php esc_html_e( 'Time Duration', 'astra-addon' ); ?><i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="<?php echo esc_attr__( 'Select Time Duration in which this Custom Layout should appear.', 'astra-addon' ); ?>"></i></label>
 					</td>
 					<td class="ast-advanced-hook-row-content">
 						<ul class="ast-advanced-time-duration-wrap">

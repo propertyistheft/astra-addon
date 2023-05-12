@@ -13,7 +13,7 @@
 	astra_responsive_font_size( 'astra-settings[font-size-primary-menu]', '.main-navigation, .ast-header-sections-navigation, .ast-above-header-menu-items, .ast-below-header-menu-items' );
 	astra_responsive_font_size( 'astra-settings[font-size-post-meta]', '.entry-meta, .read-more' );
 	astra_responsive_font_size( 'astra-settings[font-size-post-pagination]', '.ast-pagination .page-numbers, .ast-pagination .page-navigation' );
-	astra_responsive_font_size( 'astra-settings[font-size-widget-title]', '.secondary .widget-title' );
+	astra_responsive_font_size( 'astra-settings[font-size-widget-title]', '.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-widget-content]', '.secondary .widget > *:not(.widget-title)' );
 	astra_responsive_font_size( 'astra-settings[font-size-footer-content]', '.ast-small-footer' );
 
@@ -42,7 +42,7 @@
 
 	astra_font_extras_css( 'font-extras-site-tagline', '.site-header .site-description' );
 
-	astra_font_extras_css( 'font-extras-widget-title', '.secondary .widget-title' );
+	astra_font_extras_css( 'font-extras-widget-title', '.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' );
 
 	astra_responsive_font_size( 'astra-settings[font-size-button]', 'button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 
@@ -98,11 +98,11 @@
 
 	// Sidebar Title Typo
 
-	astra_generate_outside_font_family_css( 'astra-settings[font-family-widget-title]', '.secondary .widget-title' );
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-widget-title]', '.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' );
 
-	astra_generate_font_weight_css( 'astra-settings[font-family-widget-title]', 'astra-settings[font-weight-widget-title]', 'font-weight', '.secondary .widget-title' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-widget-title]', 'astra-settings[font-weight-widget-title]', 'font-weight', '.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' );
 
-	astra_responsive_font_size( 'astra-settings[font-size-widget-title]', '.secondary .widget-title' );
+	astra_responsive_font_size( 'astra-settings[font-size-widget-title]', '.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' );
 
 	// Sidebar Content Typo
 

@@ -191,16 +191,22 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 
 						gen_bg_css = 'background-color: ' + bg_color + ';';
 						gen_bg_css += 'background-image: none;';
-
 					}
 				} else if ( 'image' === bg_obj[device]['background-type'] ) {
-
-					if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color && ! bg_color.includes("linear-gradient") && ! bg_color.includes("radial-gradient") ) {
-
-						gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
-					}
-					if ( ( undefined === bg_color || '' === bg_color || 'unset' === bg_color || bg_color.includes("linear-gradient") || bg_color.includes("radial-gradient") ) && '' !== bg_img ) {
-						gen_bg_css = 'background-image: url(' + bg_img + ');';
+					if ( '' !== bg_img ) {
+						if ( 'overlay-type' in bg_obj[device] && 'none' !== bg_obj[device]['overlay-type'] ) {
+							let overlay_color	= 'overlay-color' in bg_obj[device] ? bg_obj[device]['overlay-color'] : '';
+							let overlay_gradient	= 'overlay-gradient' in bg_obj[device] ? bg_obj[device]['overlay-gradient'] : '';
+							if ( 'classic' === bg_obj[device]['overlay-type'] && '' !== overlay_color ) {
+								gen_bg_css = 'background-image: linear-gradient(to right, ' + overlay_color + ', ' + overlay_color + '), url(' + bg_img + ');';
+							} else if ( 'gradient' === bg_obj[device]['overlay-type'] && '' !== overlay_gradient ) {
+								gen_bg_css = 'background-image: ' + overlay_gradient + ', url(' + bg_img + ');';
+							} else {
+								gen_bg_css = 'background-image: url(' + bg_img + ');';
+							}
+						} else {
+							gen_bg_css = 'background-image: url(' + bg_img + ');';
+						}
 					}
 				} else if ( 'gradient' === bg_obj[device]['background-type'] ) {
 					if ( '' !== bg_color && 'unset' !== bg_color ) {

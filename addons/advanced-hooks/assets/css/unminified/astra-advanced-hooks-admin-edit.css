@@ -93,20 +93,19 @@
 .ast-advanced-hook-table.widefat {
     border-width: 0;
 }
+tr.ast-advanced-hook-row {
+    width: 100%;
+	-js-display: flex;
+	display: flex;
+}
+.block-editor-page tr.ast-advanced-hook-row {
+    display: table-row;
+}
 .ast-advanced-hook-row td {
     padding: 20px 12px;
     border-bottom: 1px solid #f0f0f0;
     zoom: 1;
     vertical-align: middle;
-}
-.ast-advanced-hook-row td:before {
-    display: table;
-    content: " ";
-}
-.ast-advanced-hook-row td:after {
-    display: table;
-    content: " ";
-    clear: both;
 }
 .ast-advanced-hook-row:last-child td {
     border-bottom: none;
@@ -131,6 +130,11 @@ td.ast-advanced-hook-row-heading {
     padding: 12px 20px 12px 25px;
     width: 25%;
     vertical-align: middle;
+	display: inline-grid;
+	align-items: center;
+}
+.block-editor-page td.ast-advanced-hook-row-heading {
+    display: table-cell;
 }
 .ast-advanced-hook-row-heading label {
     display: inline-block;
@@ -162,6 +166,12 @@ td.ast-advanced-hook-row-heading {
 .ast-advanced-hook-row-content .components-base-control__field,
 .ast-advanced-hook-row-content p:last-child {
     margin-bottom: 0;
+}
+.components-base-control.components-toggle-control {
+    margin-bottom: 0;
+}
+.components-flex.components-h-stack.components-v-stack.components-datetime {
+    padding: 20px;
 }
 .ast-advanced-hook-row-content select {
     width: 100%;
@@ -290,11 +300,11 @@ input[readonly],
     width: 190px;
     background: white;
 }
-.ast-advanced-time-duration-wrap {
-    display: grid;
-    grid-template-columns: 10em 25em 25em 10em;
-    height: 50px;
+li.ast-advanced-time-duration-enabled {
+    -js-display: inline-flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
 }
 .ast-advanced-device-display-wrap {
     display: grid;
@@ -711,6 +721,9 @@ ul.ast-advanced-week-days-wrap li {
 }
 .ast-custom-layout-control-title, .ast-toggle-margin-bottom {
     margin-bottom: 15px;
+}
+select.components-select-control__input.ast-layout-hooks-selection {
+    max-width: 248px;
 }
 .ast-toggle-margin-top {
     margin-top: 15px;

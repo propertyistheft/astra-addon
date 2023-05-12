@@ -767,7 +767,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				<?php
 			}
 
-			if ( ASTRA_WITH_EXTENDED_FUNCTIONALITY && astra_addon_get_php_snippet( $post_id ) ) {
+			if ( ASTRA_WITH_EXTENDED_FUNCTIONALITY && astra_addon_is_code_editor_layout( $post_id ) ) {
 				astra_addon_echo_php_snippet( $post_id );
 			} else {
 				if ( class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) {

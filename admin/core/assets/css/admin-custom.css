@@ -184,9 +184,14 @@ a.bsf-core-license-form-btn {
 }
 /* Post types compatibility CSS */
 .post-type-astra-advanced-hook #wpcontent #wpbody #wpbody-content .wrap h1.wp-heading-inline, .post-type-astra_adv_header #wpcontent #wpbody #wpbody-content h1.wp-heading-inline,
-.post-type-astra-advanced-hook #wpcontent #wpbody #wpbody-content .wrap a.page-title-action, .post-type-astra_adv_header #wpcontent #wpbody #wpbody-content .wrap a.page-title-action,
-.post-type-astra-advanced-hook #posts-filter .search-box, .post-type-astra_adv_header #posts-filter .search-box {
+.post-type-astra-advanced-hook #wpcontent #wpbody #wpbody-content .wrap a.page-title-action, .post-type-astra_adv_header #wpcontent #wpbody #wpbody-content .wrap a.page-title-action {
 	display: none;
+}
+.post-type-astra-advanced-hook #posts-filter .search-box, .post-type-astra_adv_header #posts-filter .search-box {
+	display: flex;
+}
+.post-type-astra-advanced-hook .wrap, .post-type-astra_adv_header .wrap {
+	margin-top: 45px;
 }
 .post-type-astra_adv_header #wpcontent, .post-type-astra-advanced-hook #wpcontent {
 	padding-left: 0;

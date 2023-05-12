@@ -63,11 +63,13 @@ function astraUpdateShopToolbar() {
 			document.querySelector( '.woocommerce-notices-wrapper + .woocommerce-result-count' ).remove();
 		}
         // Submit form on "orderby" select change to trigger shop filters.
-        document.querySelector( '.ast-woocommerce-shop-page-modern-style .woocommerce-ordering' ).addEventListener( 'change', function( event ) {
-            if ( event.target.classList.contains( 'orderby' )) {
-                event.target.closest( 'form' ).submit();
-            }
-        });
+		if( document.querySelector( '.ast-woocommerce-shop-page-modern-style .woocommerce-ordering' ) ) {
+			document.querySelector( '.ast-woocommerce-shop-page-modern-style .woocommerce-ordering' ).addEventListener( 'change', function( event ) {
+				if ( event.target.classList.contains( 'orderby' )) {
+					event.target.closest( 'form' ).submit();
+				}
+			});
+		}
 	}
 }
 

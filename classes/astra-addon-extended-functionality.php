@@ -13,6 +13,21 @@
  */
 
 /**
+ * Check if code editor custom layout enabled.
+ *
+ * @param  int $post_id Post Id.
+ * @return boolean
+ * @since 4.1.5
+ */
+function astra_addon_is_code_editor_layout( $post_id ) {
+	$php_enabled = get_post_meta( $post_id, 'editor_type', true );
+	if ( 'code_editor' === $php_enabled ) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * Get PHP snippet if enabled.
  *
  * @param  int $post_id Post Id.
@@ -20,19 +35,15 @@
  * @since 4.1.1
  */
 function astra_addon_get_php_snippet( $post_id ) {
-	$php_enabled = get_post_meta( $post_id, 'editor_type', true );
-	if ( 'code_editor' === $php_enabled ) {
-		$code = get_post_meta( $post_id, 'ast-advanced-hook-php-code', true );
-		if ( defined( 'ASTRA_ADVANCED_HOOKS_DISABLE_PHP' ) ) {
-			return $code;
-		}
-		ob_start();
-		// @codingStandardsIgnoreStart
-		eval( '?>' . $code . '<?php ' ); // phpcs:ignore Squiz.PHP.Eval.Discouraged -- Ignored PHP standards to execute PHP code snipett.
-		// @codingStandardsIgnoreEnd
-		return ob_get_clean();
+	$code = get_post_meta( $post_id, 'ast-advanced-hook-php-code', true );
+	if ( defined( 'ASTRA_ADVANCED_HOOKS_DISABLE_PHP' ) ) {
+		return $code;
 	}
-	return false;
+	ob_start();
+	// @codingStandardsIgnoreStart
+	eval( '?>' . $code . '<?php ' ); // phpcs:ignore Squiz.PHP.Eval.Discouraged -- Ignored PHP standards to execute PHP code snipett.
+	// @codingStandardsIgnoreEnd
+	return ob_get_clean();
 }
 
 /**
@@ -42,8 +53,10 @@ function astra_addon_get_php_snippet( $post_id ) {
  * @since 4.1.1
  */
 function astra_addon_echo_php_snippet( $post_id ) {
-	$php_snippet = astra_addon_get_php_snippet( $post_id );
-	echo $php_snippet; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	if ( astra_addon_is_code_editor_layout( $post_id ) ) {
+		$php_snippet = astra_addon_get_php_snippet( $post_id );
+		echo $php_snippet; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }
 
 /**

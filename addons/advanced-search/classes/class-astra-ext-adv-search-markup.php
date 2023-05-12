@@ -327,7 +327,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			$search_html = ob_get_clean();
 
 			if ( $echo ) {
-				echo wp_kses( $search_html, Astra_Addon_Kses::astra_addon_form_with_post_kses_protocols() );
+				echo do_shortcode( $search_html );
 			} else {
 				return $search_html;
 			}

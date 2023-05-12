@@ -1,5 +1,18 @@
 *** Astra Pro Changelog ***
 
+2023-05-09 - version 4.1.5
+* Improvement - Nav menu - Optimized number of database call to fetch megamenu item details.
+* Fix: WooCommerce - Console error from horizontal slider & vertical slider product gallery.
+* Fix: LearnDash - "Enable Distraction Free Learning" option missing from the customizer General settings.
+* Fix: Custom Layout - PHP code snippet with function calls throws PHP error "can not redeclare the function".
+* Fix: Single Post: Apply Custom Sizes option missing from Customizer > Blog > Single Post section.
+* Fix: Single Post: Custom featured image size is not working with dynamic post banner area.
+* Fix: Spectra block dynamic styles missing on auto loaded previous posts.
+* Fix: WooCommerce - Enabling filter with flyout produce eventlistner error on console.
+* Fix: Sidebar title font is not working for product page.
+* Fix: Fixed lost password link for multilingual sites by using wp_lostpassword_url() function.
+* Fix: Header Search - Placeholder text appears twice in full screen search & header cover search style.
+
 2023-04-06 - version 4.1.4
 * Fix: Header Builder - Site Logo becomes too small for the sticky header.
 * Fix: Custom Layout - Code editor strips out the code while saving and not working properly on frontend too.

@@ -156,7 +156,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		/**
 		 * Widget Content
 		 */
-		'.secondary .widget-title'                    => array(
+		'.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' => array(
 			'font-size'       => astra_responsive_font( $widget_title_font_size, 'desktop' ),
 			'font-weight'     => astra_get_css_value( $widget_title_font_weight, 'font' ),
 			'font-family'     => astra_get_css_value( $widget_title_font_family, 'font', $body_font_family ),
@@ -334,7 +334,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'font-size' => astra_responsive_font( $post_pagination_font_size, 'tablet' ),
 		),
 
-		'.secondary .widget-title'                  => array(
+		'.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' => array(
 			'font-size' => astra_responsive_font( $widget_title_font_size, 'tablet' ),
 		),
 
@@ -383,7 +383,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'font-size' => astra_responsive_font( $post_pagination_font_size, 'mobile' ),
 		),
 
-		'.secondary .widget-title'                  => array(
+		'.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' => array(
 			'font-size' => astra_responsive_font( $widget_title_font_size, 'mobile' ),
 		),
 

@@ -2725,7 +2725,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @return void
 		 */
 		public function checkout_billing_email_field() {
-			$lost_password_url  = get_site_url() . '/my-account/lost-password/';
+			$lost_password_url  = wp_lostpassword_url();
 			$current_user_name  = wp_get_current_user()->display_name;
 			$current_user_email = wp_get_current_user()->user_email;
 			$is_allow_login     = 'yes' === get_option( 'woocommerce_enable_checkout_login_reminder' );
@@ -2780,7 +2780,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 											do_action( 'astra_checkout_login_field_after' );
 										?>
 										<div class="ast-customer-login-actions">
-											<input type="button" name="ast-customer-login-btn" class="button ast-customer-login-section__login-button" id="ast-customer-login-section__login-button" value="<?php echo esc_attr( __( 'Login', 'astra-addon' ) ); ?>">;
+											<input type="button" name="ast-customer-login-btn" class="button ast-customer-login-section__login-button" id="ast-customer-login-section__login-button" value="<?php echo esc_attr( __( 'Login', 'astra-addon' ) ); ?>">
 											<a href="<?php echo esc_url( $lost_password_url ); ?>" class="ast-customer-login-lost-password-url"> <?php echo esc_html( __( 'Lost your password?', 'astra-addon' ) ); ?> </a>
 										</div>
 									<?php

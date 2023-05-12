@@ -184,6 +184,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 					'context'           => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-spacing' ),
 				),
 
 				/**

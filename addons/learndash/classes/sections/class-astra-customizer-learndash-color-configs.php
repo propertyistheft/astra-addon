@@ -199,6 +199,21 @@ if ( ! class_exists( 'Astra_Customizer_Learndash_Color_Configs' ) ) {
 						'priority' => 41,
 					),
 
+					/**
+					 * Option: Distraction Free Learning
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[learndash-distraction-free-learning]',
+						'default'     => astra_get_option( 'learndash-distraction-free-learning' ),
+						'type'        => 'control',
+						'section'     => 'section-leandash-general',
+						'title'       => __( 'Distraction Free Learning', 'astra-addon' ),
+						'description' => __( 'Remove extra links in the header and footer in LearnDash learning pages', 'astra-addon' ),
+						'priority'    => 10,
+						'control'     => Astra_Theme_Extension::$switch_control,
+						'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
+					),
+
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[learndash-profile-link-enabled]',
 						'default'  => astra_get_option( 'learndash-profile-link-enabled' ),
@@ -214,7 +229,7 @@ if ( ! class_exists( 'Astra_Customizer_Learndash_Color_Configs' ) ) {
 						'default'  => astra_get_option( 'learndash-profile-link' ),
 						'type'     => 'control',
 						'control'  => 'text',
-						'section'  => 'section-learndash',
+						'section'  => 'section-leandash-general',
 						'title'    => __( 'Profile Picture Links to:', 'astra-addon' ),
 						'priority' => 15,
 						'context'  => array(

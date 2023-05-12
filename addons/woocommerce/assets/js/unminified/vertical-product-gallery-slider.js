@@ -201,47 +201,47 @@ function saleBadgeAlignment() {
 }
 
 function scrollToSlideVariableProduct( prevButton, nextButton ) {
-  const img              = document.querySelector(".woocommerce-product-gallery .woocommerce-product-gallery__image");
+  const img = document.querySelector(".woocommerce-product-gallery .woocommerce-product-gallery__image");
   const thumbnail_images = document.querySelectorAll('.woocommerce-product-gallery .ast-woocommerce-product-gallery__image img');
   
-  if( img && thumbnail_images) {
-      observer = new MutationObserver((changes) => {
-          changes.forEach(change => {
-              if( change.attributeName.includes('data-thumb') ){
-                thumbnail_images.forEach(element => {
-                    if( element.getAttribute( 'srcset' ).includes( img.getAttribute('data-thumb') ) ) {
-                        element.click();
-                        const parentDiv = document.querySelector( '#ast-vertical-slider-inner' );
+  if (img && thumbnail_images) {
+    observer = new MutationObserver((changes) => {
+      changes.forEach(change => {
+        if (change.attributeName && change.attributeName.includes('data-thumb')) {
+          thumbnail_images.forEach(element => {
+            if (element.getAttribute('srcset') && element.getAttribute('srcset').includes(img.getAttribute('data-thumb'))) {
+              element.click();
+              const parentDiv = document.querySelector('#ast-vertical-slider-inner');
 
-                      if( parentDiv ) {
-                        const imageHeight = parentDiv.querySelector( 'img' ).clientHeight + 10;
-                        const getPosition = element.closest('.ast-woocommerce-product-gallery__image').getAttribute( 'data-slide-number' );
+              if (parentDiv) {
+                const imageHeight = parentDiv.querySelector('img').clientHeight + 10;
+                const getPosition = element.closest('.ast-woocommerce-product-gallery__image').getAttribute('data-slide-number');
 
-                        if( imageHeight && imageHeight && getPosition ) {
-                          const firstSectionHeight = imageHeight * 4;
-                          const getNumber = parseInt(getPosition) + 1;
+                if (imageHeight && getPosition) {
+                  const firstSectionHeight = imageHeight * 4;
+                  const getNumber = parseInt(getPosition) + 1;
 
-                          if( getNumber > 4 ) {
-                            const currentSectionHeight = imageHeight * ( getNumber );
-                            const currentSlidePosition = currentSectionHeight - firstSectionHeight;
-                             parentDiv.style.transform = `translate3d( 0, -${ currentSlidePosition }px, 0 )`;
-                            parentDiv.setAttribute( 'ast-translate' ,  currentSlidePosition );
-                            enableDisableNavigationArrows( prevButton, nextButton, parentDiv.getAttribute( 'ast-translate' ) , imageHeight );
-                          } else {
-                            parentDiv.setAttribute( 'ast-translate' ,  0 );
-                            parentDiv.style.transform = `translate3d( 0, 0px, 0 )`;
-                            enableDisableNavigationArrows( prevButton, nextButton,  parentDiv.getAttribute( 'ast-translate' ) , imageHeight );
-                          }
-                          parentDiv.style.transition = `.3s`;
-
-                        }
-                      }
-                    }
-                });
+                  if (getNumber > 4) {
+                    const currentSectionHeight = imageHeight * getNumber;
+                    const currentSlidePosition = currentSectionHeight - firstSectionHeight;
+                    parentDiv.style.transform = `translate3d( 0, -${currentSlidePosition}px, 0 )`;
+                    parentDiv.setAttribute('ast-translate', currentSlidePosition);
+                    enableDisableNavigationArrows(prevButton, nextButton, parentDiv.getAttribute('ast-translate'), imageHeight);
+                  } else {
+                    parentDiv.setAttribute('ast-translate', 0);
+                    parentDiv.style.transform = `translate3d( 0, 0px, 0 )`;
+                    enableDisableNavigationArrows(prevButton, nextButton, parentDiv.getAttribute('ast-translate'), imageHeight);
+                  }
+                  parentDiv.style.transition = `.3s`;
+                }
               }
+            }
           });
+        }
       });
-      observer.observe(img, {attributes : true});
+    });
+    observer.observe(img, {attributes: true});
   }
 }
+
 

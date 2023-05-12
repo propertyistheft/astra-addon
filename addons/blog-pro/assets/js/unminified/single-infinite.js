@@ -17,7 +17,7 @@
 	var siteUrl		    	= astra.site_url || '';
 
 	$( document ).ready( function() {
-	
+
 		var in_customizer = false;
 
 		// check for wp.customize return boolean
@@ -104,37 +104,37 @@
 				  'page_path': postUrl
 				});
 			}
-			
+
 		});
 
 	}); // END document()
-	
+
 	function initialise_comment( comments_wrapper ) {
-		
+
 		var $comments_container = $( comments_wrapper );
-		
+
 		if (  0 === $comments_container.length ) {
 			return;
 		}
 
 		$comments_container.each(function( index ) {
-			
+
 			var $this = $(this);
-			
+
 			if ( $this.find('.ast-show-comments-data').length === 0  ) {
 				var comments_count_wrapper 	= $this.find( '.comments-count-wrapper' );
 				var comment_data = '<div class="ast-show-comments-data">';
-				
+
 				$this.find( '.comment-respond' ).hide();
-				
+
 				if ( comments_count_wrapper.length > 0 ) {
 					comments_count_wrapper.hide();
 					$this.find( '.ast-comment-list' ).hide();
 					comment_data += '<div class="ast-show-comments-count"><h3 class="comments-title">' + comments_count_wrapper.find('.comments-title').text() + '</h3></div>';
 				}
-				
+
 				comment_data += '<div class="ast-show-comments button ast-button">' + show_comments + '</div>';
-				
+
 				comment_data += '</div>';
 
 				$this.find( '.no-comments' ).hide();
@@ -143,13 +143,13 @@
 			}
 		});
 	}
-	
+
 	function initialise_scrollspy() {
 		scrollspy();
 	} // END initialise_scrollspy()
 
 	function scrollspy() {
-		
+
 		$( '.post-divider').off( 'scrollSpy:enter', astra_enter );
 		$( '.post-divider').off( 'scrollSpy:exit', astra_leave );
 
@@ -185,8 +185,8 @@
 			// Update edit link if possible
 			if( $('#wp-admin-bar-edit').length > 0 && '' != edit_post_url ) {
 
-				var new_edit_post_url = edit_post_url.replace( "{{id}}", this_post_id ); 
-				
+				var new_edit_post_url = edit_post_url.replace( "{{id}}", this_post_id );
+
 				$('#wp-admin-bar-edit a').attr( 'href', new_edit_post_url );
 			}
 			$('body').trigger( 'asta-post-changed', [ this_title, this_url, this_post_id, post_count, stop_reading ] );
@@ -224,6 +224,42 @@
 
 		// Remove the post navigation HTML once the next post has loaded.
 		$( nav_container ).remove();
+
+		let request = new XMLHttpRequest();
+		request.open('GET', post_url, true);
+		request.send();
+		request.onload = function() {
+			let string = request.response;
+			let postData = new DOMParser().parseFromString(string, 'text/html'),
+				postId = postData.querySelector( 'article.ast-article-single' ) ? postData.querySelector( 'article.ast-article-single' ).getAttribute('id') : '';
+			postId = '' != postId ? postId.replace('post-', '') : ''; // Make sure that only the post ID remains.
+
+			let linkId = postData.getElementById("uag-style-" + postId + "-css"),
+				styleId = postData.getElementById("uagb-style-frontend-" + postId);
+
+			if ( '' !== postId && linkId ) {
+				// If file generation is enabled.
+				let href = linkId.href,
+					styleLink = document.createElement("link");
+
+				styleLink.rel = "stylesheet";
+				styleLink.id = "uag-style-" + postId + "-css";
+				styleLink.href = href;
+				styleLink.media = "all";
+
+				document.head.appendChild( styleLink );
+			}
+
+			if ( '' !== postId && styleId ) {
+				// If inline dynamic styles loaded.
+				let styleLink = document.createElement("style");
+
+				styleLink.id = "uagb-style-frontend-" + postId;
+				styleLink.textContent = styleId.innerText;
+
+				document.head.appendChild( styleLink );
+			}
+		}
 
 		$.get( np_url , function( data ) {
 

@@ -367,6 +367,18 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 			require_once ASTRA_ADDON_EXT_NAV_MENU_DIR . 'classes/sections/class-astra-nav-menu-below-header-colors.php';
 		}
 
+		/**
+		 * Parse post meta of particular passed key & return its value.
+		 *
+		 * @param array  $post_meta Post meta of megamenu.
+		 * @param string $key Meta item key.
+		 *
+		 * @return mixed value of meta key.
+		 * @since 4.1.5
+		 */
+		public static function get_post_meta( $post_meta, $key ) {
+			return isset( $post_meta[ $key ][0] ) ? $post_meta[ $key ][0] : '';
+		}
 
 		/**
 		 * Megamenu Defaults
@@ -377,6 +389,8 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 * @since 4.0.0
 		 */
 		public static function get_megamenu_default( $default_id, $menu_item_id ) {
+			$post_meta = get_post_meta( $menu_item_id );
+
 			/**
 			 * Default Spacing
 			 */
@@ -431,10 +445,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				'mobile-unit'  => 'px',
 			);
 
-			$megamenu_margin_top    = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_top', true );
-			$megamenu_margin_right  = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_right', true );
-			$megamenu_margin_bottom = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_bottom', true );
-			$megamenu_margin_left   = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin_left', true );
+			$megamenu_margin_top    = self::get_post_meta( $post_meta, '_menu_item_megamenu_margin_top' );
+			$megamenu_margin_right  = self::get_post_meta( $post_meta, '_menu_item_megamenu_margin_right' );
+			$megamenu_margin_bottom = self::get_post_meta( $post_meta, '_menu_item_megamenu_margin_bottom' );
+			$megamenu_margin_left   = self::get_post_meta( $post_meta, '_menu_item_megamenu_margin_left' );
 
 			/**
 			 * Default margin values
@@ -463,10 +477,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				'mobile-unit'  => 'px',
 			);
 
-			$megamenu_padding_top    = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_top', true );
-			$megamenu_padding_right  = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_right', true );
-			$megamenu_padding_bottom = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_bottom', true );
-			$megamenu_padding_left   = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding_left', true );
+			$megamenu_padding_top    = self::get_post_meta( $post_meta, '_menu_item_megamenu_padding_top' );
+			$megamenu_padding_right  = self::get_post_meta( $post_meta, '_menu_item_megamenu_padding_right' );
+			$megamenu_padding_bottom = self::get_post_meta( $post_meta, '_menu_item_megamenu_padding_bottom' );
+			$megamenu_padding_left   = self::get_post_meta( $post_meta, '_menu_item_megamenu_padding_left' );
 
 			/**
 			 * Default padding values
@@ -501,8 +515,8 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				'image'  => '',
 			);
 
-			$megamenu_text_color_normal = get_post_meta( $menu_item_id, '_menu_item_megamenu_text_color', true );
-			$megamenu_text_color_hover  = get_post_meta( $menu_item_id, '_menu_item_megamenu_text_h_color', true );
+			$megamenu_text_color_normal = self::get_post_meta( $post_meta, '_menu_item_megamenu_text_color' );
+			$megamenu_text_color_hover  = self::get_post_meta( $post_meta, '_menu_item_megamenu_text_h_color' );
 
 			$default_text_link_color = array(
 				'normal' => $megamenu_text_color_normal ? $megamenu_text_color_normal : '',
@@ -514,46 +528,45 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				'hover'  => '',
 			);
 
-			$megamenu_width                = get_post_meta( $menu_item_id, '_menu_item_megamenu_width', true );
-			$megamenu_icon_source          = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_source', true );
-			$megamenu_icon_size            = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_size', true );
-			$megamenu_icon_spacing         = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_spacing', true );
-			$megamenu_icon_padding         = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_padding', true );
-			$megamenu_icon_primary_color   = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_primary_color', true );
-			$megamenu_icon_secondary_color = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_secondary_color', true );
-			$megamenu_icon_border_width    = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_border_width', true );
-			$megamenu_icon_corner_radius   = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_corner_radius', true );
-			$megamenu_icon_position        = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_position', true );
-			$megamenu_icon_view            = get_post_meta( $menu_item_id, '_menu_item_megamenu_icon_view', true );
-			$megamenu_margin               = get_post_meta( $menu_item_id, '_menu_item_megamenu_margin', true );
-			$megamenu_padding              = get_post_meta( $menu_item_id, '_menu_item_megamenu_padding', true );
-			$megamenu_bg_type              = get_post_meta( $menu_item_id, '_menu_item_megamenu_background_type', true );
-			$megamenu_text_color           = get_post_meta( $menu_item_id, '_menu_item_megamenu_text_color_group', true );
-			$megamenu_heading_color        = get_post_meta( $menu_item_id, '_menu_item_megamenu_heading_color_group', true );
-			$megamenu_disable_title        = get_post_meta( $menu_item_id, '_menu_item_megamenu_disable_title', true );
+			$megamenu_width                = self::get_post_meta( $post_meta, '_menu_item_megamenu_width' );
+			$megamenu_icon_source          = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_source' );
+			$megamenu_icon_size            = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_size' );
+			$megamenu_icon_spacing         = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_spacing' );
+			$megamenu_icon_padding         = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_padding' );
+			$megamenu_icon_primary_color   = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_primary_color' );
+			$megamenu_icon_secondary_color = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_secondary_color' );
+			$megamenu_icon_border_width    = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_border_width' );
+			$megamenu_icon_corner_radius   = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_corner_radius' );
+			$megamenu_icon_position        = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_position' );
+			$megamenu_icon_view            = self::get_post_meta( $post_meta, '_menu_item_megamenu_icon_view' );
+			$megamenu_margin               = self::get_post_meta( $post_meta, '_menu_item_megamenu_margin' );
+			$megamenu_padding              = self::get_post_meta( $post_meta, '_menu_item_megamenu_padding' );
+			$megamenu_bg_type              = self::get_post_meta( $post_meta, '_menu_item_megamenu_background_type' );
+			$megamenu_text_color           = self::get_post_meta( $post_meta, '_menu_item_megamenu_text_color_group' );
+			$megamenu_heading_color        = self::get_post_meta( $post_meta, '_menu_item_megamenu_heading_color_group' );
+			$megamenu_disable_title        = self::get_post_meta( $post_meta, '_menu_item_megamenu_disable_title' );
 
 			$config = array(
-				'width'                => $megamenu_width ? $megamenu_width : 'content',
-				'icon_source'          => $megamenu_icon_source ? $megamenu_icon_source : $default_icon,
-				'icon_size'            => $megamenu_icon_size ? $megamenu_icon_size : 20,
-				'icon_spacing'         => $megamenu_icon_spacing ? $megamenu_icon_spacing : 5,
-				'icon_padding'         => $megamenu_icon_padding ? $megamenu_icon_padding : 5,
-				'icon_primary_color'   => $megamenu_icon_primary_color ? $megamenu_icon_primary_color : '',
-				'icon_secondary_color' => $megamenu_icon_secondary_color ? $megamenu_icon_secondary_color : '',
-				'icon_border_width'    => $megamenu_icon_border_width ? $megamenu_icon_border_width : $default_spacing,
-				'icon_corner_radius'   => $megamenu_icon_corner_radius ? $megamenu_icon_corner_radius : $default_corner_spacing,
-				'icon_position'        => $megamenu_icon_position ? $megamenu_icon_position : 'before-label',
-				'icon_view'            => $megamenu_icon_view ? $megamenu_icon_view : 'default',
-				'margin'               => $megamenu_margin ? $megamenu_margin : $default_megamenu_margin,
-				'padding'              => $megamenu_padding ? $megamenu_padding : $default_megamenu_padding,
-				'bg_type'              => $megamenu_bg_type ? $megamenu_bg_type : 'image',
-				'text_color'           => $megamenu_text_color ? $megamenu_text_color : $default_text_link_color,
-				'heading_color'        => $megamenu_heading_color ? $megamenu_heading_color : $default_heading_color,
-				'disable_title'        => $megamenu_disable_title ? $megamenu_disable_title : '',
+				'width'                => $megamenu_width ? maybe_unserialize( $megamenu_width ) : 'content',
+				'icon_source'          => $megamenu_icon_source ? maybe_unserialize( $megamenu_icon_source ) : $default_icon,
+				'icon_size'            => $megamenu_icon_size ? maybe_unserialize( $megamenu_icon_size ) : 20,
+				'icon_spacing'         => $megamenu_icon_spacing ? maybe_unserialize( $megamenu_icon_spacing ) : 5,
+				'icon_padding'         => $megamenu_icon_padding ? maybe_unserialize( $megamenu_icon_padding ) : 5,
+				'icon_primary_color'   => $megamenu_icon_primary_color ? maybe_unserialize( $megamenu_icon_primary_color ) : '',
+				'icon_secondary_color' => $megamenu_icon_secondary_color ? maybe_unserialize( $megamenu_icon_secondary_color ) : '',
+				'icon_border_width'    => $megamenu_icon_border_width ? maybe_unserialize( $megamenu_icon_border_width ) : $default_spacing,
+				'icon_corner_radius'   => $megamenu_icon_corner_radius ? maybe_unserialize( $megamenu_icon_corner_radius ) : $default_corner_spacing,
+				'icon_position'        => $megamenu_icon_position ? maybe_unserialize( $megamenu_icon_position ) : 'before-label',
+				'icon_view'            => $megamenu_icon_view ? maybe_unserialize( $megamenu_icon_view ) : 'default',
+				'margin'               => $megamenu_margin ? maybe_unserialize( $megamenu_margin ) : $default_megamenu_margin,
+				'padding'              => $megamenu_padding ? maybe_unserialize( $megamenu_padding ) : $default_megamenu_padding,
+				'bg_type'              => $megamenu_bg_type ? maybe_unserialize( $megamenu_bg_type ) : 'image',
+				'text_color'           => $megamenu_text_color ? maybe_unserialize( $megamenu_text_color ) : $default_text_link_color,
+				'heading_color'        => $megamenu_heading_color ? maybe_unserialize( $megamenu_heading_color ) : $default_heading_color,
+				'disable_title'        => $megamenu_disable_title ? maybe_unserialize( $megamenu_disable_title ) : '',
 			);
 
 			return $config[ $default_id ];
-
 		}
 
 		/**
