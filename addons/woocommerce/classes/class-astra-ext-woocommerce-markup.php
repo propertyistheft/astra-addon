@@ -3142,8 +3142,13 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 							// Remove screen-reader-text class from labels.
 							if ( isset( $fields[ $type ][ $key ]['label_class'] ) ) {
-								$fields[ $type ][ $key ]['label_class'] = array_diff( $fields[ $type ][ $key ]['label_class'], array( 'screen-reader-text' ) );
-							}
+								$label_class = $fields[ $type ][ $key ]['label_class'];
+								if ( is_array( $label_class ) ) {
+									$fields[ $type ][ $key ]['label_class'] = array_diff( $label_class, array( 'screen-reader-text' ) );
+								} elseif ( is_string( $label_class ) ) {
+									$fields[ $type ][ $key ]['label_class'] = str_replace( 'screen-reader-text', '', $label_class );
+								}
+							}                                                       
 						}
 					}
 				}
@@ -3579,6 +3584,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			$number_of_products      = astra_get_option( 'single-product-related-upsell-per-page' );
 			$recently_viewed_heading = astra_get_option( 'single-product-recently-viewed-text' );
+			$number_of_columns       = astra_get_option( 'single-product-related-upsell-grid' );
+			$number_of_columns       = ! empty( $number_of_columns['desktop'] ) ? $number_of_columns['desktop'] : 4;
 
 			if ( empty( $_COOKIE['woocommerce_recently_viewed'] ) ) {
 				$viewed_products = array();
@@ -3599,7 +3606,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			$title       = '<h2>' . esc_html( $recently_viewed_heading ) . '</h2>';
 			$product_ids = implode( ',', array_reverse( $viewed_products ) );
 
-			echo do_shortcode( $title . "[products ids='$product_ids' orderby='post__in' limit='$number_of_products']" );
+			echo do_shortcode( '<section class="related products">' . $title . "[products ids='$product_ids' orderby='post__in' limit='$number_of_products' columns='$number_of_columns']" . '</section>' );
 		}
 
 		/**

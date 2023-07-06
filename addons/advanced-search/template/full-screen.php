@@ -14,8 +14,8 @@
 			<form class="search-form" action="<?php echo esc_url( home_url() ); ?>/" method="get">
 				<fieldset>
 					<span class="text">
-						<label for="s" class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?></label>
-						<input name="s" class="search-field" autocomplete="off" type="text" value="" placeholder="<?php echo esc_attr( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?>">
+						<label for="search-field" class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?></label>
+						<input id="search-field" name="s" class="search-field" autocomplete="off" type="text" value="" placeholder="<?php echo esc_attr( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?>">
 					</span>
 					<button aria-label="<?php esc_attr_e( 'Search', 'astra-addon' ); ?>" class="button search-submit"><i class="astra-search-icon"> <?php Astra_Icons::get_icons( 'search', true ); ?> </i></button>
 				</fieldset>

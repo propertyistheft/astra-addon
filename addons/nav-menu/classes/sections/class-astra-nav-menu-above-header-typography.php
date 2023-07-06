@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Nav_Menu_Above_Header_Typography' ) ) {
 						'px' => array(
 							'min'  => 0,
 							'step' => 1,
-							'max'  => 100,
+							'max'  => 200,
 						),
 						'em' => array(
 							'min'  => 0,

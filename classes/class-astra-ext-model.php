@@ -241,54 +241,56 @@ final class Astra_Ext_Model {
 	 * @since 4.0.0
 	 */
 	public function print_style() {
-		$branding_logo = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0iI2E3YWFhZCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDE4QzEzLjk3MDcgMTggMTggMTMuOTcwNyAxOCA5QzE4IDQuMDI5MyAxMy45NzA3IDAgOSAwQzQuMDI5MyAwIDAgNC4wMjkzIDAgOUMwIDEzLjk3MDcgNC4wMjkzIDE4IDkgMThaTTQgMTIuOTk4TDguMzk2IDRMOS40NDE0MSA2LjAzMTI1TDUuODgzNzkgMTIuOTk4SDRaTTguNTM0NjcgMTEuMzc1TDEwLjM0OTEgNy43MjA3TDEzIDEzSDEwLjk3NzFMMTAuMjc5MyAxMS40NDM0SDguNTM0NjdIOC41TDguNTM0NjcgMTEuMzc1WiIgZmlsbD0iI2E3YWFhZCIvPgo8L3N2Zz4K';
+		if ( is_user_logged_in() ) {
+			$branding_logo = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0iI2E3YWFhZCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDE4QzEzLjk3MDcgMTggMTggMTMuOTcwNyAxOCA5QzE4IDQuMDI5MyAxMy45NzA3IDAgOSAwQzQuMDI5MyAwIDAgNC4wMjkzIDAgOUMwIDEzLjk3MDcgNC4wMjkzIDE4IDkgMThaTTQgMTIuOTk4TDguMzk2IDRMOS40NDE0MSA2LjAzMTI1TDUuODgzNzkgMTIuOTk4SDRaTTguNTM0NjcgMTEuMzc1TDEwLjM0OTEgNy43MjA3TDEzIDEzSDEwLjk3NzFMMTAuMjc5MyAxMS40NDM0SDguNTM0NjdIOC41TDguNTM0NjcgMTEuMzc1WiIgZmlsbD0iI2E3YWFhZCIvPgo8L3N2Zz4K';
 
-		if ( false !== Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'icon' ) ) {
-			$branding_logo = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'icon' );
+			if ( false !== Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'icon' ) ) {
+				$branding_logo = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'icon' );
+			}
+
+			?>
+		<style>
+			#wp-admin-bar-astra-advanced-layouts .astra-admin-logo {
+				float: left;
+				width: 20px;
+				height: 100%;
+				cursor: pointer;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 16px auto;
+				color: #a7aaad;
+				background-image: url( <?php echo esc_attr( $branding_logo ); ?> );
+			}
+			#wpadminbar .quicklinks #wp-admin-bar-astra-advanced-layouts .ab-empty-item {
+				padding: 0 5px;
+			}
+			#wpadminbar #wp-admin-bar-astra-advanced-layouts .ab-submenu {
+				padding: 5px 10px;
+			}
+			#wpadminbar .quicklinks #wp-admin-bar-astra-advanced-layouts li {
+				clear: both;
+			}
+			#wp-admin-bar-ast_page_headers_group:before {
+				border-bottom: 1px solid hsla(0,0%,100%,.2);
+				display: block;
+				float: left;
+				content: "";
+				margin-bottom: 10px;
+				width: 100%;
+			}
+			#wpadminbar #wp-admin-bar-ast_custom_layouts_group li a:before,
+			#wpadminbar #wp-admin-bar-ast_cl_shortcode_group li a:before,
+			#wpadminbar #wp-admin-bar-ast_page_headers_group li a:before {
+				content: "\21B3";
+				margin-right: 0.5em;
+				opacity: 0.5;
+				font-size: 13px;
+			}
+		</style>
+			<?php
 		}
-
-		?>
-			<style>
-				#wp-admin-bar-astra-advanced-layouts .astra-admin-logo {
-					float: left;
-					width: 20px;
-					height: 100%;
-					cursor: pointer;
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 16px auto;
-					color: #a7aaad;
-					background-image: url( <?php echo esc_attr( $branding_logo ); ?> );
-				}
-				#wpadminbar .quicklinks #wp-admin-bar-astra-advanced-layouts .ab-empty-item {
-					padding: 0 5px;
-				}
-				#wpadminbar #wp-admin-bar-astra-advanced-layouts .ab-submenu {
-					padding: 5px 10px;
-				}
-				#wpadminbar .quicklinks #wp-admin-bar-astra-advanced-layouts li {
-					clear: both;
-				}
-				#wp-admin-bar-ast_page_headers_group:before {
-					border-bottom: 1px solid hsla(0,0%,100%,.2);
-					display: block;
-					float: left;
-					content: "";
-					margin-bottom: 10px;
-					width: 100%;
-				}
-				#wpadminbar #wp-admin-bar-ast_custom_layouts_group li a:before,
-				#wpadminbar #wp-admin-bar-ast_cl_shortcode_group li a:before,
-				#wpadminbar #wp-admin-bar-ast_page_headers_group li a:before {
-					content: "\21B3";
-					margin-right: 0.5em;
-					opacity: 0.5;
-					font-size: 13px;
-				}
-			</style>
-		<?php
 	}
-}
 
+}
 new Astra_Ext_Model();
 

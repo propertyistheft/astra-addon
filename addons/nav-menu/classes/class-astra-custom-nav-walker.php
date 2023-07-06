@@ -451,7 +451,7 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 			if ( isset( $item->megamenu_highlight_label ) && '' != $item->megamenu_highlight_label ) {
 
 				$style = array(
-					'.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-highlight-label' => array(
+					'.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-highlight-label, .ast-header-break-point .menu-item-' . $item->ID . ' .astra-mm-highlight-label' => array(
 						'color'            => $item->megamenu_label_color,
 						'background-color' => $item->megamenu_label_bg_color,
 					),
@@ -487,12 +487,15 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 					$mm_image = $mm_megamenu_image ? '<img src="' . $mm_megamenu_image . '" alt="mm-ast-icon">' : '';
 				}
 
-				$icon_array_slug       = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID;
-				$icon_array_slug_image = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' > img';
-				$icon_array_slug_svg   = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' svg';
-				$icon_style            = array();
-				$icon_tablet_style     = array();
-				$icon_mobile_style     = array();
+				$icon_array_slug        = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID;
+				$icon_array_slug       .= ',  .ast-header-break-point .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID;
+				$icon_array_slug_image  = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' > img';
+				$icon_array_slug_image .= ',  .ast-header-break-point .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' > img';
+				$icon_array_slug_svg    = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' svg';
+				$icon_array_slug_svg   .= ',  .ast-header-break-point .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID . ' svg';
+				$icon_style             = array();
+				$icon_tablet_style      = array();
+				$icon_mobile_style      = array();
 
 				$icon_style[ $icon_array_slug ]['display']        = esc_attr( 'inline-block' );
 				$icon_style[ $icon_array_slug ]['vertical-align'] = esc_attr( 'middle' );

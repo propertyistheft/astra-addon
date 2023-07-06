@@ -87,4 +87,16 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['can-update-variant-active-style'] = isset( $astra_settings['can-update-variant-active-style'] ) ? false : true;
 		return apply_filters( 'astra_addon_update_wc_variant_style', $astra_settings['can-update-variant-active-style'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
+
+	/**
+	 * Support sale badge background color for design 2.
+	 *
+	 * @since 4.1.6
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_sale_badge_background_color() {
+		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings['apply-modern-layout-sale-badge-styles'] = isset( $astra_settings['apply-modern-layout-sale-badge-styles'] ) ? false : true;
+		return apply_filters( 'astra_addon_apply_sale_badge_styles_modern_layout', $astra_settings['apply-modern-layout-sale-badge-styles'] );
+	}
 }

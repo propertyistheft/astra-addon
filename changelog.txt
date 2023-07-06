@@ -1,5 +1,23 @@
 *** Astra Pro Changelog ***
 
+2023-07-05 - version 4.1.6
+* New: WooCommerce - Added Sale badge color change option for shop card modern design.
+* Improvement: Updated the license deactivation setting notification icon from admin panel.
+* Improvement: Loaded WP admin-bar related compatibility css only if user is logged in.
+* Improvement: Added a new filter 'astra_font_line_height_unit' to adjust the unit for line height. ( https://wpastra.com/docs/how-to-fix-the-line-height-unit-being-converted-to-em/ )
+* Improvement: Custom Layout - Improvised layout editor icons with better UI.
+* Improvement: Added font-size support till 200px in customizer typography options.
+* Fix: WooCommerce - Column setting not working on single product page for display recently viewed products.
+* Fix: Mega menu icon styling is not applying on tablet/mobile.
+* Fix: WooCommerce - Console error on checkout order review page.
+* Fix: WooCommerce - Checkout Order Review Page Does not Appear for Mobile/Tablet when the Modern Checkout is enabled.
+* Fix: Custom Layout - Edit layout Screen does not work with Beaver Builder when classic editor is active.
+* Fix: Custom Layout - Embed video block not working on front end.
+* Fix: Nav Menu - Mega menu not working with RTL language setup on the frontend.
+* Fix: License activation link not working on admin Custom Layout & Page Headers page.
+* Fix: Console warning regarding the incorrect use of <label> element and improved compatibility with accessibility tools.
+* Fix: WooCommerce - Fatal Error on Modern Checkout Page after Adding New Field with YITH WooCommerce Checkout Manager Plugin
+
 2023-05-09 - version 4.1.5
 * Improvement - Nav menu - Optimized number of database call to fetch megamenu item details.
 * Fix: WooCommerce - Console error from horizontal slider & vertical slider product gallery.

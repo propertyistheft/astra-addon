@@ -410,9 +410,9 @@
 	astra_css( 'astra-settings[single-product-rating-color]', 'color', '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' );
 
 	// General Sale Color.
-	astra_css( 'astra-settings[product-sale-color]', 'color', '.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale,.woocommerce span.onsale, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.circle-outline' );
-	astra_css( 'astra-settings[product-sale-bg-color]', 'background-color', '.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale' );
-	astra_css( 'astra-settings[product-sale-bg-color]', 'border-color', '.woocommerce ul.products li.product .onsale.circle-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline' );
+	astra_css( 'astra-settings[product-sale-color]', 'color', '.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale,.woocommerce span.onsale, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.circle-outline, .ast-onsale-card' );
+	astra_css( 'astra-settings[product-sale-bg-color]', 'background-color', '.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale, .ast-onsale-card' );
+	astra_css( 'astra-settings[product-sale-bg-color]', 'border-color', '.woocommerce ul.products li.product .onsale.circle-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline, .ast-onsale-card' );
 
 	// Shop Product Title Typography
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-shop-product-title]', '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title' );

@@ -661,6 +661,7 @@ ul.ast-advanced-week-days-wrap li {
 }
 .ast-alignment-inner-wrap {
     position: relative;
+    width: 200px;
     border: 1px solid #d1d5db;
     border-radius: 4px;
     background-color: #fff;
@@ -674,8 +675,8 @@ ul.ast-advanced-week-days-wrap li {
 }
 .ast-alignment-inner-wrap button {
     justify-content: center;
-    padding-top: 50px;
-    padding-bottom: 70px;
+    padding-top: 24px;
+    padding-bottom: 58px;
     width: 100%;
     height: 100%;
 }
@@ -688,7 +689,8 @@ ul.ast-advanced-week-days-wrap li {
 }
 .ast-alignment-inner-wrap label {
     position: absolute;
-    bottom: 30px;
+    top: 160px;
+    bottom: 16px;
     right: 0;
     width: 100%;
     font-size: 16px;
@@ -734,9 +736,24 @@ select.components-select-control__input.ast-layout-hooks-selection {
 .components-datetime__date .CalendarMonth_caption {
     padding-bottom: 22px;
 }
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
+    .ast-alignment-wrap {
+        width: 30%;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 767px) {
     .ast-alignment-wrap {
         width: 50%;
         margin-bottom: 20px;
+    }
+    .ast-alignment-inner-wrap {
+        position: relative;
+        width: 170px;
+        border: 1px solid #D1D5DB;
+        border-radius: 4px;
+        background-color: #fff;
+        transition: 0.3s;
     }
 }

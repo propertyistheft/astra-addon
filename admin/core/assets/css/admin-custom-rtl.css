@@ -232,3 +232,9 @@ table .type-astra_adv_header .title, table .type-astra-advanced-hook .title,
 .flex-wrap {
 	flex-wrap: wrap;
 }
+.text-red-400{
+	color: #f87171;
+}
+.ast-admin-top-bar-root a:focus, .ast-admin-top-bar-root a:active {
+    box-shadow: none;
+}

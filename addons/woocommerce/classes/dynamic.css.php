@@ -183,14 +183,6 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'border'     => '2px solid ' . $link_color,
 			'color'      => $link_color,
 		),
-		'.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.circle-outline' => array(
-			'color'        => $product_sale_color,
-			'border-color' => $product_sale_bg_color,
-		),
-		'.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale' => array(
-			'background-color' => $product_sale_bg_color,
-		),
-
 		'.ast-shop-load-more:hover'                => array(
 			'color'            => astra_get_foreground_color( $link_color ),
 			'border-color'     => esc_attr( $link_color ),
@@ -268,6 +260,30 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 	);
 
+	
+	if ( Astra_Addon_Update_Filter_Function::astra_addon_sale_badge_background_color() ) {
+
+		$css_output['.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.circle-outline, .ast-onsale-card'] = array(
+			'color'        => $product_sale_color,
+			'border-color' => $product_sale_bg_color,
+		);
+		
+		$css_output['.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale, .ast-onsale-card'] = array(
+			'background-color' => $product_sale_bg_color,
+		);
+	} else {
+
+		$css_output['.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.circle-outline'] = array(
+			'color'        => $product_sale_color,
+			'border-color' => $product_sale_bg_color,
+		);
+		
+		$css_output['.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale'] = array(
+			'background-color' => $product_sale_bg_color,
+		);
+		
+	}
+	
 	if ( is_checkout() || is_account_page() ) {
 
 		$input_field_style = astra_get_option( 'woo-input-style-type' );
@@ -2923,12 +2939,16 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			}
 
 			if ( ! astra_get_option( 'two-step-checkout' ) ) {
+				$woo_checkout_hide_items = array();
 
-				$woo_checkout_hide_items = array(
-					'.woocommerce-checkout .woocommerce #order_review, .woocommerce-checkout .woocommerce #order_review_heading' => array(
-						'display' => 'none',
-					),
-				);
+				if ( ! is_wc_endpoint_url( 'order-pay' ) ) {
+					$woo_checkout_hide_items = array(
+						'.woocommerce-checkout .woocommerce #order_review, .woocommerce-checkout .woocommerce #order_review_heading' => array(
+							'display' => 'none',
+						),
+					);
+				}
+
 
 				$css_output .= astra_parse_css( $woo_checkout_hide_items );
 

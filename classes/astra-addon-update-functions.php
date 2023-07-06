@@ -764,3 +764,17 @@ function astra_addon_background_updater_4_1_0() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Improve sale badge background color option for WooCommerce catalog design 2.
+ *
+ * @since 4.1.6
+ * @return void
+ */
+function astra_addon_background_updater_4_1_6() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['apply-modern-layout-sale-badge-styles'] ) ) {
+		$theme_options['apply-modern-layout-sale-badge-styles'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

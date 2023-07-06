@@ -117,7 +117,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Typo_Configs' ) ) {
 						'px' => array(
 							'min'  => 0,
 							'step' => 1,
-							'max'  => 100,
+							'max'  => 200,
 						),
 						'em' => array(
 							'min'  => 0,
@@ -219,7 +219,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Typo_Configs' ) ) {
 						'px' => array(
 							'min'  => 0,
 							'step' => 1,
-							'max'  => 100,
+							'max'  => 200,
 						),
 						'em' => array(
 							'min'  => 0,
@@ -304,7 +304,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Typo_Configs' ) ) {
 						'px' => array(
 							'min'  => 0,
 							'step' => 1,
-							'max'  => 100,
+							'max'  => 200,
 						),
 						'em' => array(
 							'min'  => 0,

@@ -407,12 +407,10 @@ class Astra_Addon_Admin_Loader {
 									<?php
 									if ( ASTRA_ADDON_BSF_PACKAGE ) {
 										$highlight_class     = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? 'text-[#4AB866]' : '';
-										$license_status_text = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? __( 'License activated', 'astra-addon' ) : __( 'License not activated', 'astra-addon' );
-										?>
-										<div class="pl-3 font-inter <?php echo esc_attr( $highlight_class ); ?>">
-											<?php echo esc_attr( $license_status_text ); ?>
-										</div>
-									<?php } ?>
+										$license_status_text = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? '<span class="pl-3 ' . esc_attr( $highlight_class ) . '">' . __( 'License activated', 'astra-addon' ) . '</span>' : '<a href="' . esc_url( admin_url( 'admin.php?page=astra&path=settings' ) ) . '" class="hover:text-astra text-slate-400 ml-3">' . __( 'License not activated', 'astra-addon' ) . '</a>';
+										echo wp_kses_post( $license_status_text );
+									}
+									?>
 								</div>
 								<?php
 								if ( Astra_Ext_White_Label_Markup::show_branding() ) {

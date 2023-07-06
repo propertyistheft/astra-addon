@@ -492,3 +492,7 @@
 .ast-hidden {
   display: none !important;
 }
+
+.rtl.ast-desktop .ast-mega-menu-enabled .astra-megamenu-li:hover .astra-full-megamenu-wrapper .astra-megamenu {
+  left: 0;
+}

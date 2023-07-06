@@ -35,6 +35,9 @@ function astra_addon_is_code_editor_layout( $post_id ) {
  * @since 4.1.1
  */
 function astra_addon_get_php_snippet( $post_id ) {
+	if ( ! astra_addon_is_code_editor_layout( $post_id ) ) {
+		return false;
+	}
 	$code = get_post_meta( $post_id, 'ast-advanced-hook-php-code', true );
 	if ( defined( 'ASTRA_ADVANCED_HOOKS_DISABLE_PHP' ) ) {
 		return $code;

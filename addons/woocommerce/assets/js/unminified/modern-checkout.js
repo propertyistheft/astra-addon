@@ -273,27 +273,29 @@ function woocommerceUserLogin() {
     } );
 }
 
-document.addEventListener( "DOMContentLoaded" , function( event ) {
-    
-    const body = document.querySelector( 'body' );
-    if( ! astraAddon.cartflows_version && body && body.classList.contains( 'woocommerce-checkout' ) ) {
-		const isNotWPComPackage = astraAddon.is_complete_package;
-        const emailInput = document.querySelector( '#billing_email' );
-		if ( isNotWPComPackage ) {
-			emailInput.addEventListener('input', validateInlineEmail);
-			validateInlineEmail();
-		} else {
-			emailInput.addEventListener('input', supportNativeEmailFunctionality);
-			supportNativeEmailFunctionality();
-		}
+document.addEventListener("DOMContentLoaded", function (event) {
+    const body = document.querySelector('body');
+    if (!astraAddon.cartflows_version && body && body.classList.contains('woocommerce-checkout')) {
+        const isNotWPComPackage = astraAddon.is_complete_package;
+        const emailInput = document.querySelector('#billing_email');
 
-        if( body && ! body.classList.contains( 'ast-woo-two-step-modern-checkout' ) ) {
-            slideInAndOutContent( '#ast-order-review-toggle', '#ast-order-review-content' );
+        if (emailInput) {
+            if (isNotWPComPackage) {
+                emailInput.addEventListener('input', validateInlineEmail);
+                validateInlineEmail();
+            } else {
+                emailInput.addEventListener('input', supportNativeEmailFunctionality);
+                supportNativeEmailFunctionality();
+            }
         }
 
-		if ( isNotWPComPackage ) {
-			slideInAndOutContent( '#ast-customer-login-url', '#ast-customer-login-section' );
-			woocommerceUserLogin();
-		}
+        if (body && !body.classList.contains('ast-woo-two-step-modern-checkout')) {
+            slideInAndOutContent('#ast-order-review-toggle', '#ast-order-review-content');
+        }
+
+        if (isNotWPComPackage) {
+            slideInAndOutContent('#ast-customer-login-url', '#ast-customer-login-section');
+            woocommerceUserLogin();
+        }
     }
 });

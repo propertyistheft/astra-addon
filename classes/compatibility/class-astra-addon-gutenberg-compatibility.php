@@ -21,19 +21,33 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 	 * @since 2.5.1
 	 */
 	public function render_content( $post_id ) {
-
 		$output       = '';
 		$current_post = get_post( $post_id, OBJECT );
-
 		if ( has_blocks( $current_post ) ) {
 			$blocks = parse_blocks( $current_post->post_content );
 			foreach ( $blocks as $block ) {
-				$output .= render_block( $block );
+				if ( 'core/embed' === $block['blockName'] ) {
+					// Generate iframe for embed block.
+					if ( isset( $block['attrs']['url'] ) ) {
+						$video_url = esc_url( $block['attrs']['url'] );
+						$html      = wp_oembed_get( $video_url );
+
+						if ( class_exists( 'Astra_After_Setup_Theme' ) ) {
+							$html = Astra_After_Setup_Theme::get_instance()->responsive_oembed_wrapper( $html, $video_url, $block['attrs'] );
+						}
+
+						$output .= $html;
+					} else {
+						$output .= render_block( $block );
+					}
+				} else {
+					// Render other blocks as usual.
+					$output .= render_block( $block );
+				}
 			}
 		} else {
 			$output = $current_post->post_content;
 		}
-
 		ob_start();
 		echo do_shortcode( $output );
 		echo do_shortcode( ob_get_clean() );

@@ -513,7 +513,9 @@ function astra_addon_get_font_extras( $config, $setting, $unit = false ) {
 	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
 
 	if ( $unit && $css ) {
-		$css .= isset( $config[ $unit ] ) ? $config[ $unit ] : '';
+		$unit_val = isset( $config[ $unit ] ) ? $config[ $unit ] : '';
+		$unit_val = 'line-height-unit' === $unit ? apply_filters( 'astra_font_line_height_unit', $unit_val ) : $unit_val;
+		$css     .= $unit_val;
 	}
 
 	return $css;
