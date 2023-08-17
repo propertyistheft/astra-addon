@@ -1,5 +1,8 @@
 *** Astra Pro Changelog ***
 
+2023-08-10 - version 4.1.7
+* Improvement: Compatibility with WordPress-6.3.
+
 2023-07-05 - version 4.1.6
 * New: WooCommerce - Added Sale badge color change option for shop card modern design.
 * Improvement: Updated the license deactivation setting notification icon from admin panel.

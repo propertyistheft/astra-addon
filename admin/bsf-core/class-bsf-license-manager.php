@@ -121,6 +121,20 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 			}
 
 			$product_id  = esc_attr( $_POST['bsf_license_manager']['product_id'] );
+
+			$this->process_license_deactivation( $product_id );
+		}
+
+		/**
+		 * Process license deactivation. 
+		 * 
+		 * @param int    $product_id  Product ID.
+		 * @param string $license_key License key.
+		 * 
+		 * @return array
+		 */
+		public function process_license_deactivation( $product_id ) {
+
 			$license_key = $this->bsf_get_product_info( $product_id, 'purchase_key' );
 
 			// Check if the key is from EDD.
@@ -154,8 +168,6 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 					// update license saus to the product.
 					$_POST['bsf_license_deactivation']['success'] = $result['success'];
 					$_POST['bsf_license_deactivation']['message'] = $result['message'];
-					unset( $result['success'] );
-					unset( $result['message'] );
 
 					$this->bsf_update_product_info( $product_id, $result );
 
@@ -169,10 +181,15 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 				// If there is an error, the status will not be changed. hence it's true.
 				$_POST['bsf_license_activation']['success'] = true;
 				$_POST['bsf_license_activation']['message'] = 'There was an error when connecting to our license API - <pre class="bsf-pre">' . $response->get_error_message() . '</pre>';
+
+				$result['success'] = false;
+				$result['message'] = $response->get_error_message();
 			}
 
 			// Delete license key status transient.
 			delete_transient( $product_id . '_license_status' );
+
+			return $result;
 		}
 
 		/**
@@ -310,6 +327,9 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 					if ( $id == $product_id ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
 						foreach ( $args as $key => $value ) {
+							if( 'success' === $key || 'message' === $key ) {
+								continue;
+							}
 							$brainstrom_products[ $type ][ $id ][ $key ] = $value;
 							do_action( "bsf_product_update_{$value}", $product_id, $value );
 						}
