@@ -298,7 +298,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			wp_safe_redirect(
-				esc_url_raw(
+				esc_url_raw( 
 					remove_query_arg(
 						array(
 							$source . '_analytics_optin',
@@ -416,10 +416,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			</label>
 			<?php
 			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $args['usage_doc_link'] ), __( 'Learn More.', 'astra-addon' ) ) );
-			if( is_multisite() ) {
-				$source = str_replace( '-analytics-optin', '', $args['name'] );
-				wp_nonce_field( $source . '_analytics_nonce', $source . '_analytics_nonce' );
-			}
 			?>
 			</fieldset>
 			<?php
@@ -500,17 +496,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 */
 		public function add_option_to_network( $option, $value ) {
 
-			$source = isset( $_GET['bsf_analytics_source'] ) ? sanitize_text_field( wp_unslash( $_GET['bsf_analytics_source'] ) ) : '';
+			// If action coming from general settings page.
+			if ( isset( $_POST['option_page'] ) && 'general' === $_POST['option_page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
-			if ( ! isset( $_GET[ $source . '_analytics_nonce' ] ) ) {
-				return;
-			}
-
-			if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET[ $source . '_analytics_nonce' ] ) ), $source . '_analytics_optin' ) ) {
-				return;
-			}
-
-			if ( isset( $_POST['option_page'] ) && 'general' === $_POST['option_page'] ) {
 				if ( get_site_option( $option ) ) {
 					update_site_option( $option, $value );
 				} else {

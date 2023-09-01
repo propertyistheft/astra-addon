@@ -52,6 +52,34 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		public static $selector_control;
 
 		/**
+		 * Astra theme supported versions map array.
+		 *
+		 * @var array
+		 * @since 4.3.0
+		 */
+		private static $astra_theme_supported_version_map = array(
+			'4.1.6'  => '4.1.0',
+			'4.0.0'  => '4.0.0',
+			'3.9.4'  => '3.9.2',
+			'3.9.1'  => '3.9.0',
+			'3.6.11' => ' 3.8.3',
+			'3.6.8'  => '3.7.5',
+			'3.6.2'  => '3.7.4',
+			'3.6.1'  => '3.7.0',
+			'3.5.9'  => '3.6.9',
+			'3.5.8'  => '3.6.8',
+			'3.5.7'  => '3.6.5',
+			'3.5.4'  => '3.5.0',
+			'3.4.2'  => '3.4.3',
+			'3.4.1'  => '3.4.0',
+			'3.3.2'  => '3.3.3',
+			'3.3.1'  => '3.3.2',
+			'3.3.0'  => '3.3.0',
+			'3.2.0'  => '3.1.0',
+			'3.0.1'  => '3.0.0',
+		);
+
+		/**
 		 *  Initiator
 		 */
 		public static function get_instance() {
@@ -78,6 +106,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			if ( is_admin() ) {
 
 				add_action( 'admin_init', array( $this, 'min_theme_version__error' ) );
+				add_action( 'admin_init', array( $this, 'minimum_theme_supported_version_notice' ) );
 
 				// Admin enqueue script alpha color picker.
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_color_picker_scripts' ) );
@@ -592,6 +621,88 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 						)
 					);
 				}
+			}
+		}
+
+		/**
+		 * Get minimum supported version for Astra addon.
+		 * This function will be used to inform the user about incompatible version of Astra addon.
+		 *
+		 * @param string $input_version Input version of the addon.
+		 *
+		 * @since 4.3.0
+		 */
+		public function get_astra_theme_min_supported_version( $input_version ) {
+
+			if ( version_compare( ASTRA_THEME_VERSION, ASTRA_THEME_MIN_VER ) < 0 ) {
+				return ASTRA_THEME_MIN_VER;
+			}
+
+			$supported_version = '';
+
+			// First, check if the exact version is supported
+			if ( isset( self::$astra_theme_supported_version_map[ $input_version ] ) ) {
+				$supported_version = self::$astra_theme_supported_version_map[ $input_version ];
+			} else {
+				foreach ( self::$astra_theme_supported_version_map as $index => $supported ) {
+					if ( '' !== $supported_version || version_compare( $input_version, $index ) > 0 ) {
+						$supported_version = $supported;
+						break;
+					}
+				}
+			}
+
+			return $supported_version;
+		}
+
+		/**
+		 * This constant will be used to inform the user about incompatible version of Astra addon.
+		 *
+		 * @since 4.3.0
+		 */
+		public function minimum_theme_supported_version_notice() {
+
+			if ( ! defined( 'ASTRA_THEME_VERSION' ) ) {
+				return;
+			}
+
+			// ASTRA_THEME_MIN_VER < ASTRA_THEME_VERSION && ASTRA_THEME_VERSION < 4.0.0.
+			if ( version_compare( ASTRA_THEME_VERSION, ASTRA_THEME_MIN_VER ) >= 0 || version_compare( '4.0.0', ASTRA_THEME_VERSION ) < 0 ) {
+				return;
+			}
+
+			$astra_supported_version = $this->get_astra_theme_min_supported_version( ASTRA_THEME_VERSION );
+			$message                 = sprintf(
+				/* translators: %1$s: Theme Name, %2$s: Plugin Name, %3$s: Supported required version of the addon */
+				'Your current version of %1$s theme is incompatible with %2$s plugin. Please update to at least version %3$s for optimal functionality.',
+				astra_get_theme_name(),
+				astra_get_addon_name(),
+				$astra_supported_version
+			);
+
+			$ext_min_supported_version = get_user_meta( get_current_user_id(), 'ast-theme-supported-version-notice', true );
+
+			if ( ! $ext_min_supported_version ) {
+				update_user_meta( get_current_user_id(), 'ast-theme-supported-version-notice', $astra_supported_version );
+			}
+
+			if ( version_compare( $ext_min_supported_version, $astra_supported_version, '!=' ) ) {
+				delete_user_meta( get_current_user_id(), 'ast-theme-minimum-supported-version-notice' );
+				update_user_meta( get_current_user_id(), 'ast-theme-supported-version-notice', $astra_supported_version );
+			}
+
+			$notice_args = array(
+				'id'                         => 'ast-theme-minimum-supported-version-notice',
+				'type'                       => 'warning',
+				'message'                    => $message,
+				'show_if'                    => true,
+				'repeat-notice-after'        => false,
+				'priority'                   => 20,
+				'display-with-other-notices' => false,
+			);
+
+			if ( class_exists( 'Astra_Notices' ) ) {
+				Astra_Notices::add_notice( $notice_args );
 			}
 		}
 

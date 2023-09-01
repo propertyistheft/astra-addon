@@ -309,7 +309,11 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 
 			$current_db_version = Astra_Addon_Update::astra_addon_stored_version();
 
-			error_log( 'Astra Addon: Batch Process Started!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			// Check if the error_log function exists before calling it.
+			if ( function_exists( 'error_log' ) ) {
+				error_log( 'Astra Addon: Batch Process Started!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			}
+
 			if ( count( $this->get_db_update_callbacks() ) > 0 ) {
 				foreach ( $this->get_db_update_callbacks() as $version => $update_callbacks ) {
 					if ( version_compare( $current_db_version, $version, '<' ) ) {
@@ -317,7 +321,10 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 							if ( $fallback ) {
 								call_user_func( $update_callback );
 							} else {
-								error_log( sprintf( 'Astra Addon: Queuing %s - %s', $version, $update_callback ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+								// Check if the error_log function exists before calling it.
+								if ( function_exists( 'error_log' ) ) {
+									error_log( sprintf( 'Astra Addon: Queuing %s - %s', $version, $update_callback ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+								}
 								self::$background_updater->push_to_queue( $update_callback );
 							}
 						}
@@ -325,7 +332,10 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 				}
 
 				if ( $fallback ) {
-					error_log( 'Astra Addon: Running migration without batch processing.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					// Check if the error_log function exists before calling it.
+					if ( function_exists( 'error_log' ) ) {
+						error_log( 'Astra Addon: Running migration without batch processing.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					}
 					self::update_db_version();
 				} else {
 					$customizer_options = get_option( 'astra-settings' );
@@ -417,9 +427,9 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 
 			// Update auto saved version number.
 			update_option( 'astra-settings', $astra_options );
-
-			error_log( 'Astra Addon: DB version updated!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-
+			if ( function_exists( 'error_log' ) ) {
+				error_log( 'Astra Addon: DB version updated!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			}
 			// Update variables.
 			Astra_Theme_Options::refresh();
 

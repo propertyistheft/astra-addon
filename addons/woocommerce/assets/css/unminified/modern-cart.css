@@ -67,3 +67,7 @@
 .woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td {
   border-top: 1px solid var(--ast-border-color);
 }
+
+.woocommerce .woocommerce-cart-form__cart-item .product-name .ast-product-name > a {
+  display: inline-block;
+}

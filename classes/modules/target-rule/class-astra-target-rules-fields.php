@@ -94,6 +94,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		public function __construct() {
 			add_action( 'admin_action_edit', array( $this, 'initialize_options' ) );
 			add_action( 'wp_ajax_astra_get_posts_by_query', array( $this, 'astra_get_posts_by_query' ) );
+			add_action( 'wp_ajax_astra_get_posts_with_type', array( $this, 'astra_get_posts_with_type' ) );
 		}
 
 		/**
@@ -109,9 +110,10 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		/**
 		 * Get location selection options.
 		 *
+		 * @param bool $consider_type Consider type for dealing with ruleset options.
 		 * @return array
 		 */
-		public static function get_location_selections() {
+		public static function get_location_selections( $consider_type = false ) {
 
 			$args = array(
 				'public'   => true,
@@ -139,21 +141,43 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$special_pages['special-woo-shop'] = __( 'WooCommerce Shop Page', 'astra-addon' );
 			}
 
-			$selection_options = array(
-				'basic'         => array(
-					'label' => __( 'Basic', 'astra-addon' ),
-					'value' => array(
-						'basic-global'    => __( 'Entire Website', 'astra-addon' ),
-						'basic-singulars' => __( 'All Singulars', 'astra-addon' ),
-						'basic-archives'  => __( 'All Archives', 'astra-addon' ),
-					),
-				),
+			if ( 'single' === $consider_type ) {
+				$global_val = array(
+					'basic-global'    => __( 'Entire Website', 'astra-addon' ),
+					'basic-singulars' => __( 'All Singulars', 'astra-addon' ),
+				);
+			} elseif ( 'archive' === $consider_type ) {
+				$global_val = array(
+					'basic-global'   => __( 'Entire Website', 'astra-addon' ),
+					'basic-archives' => __( 'All Archives', 'astra-addon' ),
+				);
+			} else {
+				$global_val = array(
+					'basic-global'    => __( 'Entire Website', 'astra-addon' ),
+					'basic-singulars' => __( 'All Singulars', 'astra-addon' ),
+					'basic-archives'  => __( 'All Archives', 'astra-addon' ),
+				);
+			}
 
-				'special-pages' => array(
-					'label' => __( 'Special Pages', 'astra-addon' ),
-					'value' => $special_pages,
-				),
-			);
+			if ( 'single' === $consider_type ) {
+				$selection_options = array(
+					'basic' => array(
+						'label' => __( 'Basic', 'astra-addon' ),
+						'value' => $global_val,
+					),
+				);
+			} else {
+				$selection_options = array(
+					'basic'         => array(
+						'label' => __( 'Basic', 'astra-addon' ),
+						'value' => $global_val,
+					),
+					'special-pages' => array(
+						'label' => __( 'Special Pages', 'astra-addon' ),
+						'value' => $special_pages,
+					),
+				);
+			}
 
 			$args = array(
 				'public' => true,
@@ -171,7 +195,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 					foreach ( $post_types as $post_type ) {
 
-						$post_opt = self::get_post_target_rule_options( $post_type, $taxonomy );
+						$post_opt = self::get_post_target_rule_options( $post_type, $taxonomy, $consider_type );
 
 						if ( isset( $selection_options[ $post_opt['post_key'] ] ) ) {
 
@@ -353,6 +377,125 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						$id     = get_the_id();
 						$data[] = array(
 							'id'   => 'post-' . $id,
+							'text' => $title,
+						);
+					}
+				}
+
+				if ( is_array( $data ) && ! empty( $data ) ) {
+					$result[] = array(
+						'text'     => $key,
+						'children' => $data,
+					);
+				}
+			}
+
+			$data = array();
+
+			wp_reset_postdata();
+
+			$args = array(
+				'public' => true,
+			);
+
+			$output     = 'objects'; // names or objects, note names is the default.
+			$operator   = 'and'; // also supports 'or'.
+			$taxonomies = get_taxonomies( $args, $output, $operator );
+
+			foreach ( $taxonomies as $taxonomy ) {
+				$terms = get_terms(
+					$taxonomy->name,
+					array(
+						'orderby'    => 'count',
+						'hide_empty' => 0,
+						'name__like' => $search_string,
+					)
+				);
+
+				$data = array();
+
+				$label = ucwords( $taxonomy->label );
+
+				if ( ! empty( $terms ) ) {
+
+					foreach ( $terms as $term ) {
+
+						$term_taxonomy_name = ucfirst( str_replace( '_', ' ', $taxonomy->name ) );
+
+						$data[] = array(
+							'id'   => 'tax-' . $term->term_id,
+							'text' => $term->name . ' archive page',
+						);
+
+						$data[] = array(
+							'id'   => 'tax-' . $term->term_id . '-single-' . $taxonomy->name,
+							'text' => 'All singulars from ' . $term->name,
+						);
+
+					}
+				}
+
+				if ( is_array( $data ) && ! empty( $data ) ) {
+					$result[] = array(
+						'text'     => $label,
+						'children' => $data,
+					);
+				}
+			}
+
+			// return the result in json.
+			wp_send_json( $result );
+		}
+
+		/**
+		 * Extended above AJAX action for requirement of post id with post type.
+		 * Case: Custom Layout's Dynamic Preview Feature.
+		 *
+		 * @since  4.3.0
+		 * @return mixed
+		 */
+		public function astra_get_posts_with_type() {
+
+			check_ajax_referer( 'astra-addon-get-posts-by-query', 'nonce' );
+
+			$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$data          = array();
+			$result        = array();
+
+			$args = array(
+				'public'   => true,
+				'_builtin' => false,
+			);
+
+			$output     = 'names'; // names or objects, note names is the default.
+			$operator   = 'and'; // also supports 'or'.
+			$post_types = get_post_types( $args, $output, $operator );
+
+			$post_types['Posts'] = 'post';
+			$post_types['Pages'] = 'page';
+
+			foreach ( $post_types as $key => $post_type ) {
+
+				$data = array();
+
+				add_filter( 'posts_search', array( $this, 'search_only_titles' ), 10, 2 );
+
+				$query = new WP_Query(
+					array(
+						's'              => $search_string,
+						'post_type'      => $post_type,
+						'posts_per_page' => -1,
+					)
+				);
+
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						$title  = get_the_title();
+						$title .= ( 0 != $query->post->post_parent ) ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
+						$id     = get_the_id();
+						$data[] = array(
+							'id'   => $post_type . '__' . $id,
 							'text' => $title,
 						);
 					}
@@ -750,32 +893,37 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 *
 		 * @param object $post_type post type parameter.
 		 * @param object $taxonomy taxonomy for creating the target rule markup.
+		 * @param mixed  $consider_type consider type for dealing with rule options.
 		 */
-		public static function get_post_target_rule_options( $post_type, $taxonomy ) {
+		public static function get_post_target_rule_options( $post_type, $taxonomy, $consider_type = false ) {
 
 			$post_key    = str_replace( ' ', '-', strtolower( $post_type->label ) );
 			$post_label  = ucwords( $post_type->label );
 			$post_name   = $post_type->name;
 			$post_option = array();
 
-			/* translators: %s post label */
-			$all_posts                          = sprintf( __( 'All %s', 'astra-addon' ), $post_label );
-			$post_option[ $post_name . '|all' ] = $all_posts;
+			if ( 'archive' !== $consider_type ) {
+				/* translators: %s post label */
+				$all_posts                          = sprintf( __( 'All %s', 'astra-addon' ), $post_label );
+				$post_option[ $post_name . '|all' ] = $all_posts;
+			}
 
-			if ( 'pages' != $post_key ) {
+			if ( 'pages' != $post_key && 'single' !== $consider_type ) {
 				/* translators: %s post label */
 				$all_archive                                = sprintf( __( 'All %s Archive', 'astra-addon' ), $post_label );
 				$post_option[ $post_name . '|all|archive' ] = $all_archive;
 			}
 
-			if ( in_array( $post_type->name, $taxonomy->object_type ) ) {
-				$tax_label = ucwords( $taxonomy->label );
-				$tax_name  = $taxonomy->name;
+			if ( 'single' !== $consider_type ) {
+				if ( in_array( $post_type->name, $taxonomy->object_type ) ) {
+					$tax_label = ucwords( $taxonomy->label );
+					$tax_name  = $taxonomy->name;
 
-				/* translators: %s taxonomy label */
-				$tax_archive = sprintf( __( 'All %s Archive', 'astra-addon' ), $tax_label );
+					/* translators: %s taxonomy label */
+					$tax_archive = sprintf( __( 'All %s Archive', 'astra-addon' ), $tax_label );
 
-				$post_option[ $post_name . '|all|taxarchive|' . $tax_name ] = $tax_archive;
+					$post_option[ $post_name . '|all|taxarchive|' . $tax_name ] = $tax_archive;
+				}
 			}
 
 			$post_output['post_key'] = $post_key;
@@ -1347,7 +1495,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 * @param  string $post_type Post Type.
 		 * @param  array  $option meta option name.
 		 *
-		 * @return object  Posts.
+		 * @return object|array  Posts.
 		 */
 		public function get_posts_by_conditions( $post_type, $option ) {
 

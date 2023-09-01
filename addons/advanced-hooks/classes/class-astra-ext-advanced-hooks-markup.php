@@ -44,6 +44,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
+			// Overriding default layout using Custom Layout.
+			add_action( 'template_include', array( $this, 'override_template_include' ), 999 );
+
 			add_action( 'wp', array( $this, 'load_advanced_hooks_template' ), 1 );
 			add_action( 'wp', array( $this, 'load_markup' ), 1 );
 			add_action( 'wp', array( $this, 'remove_navigation_markup' ), 1 );
@@ -69,6 +72,107 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			add_filter( 'astra_addon_js_localize', array( $this, 'localize_variables' ) );
 			add_filter( 'astra_addon_dynamic_css', array( $this, 'astra_ext_advanced_hooks_dynamic_css' ) );
 			add_shortcode( 'astra_custom_layout', array( $this, 'shortcode_output' ) );
+		}
+
+		/**
+		 * Overriding default template by Custom Layout.
+		 *
+		 * @since 4.3.0
+		 * @param int $post_id post id.
+		 * @return string
+		 */
+		public static function render_overridden_template( $post_id ) {
+			$post_content = get_post( $post_id );
+			if ( empty( $post_content ) ) {
+				return;
+			}
+
+			get_header();
+
+			do_action( 'astra_addon_before_custom_single_content', $post_id );
+
+			ob_start();
+			self::get_instance()->get_action_content( $post_id );
+			echo do_shortcode( ob_get_clean() );
+
+			do_action( 'astra_addon_after_custom_single_content', $post_id );
+
+			get_footer();
+		}
+
+		/**
+		 * Overriding default template by Custom Layout.
+		 *
+		 * @since 4.3.0
+		 * @param mixed $template template.
+		 * @return string
+		 */
+		public function override_template_include( $template ) {
+
+			$post_type = get_post_type();
+
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
+
+				$option = array(
+					'location'  => 'ast-advanced-hook-location',
+					'exclusion' => 'ast-advanced-hook-exclusion',
+					'users'     => 'ast-advanced-hook-users',
+				);
+
+				$ids              = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( ASTRA_ADVANCED_HOOKS_POST_TYPE, $option );
+				$ids              = array_keys( $ids );
+				$template_layouts = array();
+
+				if ( empty( $ids ) || is_embed() ) {
+					return $template;
+				} else {
+					// Get all the template layouts.
+					foreach ( $ids as $index => $post_id ) {
+						if ( 'template' === get_post_meta( $post_id, 'ast-advanced-hook-layout', true ) ) {
+							$template_layouts[] = $post_id;
+						}
+					}
+				}
+
+				if ( empty( $template_layouts ) ) {
+					return $template;
+				}
+
+				if ( is_singular() ) {
+					$page_template = get_page_template_slug();
+
+					if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== get_post_type() && $page_template && 'default' !== $page_template ) {
+						return $template;
+					}
+				}
+
+				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === get_post_type() && count( $template_layouts ) > 1 ) {
+					global $post;
+					$post_id = $post->ID;
+				} else {
+					$post_id = isset( $template_layouts[0] ) ? $template_layouts[0] : 0;
+				}
+
+				if ( ! $post_id ) {
+					return $template;
+				}
+
+				$enabled = get_post_meta( $post_id, 'ast-advanced-hook-enabled', true );
+				$layout  = get_post_meta( $post_id, 'ast-advanced-hook-layout', true );
+
+				if ( false === apply_filters( 'astra_addon_render_custom_template_content', true, $post_id ) || 'no' === $enabled || 'template' !== $layout ) {
+					return $template;
+				}
+
+				return astra_addon_get_template(
+					apply_filters( 'astra_addon_overriding_custom_template', 'advanced-hooks/template/dynamic-content.php' ),
+					array(
+						'template_id' => $post_id,
+					)
+				);
+			}
+
+			return $template;
 		}
 
 		/**
@@ -549,7 +653,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						add_action(
 							'astra_entry_content_404_page',
 							function() use ( $post_id ) {
-									Astra_Ext_Advanced_Hooks_Markup::get_instance()->get_action_content( $post_id );
+								Astra_Ext_Advanced_Hooks_Markup::get_instance()->get_action_content( $post_id );
 							},
 							$priority
 						);

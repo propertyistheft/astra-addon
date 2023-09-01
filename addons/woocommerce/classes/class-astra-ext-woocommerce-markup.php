@@ -91,6 +91,11 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			add_action( 'wp_ajax_astra_add_cart_single_product_quantity', array( $this, 'astra_add_cart_single_product_quantity' ) );
 			add_action( 'wp_ajax_nopriv_astra_add_cart_single_product_quantity', array( $this, 'astra_add_cart_single_product_quantity' ) );
 
+			if ( defined( 'WC_MIN_MAX_QUANTITIES' ) && apply_filters( 'astra_define_cart_constant', true ) ) {
+				// Cart constant required for slide in cart when WooCommerce Min/Max Quantities is enabled.
+				add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'define_cart_constant' ), 1 );
+			}
+
 			// Register Off Canvas Sidebars / Shop Filters.
 			if ( is_customize_preview() ) {
 				add_action( 'widgets_init', array( $this, 'shop_filters_sidebar' ), 99 );
@@ -676,6 +681,15 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				$single_product_ajax_add_to_cart = astra_get_option( 'single-product-add-to-cart-action' );
 				$shop_quick_view_enable          = astra_get_option( 'shop-quick-view-enable' );
 				if ( ( $single_product_ajax_add_to_cart && 'default' !== $single_product_ajax_add_to_cart ) || $shop_quick_view_enable ) {
+
+					// Disable Ajax Add to Cart for Composite Products on Single Product Page.
+					if ( defined( 'YITH_WCP' ) && is_singular( array( 'product' ) ) ) {
+						global $post;
+						$product = wc_get_product( $post->ID );
+						if ( ! ( $product->is_type( 'simple' ) || $product->is_type( 'subscription' ) || $product->is_type( 'variable' ) || $product->is_type( 'variable-subscription' ) ) ) {
+							return;
+						}
+					}
 					wp_enqueue_script( 'astra-single-product-ajax-cart', $js_gen_path . 'single-product-ajax-cart' . $file_prefix . '.js', array( 'jquery', 'astra-addon-js' ), ASTRA_EXT_VER, true );
 				}
 			}
@@ -2310,6 +2324,18 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		}
 
 		/**
+		 * Define cart constants.
+		 *
+		 * @since 4.3.0
+		 * @param array $fragments Fragments to refresh via AJAX.
+		 * @return array.
+		 */
+		public function define_cart_constant( $fragments ) {
+			wc_maybe_define_constant( 'WOOCOMMERCE_CART', true );
+			return $fragments;
+		}
+
+		/**
 		 * Single Product quantity update to cart ajax request
 		 *
 		 * @since 3.9.0
@@ -3261,11 +3287,11 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				$coupon_apply_text = astra_get_option( 'woo-coupon-apply-text' );
 				?>
 			<div id="ast-checkout-coupon">
-				<p id="ast-coupon-trigger"><?php echo esc_html( $coupon_text ); ?></p>
+				<p id="ast-coupon-trigger" tabindex="0" ><?php echo esc_html( $coupon_text ); ?></p>
 				<div class="coupon">
 				<label class="ast-coupon-label" for="ast-coupon-code" ><?php esc_html_e( 'coupon:', 'astra-addon' ); ?></label>
-					<input type="text" name="ast-coupon-code" id="ast-coupon-code" value="" placeholder="<?php echo esc_attr( $coupon_input_text ); ?>" />
-					<a class="button" id="ast-apply-coupon" name="ast-apply-coupon" value="<?php echo esc_attr( $coupon_apply_text ); ?>">
+					<input type="text" name="ast-coupon-code" id="ast-coupon-code" tabindex="0" value="" placeholder="<?php echo esc_attr( $coupon_input_text ); ?>" />
+					<a class="button" id="ast-apply-coupon" tabindex="0" name="ast-apply-coupon" value="<?php echo esc_attr( $coupon_apply_text ); ?>">
 						<?php echo esc_html( $coupon_apply_text ); ?>
 					</a>
 				</div>

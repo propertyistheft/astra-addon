@@ -1299,10 +1299,13 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			if ( ! empty( $already_set_rule ) ) {
 				add_action(
 					'admin_notices',
-					function() use ( $already_set_rule, $current_post_layout ) {
+					function() use ( $current_post_layout ) {
 
-						$rule_set_titles = '<strong>' . implode( ',', $already_set_rule ) . '</strong>';
-						$layout          = '<strong>' . ucfirst( $current_post_layout ) . '</strong>';
+						if ( 'template' === $current_post_layout ) {
+							return; // No need of admin notice for template type layout.
+						}
+
+						$layout = '<strong>' . ucfirst( $current_post_layout ) . '</strong>';
 
 						/* translators: %s layout. */
 						$notice = sprintf( __( 'Another %s Layout is selected for the same display rules.', 'astra-addon' ), $layout );
@@ -1634,8 +1637,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 						default:
 						case 'FILTER_SANITIZE_STRING':
-							// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- This deprecation will be addressed later.
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
+							$meta_value = ! empty( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
 							break;
 
 						case 'FILTER_SANITIZE_URL':

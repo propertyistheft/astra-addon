@@ -355,7 +355,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					} else {
 						$action = $layout;
 					}
-					echo esc_html( apply_filters( 'astra_advanced_hooks_list_action_column', ucfirst( $action ) ) );
+
+					if ( 'template' === $layout ) {
+						$action = get_post_meta( $post_id, 'ast-advanced-hook-template-type', true );
+						$action = ucfirst( $layout ) . ': ' . ucfirst( $action );
+					}
+					echo esc_html( apply_filters( 'astra_advanced_hooks_list_action_column', $action ) );
 					break;
 				case 'advanced_hook_shortcode':
 					echo '<div> <label class="layout-status"> <span class="ast-layout-' . esc_attr( $post_id ) . '">[astra_custom_layout id=' . esc_attr( $post_id ) . ']</span> </label> <a href="javascript:void(0)" class="ast-copy-layout-shortcode" title="' . esc_attr__( 'Copy to Clipboard', 'astra-addon' ) . '" data-linked_span="ast-layout-' . esc_attr( $post_id ) . '"> <span class="dashicons dashicons-admin-page"></span> </a> </div>';
@@ -706,6 +711,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'ContentBlockType'           => $this->get_content_type(),
 					'actionHooks'                => Astra_Ext_Advanced_Hooks_Meta::$hooks,
 					'displayRules'               => Astra_Target_Rules_Fields::get_location_selections(),
+					'singleDisplayRules'         => Astra_Target_Rules_Fields::get_location_selections( 'single' ),
+					'archiveDisplayRules'        => Astra_Target_Rules_Fields::get_location_selections( 'archive' ),
 					'specificRule'               => $this->get_specific_rule(),
 					'specificExclusionRule'      => $this->get_specific_rule( 'exclusion' ),
 					'ajax_nonce'                 => wp_create_nonce( 'astra-addon-get-posts-by-query' ),
@@ -769,7 +776,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					),
 				)
 			);
-
 		}
 
 		/**
@@ -845,6 +851,17 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 					'show_in_rest'  => true,
+				)
+			);
+
+			register_post_meta(
+				ASTRA_ADVANCED_HOOKS_POST_TYPE,
+				'ast-advanced-hook-template-type',
+				array(
+					'single'        => true,
+					'show_in_rest'  => true,
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
 				)
 			);
 
@@ -1136,7 +1153,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					),
 				)
 			);
-
 		}
 
 		/**
@@ -1152,6 +1168,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				'404-page' => __( '404 Page', 'astra-addon' ),
 				'hooks'    => __( 'Hooks', 'astra-addon' ),
 				'content'  => __( 'Inside Post/Page Content', 'astra-addon' ),
+				'template' => __( 'Custom Template', 'astra-addon' ),
 			);
 		}
 

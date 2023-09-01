@@ -122,7 +122,13 @@
 
 						const quickViewMarkup = document.querySelector('#ast-quick-view-modal');
 						quickViewMarkup.querySelector('#ast-quick-view-content').innerHTML = string;
-
+						// Added for compatibility with Astra Quick View for Spectra Modal.
+						const loadAstraQuickViewForModal = new CustomEvent('AstraQuickViewForModal', {
+							detail: {
+								'class_name': '.uagb-modal-wrapper',
+							},
+						});
+						document.dispatchEvent(loadAstraQuickViewForModal);
 						AstraProQuickView._after_markup_append_process();
 					}
 				}

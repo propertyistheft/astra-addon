@@ -100,6 +100,19 @@ final class Astra_Addon_Builder_Helper {
 		$db_elements = get_option( 'astra-settings' );
 		$db_elements = isset( $db_elements['cloned-component-track'] ) ? $db_elements['cloned-component-track'] : array();
 
+		/**
+		 * If the header-divider & footer-divider is set to 0, then set it to 3.
+		 * Case: If the theme is active or any starter template with old astra-settings gets imported then the header-divider & footer-divider will be set to 0. So to avoid the conflict, we are setting it to 3 which is counter by Astra Addon.
+		 *
+		 * @since 4.3.0
+		 */
+		if ( isset( $db_elements['header-divider'] ) && 0 === $db_elements['header-divider'] ) {
+			$db_elements['header-divider'] = 3;
+		}
+		if ( isset( $db_elements['footer-divider'] ) && 0 === $db_elements['footer-divider'] ) {
+			$db_elements['footer-divider'] = 3;
+		}
+
 		if ( ! empty( $db_elements ) ) {
 			return $db_elements;
 		}

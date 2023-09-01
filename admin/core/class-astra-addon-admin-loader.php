@@ -447,13 +447,14 @@ class Astra_Addon_Admin_Loader {
 						'hooks'    => __( 'Hooks', 'astra-addon' ),
 						'404-page' => __( '404 Page', 'astra-addon' ),
 						'content'  => __( 'Page Content', 'astra-addon' ),
+						'template' => __( 'Custom Template', 'astra-addon' ),
 					);
 
 					$baseurl = add_query_arg( $url_args, admin_url( 'edit.php' ) );
 					?>
 
 					<div class="bg-white border-b border-slate-200 flex flex-wrap items-center -mb-0.5">
-						<a class="text-sm font-medium ml-2 px-5 py-4 border-b-2 <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( admin_url( 'edit.php?post_type=' . ASTRA_ADVANCED_HOOKS_POST_TYPE ) ); ?>">
+						<a class="text-sm font-medium ml-2 px-5 py-4 border-b-2 border-white <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( admin_url( 'edit.php?post_type=' . ASTRA_ADVANCED_HOOKS_POST_TYPE ) ); ?>">
 							<?php
 								echo esc_html__( 'All', 'astra-addon' );
 							?>

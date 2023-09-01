@@ -66,8 +66,10 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 
 		if ( defined( 'UAGB_VER' ) ) {
 			if ( version_compare( UAGB_VER, '1.23.0', '>=' ) && class_exists( 'UAGB_Post_Assets' ) ) {
-				$post_assets = new UAGB_Post_Assets( $post_id );
-				$post_assets->enqueue_scripts();
+				if ( 'no' !== get_post_meta( $post_id, 'ast-advanced-hook-enabled', true ) ) {
+					$post_assets = new UAGB_Post_Assets( $post_id );
+					$post_assets->enqueue_scripts();
+				}
 			} else {
 				/**
 				 * We can keep this compatibility for some releases and after few releases we need to remove it.

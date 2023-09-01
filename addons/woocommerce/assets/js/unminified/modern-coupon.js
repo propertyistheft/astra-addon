@@ -8,7 +8,7 @@ function customCoupon() {
     const wooAstraWrap      = document.querySelector( 'body' );
     
     if( pageParentClass && ( wooAstraWrap.classList.contains( 'woocommerce-checkout' ) || wooAstraWrap.classList.contains( 'woocommerce-cart' ) ) ) {
-        pageParentClass.addEventListener( 'click' ,function(e) {
+        const triggerCouponClick = (e) => {
             const realCouponInput            = document.querySelector( '#coupon_code' );
             const realCouponButton           = document.querySelector( 'button[name="apply_coupon"]' );
             const customCouponSelectorInput  = document.querySelector( '#ast-coupon-code' );
@@ -25,8 +25,17 @@ function customCoupon() {
                 realCouponInput.value = customCouponSelectorInput.value;
                 realCouponButton.click();
             }
-    
-        } )   
+        }
+        pageParentClass.addEventListener( 'click' ,function(e) {
+            triggerCouponClick(e);
+        } ) 
+        // Trigger click for Coupon through Enter Key on Tab Navigation.
+        pageParentClass.addEventListener('keypress', function (e) {
+            const key = e.which || e.keyCode;
+            if (key === 13) {
+                triggerCouponClick(e);
+            }
+        });
     }
 }
 

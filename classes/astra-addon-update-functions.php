@@ -23,7 +23,9 @@ function astra_addon_page_builder_button_color_compatibility() {
 	// Set flag to not load button specific CSS.
 	if ( ! isset( $theme_options['pb-button-color-compatibility-addon'] ) ) {
 		$theme_options['pb-button-color-compatibility-addon'] = false;
-		error_log( 'Astra Addon: Page Builder button compatibility: false' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		if ( function_exists( 'error_log' ) ) {
+			error_log( 'Astra Addon: Page Builder button compatibility: false' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		}
 		update_option( 'astra-settings', $theme_options );
 	}
 }
@@ -109,7 +111,9 @@ function astra_addon_css_gen_multi_site_fix() {
 		$is_css_gen_enabled = get_site_option( '_astra_file_generation', 'disable' );
 		if ( 'enable' === $is_css_gen_enabled ) {
 			update_option( '_astra_file_generation', $is_css_gen_enabled );
-			error_log( 'Astra Addon: CSS file generation: enable' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			if ( function_exists( 'error_log' ) ) {
+				error_log( 'Astra Addon: CSS file generation: enable' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			}
 		}
 	}
 }

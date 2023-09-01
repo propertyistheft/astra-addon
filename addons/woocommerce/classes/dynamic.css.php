@@ -598,19 +598,19 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				break;
 			case 'vertical-icon':
 				$quantity_vertical_style = array(
-					'.woocommerce .quantity.buttons_added.ast-vertical-style-applied' => array(
+					'.woocommerce-js .quantity.buttons_added.ast-vertical-style-applied' => array(
 						'position'              => 'relative',
 						'padding-' . $ltr_right => '25px',
 					),
 
-					'.woocommerce .quantity .vertical-icons-applied' => array(
+					'.woocommerce-js .quantity .vertical-icons-applied' => array(
 						'border-' . $ltr_right => 'none',
 						'width'                => 'unset',
 					),
-					'.woocommerce .quantity .qty.vertical-icons-applied' => array(
+					'.woocommerce-js .quantity .qty.vertical-icons-applied' => array(
 						'margin-' . $ltr_left => 'unset',
 					),
-					'.woocommerce .quantity .ast-vertical-icon' => array(
+					'.woocommerce-js .quantity .ast-vertical-icon' => array(
 						'margin-' . $ltr_left  => 'unset',
 						'width'                => '25px',
 						'height'               => '17px',
@@ -631,7 +631,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				break;
 			default:
 				$quantity_icon_font_size = array(
-					'.woocommerce .quantity .minus, .woocommerce .quantity .plus' => array(
+					'.woocommerce-js .quantity .minus, .woocommerce .quantity .plus' => array(
 						'font-size' => '18px',
 					),
 				);
@@ -641,14 +641,14 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	if ( $is_site_rtl ) {
 		$quantity_plus_minus_rtl_css = array(
-			'.woocommerce .quantity .plus'  => array(
+			'.woocommerce-js .quantity .plus'  => array(
 				'border-' . $ltr_left . '-width' => '1px',
 				'margin-' . $ltr_right           => '0px',
 			),
-			'.woocommerce .quantity .qty'   => array(
+			'.woocommerce-js .quantity .qty'   => array(
 				'margin-' . $ltr_left => '0px',
 			),
-			'.woocommerce .quantity .minus' => array(
+			'.woocommerce-js .quantity .minus' => array(
 				'margin-' . $ltr_right            => '0px',
 				'border-' . $ltr_right . '-width' => '1px',
 			),
@@ -666,14 +666,14 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	if ( $is_site_rtl ) {
 		$quantity_plus_minus_rtl_css = array(
-			'.woocommerce form .quantity .plus'  => array(
+			'.woocommerce-js form .quantity .plus'  => array(
 				'border-left-width' => '1px',
 				'margin-right'      => '0px',
 			),
-			'.woocommerce form .quantity .qty'   => array(
+			'.woocommerce-js form .quantity .qty'   => array(
 				'margin-left' => '0px',
 			),
-			'.woocommerce form .quantity .minus' => array(
+			'.woocommerce-js form .quantity .minus' => array(
 				'margin-right'       => '0px',
 				'border-right-width' => '1px',
 			),
@@ -3125,14 +3125,6 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			$woo_modern_layout = '
 
 				@media screen and ( min-width: ' . astra_addon_get_tablet_breakpoint( '', 1 ) . 'px ) {
-					.woocommerce-cart-form .woocommerce-cart-form__contents .product-remove {
-						position: absolute;
-						' . $ltr_right . ': 0;
-						top: 50%;
-						transform: translateY(-50%);
-						border-top: 0;
-					}
-
 					.woocommerce-cart-form__contents .product-thumbnail {
 						width: 100px;
 					}
@@ -3156,15 +3148,6 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					}
 					#ast-cart-wrapper .cart-collaterals .cart_totals {
 						width: 100%;
-					}
-				}
-				@media not all and (min-resolution:.001dpcm) {
-					@supports (-webkit-appearance:none) and (stroke-color:transparent) {
-						.woocommerce-cart-form .woocommerce-cart-form__contents .product-remove {
-							left: 95%;
-							position: relative;
-							transform: translateX(-50%);
-						}
 					}
 				}
 			';

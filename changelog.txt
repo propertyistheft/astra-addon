@@ -1,5 +1,23 @@
 *** Astra Pro Changelog ***
 
+2023-08-30 - version 4.3.0
+* New: Custom Layout - Ability to create custom single & archive layouts like theme builder.
+* New: Introduced option to change Header logo color while sticky.
+* Improvement: Accessibility improvements for WooCommerce Pages.
+* Improvement: WooCommerce - HPOS Compatibility.
+* Improvement: WooCommerce - New Product Editor Compatibility.
+* Improvement: Introducing new admin notice for incompatibility of the theme.
+* Fix: Custom Layout - Spectra's dynamic CSS-JS assets loading even though the layout is disabled from the edit list.
+* Fix: Custom Layout - Layout hooked at 'After Single Product Summary' overlaps on the single product image and summary box.
+* Fix: Custom Layout - FILTER_SANITIZE_STRING deprecated notice.
+* Fix: WooCommerce - Elementor Pro's Mini Cart Widget Conflicts With Astra Mini Cart Widget.
+* Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'ast-hf-menu-x'.
+* Fix: Header Builder - Account Login Popup's UI breaking when Sticky Header is active with Hide on Scroll option.
+* Fix: Header-Footer Builder - Divider elements missing from the settings when old astra-settings getting imported.
+* Fix: File Generation - PHP warning while accessing cache files on some servers.
+* Fix: Compatibility with WooCommerce Min/Max Quantities plugin.
+* Fix: Compatibility with YITH Composite Products for Single Product Real Time Add to Cart.
+
 2023-08-10 - version 4.1.7
 * Improvement: Compatibility with WordPress-6.3.
 

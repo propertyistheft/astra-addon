@@ -95,6 +95,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			$defaults['sticky-header-builder-site-title-color']   = '';
 			$defaults['sticky-header-builder-site-title-h-color'] = '';
 			$defaults['sticky-header-builder-site-tagline-color'] = '';
+			$defaults['sticky-header-builder-logo-color']         = '';
 
 			$component_limit = astra_addon_builder_helper()->component_limit;
 			for ( $index = 1; $index <= $component_limit; $index++ ) {

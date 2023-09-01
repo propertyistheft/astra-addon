@@ -447,6 +447,17 @@ li.ast-advanced-time-duration-enabled {
     display: flex;
     flex-grow: 1;
 }
+button.components-button.ast-custom-template-apply-button {
+    width: 100% !important;
+    border-radius: 2px !important;
+    margin: 20px auto 20px;
+    -js-display: flex !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+.ast-meta-preview-select .ast__menu-list {
+    max-height: 80px;
+}
 .ast-cl-popup-notice {
     -js-display: flex;
     display: flex;
@@ -653,21 +664,35 @@ ul.ast-advanced-week-days-wrap li {
     -js-display: flex;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -22px;
-}
-.ast-alignment-wrap {
-    padding: 0 11px;
-    width: 20%;
+	gap: 20px;
+	justify-content: center;
+    width: 100%;
 }
 .ast-alignment-inner-wrap {
     position: relative;
-    width: 200px;
+    width: 180px;
     border: 1px solid #d1d5db;
     border-radius: 4px;
     background-color: #fff;
     transition: 0.3s;
 }
-.ast-alignment-inner-wrap:hover {
+.template.ast-alignment-inner-wrap {
+    border: 1px solid #fff;
+    transform: translateY(-1px);
+    box-shadow: 0px 4px 8px -2px rgba(9, 30, 66, 0.25), 0px 0px 1px rgba(9, 30, 66, 0.31);
+    background: inherit;
+}
+.template.ast-alignment-inner-wrap .ast-cl-popup, .template.ast-alignment-inner-wrap .ast-cl-popup:active, .template.ast-alignment-inner-wrap .ast-cl-popup:focus, .template.ast-alignment-inner-wrap .components-button.is-primary:hover:not(:disabled) {
+    background: inherit;
+    box-shadow: inset 0 0 0 1px var(--wp-components-color-background, #fff), 0 0 0 var(--wp-admin-border-width-focus) var(--wp-components-color-accent, var(--wp-admin-theme-color, #007cba));
+}
+.ast-modal-inner-wrapper p.ast-custom-template-type-selection-wrap {
+	margin-top: 40px;
+}
+.ast-custom-template-type-selection-wrap strong {
+	margin-left: 20px;
+}
+.ast-alignment-inner-wrap:hover, .ast-alignment-inner-wrap:active {
     border: 1px solid #fff;
     transform: translateY(-1px);
     box-shadow: 0px 4px 8px -2px rgba(9, 30, 66, 0.25),
@@ -676,7 +701,7 @@ ul.ast-advanced-week-days-wrap li {
 .ast-alignment-inner-wrap button {
     justify-content: center;
     padding-top: 24px;
-    padding-bottom: 58px;
+    padding-bottom: 56px;
     width: 100%;
     height: 100%;
 }
@@ -724,8 +749,12 @@ ul.ast-advanced-week-days-wrap li {
 .ast-custom-layout-control-title, .ast-toggle-margin-bottom {
     margin-bottom: 15px;
 }
-select.components-select-control__input.ast-layout-hooks-selection {
+select.components-select-control__input.ast-layout-hooks-selection, select.components-select-control__input.ast-custom-template-type-selection {
     max-width: 248px;
+	width: 100%;
+}
+optgroup.counts-0 {
+    display: none;
 }
 .ast-toggle-margin-top {
     margin-top: 15px;
@@ -735,6 +764,27 @@ select.components-select-control__input.ast-layout-hooks-selection {
 }
 .components-datetime__date .CalendarMonth_caption {
     padding-bottom: 22px;
+}
+.ast-custom-template-type-selection-wrap select.ast-custom-template-type-select {
+    width: 421px;
+    height: 54px;
+    padding: 5px 17px;
+    border-radius: 4px;
+    border: 1px solid #E2E8F0;
+    background-position-x: calc(100% - (100% - 15px));
+    color: #4B5563;
+}
+.ast-custom-template-type-selection-wrap select.ast-custom-template-type-select option {
+    color: #4B5563;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.ast-modal-inner-wrapper p.preview-post-help {
+	margin-top: 20px;
+    font-size: 13px;
+    color: rgb(117, 117, 117);
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .ast-alignment-wrap {
@@ -755,5 +805,9 @@ select.components-select-control__input.ast-layout-hooks-selection {
         border-radius: 4px;
         background-color: #fff;
         transition: 0.3s;
+        margin: 0 auto;
     }
+	select.components-select-control__input.ast-custom-template-type-select {
+        width: 100%;
+	}
 }

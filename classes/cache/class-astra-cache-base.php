@@ -428,7 +428,7 @@ class Astra_Cache_Base {
 		// Creates a new timestamp if the file does not exists or the timestamp is empty.
 		// If post_timestamp is empty that means it is an new post or the post is updated and a new file needs to be created.
 		// If a file does not exists then we need to create a new file.
-		if ( '' == $post_timestamp || ! file_exists( $assets_info['path'] ) ) {
+		if ( '' == $post_timestamp || ( isset( $assets_info['path'] ) && ! empty( $assets_info['path'] ) && ! file_exists( $assets_info['path'] ) ) ) {
 			$timestamp = $this->get_current_timestamp();
 
 			$data = array(

@@ -46,6 +46,19 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			add_filter( 'astra_woo_shop_hover_style', array( $this, 'woo_shop_hover_style_callback' ) );
 
 			add_filter( 'wc_add_to_cart_message_html', array( $this, 'disable_woo_cart_msg' ), 10, 2 );
+
+			// Let WooCommerce know, Astra Pro is compatible with HPOS & New Product Editor.
+			add_action( 'before_woocommerce_init', array( $this, 'declare_woo_compatibility' ) );
+		}
+
+		/**
+		 *  Declare Woo HPOS & New Product Editor Compatibility.
+		 */
+		public function declare_woo_compatibility() {
+			if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', ASTRA_EXT_FILE, true );
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'product_block_editor', ASTRA_EXT_FILE, true );
+			}
 		}
 
 		/**
