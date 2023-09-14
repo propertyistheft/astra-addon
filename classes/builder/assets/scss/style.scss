@@ -54,9 +54,7 @@
         }
     }
 }
-.ast-header-account-wrap .ast-header-account-link {
-	pointer-events: none;
-}
+
 .ast-header-account-link.ast-account-action-link,
 .ast-header-break-point .ast-header-account-link,
 .ast-header-account-link.ast-account-action-login,
@@ -64,11 +62,7 @@
 	cursor: pointer;
 	pointer-events: all;
 }
-.ast-header-break-point {
-	.ast-hf-account-menu-wrap {
-		display: none;
-	}
-}
+
 .ast-header-account {
     display: flex;
 }
@@ -107,90 +101,75 @@
 }
 
 /* menu */
-.ast-desktop {
-    .ast-hf-account-menu-wrap.ast-main-header-bar-alignment {
-        position: relative;
-    }
-    .main-header-bar {
-        .main-header-bar-navigation {
-            .ast-account-nav-menu {
-                line-height: 1.45;
-            }
-        }
-    }
-	.ast-account-nav-menu {
-        width: 240px;
-        background: #fff;
-        left: -999em;
-        position: absolute;
-        top: 0px;
-        z-index: 99999;
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
-        border: 0;
-        box-shadow: 0 4px 10px -2px rgba(0,0,0,.1);
-        .sub-menu {
-            right: auto;
-            top: 0;
-            margin-left: 0;
-        }
-        .menu-item.focus,
-        .menu-item:hover {
-            > .sub-menu {
-                left: 100%;
-            }
-        }
-        .ast-left-align-sub-menu.menu-item.focus,
-        .ast-left-align-sub-menu.menu-item:hover {
-            > .sub-menu {
-                left: -100%;
-            }
-        }
-        .menu-item {
-            .menu-link {
-                padding: .9em 1em;
-            }
-        }
-        .menu-item {
-            border-style: none;
-        }
-        .menu-item.menu-item-has-children>.menu-link:after {
-            position: absolute;
-            right: 1em;
-            top: 50%;
-            transform: translate(0,-50%) rotate(270deg);
-        }
-	}
-	.ast-primary-header-bar,
-	.ast-above-header-bar,
-	.ast-below-header-bar {
-		.main-header-menu.ast-account-nav-menu {
-			> .menu-item {
-				height: auto;
-				line-height: unset;
-                bottom:-5px;
-			}
-		}
-	}
+
+.ast-hf-account-menu-wrap.ast-main-header-bar-alignment {
+    position: relative;
 }
-.site-header-section-left {
-	.ast-header-account-wrap.focus,
-	.ast-header-account-wrap:hover {
-		.ast-account-nav-menu {
-			left: -100%;
-			right: auto;
-		}
-	}
-}
-.ast-header-account-wrap {
-    &.focus,
-    &:hover {
+.main-header-bar {
+    .main-header-bar-navigation {
         .ast-account-nav-menu {
-            right: -100%;
-            left: auto;
+            line-height: 1.45;
         }
     }
+}
+.ast-account-nav-menu {
+    width: 240px;
+    background: #fff;
+    left: -999em;
+    position: absolute;
+    top: 0px;
+    z-index: 99999;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    border: 0;
+    box-shadow: 0 4px 10px -2px rgba(0,0,0,.1);
+    .sub-menu {
+        right: auto;
+        top: 0;
+        margin-left: 0;
+    }
+    .menu-item.focus,
+    .menu-item:hover {
+        > .sub-menu {
+            left: 100%;
+        }
+    }
+    .ast-left-align-sub-menu.menu-item.focus,
+    .ast-left-align-sub-menu.menu-item:hover {
+        > .sub-menu {
+            left: -100%;
+        }
+    }
+    .menu-item {
+        .menu-link {
+            padding: .9em 1em;
+        }
+    }
+    .menu-item {
+        border-style: none;
+    }
+    .menu-item.menu-item-has-children>.menu-link:after {
+        position: absolute;
+        right: 1em;
+        top: 50%;
+        transform: translate(0,-50%) rotate(270deg);
+    }
+}
+.ast-primary-header-bar,
+.ast-above-header-bar,
+.ast-below-header-bar {
+    .main-header-menu.ast-account-nav-menu {
+        > .menu-item {
+            height: auto;
+            line-height: unset;
+            bottom:-5px;
+        }
+    }
+}
+
+
+.ast-header-account-wrap {
 	.woocommerce-MyAccount-navigation-link.is-active {
 		a {
 			background: unset;

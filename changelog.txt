@@ -1,5 +1,14 @@
 *** Astra Pro Changelog ***
 
+2023-09-11 - version 4.3.1
+* New: Custom Layout - Option for dynamic content preview in single/archive template editor.
+* New: Header Builder - Account - Introducing new option for Account menu expansion "Hover" or "Click".
+* Improvement: Introducing filter 'astra_addon_cl_ast_container_fullwidth' to make flex based ast-container full-width to resolve edge cases like Custom Template shrinks on archive pages.
+* Fix: Header Builder - Account - PHP warning 'Undefined variable $css_output_desktop' while generating dynamic CSS.
+* Fix: Mailchimp for WooCommerce radio select option is not clickable when Modern Input Fields is enabled.
+* Fix: Custom Layout - Meta options modal's UI adding extra space after WordPress-6.3.
+* Fix: Custom Layout - Archive templates get shrink due to flex-based CSS on the ast-container wrapper.
+
 2023-08-30 - version 4.3.0
 * New: Custom Layout - Ability to create custom single & archive layouts like theme builder.
 * New: Introduced option to change Header logo color while sticky.

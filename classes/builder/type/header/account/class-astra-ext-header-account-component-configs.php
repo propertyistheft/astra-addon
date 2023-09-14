@@ -109,6 +109,34 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 			),
 
 			/**
+			 * Option: Show Menu On.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[header-account-action-menu-display-on]',
+				'default'    => astra_get_option( 'header-account-action-menu-display-on' ),
+				'type'       => 'control',
+				'control'    => Astra_Theme_Extension::$selector_control,
+				'section'    => $_section,
+				'title'      => __( 'Show Menu On', 'astra-addon' ),
+				'priority'   => 4,
+				'choices'    => array(
+					'hover' => __( 'Hover', 'astra-addon' ),
+					'click' => __( 'Click', 'astra-addon' ),
+				),
+				'context'    => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-action-type]',
+						'operator' => '==',
+						'value'    => 'menu',
+					),
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+			),
+
+			/**
 			 * Option: Profile Link type
 			 */
 			array(

@@ -723,6 +723,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'ResponsiveVisibilityStatus' => $responsive_visibility_status,
 					'siteurl'                    => get_option( 'siteurl' ),
 					'isWhitelabelled'            => Astra_Ext_White_Label_Markup::show_branding(),
+					'randomPreviewPost' => $this->get_random_preview_post(),
 				)
 			);
 
@@ -774,6 +775,35 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 							),
 						),
 					),
+				)
+			);
+		}
+
+		/**
+		 * Get random preview post.
+		 *
+		 * @since 4.3.1
+		 */
+		public function get_random_preview_post() {
+			$args = apply_filters( 'astra_addon_default_preview_post_query', array(
+				'posts_per_page'      => 1,
+				'post_type'           => 'post',
+				'post_status'         => 'publish',
+				'ignore_sticky_posts' => 1,
+				'no_found_rows'       => 1,
+				'orderby'             => 'rand',
+			) );
+			$single_product = new WP_Query( $args );
+			if ( ! $single_product->have_posts() ) {
+				return false;
+			}
+
+			$post_id = absint( isset( $single_product->posts[0]->ID ) ? $single_product->posts[0]->ID : '' );
+			return(
+				array(
+					'post_id' => $post_id,
+					'post_type' => 'post',
+					'post_title' => get_the_title( $post_id ),
 				)
 			);
 		}
@@ -1027,6 +1057,31 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'single'        => true,
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
+				)
+			);
+
+			register_post_meta(
+				ASTRA_ADVANCED_HOOKS_POST_TYPE,
+				'ast-custom-template-preview-post',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'type'          => 'object',
+					'default'       => array(),
+					'auth_callback' => '__return_true',
+					'show_in_rest'  => array(
+						'schema' => array(
+							'type'       => 'object',
+							'properties' => array(
+								'value' => array(
+									'type' => 'string',
+								),
+								'label' => array(
+									'type' => 'string',
+								),
+							),
+						),
+					),
 				)
 			);
 

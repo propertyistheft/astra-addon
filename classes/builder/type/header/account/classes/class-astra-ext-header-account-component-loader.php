@@ -39,7 +39,8 @@ class Astra_Ext_Header_Account_Component_Loader {
 	 */
 	public function theme_defaults( $defaults ) {
 		// Account header defaults.
-		$defaults['header-account-icon-type'] = 'account-1';
+		$defaults['header-account-icon-type']              = 'account-1';
+		$defaults['header-account-action-menu-display-on'] = 'hover';
 
 		return $defaults;
 	}

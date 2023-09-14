@@ -158,3 +158,64 @@ astraNavMenuTogglePro = function ( event, body, mobileHeaderType, thisObj ) {
         }
     }
 }
+
+
+
+const accountMenuToggle = function () {
+    const checkAccountActionTypeCondition = astraAddon.hf_account_action_type && 'menu' === astraAddon.hf_account_action_type;
+    const accountMenuClickCondition = checkAccountActionTypeCondition && astraAddon.hf_account_show_menu_on && 'click' === astraAddon.hf_account_show_menu_on;
+
+    const headerAccountContainer = document.querySelectorAll('.ast-header-account-wrap');
+
+    if(  headerAccountContainer ) {
+
+        headerAccountContainer.forEach(element => {
+
+            const accountMenu = element.querySelector('.ast-account-nav-menu');
+
+            document.addEventListener('pointerup', function(e) {
+                const condition = ( accountMenuClickCondition ) || ( checkAccountActionTypeCondition && document.querySelector('body').classList.contains('ast-header-break-point'));
+                if( condition ) {
+                    // if the target of the click isn't the container nor a descendant of the container
+                    if (!element.contains(e.target)) {
+                        accountMenu.style.right = '';
+                        accountMenu.style.left = '';
+                    }
+                }
+            });
+
+            const headerAccountTrigger =  element.querySelector( '.ast-header-account-link' );
+            if( headerAccountTrigger ) {
+                headerAccountTrigger.addEventListener( 'click', function(e) {
+                    const condition = ( accountMenuClickCondition ) || ( checkAccountActionTypeCondition && document.querySelector('body').classList.contains('ast-header-break-point'));
+                    if( condition ) {
+
+                        headerSelectionPosition = e.target.closest('.site-header-section');
+
+                        if( headerSelectionPosition ) {
+                            if( headerSelectionPosition.classList.contains('site-header-section-left') ) {
+                                accountMenu.style.left   = accountMenu.style.left  === '' ? '-100%' : '';
+                                accountMenu.style.right   = accountMenu.style.right  === '' ? 'auto' : '';
+                            } else {
+                                accountMenu.style.right   = accountMenu.style.right  === '' ? '-100%' : '';
+                                accountMenu.style.left   = accountMenu.style.left  === '' ? 'auto' : '';
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    }
+}
+
+document.addEventListener( 'astPartialContentRendered', function() {
+    accountMenuToggle();
+});
+
+window.addEventListener( 'load', function() {
+    accountMenuToggle();
+} );
+
+document.addEventListener( 'astLayoutWidthChanged', function() {
+    accountMenuToggle();
+} );

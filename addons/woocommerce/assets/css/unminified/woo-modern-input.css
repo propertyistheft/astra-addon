@@ -76,6 +76,10 @@ body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row 
   transition: all 0.2s ease-out;
 }
 
+body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row [ID*="mailchimp_woocommerce"] {
+  pointer-events: visible;
+}
+
 body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row.ast-animate-input label:not(.checkbox):not(.woocommerce-form__label-for-checkbox) {
   opacity: 1;
 }

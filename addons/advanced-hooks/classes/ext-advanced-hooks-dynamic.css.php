@@ -52,9 +52,11 @@ function astra_ext_advanced_hooks_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
 
-					$action = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
+					$action        = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
+					$layout        = get_post_meta( $post_id, 'ast-advanced-hook-layout', true );
+					$template_type = get_post_meta( $post_id, 'ast-advanced-hook-template-type', true );
 
-					if ( $action && ( 'astra_content_top' === $action || 'astra_content_bottom' === $action ) ) {
+					if ( ( $action && ( 'astra_content_top' === $action || 'astra_content_bottom' === $action ) ) || ( 'template' === $layout && 'archive' === $template_type ) || ( apply_filters( 'astra_addon_cl_ast_container_fullwidth', false ) ) ) {
 
 						$common_desktop_css_output['.site-content .ast-container'] = array(
 							'flex-wrap' => 'wrap',

@@ -30,6 +30,13 @@ class Astra_Ext_Header_Account_Component {
 
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_ADDON_EXT_HEADER_ACCOUNT_DIR . 'classes/class-astra-ext-header-account-component-loader.php';
+		require_once ASTRA_ADDON_EXT_HEADER_ACCOUNT_DIR . 'classes/class-astra-addon-header-account-markup.php';
+		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		
+		// Include front end files.
+		if ( ! is_admin() ) {
+			require_once ASTRA_ADDON_EXT_HEADER_ACCOUNT_DIR . '/dynamic-css/dynamic.css.php';
+		}
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 }
