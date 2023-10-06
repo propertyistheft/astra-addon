@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.3.1\n"
+"Project-Id-Version: Astra Pro 4.3.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2023-09-11 08:24:19+00:00\n"
+"POT-Creation-Date: 2023-09-26 07:57:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -736,8 +736,8 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:179
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:181
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:462
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:464
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:467
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:469
 msgid "Add New"
 msgstr ""
 
@@ -810,57 +810,57 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:321
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:327
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:618
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:624
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:623
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:629
 #. translators: %s: singular custom post type name
 msgid "%s updated."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:323
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:620
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:625
 #. translators: %s: singular custom post type name
 msgid "Custom %s updated."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:325
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:622
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:627
 #. translators: %s: singular custom post type name
 msgid "Custom %s deleted."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:329
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:626
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:631
 #. translators: %1$s: singular custom post type name ,%2$s: date and time of
 #. the revision
 msgid "%1$s restored to revision from %2$s"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:331
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:628
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:633
 #. translators: %s: singular custom post type name
 msgid "%s published."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:333
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:630
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:635
 #. translators: %s: singular custom post type name
 msgid "%s saved."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:335
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:632
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:637
 #. translators: %s: singular custom post type name
 msgid "%s submitted."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:337
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:634
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:639
 #. translators: %s: singular custom post type name
 msgid "%s scheduled for."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:339
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:636
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:641
 #. translators: %s: singular custom post type name
 msgid "%s draft updated."
 msgstr ""
@@ -936,7 +936,7 @@ msgid "Text Color"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:687
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:124
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:129
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:395
 msgid "Breadcrumb"
 msgstr ""
@@ -1048,7 +1048,7 @@ msgid "Parallax"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:835
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:820
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:828
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1865
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1891
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:265
@@ -1056,8 +1056,8 @@ msgid "Desktop + Mobile"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:836
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:818
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1402
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:826
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1410
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1863
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1889
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2029
@@ -1067,8 +1067,8 @@ msgid "Desktop"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:837
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:819
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1408
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:827
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1416
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1864
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1890
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2041
@@ -1462,847 +1462,847 @@ msgstr ""
 msgid "Choose..."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:56
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:61
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:89
 msgid "Before HTML"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:57
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:62
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:93
 msgid "Head Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:58
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:63
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:97
 msgid "Head Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:59
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:64
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:101
 msgid "WP Head"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:60
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:65
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:110
 msgid "Body Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:61
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:66
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:114
 msgid "Before Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:62
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:67
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:118
 msgid "Masthead Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:63
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:68
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:122
 msgid "Main Header Bar Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:64
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:69
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:126
 msgid "Masthead Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:65
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:70
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:130
 msgid "Before Masthead Toggle Buttons"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:66
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:71
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:134
 msgid "After Masthead Toggle Buttons"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:67
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:72
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:138
 msgid "Main Header Bar Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:68
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:73
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:142
 msgid "Masthead Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:69
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:74
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:146
 msgid "After Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:70
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:75
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:155
 msgid "Before Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:71
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:76
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:159
 msgid "Content Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:72
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:77
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:163
 msgid "Primary Content Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:73
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:78
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:167
 msgid "Content Loop"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:74
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:79
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:171
 msgid "Template Parts Content None"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:75
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:80
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:175
 msgid "Before Content While"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:76
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:81
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:179
 msgid "Template Parts Content Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:77
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:82
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:183
 msgid "Template Parts Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:78
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:83
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:187
 msgid "Before Entry"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:79
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:84
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:191
 msgid "Entry Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:80
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:85
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:195
 msgid "Before Single Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:81
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:86
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:199
 msgid "Single Header Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:82
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:87
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:203
 msgid "Before Single Post Breadcrumb"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:83
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:88
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:207
 msgid "After Single Post Breadcrumb"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:84
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:89
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:211
 msgid "Before Single Post Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:85
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:90
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:215
 msgid "After Single Post Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:86
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:91
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:219
 msgid "Before Single Post Excerpt"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:87
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:92
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:223
 msgid "After Single Post Excerpt"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:88
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:93
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:227
 msgid "Before Single Post Meta"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:89
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:94
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:231
 msgid "After Single Post Meta"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:90
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:95
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:235
 msgid "Before Single Post Featured Image"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:91
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:96
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:239
 msgid "After Single Post Featured Image"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:92
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:97
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:243
 msgid "Before Blog Banner Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:93
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:98
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:247
 msgid "After Blog Banner Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:94
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:99
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:251
 msgid "Before Blog Banner Breadcrumb"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:95
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:100
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:255
 msgid "After Blog Banner Breadcrumb"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:96
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:101
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:259
 msgid "Before Blog Banner Description"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:97
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:102
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:263
 msgid "After Blog Banner Description"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:98
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:103
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:267
 msgid "Single Header Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:99
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:104
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:271
 msgid "After Single Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:100
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:105
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:275
 msgid "Before Entry Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:101
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:106
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:279
 msgid "After Entry Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:102
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:107
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:283
 msgid "Entry Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:103
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:108
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:287
 msgid "After Entry"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:104
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:109
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:291
 msgid "Template Parts Content Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:105
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:110
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:295
 msgid "Primary Content Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:106
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:111
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:299
 msgid "After Content While"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:107
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:112
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:303
 msgid "Content Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:108
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:113
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:307
 msgid "After Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:109
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:114
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:316
 msgid "Before Comments"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:110
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:115
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:320
 msgid "After Comments"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:111
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:116
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:329
 msgid "Before Sidebars"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:112
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:117
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:333
 msgid "After Sidebars"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:113
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:118
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:342
 msgid "Before Footer"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:114
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:119
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:346
 msgid "Footer Content Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:115
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:120
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:350
 msgid "Footer Inside Container Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:116
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:121
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:354
 msgid "Footer Inside Container Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:117
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:122
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:358
 msgid "Footer Content Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:118
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:123
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:362
 msgid "After Footer"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:119
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:124
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:366
 msgid "Body Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:120
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:125
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:370
 msgid "WP Footer"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:121
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:126
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:383
 msgid "Before Main Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:122
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:127
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:387
 msgid "After Main Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:123
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:128
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:326
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:391
 msgid "Sidebar"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:125
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:130
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:399
 msgid "Before Template Part"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:126
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:131
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:403
 msgid "After Template Part"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:127
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:132
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:413
 msgid "Archive Description"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:128
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:133
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:417
 msgid "Before Shop Loop"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:129
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:134
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:421
 msgid "Before Shop Loop Item Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:130
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:135
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:425
 msgid "After Shop Loop Item Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:131
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:136
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:429
 msgid "Before Woo Shop Category"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:132
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:137
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:433
 msgid "After Woo Shop Category"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:133
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:138
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:437
 msgid "Before Woo Shop Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:134
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:139
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:441
 msgid "After Woo Shop Title"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:135
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:140
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:445
 msgid "Before Woo Shop Rating"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:136
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:141
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:449
 msgid "After Woo Shop Rating"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:137
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:142
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:453
 msgid "Before Woo Shop Price"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:138
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:143
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:457
 msgid "After Woo Shop Price"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:139
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:144
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:461
 msgid "Before Woo Shop Add To Cart"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:140
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:145
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:465
 msgid "After Woo Shop Add To Cart"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:141
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:146
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:469
 msgid "After Shop Loop"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:142
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:147
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:479
 msgid "Before Single Product"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:143
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:148
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:483
 msgid "Before Single Product Summary"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:144
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:149
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:488
 msgid "Single Product Summary"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:145
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:150
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:492
 msgid "After Single Product Summary"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:146
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:151
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:496
 msgid "Simple Add To Cart"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:147
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:152
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:500
 msgid "Before Add To Cart Form"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:148
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:153
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:504
 msgid "Before Add To Cart Button"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:149
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:154
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:508
 msgid "Before Add To Cart Quantity"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:150
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:155
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:512
 msgid "After Add To Cart Quantity"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:151
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:156
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:516
 msgid "After Add To Cart Button"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:152
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:157
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:520
 msgid "After Add To Cart Form"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:153
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:158
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:524
 msgid "Product Meta Start"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:154
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:159
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:528
 msgid "Product Meta End"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:155
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:160
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:532
 msgid "Share"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:156
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:161
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:536
 msgid "After Single Product"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:157
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:162
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:546
 msgid "Check Cart Items"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:158
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:163
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:550
 msgid "Cart Reset"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:159
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:164
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:554
 msgid "Cart Updated"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:160
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:165
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:558
 msgid "Cart Is Empty"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:161
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:166
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:562
 msgid "Before Calculate Totals"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:162
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:167
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:566
 msgid "Cart Calculate Fees"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:163
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:168
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:570
 msgid "After Calculate Totals"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:164
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:169
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:574
 msgid "Before Cart"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:165
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:170
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:578
 msgid "Before Cart Table"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:166
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:171
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:582
 msgid "Before Cart Contents"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:167
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:172
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:586
 msgid "Cart Contents"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:168
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:173
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:590
 msgid "After Cart Contents"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:169
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:174
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:594
 msgid "Cart Coupon"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:170
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:175
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:598
 msgid "Cart Actions"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:171
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:176
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:602
 msgid "After Cart Table"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:172
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:177
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:606
 msgid "Cart Collaterals"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:173
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:178
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:610
 msgid "Before Cart Totals"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:174
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:179
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:614
 msgid "Cart Totals Before Order Total"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:175
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:180
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:618
 msgid "Cart Totals After Order Total"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:176
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:181
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:622
 msgid "Proceed To Checkout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:177
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:182
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:626
 msgid "After Cart Totals"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:178
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:183
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:630
 msgid "After Cart"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:179
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:184
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:640
 msgid "Before Checkout Form"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:180
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:185
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:644
 msgid "Checkout Before Customer Details"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:181
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:186
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:648
 msgid "Checkout After Customer Details"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:182
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:187
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:652
 msgid "Checkout Billing"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:183
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:188
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:656
 msgid "Before Checkout Billing Form"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:184
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:189
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:660
 msgid "After Checkout Billing Form"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:185
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:190
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:664
 msgid "Before Order Notes"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:186
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:191
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:668
 msgid "After Order Notes"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:187
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:192
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:672
 msgid "Checkout Shipping"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:188
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:193
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:676
 msgid "Checkout Before Order Review"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:189
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:194
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:680
 msgid "Checkout Order Review"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:190
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:195
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:684
 msgid "Review Order Before Cart Contents"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:191
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:196
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:688
 msgid "Review Order After Cart Contents"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:192
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:197
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:692
 msgid "Review Order Before Order Total"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:193
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:198
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:696
 msgid "Review Order After Order Total"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:194
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:199
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:700
 msgid "Review Order Before Payment"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:195
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:200
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:704
 msgid "Review Order Before Submit"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:196
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:201
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:708
 msgid "Review Order After Submit"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:197
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:202
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:712
 msgid "Review Order After Payment"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:198
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:203
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:716
 msgid "Checkout After Order Review"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:199
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:204
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:720
 msgid "After Checkout Form"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:200
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:205
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:730
 msgid "Woo Checkout Masthead Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:201
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:206
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:734
 msgid "Astra Woo Checkout Main Header Bar Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:202
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:207
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:738
 msgid "Astra Woo Checkout Main Header Bar Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:203
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:208
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:742
 msgid "Woo Checkout Masthead Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:204
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:209
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:746
 msgid "Woo Checkout Footer Content Top"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:205
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:210
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:750
 msgid "Woo Checkout Footer Content Bottom"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:206
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:211
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:760
 msgid "Before Account Navigation"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:207
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:212
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:764
 msgid "Account Navigation"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:208
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:213
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:768
 msgid "After Account Navigation"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:209
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:214
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:793
 msgid "Before Header Above Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:210
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:215
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:805
 msgid "After Header Above Container After"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:211
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:216
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:821
 msgid "Header Primary Container Before"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:212
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:217
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:833
 msgid "After Header Primary Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:213
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:218
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:849
 msgid "Before Header Below Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:214
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:219
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:861
 msgid "After Header Below Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:215
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:220
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:877
 msgid "Footer Above Container Before"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:216
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:221
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:889
 msgid "After Footer Above Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:217
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:222
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:905
 msgid "Before Footer Primary Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:218
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:223
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:919
 msgid "After Footer Primary Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:219
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:224
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:935
 msgid "Before Footer Below Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:220
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:225
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:947
 msgid "After Footer Below Container"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:221
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:226
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:962
 msgid "Custom Hook"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:332
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:337
 msgid "Placement"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:333
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:338
 msgid "Shortcode"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:333
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:338
 msgid ""
 "Make sure to set display rule to post/page where you will be adding the "
 "Shortcode."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:334
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:339
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1719
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1953
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1985
@@ -2311,58 +2311,58 @@ msgstr ""
 msgid "Quick View"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:335
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:340
 msgid "Enable/Disable"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:366
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:371
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:458
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:463
 msgid "Search Custom Layouts"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:459
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:464
 msgid "All Custom Layouts"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:460
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:465
 #: classes/class-astra-ext-model.php:141
 msgid "Edit Custom Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:461
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:466
 msgid "View Custom Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:463
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:468
 msgid "Update Custom Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:465
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:470
 msgid "New Custom Layout Name"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:708
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:713
 msgid "Custom Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:831
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:839
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1806
 msgid "After certain number of blocks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:832
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:840
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1807
 msgid "Before certain number of Heading blocks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1220
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1228
 msgid "— Select —"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1221
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1229
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:63
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:107
 #: addons/colors-and-background/classes/class-astra-ext-colors-panels-and-sections.php:61
@@ -2371,115 +2371,115 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1222
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1230
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:66
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:339
 #: admin/core/class-astra-addon-admin-loader.php:446
 msgid "Footer"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1223
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1231
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:69
 #: admin/core/class-astra-addon-admin-loader.php:448
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:132
 msgid "404 Page"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1224
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1232
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:72
 #: admin/core/class-astra-addon-admin-loader.php:447
 msgid "Hooks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1225
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1233
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:75
 msgid "Inside Post/Page Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1226
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1234
 #: admin/core/class-astra-addon-admin-loader.php:450
 msgid "Custom Template"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1281
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1289
 msgid "Close modal panel"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1288
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1296
 msgid "Display On:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1294
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1302
 msgid "Do Not Display On:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1300
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1308
 msgid "Display for Users:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1306
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1314
 msgid "Display on Devices:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1312
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1320
 msgid "Time Rule:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1323
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1331
 msgid "Status: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1324
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1332
 msgid "Published date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1326
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1334
 msgid "Edit this layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1326
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1334
 msgid "Edit Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1346
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1354
 msgid "Custom Layouts"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1365
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1373
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1381
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1393
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1416
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1389
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1401
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1424
 msgid "No Conditions"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1405
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1413
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2035
 #: classes/builder/type/base/configurations/class-astra-social-component-configs.php:62
 msgid "Tablet"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1420
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1428
 msgid "Visibility"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1423
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1431
 msgid "Not visible"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1428
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1436
 msgid "Visible"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1429
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1437
 msgid "Start Date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1430
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1438
 msgid "End Date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1436
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1444
 msgid "(no title)"
 msgstr ""
 
@@ -7472,12 +7472,12 @@ msgctxt "advanced-header singular name"
 msgid "Page Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:456
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:461
 msgctxt "advanced-hooks general name"
 msgid "Custom Layouts"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:457
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:462
 msgctxt "advanced-hooks singular name"
 msgid "Custom Layout"
 msgstr ""

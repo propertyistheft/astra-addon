@@ -852,7 +852,8 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 													'https://www.facebook.com/sharer.php'
 												);
 												break;
-											case ( 'twitter' || 'twitter-x' ):
+											case 'twitter':
+											case 'twitter-x':
 												$link = add_query_arg(
 													array(
 														'url'      => $post_link,
