@@ -70,10 +70,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header' ) ) {
 					// Sticky Header HTML CSS.
 					require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/dynamic-css/html-dynamic.css.php';
 
-					if ( ! astra_addon_remove_widget_design_options() ) {
-						// Sticky Header Widget CSS.
-						require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/dynamic-css/widget-dynamic.css.php';
-					}
+					// Sticky Header Widget CSS.
+					require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/dynamic-css/widget-dynamic.css.php';
 
 					// Sticky Header divider CSS.
 					require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/dynamic-css/divider-dynamic.css.php';

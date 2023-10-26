@@ -869,7 +869,6 @@
 							dynamicStyle += 'border-style:'      + 'solid;';
 							dynamicStyle += 'border-color:'      + color + ';';
 							dynamicStyle += '}';
-							console.log(dynamicStyle);
 					} else if ('no-toggle' === menu_style ) {
 
 						var dynamicStyle  = '.ast-no-toggle-menu-enable.ast-header-break-point .main-header-bar-navigation ul li';

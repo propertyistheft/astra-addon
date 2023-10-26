@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Widget_Configs' ) ) {
 						'transport'         => 'postMessage',
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-						'title'             => __( 'Title Color', 'astra-addon' ),
+						'title'             => __( 'Heading Color', 'astra-addon' ),
 					),
 
 					/**
@@ -91,33 +91,51 @@ if ( ! class_exists( 'Astra_Sticky_Header_Widget_Configs' ) ) {
 					),
 
 					/**
+					 * Option: Widget link color group.
+					 */
+					array(
+						'name'       => ASTRA_THEME_SETTINGS . '[sticky-header-widget-' . $index . '-link-color-group]',
+						'default'    => astra_get_option( 'sticky-header-widget-' . $index . '-link-color-group' ),
+						'type'       => 'control',
+						'control'    => 'ast-color-group',
+						'title'      => __( 'Link Color', 'astra-addon' ),
+						'section'    => $_section,
+						'transport'  => 'postMessage',
+						'priority'   => 135,
+						'responsive' => false,
+						'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					),
+
+					/**
 					 * Option: Widget link color.
 					 */
 					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[sticky-header-widget-' . $index . '-link-color]',
+						'name'              => 'sticky-header-widget-' . $index . '-link-color',
 						'default'           => astra_get_option( 'sticky-header-widget-' . $index . '-link-color' ),
-						'type'              => 'control',
+						'parent'            => ASTRA_THEME_SETTINGS . '[sticky-header-widget-' . $index . '-link-color-group]',
+						'type'              => 'sub-control',
 						'section'           => $_section,
 						'priority'          => 140,
 						'transport'         => 'postMessage',
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-						'title'             => __( 'Link Color', 'astra-addon' ),
+						'title'             => __( 'Normal', 'astra-addon' ),
 					),
 
 					/**
 					 * Option: Widget link hover color.
 					 */
 					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[sticky-header-widget-' . $index . '-link-h-color]',
+						'name'              => 'sticky-header-widget-' . $index . '-link-h-color',
 						'default'           => astra_get_option( 'sticky-header-widget-' . $index . '-link-h-color' ),
-						'type'              => 'control',
+						'parent'            => ASTRA_THEME_SETTINGS . '[sticky-header-widget-' . $index . '-link-color-group]',
+						'type'              => 'sub-control',
 						'section'           => $_section,
 						'priority'          => 150,
 						'transport'         => 'postMessage',
 						'control'           => 'ast-color',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-						'title'             => __( 'Link Hover Color', 'astra-addon' ),
+						'title'             => __( 'Hover', 'astra-addon' ),
 						'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);

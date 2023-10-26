@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.3.3\n"
+"Project-Id-Version: Astra Pro 4.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2023-09-26 07:57:50+00:00\n"
+"POT-Creation-Date: 2023-10-23 06:15:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,15 +24,15 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2543
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2566
 msgid "1"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2554
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2577
 msgid "2"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2566
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2589
 msgid "3"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:50
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:621
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1762
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:70
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:90
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:49
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:67
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:759
@@ -89,21 +89,21 @@ msgid "Disable"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:58
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:73
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:93
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:74
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:72
 msgid "Layout 1"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:62
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:77
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:97
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:78
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:76
 msgid "Layout 2"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:66
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:81
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:101
 msgid "Layout 3"
 msgstr ""
 
@@ -125,10 +125,9 @@ msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:99
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:79
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:173
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:279
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:174
 #: addons/site-layouts/classes/sections/class-astra-site-layout-configuration.php:86
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1501
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1503
 msgid "Width"
 msgstr ""
 
@@ -143,17 +142,21 @@ msgid "Content Width"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:130
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1119
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1118
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1364
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1683
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1471
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1473
 msgid "Padding"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:134
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1123
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1155
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1187
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:979
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1011
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1043
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1066
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1122
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1154
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1186
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:289
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:544
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:342
@@ -199,8 +202,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:189
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:212
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:284
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1473
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1503
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1475
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1505
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:151
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:205
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:360
@@ -210,10 +213,15 @@ msgid "Top"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:135
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:173
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1124
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1156
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1188
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:589
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:980
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1012
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1044
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1067
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:172
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1123
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1155
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1187
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:290
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:545
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:343
@@ -262,8 +270,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:190
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:213
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:285
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1474
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1504
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1476
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1506
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:206
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:416
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:257
@@ -272,9 +280,13 @@ msgid "Right"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:136
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1125
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1157
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1189
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:981
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1013
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1045
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1068
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1124
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1156
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1188
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:291
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:546
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:344
@@ -320,8 +332,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:191
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:214
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:286
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1475
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1505
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1477
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1507
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:207
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:417
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:258
@@ -329,10 +341,15 @@ msgid "Bottom"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:137
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:171
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1126
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1158
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1190
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:587
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:982
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1014
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1046
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1069
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:170
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1125
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1157
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1189
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:292
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:547
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:345
@@ -381,8 +398,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:192
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:215
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:287
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1476
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1506
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1478
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1508
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:208
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:418
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:259
@@ -396,8 +413,9 @@ msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-typo-configs.php:72
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-typo-configs.php:176
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:929
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1036
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:688
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:928
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1035
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:53
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:162
 #: addons/edd/classes/sections/class-astra-edd-shop-typo-configs.php:53
@@ -423,12 +441,12 @@ msgstr ""
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:71
 #: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:92
 #: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:136
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:186
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:277
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:352
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:414
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:598
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:706
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:188
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:281
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:356
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:418
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:602
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:710
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:77
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:181
 #: addons/typography/classes/sections/class-astra-sidebar-typo-configs.php:85
@@ -448,8 +466,9 @@ msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-typo-configs.php:82
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-typo-configs.php:186
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:970
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1078
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:724
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:969
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1077
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:104
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:198
 #: addons/edd/classes/sections/class-astra-edd-shop-typo-configs.php:113
@@ -473,9 +492,9 @@ msgstr ""
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:233
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:414
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:85
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:447
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:633
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:742
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:451
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:637
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:746
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:131
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:233
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:309
@@ -494,8 +513,9 @@ msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-typo-configs.php:108
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-typo-configs.php:212
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:947
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1054
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:706
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:946
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1053
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:78
 #: addons/edd/classes/sections/class-astra-edd-shop-single-typo-configs.php:180
 #: addons/edd/classes/sections/class-astra-edd-shop-typo-configs.php:87
@@ -520,13 +540,13 @@ msgstr ""
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:396
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:117
 #: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:75
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:153
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:203
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:294
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:335
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:433
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:615
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:723
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:154
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:206
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:298
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:339
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:437
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:619
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:727
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:94
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:199
 #: addons/typography/classes/sections/class-astra-sidebar-typo-configs.php:102
@@ -764,7 +784,7 @@ msgstr ""
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:245
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1162
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1780
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:367
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:387
 #: addons/edd/classes/sections/class-astra-edd-checkout-configs.php:91
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:59
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:510
@@ -925,11 +945,12 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:677
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:692
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:866
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:284
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:128
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:76
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1406
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1423
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1408
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1425
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-html-configs.php:75
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:181
 msgid "Text Color"
@@ -949,7 +970,7 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:301
 #: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:318
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:276
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:105
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:101
 msgid "Link Color"
 msgstr ""
 
@@ -960,7 +981,6 @@ msgstr ""
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1700
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1841
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1946
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:120
 msgid "Link Hover Color"
 msgstr ""
 
@@ -1006,7 +1026,7 @@ msgstr ""
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1058
 #: addons/nav-menu/classes/sections/class-astra-existing-nav-menu-above-header-colors.php:79
 #: addons/nav-menu/classes/sections/class-astra-existing-nav-menu-above-header-colors.php:93
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1523
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1525
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-divider-configs.php:75
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-language-switcher-configs.php:74
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:80
@@ -1149,7 +1169,7 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1021
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1639
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1287
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1289
 msgid "Site Tagline Color"
 msgstr ""
 
@@ -1176,6 +1196,7 @@ msgstr ""
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1680
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1821
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1926
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:764
 #: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:132
 #: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:169
 #: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:207
@@ -1188,10 +1209,10 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:60
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:123
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:91
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:466
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1235
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1440
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1457
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:468
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1237
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1442
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1459
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:100
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-toggle-configs.php:83
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:230
@@ -1273,7 +1294,7 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1190
 #: addons/advanced-search/classes/class-astra-ext-adv-search-shortcodes.php:147
-#: addons/advanced-search/template/full-screen.php:20
+#: addons/advanced-search/template/full-screen.php:22
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:46
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:45
 #: classes/astra-common-functions.php:371
@@ -2303,9 +2324,9 @@ msgid ""
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:339
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1719
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1953
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1985
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1742
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1976
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2008
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:909
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:925
 msgid "Quick View"
@@ -2460,6 +2481,7 @@ msgid "Tablet"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1428
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:614
 msgid "Visibility"
 msgstr ""
 
@@ -2577,7 +2599,7 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:765
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:703
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:397
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1305
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1307
 msgid "Content"
 msgstr ""
 
@@ -3344,7 +3366,7 @@ msgid ""
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:959
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:412
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:411
 #: addons/edd/classes/sections/class-astra-edd-checkout-configs.php:92
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:82
 #: classes/builder/type/base/configurations/class-astra-language-switcher-component-configs.php:51
@@ -3544,8 +3566,8 @@ msgstr ""
 msgid "Timezone:"
 msgstr ""
 
-#: addons/advanced-search/classes/class-astra-ext-adv-search-loader.php:63
-msgid "Search &hellip;"
+#: addons/advanced-search/classes/class-astra-ext-adv-search-loader.php:66
+msgid "Search..."
 msgstr ""
 
 #: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-above-header.php:56
@@ -3570,8 +3592,28 @@ msgstr ""
 msgid "Header Cover"
 msgstr ""
 
-#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:77
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:72
 msgid "Placeholder Text"
+msgstr ""
+
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:92
+msgid "Modal Box Style"
+msgstr ""
+
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:94
+msgid "Light"
+msgstr ""
+
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:95
+msgid "Dark"
+msgstr ""
+
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:116
+msgid "Modal Box Heading"
+msgstr ""
+
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:134
+msgid "Heading Text"
 msgstr ""
 
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:75
@@ -3579,50 +3621,50 @@ msgid "Read More »"
 msgstr ""
 
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:77
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:130
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:145
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:249
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:583
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:606
 msgid "Load More"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:89
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:224
 msgid "Share your love"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:103
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:237
 msgid "Facebook"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:113
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:247
 msgid "Twitter"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:123
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:257
 msgid "Pinterest"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:133
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:267
 msgid "Linkedin"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:97
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:102
 msgid "No more posts to show."
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:101
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:462
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:106
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:485
 msgid "Show Comments"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:644
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:674
 msgid "minute of reading"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:645
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:675
 msgid "minutes of reading"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:650
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:680
 #. translators: %1$s: $read_time the time to read the article, %2%s:
 #. $singular_min_reading_text the singular minute reading time text, %3%s:
 #. $plural_mins_reading_text the plural minutes reading time text
@@ -3631,315 +3673,234 @@ msgid_plural "%1$s %3$s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:51
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1072
+#: admin/core/class-astra-addon-admin-loader.php:459
+#: classes/modules/target-rule/class-astra-target-rules-fields.php:246
+msgid "All"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:71
 msgid "Blog Layout"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:97
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:117
 msgid "Grid Layout"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:99
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:119
 msgid "1 Column"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:100
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:120
 msgid "2 Columns"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:101
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:121
 msgid "3 Columns"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:102
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:122
 msgid "4 Columns"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:124
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:144
 msgid "Add Space Between Posts"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:138
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:158
 msgid "Masonry Layout"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:164
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:184
 msgid "Highlight First Post"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:165
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:185
 msgid "This will not work if Masonry Layout is enabled."
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:191
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:211
 msgid "Enable Date Box"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:203
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:223
 msgid "Date Box Style"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:207
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:368
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:227
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:388
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:460
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:478
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:223
 msgid "Square"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:208
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:369
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:228
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:389
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:458
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:479
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:221
 msgid "Circle"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:232
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:252
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:125
 msgid "Remove Featured Image Padding"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:233
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:253
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:126
 msgid "This option will not work on full width layouts."
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:255
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:275
 msgid "Excerpt Count"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:281
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:301
 msgid "Read More Text"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:302
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:322
 msgid "Display Read More as Button"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:317
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:337
 msgid "Post Pagination"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:319
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:339
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:455
 msgid "Number"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:320
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:340
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:456
 msgid "Infinite Scroll"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:336
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:356
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:505
 msgid "Infinite Scroll cannot be previewed in the Customizer."
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:338
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:358
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:504
 msgid "Event to Trigger Infinite Loading"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:340
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:360
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:508
 msgid "Scroll"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:341
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:361
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:509
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:124
 msgid "Click"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:365
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:385
 msgid "Post Pagination Style"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:392
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:412
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:534
 msgid "Load More Text"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:54
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:155
-msgid "Featured Images Size"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:435
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:452
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:638
+msgid "Post Filter"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:82
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:111
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:176
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:198
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1155
-msgid "Auto"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:467
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:151
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1482
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:703
+#: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:147
+msgid "Style"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:108
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:195
-#: addons/header-sections/classes/sections/class-astra-above-header-configs.php:205
-#: addons/header-sections/classes/sections/class-astra-below-header-configs.php:212
-msgid "Height"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:470
+msgid "Style 1"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:136
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:216
-msgid "Apply Size"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:474
+msgid "Style 2"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:64
-msgid "Meta"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:499
+msgid "Filter source"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:66
-msgid "Comments"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:501
+msgid "Categories"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:67
-#: addons/edd/classes/sections/class-astra-edd-shop-configs.php:86
-msgid "Category"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:502
+msgid "Tags"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:68
-msgid "Author"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:527
+msgid "Categories Exclude"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:69
-msgid "Publish Date"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:556
+msgid "Tags Exclude"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:70
-msgid "Tag"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:71
-msgid "Read Time"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:83
-msgid "Author Info"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:97
-msgid "Disable Single Post Navigation"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:110
-msgid "Auto Load Previous Posts"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:112
-msgid "Auto load previous posts cannot be previewed in the customizer."
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:136
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:385
-msgid "Social Sharing"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:153
-msgid "Enable Social Sharing"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:154
-msgid "Enable / Disable social sharing"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:169
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:585
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:168
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:275
 #: classes/builder/type/base/configurations/class-astra-language-switcher-component-configs.php:295
 msgid "Alignment"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:172
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:588
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:171
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:152
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:361
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:278
 msgid "Center"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:198
-msgid "Enable Heading"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:662
+msgid "Text Font"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:221
-msgid "Heading text"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:753
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:157
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:236
+#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:158
+#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:271
+#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:338
+#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:452
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:109
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:173
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:315
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:373
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:481
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:665
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:774
+#: addons/typography/classes/sections/class-astra-sidebar-typo-configs.php:145
+#: addons/typography/classes/sections/class-astra-sidebar-typo-configs.php:236
+#: addons/typography/classes/sections/class-astra-site-header-typo-configs.php:87
+#: addons/typography/classes/sections/class-astra-site-header-typo-configs.php:135
+msgid "Font Extras"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:249
-msgid "Heading Position"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:251
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:329
-msgid "Above"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:252
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:330
-msgid "Below"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:281
-msgid "Social Icons"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:305
-msgid "Enable Label"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:327
-msgid "Label Position"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:359
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:822
-msgid "Icon Position"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:363
-msgid "Below Post Title"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:364
-msgid "Below Post"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:365
-msgid "Left Content"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:366
-msgid "Right Content"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:409
-msgid "Color Type"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:413
-msgid "Official"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:436
-#: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:84
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:96
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:89
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:281
-msgid "Icon Color"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:461
-msgid "Icon Background Color"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:491
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:504
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:543
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:556
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:623
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:636
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:703
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:716
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:794
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:891
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:490
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:503
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:542
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:555
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:622
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:635
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:702
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:715
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-archive.php:71
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-archive.php:86
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-archive.php:101
@@ -4022,21 +3983,21 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-colors-bg-configs.php:124
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-colors-bg-configs.php:141
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-colors-bg-configs.php:207
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:444
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:739
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:740
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:758
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:759
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:860
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:861
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:874
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:875
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:969
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1230
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1247
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1253
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1402
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1436
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:446
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:741
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:742
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:760
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:761
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:862
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:863
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:876
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:877
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:971
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1232
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1249
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1255
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1404
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1438
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:109
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:110
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:164
@@ -4045,6 +4006,7 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:131
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:168
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:169
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:122
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:133
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:204
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:253
@@ -4056,14 +4018,16 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:517
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:530
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:569
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:582
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:649
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:662
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:729
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:742
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:819
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:916
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:516
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:529
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:568
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:581
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:648
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:661
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:728
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:741
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-archive.php:116
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:129
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:130
@@ -4140,20 +4104,20 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-colors-bg-configs.php:172
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-colors-bg-configs.php:189
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-colors-bg-configs.php:225
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:455
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:771
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:772
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:786
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:787
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:891
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:892
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:906
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:907
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:980
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1265
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1271
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1419
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1453
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:457
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:773
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:774
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:788
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:789
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:893
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:894
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:908
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:909
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:982
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1267
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1273
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1421
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1455
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:125
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:126
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:180
@@ -4162,6 +4126,7 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:150
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:187
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:188
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:138
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:217
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:266
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:320
@@ -4173,46 +4138,54 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:593
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:442
-msgid "Label Color"
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:844
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:941
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:163
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:164
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:180
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:181
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:391
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:392
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:406
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:407
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:690
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:691
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:707
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:708
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:230
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:245
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:260
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:275
+#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:230
+#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:247
+#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:267
+#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:285
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:121
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:126
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:140
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:144
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:245
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:249
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:264
+#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:268
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:266
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:267
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:281
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:282
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:806
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:807
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:822
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:823
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:923
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:924
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:938
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:939
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:578
+msgid "Active"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:673
-#: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:63
-msgid "Heading Color"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:758
-msgid "Background color"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:779
-msgid "Icon Size"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:809
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:864
-msgid "Icon Spacing"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:839
-msgid "Icon Background Space"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:867
-msgid "Icon Radius"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:900
-msgid "Heading Font"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1007
-msgid "Label Font"
-msgstr ""
-
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1151
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:967
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1150
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1656
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:163
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:229
@@ -4220,16 +4193,233 @@ msgstr ""
 msgid "Margin"
 msgstr ""
 
-#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1183
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:999
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:76
+#: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:76
+#: addons/spacing/classes/sections/class-astra-customizer-sidebar-spacing-configs.php:76
+#: addons/spacing/classes/sections/class-astra-customizer-single-post-spacing-configs.php:72
+msgid "Outside"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1031
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:102
+#: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:101
+#: addons/spacing/classes/sections/class-astra-customizer-sidebar-spacing-configs.php:102
+#: addons/spacing/classes/sections/class-astra-customizer-single-post-spacing-configs.php:98
+msgid "Inside"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1061
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1182
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:250
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:216
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:245
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:209
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:279
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1555
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1557
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:499
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:752
 msgid "Border Radius"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:54
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:155
+msgid "Featured Images Size"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:82
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:111
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:177
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:199
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1155
+msgid "Auto"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:108
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:196
+#: addons/header-sections/classes/sections/class-astra-above-header-configs.php:205
+#: addons/header-sections/classes/sections/class-astra-below-header-configs.php:212
+msgid "Height"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:136
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:217
+msgid "Apply Size"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:159
+msgid ""
+"This custom size will be used for the title area and content before "
+"featured images."
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:64
+msgid "Meta"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:66
+msgid "Comments"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:67
+#: addons/edd/classes/sections/class-astra-edd-shop-configs.php:86
+msgid "Category"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:68
+msgid "Author"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:69
+msgid "Publish Date"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:70
+msgid "Tag"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:71
+msgid "Read Time"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:83
+msgid "Author Info"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:97
+msgid "Disable Post Navigation"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:110
+msgid "Auto Load Previous Posts"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:112
+msgid "Auto load previous posts cannot be previewed in the customizer."
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:136
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:384
+msgid "Social Sharing"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:153
+msgid "Enable Social Sharing"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:197
+msgid "Enable Heading"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:220
+msgid "Heading text"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:248
+msgid "Heading Position"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:250
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:328
+msgid "Above"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:251
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:329
+msgid "Below"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:280
+msgid "Social Icons"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:304
+msgid "Enable Label"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:326
+msgid "Label Position"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:358
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:822
+msgid "Icon Position"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:362
+msgid "Below Post Title"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:363
+msgid "Below Post"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:364
+msgid "Left Content"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:365
+msgid "Right Content"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:408
+msgid "Color Type"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:412
+msgid "Official"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:435
+#: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:84
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:96
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:89
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:281
+msgid "Icon Color"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:460
+msgid "Icon Background Color"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:592
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:442
+msgid "Label Color"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:672
+#: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:63
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:75
+msgid "Heading Color"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:757
+msgid "Background color"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:778
+msgid "Icon Size"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:808
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:864
+msgid "Icon Spacing"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:838
+msgid "Icon Background Space"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:866
+msgid "Icon Radius"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:899
+msgid "Heading Font"
+msgstr ""
+
+#: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1006
+msgid "Label Font"
 msgstr ""
 
 #: addons/blog-pro/template/author-info.php:25
@@ -4284,15 +4474,15 @@ msgid "Heading 6"
 msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:63
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:708
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:833
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:710
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:835
 msgid "Text / Link"
 msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:70
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:591
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:87
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:839
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:841
 msgid "Submenu Color"
 msgstr ""
 
@@ -4309,60 +4499,16 @@ msgstr ""
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:127
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:155
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:174
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:723
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:846
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1041
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1078
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1115
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1149
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1183
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1217
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:725
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:848
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1043
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1080
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1117
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1151
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1185
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1219
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:596
 msgid "Background"
-msgstr ""
-
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:163
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:164
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:180
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:181
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:391
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:392
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:406
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:407
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:690
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:691
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:707
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:708
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:230
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:245
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:260
-#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:275
-#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:230
-#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:247
-#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:267
-#: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:285
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:121
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:126
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:140
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:144
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:245
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:249
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:264
-#: addons/header-sections/classes/sections/class-astra-below-header-colors-bg-configs.php:268
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:266
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:267
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:281
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:282
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:804
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:805
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:820
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:821
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:921
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:922
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:936
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:937
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:578
-msgid "Active"
 msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:199
@@ -4371,7 +4517,7 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-colors.php:115
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-colors.php:54
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-colors.php:83
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:954
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:956
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:171
 msgid "Mega Menu Heading"
 msgstr ""
@@ -4390,9 +4536,9 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:623
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:692
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:155
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1322
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1358
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1375
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1324
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1360
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1377
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:694
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:99
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:255
@@ -4402,7 +4548,7 @@ msgstr ""
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:283
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-primary-menu.php:58
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:153
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:714
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:716
 msgid "Menu Color"
 msgstr ""
 
@@ -4459,6 +4605,13 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:224
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-toggle-configs.php:105
 msgid "Border Color"
+msgstr ""
+
+#: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:279
+#: addons/edd/classes/sections/class-astra-edd-general-configs.php:113
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1397
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:209
+msgid "Border Width"
 msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:309
@@ -4573,21 +4726,8 @@ msgstr ""
 msgid "Count Color"
 msgstr ""
 
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:113
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1397
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:209
-msgid "Border Width"
-msgstr ""
-
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:135
 msgid "Header Cart Icon"
-msgstr ""
-
-#: addons/edd/classes/sections/class-astra-edd-general-configs.php:151
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1482
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:703
-#: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:147
-msgid "Style"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:156
@@ -4780,9 +4920,9 @@ msgstr ""
 
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:45
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:44
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1028
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1101
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1175
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1030
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1103
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1177
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:100
 msgid "Menu"
 msgstr ""
@@ -4820,7 +4960,7 @@ msgstr ""
 
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:282
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:500
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:389
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:393
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:47
 msgid "Menu Font"
 msgstr ""
@@ -4854,9 +4994,9 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:466
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:279
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:65
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1065
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1138
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1209
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1067
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1140
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1211
 msgid "Submenu"
 msgstr ""
 
@@ -4947,8 +5087,7 @@ msgid "Container Animation"
 msgstr ""
 
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:74
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:611
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:75
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:613
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-colors-configs.php:69
 msgid "Title Color"
 msgstr ""
@@ -5580,20 +5719,6 @@ msgstr ""
 msgid "Post Spacing"
 msgstr ""
 
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:76
-#: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:76
-#: addons/spacing/classes/sections/class-astra-customizer-sidebar-spacing-configs.php:76
-#: addons/spacing/classes/sections/class-astra-customizer-single-post-spacing-configs.php:72
-msgid "Outside"
-msgstr ""
-
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:102
-#: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:101
-#: addons/spacing/classes/sections/class-astra-customizer-sidebar-spacing-configs.php:102
-#: addons/spacing/classes/sections/class-astra-customizer-single-post-spacing-configs.php:98
-msgid "Inside"
-msgstr ""
-
 #: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:125
 msgid "Pagination"
 msgstr ""
@@ -5639,19 +5764,19 @@ msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:75
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:75
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:484
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:486
 msgid "Background Blur"
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:79
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:79
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:485
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:487
 msgid "Background blur is dependent on the background color opacity"
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:91
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:91
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:499
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:501
 msgid "Background Blur Intensity"
 msgstr ""
 
@@ -5665,8 +5790,8 @@ msgid "Active/Hover"
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:392
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1302
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1341
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1304
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1343
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:576
 msgid "Text"
 msgstr ""
@@ -5680,7 +5805,7 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:52
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:398
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:414
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:429
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:430
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-divider-configs.php:57
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-html-configs.php:57
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-language-switcher-configs.php:50
@@ -5690,8 +5815,8 @@ msgid "Sticky Header Option"
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:62
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:531
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:696
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:533
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:698
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:58
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:58
 msgid "Sticky Header Options"
@@ -5759,39 +5884,39 @@ msgstr ""
 msgid "Below Header Colors"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:585
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:587
 msgid "Logo Color"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:601
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:603
 msgid "Use it with transparent images for optimal results."
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:649
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:651
 msgid "Tagline"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1021
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1058
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1095
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1200
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1023
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1060
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1097
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1202
 msgid "Link / Text"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1132
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1166
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1134
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1168
 msgid "Link/Text"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1346
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1348
 msgid "Outside Item"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1539
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1541
 msgid "Hover Color"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1571
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1573
 msgid ""
 "Note: You can find all the Sticky Header related design options in the "
 "individual Elements for Logo, Primary Menu, Button etc."
@@ -5813,41 +5938,24 @@ msgstr ""
 msgid "Post Title Font"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:157
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:236
-#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:158
-#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:271
-#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:338
-#: addons/typography/classes/sections/class-astra-builder-menu-configs.php:452
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:109
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:171
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:221
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:311
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:369
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:477
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:661
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:770
-#: addons/typography/classes/sections/class-astra-sidebar-typo-configs.php:145
-#: addons/typography/classes/sections/class-astra-sidebar-typo-configs.php:236
-#: addons/typography/classes/sections/class-astra-site-header-typo-configs.php:87
-#: addons/typography/classes/sections/class-astra-site-header-typo-configs.php:135
-msgid "Font Extras"
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:225
+msgid "Content Font Extras"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:489
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:493
 msgid "Login Popup Font"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:511
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:515
 msgid "Label / Input Text Size"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:538
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:542
 msgid "Button Font Size"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:572
-#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:680
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:576
+#: addons/typography/classes/sections/class-astra-header-builder-typo-configs.php:684
 msgid "Typography"
 msgstr ""
 
@@ -5996,127 +6104,127 @@ msgid "Already a member?"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:548
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2809
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2832
 msgid "Login"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:389
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:412
 msgid "Close Off-Canvas Sidebar"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:403
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:426
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:664
 msgid "Shop Filters"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:405
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:428
 msgid ""
 "This sidebar will show product filters on Shop page. Uncheck \"Disable Off "
 "Canvas\" option from `Customizer > Layout > Woocommerce > Shop` to enable "
 "this on Shop page."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:457
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:480
 msgid "No more products to show."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:459
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:482
 msgid "Back to my details"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:460
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:483
 msgid "Proceed to payment"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:472
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:495
 msgid "View cart"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:500
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:523
 msgid "Entered user detail is not a valid."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:501
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:524
 msgid "This user is already registered. Please enter the password to continue."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1168
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1191
 msgid "Sale!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2543
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2566
 msgid "Shopping Cart"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2554
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2577
 msgid "Checkout details"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2566
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2589
 msgid "Order Complete"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2742
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2765
 msgid "Exist."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2742
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2765
 msgid "Not exist"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2771
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2794
 #. translators: %1$s: Link HTML start, %2$s Link HTML End
 msgid "Already have an account? %1$1s Log in%2$2s"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2784
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2785
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2807
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2808
 msgid "Username or Email Address"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2784
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2785
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2807
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2808
 msgid "Email Address"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2802
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2803
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2825
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2826
 msgid "Password"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2810
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2833
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:286
 msgid "Lost your password?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2815
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2838
 msgid "Login is optional, you can continue with your order below."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2828
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2851
 msgid "Create an account?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2843
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2844
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2866
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2867
 msgid "Account username"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2856
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2857
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2879
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2880
 msgid "Create account password"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2867
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2890
 #. translators: %1$s: username, %2$s emailid
 msgid " Welcome Back %1$s (%2$s)"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3292
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3315
 msgid "coupon:"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3699
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3722
 msgid "Your Cart Is Empty Let's Fix That."
 msgstr ""
 
@@ -7012,11 +7120,6 @@ msgstr ""
 
 #: admin/core/class-astra-addon-admin-loader.php:449
 msgid "Page Content"
-msgstr ""
-
-#: admin/core/class-astra-addon-admin-loader.php:459
-#: classes/modules/target-rule/class-astra-target-rules-fields.php:246
-msgid "All"
 msgstr ""
 
 #: admin/core/includes/class-astra-addon-admin-ajax.php:64

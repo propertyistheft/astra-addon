@@ -641,7 +641,7 @@
 		astra_css(
 			'astra-settings[sticky-header-widget-' + index + '-title-color]',
 			'color',
-			selector + ' .widget-title'
+			selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
 		);
 	}
 

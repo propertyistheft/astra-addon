@@ -57,12 +57,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 					'search-box'   => __( 'Search Box', 'astra-addon' ),
 				),
 				'context'   => astra_addon_builder_helper()->general_tab,
-				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => '.ast-header-search',
-					'container_inclusive' => false,
-					'render_callback'     => array( Astra_Ext_Adv_Search_Markup::get_instance(), 'get_search_markup' ),
-				),
+				'transport' => 'refresh',
 				'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
@@ -76,7 +71,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'priority'  => 3,
 				'title'     => __( 'Placeholder Text', 'astra-addon' ),
 				'type'      => 'control',
-				'control'   => 'text',
+				'control'   => 'ast-text-input',
 				'transport' => 'postMessage',
 				'partial'   => array(
 					'selector'            => '.ast-header-search',
@@ -85,6 +80,80 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				),
 				'context'   => astra_addon_builder_helper()->general_tab,
 				'divider'   => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
+			),
+
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[fullsearch-modal-color-mode]',
+				'default'    => astra_get_option( 'fullsearch-modal-color-mode' ),
+				'type'       => 'control',
+				'priority'   => 3,
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'title'      => __( 'Modal Box Style', 'astra-addon' ),
+				'choices'    => array(
+					'light' => __( 'Light', 'astra-addon' ),
+					'dark'  => __( 'Dark', 'astra-addon' ),
+				),
+				'renderAs'   => 'text',
+				'responsive' => false,
+				'transport'  => 'refresh',
+				'context'    => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+						'operator' => '==',
+						'value'    => 'full-screen',
+					),
+				),
+				'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
+			),
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[full-screen-modal-heading]',
+				'default'   => astra_get_option( 'full-screen-modal-heading' ),
+				'type'      => 'control',
+				'control'   => Astra_Theme_Extension::$switch_control,
+				'section'   => $_section,
+				'title'     => __( 'Modal Box Heading', 'astra-addon' ),
+				'transport' => 'refresh',
+				'priority'  => 3,
+				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'context'   => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+						'operator' => '==',
+						'value'    => 'full-screen',
+					),
+				),
+			),
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[fullscreen-modal-heading-text]',
+				'default'   => astra_get_option( 'fullscreen-modal-heading-text' ),
+				'section'   => $_section,
+				'priority'  => 3,
+				'title'     => __( 'Heading Text', 'astra-addon' ),
+				'type'      => 'control',
+				'control'   => 'ast-text-input',
+				'transport' => 'refresh',
+				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'partial'   => array(
+					'selector'            => '.ast-header-search',
+					'container_inclusive' => false,
+					'render_callback'     => array( Astra_Ext_Adv_Search_Markup::get_instance(), 'get_search_markup' ),
+				),
+				'context'   => array(
+					astra_addon_builder_helper()->general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+						'operator' => '==',
+						'value'    => 'full-screen',
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[full-screen-modal-heading]',
+						'operator' => '==',
+						'value'    => true,
+					),
+				),
 			),
 		);
 

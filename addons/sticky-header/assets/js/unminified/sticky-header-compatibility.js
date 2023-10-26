@@ -44,8 +44,7 @@
 	CAstraNavigationMenu = function( selector ) {
 
 		var parentList = __fixed_header.querySelectorAll( selector );
-
-		//console.log( parentList );
+		
 		for (var i = 0; i < parentList.length; i++) {
 
 			if ( null != parentList[i].querySelector( '.sub-menu' ) ) {
@@ -90,7 +89,6 @@
 
 	CAstraToggleMenu = function( selector ) {
 		var astra_menu_toggle = __fixed_header.querySelectorAll( selector );
-		console.log( astra_menu_toggle );
 		/* Submenu button click */
 		for (var i = 0; i < astra_menu_toggle.length; i++) {
 

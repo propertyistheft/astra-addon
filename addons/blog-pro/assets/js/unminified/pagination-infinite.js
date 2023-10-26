@@ -1,12 +1,9 @@
 (function () {
-	var total 			= parseInt( astra.infinite_total ) || '',
-		count 			= parseInt( astra.infinite_count ) || '',
-		pagination 		= astra.pagination || '',
+
+	var pagination 		= astra.pagination || '',
 		masonryEnabled  = astra.masonryEnabled || false,
 		loadStatus 		= true,
-		infinite_event 	= astra.infinite_scroll_event || '',
-		loader 			= document.querySelector('.ast-pagination-infinite .ast-loader'),
-		astLoadMore		= document.querySelector('.ast-load-more');
+		infinite_event 	= astra.infinite_scroll_event || '';
 
 	//	Is 'infinite' pagination?
 	if( typeof pagination != '' && pagination == 'infinite' ) {
@@ -26,20 +23,25 @@
 		if(	typeof infinite_event != '' ) {
 			switch( infinite_event ) {
 				case 'click':
-							if( astLoadMore ){
-								astLoadMore.addEventListener('click',function(event) {
-								event.preventDefault();
-								//	For Click
-								if( count != 'undefined' && count != ''&& total != 'undefined' && total != '' ) {
-									if ( count > total )
-										return false;
-										NextloadArticles(count);
-										count++;
-									}
-								});
+				document.addEventListener('click',function(event) {
+					if( event.target.classList.contains('ast-load-more') ) {
+					//	For Click
+					const infinitePagination = document.querySelector('.ast-pagination-infinite');
+					if( infinitePagination ) {
+						let total = parseInt( document.querySelector('.ast-pagination-infinite').getAttribute('data-total') ) || '';
+						let count = parseInt( document.querySelector('.ast-pagination-infinite').getAttribute('data-page') ) || '';
+						if( count != 'undefined' && count != ''&& total != 'undefined' && total != '' ) {
+								if ( count <= total ) {
+									NextloadArticles(count);
+									document.querySelector('.ast-pagination-infinite').setAttribute('data-page', count + 1 );
+								}
 							}
-					break;
+						}
+					}
+				});
+				break;
 				case 'scroll':
+							const astLoadMore		= document.querySelector('.ast-load-more');
 							var mainSelector = document.getElementById('main');
 							var rect = mainSelector.getBoundingClientRect();
 							var offset = {
@@ -53,16 +55,20 @@
 
 								var windowHeight50 = window.outerHeight / 1.25;
 								window.addEventListener('scroll', function() {
-									if( (window.scrollY + windowHeight50 ) >= ( offset.top ) ) {
-										if (count > total) {
-											return false;
-										} else {
 
-											//	Pause for the moment ( execute if post loaded )
-											if( loadStatus == true ) {
-												NextloadArticles(count);
-												count++;
-												loadStatus = false;
+									if( (window.scrollY + windowHeight50 ) >= ( offset.top ) ) {
+										const infinitePagination = document.querySelector('.ast-pagination-infinite');
+										if( infinitePagination ) {
+											const total = parseInt( infinitePagination.getAttribute('data-total') ) || '';
+											let count = parseInt( infinitePagination.getAttribute('data-page') ) || '';
+	
+											if (count <= total) {
+												//	Pause for the moment ( execute if post loaded )
+												if( loadStatus == true ) {
+													NextloadArticles(count);
+													infinitePagination.setAttribute('data-page', count + 1 );
+													loadStatus = false;
+												}
 											}
 										}
 									}
@@ -78,6 +84,8 @@
 		 * Perform masonry operations.
 		 */
 		function NextloadArticles(pageNumber) {
+			const loader 			= document.querySelector('.ast-pagination-infinite .ast-loader');
+			const astLoadMore		= document.querySelector('.ast-load-more');
 			if( astLoadMore ){
 				astLoadMore.classList.remove('active');
 			}
@@ -120,12 +128,18 @@
 					//	Add grid classes
 					var msg 			= astra.no_more_post_message || '';
 					//	Show no more post message
-					if( count > total ) {
-						document.querySelector('.ast-pagination-infinite').innerHTML = '<span class="ast-load-more no-more active" style="display: inline-block;">' + msg + "</span>";
-					} else {
-						var newNextTargetUrl = nextDestUrl.replace(/\/page\/[0-9]+/, '/page/' + (pageNumber + 1));
-						pageUrlSelector.setAttribute('href', newNextTargetUrl);
+					const infinitePagination = document.querySelector('.ast-pagination-infinite');
+					if( infinitePagination ) {
+						const total = parseInt( infinitePagination.getAttribute('data-total') ) || '';
+						let count = parseInt( infinitePagination.getAttribute('data-page') ) || '';
+						if( count > total ) {
+							infinitePagination.innerHTML = '<span class="ast-load-more no-more active" style="display: inline-block;">' + msg + "</span>";
+						} else {
+							var newNextTargetUrl = nextDestUrl.replace(/\/page\/[0-9]+/, '/page/' + (pageNumber + 1));
+							pageUrlSelector.setAttribute('href', newNextTargetUrl);
+						}
 					}
+		
 
 					//	Complete the process 'loadStatus'
 					loadStatus = true;

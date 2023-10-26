@@ -595,6 +595,226 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 	if ( $css_output_mobile ) {
 		$parse_css .= astra_parse_css( $css_output_mobile, '', astra_addon_get_mobile_breakpoint() );
 	}
+		/**
+		 * Blog Filter.
+		 */
+		$blog_filter_layout     = astra_get_option( 'blog-filter-layout' );
+		$blog_filter_class      = '.ast-post-filter';
+		$blog_filter_static_css = '';
+		$blog_filter            = astra_get_option( 'blog-filter' );
+		$blog_filter_target     = 'li.ast-post-filter-single';
+
+		// Blog filter text color.
+		$blog_filter_text_normal_color = astra_get_option( 'blog-filter-taxonomy-text-normal-color' );
+		$blog_filter_text_hover_color  = astra_get_option( 'blog-filter-taxonomy-text-hover-color' );
+		$blog_filter_text_active_color = astra_get_option( 'blog-filter-taxonomy-text-active-color' );
+
+		// Blog filter background color.
+		$blog_filter_bg_normal_color = astra_get_option( 'blog-filter-taxonomy-bg-normal-color' );
+		$blog_filter_bg_hover_color  = astra_get_option( 'blog-filter-taxonomy-bg-hover-color' );
+		$blog_filter_bg_active_color = astra_get_option( 'blog-filter-taxonomy-bg-active-color' );
+
+		// Blog filter inner/outer spacing.
+		$blog_filter_inner_spacing        = astra_get_option( 'blog-filter-inside-spacing' );
+		$blog_filter_outer_spacing        = astra_get_option( 'blog-filter-outside-spacing' );
+		$blog_filter_outer_parent_spacing = astra_get_option( 'blog-filter-outer-parent-spacing' );
+
+		// Blog filter border radius.
+		$blog_filter_border_radius = astra_get_option( 'blog-filter-border-radius' );
+		$blog_filter_font_size     = astra_get_option( 'font-size-blog-filter-taxonomy' );
+
+		$blog_filter_alignment_setting = astra_get_option( 'blog-filter-alignment' );
+		$desktop_blog_filter_alignment = $blog_filter_alignment_setting['desktop'] === $ltr_left ? 'flex-start' : 'flex-end';
+		$tablet_blog_filter_alignment  = $blog_filter_alignment_setting['tablet'] === $ltr_left ? 'flex-start' : 'flex-end';
+		$mobile_blog_filter_alignment  = $blog_filter_alignment_setting['mobile'] === $ltr_left ? 'flex-start' : 'flex-end';
+
+		$blog_filter_visibility_setting = astra_get_option( 'responsive-blog-filter-visibility' );
+		$desktop_blog_filter_visibility = $blog_filter_visibility_setting['desktop'] ? 'block' : 'none';
+		$tablet_blog_filter_visibility  = $blog_filter_visibility_setting['tablet'] ? 'block' : 'none';
+		$mobile_blog_filter_visibility  = $blog_filter_visibility_setting['mobile'] ? 'block' : 'none';
+
+	if ( $blog_filter ) {
+		$blog_filter_static_css .= '
+			' . $blog_filter_class . '{
+				overflow: hidden;
+			}
+
+			' . $blog_filter_class . ' ul{
+				list-style: none;
+				margin: 0;
+				margin-bottom: 1em;
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			' . $blog_filter_target . '{
+				margin: .375em;
+				padding: 0.5em 0.63em;
+				cursor: pointer;
+				font-weight: 400;
+				line-height: normal;
+				border-radius: 4px;
+				border: 0;
+			}
+		';
+
+		if ( 'blog-filter-layout-1' === $blog_filter_layout ) {
+			$blog_filter_static_css .= '
+				' . $blog_filter_target . '.active {
+					color: var(--ast-global-color-0);
+				}
+			';
+		}
+
+
+		$parse_css .= Astra_Enqueue_Scripts::trim_css( $blog_filter_static_css );
+
+		$blog_filter_border_radius_desktop = array();
+		if ( 'blog-filter-layout-2' === $blog_filter_layout ) {
+			$blog_filter_border_radius_desktop = array(
+				'border-top-' . $ltr_left . '-radius'     => astra_responsive_spacing( $blog_filter_border_radius, 'top_left', 'desktop' ),
+				'border-top-' . $ltr_right . '-radius'    => astra_responsive_spacing( $blog_filter_border_radius, 'top_right', 'desktop' ),
+				'border-bottom-' . $ltr_right . '-radius' => astra_responsive_spacing( $blog_filter_border_radius, 'bottom_right', 'desktop' ),
+				'border-bottom-' . $ltr_left . '-radius'  => astra_responsive_spacing( $blog_filter_border_radius, 'bottom_left', 'desktop' ),
+			);
+		}
+
+		$blog_filter_css_output = array(
+			$blog_filter_class         => array(
+				'display'              => $desktop_blog_filter_visibility,
+				'margin-top'           => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'top', 'desktop' ),
+				'margin-' . $ltr_right => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'right', 'desktop' ),
+				'margin-bottom'        => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'bottom', 'desktop' ),
+				'margin-' . $ltr_left  => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'left', 'desktop' ),
+			),
+			$blog_filter_class . ' ul' => array(
+				'justify-content'      => ( isset( $blog_filter_alignment_setting['desktop'] ) && 'center' === $blog_filter_alignment_setting['desktop'] ) ? 'center' : $desktop_blog_filter_alignment,
+				'margin-' . $ltr_right => '-' . astra_responsive_spacing( $blog_filter_outer_spacing, 'right', 'desktop' ),
+				'margin-' . $ltr_left  => '-' . astra_responsive_spacing( $blog_filter_outer_spacing, 'left', 'desktop' ),
+			),
+			$blog_filter_target        =>
+			array_merge(
+				astra_addon_get_font_array_css( astra_get_option( 'font-family-blog-filter-taxonomy' ), astra_get_option( 'font-weight-blog-filter-taxonomy' ), $blog_filter_font_size, 'font-extras-blog-filter-taxonomy', '' ), 
+				array(
+					'padding-top'           => astra_responsive_spacing( $blog_filter_inner_spacing, 'top', 'desktop' ),
+					'padding-' . $ltr_right => astra_responsive_spacing( $blog_filter_inner_spacing, 'right', 'desktop' ),
+					'padding-bottom'        => astra_responsive_spacing( $blog_filter_inner_spacing, 'bottom', 'desktop' ),
+					'padding-' . $ltr_left  => astra_responsive_spacing( $blog_filter_inner_spacing, 'left', 'desktop' ),
+					'margin-top'            => astra_responsive_spacing( $blog_filter_outer_spacing, 'top', 'desktop' ),
+					'margin-' . $ltr_right  => astra_responsive_spacing( $blog_filter_outer_spacing, 'right', 'desktop' ),
+					'margin-bottom'         => astra_responsive_spacing( $blog_filter_outer_spacing, 'bottom', 'desktop' ),
+					'margin-' . $ltr_left   => astra_responsive_spacing( $blog_filter_outer_spacing, 'left', 'desktop' ),
+				),
+				$blog_filter_border_radius_desktop
+			),
+
+			'.ast-row'                 => array(
+				'transition-property'        => 'opacity;',
+				'transition-duration'        => '.5s',
+				'transition-timing-function' => 'cubic-bezier(0.2, 1, 0.2, 1)',
+			),
+		);
+
+		$blog_filter_css_output[ $blog_filter_target . ':not(.active)' ]['color']       = $blog_filter_text_normal_color;
+		$blog_filter_css_output[ $blog_filter_target . '.active' ]['color']             = $blog_filter_text_active_color;
+		$blog_filter_css_output[ $blog_filter_target . ':not(.active):hover' ]['color'] = $blog_filter_text_hover_color;
+
+		if ( 'blog-filter-layout-2' === $blog_filter_layout ) {
+			$blog_filter_css_output[ $blog_filter_target . ':not(.active)' ]['background-color']       = $blog_filter_bg_normal_color;
+			$blog_filter_css_output[ $blog_filter_target . '.active' ]['background-color']             = $blog_filter_bg_active_color;
+			$blog_filter_css_output[ $blog_filter_target . ':not(.active):hover' ]['background-color'] = $blog_filter_bg_hover_color;
+		}
+
+		/* Parse CSS from array() */
+		$parse_css .= astra_parse_css( $blog_filter_css_output );
+
+		$blog_filter_border_radius_tablet = array();
+		if ( 'blog-filter-layout-2' === $blog_filter_layout ) {
+			$blog_filter_border_radius_tablet = array(
+				'border-top-' . $ltr_left . '-radius'     => astra_responsive_spacing( $blog_filter_border_radius, 'top_left', 'tablet' ),
+				'border-top-' . $ltr_right . '-radius'    => astra_responsive_spacing( $blog_filter_border_radius, 'top_right', 'tablet' ),
+				'border-bottom-' . $ltr_right . '-radius' => astra_responsive_spacing( $blog_filter_border_radius, 'bottom_right', 'tablet' ),
+				'border-bottom-' . $ltr_left . '-radius'  => astra_responsive_spacing( $blog_filter_border_radius, 'bottom_left', 'tablet' ),
+			);
+		}
+
+		$blog_filter_css_output_tablet = array(
+			$blog_filter_class         => array(
+				'display'              => $tablet_blog_filter_visibility,
+				'margin-top'           => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'top', 'tablet' ),
+				'margin-' . $ltr_right => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'right', 'tablet' ),
+				'margin-bottom'        => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'bottom', 'tablet' ),
+				'margin-' . $ltr_left  => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'left', 'tablet' ),
+			),
+			$blog_filter_class . ' ul' => array(
+				'justify-content'      => ( isset( $blog_filter_alignment_setting['tablet'] ) && 'center' === $blog_filter_alignment_setting['tablet'] ) ? 'center' : $tablet_blog_filter_alignment,
+				'margin-' . $ltr_right => '-' . astra_responsive_spacing( $blog_filter_outer_spacing, 'right', 'tablet' ),
+				'margin-' . $ltr_left  => '-' . astra_responsive_spacing( $blog_filter_outer_spacing, 'left', 'tablet' ),
+			),
+			$blog_filter_target        => 
+			array_merge(
+				array(
+					'font-size'             => astra_responsive_font( $blog_filter_font_size, 'tablet' ),
+					'padding-top'           => astra_responsive_spacing( $blog_filter_inner_spacing, 'top', 'tablet' ),
+					'padding-' . $ltr_right => astra_responsive_spacing( $blog_filter_inner_spacing, 'right', 'tablet' ),
+					'padding-bottom'        => astra_responsive_spacing( $blog_filter_inner_spacing, 'bottom', 'tablet' ),
+					'padding-' . $ltr_left  => astra_responsive_spacing( $blog_filter_inner_spacing, 'left', 'tablet' ),
+					'margin-top'            => astra_responsive_spacing( $blog_filter_outer_spacing, 'top', 'tablet' ),
+					'margin-' . $ltr_right  => astra_responsive_spacing( $blog_filter_outer_spacing, 'right', 'tablet' ),
+					'margin-bottom'         => astra_responsive_spacing( $blog_filter_outer_spacing, 'bottom', 'tablet' ),
+					'margin-' . $ltr_left   => astra_responsive_spacing( $blog_filter_outer_spacing, 'left', 'tablet' ),
+				),
+				$blog_filter_border_radius_tablet
+			),
+		);
+
+		$parse_css .= astra_parse_css( $blog_filter_css_output_tablet, '', astra_addon_get_tablet_breakpoint() );
+
+		$blog_filter_border_radius_mobile = array();
+		if ( 'blog-filter-layout-2' === $blog_filter_layout ) {
+			$blog_filter_border_radius_mobile = array(
+				'border-top-' . $ltr_left . '-radius'     => astra_responsive_spacing( $blog_filter_border_radius, 'top_left', 'mobile' ),
+				'border-top-' . $ltr_right . '-radius'    => astra_responsive_spacing( $blog_filter_border_radius, 'top_right', 'mobile' ),
+				'border-bottom-' . $ltr_right . '-radius' => astra_responsive_spacing( $blog_filter_border_radius, 'bottom_right', 'mobile' ),
+				'border-bottom-' . $ltr_left . '-radius'  => astra_responsive_spacing( $blog_filter_border_radius, 'bottom_left', 'mobile' ),
+			);
+		}
+
+		$blog_filter_css_output_mobile = array(
+			$blog_filter_class         => array(
+				'display'              => $mobile_blog_filter_visibility,
+				'margin-top'           => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'top', 'mobile' ),
+				'margin-' . $ltr_right => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'right', 'mobile' ),
+				'margin-bottom'        => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'bottom', 'mobile' ),
+				'margin-' . $ltr_left  => astra_responsive_spacing( $blog_filter_outer_parent_spacing, 'left', 'mobile' ),
+			),
+			$blog_filter_class . ' ul' => array(
+				'justify-content'      => ( isset( $blog_filter_alignment_setting['mobile'] ) && 'center' === $blog_filter_alignment_setting['mobile'] ) ? 'center' : $mobile_blog_filter_alignment,
+				'margin-' . $ltr_right => '-' . astra_responsive_spacing( $blog_filter_outer_spacing, 'right', 'mobile' ),
+				'margin-' . $ltr_left  => '-' . astra_responsive_spacing( $blog_filter_outer_spacing, 'left', 'mobile' ),
+			),
+			$blog_filter_target        =>
+			array_merge(
+				array(
+					'font-size'             => astra_responsive_font( $blog_filter_font_size, 'mobile' ),
+					'padding-top'           => astra_responsive_spacing( $blog_filter_inner_spacing, 'top', 'mobile' ),
+					'padding-' . $ltr_right => astra_responsive_spacing( $blog_filter_inner_spacing, 'right', 'mobile' ),
+					'padding-bottom'        => astra_responsive_spacing( $blog_filter_inner_spacing, 'bottom', 'mobile' ),
+					'padding-' . $ltr_left  => astra_responsive_spacing( $blog_filter_inner_spacing, 'left', 'mobile' ),
+					'margin-top'            => astra_responsive_spacing( $blog_filter_outer_spacing, 'top', 'mobile' ),
+					'margin-' . $ltr_right  => astra_responsive_spacing( $blog_filter_outer_spacing, 'right', 'mobile' ),
+					'margin-bottom'         => astra_responsive_spacing( $blog_filter_outer_spacing, 'bottom', 'mobile' ),
+					'margin-' . $ltr_left   => astra_responsive_spacing( $blog_filter_outer_spacing, 'left', 'mobile' ),
+				),
+				$blog_filter_border_radius_mobile
+			),
+
+
+		);
+
+		$parse_css .= astra_parse_css( $blog_filter_css_output_mobile, '', astra_addon_get_mobile_breakpoint() );
+
+	}
 
 	return $dynamic_css . $parse_css;
 }

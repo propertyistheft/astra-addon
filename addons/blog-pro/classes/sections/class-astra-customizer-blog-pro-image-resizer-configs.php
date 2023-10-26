@@ -148,15 +148,16 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 				 * Option: Blog Single Post
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-post-image-size-heading]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog-single',
-					'title'    => __( 'Featured Images Size', 'astra-addon' ),
-					'divider'  => array( 'ast_class' => 'ast-top-spacing ast-top-section-divider' ),
-					'priority' => 6,
-					'settings' => array(),
-					'context'  => astra_addon_builder_helper()->general_tab,
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-single-post-image-size-heading]',
+					'type'        => 'control',
+					'control'     => 'ast-divider',
+					'section'     => 'section-blog-single',
+					'title'       => __( 'Featured Images Size', 'astra-addon' ),
+					'divider'     => array( 'ast_class' => 'ast-top-spacing ast-top-dotted-divider' ),
+					'priority'    => 6,
+					'settings'    => array(),
+					'description' => __( 'This custom size will be used for the title area and content before featured images.', 'astra-addon' ),
+					'context'     => astra_addon_builder_helper()->general_tab,
 				),
 
 				/**

@@ -613,9 +613,8 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			 * Typography CSS.
 			 */
 			$css_output_desktop = array(
-				$selector . ' .widget-title' => astra_addon_get_font_array_css( astra_get_option( 'header-widget-' . $index . '-font-family', 'inherit' ), astra_get_option( 'header-widget-' . $index . '-font-weight', 'inherit' ), array(), 'header-widget-' . $index . '-font-extras' ),
+				$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => astra_addon_get_font_array_css( astra_get_option( 'header-widget-' . $index . '-font-family', 'inherit' ), astra_get_option( 'header-widget-' . $index . '-font-weight', 'inherit' ), array(), 'header-widget-' . $index . '-font-extras' ),
 			);
-
 			if ( Astra_Addon_Builder_Helper::apply_flex_based_css() ) {
 				$header_widget_selector = $selector . '.header-widget-area-inner';
 			} else {
@@ -644,7 +643,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			 * Typography CSS.
 			 */
 			$css_output_desktop = array(
-				$selector . ' .widget-title' => astra_addon_get_font_array_css( astra_get_option( 'footer-widget-' . $index . '-font-family', 'inherit' ), astra_get_option( 'footer-widget-' . $index . '-font-weight', 'inherit' ), array(), 'footer-widget-' . $index . '-font-extras' ),
+				$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => astra_addon_get_font_array_css( astra_get_option( 'footer-widget-' . $index . '-font-family', 'inherit' ), astra_get_option( 'footer-widget-' . $index . '-font-weight', 'inherit' ), array(), 'footer-widget-' . $index . '-font-extras' ),
 			);
 
 			if ( Astra_Addon_Builder_Helper::apply_flex_based_css() ) {
@@ -696,7 +695,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			}
 
 			$_section = 'section-hb-social-icons-' . $index;
-			$selector = '.ast-builder-layout-element .ast-header-social-' . $index . '-wrap';
+			$selector = '.ast-builder-layout-element .ast-header-social-' . $index . '-wrap .social-item-label';
 
 			/**
 			 * Typography CSS.
@@ -720,7 +719,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			}
 
 			$_section = 'section-fb-social-icons-' . $index;
-			$selector = '.ast-builder-layout-element .ast-footer-social-' . $index . '-wrap';
+			$selector = '.ast-builder-layout-element .ast-footer-social-' . $index . '-wrap .social-item-label';
 
 			/**
 			 * Typography CSS.

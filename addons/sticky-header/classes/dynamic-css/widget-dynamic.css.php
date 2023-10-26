@@ -45,7 +45,7 @@ function astra_sticky_header_widget_dynamic_css( $dynamic_css, $dynamic_css_filt
 			$header_widget_selector . ' a:hover' => array(
 				'color' => astra_get_option( 'sticky-header-widget-' . $index . '-link-h-color' ),
 			),
-			$selector . ' .widget-title'         => array(
+			$selector . ' .widget-title, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => array(
 				'color' => astra_get_option( 'sticky-header-widget-' . $index . '-title-color' ),
 			),
 		);

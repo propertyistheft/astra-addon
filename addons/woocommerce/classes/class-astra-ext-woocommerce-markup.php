@@ -115,6 +115,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			add_shortcode( 'astra_woo_mini_cart', array( $this, 'astra_woo_mini_cart_markup' ) );
 
+			add_shortcode( 'astra_woo_slide_in_cart', array( $this, 'astra_woo_slide_in_cart_markup' ) );
+
 			// Woocommerce single product sticky.
 			add_action( 'wp', array( $this, 'woo_single_product_sticky' ), 99 );
 
@@ -375,7 +377,28 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			return $output;
 		}
+		/**
+		 * Slide in Cart feature shortcode for WooCommerce cart.
+		 *
+		 * @since 4.4.0
+		 * @return void
+		 */
+		public function astra_woo_slide_in_cart_markup() {
+		
+			if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+				$output                     = '';
+				$astra_woocommerce_instance = Astra_Woocommerce::get_instance();
 
+				if ( method_exists( $astra_woocommerce_instance, 'woo_mini_cart_markup' ) ) {
+
+					$output  = '<div class="ast-woo-mini-cart-wrapper ast-slidein-cart">';
+					$output .= $astra_woocommerce_instance->woo_mini_cart_markup();
+					$output .= '</div>';
+				}
+
+				return $output;
+			}
+		}
 		/**
 		 * Get Off Canvas Sidebar
 		 *

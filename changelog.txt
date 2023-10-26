@@ -1,5 +1,17 @@
 *** Astra Pro Changelog ***
 
+2023-10-23 - version 4.4.0
+* New: Blog Pro - Blog Filter to filter categories and tags. ( https://wpastra.com/docs/post-filter/ )
+* New: Header Builder - Search - Option to switch Light or Dark modal design for Full Screen style.
+* New: WooCommerce - Introducing a new cart shortcode 'astra_woo_slide_in_cart', which adds support for a slide-in cart feature.
+* New: Editor - Introducing Page Level Background Settings (Page Background & Content Background). ( https://wpastra.com/docs/page-level-background-settings/ )
+* Improvement: Added a new filter 'astra_social_rel_attribute' to change Social Share's "rel" attribute inside the post.
+* Fix: Blog - Social sharing icons were incorrectly linking to Twitter for all platforms.
+* Fix: Header-Footer Builder - Social Icon - Text decoration typography style for labels not working.
+* Fix: Custom Layout - Embed/YouTube block not working inside nested blocks.
+* Fix: Sticky Header - Menu color gets overridden by normal header primary menu color.
+* Fix: WPML conflicting with Profile language for translation.
+
 2023-09-26 - version 4.3.3
 * Fix: Custom Layout - Layouts missing on the frontend for logged-out users with update v4.3.2.
 

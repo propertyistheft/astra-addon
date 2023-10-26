@@ -276,7 +276,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 						'transport'      => 'postMessage',
 						'linked_choices' => true,
 						'priority'       => 9,
-						'title'          => __( 'Width', 'astra-addon' ),
+						'title'          => __( 'Border Width', 'astra-addon' ),
 						'context'        => array(
 							astra_addon_builder_helper()->design_tab_config,
 							array(

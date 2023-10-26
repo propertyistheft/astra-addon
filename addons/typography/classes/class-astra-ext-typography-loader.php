@@ -87,6 +87,10 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$font_weight_post_meta = astra_get_option( 'font-weight-post-meta' );
 			Astra_Fonts::add_font( $font_family_post_meta, $font_weight_post_meta );
 
+			$font_family_post_meta = astra_get_option( 'font-family-blog-filter-taxonomy' );
+			$font_weight_post_meta = astra_get_option( 'font-weight-blog-filter-taxonomy' );
+			Astra_Fonts::add_font( $font_family_post_meta, $font_weight_post_meta );
+
 			$font_family_widget_title = astra_get_option( 'font-family-widget-title' );
 			$font_weight_widget_title = astra_get_option( 'font-weight-widget-title' );
 			Astra_Fonts::add_font( $font_family_widget_title, $font_weight_widget_title );

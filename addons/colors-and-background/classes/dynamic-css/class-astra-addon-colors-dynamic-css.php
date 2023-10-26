@@ -413,7 +413,6 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			// Search Box Background.
 			$search_selector . ' .search-field'           => array(
 				'background-color' => esc_attr( astra_get_option( 'header-search-box-background-color' ) ),
-
 				// Search Box Border.
 				'border-radius'    => astra_get_css_value( $search_border_radius, 'px' ),
 			),
@@ -439,13 +438,13 @@ class Astra_Addon_Colors_Dynamic_CSS {
 				'border-color' => esc_attr( astra_get_option( 'header-search-border-h-color' ) ),
 			),
 
-			// Seach Full Screen Overlay Color.
+			// Search Full Screen Overlay Color.
 			'.ast-search-box.full-screen, .ast-search-box.header-cover' => array(
 				'background' => esc_attr( astra_get_option( 'header-search-overlay-color' ) ),
 			),
 
 			// Search Overlay Text Color.
-			'.ast-search-box.header-cover #close, .ast-search-box.full-screen #close, .ast-search-box.full-screen .ast-search-wrapper .large-search-text, .ast-search-box.header-cover .search-submit, .ast-search-box.full-screen .search-submit, .ast-search-box.header-cover .search-field, .ast-search-box.full-screen .search-field, .ast-search-box.header-cover .search-field::-webkit-input-placeholder, .ast-search-box.full-screen .search-field::-webkit-input-placeholder' => array(
+			'.ast-search-box.header-cover #close, .ast-search-box.full-screen #close, .ast-search-box.full-screen .ast-search-wrapper .large-search-text, .ast-search-box.header-cover .search-submit, .ast-search-box.header-cover .search-field, .ast-search-box.full-screen .search-field, .ast-search-box.header-cover .search-field::-webkit-input-placeholder, .ast-search-box.full-screen .search-field::-webkit-input-placeholder, .full-screen .ast-live-search-results *, .ast-search-box.full-screen .ast-search--posttype-heading' => array(
 				'color' => esc_attr( astra_get_option( 'header-search-overlay-text-color' ) ),
 			),
 

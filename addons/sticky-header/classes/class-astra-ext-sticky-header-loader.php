@@ -449,10 +449,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 				// HTML Sticky Configs.
 				require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-header-html-configs.php';
 
-				if ( ! astra_addon_remove_widget_design_options() ) {
-					// Widget Sticky Configs.
-					require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-header-widget-configs.php';
-				}
+				// Widget Sticky Configs.git
+				require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-header-widget-configs.php';
 
 				// Divider Sticky Configs.
 				require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-header-divider-configs.php';

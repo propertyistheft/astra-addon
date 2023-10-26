@@ -390,7 +390,6 @@
 
 	wp.customize( 'astra-settings[single-post-social-sharing-heading-text]', function( setting ) {
 		setting.bind( function( text ) {
-			console.log('asdas');
 			const SocialHeadingText = document.querySelector('.ast-social-sharing-heading');
 			if( SocialHeadingText ) {
 				SocialHeadingText.textContent = text;
@@ -410,4 +409,268 @@
 	astra_responsive_font_size( 'astra-settings[single-post-social-sharing-heading-font-size]', selector + ' .ast-social-sharing-heading' );
 	astra_font_extras_css( 'single-post-social-sharing-heading-font-extras', selector + ' .ast-social-sharing-heading' );
 
+	// Blog filter
+	const blog_filter_selector = 'li.ast-post-filter-single';
+	const blog_filter_parent_selector = '.ast-post-filter ul';
+	const blog_filter_main_parent = '.ast-post-filter';
+
+
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-blog-filter-taxonomy]', blog_filter_selector );
+	astra_generate_font_weight_css( 'astra-settings[font-family-blog-filter-taxonomy]', 'astra-settings[font-weight-blog-filter-taxonomy]', 'font-weight', blog_filter_selector );
+	astra_responsive_font_size( 'astra-settings[font-size-blog-filter-taxonomy]', blog_filter_selector );
+	astra_font_extras_css( 'font-extras-blog-filter-taxonomy', blog_filter_selector );
+
+	astra_css(
+		'astra-settings[blog-filter-taxonomy-text-normal-color]',
+		'color',
+		blog_filter_selector + ':not(.active)'
+	);
+
+	astra_css(
+		'astra-settings[blog-filter-taxonomy-text-hover-color]',
+		'color',
+		blog_filter_selector + ':not(.active):hover'
+	);
+
+	astra_css(
+		'astra-settings[blog-filter-taxonomy-text-active-color]',
+		'color',
+		blog_filter_selector + '.active'
+	);
+
+	astra_css(
+		'astra-settings[blog-filter-taxonomy-bg-normal-color]',
+		'background-color',
+		blog_filter_selector + ':not(.active)'
+	);
+
+	astra_css(
+		'astra-settings[blog-filter-taxonomy-bg-hover-color]',
+		'background-color',
+		blog_filter_selector + ':not(.active):hover'
+	);
+
+	astra_css(
+		'astra-settings[blog-filter-taxonomy-bg-active-color]',
+		'background-color',
+		blog_filter_selector + '.active'
+	);
+
+	// Padding.
+	wp.customize( 'astra-settings[blog-filter-inside-spacing]', function( value ) {
+
+		value.bind( function( padding ) {
+			if(
+				padding.desktop.bottom != '' || padding.desktop.top != '' || padding.desktop.left != '' || padding.desktop.right != '' ||
+				padding.tablet.bottom != '' || padding.tablet.top != '' || padding.tablet.left != '' || padding.tablet.right != '' ||
+				padding.mobile.bottom != '' || padding.mobile.top != '' || padding.mobile.left != '' || padding.mobile.right != ''
+			) {
+				let dynamicStyle = '';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'padding-left: ' + padding['desktop']['left'] + padding['desktop-unit'] + ';';
+				dynamicStyle += 'padding-right: ' + padding['desktop']['right'] + padding['desktop-unit'] + ';';
+				dynamicStyle += 'padding-top: ' + padding['desktop']['top'] + padding['desktop-unit'] + ';';
+				dynamicStyle += 'padding-bottom: ' + padding['desktop']['bottom'] + padding['desktop-unit'] + ';';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'padding-left: ' + padding['tablet']['left'] + padding['tablet-unit'] + ';';
+				dynamicStyle += 'padding-right: ' + padding['tablet']['right'] + padding['tablet-unit'] + ';';
+				dynamicStyle += 'padding-top: ' + padding['tablet']['top'] + padding['tablet-unit'] + ';';
+				dynamicStyle += 'padding-bottom: ' + padding['tablet']['bottom'] + padding['tablet-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'padding-left: ' + padding['mobile']['left'] + padding['mobile-unit'] + ';';
+				dynamicStyle += 'padding-right: ' + padding['mobile']['right'] + padding['mobile-unit'] + ';';
+				dynamicStyle += 'padding-top: ' + padding['mobile']['top'] + padding['mobile-unit'] + ';';
+				dynamicStyle += 'padding-bottom: ' + padding['mobile']['bottom'] + padding['mobile-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				astra_add_dynamic_css( context + '-bf-padding', dynamicStyle );
+			}
+		} );
+	} );
+
+	// Border Radius.
+	wp.customize( 'astra-settings[blog-filter-border-radius]', function( value ) {
+		value.bind( function( radius ) {
+
+			if(
+				radius.desktop.bottom != '' || radius.desktop.top != '' || radius.desktop.left != '' || radius.desktop.right != '' ||
+				radius.tablet.bottom != '' || radius.tablet.top != '' || radius.tablet.left != '' || radius.tablet.right != '' ||
+				radius.mobile.bottom != '' || radius.mobile.top != '' || radius.mobile.left != '' || radius.mobile.right != ''
+			) {
+				let dynamicStyle = '';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'border-top-left-radius: ' + radius['desktop']['top_left'] + radius['desktop-unit'] + ';';
+				dynamicStyle += 'border-top-right-radius: ' + radius['desktop']['top_right'] + radius['desktop-unit'] + ';';
+				dynamicStyle += 'border-bottom-left-radius: ' + radius['desktop']['bottom_left'] + radius['desktop-unit'] + ';';
+				dynamicStyle += 'border-bottom-right-radius: ' + radius['desktop']['bottom_right'] + radius['desktop-unit'] + ';';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'border-top-left-radius: ' + radius['tablet']['top_left'] + radius['tablet-unit'] + ';';
+				dynamicStyle += 'border-top-right-radius: ' + radius['tablet']['top_right'] + radius['tablet-unit'] + ';';
+				dynamicStyle += 'border-bottom-left-radius: ' + radius['tablet']['bottom_left'] + radius['tablet-unit'] + ';';
+				dynamicStyle += 'border-bottom-right-radius: ' + radius['tablet']['bottom_right'] + radius['tablet-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'border-top-left-radius: ' + radius['mobile']['top_left'] + radius['mobile-unit'] + ';';
+				dynamicStyle += 'border-top-right-radius: ' + radius['mobile']['top_right'] + radius['mobile-unit'] + ';';
+				dynamicStyle += 'border-bottom-left-radius: ' + radius['mobile']['bottom_left'] + radius['mobile-unit'] + ';';
+				dynamicStyle += 'border-bottom-right-radius: ' + radius['mobile']['bottom_right'] + radius['mobile-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				astra_add_dynamic_css( context + '-bf-border-radius', dynamicStyle );
+			}
+		} );
+	} );
+
+		// Outer Spacing Margin.
+		wp.customize( 'astra-settings[blog-filter-outer-parent-spacing]', function( value ) {
+			value.bind( function( margin ) {
+				if(
+					margin.desktop.bottom != '' || margin.desktop.top != '' || margin.desktop.left != '' || margin.desktop.right != '' ||
+					margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
+					margin.mobile.bottom != '' || margin.mobile.top != '' || margin.mobile.left != '' || margin.mobile.right != ''
+				) {
+					let dynamicStyle = '';
+					dynamicStyle += blog_filter_main_parent + ' {';
+					dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
+					dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
+					dynamicStyle += 'margin-top: ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
+					dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
+					dynamicStyle += '} ';
+	
+					dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+					dynamicStyle += blog_filter_main_parent + ' {';
+					dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
+					dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
+					dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['tablet-unit'] + ';';
+					dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['tablet-unit'] + ';';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+	
+					dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+					dynamicStyle += blog_filter_main_parent + ' {';
+					dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
+					dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
+					dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['mobile-unit'] + ';';
+					dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['mobile-unit'] + ';';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+	
+					astra_add_dynamic_css( context + '-bf-outer-margin', dynamicStyle );
+				}
+			} );
+		} );
+
+	// Margin.
+	wp.customize( 'astra-settings[blog-filter-outside-spacing]', function( value ) {
+		value.bind( function( margin ) {
+			if(
+				margin.desktop.bottom != '' || margin.desktop.top != '' || margin.desktop.left != '' || margin.desktop.right != '' ||
+				margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
+				margin.mobile.bottom != '' || margin.mobile.top != '' || margin.mobile.left != '' || margin.mobile.right != ''
+			) {
+				let dynamicStyle = '';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-top: ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
+				dynamicStyle += '} ';
+
+				dynamicStyle += blog_filter_parent_selector + ' {';
+				dynamicStyle += 'margin-left: -' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
+				dynamicStyle += 'margin-right: -' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
+				dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
+				dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['tablet-unit'] + ';';
+				dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['tablet-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += blog_filter_parent_selector + ' {';
+				dynamicStyle += 'margin-left: -' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
+				dynamicStyle += 'margin-right: -' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += blog_filter_selector + ' {';
+				dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
+				dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
+				dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['mobile-unit'] + ';';
+				dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['mobile-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += blog_filter_parent_selector + ' {';
+				dynamicStyle += 'margin-left: -' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
+				dynamicStyle += 'margin-right: -' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				astra_add_dynamic_css( context + '-bf-margin', dynamicStyle );
+			}
+		} );
+	} );
+
+		// Social sharing alignment.
+		wp.customize( 'astra-settings[blog-filter-alignment]', function( value ) {
+			value.bind( function( alignment ) {
+				if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
+					let dynamicStyle = '';
+					dynamicStyle += blog_filter_parent_selector + ' {';
+					dynamicStyle += 'justify-content: ' + rtl_alignment(alignment['desktop'],'flex-start','flex-end') + ';';
+					dynamicStyle += '} ';
+					dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+					dynamicStyle += blog_filter_parent_selector + ' {';
+					dynamicStyle += 'justify-content: ' + rtl_alignment(alignment['tablet'],'flex-start','flex-end') + ';';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+					dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+					dynamicStyle += blog_filter_parent_selector + ' {';
+					dynamicStyle += 'justify-content: ' + rtl_alignment(alignment['mobile'],'flex-start','flex-end') + ';';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+					astra_add_dynamic_css( context + '-bf-alignment', dynamicStyle );
+				}
+			});
+		});
+
+	/*
+	 * Responsive Blog filter Visibility
+	 */
+		wp.customize( 'astra-settings[responsive-blog-filter-visibility]', function( setting ) {
+			setting.bind( function( visibility ) {
+				const desktopTitleVisibility  = ( visibility['desktop'] ) ? 'block' : 'none';
+				const tabletTitleVisibility  = ( visibility['tablet'] ) ? 'block' : 'none';
+				const mobileTitleVisibility  = ( visibility['mobile'] ) ? 'block' : 'none';
+				const tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 921,
+					mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
+				const dynamicStyle = '.ast-post-filter { display: ' + desktopTitleVisibility + ';} @media( max-width: ' + tabletBreakPoint + 'px) { .ast-post-filter { display: ' + tabletTitleVisibility + ';} } @media( max-width: ' + mobileBreakPoint + 'px) { .ast-post-filter { display: ' + mobileTitleVisibility + ';} }';
+				astra_add_dynamic_css( 'responsive-blog-filter-visibility', dynamicStyle );
+			} );
+		} );
+
 } )( jQuery );
+
+
+function rtl_alignment(value, optionLeft, optionRight) {
+	const isSiteRtl = AstraAddon.rtl;
+	const rtlLeft    = isSiteRtl ? 'right' : 'left';
+	const alignmentRtl = ( value === rtlLeft ) ? optionLeft : optionRight;
+	return ( value === 'center' ) ? 'center' : alignmentRtl;
+}

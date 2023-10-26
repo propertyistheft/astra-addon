@@ -66,6 +66,11 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 			// Social Sharing.
 			add_action( 'wp', array( $this, 'astra_social_sharing' ) );
+
+
+			// Glog Post filter.
+			add_action( 'wp', array( $this, 'blog_post_filter' ) );
+
 		}
 
 		/**
@@ -108,6 +113,16 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 				$localize['blogMasonryBreakPoint'] = absint( apply_filters( 'astra_blog_masonry_break_point', astra_addon_get_tablet_breakpoint() ) );
 			}
 
+			$blog_masonry = astra_get_option( 'blog-masonry' );
+			// If woocommerce page template.
+			if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
+				$localize['masonryEnabled'] = false;
+			} else {
+				$localize['masonryEnabled'] = $blog_masonry;
+			}
+
+			$localize['blogArchiveTitleLayout'] = astra_get_option( 'ast-dynamic-archive-post-layout' );
+
 			return $localize;
 		}
 
@@ -131,27 +146,34 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			}
 
 			if ( 'infinite' == $pagination ) {
+				ob_start();
+				?>
+				<div class="ast-ajax-pagination-wrapper">
+				<?php
 				if ( $wp_query->max_num_pages > 1 ) {
-					ob_start();
+
 					?>
-					<nav class="ast-pagination-infinite">
-						<div class="ast-loader">
-								<div class="ast-loader-1"></div>
-								<div class="ast-loader-2"></div>
-								<div class="ast-loader-3"></div>
-						</div>
-						<?php if ( 'click' == $infinite_event ) { ?>
-							<span class="ast-load-more active">
-								<?php
-									$load_more_text = apply_filters( 'astra_load_more_text', $load_more_text );
-									echo esc_html( $load_more_text );
-								?>
-							</span>
-						<?php } ?>
-					</nav>
+						<nav class="ast-pagination-infinite" data-page="<?php echo esc_attr( 2 ); ?>" data-total="<?php echo esc_attr( $wp_query->max_num_pages ); ?>">
+							<div class="ast-loader">
+									<div class="ast-loader-1"></div>
+									<div class="ast-loader-2"></div>
+									<div class="ast-loader-3"></div>
+							</div>
+							<?php if ( 'click' == $infinite_event ) { ?>
+								<span class="ast-load-more active">
+									<?php
+										$load_more_text = apply_filters( 'astra_load_more_text', $load_more_text );
+										echo esc_html( $load_more_text );
+									?>
+								</span>
+							<?php } ?>
+						</nav>
 					<?php
-					$output .= ob_get_clean();
 				}
+				?>
+				</div>
+				<?php
+				$output .= ob_get_clean();
 			}
 
 			return $output;
@@ -555,6 +577,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			$blog_grid          = astra_get_option( 'blog-grid' );
 			$blog_grid_layout   = astra_get_option( 'blog-grid-layout' );
 			$astra_blog_masonry = astra_get_option( 'blog-masonry' );
+			$blog_filter        = astra_get_option( 'blog-filter' );
 
 			if ( ( 'blog-layout-1' == $blog_layout && 1 != $blog_grid ) || ( 'blog-layout-1' != $blog_layout && 1 != $blog_grid_layout ) ) {
 				// Enqueue scripts.
@@ -564,6 +587,10 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 					Astra_Minify::add_js( $gen_path . 'ast-ext-blog-pro' . $file_prefix . '.js' );
 				}
+			}
+
+			if ( $blog_filter ) {
+				Astra_Minify::add_js( $gen_path . 'filter' . $file_prefix . '.js' );
 			}
 		}
 
@@ -607,7 +634,10 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 			}
 
+
 		}
+
+
 
 		/**
 		 * Calculate reading time.
@@ -898,7 +928,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 										$aria_label        = $item['label'] ? $item['label'] : $item['id'];
 										$is_phone_or_email = 'phone' === $item['id'] || 'email' === $item['id'];
 										$add_target        = $is_phone_or_email ? '' : '_blank';
-										$add_rel           = $is_phone_or_email ? '' : 'noopener noreferrer';
+										$add_rel           = $is_phone_or_email ? '' : apply_filters( 'astra_social_rel_attribute', 'noopener noreferrer' );
 										?>
 											<a href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>" target="<?php echo esc_attr( $add_target ); ?>" rel="<?php echo esc_attr( $add_rel ); ?>" class="ast-inline-flex ast-social-icon-a">
 											<?php
@@ -931,6 +961,139 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 					</div>
 				<?php
 				echo do_shortcode( ob_get_clean() );
+			}
+		}
+
+		/**
+		 * Blog Post Filter.
+		 *
+		 * @since 4.4.0
+		 * @return void
+		 */
+		public function blog_post_filter() {
+			$post_filter = astra_get_option( 'blog-filter' );
+
+			if ( ! $post_filter ) {
+				return;
+			}
+
+			if ( is_home() || is_category() || is_tag() ) {
+				add_action( 'astra_primary_content_top', array( $this, 'blog_post_filter_markup' ), 100 );
+			}
+		}
+
+		/**
+		 * Blog Post Filter.
+		 *
+		 * @since 4.4.0
+		 * @return mixed
+		 */
+		public function blog_post_filter_markup() {
+			$blog_filter_layout     = astra_get_option( 'blog-filter-layout' );
+			$blog_filter_by         = astra_get_option( 'blog-filter-by' );
+			$category_include       = astra_get_option( 'blog-filter-category-exclude' );
+			$tag_include            = astra_get_option( 'blog-filter-tag-exclude' );
+			$category_include_array = array();
+			$tag_include_array      = array();
+
+			if ( $category_include ) {
+				if ( strpos( $category_include, ',' ) !== false ) {
+					$category_include_array = explode( ',', $category_include );
+				} else {
+					$category_include_array = array( $category_include );
+				}
+			}
+
+			if ( $tag_include ) {
+				if ( strpos( $tag_include, ',' ) !== false ) {
+					$tag_include_array = explode( ',', $tag_include );
+				} else {
+					$tag_include_array = array( $tag_include );
+				}
+			}
+
+			if ( is_category() || ( is_home() && 'categories' === $blog_filter_by ) ) {
+				$taxonomy_name = 'category';
+				if ( isset( $category_include ) ) {
+					$term_args = array(
+						'hide_empty' => true,
+					);
+				} else {
+					$term_args = array(
+						'hide_empty' => true,
+					);
+				}
+			}
+
+			if ( is_tag() || ( is_home() && 'tags' === $blog_filter_by ) ) {
+				$taxonomy_name = 'post_tag';
+				if ( isset( $tag_include ) ) {
+					$term_args = array(
+						'hide_empty' => true,
+					);
+				} else {
+					$term_args = array(
+						'hide_empty' => true,
+					);
+				}
+			}
+
+
+			$terms = get_terms( $taxonomy_name, $term_args ); // Get all terms of a taxonomy.
+
+			if ( $terms && ! is_wp_error( $terms ) ) {
+
+				if ( is_category() && 'tags' === $blog_filter_by ) {
+					return false;
+				}
+
+				if ( is_tag() && 'categories' === $blog_filter_by ) {
+					return false;
+				}
+
+				if ( is_category() && in_array( get_queried_object_id(), $category_include_array ) ) {
+					return false;
+				}
+
+				if ( is_tag() && in_array( get_queried_object_id(), $tag_include_array ) ) {
+					return false;
+				}
+
+				ob_start();
+				?>
+				<div class="ast-post-filter">
+					<ul>
+					<?php
+						$blog_filter_layout_2_classes = 'blog-filter-layout-2' === $blog_filter_layout ? 'ast-button' : '';
+						$category_tag_page_classes    = ( ! ( is_category() || is_tag() ) ) ? 'active' : '';
+						$add_spacing                  = $category_tag_page_classes ? ' ' : '';
+						$classes                      = $blog_filter_layout_2_classes || $category_tag_page_classes ? ' ' . $blog_filter_layout_2_classes . $add_spacing . $category_tag_page_classes : '';
+					?>
+					<li class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" value="all" data-filter="<?php echo esc_attr( get_post_type_archive_link( 'post' ) ); ?>" ><?php echo esc_html( __( 'All', 'astra-addons', 'astra-addon' ) ); ?></li>
+						<?php
+						foreach ( $terms as $term ) {
+								$term_name = isset( $term->name ) ? $term->name : '';
+								$term_id   = isset( $term->term_id ) ? $term->term_id : '';
+
+							$active_category_tag = '';
+							if ( is_tag() || is_category() ) {
+								$active_category_tag = ( get_queried_object_id() && get_queried_object_id() === $term_id ) ? 'active' : '';
+								$add_spacing         = $active_category_tag ? ' ' : '';
+							}
+							$classes = $blog_filter_layout_2_classes || $active_category_tag ? ' ' . $blog_filter_layout_2_classes . $add_spacing . $active_category_tag : '';
+
+							if ( ( 'categories' === $blog_filter_by && isset( $category_include_array ) && ! in_array( $term_id, $category_include_array ) ) || ( 'tags' === $blog_filter_by && isset( $tag_include_array ) && ! in_array( $term_id, $tag_include_array ) ) ) {
+								?>
+								<li class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" value="<?php echo esc_attr( $term_id ); ?>" data-filter="<?php echo esc_attr( get_category_link( $term_id ) ); ?>" ><?php echo esc_html( $term_name ); ?></li>
+
+								<?php
+							}
+						}
+						?>
+					</ul>
+				</div>
+				<?php
+				echo wp_kses_post( ob_get_clean() );
 			}
 		}
 	}

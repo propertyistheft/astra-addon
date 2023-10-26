@@ -206,7 +206,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 
 			$get_locale = get_locale();
 
-			if ( $wp_version >= 4.7 ) {
+			if ( $wp_version >= 4.7 && ! class_exists( 'Sitepress' ) ) {
 				$get_locale = get_user_locale();
 			}
 

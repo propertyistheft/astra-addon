@@ -42,12 +42,12 @@
 			element.style.display = '';
 		}, 200);
 	}
-	
+
 	function header_cover_form_height( current_header_cover_form ) {
 
 		// Primary header cover search.
 		if ( document.body.classList.contains('ast-header-break-point') ) {
-			
+
 			var site_navigation = document.querySelector( '.main-navigation' );
 			var main_header_bar = document.querySelector( '.main-header-bar' );
 
@@ -189,7 +189,7 @@
 			return;
 		}
 
-		// Skip resize event when keyboard display event triggers on devices. 
+		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' != document.activeElement.tagName ) {
 			var header_cover = document.querySelectorAll( '.ast-search-box.header-cover' );
 			if ( ! document.body.classList.contains( 'ast-header-break-point' ) ) {

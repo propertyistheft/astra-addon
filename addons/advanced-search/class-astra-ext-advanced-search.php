@@ -48,9 +48,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Search' ) ) {
 			require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-loader.php';
 			require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-markup.php';
 			require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/class-astra-ext-adv-search-shortcodes.php';
-			if ( false === Astra_Icons::is_svg_icons() ) {
-				require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/dynamic.css.php';
-			}
+			require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'classes/dynamic.css.php';
 			if ( version_compare( ASTRA_THEME_VERSION, '3.2.0', '<' ) ) {
 				require_once ASTRA_ADDON_EXT_ADVANCED_SEARCH_DIR . 'dynamic.css.php';
 			}

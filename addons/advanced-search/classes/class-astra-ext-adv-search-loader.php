@@ -60,7 +60,10 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Loader' ) ) {
 			 * Header Builder > Search style.
 			 */
 			$defaults['header-search-box-type']        = 'slide-search';
-			$defaults['header-search-box-placeholder'] = __( 'Search &hellip;', 'astra-addon' );
+			$defaults['fullsearch-modal-color-mode']   = 'dark';
+			$defaults['full-screen-modal-heading']     = true;
+			$defaults['fullscreen-modal-heading-text'] = astra_default_strings( 'string-full-width-search-message', false );
+			$defaults['header-search-box-placeholder'] = __( 'Search...', 'astra-addon' );
 
 			/**
 			 * Astra default header > Search style.

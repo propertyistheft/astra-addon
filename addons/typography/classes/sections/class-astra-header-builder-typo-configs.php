@@ -137,6 +137,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'context'   => astra_addon_builder_helper()->general_tab,
 					'connect'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-font-weight]',
 					'priority'  => 1,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -153,8 +154,9 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'connect'           => $_prefix . '-font-family',
-					'priority'          => 3,
+					'priority'          => 1,
 					'context'           => astra_addon_builder_helper()->general_tab,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -187,6 +189,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'context'   => astra_addon_builder_helper()->general_tab,
 					'connect'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-content-font-weight]',
 					'priority'  => 1,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -203,8 +206,9 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'connect'           => $_prefix . '-content-font-family',
-					'priority'          => 3,
+					'priority'          => 1,
 					'context'           => astra_addon_builder_helper()->general_tab,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -212,13 +216,13 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'     => $_prefix . '-content-font-extras',
-					'default'  => astra_get_option( $_prefix . '-content-font-extras', $this->get_font_extras_default( $_prefix . '-content-font-extras', $_prefix . '-content-line-height', $_prefix . '-content-transform' ) ),
-					'parent'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-text-typography]',
+					'default'  => astra_get_option( $_prefix . '-content-font-extras', $this->get_font_extras_default( $_prefix . '-content-font-extras', $_prefix . '-content-line-height', $_prefix . '-content-text-transform' ) ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-content-typography]',
 					'type'     => 'sub-control',
 					'section'  => $_section,
 					'control'  => 'ast-font-extras',
 					'priority' => 4,
-					'title'    => __( 'Font Extras', 'astra-addon' ),
+					'title'    => __( 'Content Font Extras', 'astra-addon' ),
 					'context'  => astra_addon_builder_helper()->general_tab,
 				),
 			);

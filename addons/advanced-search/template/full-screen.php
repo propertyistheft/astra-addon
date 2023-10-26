@@ -6,11 +6,13 @@
  */
 
 ?>
-<div class="ast-search-box full-screen" id="ast-seach-full-screen-form">
+<div class="ast-search-box full-screen ast-full-search-style--<?php echo esc_attr( astra_get_option( 'fullsearch-modal-color-mode', 'dark' ) ); ?>" id="ast-seach-full-screen-form">
 	<span id="close" class="close"><?php Astra_Icons::get_icons( 'close', true ); ?></span>
 	<div class="ast-search-wrapper">
 		<div class="ast-container">
-			<h3 class="large-search-text"><?php echo esc_html( astra_default_strings( 'string-full-width-search-message', false ) ); ?></h3>
+			<?php if ( astra_get_option( 'full-screen-modal-heading', true ) ) { ?>
+			<h3 class="large-search-text"><?php echo esc_html( astra_get_option( 'fullscreen-modal-heading-text' ) ); ?></h3>
+			<?php } ?>
 			<form class="search-form" action="<?php echo esc_url( home_url() ); ?>/" method="get">
 				<fieldset>
 					<span class="text">

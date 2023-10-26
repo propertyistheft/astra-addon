@@ -233,7 +233,7 @@
 
 		// Header.
 		var section = 'section-hb-social-icons-' + index;
-		var selector = '.ast-builder-layout-element .ast-header-social-' + index + '-wrap';
+		var selector = '.ast-builder-layout-element .ast-header-social-' + index + '-wrap .social-item-label';
 
 		astra_generate_outside_font_family_css(
 			'astra-settings[font-family-' + section + ']',
@@ -249,7 +249,7 @@
 
 		// Footer.
 		var section = 'section-fb-social-icons-' + index;
-		var selector = '.ast-builder-layout-element .ast-footer-social-' + index + '-wrap';
+		var selector = '.ast-builder-layout-element .ast-footer-social-' + index + '-wrap .social-item-label';
 
 		astra_generate_outside_font_family_css(
 			'astra-settings[font-family-' + section + ']',
@@ -287,30 +287,31 @@
 			 */
 			astra_generate_outside_font_family_css(
 				'astra-settings[header-' + prefix + '-font-family]',
-				selector + ' .widget-title'
+				selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
 			);
 			astra_generate_font_weight_css(
 				'astra-settings[header-' + prefix + '-font-family]',
 				'astra-settings[header-' + prefix + '-font-weight]',
 				'font-weight',
-				selector + ' .widget-title'
+				selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
 			);
-			astra_font_extras_css( 'header-' + prefix + '-font-extras', selector + ' .widget-title' );
+
+			astra_font_extras_css('header-' + prefix + '-font-extras', selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6');
 
 			/**
 			 * Widget Content
 			 */
 			astra_generate_outside_font_family_css(
 				'astra-settings[header-' + prefix + '-content-font-family]',
-				selector + ' .header-widget-area-inner'
+				selector + '.header-widget-area-inner'
 			);
 			astra_generate_font_weight_css(
 				'astra-settings[header-' + prefix + '-content-font-family]',
 				'astra-settings[header-' + prefix + '-content-font-weight]',
 				'font-weight',
-				selector + ' .header-widget-area-inner'
+				selector + '.header-widget-area-inner'
 			);
-			astra_font_extras_css( 'header-' + prefix + '-content-font-extras', selector + ' .header-widget-area-inner' );
+			astra_font_extras_css( 'header-' + prefix + '-content-font-extras', selector + '.header-widget-area-inner' );
 		}
 	}
 
@@ -330,30 +331,32 @@
 			 */
 			astra_generate_outside_font_family_css(
 				'astra-settings[footer-' + prefix + '-font-family]',
-				selector + ' .widget-title'
+				selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
 			);
 			astra_generate_font_weight_css(
 				'astra-settings[footer-' + prefix + '-font-family]',
 				'astra-settings[footer-' + prefix + '-font-weight]',
 				'font-weight',
-				selector + ' .widget-title'
+				selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
 			);
-			astra_font_extras_css( 'footer-' + prefix + '-font-extras', selector + ' .widget-title' );
+			
+			astra_font_extras_css('footer-' + prefix + '-font-extras', selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
+			);
 
 			/**
 			 * Widget Content
 			 */
 			astra_generate_outside_font_family_css(
 				'astra-settings[footer-' + prefix + '-content-font-family]',
-				selector + ' .footer-widget-area-inner'
+				selector + '.footer-widget-area-inner'
 			);
 			astra_generate_font_weight_css(
 				'astra-settings[footer-' + prefix + '-content-font-family]',
 				'astra-settings[footer-' + prefix + '-content-font-weight]',
 				'font-weight',
-				selector + ' .footer-widget-area-inner'
+				selector + '.footer-widget-area-inner'
 			);
-			astra_font_extras_css( 'footer-' + prefix + '-content-font-extras', selector + ' .footer-widget-area-inner' );
+			astra_font_extras_css( 'footer-' + prefix + '-content-font-extras', selector + '.footer-widget-area-inner' );
 		}
 	}
 

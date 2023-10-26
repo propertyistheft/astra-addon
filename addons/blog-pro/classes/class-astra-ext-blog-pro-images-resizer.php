@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 
 			add_filter( 'astra_featured_image_markup', array( $this, 'blog_archive_featured_image' ) );
 			add_filter( 'astra_featured_image_markup', array( $this, 'blog_single_post_featured_image' ) );
-
+			add_filter( 'astra_article_featured_image_markup', array( $this, 'article_post_featured_image' ) );
 		}
 
 		/**
@@ -190,6 +190,59 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 			return $output;
 		}
 
+		/**
+		 * Filter to add updated featured image markup with updated images sizes on Article featured image.
+		 *
+		 * @since 4.4.0
+		 * @param string $output the featured image markup for post article.
+		 * @return string $output Updated featured image markup for post article.
+		 */
+		public function article_post_featured_image( $output ) {
+
+			$post_types = apply_filters( 'astra_single_featured_image_post_types', array( 'post' ) );
+
+			$check_is_singular_post = is_singular( $post_types );
+
+			if ( $check_is_singular_post ) {
+				$current_post_type        = strval( get_post_type() );
+				$blog_single_image_width  = astra_get_option( 'blog-single-post-image-width' );
+				$blog_single_image_height = astra_get_option( 'blog-single-post-image-height' );
+
+				$attributes = array(
+					'width'  => empty( $blog_single_image_width ) ? false : $blog_single_image_width,
+					'height' => empty( $blog_single_image_height ) ? false : $blog_single_image_height,
+					'crop'   => ( empty( $blog_single_image_width ) || empty( $blog_single_image_height ) ) ? false : true,
+				);
+
+				if ( ! $attributes['width'] && ! $attributes['height'] ) {
+					$attributes = array();
+				}
+
+				$attributes = apply_filters( 'astra_single_featured_image_attributes', $attributes );
+
+				$image_id = get_post_thumbnail_id( get_the_ID(), 'full' );
+
+				if ( $attributes && function_exists( 'ipq_get_theme_image' ) ) {
+					$output = ipq_get_theme_image(
+						$image_id,
+						array(
+							array( $attributes['width'], $attributes['height'], $attributes['crop'] ),
+						),
+						sprintf(
+							str_replace(
+								'"',
+								'',
+								astra_attr(
+									'article-image-blog-single-post',
+									array( 'class' => '' )
+								)
+							)
+						)
+					);
+				}
+			}
+			return $output;
+		}
 	}
 
 }

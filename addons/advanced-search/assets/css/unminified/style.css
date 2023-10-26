@@ -21,7 +21,7 @@
 .ast-search-box.header-cover, .ast-search-box.full-screen {
   display: none;
   opacity: 0;
-  transition: opacity .2s;
+  transition: opacity .3s ease-in-out,display .3s ease-in-out;
   width: 100%;
   height: 100%;
   /* Placeholder Color */
@@ -37,9 +37,11 @@
 }
 
 .ast-search-box.header-cover .search-submit, .ast-search-box.full-screen .search-submit {
-  background: 0 0;
+  background: var(--ast-fs-search-submit-background, 0 0);
   padding: 0;
-  color: #9E9E9E;
+  border-radius: 50%;
+  box-shadow: none;
+  color: var(--ast-fs-search-text-color, #9E9E9E);
   transition: all .7s ease-In;
   outline: none;
   border: 0;
@@ -87,7 +89,7 @@
 
 .ast-search-box.header-cover {
   position: absolute;
-  background: rgba(25, 25, 25, 0.94);
+  background: rgba(25, 25, 25, 0.96);
   top: 0;
   z-index: 10;
 }
@@ -126,7 +128,7 @@
 
 .ast-search-box.full-screen {
   position: fixed;
-  background: rgba(25, 25, 25, 0.94);
+  background: rgba(25, 25, 25, 0.96);
   top: 0;
   left: 0;
   z-index: 999;
@@ -144,17 +146,16 @@
 .ast-search-box.full-screen .ast-search-wrapper fieldset {
   border: 0;
   padding: 2.5em 0 1em;
-  border-bottom: 2px solid #9E9E9E;
+  border-bottom: 2px solid var(--ast-border-color);
 }
 
 .ast-search-box.full-screen .ast-search-wrapper .search-field {
-  font-size: 2.6em;
-  padding-left: 30px;
+  font-size: 2em;
+  padding-left: 20px;
   line-height: 1.7;
   width: 90%;
   width: calc( 100% - 1.5em);
   vertical-align: middle;
-  text-align: center;
 }
 
 .ast-search-box.full-screen .ast-search-wrapper .search-form {
@@ -163,7 +164,7 @@
 }
 
 .ast-search-box.full-screen .ast-search-wrapper .search-submit {
-  font-size: 2em;
+  font-size: var(--ast-fs-search-font-size, 1.7em);
 }
 
 .ast-search-box.full-screen #close {
@@ -240,13 +241,12 @@
 
 .site-header .ast-inline-search.ast-search-menu-icon .search-form {
   padding-left: 0;
-  padding-right: 2em;
+  padding-right: 0;
 }
 
 .site-header .ast-inline-search.ast-search-menu-icon .search-field {
-  width: auto;
   padding-left: 1em;
-  padding-right: 0;
+  padding-right: 2em;
 }
 
 .ast-inline-search.ast-search-menu-icon {
@@ -274,7 +274,6 @@
 }
 
 .ast-header-break-point .site-header .ast-inline-search.ast-search-menu-icon .search-field {
-  width: 100%;
   padding-right: 2em;
 }
 

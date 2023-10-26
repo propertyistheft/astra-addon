@@ -99,4 +99,16 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['apply-modern-layout-sale-badge-styles'] = isset( $astra_settings['apply-modern-layout-sale-badge-styles'] ) ? false : true;
 		return apply_filters( 'astra_addon_apply_sale_badge_styles_modern_layout', $astra_settings['apply-modern-layout-sale-badge-styles'] );
 	}
+
+	/**
+	 * Improve full screen search Submit button style.
+	 *
+	 * @since 4.4.0
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_upgrade_fullscreen_search_submit_style() {
+		$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings['v4-4-0-backward-option'] = isset( $astra_settings['v4-4-0-backward-option'] ) ? false : true;
+		return apply_filters( 'astra_addon_upgrade_fullscreen_search_submit_style', $astra_settings['v4-4-0-backward-option'] );
+	}
 }
