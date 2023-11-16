@@ -287,6 +287,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				$current_tab = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				if ( 'all' === $current_tab ) {
+					$current_tab = '';
+				}
 			}
 
 			return $current_tab;
@@ -458,16 +461,16 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 		public function advanced_hooks_post_type() {
 
 			$labels = array(
-				'name'          => esc_html_x( 'Custom Layouts', 'advanced-hooks general name', 'astra-addon' ),
-				'singular_name' => esc_html_x( 'Custom Layout', 'advanced-hooks singular name', 'astra-addon' ),
-				'search_items'  => esc_html__( 'Search Custom Layouts', 'astra-addon' ),
-				'all_items'     => esc_html__( 'All Custom Layouts', 'astra-addon' ),
-				'edit_item'     => esc_html__( 'Edit Custom Layout', 'astra-addon' ),
-				'view_item'     => esc_html__( 'View Custom Layout', 'astra-addon' ),
+				'name'          => esc_html_x( 'Site Builder', 'advanced-hooks general name', 'astra-addon' ),
+				'singular_name' => esc_html_x( 'Site Builder Layout', 'advanced-hooks singular name', 'astra-addon' ),
+				'search_items'  => esc_html__( 'Search Layout', 'astra-addon' ),
+				'all_items'     => esc_html__( 'All Layouts', 'astra-addon' ),
+				'edit_item'     => esc_html__( 'Edit Layout', 'astra-addon' ),
+				'view_item'     => esc_html__( 'View Layout', 'astra-addon' ),
 				'add_new'       => esc_html__( 'Add New', 'astra-addon' ),
-				'update_item'   => esc_html__( 'Update Custom Layout', 'astra-addon' ),
+				'update_item'   => esc_html__( 'Update Layout', 'astra-addon' ),
 				'add_new_item'  => esc_html__( 'Add New', 'astra-addon' ),
-				'new_item_name' => esc_html__( 'New Custom Layout Name', 'astra-addon' ),
+				'new_item_name' => esc_html__( 'New Layout Name', 'astra-addon' ),
 			);
 
 			$rest_support = true;
@@ -710,7 +713,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				array(
 					'checkPolylangActive'        => class_exists( 'Polylang' ),
 					'postType'                   => $post_type,
-					'title'                      => __( 'Custom Layout', 'astra-addon' ),
+					'title'                      => __( 'Site Builder', 'astra-addon' ),
 					'layouts'                    => $this->get_layout_type(),
 					'DeviceOptions'              => $this->get_device_type(),
 					'ContentBlockType'           => $this->get_content_type(),
@@ -729,6 +732,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'siteurl'                    => get_option( 'siteurl' ),
 					'isWhitelabelled'            => Astra_Ext_White_Label_Markup::show_branding(),
 					'randomPreviewPost'          => $this->get_random_preview_post(),
+					'logo_url'                   => apply_filters( 'astra_admin_menu_icon', '' ),
 				)
 			);
 
@@ -1351,7 +1355,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			$screen = get_current_screen();
 			global $pagenow;
 			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type && 'edit.php' === $pagenow ) {
-				$title       = __( 'Custom Layouts', 'astra-addon' );
+				$title       = __( 'Site Builder', 'astra-addon' );
 				$tabs        = true;
 				$button_url  = '/post-new.php?post_type=astra-advanced-hook';
 				$kb_docs_url = 'https://wpastra.com/docs-category/astra-pro-modules/custom-layouts-module/?utm_source=wp&utm_medium=dashboard';

@@ -1069,7 +1069,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 						$add_spacing                  = $category_tag_page_classes ? ' ' : '';
 						$classes                      = $blog_filter_layout_2_classes || $category_tag_page_classes ? ' ' . $blog_filter_layout_2_classes . $add_spacing . $category_tag_page_classes : '';
 					?>
-					<li class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" value="all" data-filter="<?php echo esc_attr( get_post_type_archive_link( 'post' ) ); ?>" ><?php echo esc_html( __( 'All', 'astra-addons', 'astra-addon' ) ); ?></li>
+					<li class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" value="all" data-filter="<?php echo esc_attr( get_post_type_archive_link( 'post' ) ); ?>" ><?php echo esc_html( __( 'All', 'astra-addon' ) ); ?></li>
 						<?php
 						foreach ( $terms as $term ) {
 								$term_name = isset( $term->name ) ? $term->name : '';

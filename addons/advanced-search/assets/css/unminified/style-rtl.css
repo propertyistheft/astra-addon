@@ -153,8 +153,7 @@
   font-size: 2em;
   padding-right: 20px;
   line-height: 1.7;
-  width: 90%;
-  width: calc( 100% - 1.5em);
+  width: 92%;
   vertical-align: middle;
 }
 
@@ -275,6 +274,10 @@
 
 .ast-header-break-point .site-header .ast-inline-search.ast-search-menu-icon .search-field {
   padding-left: 2em;
+}
+
+.ast-header-break-point .ast-search-box.full-screen .ast-search-wrapper .search-field {
+  width: 80%;
 }
 
 .ast-header-custom-item-inside.ast-desktop .main-header-menu .ast-search-menu-icon.full-screen,

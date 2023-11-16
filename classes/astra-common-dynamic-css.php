@@ -35,6 +35,9 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'opacity'    => '0',
 			'visibility' => 'hidden',
 		),
+		'.blog-layout-2'                            => array(
+			'position' => 'relative',
+		),
 		'.single .ast-author-details .author-title' => array(
 			'color' => esc_attr( $link_color ),
 		),

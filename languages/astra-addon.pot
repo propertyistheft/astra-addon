@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.4.0\n"
+"Project-Id-Version: Astra Pro 4.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2023-10-23 06:15:54+00:00\n"
+"POT-Creation-Date: 2023-11-14 11:36:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -205,9 +205,9 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1475
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1505
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:151
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:205
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:360
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:415
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:223
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:378
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:433
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:256
 msgid "Top"
 msgstr ""
@@ -272,8 +272,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:285
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1476
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1506
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:206
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:416
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:224
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:434
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:257
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:279
 msgid "Right"
@@ -334,8 +334,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:286
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1477
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1507
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:207
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:417
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:225
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:435
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:258
 msgid "Bottom"
 msgstr ""
@@ -400,8 +400,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:287
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1478
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1508
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:208
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:418
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:226
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:436
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:259
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:277
 msgid "Left"
@@ -630,7 +630,7 @@ msgstr ""
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:219
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:97
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:707
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:390
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:408
 #: classes/builder/type/base/configurations/class-astra-social-component-configs.php:64
 msgid "None"
 msgstr ""
@@ -756,8 +756,8 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:179
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:181
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:467
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:469
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:470
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:472
 msgid "Add New"
 msgstr ""
 
@@ -798,7 +798,7 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:98
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:357
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:388
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:477
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:495
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:796
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:42
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:151
@@ -830,57 +830,57 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:321
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:327
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:623
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:629
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:626
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:632
 #. translators: %s: singular custom post type name
 msgid "%s updated."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:323
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:625
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:628
 #. translators: %s: singular custom post type name
 msgid "Custom %s updated."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:325
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:627
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:630
 #. translators: %s: singular custom post type name
 msgid "Custom %s deleted."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:329
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:631
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:634
 #. translators: %1$s: singular custom post type name ,%2$s: date and time of
 #. the revision
 msgid "%1$s restored to revision from %2$s"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:331
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:633
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:636
 #. translators: %s: singular custom post type name
 msgid "%s published."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:333
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:635
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:638
 #. translators: %s: singular custom post type name
 msgid "%s saved."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:335
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:637
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:640
 #. translators: %s: singular custom post type name
 msgid "%s submitted."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:337
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:639
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:642
 #. translators: %s: singular custom post type name
 msgid "%s scheduled for."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:339
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:641
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:644
 #. translators: %s: singular custom post type name
 msgid "%s draft updated."
 msgstr ""
@@ -934,7 +934,7 @@ msgid "No Page Header"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:660
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:593
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:611
 msgid "Display Breadcrumb"
 msgstr ""
 
@@ -1032,8 +1032,8 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-social-configs.php:80
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-toggle-configs.php:67
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:730
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:278
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:343
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:296
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:361
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:92
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:220
 msgid "Color"
@@ -1068,7 +1068,7 @@ msgid "Parallax"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:835
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:828
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:832
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1865
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1891
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:265
@@ -1076,8 +1076,8 @@ msgid "Desktop + Mobile"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:836
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:826
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1410
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:830
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1414
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1863
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1889
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2029
@@ -1087,8 +1087,8 @@ msgid "Desktop"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:837
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:827
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1416
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:831
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1420
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1864
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1890
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2041
@@ -1481,6 +1481,26 @@ msgstr ""
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:54
 #: addons/advanced-headers/includes/admin-edit-user-rules.php:15
 msgid "Choose..."
+msgstr ""
+
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:84
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:148
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:149
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:716
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1358
+msgid "Site Builder"
+msgstr ""
+
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:273
+msgid "Sorry, you cannot list resources."
+msgstr ""
+
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:289
+msgid "Sorry, you are not allowed to move this item to the Trash."
+msgstr ""
+
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:312
+msgid "You do not have permission to delete this item."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:61
@@ -2309,81 +2329,78 @@ msgstr ""
 msgid "Custom Hook"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:337
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:340
 msgid "Placement"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:338
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:341
 msgid "Shortcode"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:338
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:341
 msgid ""
 "Make sure to set display rule to post/page where you will be adding the "
 "Shortcode."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:339
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:342
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1742
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1976
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2008
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:909
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:925
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:927
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:943
 msgid "Quick View"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:340
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:343
 msgid "Enable/Disable"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:371
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:374
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:463
-msgid "Search Custom Layouts"
-msgstr ""
-
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:464
-msgid "All Custom Layouts"
-msgstr ""
-
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:465
-#: classes/class-astra-ext-model.php:141
-msgid "Edit Custom Layout"
-msgstr ""
-
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:466
-msgid "View Custom Layout"
+msgid "Search Layout"
+msgstr ""
+
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:467
+msgid "All Layouts"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:468
-msgid "Update Custom Layout"
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1338
+#: classes/class-astra-ext-model.php:141
+msgid "Edit Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:470
-msgid "New Custom Layout Name"
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:469
+msgid "View Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:713
-msgid "Custom Layout"
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:471
+msgid "Update Layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:839
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:473
+msgid "New Layout Name"
+msgstr ""
+
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:843
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1806
 msgid "After certain number of blocks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:840
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:844
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1807
 msgid "Before certain number of Heading blocks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1228
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1232
 msgid "— Select —"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1229
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1233
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:63
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:107
 #: addons/colors-and-background/classes/class-astra-ext-colors-panels-and-sections.php:61
@@ -2392,116 +2409,108 @@ msgstr ""
 msgid "Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1230
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1234
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:66
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:339
 #: admin/core/class-astra-addon-admin-loader.php:446
 msgid "Footer"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1231
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1235
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:69
 #: admin/core/class-astra-addon-admin-loader.php:448
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:132
 msgid "404 Page"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1232
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1236
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:72
 #: admin/core/class-astra-addon-admin-loader.php:447
 msgid "Hooks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1233
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1237
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:75
 msgid "Inside Post/Page Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1234
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1238
 #: admin/core/class-astra-addon-admin-loader.php:450
 msgid "Custom Template"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1289
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1293
 msgid "Close modal panel"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1296
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1300
 msgid "Display On:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1302
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1306
 msgid "Do Not Display On:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1308
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1312
 msgid "Display for Users:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1314
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1318
 msgid "Display on Devices:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1320
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1324
 msgid "Time Rule:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1331
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1335
 msgid "Status: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1332
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1336
 msgid "Published date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1334
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1338
 msgid "Edit this layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1334
-msgid "Edit Layout"
-msgstr ""
-
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1354
-msgid "Custom Layouts"
-msgstr ""
-
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1373
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1381
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1389
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1401
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1424
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1377
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1385
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1393
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1405
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1428
 msgid "No Conditions"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1413
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1417
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2035
 #: classes/builder/type/base/configurations/class-astra-social-component-configs.php:62
 msgid "Tablet"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1428
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1432
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:614
 msgid "Visibility"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1431
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1435
 msgid "Not visible"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1436
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1440
 msgid "Visible"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1437
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1441
 msgid "Start Date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1438
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1442
 msgid "End Date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1444
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1448
 msgid "(no title)"
 msgstr ""
 
@@ -3674,7 +3683,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1072
-#: admin/core/class-astra-addon-admin-loader.php:459
+#: admin/core/class-astra-addon-admin-loader.php:460
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:246
 msgid "All"
 msgstr ""
@@ -3730,7 +3739,7 @@ msgstr ""
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:227
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:388
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:460
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:478
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:496
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:223
 msgid "Square"
 msgstr ""
@@ -3738,7 +3747,7 @@ msgstr ""
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:228
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:389
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:458
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:479
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:497
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:221
 msgid "Circle"
 msgstr ""
@@ -3770,32 +3779,32 @@ msgid "Post Pagination"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:339
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:455
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:473
 msgid "Number"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:340
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:456
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:474
 msgid "Infinite Scroll"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:356
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:505
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:523
 msgid "Infinite Scroll cannot be previewed in the Customizer."
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:358
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:504
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:522
 msgid "Event to Trigger Infinite Loading"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:360
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:508
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:526
 msgid "Scroll"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:361
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:509
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:527
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:124
 msgid "Click"
 msgstr ""
@@ -3805,7 +3814,7 @@ msgid "Post Pagination Style"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:412
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:534
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:552
 msgid "Load More Text"
 msgstr ""
 
@@ -3861,7 +3870,7 @@ msgstr ""
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:588
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:171
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:152
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:361
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:379
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:278
 msgid "Center"
 msgstr ""
@@ -4539,7 +4548,7 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1324
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1360
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1377
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:694
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:712
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:99
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:255
 msgid "Link"
@@ -4734,8 +4743,8 @@ msgstr ""
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:174
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:151
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:708
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:264
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:329
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:282
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:347
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:77
 msgid "Outline"
 msgstr ""
@@ -4801,18 +4810,18 @@ msgid "Content Alignment"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:134
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:222
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:240
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:36
 msgid "Box Shadow"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:155
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:288
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:306
 msgid "Box Hover Shadow"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:173
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:695
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:713
 msgid "Button"
 msgstr ""
 
@@ -4825,7 +4834,7 @@ msgid "Horizontal Padding"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:231
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:579
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:597
 msgid "Display Page Title"
 msgstr ""
 
@@ -4932,7 +4941,7 @@ msgstr ""
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:228
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:242
 #: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:618
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:929
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:947
 msgid "Disabled"
 msgstr ""
 
@@ -5273,7 +5282,7 @@ msgstr ""
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:53
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:46
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:54
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:776
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:794
 msgid "Flyout"
 msgstr ""
 
@@ -5347,7 +5356,7 @@ msgstr ""
 msgid "Border for Menu Items"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-custom-nav-walker.php:637
+#: addons/nav-menu/classes/class-astra-custom-nav-walker.php:655
 msgid "Menu Toggle"
 msgstr ""
 
@@ -6113,7 +6122,7 @@ msgid "Close Off-Canvas Sidebar"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:426
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:664
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:682
 msgid "Shop Filters"
 msgstr ""
 
@@ -6640,146 +6649,150 @@ msgid "Product Background"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:200
+msgid "Quick View Background"
+msgstr ""
+
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:218
 msgid "Content Padding"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:245
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:310
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:263
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:328
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:57
 msgid "Value"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:247
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:312
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:265
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:330
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:59
 msgid "X"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:248
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:313
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:266
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:331
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:60
 msgid "Y"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:249
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:314
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:267
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:332
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:61
 msgid "Blur"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:250
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:315
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:268
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:333
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:62
 msgid "Spread"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:262
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:327
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:280
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:345
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:75
 msgid "Position"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:265
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:330
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:283
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:348
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:78
 msgid "Inset"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:357
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:375
 msgid "Vertical Content alignment"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:386
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:404
 msgid "Product Image Hover Style"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:391
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:409
 msgid "Swap Images"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:410
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:428
 msgid "Button Padding"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:434
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:452
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:470
 msgid "Shop Pagination"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:474
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:492
 msgid "Shop Pagination Style"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:563
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:581
 msgid "Shop Structure Options"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:606
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:624
 msgid "Enable Sticky Sidebar"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:619
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:637
 msgid "Change Filter List To Buttons"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:632
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:650
 msgid "Enable Filter Accordion"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:653
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:671
 msgid "Display Active Filters"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:692
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:710
 msgid "Shop Filter Button"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:696
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:731
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:714
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:749
 msgid "Custom Class"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:744
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:762
 msgid "Shop Filter Button Text"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:769
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:787
 msgid "Filter Panel Layout"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:775
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:793
 msgid "Top Collapsible"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:802
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:820
 msgid "Filter columns"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:839
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:857
 msgid "Enable Scrollbar Max Height"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:871
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:889
 msgid "Scrollbar Max Height"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:930
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:948
 msgid "On Image"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:931
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:949
 msgid "On Image Click"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:932
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:950
 msgid "After Summary"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:945
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:963
 msgid "Stick Add to Cart Button"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:946
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:964
 msgid ""
 "If contents of the popup is larger then the button will stick at the end of "
 "the popup."
@@ -7546,6 +7559,24 @@ msgstr ""
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
+#: vendor/wp-phpunit/wp-phpunit/data/plugins/custom-internationalized-plugin/custom-internationalized-plugin.php:13
+#: vendor/wp-phpunit/wp-phpunit/data/plugins/internationalized-plugin.php:11
+msgid "This is a dummy plugin"
+msgstr ""
+
+#: vendor/wp-phpunit/wp-phpunit/data/themedir1/custom-internationalized-theme/functions.php:9
+#: vendor/wp-phpunit/wp-phpunit/data/themedir1/internationalized-theme/functions.php:7
+msgid "This is a dummy theme"
+msgstr ""
+
+#: vendor/wp-phpunit/wp-phpunit/includes/factory/class-wp-unittest-factory-for-bookmark.php:56
+msgid "Could not update link."
+msgstr ""
+
+#: vendor/wp-phpunit/wp-phpunit/includes/factory/class-wp-unittest-factory-for-comment.php:45
+msgid "Could not insert comment into the database."
+msgstr ""
+
 #. Plugin URI of the plugin/theme
 msgid "https://wpastra.com/"
 msgstr ""
@@ -7575,14 +7606,14 @@ msgctxt "advanced-header singular name"
 msgid "Page Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:461
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:464
 msgctxt "advanced-hooks general name"
-msgid "Custom Layouts"
+msgid "Site Builder"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:462
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:465
 msgctxt "advanced-hooks singular name"
-msgid "Custom Layout"
+msgid "Site Builder Layout"
 msgstr ""
 
 #: classes/astra-common-functions.php:368

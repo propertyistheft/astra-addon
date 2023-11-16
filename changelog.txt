@@ -1,5 +1,15 @@
 *** Astra Pro Changelog ***
 
+2023-11-14 - version 4.5.0
+* New: Introducing Site Builder (formerly known as Custom Layout).
+* New: WooCommerce - Product Catalog - Quick View Background option.
+* Improvement: Custom Layout & Page Header meta data saving code improvements.
+* Improvement: Updated select2 library to 4.0.13.
+* Fix: Mega Menu - Links should not be crawlable when 'Disable Link' option is set.
+* Fix: Date-Box - Date Box stick at the corner of a post instead of the featured image which breaks blog UI.
+* Fix: Mega Menu - Mega menu heading normal and hover color is not working.
+* Fix: Top Border color & width not applied when mega menu width set to full width/full width stretched.
+
 2023-10-23 - version 4.4.0
 * New: Blog Pro - Blog Filter to filter categories and tags. ( https://wpastra.com/docs/post-filter/ )
 * New: Header Builder - Search - Option to switch Light or Dark modal design for Full Screen style.
@@ -11,6 +21,7 @@
 * Fix: Custom Layout - Embed/YouTube block not working inside nested blocks.
 * Fix: Sticky Header - Menu color gets overridden by normal header primary menu color.
 * Fix: WPML conflicting with Profile language for translation.
+* Fix: WooCommerce - UAE Woo Product module conflicting with Astra infinite pagination.
 
 2023-09-26 - version 4.3.3
 * Fix: Custom Layout - Layouts missing on the frontend for logged-out users with update v4.3.2.

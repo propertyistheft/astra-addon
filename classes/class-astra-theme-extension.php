@@ -796,7 +796,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 							$links[] = array(
 								'link_class' => 'advanced-module',
 								'link_text'  => ! $whitelabelled ? __( 'Settings', 'astra-addon' ) : __( ' | Settings', 'astra-addon' ),
-								'link_url'   => admin_url( '/edit.php?post_type=astra-advanced-hook' ),
+								'link_url'   => admin_url( '/admin.php?page=theme-builder' ),
 							);
 						break;
 					case 'advanced-headers':

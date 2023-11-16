@@ -584,7 +584,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							break;
 
 						case 'FILTER_DEFAULT':
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );  // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter -- Default filter after all other cases, keeping this filter for backward compatibility.
+							$meta_value = apply_filters( 'astra_addon_php_default_filter_input', ! empty( $key ) ? sanitize_text_field( wp_unslash( $key ) ) : '', $key );
 							break;
 					}
 				}

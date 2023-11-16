@@ -167,7 +167,7 @@ td.ast-advanced-hook-row-heading {
 .ast-advanced-hook-row-content p:last-child {
     margin-bottom: 0;
 }
-.components-base-control.components-toggle-control {
+.ast-advanced-hook-row-content .components-base-control.components-toggle-control {
     margin-bottom: 0;
 }
 .components-flex.components-h-stack.components-v-stack.components-datetime {
@@ -812,4 +812,8 @@ optgroup.counts-0 {
 	select.components-select-control__input.ast-custom-template-type-select {
         width: 100%;
 	}
+}
+.components-modal__icon-container .ast-custom-layout-popup-logo {
+    width: 40px;
+    max-width: 40px;
 }

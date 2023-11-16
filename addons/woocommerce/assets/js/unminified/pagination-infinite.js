@@ -92,7 +92,7 @@
 				request.onload = function() {
 					var string = request.response;
 					var data = new DOMParser().parseFromString(string, 'text/html');
-					var	boxes = data.querySelectorAll( 'li.product' ),
+					var	boxes = data.querySelectorAll( '#main li.product' ),
 						productContainer = document.querySelector('.ast-woocommerce-container ul.products');
 
 					if ( ! productContainer ) {

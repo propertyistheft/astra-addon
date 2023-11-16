@@ -138,7 +138,7 @@ final class Astra_Ext_Model {
 					array(
 						'id'     => 'custom-layout-title',
 						'parent' => 'ast_custom_layouts_group',
-						'title'  => esc_html__( 'Edit Custom Layout', 'astra-addon' ),
+						'title'  => esc_html__( 'Edit Layout', 'astra-addon' ),
 					)
 				);
 

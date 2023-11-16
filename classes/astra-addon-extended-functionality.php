@@ -108,3 +108,17 @@ function astra_addon_woocommerce_login_user() {
 // Login user on modern checkout layout.
 add_action( 'wp_ajax_astra_woocommerce_login_user', 'astra_addon_woocommerce_login_user' );
 add_action( 'wp_ajax_nopriv_astra_woocommerce_login_user', 'astra_addon_woocommerce_login_user' );
+
+/**
+ * Function to filter input of Custom Layout's code editor.
+ *
+ * @param  string $output Output.
+ * @param  string $key Key.
+ * @return string
+ * @since 4.5.0
+ */
+function astra_addon_filter_code_editor( $output, $key ) {
+	return filter_input( INPUT_POST, $key, FILTER_DEFAULT ); // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter -- Default filter after all other cases, Keeping this filter for backward compatibility.
+}
+
+add_filter( 'astra_addon_php_default_filter_input', 'astra_addon_filter_code_editor', 10, 2 );

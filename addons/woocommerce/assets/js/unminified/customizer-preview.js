@@ -369,6 +369,9 @@
 		} );
 	} );
 
+	// Quick View Background color.
+	astra_css( 'astra-settings[quick-view-background-color]', 'background-color', '#ast-quick-view-content' );
+
 	// Order Summary Background color.
 	wp.customize( 'astra-settings[order-summary-background-color]', function( setting ) {
 		setting.bind( function( color ) {

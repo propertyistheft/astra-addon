@@ -351,6 +351,17 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$css_output               .= astra_parse_css( $shop_product_bg_color_css );
 	}
 
+	$quick_view_bg_color = astra_get_option( 'quick-view-background-color' );
+
+	if ( $quick_view_bg_color ) {
+		$quick_view_bg_color_css = array(
+			'#ast-quick-view-content' => array(
+				'background-color' => $quick_view_bg_color,
+			),
+		);
+		$css_output             .= astra_parse_css( $quick_view_bg_color_css );
+	}
+
 	$payment_option_content_bg_color = astra_get_option( 'payment-option-content-background-color' );
 
 	if ( $payment_option_content_bg_color ) {

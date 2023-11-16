@@ -431,7 +431,7 @@ class Astra_Addon_Admin_Loader {
 					$active_class = ' text-astra border-astra';
 					$current_tab  = self::get_active_tab();
 
-					if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+					if ( ! empty( $_REQUEST['layout_type'] ) && 'all' !== $current_tab ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 						$current_type = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 						$active_class = '';
 					}
@@ -450,11 +450,12 @@ class Astra_Addon_Admin_Loader {
 						'template' => __( 'Custom Template', 'astra-addon' ),
 					);
 
-					$baseurl = add_query_arg( $url_args, admin_url( 'edit.php' ) );
+					$baseurl         = add_query_arg( $url_args, admin_url( 'edit.php' ) );
+					$all_layouts_url = add_query_arg( 'layout_type', 'all', admin_url( 'edit.php?post_type=' . ASTRA_ADVANCED_HOOKS_POST_TYPE ) );
 					?>
 
 					<div class="bg-white border-b border-slate-200 flex flex-wrap items-center -mb-0.5">
-						<a class="text-sm font-medium ml-2 px-5 py-4 border-b-2 border-white <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( admin_url( 'edit.php?post_type=' . ASTRA_ADVANCED_HOOKS_POST_TYPE ) ); ?>">
+						<a class="text-sm font-medium ml-2 px-5 py-4 border-b-2 border-white <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $all_layouts_url ); ?>">
 							<?php
 								echo esc_html__( 'All', 'astra-addon' );
 							?>

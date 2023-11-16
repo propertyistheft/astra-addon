@@ -184,6 +184,24 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 					'context'           => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
+				),
+
+				/**
+				 * Shop Quick View Background
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[quick-view-background-color]',
+					'default'           => astra_get_option( 'quick-view-background-color' ),
+					'type'              => 'control',
+					'section'           => 'woocommerce_product_catalog',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Quick View Background', 'astra-addon' ),
+					'priority'          => 228.5,
+					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
+					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-spacing' ),
 				),
 
