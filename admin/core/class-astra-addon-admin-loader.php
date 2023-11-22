@@ -82,6 +82,9 @@ class Astra_Addon_Admin_Loader {
 
 		add_action( 'after_setup_theme', array( $this, 'init_admin_settings' ), 99 );
 		add_action( 'admin_init', array( $this, 'settings_admin_scripts' ) );
+
+		// Let WooCommerce know, Astra Pro is compatible with HPOS & New Product Editor.
+		add_action( 'before_woocommerce_init', array( $this, 'declare_woo_compatibility' ) );
 	}
 
 	/**
@@ -476,6 +479,20 @@ class Astra_Addon_Admin_Loader {
 			</div>
 		<?php
 	}
+
+	/**
+	 *  Declare Woo HPOS & New Product Editor Compatibility.
+	 * 
+	 * @since 4.5.1
+	 * @return void
+	 */
+	public function declare_woo_compatibility() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', ASTRA_EXT_FILE, true );
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'product_block_editor', ASTRA_EXT_FILE, true );
+		}
+	}
+
 }
 
 Astra_Addon_Admin_Loader::get_instance();

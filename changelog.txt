@@ -1,5 +1,13 @@
 *** Astra Pro Changelog ***
 
+2023-11-21 - version 4.5.1
+* Improvement: WooCommerce - Declared HPOS Compatibility across the plugin to avoid incompatibility notice when WooCommerce Addon Module is disabled.
+* Fix: WooCommerce - Checkout - Form labels get hidden for Stripe payment method.
+* Fix: Mega Menu - Mega menu heading color option is not working on frontend.
+* Fix: Blog Filter - Banner visibility glitch with 'Post Filter' and 'Banner Layout 2'
+* Fix: WP CLI - PHP Fatal error 'Uncaught TypeError: call_user_func()' while running WP CLI commands.
+* Fix: Submenu border width of old header footer builder causing site crashing issue.
+
 2023-11-14 - version 4.5.0
 * New: Introducing Site Builder (formerly known as Custom Layout).
 * New: WooCommerce - Product Catalog - Quick View Background option.

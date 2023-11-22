@@ -522,10 +522,10 @@ function astra_ext_above_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 			'top' => ( isset( $above_header_submenu_border['top'] ) && '' != $above_header_submenu_border['top'] ) ? astra_get_css_value( '-' . $above_header_submenu_border['top'], 'px' ) : '',
 		),
 		'.ast-desktop .ast-above-header-menu.submenu-with-border .sub-menu' => array(
-			'border-top-width'    => astra_get_css_value( $above_header_submenu_border['top'], 'px' ),
-			'border-left-width'   => astra_get_css_value( $above_header_submenu_border['left'], 'px' ),
-			'border-right-width'  => astra_get_css_value( $above_header_submenu_border['right'], 'px' ),
-			'border-bottom-width' => astra_get_css_value( $above_header_submenu_border['bottom'], 'px' ),
+			'border-top-width'    => ! empty( $above_header_submenu_border['top'] ) ? astra_get_css_value( $above_header_submenu_border['top'], 'px' ) : '',
+			'border-left-width'   => ! empty( $above_header_submenu_border['left'] ) ? astra_get_css_value( $above_header_submenu_border['left'], 'px' ) : '',
+			'border-right-width'  => ! empty( $above_header_submenu_border['right'] ) ? astra_get_css_value( $above_header_submenu_border['right'], 'px' ) : '',
+			'border-bottom-width' => ! empty( $above_header_submenu_border['bottom'] ) ? astra_get_css_value( $above_header_submenu_border['bottom'], 'px' ) : '',
 			'border-style'        => 'solid',
 		),
 	);

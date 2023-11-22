@@ -126,6 +126,8 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 
 				if ( isset( $this->megamenu_heading_color_group ) && '' != $this->megamenu_heading_color_group ) {
 
+					$this->megamenu_heading_color_group = maybe_unserialize( $this->megamenu_heading_color_group );
+					
 					if ( isset( $this->megamenu_heading_color_group['normal'] ) && $this->megamenu_heading_color_group['normal'] ) {
 
 						$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .menu-item-heading > .menu-link' ] = array(

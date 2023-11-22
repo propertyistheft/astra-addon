@@ -106,10 +106,12 @@ function BlogBannerLayoutRender( data, titleSelector, value ) {
     const titleWrapper = document.querySelector(titleSelector);
     const titleHtml = data.querySelector(titleSelector);
     if( titleWrapper ) {
-    titleWrapper.style.display = ('all' === value) ? 'none' : 'block';
+        if( 'layout-1' === blogArchiveTitleLayout ){
+            titleWrapper.style.display = ('all' === value) ? 'none' : 'block'; 
+        }
         if( titleHtml?.innerHTML ) {
-        titleWrapper.innerHTML = '';
-        titleWrapper.innerHTML = titleHtml.innerHTML;
+            titleWrapper.innerHTML = '';
+            titleWrapper.innerHTML = titleHtml.innerHTML;
         }
     }
 }

@@ -149,13 +149,13 @@ function astra_addon_mega_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 
 		$border = array(
 			'.ast-desktop .main-header-menu.submenu-with-border .astra-megamenu, .ast-desktop .main-header-menu.ast-mega-menu-enabled.submenu-with-border .astra-full-megamenu-wrapper' => array(
-				'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
-				'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
-				'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
-				'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
+				'border-top-width'    => ! empty( $submenu_border['top'] ) ? astra_get_css_value( $submenu_border['top'], 'px' ) : '',
+				'border-left-width'   => ! empty( $submenu_border['left'] ) ? astra_get_css_value( $submenu_border['left'], 'px' ) : '',
+				'border-right-width'  => ! empty( $submenu_border['right'] ) ? astra_get_css_value( $submenu_border['right'], 'px' ) : '',
+				'border-bottom-width' => ! empty( $submenu_border['bottom'] ) ? astra_get_css_value( $submenu_border['bottom'], 'px' ) : '',
 				'border-style'        => 'solid',
 				'border-color'        => esc_attr( $primary_submenu_b_color ),
-			),
+			),          
 		);
 
 		/* Parse CSS from array() */
@@ -494,12 +494,13 @@ function astra_addon_mega_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 
 		$border = array(
 			'.ast-desktop .ast-above-header .submenu-with-border .astra-full-megamenu-wrapper' => array(
-				'border-top-width'    => astra_get_css_value( $above_header_submenu_border['top'], 'px' ),
-				'border-left-width'   => astra_get_css_value( $above_header_submenu_border['left'], 'px' ),
-				'border-right-width'  => astra_get_css_value( $above_header_submenu_border['right'], 'px' ),
-				'border-bottom-width' => astra_get_css_value( $above_header_submenu_border['bottom'], 'px' ),
+				'border-top-width'    => ! empty( $above_header_submenu_border['top'] ) ? astra_get_css_value( $above_header_submenu_border['top'], 'px' ) : '',
+				'border-left-width'   => ! empty( $above_header_submenu_border['left'] ) ? astra_get_css_value( $above_header_submenu_border['left'], 'px' ) : '',
+				'border-right-width'  => ! empty( $above_header_submenu_border['right'] ) ? astra_get_css_value( $above_header_submenu_border['right'], 'px' ) : '',
+				'border-bottom-width' => ! empty( $above_header_submenu_border['bottom'] ) ? astra_get_css_value( $above_header_submenu_border['bottom'], 'px' ) : '',
 				'border-style'        => 'solid',
 			),
+			
 		);
 
 		/* Parse CSS from array() */
@@ -511,10 +512,10 @@ function astra_addon_mega_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 
 		$border = array(
 			'.ast-desktop .ast-below-header .submenu-with-border .astra-full-megamenu-wrapper' => array(
-				'border-top-width'    => astra_get_css_value( $below_header_submenu_border['top'], 'px' ),
-				'border-left-width'   => astra_get_css_value( $below_header_submenu_border['left'], 'px' ),
-				'border-right-width'  => astra_get_css_value( $below_header_submenu_border['right'], 'px' ),
-				'border-bottom-width' => astra_get_css_value( $below_header_submenu_border['bottom'], 'px' ),
+				'border-top-width'    => ! empty( $below_header_submenu_border['top'] ) ? astra_get_css_value( $below_header_submenu_border['top'], 'px' ) : '',
+				'border-left-width'   => ! empty( $below_header_submenu_border['left'] ) ? astra_get_css_value( $below_header_submenu_border['left'], 'px' ) : '',
+				'border-right-width'  => ! empty( $below_header_submenu_border['right'] ) ? astra_get_css_value( $below_header_submenu_border['right'], 'px' ) : '',
+				'border-bottom-width' => ! empty( $below_header_submenu_border['bottom'] ) ? astra_get_css_value( $below_header_submenu_border['bottom'], 'px' ) : '',
 				'border-style'        => 'solid',
 			),
 		);

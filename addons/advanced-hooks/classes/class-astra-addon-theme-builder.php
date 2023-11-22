@@ -5,6 +5,11 @@
  * @package Astra Addon
  */
 
+// Return if WP_REST_Controller class does not exist.
+if ( ! class_exists( 'WP_REST_Controller' ) ) {
+	return;
+}
+
 if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 
 	/**
@@ -12,9 +17,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 	 *
 	 * @since 4.5.0
 	 */
-	// @codingStandardsIgnoreStart
-	class Astra_Addon_Theme_Builder {
-		// @codingStandardsIgnoreEnd
+	class Astra_Addon_Theme_Builder extends WP_REST_Controller {
 
 		/**
 		 * Member Variable
@@ -33,7 +36,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 
 		/**
 		 *  Initiator
-		 * 
+		 *
 		 * @since 4.5.0
 		 */
 		public static function get_instance() {
@@ -45,7 +48,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 
 		/**
 		 *  Constructor
-		 * 
+		 *
 		 * @since 4.5.0
 		 * @return void
 		 */
@@ -63,7 +66,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 
 		/**
 		 *  Enqueue scripts and styles.
-		 * 
+		 *
 		 * @since 4.5.0
 		 * @return void
 		 */
@@ -196,7 +199,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 
 		/**
 		 * Get Custom Layouts.
-		 * 
+		 *
 		 * @since 4.5.0
 		 * @param WP_REST_Request $request Full details about the request.
 		 * @return array $updated_option defaults + set DB option data.
@@ -339,7 +342,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 		/**
 		 * Redirect conditionally as per current page.
 		 * Redirect to Site Builder create new page if user accessing create new custom layout page.
-		 * 
+		 *
 		 * @since 4.5.0
 		 * @return void
 		 */
@@ -431,7 +434,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 					$display_rule = $display_conditions['rule'];
 					if ( isset( $display_rule ) && isset( $display_rule[0] ) ) {
 						$display_rule = $display_rule[0];
-					
+
 						if ( 'basic-global' === $display_rule || 'basic-archives' === $display_rule || 'special-blog' === $display_rule ) {
 
 							// URL for the entire site

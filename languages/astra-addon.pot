@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.5.0\n"
+"Project-Id-Version: Astra Pro 4.5.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2023-11-14 11:36:23+00:00\n"
+"POT-Creation-Date: 2023-11-21 06:42:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1483,23 +1483,23 @@ msgstr ""
 msgid "Choose..."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:84
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:148
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:149
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:87
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:151
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:152
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:716
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1358
 msgid "Site Builder"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:273
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:276
 msgid "Sorry, you cannot list resources."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:289
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:292
 msgid "Sorry, you are not allowed to move this item to the Trash."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:312
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:315
 msgid "You do not have permission to delete this item."
 msgstr ""
 
@@ -2404,7 +2404,7 @@ msgstr ""
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:63
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:107
 #: addons/colors-and-background/classes/class-astra-ext-colors-panels-and-sections.php:61
-#: admin/core/class-astra-addon-admin-loader.php:445
+#: admin/core/class-astra-addon-admin-loader.php:448
 #: classes/class-astra-theme-extension.php:506
 msgid "Header"
 msgstr ""
@@ -2412,20 +2412,20 @@ msgstr ""
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1234
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:66
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:339
-#: admin/core/class-astra-addon-admin-loader.php:446
+#: admin/core/class-astra-addon-admin-loader.php:449
 msgid "Footer"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1235
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:69
-#: admin/core/class-astra-addon-admin-loader.php:448
+#: admin/core/class-astra-addon-admin-loader.php:451
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:132
 msgid "404 Page"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1236
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:72
-#: admin/core/class-astra-addon-admin-loader.php:447
+#: admin/core/class-astra-addon-admin-loader.php:450
 msgid "Hooks"
 msgstr ""
 
@@ -2435,7 +2435,7 @@ msgid "Inside Post/Page Content"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1238
-#: admin/core/class-astra-addon-admin-loader.php:450
+#: admin/core/class-astra-addon-admin-loader.php:453
 msgid "Custom Template"
 msgstr ""
 
@@ -3631,7 +3631,7 @@ msgstr ""
 
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:77
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:145
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:249
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:237
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:606
 msgid "Load More"
 msgstr ""
@@ -3683,7 +3683,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1072
-#: admin/core/class-astra-addon-admin-loader.php:460
+#: admin/core/class-astra-addon-admin-loader.php:463
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:246
 msgid "All"
 msgstr ""
@@ -5026,7 +5026,7 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:513
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:487
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:236
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:91
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:79
 msgid "Fade"
 msgstr ""
 
@@ -5356,7 +5356,7 @@ msgstr ""
 msgid "Border for Menu Items"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-custom-nav-walker.php:655
+#: addons/nav-menu/classes/class-astra-custom-nav-walker.php:657
 msgid "Menu Toggle"
 msgstr ""
 
@@ -5989,130 +5989,130 @@ msgstr ""
 msgid "Widget Font Size "
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:92
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:80
 msgid "Zoom"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:93
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:81
 msgid "Zoom Fade"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:157
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:145
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:83
 msgid "Filter"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:254
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:242
 msgid "Recently Viewed Products"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:269
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:257
 msgid "Free shipping on orders over $50!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:278
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:266
 msgid "No-Risk Money Back Guarantee!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:286
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:274
 msgid "No Hassle Refunds"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:294
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:282
 msgid "Secure Payments"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:313
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:301
 msgid "« Back to Cart"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:320
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:308
 msgid "Place Order"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:327
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:315
 msgid "Checkout Notes"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:328
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:316
 msgid "For Special Offer Click Here"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:329
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:317
 msgid "Yes! I want this offer!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:330
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:318
 msgid "Shipping"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:331
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:319
 msgid "Where to ship it?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:332
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:335
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:320
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:323
 msgid "Payment"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:333
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:321
 msgid "Of your order"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:336
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:324
 msgid "Have a coupon?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:337
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:325
 msgid "Coupon code"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:338
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:326
 msgid "Apply"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:339
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:327
 msgid "Customer information"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:340
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:328
 msgid "Show Order Summary"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:341
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:329
 msgid "Hide Order Summary"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:539
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:527
 msgid "Downloads"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:540
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:528
 msgid "Downloads Remaining:"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:541
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:529
 msgid "Expires:"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:542
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:530
 msgid "Never"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:544
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:532
 msgid "Not a member?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:545
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:533
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:63
 msgid "Register"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:547
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:535
 msgid "Already a member?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:548
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:536
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2832
 msgid "Login"
 msgstr ""
@@ -7111,27 +7111,27 @@ msgstr ""
 msgid "Learn More."
 msgstr ""
 
-#: admin/core/class-astra-addon-admin-loader.php:395
+#: admin/core/class-astra-addon-admin-loader.php:398
 msgid "Knowledge Base"
 msgstr ""
 
-#: admin/core/class-astra-addon-admin-loader.php:401
+#: admin/core/class-astra-addon-admin-loader.php:404
 msgid "CORE"
 msgstr ""
 
-#: admin/core/class-astra-addon-admin-loader.php:405
+#: admin/core/class-astra-addon-admin-loader.php:408
 msgid "PRO"
 msgstr ""
 
-#: admin/core/class-astra-addon-admin-loader.php:410
+#: admin/core/class-astra-addon-admin-loader.php:413
 msgid "License activated"
 msgstr ""
 
-#: admin/core/class-astra-addon-admin-loader.php:410
+#: admin/core/class-astra-addon-admin-loader.php:413
 msgid "License not activated"
 msgstr ""
 
-#: admin/core/class-astra-addon-admin-loader.php:449
+#: admin/core/class-astra-addon-admin-loader.php:452
 msgid "Page Content"
 msgstr ""
 

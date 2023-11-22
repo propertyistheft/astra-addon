@@ -111,3 +111,9 @@ body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row.
 body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row.woocommerce-invalid .select2-container--default .select2-selection--single {
   border-color: #d65d67;
 }
+
+.ast-modern-checkout .woocommerce #payment ul.payment_methods .payment_method_stripe label {
+  opacity: 1;
+  padding: 0;
+  position: relative;
+}
