@@ -967,7 +967,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'priority'          => 4,
 					'title'             => __( 'Font Size', 'astra-addon' ),
-					'suffix'            => array( 'px', 'em' ),
+					'suffix'            => array( 'px', 'em', 'vw' ),
 					'input_attrs'       => array(
 						'px' => array(
 							'min'  => 0,
@@ -978,6 +978,11 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
+						),
+						'vw' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 25,
 						),
 					),
 				),
@@ -1075,7 +1080,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'priority'          => 4,
 					'title'             => __( 'Font Size', 'astra-addon' ),
-					'suffix'            => array( 'px', 'em' ),
+					'suffix'            => array( 'px', 'em', 'vw' ),
 					'input_attrs'       => array(
 						'px' => array(
 							'min'  => 0,
@@ -1086,6 +1091,11 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
+						),
+						'vw' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 25,
 						),
 					),
 				),

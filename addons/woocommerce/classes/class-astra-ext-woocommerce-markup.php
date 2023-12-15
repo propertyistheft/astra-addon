@@ -384,7 +384,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @return void
 		 */
 		public function astra_woo_slide_in_cart_markup() {
-		
+
 			if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
 				$output                     = '';
 				$astra_woocommerce_instance = Astra_Woocommerce::get_instance();
@@ -2915,6 +2915,9 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				if ( isset( $woocommerce->cart->total ) && astra_get_option( 'checkout-modern-checkout-button-price' ) ) {
 					$cart_total             = $woocommerce->cart->total;
 					$cart_total_with_symbol = ' ' . get_woocommerce_currency_symbol() . $cart_total;
+					$formatted_cart_total   = wc_price( $cart_total );
+					$cart_total_with_symbol = ' ' . strip_tags( $formatted_cart_total );
+
 				}
 
 				$is_custom_text = astra_get_option( 'checkout-place-order-text' );
@@ -2928,7 +2931,6 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			return $button_text;
 		}
-
 
 		/**
 		 * Display Payment heading field after coupon code fields.
@@ -3197,7 +3199,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 								} elseif ( is_string( $label_class ) ) {
 									$fields[ $type ][ $key ]['label_class'] = str_replace( 'screen-reader-text', '', $label_class );
 								}
-							}                                                       
+							}
 						}
 					}
 				}

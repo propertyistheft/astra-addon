@@ -186,8 +186,11 @@ class Astra_Cache_Base {
 		} elseif ( is_post_type_archive() ) {
 			$title = 'archives';
 		} elseif ( is_tax() ) {
-			$tax   = get_taxonomy( get_queried_object()->taxonomy );
-			$title = sanitize_key( $tax->name );
+			$queried_object = get_queried_object();
+			if ( $queried_object && is_a( $queried_object, 'WP_Term' ) ) {
+				$tax   = get_taxonomy( $queried_object->taxonomy );
+				$title = sanitize_key( $tax->name );
+			}
 		}
 
 		if ( is_search() ) {

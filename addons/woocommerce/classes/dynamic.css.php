@@ -260,14 +260,14 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 	);
 
-	
+
 	if ( Astra_Addon_Update_Filter_Function::astra_addon_sale_badge_background_color() ) {
 
 		$css_output['.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce ul.products li.product .onsale.circle-outline, .ast-onsale-card'] = array(
 			'color'        => $product_sale_color,
 			'border-color' => $product_sale_bg_color,
 		);
-		
+
 		$css_output['.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale, .ast-onsale-card'] = array(
 			'background-color' => $product_sale_bg_color,
 		);
@@ -277,13 +277,13 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'        => $product_sale_color,
 			'border-color' => $product_sale_bg_color,
 		);
-		
+
 		$css_output['.woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale, .woocommerce span.onsale'] = array(
 			'background-color' => $product_sale_bg_color,
 		);
-		
+
 	}
-	
+
 	if ( is_checkout() || is_account_page() ) {
 
 		$input_field_style = astra_get_option( 'woo-input-style-type' );
@@ -355,7 +355,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	if ( $quick_view_bg_color ) {
 		$quick_view_bg_color_css = array(
-			'#ast-quick-view-content' => array(
+			'#ast-quick-view-content, .ast-separate-container #ast-quick-view-content .ast-article-post' => array(
 				'background-color' => $quick_view_bg_color,
 			),
 		);

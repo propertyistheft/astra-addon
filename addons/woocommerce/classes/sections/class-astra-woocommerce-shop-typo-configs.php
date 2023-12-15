@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 					'title'             => __( 'Font Size', 'astra-addon' ),
 					'priority'          => 4,
 					'default'           => astra_get_option( 'font-size-shop-product-title' ),
-					'suffix'            => array( 'px', 'em' ),
+					'suffix'            => array( 'px', 'em', 'vw' ),
 					'input_attrs'       => array(
 						'px' => array(
 							'min'  => 0,
@@ -140,6 +140,11 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
+						),
+						'vw' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 25,
 						),
 					),
 				),
@@ -228,7 +233,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 					'priority'          => 9,
 					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'suffix'            => array( 'px', 'em' ),
+					'suffix'            => array( 'px', 'em', 'vw' ),
 					'input_attrs'       => array(
 						'px' => array(
 							'min'  => 0,
@@ -239,6 +244,11 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
+						),
+						'vw' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 25,
 						),
 					),
 				),
@@ -338,7 +348,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 					'title'             => __( 'Font Size', 'astra-addon' ),
 					'priority'          => 14,
 					'default'           => astra_get_option( 'font-size-shop-product-content' ),
-					'suffix'            => array( 'px', 'em' ),
+					'suffix'            => array( 'px', 'em', 'vw' ),
 					'input_attrs'       => array(
 						'px' => array(
 							'min'  => 0,
@@ -349,6 +359,11 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Typo_Configs' ) ) {
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
+						),
+						'vw' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 25,
 						),
 					),
 				),

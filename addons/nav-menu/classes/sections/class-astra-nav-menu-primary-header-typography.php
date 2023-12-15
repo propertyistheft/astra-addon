@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Nav_Menu_Primary_Header_Typography' ) ) {
 					'responsive'  => false,
 					'default'     => astra_get_option( 'primary-header-megamenu-heading-font-size' ),
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em' ),
+					'suffix'      => array( 'px', 'em', 'vw' ),
 					'input_attrs' => array(
 						'px' => array(
 							'min'  => 0,
@@ -87,6 +87,11 @@ if ( ! class_exists( 'Astra_Nav_Menu_Primary_Header_Typography' ) ) {
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
+						),
+						'vw' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 25,
 						),
 					),
 					'priority'    => 45,

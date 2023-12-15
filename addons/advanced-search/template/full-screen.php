@@ -10,9 +10,12 @@
 	<span id="close" class="close"><?php Astra_Icons::get_icons( 'close', true ); ?></span>
 	<div class="ast-search-wrapper">
 		<div class="ast-container">
-			<?php if ( astra_get_option( 'full-screen-modal-heading', true ) ) { ?>
-			<h3 class="large-search-text"><?php echo esc_html( astra_get_option( 'fullscreen-modal-heading-text' ) ); ?></h3>
-			<?php } ?>
+			<?php
+			$heading_tag = apply_filters( 'astra_fullscreen_modal_heading_tag', 'h3' );
+			if ( astra_get_option( 'full-screen-modal-heading', true ) ) {
+				echo '<' . esc_attr( $heading_tag ) . ' class="large-search-text">' . esc_html( astra_get_option( 'fullscreen-modal-heading-text' ) ) . '</' . esc_attr( $heading_tag ) . '>';
+			}
+			?>
 			<form class="search-form" action="<?php echo esc_url( home_url() ); ?>/" method="get">
 				<fieldset>
 					<span class="text">

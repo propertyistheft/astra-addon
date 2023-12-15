@@ -1,5 +1,14 @@
 *** Astra Pro Changelog ***
 
+2023-12-12 - version 4.5.2
+* New: Introducing new "vw" unit support for font-size in customizer typography settings.
+* Improvement: Added a new filter 'astra_fullscreen_modal_heading_tag' to change the Full-Screen search style heading tag.
+* Fix: WooCommerce - Checkout - In modern checkout place order button missing a thousand separators.
+* Fix: Fatal error 'Attempt to read property taxonomy & name' from addon cache files in some rare cases.
+* Fix: Site Builder - Single templates get shrink due to flex-based CSS on the ast-container wrapper.
+* Fix: WooCommerce - Product Catalog - Quick View Background option not working with Boxed layout.
+* Fix: Site Builder - Custom layout appearing on the frontend if any hook action is set but the layout is not of 'hooks' type.
+
 2023-11-21 - version 4.5.1
 * Improvement: WooCommerce - Declared HPOS Compatibility across the plugin to avoid incompatibility notice when WooCommerce Addon Module is disabled.
 * Fix: WooCommerce - Checkout - Form labels get hidden for Stripe payment method.

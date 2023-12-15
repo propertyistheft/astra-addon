@@ -723,7 +723,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						);
 
 					}
-					if ( isset( $layout[0] ) && '0' != $layout[0] && 'header' != $layout[0] && 'footer' != $layout[0] ) {
+					if ( isset( $layout[0] ) && 'hooks' === $layout[0] ) {
 						if ( 'custom_hook' === $action ) {
 							$action = get_post_meta( $post_id, 'ast-custom-hook', true );
 						}
