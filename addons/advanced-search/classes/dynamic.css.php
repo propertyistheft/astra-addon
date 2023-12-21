@@ -84,6 +84,10 @@ function astra_addon_adv_search_dynamic_css( $dynamic_css, $dynamic_css_filtered
 					width: 40px;
 					height: 40px;
 				}
+				.ast-search-box.full-screen .ast-icon.icon-search svg {
+					margin-top: 4px;
+					margin-right: 0;
+				}
 				.ast-search-box.full-screen .ast-search-wrapper .search-submit:hover {
 					background-color: ' . $btn_bg_h_color . ';
 					color: ' . $btn_text_h_color . ';
@@ -110,7 +114,7 @@ function astra_addon_adv_search_dynamic_css( $dynamic_css, $dynamic_css_filtered
 					box-shadow: none;
 					max-height: 300px;
 					border: none;
-					padding: 0;
+					padding: 5px;
 				}
 			';
 		}

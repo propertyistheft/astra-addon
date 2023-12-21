@@ -112,7 +112,6 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	// Supporting color setting for default icon as well.
 	$can_update_cart_color  = is_callable( 'astra_cart_color_default_icon_old_header' ) && astra_cart_color_default_icon_old_header();
 	$cart_new_color_setting = astra_get_option( 'woo-header-cart-icon-color', $theme_color );
-
 	// Quantity Plus Minus Button - Vertical Icon.
 	$plusminus_text_normal_color       = esc_attr( astra_get_option( 'plusminus-text-normal-color' ) );
 	$plusminus_background_normal_color = esc_attr( astra_get_option( 'plusminus-background-normal-color' ) );
@@ -2880,7 +2879,8 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	}
 
 	$order_summary_bg_color = astra_get_option( 'order-summary-background-color' );
-
+	$font_style_updates     = Astra_Addon_Update_Filter_Function::astra_update_default_font_styling_addon();
+	
 	if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) ) {
 		if ( class_exists( 'WooCommerce_Germanized' ) ) {
 			$germanized_checkout_css = array(
@@ -2893,10 +2893,38 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				),
 				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)' => array(
 					'border-width' => '0',
+					'font-size'    => $font_style_updates ? '' : '1.5em',
+					'font-weight'  => $font_style_updates ? '' : '600',
+				),
+				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading),' => array(
+					'padding'       => '0',
+					'margin-top'    => '1em',
+					'margin-bottom' => '0.7em',
+					'border-bottom' => '0',
+					'border'        => '0',
+					'width'         => '100%',
+					'font-size'     => $font_style_updates ? '' : '1.5em',
+					'font-weight'   => $font_style_updates ? '' : '600',
 				),
 				'form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)' => array(
 					'padding'      => '0',
 					'border-width' => '0',
+					'font-size'    => $font_style_updates ? '' : '1.5em',
+					'font-weight'  => $font_style_updates ? '' : '600',
+				),
+				'.ast-modern-checkout .woocommerce form #customer_details h3' => array(
+					'padding'       => '0',
+					'margin-top'    => '1em',
+					'margin-bottom' => '0.7em',
+					'border-bottom' => '0',
+					'border'        => '0',
+					'width'         => '100%',
+					'font-size'     => $font_style_updates ? '' : '1.5em',
+					'font-weight'   => $font_style_updates ? '' : '600',
+				),
+				'.ast-modern-checkout .woocommerce form #ast-payment_options_heading' => array(
+					'font-size'   => $font_style_updates ? '' : '1.5em',
+					'font-weight' => $font_style_updates ? '' : '600',
 				),
 			);
 			$css_output             .= astra_parse_css( $germanized_checkout_css );

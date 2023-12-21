@@ -7,7 +7,7 @@
 
 ?>
 <div class="ast-search-box full-screen ast-full-search-style--<?php echo esc_attr( astra_get_option( 'fullsearch-modal-color-mode', 'dark' ) ); ?>" id="ast-seach-full-screen-form">
-	<span id="close" class="close"><?php Astra_Icons::get_icons( 'close', true ); ?></span>
+<span id="close" class="close" tabindex="3"><?php Astra_Icons::get_icons( 'close', true ); ?></span>
 	<div class="ast-search-wrapper">
 		<div class="ast-container">
 			<?php
@@ -20,9 +20,9 @@
 				<fieldset>
 					<span class="text">
 						<label for="search-field" class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?></label>
-						<input id="search-field" name="s" class="search-field" autocomplete="off" type="text" value="" placeholder="<?php echo esc_attr( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?>">
+						<input id="search-field" name="s" class="search-field" autocomplete="off" type="text" value="" placeholder="<?php echo esc_attr( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?>" tabindex="1">
 					</span>
-					<button aria-label="<?php esc_attr_e( 'Search', 'astra-addon' ); ?>" class="button search-submit"><i class="astra-search-icon"> <?php Astra_Icons::get_icons( 'search', true ); ?> </i></button>
+					<button aria-label="<?php esc_attr_e( 'Search', 'astra-addon' ); ?>" id="search_submit" class="button search-submit" tabindex="2"><i class="astra-search-icon"> <?php Astra_Icons::get_icons( 'search', true ); ?> </i></button>
 				</fieldset>
 			</form>
 		</div>

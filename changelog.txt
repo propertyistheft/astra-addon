@@ -1,5 +1,26 @@
 *** Astra Pro Changelog ***
 
+2023-12-21 - version v4.6.0-beta.1
+* New: Blog - Introducing elegant Reveal Effect for posts appearance.
+* New: Single - Author Box - Introduced new controls like Alignment, Background, Border, Spacings for improvising the author box.
+* New: Single - Author Box - Introduced new Section placement, Social Share option support.
+* New: Introducing Reveal Effect to archives like WooCommerce Shop, Search Results page.
+* Improvement: Single - Author Box - Introducing new Border, Spacing controls for improvising the author box UI.
+* Improvement: Single - Moved the Author Box, Social Sharing settings from Single Post section to the new sub-sections under Single Post section.
+* Improvement: Added customizer section shortcut link to Author Box section to quick access for better user experience.
+
+Unreleased - version 4.5.3
+* Fix: Social Icons - Horizontal alignment does not work if Stack On is selected.
+* Fix: Sticky Header - Background is not blurry on iOS devices.
+* Fix: Page Header - Background Image is not working on a single post.
+* Fix: Nav Menu - Megamenu elements hover colour not working as expected.
+* Fix: WooCommerce - Horizontal product gallery slider resizes in landscape mode for mobile devices.
+* Fix: Site Builder - Header Shrink effect does not work in Site Builder.
+* Fix: Site Builder layouts and page headers with untitled showing empty space on front end admin menu dropdown.
+* Fix: Site Builder - Issue with hooks not showing up in full width with Beaver Builder in the editor page.
+* Fix: WooCommerce - Unable to login with modern checkout when the password contains some specific symbols such as ampersand.
+* Fix: WooCommerce - On shop page sidebar collides when it's moved to the top of the screen in mobile and tablet.
+
 2023-12-12 - version 4.5.2
 * New: Introducing new "vw" unit support for font-size in customizer typography settings.
 * Improvement: Added a new filter 'astra_fullscreen_modal_heading_tag' to change the Full-Screen search style heading tag.
@@ -26,6 +47,9 @@
 * Fix: Date-Box - Date Box stick at the corner of a post instead of the featured image which breaks blog UI.
 * Fix: Mega Menu - Mega menu heading normal and hover color is not working.
 * Fix: Top Border color & width not applied when mega menu width set to full width/full width stretched.
+
+2023-10-23 - version 4.6.0
+* New: Blog Pro - Blog reveal effect to upgrade blog appearance layout. ( Needs Doc )
 
 2023-10-23 - version 4.4.0
 * New: Blog Pro - Blog Filter to filter categories and tags. ( https://wpastra.com/docs/post-filter/ )

@@ -18,7 +18,7 @@
   display: inline-block;
   margin-top: 2em;
   width: 100%;
-  border-top: 1px solid var(--ast-border-color);
+  border-top: 1px solid var(--ast-single-post-border, var(--ast-border-color));
 }
 
 .single .ast-author-meta {
@@ -43,31 +43,14 @@
 .single .ast-author-meta .post-author-avatar img {
   border-radius: 50%;
   min-width: 100px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--ast-border-color);
 }
 
 .single .ast-author-meta .about-author-title-wrapper {
   padding: 0 0 1em;
 }
 
-.single.ast-separate-container .ast-single-author-box {
-  border-top: 0;
-}
-
 .single.ast-separate-container .ast-author-meta {
   background-color: #fff;
-  padding: 4em 6.67em;
-}
-
-@media (max-width: 1200px) {
-  .single.ast-separate-container .ast-author-meta {
-    padding: 3.34em 2.4em;
-  }
-}
-
-.single.ast-plain-container .ast-single-author-box, .single.ast-page-builder-template .ast-single-author-box, .single.ast-narrow-container .ast-single-author-box {
-  padding-top: 2em;
-}
-
-.single.ast-plain-container .ast-single-author-box, .single.ast-narrow-container .ast-single-author-box {
-  margin-top: 0;
 }

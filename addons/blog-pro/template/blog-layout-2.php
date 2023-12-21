@@ -12,10 +12,7 @@
 
 	<div class="post-content <?php echo esc_html( apply_filters( 'astra_attr_ast-grid-col-6_output', 'ast-grid-col-6' ) ); ?>">
 
-		<?php
-		if ( ! astra_addon_is_blog_title_meta_disabled() ) {
-			astra_get_blog_post_title_meta(); }
-		?>
+		<?php astra_blog_post_thumbnail_and_title_order( array( 'image' ) ); ?>
 
 		<div class="entry-content clear"
 		<?php
@@ -31,9 +28,6 @@
 				>
 
 			<?php astra_entry_content_before(); ?>
-
-			<?php astra_the_excerpt(); ?>
-
 			<?php astra_entry_content_after(); ?>
 
 			<?php

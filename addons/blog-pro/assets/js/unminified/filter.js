@@ -1,5 +1,6 @@
 
 const masonryEnabled  = astra.masonryEnabled || false;
+const revealEffectEnable  = astra.revealEffectEnable || false;
 const blogArchiveTitleLayout =  astra.blogArchiveTitleLayout || '';
 
 function domReady(fn) {
@@ -98,6 +99,11 @@ function ArticleMarkup(url, value) {
             }
 
             document.querySelector('.ast-row').style.opacity = 1;
+
+            if( revealEffectEnable ) {
+                fadin('.ast-fade-up', { delay: 200 });
+            }
+            
         }
 }
 

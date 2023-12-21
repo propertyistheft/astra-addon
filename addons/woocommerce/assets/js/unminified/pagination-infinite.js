@@ -5,6 +5,7 @@
 		masonryEnabled      = false,
 		loadStatus          = true,
 		infinite_event      = astra.shop_infinite_scroll_event || '',
+		revealEffectEnable      = astra.shopRevealEffectEnable || '',
 		loader              = document.querySelector('.ast-shop-pagination-infinite .ast-loader');
 		astShopLoadMore			= document.querySelector('.ast-shop-load-more');
 
@@ -128,6 +129,10 @@
 					loadStatus = true;
 
 					document.dispatchEvent( new CustomEvent( "astraInfinitePaginationLoaded",  { "detail": {} }) );
+
+					if( revealEffectEnable ) {
+						fadin('.ast-fade-up', { delay: 200 });
+					}
 				}
 		}
 	}

@@ -248,7 +248,8 @@ function woocommerceUserLogin() {
         // Send the proper header information along with the request
         xhrRequest.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
 
-        xhrRequest.send( 'action=astra_woocommerce_login_user&user_name_email=' + emailAddress.value + '&password=' + password.value + '&security=' + astraAddon.woocommerce_login_nonce );
+        // Fix: AST-3495 - Added "encodeURIComponent" so that can we encode the special symbols in payload.
+        xhrRequest.send( 'action=astra_woocommerce_login_user&user_name_email=' + encodeURIComponent( emailAddress.value ) + '&password=' + encodeURIComponent( password.value ) + '&security=' + encodeURIComponent( astraAddon.woocommerce_login_nonce ) );
 
         xhrRequest.onload = function () {
             if ( xhrRequest.readyState == XMLHttpRequest.DONE ) {   // XMLHttpRequest.DONE == 4

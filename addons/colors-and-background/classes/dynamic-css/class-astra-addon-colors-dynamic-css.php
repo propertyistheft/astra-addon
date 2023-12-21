@@ -63,6 +63,37 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		$post_meta_link_color   = astra_get_option( 'post-meta-link-color' );
 		$post_meta_link_h_color = astra_get_option( 'post-meta-link-h-color' );
 
+		$post_excerpt_color = astra_get_option( 'blog-excerpt-color' );
+
+		$post_read_more_color   = astra_get_option( 'blog-read-more-color' );
+		$post_read_more_h_cover = astra_get_option( 'blog-read-more-h-color' );
+
+		$post_tax_color   = astra_get_option( 'blog-tax-color' );
+		$post_tax_h_color = astra_get_option( 'blog-tax-h-color' );
+
+		$post_tax_bg_color   = astra_get_option( 'blog-tax-bg-color' );
+		$post_tax_bg_h_color = astra_get_option( 'blog-tax-bg-h-color' );
+
+		$post_tax_border_color   = astra_get_option( 'blog-tax-border-color' );
+		$post_tax_border_h_color = astra_get_option( 'blog-tax-border-h-color' );
+
+		$post_blog_content_color    = astra_get_option( 'blog-content-color' );
+		$post_blog_bg_content_color = astra_get_option( 'blog-content-bg-color' );
+
+		$blog_tax_normal = '.ast-blog-single-element.ast-taxonomy-container a';
+		$blog_tax_hover  = '.ast-blog-single-element.ast-taxonomy-container a:hover';
+
+		$blog_tax_normal_bg = '.ast-blog-single-element.ast-taxonomy-container.badge a';
+		$blog_tax_hover_bg  = '.ast-blog-single-element.ast-taxonomy-container.badge a:hover';
+
+		$post_excerpt_normal = '.ast-excerpt-container';
+
+		$post_read_more_normal = '.ast-read-more-container a:not(.ast-button)';
+		$post_read_more_hover  = '.ast-read-more-container a:not(.ast-button):hover';
+
+		$post_blog_content_color_normal    = 'div.ast-blog-layout-6-grid .blog-layout-6 .ast-blog-single-element *';
+		$post_blog_bg_content_color_normal = 'div.ast-blog-layout-6-grid .blog-layout-6 .ast-blog-featured-section:before';
+
 		$sidebar_wgt_title_color = astra_get_option( 'sidebar-widget-title-color' );
 		$sidebar_text_color      = astra_get_option( 'sidebar-text-color' );
 		$sidebar_link_color      = astra_get_option( 'sidebar-link-color' );
@@ -104,39 +135,39 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			/**
 			 * Content <h1> to <h6> headings
 			 */
-			'h1, .entry-content h1'      => array(
+			'h1, .entry-content h1'            => array(
 				'color' => esc_attr( $h1_color ),
 			),
-			'h2, .entry-content h2'      => array(
+			'h2, .entry-content h2'            => array(
 				'color' => esc_attr( $h2_color ),
 			),
-			'h3, .entry-content h3'      => array(
+			'h3, .entry-content h3'            => array(
 				'color' => esc_attr( $h3_color ),
 			),
-			'h4, .entry-content h4'      => array(
+			'h4, .entry-content h4'            => array(
 				'color' => esc_attr( $h4_color ),
 			),
-			'h5, .entry-content h5'      => array(
+			'h5, .entry-content h5'            => array(
 				'color' => esc_attr( $h5_color ),
 			),
-			'h6, .entry-content h6'      => array(
+			'h6, .entry-content h6'            => array(
 				'color' => esc_attr( $h6_color ),
 			),
 
 			/**
 			 * Sidebar
 			 */
-			'.sidebar-main'              => astra_get_background_obj( $sidebar_bg_obj ),
+			'.sidebar-main'                    => astra_get_background_obj( $sidebar_bg_obj ),
 			'.secondary .widget-title, .secondary .widget-title *' => array(
 				'color' => esc_attr( $sidebar_wgt_title_color ),
 			),
-			'.secondary'                 => array(
+			'.secondary'                       => array(
 				'color' => esc_attr( $sidebar_text_color ),
 			),
-			'.secondary a'               => array(
+			'.secondary a'                     => array(
 				'color' => esc_attr( $sidebar_link_color ),
 			),
-			'.secondary a:hover'         => array(
+			'.secondary a:hover'               => array(
 				'color' => esc_attr( $sidebar_link_h_color ),
 			),
 			'.secondary .tagcloud a:hover, .secondary .tagcloud a.current-item' => array(
@@ -150,7 +181,7 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			/**
 			 * Blog / Archive Title
 			 */
-			'.entry-title a'             => array(
+			'.entry-title a'                   => array(
 				'color' => esc_attr( $page_title_color ),
 			),
 
@@ -164,20 +195,87 @@ class Astra_Addon_Colors_Dynamic_CSS {
 				'color' => esc_attr( $post_meta_link_color ),
 			),
 
-			'.entry-meta, .entry-meta *' => array(
+			'.entry-meta, .entry-meta *'       => array(
 				'color' => esc_attr( $post_meta_color ),
 			),
 
 			/**
+			 * Blog / Archive Taxonomy Color
+			 */
+			$blog_tax_normal                   => array(
+				'color'            => esc_attr( $post_tax_color ),
+				'border-color'     => esc_attr( $post_tax_border_color ),
+			),
+
+			/**
+			 * Blog / Archive Taxonomy Background Color
+			 */
+			$blog_tax_normal_bg                   => array(
+				'background-color' => esc_attr( $post_tax_bg_color ),
+			),
+
+			/**
+			 * Blog / Archive Taxonomy Color
+			 */
+			$blog_tax_hover                    => array(
+				'color'            => esc_attr( $post_tax_h_color ),
+				'border-color'     => esc_attr( $post_tax_border_h_color ),
+			),
+
+			/**
+			 * Blog / Archive Background Taxonomy Color Hover
+			 */
+			$blog_tax_hover_bg                    => array(
+				'background-color' => esc_attr( $post_tax_bg_h_color ),
+			),
+
+			/**
+			 *Blog / Archive  Blog Excerpt Color
+			 */
+			$post_excerpt_normal               => array(
+				'color' => esc_attr( $post_excerpt_color ),
+			),
+
+			/**
+			 *Blog / Archive  Blog Read More Color
+			 */
+			$post_read_more_normal             => array(
+				'color' => esc_attr( $post_read_more_color ),
+			),
+
+			/**
+			 *Blog / Archive  Blog Read More Hover Color
+			 */
+			$post_read_more_hover              => array(
+				'color' => esc_attr( $post_read_more_h_cover ),
+			),
+
+
+			/**
+			 *Blog / Archive Content Color
+			 */
+			$post_blog_content_color_normal    => array(
+				'color' => esc_attr( $post_blog_content_color ),
+			),
+
+			/**
+			 *Blog / Archive Content Color.
+			 */
+			$post_blog_bg_content_color_normal => array(
+				'background-color' => esc_attr( $post_blog_bg_content_color ),
+			),
+
+
+			/**
 			 * Footer
 			 */
-			'.ast-small-footer'          => array(
+			'.ast-small-footer'                => array(
 				'color' => esc_attr( $footer_color ),
 			),
-			'.ast-small-footer a'        => array(
+			'.ast-small-footer a'              => array(
 				'color' => esc_attr( $footer_link_color ),
 			),
-			'.ast-small-footer a:hover'  => array(
+			'.ast-small-footer a:hover'        => array(
 				'color' => esc_attr( $footer_link_h_color ),
 			),
 

@@ -202,4 +202,16 @@
 		}
 	});
 
+	let closeIcon = document.getElementById("close");
+	if ( closeIcon ) {
+		closeIcon.addEventListener("keydown", function (event) {
+			if (event.key === "Enter") {
+				event.preventDefault();
+				this.click();
+			} else if (event.key === "Tab") {
+				event.preventDefault();
+			}
+		});
+	}
+
 } )();

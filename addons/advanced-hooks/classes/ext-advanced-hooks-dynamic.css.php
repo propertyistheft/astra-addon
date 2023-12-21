@@ -69,6 +69,15 @@ function astra_ext_advanced_hooks_dynamic_css( $dynamic_css, $dynamic_css_filter
 						break;
 					}
 				}
+				if ( is_callable( 'FLBuilderModel::is_builder_enabled' ) && FLBuilderModel::is_builder_enabled() ) {
+					$common_desktop_css_output['.site-content .ast-container'] = array(
+						'flex-wrap' => 'wrap',
+					);
+
+					$common_desktop_css_output['[class^="astra-advanced-hook-"], [class*="astra-advanced-hook-"]'] = array(
+						'width' => '100%',
+					);
+				}
 			}
 		}
 	}

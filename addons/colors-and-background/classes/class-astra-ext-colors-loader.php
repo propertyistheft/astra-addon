@@ -248,10 +248,20 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			/**
 			* Blog / Archive
 			*/
-			$defaults['page-title-color']       = '';
-			$defaults['post-meta-color']        = '';
-			$defaults['post-meta-link-color']   = '';
-			$defaults['post-meta-link-h-color'] = '';
+			$defaults['page-title-color']        = '';
+			$defaults['blog-content-color']      = '';
+			$defaults['blog-content-bg-color']   = '';
+			$defaults['post-meta-color']         = '';
+			$defaults['post-meta-link-color']    = '';
+			$defaults['blog-excerpt-color']      = '';
+			$defaults['blog-read-more-color']    = '';
+			$defaults['blog-read-more-h-color']  = '';
+			$defaults['blog-tax-color']          = '';
+			$defaults['blog-tax-bg-color']       = '';
+			$defaults['blog-tax-bg-color']       = '';
+			$defaults['blog-tax-h-color']        = '';
+			$defaults['blog-tax-h-color']        = '';
+			$defaults['blog-tax-border-h-color'] = '';
 
 			/**
 			* Footer

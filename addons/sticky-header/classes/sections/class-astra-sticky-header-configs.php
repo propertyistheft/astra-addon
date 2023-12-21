@@ -592,19 +592,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 								astra_addon_builder_helper()->design_tab_config,
 							),
 						),
-						// Option: Sticky header logo color description.
-						array(
-							'name'     => ASTRA_THEME_SETTINGS . '[sticky-header-builder-logo-color-notice]',
-							'type'     => 'control',
-							'control'  => 'ast-description',
-							'section'  => 'title_tagline',
-							'priority' => 21,
-							'label'    => '',
-							'help'     => __( 'Use it with transparent images for optimal results.', 'astra-addon' ),
-							'context'  => array(
-								astra_addon_builder_helper()->design_tab_config,
-							),
-						),
 						array(
 							'name'      => ASTRA_THEME_SETTINGS . '[sticky-site-identity-title-color-group]',
 							'default'   => astra_get_option( 'sticky-site-identity-title-color-group' ),

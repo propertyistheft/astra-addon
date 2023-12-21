@@ -60,6 +60,11 @@
     vertical-align: bottom;
 }
 
+#customize-control-astra-settings-blog-single-post-image-size-heading .ast-control-tooltip {
+    top: 26px;
+    right: 30px;
+}
+
 #customize-control-astra-settings-blog-archive-image-apply-sizes,
 #customize-control-astra-settings-blog-single-post-image-apply-sizes {
     justify-content: flex-end;
@@ -93,6 +98,14 @@
 [ID*="-image-apply-sizes"] .button {
 	border-radius: 2px;
 	margin-left: 10px;
+	height: 34px;
+	line-height: 32px;
+	transition: all 0.2s;
+}
+[ID*="-image-apply-sizes"] .button:hover {
+    background: #0084c7;
+    color: #fff;
+    border-color: #0084c7;
 }
 
 #customize-control-astra-settings-blog-archive-image-width input[type="number"]:hover,
@@ -141,7 +154,7 @@
 #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
     font-weight: normal;
     margin: 5px 0 0 0;
-    font-size: 13px;
+    font-size: 11px;
     width: 90%;
 }
 body.rtl #customize-control-astra-settings-blog-archive-image-width .customize-control-title,
@@ -163,18 +176,7 @@ body.rtl #customize-control-astra-settings-blog-single-post-image-height .custom
 	color: #2D3748;
 	width: 16px;
 }
-/* #customize-control-astra-settings-blog-archive-image-width .customize-control-title:after,
-#customize-control-astra-settings-blog-single-post-image-width .customize-control-title:after,
-#customize-control-astra-settings-blog-archive-image-height .customize-control-title:after,
-#customize-control-astra-settings-blog-single-post-image-height .customize-control-title:after {
-	content: "PX";
-	top: 0;
-	background: #fff;
-	font-size: 10px;
-	border-radius: 0 2px 2px 0;
-	left: 54px;
-	border: 1px solid #ddd;
-} */
+
 @media(min-width: 2200px) {
     #customize-control-astra-settings-blog-archive-image-width .customize-control-title:after,
     #customize-control-astra-settings-blog-single-post-image-width .customize-control-title:after,

@@ -58,24 +58,44 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
+			$improve_blog  = astra_addon_4_6_0_compatibility();
+
 			// Blog / Archive.
 			$defaults['blog-masonry']               = false;
 			$defaults['blog-date-box']              = false;
+			$defaults['blog-excerpt-count']         = $improve_blog ? 20 : 55;
 			$defaults['blog-date-box-style']        = 'square';
 			$defaults['first-post-full-width']      = false;
-			$defaults['blog-space-bet-posts']       = false;
-			$defaults['blog-grid']                  = 1;
+			$defaults['blog-equal-grid']            = true;
+			$defaults['blog-space-bet-posts']       = $improve_blog ? true : false;
+			$defaults['blog-grid']                  = $improve_blog ? 3 : 1;
 			$defaults['blog-grid-layout']           = 1;
-			$defaults['blog-layout']                = 'blog-layout-1';
 			$defaults['blog-pagination']            = 'number';
 			$defaults['blog-pagination-style']      = 'default';
 			$defaults['blog-infinite-scroll-event'] = 'scroll';
+			$defaults['blog-infinite-scroll-event'] = 'scroll';
 
-			$defaults['blog-excerpt-count']          = 55;
-			$defaults['blog-read-more-text']         = __( 'Read More »', 'astra-addon' );
-			$defaults['blog-read-more-as-button']    = false;
-			$defaults['blog-load-more-text']         = __( 'Load More', 'astra-addon' );
-			$defaults['blog-featured-image-padding'] = false;
+			$defaults['blog-read-more-text']                  = $improve_blog ? __( 'Read Post »', 'astra-addon' ) : __( 'Read More »', 'astra-addon' );
+			$defaults['blog-read-more-as-button']             = false;
+			$defaults['blog-load-more-text']                  = __( 'Load More', 'astra-addon' );
+			$defaults['blog-featured-image-padding']          = $improve_blog ? true : false;
+			$defaults['blog-meta-author-avatar']              = false;
+			$defaults['blog-meta-author-avatar-size']         = 25;
+			$defaults['blog-meta-author-avatar-prefix-label'] = astra_default_strings( 'string-blog-meta-author-by', false );
+			$defaults['blog-item-box-shadow-control']         = array(
+				'x'      => '0',
+				'y'      => '6',
+				'blur'   => '15',
+				'spread' => '-2',
+			);
+			$defaults['blog-item-box-shadow-color']           = 'rgba(16, 24, 40, 0.05)';
+			$defaults['blog-item-box-shadow-position']        = 'outline';
+			$defaults['post-per-page-res']                    = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+			$defaults['post-per-page2-non-res']               = '';
 
 			// Blog filter.
 			$defaults['blog-post-filter']                       = false;
@@ -214,7 +234,47 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 
 			// Single.
 			$defaults['ast-author-info']               = false;
+			$defaults['author-box-placement']          = 'outside';
+			$defaults['author-box-alignment']          = $improve_blog ? 'center' : 'left';
+			$defaults['author-box-in-new-tab']         = false;
+			$defaults['author-box-socials']            = $improve_blog ? true : false;
+			$defaults['author-box-social-icon-list']   = array(
+				'items' =>
+					array(
+						array(
+							'id'         => 'facebook',
+							'enabled'    => true,
+							'source'     => 'icon',
+							'url'        => '',
+							'color'      => '#557dbc',
+							'background' => 'transparent',
+							'icon'       => 'facebook',
+							'label'      => __( 'Facebook', 'astra-addon' ),
+						),
+						array(
+							'id'         => 'twitter-x',
+							'enabled'    => true,
+							'source'     => 'icon',
+							'url'        => '',
+							'color'      => "#000000",
+							'background' => 'transparent',
+							'icon'       => 'twitter-x',
+							'label'      => __( 'Twitter / X', 'astra-addon' ),
+						),
+						array(
+							'id'         => 'linkedin',
+							'enabled'    => true,
+							'source'     => 'icon',
+							'url'        => '',
+							'color'      => '#1c86c6',
+							'background' => 'transparent',
+							'icon'       => 'linkedin',
+							'label'      => __( 'Linkedin', 'astra-addon' ),
+						),
+					),
+			);
 			$defaults['ast-single-post-navigation']    = false;
+			$defaults['single-post-navigation-style']  = 'default';
 			$defaults['ast-auto-prev-post']            = false;
 			$defaults['single-featured-image-padding'] = false;
 
@@ -330,9 +390,9 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 			);
 
 			$defaults['single-post-social-sharing-icon-size'] = array(
-				'desktop' => '30',
-				'tablet'  => '30',
-				'mobile'  => '30',
+				'desktop' => '20',
+				'tablet'  => '20',
+				'mobile'  => '20',
 			);
 
 			$defaults['single-post-social-sharing-icon-radius'] = array(

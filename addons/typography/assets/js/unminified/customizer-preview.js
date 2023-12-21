@@ -11,8 +11,8 @@
 ( function( $ ) {
 
 	astra_responsive_font_size( 'astra-settings[font-size-primary-menu]', '.main-navigation, .ast-header-sections-navigation, .ast-above-header-menu-items, .ast-below-header-menu-items' );
-	astra_responsive_font_size( 'astra-settings[font-size-post-meta]', '.entry-meta, .read-more' );
 	astra_responsive_font_size( 'astra-settings[font-size-post-pagination]', '.ast-pagination .page-numbers, .ast-pagination .page-navigation' );
+
 	astra_responsive_font_size( 'astra-settings[font-size-widget-title]', '.secondary .widget-title, .woocommerce-page #secondary .widget .widget-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-widget-content]', '.secondary .widget > *:not(.widget-title)' );
 	astra_responsive_font_size( 'astra-settings[font-size-footer-content]', '.ast-small-footer' );
@@ -30,9 +30,27 @@
 	astra_generate_font_weight_css( 'astra-settings[font-family-entry-title]', 'astra-settings[font-weight-entry-title]', 'font-weight', '.ast-single-post .entry-title, .page-title' );
 	astra_font_extras_css( 'font-extras-entry-title', '.ast-single-post .entry-title, .page-title' );
 
-	astra_generate_outside_font_family_css( 'astra-settings[font-family-post-meta]', '.entry-meta, .read-more' );
-	astra_generate_font_weight_css( 'astra-settings[font-family-post-meta]', 'astra-settings[font-weight-post-meta]', 'font-weight', '.entry-meta, .read-more' );
-	astra_font_extras_css( 'font-extras-post-meta', '.entry-meta, .read-more' );
+	// Post Meta.
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-post-meta]', '.ast-blog-meta-container' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-post-meta]', 'astra-settings[font-weight-post-meta]', 'font-weight', '.ast-blog-meta-container' );
+	astra_font_extras_css( 'font-extras-post-meta', '.ast-blog-meta-container' );
+
+	// Post Taxonomy.
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-post-tax]', '.ast-blog-single-element.ast-taxonomy-container a' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-post-tax]', 'astra-settings[font-weight-post-tax]', 'font-weight', '.ast-blog-single-element.ast-taxonomy-container a' );
+	astra_font_extras_css( 'font-extras-post-tax', '.ast-blog-single-element.ast-taxonomy-container a' );
+
+	// Post Read More.
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-post-read-more]', '.ast-read-more-container a' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-post-read-more]', 'astra-settings[font-weight-post-read-more]', 'font-weight', '.ast-read-more-container a' );
+	astra_font_extras_css( 'font-extras-post-read-more', '.ast-read-more-container a' );
+	astra_responsive_font_size( 'astra-settings[font-size-post-read-more]', '.ast-read-more-container a' );
+
+	// Post Excerpt.
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-post-excerpt]', '.ast-excerpt-container' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-post-excerpt]', 'astra-settings[font-weight-post-excerpt]', 'font-weight', '.ast-excerpt-container' );
+	astra_font_extras_css( 'font-extras-post-excerpt', '.ast-excerpt-container' );
+	astra_responsive_font_size( 'astra-settings[font-size-post-excerpt]', '.ast-excerpt-container' );
 
 	astra_css( 'astra-settings[text-transform-post-pagination]', 'text-transform', '.ast-pagination .page-numbers, .ast-pagination .page-navigation' );
 
@@ -339,7 +357,7 @@
 				'font-weight',
 				selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
 			);
-			
+
 			astra_font_extras_css('footer-' + prefix + '-font-extras', selector + ' .widget-title, ' + selector + ' .wp-block-heading, ' + selector + ' h1, ' + selector + ' .widget-area h1, ' + selector + ' h2, ' + selector + ' .widget-area h2, ' + selector + ' h3, ' + selector + ' .widget-area h3, ' + selector + ' h4, ' + selector + ' .widget-area h4, ' + selector + ' h5, ' + selector + ' .widget-area h5, ' + selector + ' h6, ' + selector + ' .widget-area h6'
 			);
 

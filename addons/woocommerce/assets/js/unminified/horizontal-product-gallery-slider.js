@@ -1,5 +1,5 @@
 // Horizontal gallery slider.
-jQuery('.ast-single-product-thumbnails').flexslider({
+const horizontalProductGallerySlider = jQuery('.ast-single-product-thumbnails').flexslider({
     animation: "slide",
     controlNav: false,
     animationLoop: false,
@@ -9,6 +9,10 @@ jQuery('.ast-single-product-thumbnails').flexslider({
     maxItems: 4,
     asNavFor: '.woocommerce-product-gallery',
     selector: '.woocommerce-product-gallery-thumbnails__wrapper > div',
+});
+
+window.addEventListener("resize", function() {
+    horizontalProductGallerySlider.resize();
 });
 
 const articleSingle = document.querySelector('.ast-article-single');

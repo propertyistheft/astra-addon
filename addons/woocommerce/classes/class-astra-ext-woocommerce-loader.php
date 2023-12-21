@@ -139,6 +139,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['shop-breadcrumb-display']     = true;
 			$defaults['shop-filter-list-to-buttons'] = true;
 			$defaults['shop-active-filters-display'] = true;
+			$defaults['shop-reveal-effect']          = false;
 
 			// Off Canvas.
 			$defaults['shop-off-canvas-trigger-type']       = 'link';

@@ -49,7 +49,11 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 			$icon_spacing_desktop = ( isset( $icon_spacing['desktop'] ) && '' !== $icon_spacing['desktop'] ) ? (int) $icon_spacing['desktop'] / 2 : '';
 			$icon_spacing_tablet  = ( isset( $icon_spacing['tablet'] ) && '' !== $icon_spacing['tablet'] ) ? (int) $icon_spacing['tablet'] / 2 : '';
 			$icon_spacing_mobile  = ( isset( $icon_spacing['mobile'] ) && '' !== $icon_spacing['mobile'] ) ? (int) $icon_spacing['mobile'] / 2 : '';
-
+			$alignment            = astra_get_option( 'footer-social-' . $index . '-alignment' );
+			// Catch alignment option when stacked in variable.
+			$justify_content_desktop = $alignment['desktop'] === 'right' ? 'flex-end' : ( $alignment['desktop'] === 'left' ? 'flex-start' : 'center' );
+			$justify_content_tablet  = $alignment['tablet'] === 'right' ? 'flex-end' : ( $alignment['tablet'] === 'left' ? 'flex-start' : 'center' );
+			$justify_content_mobile  = $alignment['mobile'] === 'right' ? 'flex-end' : ( $alignment['mobile'] === 'left' ? 'flex-start' : 'center' );
 			/**
 			 * Social Icon CSS.
 			 */
@@ -62,12 +66,13 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 				$css_output_desktop = array(
 
 					$selector . ' .ast-social-stack-desktop .ast-builder-social-element' => array(
-						'display'       => 'flex',
+						'display'         => 'flex',
+						'justify-content' => $justify_content_desktop,
 						// Icon Spacing.
-						'margin-left'   => 'unset',
-						'margin-right'  => 'unset',
-						'margin-top'    => astra_get_css_value( $icon_spacing_desktop, 'px' ),
-						'margin-bottom' => astra_get_css_value( $icon_spacing_desktop, 'px' ),
+						'margin-left'     => 'unset',
+						'margin-right'    => 'unset',
+						'margin-top'      => astra_get_css_value( $icon_spacing_desktop, 'px' ),
+						'margin-bottom'   => astra_get_css_value( $icon_spacing_desktop, 'px' ),
 					),
 				);
 
@@ -89,12 +94,13 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 				$css_output_tablet = array(
 
 					$selector . ' .ast-social-stack-tablet .ast-builder-social-element' => array(
-						'display'       => 'flex',
+						'display'         => 'flex',
+						'justify-content' => $justify_content_tablet,
 						// Icon Spacing.
-						'margin-left'   => 'unset',
-						'margin-right'  => 'unset',
-						'margin-top'    => astra_get_css_value( $icon_spacing_tablet, 'px' ),
-						'margin-bottom' => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+						'margin-left'     => 'unset',
+						'margin-right'    => 'unset',
+						'margin-top'      => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+						'margin-bottom'   => astra_get_css_value( $icon_spacing_tablet, 'px' ),
 					),
 				);
 
@@ -112,12 +118,13 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 				$css_output_mobile = array(
 
 					$selector . ' .ast-social-stack-mobile .ast-builder-social-element' => array(
-						'display'       => 'flex',
+						'display'         => 'flex',
+						'justify-content' => $justify_content_mobile,
 						// Icon Spacing.
-						'margin-left'   => 'unset',
-						'margin-right'  => 'unset',
-						'margin-top'    => astra_get_css_value( $icon_spacing_mobile, 'px' ),
-						'margin-bottom' => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+						'margin-left'     => 'unset',
+						'margin-right'    => 'unset',
+						'margin-top'      => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+						'margin-bottom'   => astra_get_css_value( $icon_spacing_mobile, 'px' ),
 					),
 				);
 			}

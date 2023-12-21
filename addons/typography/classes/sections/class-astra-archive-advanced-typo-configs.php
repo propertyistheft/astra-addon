@@ -39,30 +39,17 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 
 			$_configs = array(
 
+				/**
+				 * Option: Divider
+				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
-					'default'   => astra_get_option( 'blog-content-post-meta-typo' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Meta Font', 'astra-addon' ),
-					'section'   => 'section-blog',
-					'transport' => 'postMessage',
-					'priority'  => 145,
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-pagination-typo]',
-					'default'   => astra_get_option( 'blog-content-pagination-typo' ),
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Pagination Font', 'astra-addon' ),
-					'section'   => 'section-blog',
-					'transport' => 'postMessage',
-					'priority'  => 150,
-					'divider'   => array( 'ast_class' => 'ast-bottom-spacing' ),
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-fonts-divider]',
+					'section'  => 'section-blog',
+					'title'    => __( 'Post Fonts', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 145,
+					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -74,7 +61,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'     => __( 'Post Title Font', 'astra-addon' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
-					'priority'  => 140,
+					'priority'  => 145,
 					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
 					astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
@@ -162,6 +149,107 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-post-meta-typo]',
+					'default'   => astra_get_option( 'blog-content-post-meta-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Meta Font', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 145,
+					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-post-tax-typo]',
+					'default'   => astra_get_option( 'blog-content-post-tax-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Taxonomy Font', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 145,
+					'context'   => array(
+						astra_addon_builder_helper()->design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+								'operator' => 'contains',
+								'value'    => 'category',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+								'operator' => 'contains',
+								'value'    => 'tag',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[blog-meta]',
+								'operator' => 'contains',
+								'value'    => 'category',
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[blog-meta]',
+								'operator' => 'contains',
+								'value'    => 'tag',
+							),
+						),
+					),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-post-excerpt-typo]',
+					'default'   => astra_get_option( 'blog-content-post-excerpt-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Excerpt Font', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 145,
+					'context'   => array(
+						astra_addon_builder_helper()->design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+							'operator' => 'contains',
+							'value'    => 'excerpt',
+						),
+					),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-post-read-more-typo]',
+					'default'   => astra_get_option( 'blog-content-post-read-more-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Read More Font', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 145,
+					'context'   => array(
+						astra_addon_builder_helper()->design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+							'operator' => 'contains',
+							'value'    => 'read-more',
+						),
+					),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-pagination-typo]',
+					'default'   => astra_get_option( 'blog-content-pagination-typo' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Pagination Font', 'astra-addon' ),
+					'section'   => 'section-blog',
+					'transport' => 'postMessage',
+					'priority'  => 145,
+					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+				),
+
 				/**
 				 * Option: Post Meta Font Family
 				 */
@@ -243,6 +331,244 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'section'  => 'section-blog',
 					'priority' => 7,
 					'default'  => astra_get_option( 'font-extras-post-meta' ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
+				),
+
+
+				/**
+				 * Option: Post Tax Font Family
+				 */
+				array(
+					'name'      => 'font-family-post-tax',
+					'parent'    => ASTRA_THEME_SETTINGS . '[blog-content-post-tax-typo]',
+					'section'   => 'section-blog',
+					'type'      => 'sub-control',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'default'   => astra_get_option( 'font-family-post-tax' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-tax]',
+					'priority'  => 5,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Post Tax Font Weight
+				 */
+				array(
+					'name'              => 'font-weight-post-tax',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-tax-typo]',
+					'section'           => 'section-blog',
+					'type'              => 'sub-control',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'font-weight-post-tax' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'connect'           => 'font-family-post-tax',
+					'priority'          => 5,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Post Tax Font Size
+				 */
+
+				array(
+					'name'              => 'font-size-post-tax',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-tax-typo]',
+					'section'           => 'section-blog',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Font Size', 'astra-addon' ),
+					'priority'          => 5,
+					'default'           => astra_get_option( 'font-size-post-tax' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
+					),
+				),
+
+				/**
+				 * Option: Post Tax Font Extras
+				 */
+				array(
+					'name'     => 'font-extras-post-tax',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[blog-content-post-tax-typo]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-blog',
+					'priority' => 7,
+					'default'  => astra_get_option( 'font-extras-post-tax' ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
+				),
+
+				/**
+				 * Option: Post Read More Font Family
+				 */
+				array(
+					'name'      => 'font-family-post-read-more',
+					'parent'    => ASTRA_THEME_SETTINGS . '[blog-content-post-read-more-typo]',
+					'section'   => 'section-blog',
+					'type'      => 'sub-control',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'default'   => astra_get_option( 'font-family-post-read-more' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-read-more]',
+					'priority'  => 5,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Post Read More Font Weight
+				 */
+				array(
+					'name'              => 'font-weight-post-read-more',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-read-more-typo]',
+					'section'           => 'section-blog',
+					'type'              => 'sub-control',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'font-weight-post-read-more' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'connect'           => 'font-family-post-read-more',
+					'priority'          => 5,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Post Read More Font Size
+				 */
+
+				array(
+					'name'              => 'font-size-post-read-more',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-read-more-typo]',
+					'section'           => 'section-blog',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Font Size', 'astra-addon' ),
+					'priority'          => 5,
+					'default'           => astra_get_option( 'font-size-post-read-more' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
+					),
+				),
+
+				/**
+				 * Option: Post Read More Font Extras
+				 */
+				array(
+					'name'     => 'font-extras-post-read-more',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[blog-content-post-read-more-typo]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-blog',
+					'priority' => 7,
+					'default'  => astra_get_option( 'font-extras-post-read-more' ),
+					'title'    => __( 'Font Extras', 'astra-addon' ),
+				),
+
+				/**
+				 * Option: Post Excerpt Font Family
+				 */
+				array(
+					'name'      => 'font-family-post-excerpt',
+					'parent'    => ASTRA_THEME_SETTINGS . '[blog-content-post-excerpt-typo]',
+					'section'   => 'section-blog',
+					'type'      => 'sub-control',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'default'   => astra_get_option( 'font-family-post-excerpt' ),
+					'title'     => __( 'Font Family', 'astra-addon' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-excerpt]',
+					'priority'  => 5,
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Post Excerpt Font Weight
+				 */
+				array(
+					'name'              => 'font-weight-post-excerpt',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-excerpt-typo]',
+					'section'           => 'section-blog',
+					'type'              => 'sub-control',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'font-weight-post-excerpt' ),
+					'title'             => __( 'Font Weight', 'astra-addon' ),
+					'connect'           => 'font-family-post-excerpt',
+					'priority'          => 5,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Post Excerpt Font Size
+				 */
+
+				array(
+					'name'              => 'font-size-post-excerpt',
+					'parent'            => ASTRA_THEME_SETTINGS . '[blog-content-post-excerpt-typo]',
+					'section'           => 'section-blog',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Font Size', 'astra-addon' ),
+					'priority'          => 5,
+					'default'           => astra_get_option( 'font-size-post-excerpt' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 200,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
+					),
+				),
+
+				/**
+				 * Option: Post Excerpt Font Extras
+				 */
+				array(
+					'name'     => 'font-extras-post-excerpt',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[blog-content-post-excerpt-typo]',
+					'control'  => 'ast-font-extras',
+					'section'  => 'section-blog',
+					'priority' => 7,
+					'default'  => astra_get_option( 'font-extras-post-excerpt' ),
 					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 

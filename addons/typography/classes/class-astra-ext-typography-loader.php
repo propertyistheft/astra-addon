@@ -87,9 +87,21 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 			$font_weight_post_meta = astra_get_option( 'font-weight-post-meta' );
 			Astra_Fonts::add_font( $font_family_post_meta, $font_weight_post_meta );
 
-			$font_family_post_meta = astra_get_option( 'font-family-blog-filter-taxonomy' );
-			$font_weight_post_meta = astra_get_option( 'font-weight-blog-filter-taxonomy' );
-			Astra_Fonts::add_font( $font_family_post_meta, $font_weight_post_meta );
+			$font_family_post_tax = astra_get_option( 'font-family-post-tax' );
+			$font_weight_post_tax = astra_get_option( 'font-weight-post-tax' );
+			Astra_Fonts::add_font( $font_family_post_tax, $font_weight_post_tax );
+
+			$font_family_post_read_more = astra_get_option( 'font-family-post-read-more' );
+			$font_weight_post_read_more = astra_get_option( 'font-family-post-read-more' );
+			Astra_Fonts::add_font( $font_family_post_read_more, $font_weight_post_read_more );
+
+			$font_family_post_excerpt = astra_get_option( 'font-family-post-excerpt' );
+			$font_weight_post_excerpt = astra_get_option( 'font-weight-post-excerpt' );
+			Astra_Fonts::add_font( $font_family_post_excerpt, $font_weight_post_excerpt );
+
+			$font_family_post_filter_taxonomy = astra_get_option( 'font-family-blog-filter-taxonomy' );
+			$font_weight_post_filter_taxonomy = astra_get_option( 'font-weight-blog-filter-taxonomy' );
+			Astra_Fonts::add_font( $font_family_post_filter_taxonomy, $font_weight_post_filter_taxonomy );
 
 			$font_family_widget_title = astra_get_option( 'font-family-widget-title' );
 			$font_weight_widget_title = astra_get_option( 'font-weight-widget-title' );
@@ -313,6 +325,7 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 
 			$astra_options                       = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
 			$apply_new_default_color_typo_values = is_callable( 'Astra_Dynamic_CSS::astra_check_default_color_typo' ) ? Astra_Dynamic_CSS::astra_check_default_color_typo() : false;
+			$blog_improvements = astra_addon_4_6_0_compatibility();
 
 			// Header.
 			$defaults['font-family-site-title'] = 'inherit';
@@ -389,16 +402,8 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				'text-decoration'     => '',
 			);
 
-			$defaults['font-size-post-meta']   = array(
-				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
-				'tablet'       => '',
-				'mobile'       => '',
-				'desktop-unit' => 'px',
-				'tablet-unit'  => 'px',
-				'mobile-unit'  => 'px',
-			);
 			$defaults['font-family-post-meta'] = 'inherit';
-			$defaults['font-weight-post-meta'] = 'inherit';
+			$defaults['font-weight-post-meta'] = $blog_improvements ? '600' : 'inherit';
 			$defaults['font-extras-post-meta'] = array(
 				'line-height'         => ! isset( $astra_options['font-extras-post-meta'] ) && isset( $astra_options['line-height-post-meta'] ) ? $astra_options['line-height-post-meta'] : '',
 				'line-height-unit'    => 'em',
@@ -408,7 +413,20 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				'text-decoration'     => '',
 			);
 
-			$defaults['font-size-post-pagination']      = array(
+			// Blog Font Tax fonts.
+			$defaults['font-family-post-tax'] = 'inherit';
+			$defaults['font-weight-post-tax'] = 'inherit';
+			$defaults['font-extras-post-tax'] = array(
+				'line-height'         => '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
+
+			// Blog Font Read More.
+			$defaults['font-size-post-read-more']   = array(
 				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -416,6 +434,46 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
+			$defaults['font-family-post-read-more'] = 'inherit';
+			$defaults['font-weight-post-read-more'] = 'inherit';
+			$defaults['font-extras-post-read-more'] = array(
+				'line-height'         => '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
+
+			// Blog Font Excerpt.
+			$defaults['font-size-post-excerpt']   = array(
+				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+			$defaults['font-family-post-excerpt'] = 'inherit';
+			$defaults['font-weight-post-excerpt'] = 'inherit';
+			$defaults['font-extras-post-excerpt'] = array(
+				'line-height'         => '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
+
+			$defaults['font-size-post-pagination'] = array(
+				'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+
 			$defaults['text-transform-post-pagination'] = '';
 
 			// Single.

@@ -6,7 +6,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: astra, custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
 Tested up to: 6.4
 Requires PHP: 5.3
-Stable tag: 4.5.2
+Stable tag: 4.6.0-beta.1
 
 Premium Addons for the Astra Theme.
 
@@ -90,3 +90,8 @@ Licensed under [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 
 Astra's background batch processing update functionality is based on "WP Background Processing" by Delicious Brains. (https://github.com/deliciousbrains/wp-image-processing-queue)
 Licensed under [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+
+= FadeIn =
+
+Blog reveal effect is based on "Fadin" by dev-warner. (https://github.com/dev-warner/fadin)
+Licensed under [MIT] (https://opensource.org/license/mit/)

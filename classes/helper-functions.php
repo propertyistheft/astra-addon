@@ -527,3 +527,14 @@ function astra_addon_check_elementor_pro_3_5_version() {
 	}
 	return false;
 }
+
+/**
+ * Get Astra blog layout design.
+ * Search / Blog.
+ *
+ * @return string $blog_layout.
+ * @since x.x.x
+ */
+function astra_addon_get_blog_layout() {
+	return is_callable( 'astra_get_blog_layout' ) ? astra_get_blog_layout() : astra_get_option( 'blog-layout' );
+}

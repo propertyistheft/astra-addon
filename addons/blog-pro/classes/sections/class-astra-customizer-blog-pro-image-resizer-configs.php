@@ -52,9 +52,10 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog',
 					'title'    => __( 'Featured Images Size', 'astra-addon' ),
-					'suffix'   => 'px',
-					'priority' => 100,
+					'suffix'   => '(px)',
+					'priority' => 50,
 					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
@@ -75,7 +76,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'blog-archive-image-width' ),
 					'section'           => 'section-blog',
-					'priority'          => 105,
+					'priority'          => 50,
 					'title'             => __( 'Width', 'astra-addon' ),
 					'input_attrs'       => array(
 						'style'       => 'text-align:center;',
@@ -104,7 +105,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'blog-archive-image-height' ),
 					'section'           => 'section-blog',
-					'priority'          => 107,
+					'priority'          => 50,
 					'title'             => __( 'Height', 'astra-addon' ),
 					'input_attrs'       => array(
 						'style'       => 'text-align:center;',
@@ -132,7 +133,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 					'control'  => 'ast-customizer-refresh',
 					'section'  => 'section-blog',
 					'default'  => astra_get_option( 'log-archive-image-apply-sizes' ),
-					'priority' => 107,
+					'priority' => 50,
 					'title'    => __( 'Apply Size', 'astra-addon' ),
 					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -153,6 +154,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 					'control'     => 'ast-divider',
 					'section'     => 'section-blog-single',
 					'title'       => __( 'Featured Images Size', 'astra-addon' ),
+					'suffix'   => '(px)',
 					'divider'     => array( 'ast_class' => 'ast-top-spacing ast-top-dotted-divider' ),
 					'priority'    => 6,
 					'settings'    => array(),

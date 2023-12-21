@@ -653,6 +653,19 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Blog Reveal Effect.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[shop-reveal-effect]',
+					'default'  => astra_get_option( 'shop-reveal-effect' ),
+					'type'     => 'control',
+					'control'  => Astra_Theme_Extension::$switch_control,
+					'section'  => 'woocommerce_product_catalog',
+					'title'    => __( 'Reveal Effect', 'astra-addon' ),
+					'priority' => 29,
+				),
+
+				/**
 				 * Option: Display Active Filters
 				 */
 				array(

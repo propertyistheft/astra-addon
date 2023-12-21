@@ -61,7 +61,10 @@ const getHeaderHeightIfSticky = () => {
     }
 }
 
-window.onscroll = function(event) {
-    getHeaderHeightIfSticky();
-};
+let desktopElement = document.querySelector(".ast-desktop");
 
+if (desktopElement) {
+	window.onscroll = function (event) {
+		getHeaderHeightIfSticky();
+	};
+};

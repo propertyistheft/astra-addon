@@ -151,7 +151,7 @@ final class Astra_Ext_Model {
 							array(
 								'id'     => 'edit-custom-layout-' . esc_attr( $post_id ),
 								'href'   => esc_url( get_edit_post_link( $post_id ) ),
-								'title'  => esc_attr( $layout_title ),
+								'title'  => $layout_title ? esc_attr( $layout_title ) : esc_html__( 'Untitled', 'astra-addon' ), // Display "Untitled" text if no title is set.
 								'parent' => 'ast_custom_layouts_group',
 							)
 						);
@@ -183,7 +183,7 @@ final class Astra_Ext_Model {
 							array(
 								'id'     => 'edit-page-header-' . esc_attr( $post_id ),
 								'href'   => esc_url( get_edit_post_link( $post_id ) ),
-								'title'  => esc_attr( $layout_title ),
+								'title'  => $layout_title ? esc_attr( $layout_title ) : esc_html__( 'Untitled', 'astra-addon' ), // Display "Untitled" text if no title is set.
 								'parent' => 'ast_page_headers_group',
 							)
 						);

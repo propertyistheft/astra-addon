@@ -183,8 +183,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 
 	// If advanced header disabled.
 	$title_bar_bg_img = '';
-
-	if ( ( is_archive() || is_search() || is_404() || is_home() ) && $bg_image ) {
+	if ( $page_post_featured && $bg_image ) {
 		$title_bar_bg_img = $bg_image;
 	} else {
 		// If selected Post / Page Featured image.

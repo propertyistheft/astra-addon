@@ -497,6 +497,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			$localize['checkout_url']                    = apply_filters( 'astra_woocommerce_checkout_redirect', wc_get_checkout_url() );
 			$localize['add_to_cart_options_single']      = $rt_add_to_cart;
 			$localize['is_astra_pro']                    = astra_has_pro_woocommerce_addon();
+			$localize['shopRevealEffectEnable']          = astra_addon_check_reveal_effect_condition( 'woocommerce' );
 
 			return $localize;
 		}
@@ -1448,6 +1449,10 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				// Single product tabs layout ( vertical / horizontal ).
 				if ( astra_get_option( 'single-product-tabs-display' ) ) {
 					$classes[] = 'ast-product-tabs-layout-' . astra_get_option( 'single-product-tabs-layout' );
+				}
+
+				if ( astra_addon_check_reveal_effect_condition( 'woocommerce' ) ) {
+					$classes[] = 'ast-fade-up';
 				}
 
 				$qv_enable = astra_get_option( 'shop-quick-view-enable' );

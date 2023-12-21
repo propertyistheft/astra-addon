@@ -2,6 +2,7 @@
 
 	var pagination 		= astra.pagination || '',
 		masonryEnabled  = astra.masonryEnabled || false,
+		revealEffectEnable  = astra.revealEffectEnable || false,
 		loadStatus 		= true,
 		infinite_event 	= astra.infinite_scroll_event || '';
 
@@ -139,7 +140,10 @@
 							pageUrlSelector.setAttribute('href', newNextTargetUrl);
 						}
 					}
-		
+
+					if( revealEffectEnable ) {
+						fadin('.ast-fade-up', { delay: 200 });
+					}
 
 					//	Complete the process 'loadStatus'
 					loadStatus = true;

@@ -69,8 +69,9 @@ function astra_above_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 				'z-index' => 9,
 			),
 			$above_header_sticky_selector              => array(
-				'background'      => esc_attr( $desktop_sticky_above_header_bg_color ),
-				'backdrop-filter' => $sticky_above_header_bg_blur && $sticky_above_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_above_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'background'              => esc_attr( $desktop_sticky_above_header_bg_color ),
+				'backdrop-filter'         => $sticky_above_header_bg_blur && $sticky_above_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_above_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'-webkit-backdrop-filter' => $sticky_above_header_bg_blur && $sticky_above_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_above_header_bg_blur_intensity ) . 'px )' : 'unset',
 			),
 		);
 		$tablet_above_header_css_output  = array(
@@ -87,8 +88,9 @@ function astra_above_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 		// Only when Fixed Header Merkup added.
 		$desktop_above_header_css_output = array(
 			'#ast-fixed-header .ast-above-header' => array(
-				'background'      => esc_attr( $desktop_sticky_above_header_bg_color ),
-				'backdrop-filter' => $sticky_above_header_bg_blur && $sticky_above_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_above_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'background'              => esc_attr( $desktop_sticky_above_header_bg_color ),
+				'backdrop-filter'         => $sticky_above_header_bg_blur && $sticky_above_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_above_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'-webkit-backdrop-filter' => $sticky_above_header_bg_blur && $sticky_above_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_above_header_bg_blur_intensity ) . 'px )' : 'unset',
 			),
 		);
 		$tablet_above_header_css_output  = array(
@@ -633,8 +635,9 @@ function astra_below_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 	if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
 		$desktop_below_header_css_output = array(
 			'.ast-below-sticky-header-active .ast-below-header-wrap .ast-below-header' => array(
-				'background'      => esc_attr( $desktop_sticky_below_header_bg_color ),
-				'backdrop-filter' => $sticky_below_header_bg_blur && $sticky_below_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_below_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'background'              => esc_attr( $desktop_sticky_below_header_bg_color ),
+				'backdrop-filter'         => $sticky_below_header_bg_blur && $sticky_below_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_below_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'-webkit-backdrop-filter' => $sticky_below_header_bg_blur && $sticky_below_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_below_header_bg_blur_intensity ) . 'px )' : 'unset',
 			),
 		);
 		$tablet_below_header_css_output  = array(
@@ -651,8 +654,9 @@ function astra_below_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 		// Only when Fixed Header Merkup added.
 		$desktop_below_header_css_output = array(
 			'#ast-fixed-header .ast-below-header' => array(
-				'background'      => esc_attr( $desktop_sticky_below_header_bg_color ),
-				'backdrop-filter' => $sticky_below_header_bg_blur && $sticky_below_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_below_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'background'              => esc_attr( $desktop_sticky_below_header_bg_color ),
+				'backdrop-filter'         => $sticky_below_header_bg_blur && $sticky_below_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_below_header_bg_blur_intensity ) . 'px )' : 'unset',
+				'-webkit-backdrop-filter' => $sticky_below_header_bg_blur && $sticky_below_header_bg_blur_intensity ? 'blur(' . esc_attr( $sticky_below_header_bg_blur_intensity ) . 'px )' : 'unset',
 			),
 		);
 		$tablet_below_header_css_output  = array(

@@ -141,8 +141,24 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			 */
 			if ( apply_filters( 'astra_addon_enqueue_assets', true ) ) {
 
-				$css_url = self::get_css_url();
-				$js_url  = self::get_js_url();
+				$uri  = ASTRA_EXT_URI . 'assets/js/';
+				$path = ASTRA_EXT_DIR . 'assets/js/';
+
+				$css_url     = self::get_css_url();
+				$js_url      = self::get_js_url();
+				$file_prefix = '.min';
+				$dir_name    = 'minified';
+
+				if ( SCRIPT_DEBUG ) {
+					$file_prefix = '';
+					$dir_name    = 'unminified';
+				}
+
+				$js_uri  = $uri . $dir_name . '/';
+				$dep_uri = $uri . 'minified/';
+				
+				$gen_path     = $js_uri;
+				$dep_gen_path = $dep_uri;
 
 				if ( false != $css_url ) {
 					wp_enqueue_style( 'astra-addon-css', $css_url, array(), ASTRA_EXT_VER, 'all' );
@@ -155,6 +171,14 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 				if ( ! function_exists( 'astra_addon_filesystem' ) ) {
 					wp_add_inline_style( 'astra-addon-css', apply_filters( 'astra_addon_dynamic_css', '' ) );
+				}
+
+
+				if ( is_archive() || is_home() || is_search() ) {
+					if ( astra_addon_check_reveal_effect_condition() ) {
+						wp_enqueue_script( 'reveal-effect-js', $dep_gen_path . 'reveal-effect.min.js', array(), ASTRA_EXT_VER, true );
+						wp_enqueue_script( 'blog-reveal-js', $gen_path . 'blog-reveal' . $file_prefix . '.js', array(), ASTRA_EXT_VER, true );
+					}
 				}
 
 				wp_localize_script( 'astra-addon-js', 'astraAddon', apply_filters( 'astra_addon_js_localize', array() ) );

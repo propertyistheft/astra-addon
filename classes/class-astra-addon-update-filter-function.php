@@ -63,7 +63,17 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['add-outline-cart-bg-new-header'] = isset( $astra_settings['add-outline-cart-bg-new-header'] ) ? false : true;
 		return apply_filters( 'astra_apply_background_to_outline_cart_builder_element', $astra_settings['add-outline-cart-bg-new-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
-
+	
+	/**
+	 * Astra update default font size and font weight.
+	 * 
+	 * @since x.x.x 
+	 * @return boolean 
+	 */
+	public static function astra_update_default_font_styling_addon() {
+		return is_callable( 'Astra_Woocommerce::astra_update_default_font_styling' ) ? Astra_Woocommerce::astra_update_default_font_styling() : false;
+		
+	}
 	/**
 	 * Remove 'Header Sections' addon dependency
 	 *

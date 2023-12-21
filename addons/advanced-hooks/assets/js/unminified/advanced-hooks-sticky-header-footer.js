@@ -106,22 +106,35 @@
 				self.stickRelease( self );
 			} else {
 				if ( jQuery( window ).scrollTop() > stick_upto_scroll ) {
-					
-					if ( 'none' == self.options.header_style ) {
+				
+					if ( 'none' == self.options.header_style ) { 
 						if ( 'enabled' == self.options.active_shrink ) {
 							self.hasShrink( self, 'stick' );
-						}
-						if( selector.hasClass( 'ast-custom-header' ) ){
+							var topValue = 'none'; // Default value for 'top' property
+							if ( !selector.hasClass( 'ast-custom-header' ) ) {
+								topValue = gutter; // If it's not the specified class, set 'top' to 'gutter'
+							}
 							selector.parent().css( 'min-height', selector.outerHeight() );
-							selector.addClass( 'ast-header-sticky-active' ).stop().css({
-								'max-width'      : max_width,
-								'top'            : gutter,
-								'padding-top'    : self.options.shrink.padding_top,
-								'padding-bottom' : self.options.shrink.padding_bottom,
-							});
+							selector.addClass( 'ast-header-sticky-active' ).stop().css( {
+								'max-width': max_width,
+								'top': topValue, // Setting 'top' property based on the condition
+								'padding-top': self.options.shrink.padding_top,
+								'padding-bottom': self.options.shrink.padding_bottom,
+							} );
+							selector.addClass( 'ast-sticky-shrunk' ).stop();
+						} else {
+							self.hasShrink( self, 'stick' );							
+							selector.parent().css( 'min-height', selector.outerHeight() );
+							selector.addClass( 'ast-header-sticky-active' ).stop().css( {
+								'max-width': max_width,
+								'top': gutter, 
+								'padding-top': self.options.shrink.padding_top,
+								'padding-bottom': self.options.shrink.padding_bottom,
+							} );
 							selector.addClass( 'ast-sticky-shrunk' ).stop();
 						}
 					}
+					
 				} else {
 					self.stickRelease( self );
 				}
