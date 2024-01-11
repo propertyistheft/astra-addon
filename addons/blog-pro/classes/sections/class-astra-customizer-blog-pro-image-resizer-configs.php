@@ -154,7 +154,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 					'control'     => 'ast-divider',
 					'section'     => 'section-blog-single',
 					'title'       => __( 'Featured Images Size', 'astra-addon' ),
-					'suffix'   => '(px)',
+					'suffix'      => '(px)',
 					'divider'     => array( 'ast_class' => 'ast-top-spacing ast-top-dotted-divider' ),
 					'priority'    => 6,
 					'settings'    => array(),

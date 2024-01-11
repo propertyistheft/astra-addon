@@ -56,6 +56,8 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
+			$update_default_spacing = Astra_Addon_Update_Filter_Function::astra_addon_update_default_menu_styling();
+
 			$defaults['header-account-menu-spacing']  = array(
 				'desktop'      => array(
 					'top'    => '',
@@ -313,16 +315,16 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 			);
 			$defaults['primary-menu-spacing']    = array(
 				'desktop'      => array(
+					'top'    => $update_default_spacing ? '' : 0,
+					'right'  => $update_default_spacing ? '' : 20,
+					'bottom' => $update_default_spacing ? '' : 0,
+					'left'   => $update_default_spacing ? '' : 20,
+				),
+				'tablet'       => array(
 					'top'    => '',
 					'right'  => '',
 					'bottom' => '',
 					'left'   => '',
-				),
-				'tablet'       => array(
-					'top'    => '0',
-					'right'  => '20',
-					'bottom' => '0',
-					'left'   => '20',
 				),
 				'mobile'       => array(
 					'top'    => '',
@@ -617,7 +619,6 @@ if ( ! class_exists( 'Astra_Ext_Spacing_Loader' ) ) {
 			}
 			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-sidebar-spacing-configs.php';
 			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-blog-spacing-configs.php';
-			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/sections/class-astra-customizer-single-post-spacing-configs.php';
 		}
 
 		/**

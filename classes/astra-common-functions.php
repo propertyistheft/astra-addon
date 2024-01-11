@@ -555,10 +555,10 @@ function astra_addon_get_font_array_css( $font_family, $font_weight, $font_size,
  * @param string $type - Type of condition.
  * @return bool
  *
- * @since x.x.x
+ * @since 4.6.0
  */
 function astra_addon_check_reveal_effect_condition( $type = '' ) {
-	$supported_post_types    = Astra_Posts_Structure_Loader::get_supported_post_types();
+	$supported_post_types    = class_exists( 'Astra_Posts_Structure_Loader' ) && is_callable( 'Astra_Posts_Structure_Loader::get_supported_post_types' ) ? Astra_Posts_Structure_Loader::get_supported_post_types() : array( 'post' );
 	$post_type               = strval( get_post_type() );
 	$blog_layout             = astra_addon_get_blog_layout();
 	$blog_list_layout        = ( 'blog-layout-2' === $blog_layout || 'blog-layout-3' === $blog_layout || 'blog-layout-5' === $blog_layout );
@@ -590,7 +590,7 @@ function astra_addon_check_reveal_effect_condition( $type = '' ) {
 /**
  * Check Astra with modern blog setup.
  *
- * @since x.x.x
+ * @since 4.6.0
  */
 function astra_addon_4_6_0_compatibility() {
 	return is_callable( 'Astra_Dynamic_CSS::astra_4_6_0_compatibility' ) ? Astra_Dynamic_CSS::astra_4_6_0_compatibility() : false;

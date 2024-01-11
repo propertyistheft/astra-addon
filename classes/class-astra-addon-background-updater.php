@@ -26,26 +26,6 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'2.2.0' => array(
-				'astra_addon_page_builder_button_color_compatibility',
-			),
-			'2.3.0' => array(
-				'astra_addon_page_header_parallax_device',
-			),
-			'2.3.3' => array(
-				'astra_addon_css_gen_multi_site_fix',
-			),
-			'2.4.0' => array(
-				'astra_responsive_content_background_option',
-				'astra_addon_update_theme_tablet_breakpoint',
-			),
-			'2.5.0' => array(
-				'custom_layout_compatibility_having_code_posts',
-				'astra_addon_page_header_submenu_color_options',
-			),
-			'2.6.0' => array(
-				'astra_addon_header_css_optimizations',
-			),
 			'3.5.0' => array(
 				'astra_addon_page_headers_support_to_builder_layout',
 			),
@@ -86,6 +66,12 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 			),
 			'4.4.0' => array(
 				'astra_addon_background_updater_4_4_0',
+			),
+			'4.6.0' => array(
+				'astra_addon_background_updater_4_6_0',
+			),
+			'4.6.1' => array(
+				'astra_addon_background_updater_4_6_1',
 			),
 		);
 

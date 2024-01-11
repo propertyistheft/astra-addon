@@ -1,25 +1,41 @@
 *** Astra Pro Changelog ***
 
-2023-12-21 - version v4.6.0-beta.1
-* New: Blog - Introducing elegant Reveal Effect for posts appearance.
-* New: Single - Author Box - Introduced new controls like Alignment, Background, Border, Spacings for improvising the author box.
-* New: Single - Author Box - Introduced new Section placement, Social Share option support.
-* New: Introducing Reveal Effect to archives like WooCommerce Shop, Search Results page.
-* Improvement: Single - Author Box - Introducing new Border, Spacing controls for improvising the author box UI.
-* Improvement: Single - Moved the Author Box, Social Sharing settings from Single Post section to the new sub-sections under Single Post section.
-* Improvement: Added customizer section shortcut link to Author Box section to quick access for better user experience.
+2024-01-09 - version 4.6.1
+* Improvement: Page Header - Restricted the banner title area with layout-2 with page header.
+* Fix: Page Header - "Override the image with the featured image" option not working for single layouts.
+* Fix: Fatal error showing from addon side because user is using older Astra version and updated Astra Addon.
 
-Unreleased - version 4.5.3
-* Fix: Social Icons - Horizontal alignment does not work if Stack On is selected.
+2024-01-04 - version 4.6.0
+* BLOG IMPROVEMENTS (https://wpastra.com/docs/blog-archive-improvements/)
+* New: Blog - Introducing elegant Reveal Effect for posts appearance on archive & search results page.
+* New: WooCommerce - Introducing a new option to Reveal Effect for product archives.
+* SINGLE LAYOUT IMPROVEMENTS (https://wpastra.com/docs/single-post-improvements/)
+* New: Single - Author Box - Introduced new controls like Alignment, Background, Border, and Spacing for improvising the author box.
+* New: Single - Author Box - Introduced new Section placement and social Share option support.
+* New: Single - Post Navigation - Introducing new badge style for better visual appearance.
+* Improvement: Single - Moved the Author Box, and Social Sharing settings from the Single Post section to the new sub-sections under the Single Post section.
+* Improvement: Added customizer section shortcut link to Author Box section to quick access for better user experience.
+* Improvement: Author Box - Introduced new filter "astra_addon_author_box_heading_tag" to change the heading tag of the author box section.
+* Improvement: Author Box - Introduced new filter "astra_addon_author_title_heading_tag" to change the heading tag of the author name.
+* MISCELLANEOUS
+* Improvement: Performance - Removed legacy CSS for the spacing addon & managed spacing with the new spacing options.
+* Improvement: WooCommerce - Added a new customization option for the color of the cart icon when the sticky header is enabled.
+* Fix: Social Icons - Horizontal alignment does not work if Stack-On is selected.
 * Fix: Sticky Header - Background is not blurry on iOS devices.
 * Fix: Page Header - Background Image is not working on a single post.
-* Fix: Nav Menu - Megamenu elements hover colour not working as expected.
+* Fix: Nav Menu - Menu items hover color not working as expected.
 * Fix: WooCommerce - Horizontal product gallery slider resizes in landscape mode for mobile devices.
-* Fix: Site Builder - Header Shrink effect does not work in Site Builder.
-* Fix: Site Builder layouts and page headers with untitled showing empty space on front end admin menu dropdown.
-* Fix: Site Builder - Issue with hooks not showing up in full width with Beaver Builder in the editor page.
+* Fix: Site Builder - Header Shrink effect does not work in Site Builder header layouts.
+* Fix: Site Builder layouts and page headers with untitled showing empty title space on front end admin-bar menu dropdown.
+* Fix: Site Builder - Issue with hooks not showing up in full width with Beaver Builder on the editor page.
 * Fix: WooCommerce - Unable to login with modern checkout when the password contains some specific symbols such as ampersand.
-* Fix: WooCommerce - On shop page sidebar collides when it's moved to the top of the screen in mobile and tablet.
+* Fix: WooCommerce - On shop page sidebar collides when it's moved to the top of the screen on responsive devices.
+* Fix: WooCommerce - Quick view background color not applying to entire product details section when sticky add to cart button is enabled.
+* Fix: Nav Menu - Menu layout breaks on responsive devices due to default spacing added.
+* Fix: Page Header - Getting str_contains() deprecated notice from custom header with PHP 8.x.
+* Fix: WooCommerce - The Off-canvas Sidebar does not close with an outside click or ESC key.
+* Fix: PHP error for "Uncaught Error: class FLThemeBuilderLayoutData not found" when Beaver Themer is active.
+* Fix: Sticky Header - Sticky header active menu color is not working when the submenu is added.
 
 2023-12-12 - version 4.5.2
 * New: Introducing new "vw" unit support for font-size in customizer typography settings.

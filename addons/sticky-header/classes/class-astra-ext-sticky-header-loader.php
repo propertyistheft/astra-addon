@@ -406,6 +406,14 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 
 			$defaults['sticky-header-language-switcher-color'] = '';
 
+			/**
+			 * Woo cart colors on sticky headers.
+			 *
+			 * @since 4.6.0
+			 */
+			$defaults['sticky-header-woo-cart-color']       = '';
+			$defaults['sticky-header-woo-cart-hover-color'] = '';
+
 			return $defaults;
 		}
 

@@ -1022,27 +1022,25 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( $is_site_rtl ) {
 		$tablet_min_width = array(
 			'#ast-quick-view-content div.summary form.cart.stick' => array(
-				'position'   => 'absolute',
-				'bottom'     => 0,
-				'background' => '#fff',
-				'margin'     => 0,
-				'padding'    => '20px 0 15px 30px',
-				'width'      => '50%',
-				'width'      => '-webkit-calc(50% - 30px)',
-				'width'      => 'calc(50% - 30px)',
+				'position' => 'absolute',
+				'bottom'   => 0,
+				'margin'   => 0,
+				'padding'  => '20px 0 15px 30px',
+				'width'    => '50%',
+				'width'    => '-webkit-calc(50% - 30px)',
+				'width'    => 'calc(50% - 30px)',
 			),
 		);
 	} else {
 		$tablet_min_width = array(
 			'#ast-quick-view-content div.summary form.cart.stick' => array(
-				'position'   => 'absolute',
-				'bottom'     => 0,
-				'background' => '#fff',
-				'margin'     => 0,
-				'padding'    => '20px 30px 15px 0',
-				'width'      => '50%',
-				'width'      => '-webkit-calc(50% - 30px)',
-				'width'      => 'calc(50% - 30px)',
+				'position' => 'absolute',
+				'bottom'   => 0,
+				'margin'   => 0,
+				'padding'  => '20px 30px 15px 0',
+				'width'    => '50%',
+				'width'    => '-webkit-calc(50% - 30px)',
+				'width'    => 'calc(50% - 30px)',
 			),
 		);
 	}

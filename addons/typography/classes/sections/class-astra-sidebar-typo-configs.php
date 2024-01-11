@@ -257,7 +257,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'section-sidebars',
 					'transport'         => 'refresh',
-					'title'             => __( 'Widget Title Font Size', 'astra-addon' ),
+					'title'             => __( 'Widget Title Size', 'astra-addon' ),
 					'priority'          => 24,
 					'default'           => astra_get_option( 'font-size-sidebar-title' ),
 					'suffix'            => array( 'px', 'em', 'vw' ),

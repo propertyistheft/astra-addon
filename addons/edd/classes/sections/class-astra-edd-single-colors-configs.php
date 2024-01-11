@@ -50,6 +50,7 @@ if ( ! class_exists( 'Astra_Edd_Single_Colors_Configs' ) ) {
 					'priority' => 231,
 					'settings' => array(),
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'context'  => astra_addon_builder_helper()->design_tab,
 				),
 
 				/**
@@ -65,6 +66,7 @@ if ( ! class_exists( 'Astra_Edd_Single_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Title', 'astra-addon' ),
 					'priority'          => 231,
+					'context'           => astra_addon_builder_helper()->design_tab,
 				),
 
 				/**
@@ -87,6 +89,7 @@ if ( ! class_exists( 'Astra_Edd_Single_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Navigation', 'astra-addon' ),
 					'priority'          => 231,
+					'context'           => astra_addon_builder_helper()->design_tab,
 				),
 
 				/**
@@ -102,6 +105,7 @@ if ( ! class_exists( 'Astra_Edd_Single_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'title'             => __( 'Product Content', 'astra-addon' ),
 					'priority'          => 231,
+					'context'           => astra_addon_builder_helper()->design_tab,
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 

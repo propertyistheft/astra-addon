@@ -183,15 +183,15 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 
 	// If advanced header disabled.
 	$title_bar_bg_img = '';
-	if ( $page_post_featured && $bg_image ) {
+	if ( ( is_archive() || is_search() || is_404() || is_home() ) && $bg_image ) {
 		$title_bar_bg_img = $bg_image;
 	} else {
 		// If selected Post / Page Featured image.
 		if ( 'enabled' == $page_post_featured ) {
 
-			if ( has_post_thumbnail( get_the_ID() ) ) {
-					$src              = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail_size' );
-					$title_bar_bg_img = $src[0];
+			$src = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail_size' );
+			if ( has_post_thumbnail( get_the_ID() ) && ! empty( $src ) ) {
+				$title_bar_bg_img = $src[0];
 			} else {
 				// Custom Background Image.
 				if ( $bg_image ) {

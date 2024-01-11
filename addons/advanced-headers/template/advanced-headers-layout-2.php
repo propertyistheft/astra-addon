@@ -26,6 +26,15 @@ if ( $astra_addon_show_breadcrumb ) {
 				<?php
 				if ( $astra_addon_header_title ) {
 					$astra_advanced_header_layout_2_title = apply_filters( 'astra_advanced_header_layout_2_title', $astra_addon_header_title );
+
+					ob_start();
+					do_action( 'astra_advanced_header_layout_2_before_title' );
+					$before_title = ob_get_clean();
+
+					ob_start();
+					do_action( 'astra_advanced_header_layout_2_after_title' );
+					$after_title = ob_get_clean();
+					
 					echo sprintf(
 						'<%1$s class="ast-advanced-headers-title">
 							%2$s
@@ -40,9 +49,9 @@ if ( $astra_addon_show_breadcrumb ) {
 						 * @param string $tags string containing the HTML tags for Advanced Header title.
 						 */
 						esc_html( apply_filters( 'astra_advanced_header_layout_2_title_tag', 'h1' ) ),
-						do_shortcode( do_action( 'astra_advanced_header_layout_2_before_title' ) ),
+						do_shortcode( $before_title ),
 						do_shortcode( $astra_advanced_header_layout_2_title ),
-						do_shortcode( do_action( 'astra_advanced_header_layout_2_after_title' ) )
+						do_shortcode( $after_title )
 					);
 				}
 				do_action( 'astra_advanced_header_layout_2_after_title_tag' );

@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 			}
 
 			$localized_data = array(
-				'title'                      => __( 'Site Builder', 'astra', 'astra-addon' ),
+				'title'                      => __( 'Site Builder', 'astra-addon' ),
 				'rest_url'                   => get_rest_url( '', '/astra-addon/v1/custom-layouts/' ),
 				'new_custom_layout_base_url' => admin_url( 'post-new.php?post_type=astra-advanced-hook' ),
 				'astra_pricing_page_url'     => 'https://wpastra.com/pricing/',

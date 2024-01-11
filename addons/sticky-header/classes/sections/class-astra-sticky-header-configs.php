@@ -664,6 +664,140 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 						)
 					);
 
+					$sticky_header_woo_cart_context = array(
+						'relation' => 'AND',
+						astra_addon_builder_helper()->design_tab_config,
+						array(
+							'relation' => 'OR',
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-above-stick]',
+								'operator' => '==',
+								'value'    => 1,
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-main-stick]',
+								'operator' => '==',
+								'value'    => 1,
+							),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[header-below-stick]',
+								'operator' => '==',
+								'value'    => 1,
+							),
+						),
+					);
+
+					/**
+					 * Options for Woo Cart colors on sticky header.
+					 *
+					 * @since 4.6.0
+					 */
+					array_push(
+						$sticky_individual_configs,
+						/**
+						* Option: Sticky Header Woo Cart Options
+						*/
+						array(
+							'name'     => ASTRA_THEME_SETTINGS . '[sticky-header-woo-cart-divider]',
+							'type'     => 'control',
+							'control'  => 'ast-heading',
+							'section'  => 'section-header-woo-cart',
+							'title'    => __( 'Sticky Header Option', 'astra-addon' ),
+							'settings' => array(),
+							'priority' => 80,
+							'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+							'context'  => $sticky_header_woo_cart_context,
+						),
+						// Option Group: Cart Color.
+						array(
+							'name'       => ASTRA_THEME_SETTINGS . '[sticky-header-woo-cart-colors]',
+							'default'    => astra_get_option( 'sticky-header-woo-cart-colors' ),
+							'type'       => 'control',
+							'control'    => 'ast-color-group',
+							'title'      => __( 'Cart Color', 'astra-addon' ),
+							'section'    => 'section-header-woo-cart',
+							'transport'  => 'postMessage',
+							'priority'   => 85,
+							'context'    => $sticky_header_woo_cart_context,
+							'responsive' => false,
+							'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
+						),
+						// Option: Cart Normal Color.
+						array(
+							'type'       => 'sub-control',
+							'control'    => 'ast-responsive-color',
+							'parent'     => ASTRA_THEME_SETTINGS . '[sticky-header-woo-cart-colors]',
+							'section'    => 'section-header-woo-cart',
+							'transport'  => 'refresh',
+							'name'       => 'sticky-header-woo-cart-color',
+							'default'    => astra_get_option( 'sticky-header-woo-cart-color' ),
+							'title'      => __( 'Normal', 'astra-addon' ),
+							'responsive' => false,
+							'rgba'       => true,
+							'priority'   => 85,
+							'context'    => $sticky_header_woo_cart_context,
+						),
+						// Option: Cart Hover Color.
+						array(
+							'type'       => 'sub-control',
+							'control'    => 'ast-responsive-color',
+							'transport'  => 'refresh',
+							'parent'     => ASTRA_THEME_SETTINGS . '[sticky-header-woo-cart-colors]',
+							'section'    => 'section-header-woo-cart',
+							'name'       => 'sticky-header-woo-cart-hover-color',
+							'default'    => astra_get_option( 'sticky-header-woo-cart-hover-color' ),
+							'title'      => __( 'Hover', 'astra-addon' ),
+							'responsive' => false,
+							'rgba'       => true,
+							'priority'   => 85,
+							'context'    => $sticky_header_woo_cart_context,
+						),
+						// Option Group: Cart Color.
+						array(
+							'name'       => ASTRA_THEME_SETTINGS . '[sticky-header-woo-cart-count-colors]',
+							'default'    => astra_get_option( 'sticky-header-woo-cart-count-colors' ),
+							'type'       => 'control',
+							'control'    => 'ast-color-group',
+							'title'      => __( 'Count Color', 'astra-addon' ),
+							'section'    => 'section-header-woo-cart',
+							'transport'  => 'postMessage',
+							'priority'   => 85,
+							'context'    => $sticky_header_woo_cart_context,
+							'responsive' => false,
+							'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
+						),
+						// Option: Cart Normal Color.
+						array(
+							'type'       => 'sub-control',
+							'control'    => 'ast-responsive-color',
+							'parent'     => ASTRA_THEME_SETTINGS . '[sticky-header-woo-cart-count-colors]',
+							'section'    => 'section-header-woo-cart',
+							'transport'  => 'refresh',
+							'name'       => 'sticky-header-woo-cart-count-color',
+							'default'    => astra_get_option( 'sticky-header-woo-cart-count-color' ),
+							'title'      => __( 'Normal', 'astra-addon' ),
+							'responsive' => false,
+							'rgba'       => true,
+							'priority'   => 85,
+							'context'    => $sticky_header_woo_cart_context,
+						),
+						// Option: Cart Hover Color.
+						array(
+							'type'       => 'sub-control',
+							'control'    => 'ast-responsive-color',
+							'transport'  => 'refresh',
+							'parent'     => ASTRA_THEME_SETTINGS . '[sticky-header-woo-cart-count-colors]',
+							'section'    => 'section-header-woo-cart',
+							'name'       => 'sticky-header-woo-cart-count-hover-color',
+							'default'    => astra_get_option( 'sticky-header-woo-cart-count-hover-color' ),
+							'title'      => __( 'Hover', 'astra-addon' ),
+							'responsive' => false,
+							'rgba'       => true,
+							'priority'   => 85,
+							'context'    => $sticky_header_woo_cart_context,
+						),
+					);
+
 					$sticky_menu_configs = array();
 
 					$component_limit = astra_addon_builder_helper()->component_limit;

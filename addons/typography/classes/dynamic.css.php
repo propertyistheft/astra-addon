@@ -37,9 +37,9 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$archive_page_title_letter_spacing  = astra_addon_get_font_extras( astra_get_option( 'font-extras-page-title' ), 'letter-spacing', 'letter-spacing-unit' );
 	$archive_page_title_text_decoration = astra_addon_get_font_extras( astra_get_option( 'font-extras-page-title' ), 'text-decoration' );
 
-	$post_meta_font_size = astra_get_option( 'font-size-post-meta' );
-	$post_tax_font_size = astra_get_option( 'font-size-post-tax' );
-	$post_excerpt_font_size = astra_get_option( 'font-size-post-excerpt' );
+	$post_meta_font_size      = astra_get_option( 'font-size-post-meta' );
+	$post_tax_font_size       = astra_get_option( 'font-size-post-tax' );
+	$post_excerpt_font_size   = astra_get_option( 'font-size-post-excerpt' );
 	$post_read_more_font_size = astra_get_option( 'font-size-post-read-more' );
 
 	$post_pagination_font_size      = astra_get_option( 'font-size-post-pagination' );
@@ -372,10 +372,10 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'font-size' => astra_get_font_css_value( $outside_menu_item_font['tablet'], $outside_menu_item_font['tablet-unit'] ),
 		),
 
-		'.ast-read-more-container a' => array(
+		'.ast-read-more-container a'                => array(
 			'font-size' => astra_get_font_css_value( $post_read_more_font_size['tablet'], $post_read_more_font_size['tablet-unit'] ),
 		),
-		'.ast-excerpt-container' => array(
+		'.ast-excerpt-container'                    => array(
 			'font-size' => astra_get_font_css_value( $post_excerpt_font_size['tablet'], $post_excerpt_font_size['tablet-unit'] ),
 		),
 	);
@@ -428,10 +428,10 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			'font-size' => astra_get_font_css_value( $outside_menu_item_font['mobile'], $outside_menu_item_font['mobile-unit'] ),
 		),
 
-		'.ast-read-more-container a' => array(
+		'.ast-read-more-container a'                => array(
 			'font-size' => astra_get_font_css_value( $post_read_more_font_size['mobile'], $post_read_more_font_size['mobile-unit'] ),
 		),
-		'.ast-excerpt-container' => array(
+		'.ast-excerpt-container'                    => array(
 			'font-size' => astra_get_font_css_value( $post_excerpt_font_size['mobile'], $post_excerpt_font_size['mobile-unit'] ),
 		),
 	);

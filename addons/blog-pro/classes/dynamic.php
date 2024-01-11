@@ -268,20 +268,20 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		);
 
 		$css_output[ $selector . ' a.ast-social-icon-a, ' . $selector2 . ' a.ast-social-icon-a' ] = array(
-			'justify-content'             => 'center',
-			'line-height'                 => 'normal',
-			'display'                     => $is_social_fixed ? 'flex' : 'inline-flex',
-			'text-align'                  => 'center',
-			'text-decoration'             => 'none',
+			'justify-content' => 'center',
+			'line-height'     => 'normal',
+			'display'         => $is_social_fixed ? 'flex' : 'inline-flex',
+			'text-align'      => 'center',
+			'text-decoration' => 'none',
 		);
 
-		$css_output[ $selector . ' a.ast-social-icon-a' ] = array(
+		$css_output[ $selector . ' a.ast-social-icon-a' ]  = array(
 			'display'                     => $is_social_fixed ? 'block' : 'inline-block',
 			'margin-' . $margin_rvs_left  => astra_get_css_value( $icon_spacing_desktop, 'px' ),
 			'margin-' . $margin_rvs_right => astra_get_css_value( $icon_spacing_desktop, 'px' ),
 		);
 		$css_output[ $selector2 . ' a.ast-social-icon-a' ] = array(
-			'display'                     => 'inline-block',
+			'display'              => 'inline-block',
 			'margin-' . $ltr_left  => astra_get_css_value( $icon_spacing_desktop, 'px' ),
 			'margin-' . $ltr_right => astra_get_css_value( $icon_spacing_desktop, 'px' ),
 		);
@@ -627,8 +627,8 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 	}
 
 	if ( astra_get_option( 'ast-author-info' ) ) {
-		$author_box_bg_obj        = astra_get_option( 'author-box-background' );
-		$bg_css                   = astra_get_background_obj( $author_box_bg_obj );
+		$author_box_bg_obj = astra_get_option( 'author-box-background' );
+		$bg_css            = astra_get_background_obj( $author_box_bg_obj );
 
 		$author_box_dynamic_arr = array(
 			'.single .ast-single-author-box .ast-author-meta, .single.ast-separate-container .site-main .ast-author-meta'  => astra_get_background_obj( $author_box_bg_obj ),

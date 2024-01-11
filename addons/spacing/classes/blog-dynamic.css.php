@@ -110,31 +110,6 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		/**
-		 * Single Post Content Spacing
-		 */
-		'.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container' . $author_meta_boxed_selector => array(
-			'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'desktop' ),
-			'padding-bottom' => astra_responsive_spacing( $single_post_inside_spacing, 'bottom', 'desktop' ),
-		),
-
-		// Narrow Container single post inside spacing support.
-		'.ast-narrow-container.ast-single-post .ast-article-post, .ast-narrow-container.ast-single-post .ast-article-single, .ast-narrow-container.ast-single-post .ast-comment-list li.depth-1, .ast-narrow-container.ast-single-post .comment-respond, .ast-narrow-container.ast-single-post .ast-related-posts-wrap, .ast-narrow-container.ast-single-post .ast-woocommerce-container, .ast-narrow-container.ast-single-post .ast-single-related-posts-container' . $author_meta_narrow_selector => array(
-			'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'desktop' ),
-			'padding-bottom' => astra_responsive_spacing( $single_post_inside_spacing, 'bottom', 'desktop' ),
-		),
-
-		'.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single, .ast-separate-container.ast-single-post .comments-count-wrapper, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond,.ast-separate-container.ast-single-post .related-posts-title-wrapper,.ast-separate-container.ast-single-post .related-posts-title-wrapper, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container' . $author_meta_boxed_selector => array(
-			'padding-right' => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'desktop' ),
-			'padding-left'  => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'desktop' ),
-		),
-
-		// Narrow Container single post inside spacing support.
-		'.ast-narrow-container.ast-single-post .ast-article-post, .ast-narrow-container.ast-single-post .ast-article-single, .ast-narrow-container.ast-single-post .comments-count-wrapper, .ast-narrow-container.ast-single-post .ast-comment-list li.depth-1, .ast-narrow-container.ast-single-post .comment-respond,.ast-narrow-container.ast-single-post .related-posts-title-wrapper,.ast-narrow-container.ast-single-post .related-posts-title-wrapper,  .ast-narrow-container.ast-single-post .ast-related-posts-wrap, .ast-narrow-container.ast-single-post .ast-woocommerce-container, .ast-narrow-container.ast-single-post .ast-single-related-posts-container' . $author_meta_narrow_selector => array(
-			'padding-right' => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'desktop' ),
-			'padding-left'  => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'desktop' ),
-		),
-
-		/**
 		 * Sidebar Spacing
 		 */
 		'.ast-plain-container #secondary, .ast-separate-container #secondary, .ast-page-builder-template #secondary' => array(
@@ -182,17 +157,6 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-left'   => astra_responsive_spacing( $blog_post_pagination_spacing, 'left', 'desktop' ),
 		),
 	);
-
-	if ( ! astra_addon_4_6_0_compatibility() ) {
-		if ( $is_new_structural_defaults ) {
-			$spacing['.ast-separate-container .comments-title, .ast-narrow-container .comments-title'] = array(
-				'padding-right'  => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'desktop' ),
-				'padding-left'   => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'desktop' ),
-				'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'desktop' ),
-				'padding-bottom' => astra_addon_4_6_0_compatibility() ? '' : '0',
-			);
-		}
-	}
 
 	if ( false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 
@@ -242,32 +206,6 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		/**
-		 * Single Post Content Spacing
-		 */
-		'.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container' . $author_meta_narrow_selector => array(
-			'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'tablet' ),
-			'padding-bottom' => astra_responsive_spacing( $single_post_inside_spacing, 'bottom', 'tablet' ),
-		),
-		// Narrow Container single post tablet support for inside spacing.
-		'.ast-narrow-container.ast-single-post .ast-article-post, .ast-narrow-container.ast-single-post .ast-article-single, .ast-narrow-container.ast-single-post .ast-comment-list li.depth-1, .ast-narrow-container.ast-single-post .comment-respond, .ast-narrow-container.ast-single-post .ast-related-posts-wrap, .ast-narrow-container.ast-single-post .ast-woocommerce-container, .ast-narrow-container.ast-single-post .ast-single-related-posts-container' . $author_meta_boxed_selector => array(
-			'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'tablet' ),
-			'padding-bottom' => astra_responsive_spacing( $single_post_inside_spacing, 'bottom', 'tablet' ),
-		),
-		'.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single,.ast-separate-container.ast-single-post .comments-count-wrapper, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond,.ast-separate-container.ast-single-post .related-posts-title-wrapper,.ast-separate-container.ast-single-post .related-posts-title-wrapper, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container' . $author_meta_boxed_selector => array(
-			'padding-right' => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'tablet' ),
-			'padding-left'  => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'tablet' ),
-		),
-		'.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single,.ast-separate-container.ast-single-post .comments-count-wrapper, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond,.ast-separate-container.ast-single-post .related-posts-title-wrapper,.ast-separate-container.ast-single-post .related-posts-title-wrapper, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container' . $author_meta_boxed_selector => array(
-			'padding-right' => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'tablet' ),
-			'padding-left'  => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'tablet' ),
-		),
-		// Narrow Container single post tablet support for inside spacing.
-		'.ast-narrow-container.ast-single-post .ast-article-post, .ast-narrow-container.ast-single-post .ast-article-single,.ast-narrow-container.ast-single-post .comments-count-wrapper, .ast-narrow-container.ast-single-post .ast-comment-list li.depth-1, .ast-narrow-container.ast-single-post .comment-respond,.ast-narrow-container.ast-single-post .related-posts-title-wrapper,.ast-narrow-container.ast-single-post .related-posts-title-wrapper, .ast-narrow-container.ast-single-post .ast-related-posts-wrap, .ast-narrow-container.ast-single-post .ast-woocommerce-container, .ast-narrow-container.ast-single-post .ast-single-related-posts-container' . $author_meta_narrow_selector => array(
-			'padding-right' => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'tablet' ),
-			'padding-left'  => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'tablet' ),
-		),
-
-		/**
 		 * Blog Grid Spacing
 		 */
 		// Blog Grid Outside Spacing.
@@ -310,17 +248,6 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'margin-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'tablet', '', '-' ),
 		),
 	);
-
-	if ( ! astra_addon_4_6_0_compatibility() ) {
-		if ( $is_new_structural_defaults ) {
-			$tablet_spacing['.ast-separate-container .comments-title, .ast-narrow-container .comments-title'] = array(
-				'padding-right'  => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'tablet' ),
-				'padding-left'   => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'tablet' ),
-				'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'tablet' ),
-				'padding-bottom' => astra_addon_4_6_0_compatibility() ? '' : '0',
-			);
-		}
-	}
 
 	if ( false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 
@@ -381,19 +308,6 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		'.ast-header-break-point .main-navigation ul .menu-item.menu-item-has-children button' => array(
 			'padding-right'  => astra_responsive_spacing( $primary_menu_spacing, 'right', 'mobile' ),
 			'padding-bottom' => astra_responsive_spacing( $primary_menu_spacing, 'bottom', 'mobile' ),
-		),
-		'.ast-separate-container.ast-single-post .ast-article-post, .ast-separate-container.ast-single-post .ast-article-single,.ast-separate-container.ast-single-post .comments-count-wrapper, .ast-separate-container.ast-single-post .ast-comment-list li.depth-1, .ast-separate-container.ast-single-post .comment-respond, .ast-separate-container.ast-single-post .related-posts-title-wrapper, .ast-separate-container.ast-single-post .ast-related-posts-wrap, .ast-separate-container.ast-single-post .ast-woocommerce-container' . $author_meta_boxed_selector => array(
-			'padding-right'  => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'mobile' ),
-			'padding-left'   => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'mobile' ),
-			'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'mobile' ),
-			'padding-bottom' => astra_responsive_spacing( $single_post_inside_spacing, 'bottom', 'mobile' ),
-		),
-		// Narrow Container single post mobile support for inside spacing.
-		'.ast-narrow-container.ast-single-post .ast-article-post, .ast-narrow-container.ast-single-post .ast-article-single,.ast-narrow-container.ast-single-post .comments-count-wrapper, .ast-narrow-container.ast-single-post .ast-comment-list li.depth-1, .ast-narrow-container.ast-single-post .comment-respond, .ast-narrow-container.ast-single-post .related-posts-title-wrapper, .ast-narrow-container.ast-single-post .ast-related-posts-wrap, .ast-narrow-container.ast-single-post .ast-woocommerce-container' . $author_meta_narrow_selector => array(
-			'padding-right'  => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'mobile' ),
-			'padding-left'   => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'mobile' ),
-			'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'mobile' ),
-			'padding-bottom' => astra_responsive_spacing( $single_post_inside_spacing, 'bottom', 'mobile' ),
 		),
 
 		/**
@@ -461,17 +375,6 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'margin-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'mobile', '', '-' ),
 		),
 	);
-
-	if ( ! astra_addon_4_6_0_compatibility() ) {
-		if ( $is_new_structural_defaults ) {
-			$mobile_spacing['.ast-separate-container .comments-title, .ast-narrow-container .comments-title'] = array(
-				'padding-right'  => astra_responsive_spacing( $single_post_inside_spacing, 'right', 'mobile' ),
-				'padding-left'   => astra_responsive_spacing( $single_post_inside_spacing, 'left', 'mobile' ),
-				'padding-top'    => astra_responsive_spacing( $single_post_inside_spacing, 'top', 'mobile' ),
-				'padding-bottom' => astra_addon_4_6_0_compatibility() ? '' : '0',
-			);
-		}
-	}
 
 	if ( false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 

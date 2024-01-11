@@ -63,16 +63,16 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['add-outline-cart-bg-new-header'] = isset( $astra_settings['add-outline-cart-bg-new-header'] ) ? false : true;
 		return apply_filters( 'astra_apply_background_to_outline_cart_builder_element', $astra_settings['add-outline-cart-bg-new-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
-	
+
 	/**
 	 * Astra update default font size and font weight.
-	 * 
-	 * @since x.x.x 
-	 * @return boolean 
+	 *
+	 * @since 4.6.0
+	 * @return boolean
 	 */
 	public static function astra_update_default_font_styling_addon() {
 		return is_callable( 'Astra_Woocommerce::astra_update_default_font_styling' ) ? Astra_Woocommerce::astra_update_default_font_styling() : false;
-		
+
 	}
 	/**
 	 * Remove 'Header Sections' addon dependency
@@ -120,5 +120,29 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 		$astra_settings['v4-4-0-backward-option'] = isset( $astra_settings['v4-4-0-backward-option'] ) ? false : true;
 		return apply_filters( 'astra_addon_upgrade_fullscreen_search_submit_style', $astra_settings['v4-4-0-backward-option'] );
+	}
+
+	/**
+	 * Sub menu broken arrow icon for tablet and mobile.
+	 *
+	 * @since 4.6.0
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_update_default_menu_styling() {
+		$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings['update-default-spacing-for-header'] = isset( $astra_settings['update-default-spacing-for-header'] ) ? false : true;
+		return apply_filters( 'astra_addon_update_legacy_menu_spacing', $astra_settings['update-default-spacing-for-header'] );
+	}
+
+	/**
+	 * Restrict banner area with page header.
+	 *
+	 * @since 4.6.1
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_restrict_banner_area_with_page_header() {
+		$astra_settings = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings['restrict-banner-layout-with-page-header'] = isset( $astra_settings['restrict-banner-layout-with-page-header'] ) ? false : true;
+		return apply_filters( 'astra_addon_page_header_with_banner', $astra_settings['restrict-banner-layout-with-page-header'] );
 	}
 }

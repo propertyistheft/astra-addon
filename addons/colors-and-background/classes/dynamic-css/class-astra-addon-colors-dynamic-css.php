@@ -203,14 +203,14 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			 * Blog / Archive Taxonomy Color
 			 */
 			$blog_tax_normal                   => array(
-				'color'            => esc_attr( $post_tax_color ),
-				'border-color'     => esc_attr( $post_tax_border_color ),
+				'color'        => esc_attr( $post_tax_color ),
+				'border-color' => esc_attr( $post_tax_border_color ),
 			),
 
 			/**
 			 * Blog / Archive Taxonomy Background Color
 			 */
-			$blog_tax_normal_bg                   => array(
+			$blog_tax_normal_bg                => array(
 				'background-color' => esc_attr( $post_tax_bg_color ),
 			),
 
@@ -218,14 +218,14 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			 * Blog / Archive Taxonomy Color
 			 */
 			$blog_tax_hover                    => array(
-				'color'            => esc_attr( $post_tax_h_color ),
-				'border-color'     => esc_attr( $post_tax_border_h_color ),
+				'color'        => esc_attr( $post_tax_h_color ),
+				'border-color' => esc_attr( $post_tax_border_h_color ),
 			),
 
 			/**
 			 * Blog / Archive Background Taxonomy Color Hover
 			 */
-			$blog_tax_hover_bg                    => array(
+			$blog_tax_hover_bg                 => array(
 				'background-color' => esc_attr( $post_tax_bg_h_color ),
 			),
 

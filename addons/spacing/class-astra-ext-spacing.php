@@ -41,18 +41,16 @@ if ( ! class_exists( 'Astra_Ext_Spacing' ) ) {
 		 * Constructor function that initializes required actions and hooks
 		 */
 		public function __construct() {
+			require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/class-astra-ext-spacing-loader.php';
 
-			// Astra_Control_Responsive_Spacing introduced in Astra 1.2.0.
-			// If found older version then do not load any settings from customizer.
-			if ( version_compare( ASTRA_THEME_VERSION, '1.2.0', '>=' ) ) {
-				require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/class-astra-ext-spacing-loader.php';
-
-				// Include front end files.
-				if ( ! is_admin() ) {
+			// Include front end files.
+			if ( ! is_admin() ) {
+				if ( astra_addon_4_6_0_compatibility() ) {
+					require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/blog-dynamic.css.php';
+				} else {
 					require_once ASTRA_ADDON_EXT_SPACING_DIR . 'classes/dynamic.css.php';
 				}
 			}
-
 		}
 	}
 }

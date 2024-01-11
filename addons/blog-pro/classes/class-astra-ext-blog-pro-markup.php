@@ -183,7 +183,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 		/**
 		 * Function to get author info box within the post container.
 		 *
-		 * @since x.x.x
+		 * @since 4.6.0
 		 */
 		public function author_box_within_container() {
 			$author_box_placement = astra_get_option( 'author-box-placement', 'outside' );
@@ -859,7 +859,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 		/**
 		 * Render Author Box sharing.
 		 *
-		 * @since x.x.x
+		 * @since 4.6.0
 		 * @return mixed HTML markup
 		 */
 		public function astra_render_author_box_sharing() {

@@ -32,7 +32,7 @@ echo do_shortcode(
 		sprintf(
 			'<div class="%6$s ast-single-author-box ast-author-container--%4$s ast-author-box-position--%5$s" %2$s itemscope itemtype="https://schema.org/Person" %7$s>%8$s %1$s</div>',
 			sprintf(
-				'<div class="ast-author-meta"> <div class="about-author-title-wrapper"> <h3 class="about-author">%1$s</h3> </div> <div class="ast-author-details"> <div class="post-author-avatar">%2$s</div> <div class="post-author-bio"> <a class="url fn n" href="%3$s" %6$s rel="author" target="%9$s"> <h4 class="author-title" %7$s>%4$s</h4> </a> <div class="post-author-desc">%5$s</div> %8$s </div> </div> </div>',
+				'<div class="ast-author-meta"> <div class="about-author-title-wrapper"> <%10$s class="about-author">%1$s</%10$s> </div> <div class="ast-author-details"> <div class="post-author-avatar">%2$s</div> <div class="post-author-bio"> <a class="url fn n" href="%3$s" %6$s rel="author" target="%9$s"> <%11$s class="author-title" %7$s>%4$s</%11$s> </a> <div class="post-author-desc">%5$s</div> %8$s </div> </div> </div>',
 				esc_html__( 'About The Author', 'astra-addon' ),
 				get_avatar( get_the_author_meta( 'email' ), 100 ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
@@ -52,6 +52,8 @@ echo do_shortcode(
 				),
 				Astra_Ext_Blog_Pro_Markup::get_instance()->astra_render_author_box_sharing(),
 				true === $author_box_open_target ? '_blank' : '_self',
+				apply_filters( 'astra_addon_author_box_heading_tag', 'h3' ),
+				apply_filters( 'astra_addon_author_title_heading_tag', 'h4' )
 			),
 			astra_attr(
 				'author-item-info',

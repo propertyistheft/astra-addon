@@ -347,6 +347,27 @@
 	});
 
 	/**
+	 * Sticky Header Cart and Count Colors.
+	 * Bruteforce customizer transport refresh, to utilize PHP generated dynamic css.
+	 *
+	 * @since x.x.x
+	 */
+	const stickyHeaderCartColorsTransportKeys = [
+		'astra-settings[sticky-header-woo-cart-color]',
+		'astra-settings[sticky-header-woo-cart-hover-color]',
+		'astra-settings[sticky-header-woo-cart-count-color]',
+		'astra-settings[sticky-header-woo-cart-count-hover-color]',
+	];
+
+	stickyHeaderCartColorsTransportKeys.forEach(function(stickyHeaderCartColorsTransportKey) {
+		wp.customize( stickyHeaderCartColorsTransportKey, function( setting ) {
+			setting.bind( function( color ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+	});
+
+	/**
 	 * Sticky Header Site Tagline color
 	 */
 	wp.customize( 'astra-settings[header-color-site-tagline]', function( setting ) {

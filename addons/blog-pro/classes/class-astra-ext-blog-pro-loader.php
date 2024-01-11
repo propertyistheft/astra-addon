@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
-			$improve_blog  = astra_addon_4_6_0_compatibility();
+			$improve_blog = astra_addon_4_6_0_compatibility();
 
 			// Blog / Archive.
 			$defaults['blog-masonry']               = false;
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 							'enabled'    => true,
 							'source'     => 'icon',
 							'url'        => '',
-							'color'      => "#000000",
+							'color'      => '#000000',
 							'background' => 'transparent',
 							'icon'       => 'twitter-x',
 							'label'      => __( 'Twitter / X', 'astra-addon' ),

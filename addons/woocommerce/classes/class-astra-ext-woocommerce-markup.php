@@ -2167,8 +2167,13 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				}
 			}
 
-			// Beaver Builder themer layout.
-			if ( class_exists( 'FLThemeBuilderLoader' ) || class_exists( 'FLThemeBuilderLayoutData' ) ) {
+			// Beaver Builder themer layout.			
+			if ( class_exists( 'FLThemeBuilderLoader' ) ) {
+
+				if ( ! class_exists( 'FLThemeBuilderLayoutData' ) ) {
+					return;
+				}
+				
 				$template_ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
 				if ( ! empty( $template_ids ) ) {
 					$template_id   = $template_ids[0];

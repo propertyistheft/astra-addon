@@ -41,6 +41,12 @@
 				}
 			}
 
+			// Close off-canvas on "Escape" button click.
+			document.addEventListener("keydown", function(event) {
+				if ( 'Escape' !== event.code ) return;
+				$('.astra-off-canvas-sidebar-wrapper').trigger('click');
+			});
+
 			// Flyout above header menu.
 			$(document).on( 'click', '.ast-flyout-above-menu-enable .ast-above-header .menu-toggle', AstraMenu._open_above_offcanvas );
 			$(document).on( 'click touchstart', '.ast-flyout-above-menu-overlay .ast-above-header-navigation-wrap, .ast-flyout-above-menu-overlay .ast-above-header .ast-nav-close', AstraMenu._close_above_offcanvas );

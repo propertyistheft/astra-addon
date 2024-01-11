@@ -433,6 +433,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			// Page Header with no content is selected.
 			if ( $advanced_headers_layout && 'disable' !== $advanced_headers_layout ) {
 				add_filter( 'astra_the_title_enabled', '__return_false' );
+				if ( is_singular() && Astra_Addon_Update_Filter_Function::astra_addon_restrict_banner_area_with_page_header() ) {
+					add_filter( 'astra_apply_hero_header_banner', '__return_false' ); // If page header is set then banner title area of layout-2 won't be visible.
+				}
 			}
 		}
 
@@ -627,9 +630,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 				// If selected Post / Page Featured image.
 				if ( 'enabled' == $page_post_featured ) {
 
-					if ( has_post_thumbnail( get_the_ID() ) ) {
-							$src              = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail_size' );
-							$title_bar_bg_img = $src[0];
+					$src = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail_size' );
+					if ( has_post_thumbnail( get_the_ID() ) && ! empty( $src ) ) {
+						$title_bar_bg_img = $src[0];
 					} else {
 						// Custom Background Image.
 						if ( $bg_image ) {

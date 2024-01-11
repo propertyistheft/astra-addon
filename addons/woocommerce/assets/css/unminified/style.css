@@ -428,7 +428,6 @@
 .woocommerce ul.products li.product .woocommerce-loop-product__link img,
 .woocommerce-page ul.products li.product .woocommerce-loop-product__link img {
   margin-bottom: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: filter .6s, opacity .6s, transform .6s;
 }

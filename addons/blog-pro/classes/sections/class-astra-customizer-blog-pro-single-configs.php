@@ -40,8 +40,23 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
-			$social_design_sharing_context = astra_addon_builder_helper()->design_tab;
 			$parent_section                = 'section-blog-single';
+			$social_design_sharing_context = array(
+				astra_addon_builder_helper()->design_tab_config,
+				array(
+					'relation' => 'OR',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-heading-enable]',
+						'operator' => '===',
+						'value'    => true,
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[ast-author-info]',
+						'operator' => '===',
+						'value'    => true,
+					),
+				),
+			);
 
 			$_configs = array(
 
@@ -102,7 +117,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'description' => __( 'This option will not work on full width layouts.', 'astra-addon' ),
 					'priority'    => 9,
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
-					'context'   => array(
+					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -175,14 +190,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'settings' => array(),
 				),
 				array(
-					'name'     => 'ast-sub-section-author-box',
-					'title'    => __( 'Author Box', 'astra' ),
-					'type'     => 'section',
-					'section'  => $parent_section,
-					'panel'    => '',
-					'priority' => 1,
-				),
-				array(
 					'name'        => 'author-box-section-ast-context-tabs',
 					'section'     => 'ast-sub-section-author-box',
 					'type'        => 'control',
@@ -192,6 +199,14 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'context'     => array(),
 				),
 				array(
+					'name'     => 'ast-sub-section-author-box',
+					'title'    => __( 'Author Box', 'astra-addon' ),
+					'type'     => 'section',
+					'section'  => $parent_section,
+					'panel'    => '',
+					'priority' => 1,
+				),
+				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-author-info]',
 					'type'     => 'control',
 					'default'  => astra_get_option( 'ast-author-info' ),
@@ -199,7 +214,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'section'  => $parent_section,
 					'priority' => 9,
 					'linked'   => 'ast-sub-section-author-box',
-					'linkText' => __( 'Author Info', 'astra' ),
+					'linkText' => __( 'Author Info', 'astra-addon' ),
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider ast-bottom-section-divider' ),
 				),
 				array(
@@ -210,20 +225,13 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'       => __( 'Section Placement', 'astra-addon' ),
 					'control'     => Astra_Theme_Extension::$selector_control,
 					'priority'    => 9,
-					'description' => __( 'Decide whether to isolate or integrate the module with the entry content area.', 'astra' ),
+					'description' => __( 'Decide whether to isolate or integrate the module with the entry content area.', 'astra-addon' ),
 					'choices'     => array(
 						'inside'  => __( 'Contained', 'astra-addon' ),
 						'outside' => __( 'Separated', 'astra-addon' ),
 					),
-					'context'     => array(
-						astra_addon_builder_helper()->general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[ast-author-info]',
-							'operator' => '===',
-							'value'    => true,
-						),
-					),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'context'     => astra_addon_builder_helper()->general_tab,
+					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 					'responsive'  => false,
 					'renderAs'    => 'text',
 				),
@@ -234,14 +242,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'section'  => 'ast-sub-section-author-box',
 					'title'    => __( 'Open Link in New Tab', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
-					'context'  => array(
-						astra_addon_builder_helper()->general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[ast-author-info]',
-							'operator' => '===',
-							'value'    => true,
-						),
-					),
+					'context'  => astra_addon_builder_helper()->general_tab,
 					'priority' => 9,
 					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
@@ -252,32 +253,20 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'section'  => 'ast-sub-section-author-box',
 					'title'    => __( 'Social Icons', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
-					'context'  => array(
-						astra_addon_builder_helper()->general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[ast-author-info]',
-							'operator' => '===',
-							'value'    => true,
-						),
-					),
+					'context'  => astra_addon_builder_helper()->general_tab,
 					'priority' => 9,
 					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[author-box-social-icon-list]',
-					'section'    => 'ast-sub-section-author-box',
-					'type'       => 'control',
-					'control'    => 'ast-social-icons',
-					'title'      => __( 'Social Icons', 'astra-addon' ),
-					'priority'   => 9,
-					'default'    => astra_get_option( 'author-box-social-icon-list' ),
-					'context'    => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[author-box-social-icon-list]',
+					'section'  => 'ast-sub-section-author-box',
+					'type'     => 'control',
+					'control'  => 'ast-social-icons',
+					'title'    => __( 'Social Icons', 'astra-addon' ),
+					'priority' => 9,
+					'default'  => astra_get_option( 'author-box-social-icon-list' ),
+					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[ast-author-info]',
-							'operator' => '===',
-							'value'    => true,
-						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[author-box-socials]',
 							'operator' => '===',
@@ -298,14 +287,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'center' => __( 'Center', 'astra-addon' ),
 					),
 					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
-					'context'    => array(
-						astra_addon_builder_helper()->general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[ast-author-info]',
-							'operator' => '===',
-							'value'    => true,
-						),
-					),
+					'context'    => astra_addon_builder_helper()->general_tab,
 					'responsive' => false,
 					'renderAs'   => 'text',
 				),
@@ -324,7 +306,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 				array(
 					'name'     => 'ast-sub-section-post-social-sharing',
-					'title'    => __( 'Social Sharing', 'astra' ),
+					'title'    => __( 'Social Sharing', 'astra-addon' ),
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'panel'    => '',
@@ -338,7 +320,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'section'  => $parent_section,
 					'priority' => 9,
 					'linked'   => 'ast-sub-section-post-social-sharing',
-					'linkText' => __( 'Social Sharing', 'astra' ),
+					'linkText' => __( 'Social Sharing', 'astra-addon' ),
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider ast-bottom-section-divider' ),
 				),
 
@@ -369,7 +351,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -569,7 +551,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'section'  => 'ast-sub-section-post-social-sharing',
 					'priority' => 500,
 					'label'    => '',
-					'help'     => __( 'Note: Explore social icons design settings by navigating to the Design tab within the parent Single Post section.', 'astra' ),
+					'help'     => __( 'Note: Explore social icons design settings by navigating to the Design tab within the parent Single Post section.', 'astra-addon' ),
 					'context'  => astra_addon_builder_helper()->general_tab,
 				),
 
@@ -1294,14 +1276,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'default'   => astra_get_option( 'author-box-background' ),
 					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 					'title'     => __( 'Background', 'astra-addon' ),
-					'context'   => array(
-						astra_addon_builder_helper()->design_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[ast-author-info]',
-							'operator' => '===',
-							'value'    => true,
-						),
-					),
+					'context'   => astra_addon_builder_helper()->design_tab,
 				),
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[author-box-extra-settings-notice]',
@@ -1310,7 +1285,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'section'  => 'ast-sub-section-author-box',
 					'priority' => 500,
 					'label'    => '',
-					'help'     => __( 'Note: Explore social icons additional design settings by navigating to the Design tab within the parent Single Post section.', 'astra' ),
+					'help'     => __( 'Note: Explore social icons additional design settings by navigating to the Design tab within the parent Single Post section.', 'astra-addon' ),
 					'context'  => astra_addon_builder_helper()->design_tab,
 				),
 			);

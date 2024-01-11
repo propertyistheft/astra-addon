@@ -113,6 +113,12 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		return $dynamic_css;
 	}
 
+	$sticky_header_woo_cart_color       = astra_get_option( 'sticky-header-woo-cart-color' );
+	$sticky_header_woo_cart_hover_color = astra_get_option( 'sticky-header-woo-cart-hover-color' );
+
+	$sticky_header_woo_cart_count_color       = astra_get_option( 'sticky-header-woo-cart-count-color' );
+	$sticky_header_woo_cart_count_hover_color = astra_get_option( 'sticky-header-woo-cart-count-hover-color' );
+
 	$parse_css = '';
 
 	/**
@@ -122,7 +128,8 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	 * [2]. Hide Sticky Header logo if Sticky Header logo is not enabled.
 	 * [3]. Sticky Header Logo responsive widths.
 	 * [4]. Compatible with Header Width.
-	 * [5]. Stciky Header & Sticky Header Primary menu background color.
+	 * [5]. Sticky Header & Sticky Header Primary menu background color.
+	 * [6]. Cart icon color for transparent sticky header.
 	 */
 
 	/**
@@ -291,17 +298,6 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			/**
 			 * Primary Header Menu
 			 */
-			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation' => array(
-				'background-color' => esc_attr( $sticky_header_menu_bg_color['desktop'] ),
-			),
-			'.ast-primary-sticky-header-active .main-header-menu .menu-item:hover > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .main-header-menu .menu-item.current-menu-ancestor > .menu-link' => array(
-				'color'            => esc_attr( $desktop_sticky_primary_menu_h_color ),
-				'background-color' => esc_attr( $sticky_header_menu_h_a_bg_color['desktop'] ),
-			),
-			'.ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item.current-menu-item > .menu-link:hover, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item.current-menu-item > .menu-link:hover, .ast-header-custom-item a:hover, .ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item > .menu-link:hover, .ast-primary-sticky-header-active .main-header-menu, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item > .menu-link:hover .ast-primary-sticky-header-active .main-header-menu .menu-item.focus > .menu-link, .ast-primary-sticky-header-active.ast-advanced-headers .main-header-menu > .menu-item > .menu-link:hover, .ast-primary-sticky-header-active.ast-advanced-headers .main-header-menu > .menu-item > .menu-link:focus' => array(
-				'background-color' => esc_attr( $sticky_header_menu_h_a_bg_color['desktop'] ),
-				'color'            => esc_attr( $desktop_sticky_primary_menu_h_color ),
-			),
 			'.ast-primary-sticky-header-active .main-header-menu .ast-masthead-custom-menu-items a:hover, .ast-primary-sticky-header-active .main-header-menu .menu-item:hover > .ast-menu-toggle, .ast-primary-sticky-header-active .main-header-menu .menu-item.focus > .ast-menu-toggle' => array(
 				'color' => esc_attr( $desktop_sticky_primary_menu_h_color ),
 			),
@@ -356,6 +352,17 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			),
 			'.ast-primary-sticky-header-active .site-header .site-description'             => array(
 				'color' => esc_attr( $desktop_sticky_header_color_site_tagline ),
+			),
+			'.ast-primary-sticky-header-active .main-header-bar-navigation .main-header-menu, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation' => array(
+				'background-color' => esc_attr( $sticky_header_menu_bg_color['desktop'] ),
+			),
+			'.ast-primary-sticky-header-active .main-header-menu .menu-item:hover > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-primary-sticky-header-active .main-header-menu .menu-item.current-menu-ancestor > .menu-link' => array(
+				'color'            => esc_attr( $desktop_sticky_primary_menu_h_color ),
+				'background-color' => esc_attr( $sticky_header_menu_h_a_bg_color['desktop'] ),
+			),
+			'.ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item.current-menu-item > .menu-link:hover, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item.current-menu-item > .menu-link:hover, .ast-header-custom-item a:hover, .ast-primary-sticky-header-active .ast-builder-menu-1 .main-header-menu .menu-item > .menu-link:hover, .ast-primary-sticky-header-active .main-header-menu, .ast-primary-sticky-header-active .ast-builder-menu-2 .main-header-menu .menu-item > .menu-link:hover .ast-primary-sticky-header-active .main-header-menu .menu-item.focus > .menu-link, .ast-primary-sticky-header-active.ast-advanced-headers .main-header-menu > .menu-item > .menu-link:hover, .ast-primary-sticky-header-active.ast-advanced-headers .main-header-menu > .menu-item > .menu-link:focus' => array(
+				'color'            => esc_attr( $desktop_sticky_primary_menu_h_color ),
+				'background-color' => esc_attr( $sticky_header_menu_h_a_bg_color['desktop'] ),
 			),
 		);
 
@@ -753,6 +760,56 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'color' => esc_attr( $sticky_header_content_section_link_h_color['mobile'] ),
 			),
 		);
+	}
+
+	/**
+	 * [6]. Cart icon color for transparent sticky header.
+	 *
+	 * @since 4.6.0
+	 */
+	$sticky_header_cart_icon_css = array();
+
+	/**
+	 * [6.1] Cart icon normal colors.
+	 */
+	if ( $sticky_header_woo_cart_color ) {
+		$sticky_header_cart_icon_css['.ast-sticky-active .ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-sticky-active .ast-menu-cart-outline .ast-addon-cart-wrap'] = array(
+			'color'        => esc_attr( $sticky_header_woo_cart_color ),
+			'border-color' => esc_attr( $sticky_header_woo_cart_color ),
+		);
+
+		/**
+		 * [6.1.1] Cart icon normal colors for cart count.
+		 */
+		$sticky_header_cart_icon_css['body .ast-sticky-active .ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after'] = array(
+			'color'            => esc_attr( $sticky_header_woo_cart_count_color ),
+			'background-color' => esc_attr( $sticky_header_woo_cart_color ),
+		);
+	}
+
+	/**
+	 * [6.2] Cart icon hover colors.
+	 */
+	if ( $sticky_header_woo_cart_hover_color ) {
+		$sticky_header_cart_icon_css['body .ast-sticky-active .ast-site-header-cart .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, body .ast-sticky-active .ast-site-header-cart .ast-site-header-cart-li:hover .ast-addon-cart-wrap'] = array(
+			'color'        => esc_attr( $sticky_header_woo_cart_hover_color ),
+			'border-color' => esc_attr( $sticky_header_woo_cart_hover_color ),
+		);
+
+		/**
+		 * [6.2.1] Cart icon hover colors for cart count.
+		 */
+		$sticky_header_cart_icon_css['body .ast-sticky-active .ast-site-header-cart .ast-site-header-cart-li:hover i.astra-icon:after'] = array(
+			'color'            => esc_attr( $sticky_header_woo_cart_count_hover_color ),
+			'background-color' => esc_attr( $sticky_header_woo_cart_hover_color ),
+		);
+	}
+
+	/**
+	 * [6.3] Parse sticky header cart icon colors into css.
+	 */
+	if ( $sticky_header_cart_icon_css ) {
+		$parse_css .= astra_parse_css( $sticky_header_cart_icon_css );
 	}
 
 	if ( 'custom-button' === $header_custom_button_style ) {

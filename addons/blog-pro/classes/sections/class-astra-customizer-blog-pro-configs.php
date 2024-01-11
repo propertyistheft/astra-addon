@@ -115,7 +115,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'section'   => 'section-blog',
 					'title'     => __( 'Add Space Between Posts', 'astra-addon' ),
 					'transport' => 'postMessage',
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					'priority'  => 15,
 					'context'   => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'section'  => 'section-blog',
 					'title'    => __( 'Masonry Layout', 'astra-addon' ),
 					'priority' => 20,
-					'divider'    => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'section'     => 'section-blog',
 					'title'       => __( 'Highlight First Post', 'astra-addon' ),
 					'description' => __( 'This will not work if Masonry Layout is enabled.', 'astra-addon' ),
-					'divider'    => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'priority'    => 25,
 					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'section'  => 'section-blog',
 					'title'    => __( 'Equal Grids', 'astra-addon' ),
-					'divider'    => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'priority' => 25,
 					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -248,7 +248,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => Astra_Theme_Extension::$switch_control,
 					'section'     => 'section-blog',
-					'divider'    => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'description' => __( 'This will not work if Masonry Layout is enabled.', 'astra-addon' ),
 					'title'       => __( 'Reveal Effect', 'astra-addon' ),
 					'priority'    => 25,
@@ -261,16 +261,16 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				 * Option: First Post full width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-row-reverse]',
-					'default'  => astra_get_option( 'blog-row-reverse' ),
-					'type'     => 'control',
-					'control'  => Astra_Theme_Extension::$switch_control,
-					'section'  => 'section-blog',
-					'title'    => __( 'Row Reverse', 'astra-addon' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-row-reverse]',
+					'default'     => astra_get_option( 'blog-row-reverse' ),
+					'type'        => 'control',
+					'control'     => Astra_Theme_Extension::$switch_control,
+					'section'     => 'section-blog',
+					'title'       => __( 'Row Reverse', 'astra-addon' ),
 					'description' => __( 'This option reverses the position of post-content and featured image.', 'astra-addon' ),
-					'divider'    => array( 'ast_class' => 'ast-top-section-spacing' ),
-					'priority' => 25,
-					'context'  => array(
+					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'priority'    => 25,
+					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[blog-layout]',
@@ -291,7 +291,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'section'     => 'section-blog',
 					'title'       => __( 'Remove Image Padding', 'astra-addon' ),
 					'description' => __( 'This option will not work on full width layouts.', 'astra-addon' ),
-					'divider'    => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'priority'    => 26,
 					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -321,7 +321,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'section'  => 'section-blog',
 					'title'    => __( 'Enable Date Box', 'astra-addon' ),
-					'divider'    => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'priority' => 30,
 					'context'  => array(
 						astra_addon_builder_helper()->general_tab_config,
@@ -728,7 +728,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-filter-layout-2', false ) : '',
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'context'           => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
@@ -902,7 +902,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-top-section-spacing ast-bottom-section-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-section-spacing ast-bottom-section-divider' ),
 				),
 
 				/**

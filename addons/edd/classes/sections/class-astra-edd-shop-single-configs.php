@@ -63,6 +63,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Configs' ) ) {
 					'section'   => 'section-edd-single',
 					'transport' => 'postMessage',
 					'priority'  => 233,
+					'context'   => astra_addon_builder_helper()->design_tab,
 				),
 
 				/**
@@ -77,6 +78,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Configs' ) ) {
 					'section'   => 'section-edd-single',
 					'transport' => 'postMessage',
 					'priority'  => 233,
+					'context'   => astra_addon_builder_helper()->design_tab,
 				),
 
 			);
