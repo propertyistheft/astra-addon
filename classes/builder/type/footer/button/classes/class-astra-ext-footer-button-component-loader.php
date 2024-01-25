@@ -39,12 +39,13 @@ class Astra_Ext_Footer_Button_Component_Loader {
 	 */
 	public function theme_defaults( $defaults ) {
 		// Button footer defaults.
-		$component_limit = astra_addon_builder_helper()->component_limit;
+		$component_limit         = astra_addon_builder_helper()->component_limit;
+		$builder_button_stylings = is_callable( 'Astra_Dynamic_CSS::astra_4_6_4_compatibility' ) ? Astra_Dynamic_CSS::astra_4_6_4_compatibility() : false;
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_prefix = 'button' . $index;
 
-			$defaults[ 'footer-' . $_prefix . '-size' ] = 'sm';
+			$defaults[ 'footer-' . $_prefix . '-size' ] = $builder_button_stylings ? 'default' : 'sm';
 
 			$defaults[ 'footer-' . $_prefix . '-box-shadow-control' ]  = array(
 				'x'      => '0',

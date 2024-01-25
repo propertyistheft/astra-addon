@@ -38,12 +38,14 @@ class Astra_Addon_Header_Button_Component_Loader {
 	public function theme_defaults( $defaults ) {
 		// Button header defaults.
 
-		$component_limit = astra_addon_builder_helper()->component_limit;
+		$component_limit         = astra_addon_builder_helper()->component_limit;
+		$builder_button_stylings = is_callable( 'Astra_Dynamic_CSS::astra_4_6_4_compatibility' ) ? Astra_Dynamic_CSS::astra_4_6_4_compatibility() : false;
+
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_prefix = 'button' . $index;
 
-			$defaults[ 'header-' . $_prefix . '-size' ] = 'sm';
+			$defaults[ 'header-' . $_prefix . '-size' ] = $builder_button_stylings ? 'default' : 'sm';
 
 			$defaults[ 'header-' . $_prefix . '-box-shadow-control' ]  = array(
 				'x'      => '0',

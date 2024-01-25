@@ -67,22 +67,27 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'section'     => 'section-below-header',
 					'default'     => astra_get_option( 'font-size-below-header-primary-menu' ),
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em', 'vw' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),
@@ -151,22 +156,27 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'title'       => __( 'Font Size', 'astra-addon' ),
 					'default'     => astra_get_option( 'font-size-below-header-dropdown-menu' ),
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em', 'vw' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),
@@ -236,22 +246,27 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 					'title'       => __( 'Font Size', 'astra-addon' ),
 					'section'     => 'section-below-header',
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em', 'vw' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),

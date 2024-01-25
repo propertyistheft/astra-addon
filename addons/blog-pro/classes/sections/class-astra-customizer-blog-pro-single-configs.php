@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				array(
 					'relation' => 'OR',
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-heading-enable]',
+						'setting'  => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-enable]',
 						'operator' => '===',
 						'value'    => true,
 					),
@@ -1045,22 +1045,27 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'priority'          => 4,
 					'title'             => __( 'Font Size', 'astra-addon' ),
-					'suffix'            => array( 'px', 'em', 'vw' ),
+					'suffix'            => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs'       => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),
@@ -1158,22 +1163,27 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'priority'          => 4,
 					'title'             => __( 'Font Size', 'astra-addon' ),
-					'suffix'            => array( 'px', 'em', 'vw' ),
+					'suffix'            => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs'       => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),

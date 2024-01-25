@@ -1,5 +1,15 @@
 *** Astra Pro Changelog ***
 
+2024-01-24 - version 4.6.3
+* Fix: Mega Menu - Page Builder templates looses their styling when used as mega menu content in v4.6.2.
+
+2024-01-23 - version 4.6.2
+* Improvement: Header-Footer Buttons - Added new option "Inherit" to Size to inherit global button stylings.
+* Fix: Single Post - Social sharing design customizer options has dependency of "Enable Author Box" option.
+* New: Introducing new "rem" unit support for font-size in customizer typography settings.
+* Fix: Performance - Slow query issue when too many menu items are used.
+* Fix: WooCommerce - Related product column setting not working for mobile devices when Up sell product section is disabled.
+
 2024-01-09 - version 4.6.1
 * Improvement: Page Header - Restricted the banner title area with layout-2 with page header.
 * Fix: Page Header - "Override the image with the featured image" option not working for single layouts.
@@ -63,9 +73,6 @@
 * Fix: Date-Box - Date Box stick at the corner of a post instead of the featured image which breaks blog UI.
 * Fix: Mega Menu - Mega menu heading normal and hover color is not working.
 * Fix: Top Border color & width not applied when mega menu width set to full width/full width stretched.
-
-2023-10-23 - version 4.6.0
-* New: Blog Pro - Blog reveal effect to upgrade blog appearance layout. ( Needs Doc )
 
 2023-10-23 - version 4.4.0
 * New: Blog Pro - Blog Filter to filter categories and tags. ( https://wpastra.com/docs/post-filter/ )

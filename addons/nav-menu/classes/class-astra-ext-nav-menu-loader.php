@@ -47,9 +47,18 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		}
 
 		/**
+		 * Cached navigation menu cache transient key.
+		 *
+		 * @since 4.6.2
+		 */
+		const NAV_MENU_TRANSIENT_KEY = 'astra_addons_nav_menu_loader_nav_items_transient';
+
+		/**
 		 *  Constructor
 		 */
 		public function __construct() {
+
+			add_action( 'wp_update_nav_menu', array( $this, 'clear_nav_menu_cached_transient' ) );
 
 			add_filter( 'wp_nav_menu_args', array( $this, 'modify_nav_menu_args' ) );
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
@@ -72,27 +81,63 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		}
 
 		/**
+		 * Clear cached navigation menu transient on menu save.
+		 *
+		 * @since 4.6.2
+		 * @return bool
+		 */
+		public function clear_nav_menu_cached_transient() {
+			return delete_transient( self::NAV_MENU_TRANSIENT_KEY );
+		}
+
+		/**
+		 * Returns cached navigation menu items.
+		 *
+		 * @since 4.6.2
+		 * @return array
+		 */
+		protected function get_cached_nav_menu_items() {
+
+			$nav_items = get_transient( self::NAV_MENU_TRANSIENT_KEY );
+
+			if ( ! $nav_items ) {
+				$nav_items = array();
+
+				$menu_locations = get_nav_menu_locations();
+
+				foreach ( $menu_locations as $menu_id ) {
+					$_nav_items = wp_get_nav_menu_items( $menu_id );
+
+					if ( $_nav_items ) {
+						$nav_items[ $menu_id ] = $_nav_items;
+					}
+				}
+
+				set_transient( self::NAV_MENU_TRANSIENT_KEY, $nav_items, WEEK_IN_SECONDS );
+			}
+
+			return $nav_items;
+		}
+
+		/**
 		 * Load page builder scripts and styles.
 		 *
 		 * @return void
 		 */
 		public function load_scripts() {
 
-			$menu_locations = get_nav_menu_locations();
+			$nav_items = $this->get_cached_nav_menu_items();
 
-			foreach ( $menu_locations as $menu_id ) {
-				$nav_items = wp_get_nav_menu_items( $menu_id );
-
-				if ( ! empty( $nav_items ) ) {
-					foreach ( $nav_items as $nav_item ) {
-
-						if ( isset( $nav_item->megamenu_template ) && '' != $nav_item->megamenu_template ) {
+			if ( ! empty( $nav_items ) ) {
+				foreach ( $nav_items as $nav_item ) {
+					foreach ( $nav_item as $_nav_item ) {
+						if ( isset( $_nav_item->megamenu_template ) && '' != $_nav_item->megamenu_template ) {
 
 							$page_builder_base_instance = Astra_Addon_Page_Builder_Compatibility::get_instance();
-							$page_builder_instance      = $page_builder_base_instance->get_active_page_builder( $nav_item->megamenu_template );
+							$page_builder_instance      = $page_builder_base_instance->get_active_page_builder( $_nav_item->megamenu_template );
 
 							if ( is_callable( array( $page_builder_instance, 'enqueue_scripts' ) ) ) {
-								$page_builder_instance->enqueue_scripts( $nav_item->megamenu_template );
+								$page_builder_instance->enqueue_scripts( $_nav_item->megamenu_template );
 							}
 						}
 					}
@@ -111,22 +156,19 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 */
 		public function load_gutenberg_addon_scripts() {
 
-			$menu_locations = get_nav_menu_locations();
+			$nav_items = $this->get_cached_nav_menu_items();
 
-			foreach ( $menu_locations as $menu_id ) {
-				$nav_items = wp_get_nav_menu_items( $menu_id );
-
-				if ( ! empty( $nav_items ) ) {
-					foreach ( $nav_items as $nav_item ) {
-
-						if ( isset( $nav_item->megamenu_template ) && '' != $nav_item->megamenu_template ) {
+			if ( ! empty( $nav_items ) ) {
+				foreach ( $nav_items as $nav_item ) {
+					foreach ( $nav_item as $_nav_item ) {
+						if ( isset( $_nav_item->megamenu_template ) && '' != $_nav_item->megamenu_template ) {
 
 							if ( class_exists( 'Astra_Addon_Gutenberg_Compatibility' ) ) {
 
 								$astra_gutenberg_instance = new Astra_Addon_Gutenberg_Compatibility();
 
 								if ( is_callable( array( $astra_gutenberg_instance, 'enqueue_blocks_assets' ) ) ) {
-									$astra_gutenberg_instance->enqueue_blocks_assets( $nav_item->megamenu_template );
+									$astra_gutenberg_instance->enqueue_blocks_assets( $_nav_item->megamenu_template );
 								}
 							}
 						}

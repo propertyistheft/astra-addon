@@ -108,6 +108,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$products_grid_tablet  = ( ! empty( $products_grid['tablet'] ) ) ? $products_grid['tablet'] : 3;
 	$products_grid_mobile  = ( ! empty( $products_grid['mobile'] ) ) ? $products_grid['mobile'] : 2;
 	$load_upsell_grid_css  = ( Astra_Addon_Builder_Helper::apply_flex_based_css() && astra_get_option( 'single-product-up-sells-display' ) ) ? true : false;
+	$related_product       = ( Astra_Addon_Builder_Helper::apply_flex_based_css() && astra_get_option( 'single-product-related-display' ) ) ? true : false;
 
 	// Supporting color setting for default icon as well.
 	$can_update_cart_color  = is_callable( 'astra_cart_color_default_icon_old_header' ) && astra_cart_color_default_icon_old_header();
@@ -325,8 +326,8 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		);
 	}
 
-	/* Display Desktop Up sell Products */
-	if ( $load_upsell_grid_css ) {
+	/* Display Desktop Up sell & related Products */
+	if ( $load_upsell_grid_css || $related_product ) {
 		$css_output[ '.woocommerce-page.rel-up-columns-' . $products_grid_desktop . ' ul.products' ] = array(
 			'grid-template-columns' => 'repeat(' . $products_grid_desktop . ', minmax(0, 1fr))',
 		);
@@ -1114,8 +1115,8 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	);
 
-	/* Display Tablet Up sell Products */
-	if ( $load_upsell_grid_css ) {
+	/* Display Tablet Up sell & Related Products */
+	if ( $load_upsell_grid_css || $related_product ) {
 		$tablet_css[ '.single-product.woocommerce-page.tablet-rel-up-columns-' . $products_grid_tablet . ' ul.products' ] = array(
 			'grid-template-columns' => 'repeat(' . $products_grid_tablet . ', minmax(0, 1fr))',
 		);
@@ -1640,8 +1641,8 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$css_output .= astra_parse_css( $product_single_extras );
 	}
 
-	/* Display Mobile Up sell Products */
-	if ( $load_upsell_grid_css ) {
+	/* Display Mobile Up sell & Related Products */
+	if ( $load_upsell_grid_css || $related_product ) {
 		$mobile_woo_css[ '.single.single-product.woocommerce-page.mobile-rel-up-columns-' . $products_grid_mobile . ' ul.products' ] = array(
 			'grid-template-columns' => 'repeat(' . $products_grid_mobile . ', minmax(0, 1fr))',
 		);

@@ -76,22 +76,27 @@ if ( ! class_exists( 'Astra_Nav_Menu_Primary_Header_Typography' ) ) {
 					'responsive'  => false,
 					'default'     => astra_get_option( 'primary-header-megamenu-heading-font-size' ),
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em', 'vw' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 					'priority'    => 45,

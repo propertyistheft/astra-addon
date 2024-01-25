@@ -88,22 +88,27 @@ if ( ! class_exists( 'Astra_Footer_Typo_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[footer-bar-typography-group]',
 					'section'     => 'section-footer-small',
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em', 'vw' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),

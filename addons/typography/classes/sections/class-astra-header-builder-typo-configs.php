@@ -451,22 +451,27 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'       => __( 'Font Size', 'astra-addon' ),
 					'transport'   => 'postMessage',
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em', 'vw' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 					'context'     => astra_addon_builder_helper()->general_tab,
@@ -520,16 +525,26 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'       => __( 'Label / Input Text Size', 'astra-addon' ),
 					'transport'   => 'postMessage',
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 100,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
+							'max'  => 20,
+						),
+						'vw'  => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
 							'max'  => 20,
 						),
 					),
@@ -547,22 +562,27 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'       => __( 'Button Font Size', 'astra-addon' ),
 					'transport'   => 'postMessage',
 					'control'     => 'ast-responsive-slider',
-					'suffix'      => array( 'px', 'em', 'vw' ),
+					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs' => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 					'context'     => astra_addon_builder_helper()->general_tab,
@@ -646,22 +666,27 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'priority'          => 15,
 					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'suffix'            => array( 'px', 'em', 'vw' ),
+					'suffix'            => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs'       => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),
@@ -760,22 +785,27 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'priority'          => 15,
 					'title'             => __( 'Font Size', 'astra-addon' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'suffix'            => array( 'px', 'em', 'vw' ),
+					'suffix'            => array( 'px', 'em', 'vw', 'rem' ),
 					'input_attrs'       => array(
-						'px' => array(
+						'px'  => array(
 							'min'  => 0,
 							'step' => 1,
 							'max'  => 200,
 						),
-						'em' => array(
+						'em'  => array(
 							'min'  => 0,
 							'step' => 0.01,
 							'max'  => 20,
 						),
-						'vw' => array(
+						'vw'  => array(
 							'min'  => 0,
 							'step' => 0.1,
 							'max'  => 25,
+						),
+						'rem' => array(
+							'min'  => 0,
+							'step' => 0.1,
+							'max'  => 20,
 						),
 					),
 				),
