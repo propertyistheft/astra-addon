@@ -501,7 +501,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Archive' ) ) {
 						'title'    => __( 'Colors and Background', 'astra-addon' ),
 						'priority' => 125,
 						'settings' => array(),
-						'context'  => astra_addon_builder_helper()->general_tab,
+						'context'  => astra_addon_builder_helper()->design_tab,
 					)
 				);
 			}

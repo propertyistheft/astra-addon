@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 				'rest_url'                   => get_rest_url( '', '/astra-addon/v1/custom-layouts/' ),
 				'new_custom_layout_base_url' => admin_url( 'post-new.php?post_type=astra-advanced-hook' ),
 				'astra_pricing_page_url'     => 'https://wpastra.com/pricing/',
-				'astra_docs_page_url'        => 'https://wpastra.com/docs/custom-layouts-pro/',
+				'astra_docs_page_url'        => 'https://wpastra.com/docs/site-builder/',
 				'admin_url'                  => admin_url(),
 				'spectra_pro_url'            => 'https://wpspectra.com/pricing/',
 				'uae_pro_url'                => 'https://ultimateelementor.com/pricing/',

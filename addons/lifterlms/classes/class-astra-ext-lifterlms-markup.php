@@ -35,6 +35,18 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 		}
 
 		/**
+		 * Add backward support for LifterLMS "Enable Progress Bar" toggle option.
+		 *
+		 * @return bool
+		 * @since 4.6.2
+		 */
+		public static function astra_addon_4_6_2_enable_lifterlms_progress_bar_compatibility() {
+			$enable = class_exists( 'WP_Block_Type_Registry' ) ? ! isset( WP_Block_Type_Registry::get_instance()->get_all_registered()['llms/course-progress'] ) : true;
+
+			return apply_filters( 'astra_addon_4_6_2_enable_lifterlms_progress_bar_compatibility', $enable );
+		}
+
+		/**
 		 * Constructor
 		 */
 		public function __construct() {
@@ -130,84 +142,102 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 		 */
 		public function llms_learning() {
 
-			if ( is_lesson() || is_course() ) {
+			$is_course = is_course();
+			$is_lesson = is_lesson();
 
-				remove_action( 'lifterlms_single_course_before_summary', 'lifterlms_template_single_featured_image', 10 );
-				remove_action( 'lifterlms_single_course_before_summary', 'lifterlms_template_single_video', 20 );
-				remove_action( 'lifterlms_single_course_before_summary', 'lifterlms_template_single_audio', 30 );
+			if ( ! ( $is_lesson || $is_course ) ) {
+				/**
+				 * Bail early if we are not in single lesson or single course.
+				 */
+				return;
+			}
 
-				$page_restricted = llms_page_restricted( get_the_id() );
-				$featured_img    = true;
-				$description     = true;
-				$meta            = true;
-				$instructor      = true;
-				$syllabus        = true;
-				$progress_bar    = true;
+			$featured_img       = true;
+			$course_description = true;
+			$course_meta        = true;
+			$instructor         = true;
+			$syllabus           = true;
+			$progress_bar       = true;
+			$page_restricted    = llms_page_restricted( get_the_id() );
 
-				if ( $page_restricted['is_restricted'] ) {
+			remove_action( 'lifterlms_single_course_before_summary', 'lifterlms_template_single_featured_image', 10 );
+			remove_action( 'lifterlms_single_course_before_summary', 'lifterlms_template_single_video', 20 );
+			remove_action( 'lifterlms_single_course_before_summary', 'lifterlms_template_single_audio', 30 );
 
-					$featured_img = astra_get_option( 'lifterlms-enable-visitor-featured-image' );
-					$description  = astra_get_option( 'lifterlms-enable-visitor-course-description' );
-					$meta         = astra_get_option( 'lifterlms-enable-visitor-course-meta' );
-					$instructor   = astra_get_option( 'lifterlms-enable-visitor-instructor-detail' );
-					$syllabus     = astra_get_option( 'lifterlms-enable-visitor-syllabus' );
-				} else {
+			if ( ( 'role-access' === $page_restricted['reason'] ) && ! $page_restricted['is_restricted'] ) {
+				/**
+				 * If we are here, then user is probably viewing current lesson or course as self. ( View as Myself ).
+				 * So in such case, running below codes has no use.
+				 */
+				return;
+			}
 
-					if ( astra_get_option( 'lifterlms-distraction-free-learning' ) ) {
+			if ( $page_restricted['is_restricted'] ) {
 
-						// HFB Support for distration free checkout.
-						if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
-							remove_action( 'astra_header', array( Astra_Builder_Header::get_instance(), 'prepare_header_builder_markup' ) );
-							remove_action( 'astra_footer', array( Astra_Builder_Footer::get_instance(), 'footer_markup' ), 10 );
-						}
+				$featured_img       = astra_get_option( 'lifterlms-enable-visitor-featured-image' );
+				$course_description = $is_course ? astra_get_option( 'lifterlms-enable-visitor-course-description' ) : true;
+				$course_meta        = $is_course ? astra_get_option( 'lifterlms-enable-visitor-course-meta' ) : true;
+				$instructor         = astra_get_option( 'lifterlms-enable-visitor-instructor-detail' );
+				$syllabus           = astra_get_option( 'lifterlms-enable-visitor-syllabus' );
+			} else {
 
-						remove_action( 'astra_header', 'astra_header_markup' );
-						remove_action( 'astra_footer', 'astra_footer_markup' );
+				if ( astra_get_option( 'lifterlms-distraction-free-learning' ) ) {
 
-						add_action( 'astra_header', array( $this, 'header_markup' ) );
-						add_action( 'astra_footer', array( $this, 'footer_markup' ) );
+					// HFB Support for distration free checkout.
+					if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
+						remove_action( 'astra_header', array( Astra_Builder_Header::get_instance(), 'prepare_header_builder_markup' ) );
+						remove_action( 'astra_footer', array( Astra_Builder_Footer::get_instance(), 'footer_markup' ), 10 );
 					}
 
-					$featured_img = astra_get_option( 'lifterlms-enable-featured-image' );
-					$description  = astra_get_option( 'lifterlms-enable-course-description' );
-					$meta         = astra_get_option( 'lifterlms-enable-course-meta' );
-					$instructor   = astra_get_option( 'lifterlms-enable-instructor-detail' );
-					$progress_bar = astra_get_option( 'lifterlms-enable-progress-bar' );
+					remove_action( 'astra_header', 'astra_header_markup' );
+					remove_action( 'astra_footer', 'astra_footer_markup' );
+
+					add_action( 'astra_header', array( $this, 'header_markup' ) );
+					add_action( 'astra_footer', array( $this, 'footer_markup' ) );
 				}
 
-				if ( ! $featured_img ) {
-					add_filter( 'astra_get_option_blog-single-post-structure', array( $this, 'disable_featured_img' ) );
-				}
+				$featured_img       = astra_get_option( 'lifterlms-enable-featured-image' );
+				$course_description = $is_course ? astra_get_option( 'lifterlms-enable-course-description' ) : true;
+				$course_meta        = $is_course ? astra_get_option( 'lifterlms-enable-course-meta' ) : true;
+				$instructor         = astra_get_option( 'lifterlms-enable-instructor-detail' );
+				$progress_bar       = astra_get_option( 'lifterlms-enable-progress-bar', self::astra_addon_4_6_2_enable_lifterlms_progress_bar_compatibility() );
+			}
 
-				if ( ! $meta || ! $instructor ) {
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_meta_wrapper_start', 5 );
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_meta_wrapper_end', 50 );
-				}
+			if ( ! $featured_img ) {
+				add_filter( 'astra_get_option_blog-single-post-structure', array( $this, 'disable_featured_img' ) );
+			}
 
-				if ( ! $instructor ) {
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_course_author', 40 );
-				}
+			if ( ! $course_meta || ! $instructor ) {
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_meta_wrapper_start', 5 );
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_meta_wrapper_end', 50 );
+			}
 
-				if ( ! $progress_bar ) {
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_progress', 60 );
-				}
+			if ( ! $instructor ) {
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_course_author', 40 );
+			}
 
-				if ( ! $syllabus ) {
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_syllabus', 90 );
-				}
+			if ( ! $progress_bar ) {
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_progress', 60 );
+			}
 
-				if ( ! $meta ) {
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_length', 10 );
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_difficulty', 20 );
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_tracks', 25 );
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_categories', 30 );
-					remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_tags', 35 );
-				}
+			if ( ! $syllabus ) {
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_syllabus', 90 );
+			}
 
-				if ( is_course() && ! $description ) {
-					add_filter( 'the_excerpt', '__return_empty_string', 9 );
-					add_filter( 'the_content', '__return_empty_string', 9 );
-				}
+			if ( ! $course_meta ) {
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_length', 10 );
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_difficulty', 20 );
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_tracks', 25 );
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_categories', 30 );
+				remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_course_tags', 35 );
+
+				// Remove Astra's meta info if disabled from the customizer.
+				add_filter( 'astra_single_post_meta', '__return_empty_string' );
+			}
+
+			if ( ! $course_description ) {
+				add_filter( 'the_excerpt', '__return_empty_string', 9 );
+				add_filter( 'the_content', '__return_empty_string', 9 );
 			}
 		}
 

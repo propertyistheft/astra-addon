@@ -55,8 +55,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 164,
 					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
-					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'context'  => astra_addon_builder_helper()->design_tab,
 				),
 
 				/**
@@ -70,8 +69,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'transport'         => 'postMessage',
 					'section'           => 'section-blog',
-					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'context'           => astra_addon_builder_helper()->design_tab,
 					'priority'          => 165,
 					'title'             => __( 'Outside', 'astra-addon' ),
 					'linked_choices'    => true,
@@ -96,8 +94,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'transport'         => 'postMessage',
 					'section'           => 'section-blog',
-					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'context'           => astra_addon_builder_helper()->design_tab,
 					'priority'          => 170,
 					'title'             => __( 'Inside', 'astra-addon' ),
 					'linked_choices'    => true,
@@ -124,8 +121,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'priority'          => 175,
 					'title'             => __( 'Pagination', 'astra-addon' ),
 					'context'           => array(
-						'context' => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-							astra_addon_builder_helper()->design_tab_config : astra_addon_builder_helper()->general_tab_config,
+						astra_addon_builder_helper()->design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[blog-pagination]',
 							'operator' => '==',

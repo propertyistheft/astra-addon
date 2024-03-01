@@ -43,33 +43,29 @@
 
 					break;
 
-				case 'scroll':
-							var rect = document.querySelector(".product:last-child").getBoundingClientRect();
-							var offset = { 
-								top: rect.top + window.scrollY, 
-								left: rect.left + window.scrollX, 
-							};
-							if( astShopLoadMore ){
-								astShopLoadMore.classList.add('ast-add-more-button-hide');
-							}
-							if( document.getElementById('main').querySelectorAll('.product:last-child').length > 0 ) {
-								var windowHeight50 = window.outerHeight / 1.25;
-								window.addEventListener('scroll', function() {
-									if( (window.scrollY + windowHeight50 ) >= ( offset.top ) ) {
-										if (count > total) {
-											return false;
-										} else {
+				case "scroll":
+					const getLastProduct = () => document.querySelector(".product:last-child");
 
-											//	Pause for the moment ( execute if post loaded )
-											if( loadStatus == true ) {
-												NextloadArticles(count);
-												count++;
-												loadStatus = false;
-											}
-										}
-									}
-								});
+					window.addEventListener("scroll", function () {
+						// Use the cached last product
+						const lastProduct = getLastProduct();
+						if (!lastProduct) return;
+
+						const lastProductRect = lastProduct.getBoundingClientRect();
+
+						const isUserAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+						const isLastProductVisible = lastProductRect.bottom <= window.innerHeight;
+
+						// Check if the user is scrolling down and the last product is within view
+						if (isUserAtBottom && isLastProductVisible) {
+							// Check if there are more products to load
+							if (count < total && loadStatus) {
+								NextloadArticles(count);
+								count++;
+								loadStatus = false;
 							}
+						}
+					});
 
 					break;
 			}
@@ -93,7 +89,9 @@
 				request.onload = function() {
 					var string = request.response;
 					var data = new DOMParser().parseFromString(string, 'text/html');
-					var	boxes = data.querySelectorAll( '#main li.product' ),
+					// Check if #main exists and use it, otherwise, query from the document
+					var mainContainer = data.querySelector('#main') || data;
+					var boxes = mainContainer.querySelectorAll('li.product'),
 						productContainer = document.querySelector('.ast-woocommerce-container ul.products');
 
 					if ( ! productContainer ) {

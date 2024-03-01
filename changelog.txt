@@ -1,5 +1,13 @@
 *** Astra Pro Changelog ***
 
+2024-02-12 - version 4.6.4
+* Improvement: Improved accessibility of advanced headers by removing incorrect role="img" attribute.
+* Fix: Live Search - Browser autocomplete disabled when a live search is enabled to avoid search result overlapping issues.
+* Fix: WooCommerce - Infinite Scroll & page is not working when Elementor template is used.
+* Fix: WooCommerce - Pro addon conflicting with Essential Addon's Product Carousel transition property.
+* Fix: White Label - Help link present in the theme builder even after white label is enabled.
+* Fix: LifterLMS - Enable Course Meta option not working properly with the LifterLMS Blocks.
+
 2024-01-24 - version 4.6.3
 * Fix: Mega Menu - Page Builder templates looses their styling when used as mega menu content in v4.6.2.
 

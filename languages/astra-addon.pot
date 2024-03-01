@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.6.3\n"
+"Project-Id-Version: Astra Pro 4.6.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2024-01-24 06:31:47+00:00\n"
+"POT-Creation-Date: 2024-02-12 04:36:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -172,9 +172,9 @@ msgstr ""
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:71
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:117
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:162
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:80
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:106
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:138
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:78
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:103
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:134
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:80
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:105
 #: addons/spacing/classes/sections/class-astra-customizer-footer-small-spacing-configs.php:71
@@ -238,9 +238,9 @@ msgstr ""
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:72
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:118
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:163
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:81
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:107
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:139
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:79
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:104
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:135
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:81
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:106
 #: addons/spacing/classes/sections/class-astra-customizer-footer-small-spacing-configs.php:72
@@ -298,9 +298,9 @@ msgstr ""
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:73
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:119
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:164
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:82
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:108
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:140
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:80
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:105
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:136
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:82
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:107
 #: addons/spacing/classes/sections/class-astra-customizer-footer-small-spacing-configs.php:73
@@ -363,9 +363,9 @@ msgstr ""
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:74
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:120
 #: addons/spacing/classes/sections/class-astra-customizer-below-header-spacing-configs.php:165
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:83
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:109
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:141
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:81
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:106
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:137
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:83
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:108
 #: addons/spacing/classes/sections/class-astra-customizer-footer-small-spacing-configs.php:74
@@ -421,11 +421,11 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:79
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:87
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:63
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:80
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:269
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:359
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:448
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:537
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:78
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:265
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:355
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:444
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:533
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:79
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:202
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:322
@@ -477,12 +477,12 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:88
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:96
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:73
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:115
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:305
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:395
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:484
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:573
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:650
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:113
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:301
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:391
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:480
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:569
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:646
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:124
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:243
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:434
@@ -527,11 +527,11 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:129
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:137
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:115
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:98
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:287
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:377
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:466
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:555
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:96
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:283
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:373
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:462
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:551
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:102
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:224
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:341
@@ -575,7 +575,7 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:140
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:148
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:127
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:622
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:618
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:140
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:109
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:222
@@ -595,7 +595,7 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:144
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:152
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:131
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:628
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:624
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:145
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:113
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:228
@@ -623,7 +623,7 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:153
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:132
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:234
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:629
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:625
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:146
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:114
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:229
@@ -647,7 +647,7 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:146
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:154
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:133
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:630
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:626
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:147
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:115
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:230
@@ -667,7 +667,7 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:147
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:155
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:134
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:631
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:627
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:148
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:116
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:231
@@ -688,7 +688,7 @@ msgstr ""
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:148
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:156
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:135
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:632
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:628
 #: addons/typography/classes/sections/class-astra-footer-typo-configs.php:149
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:117
 #: addons/typography/classes/sections/class-astra-primary-menu-typo-configs.php:232
@@ -1300,7 +1300,7 @@ msgstr ""
 #: addons/advanced-search/template/full-screen.php:25
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:46
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:45
-#: classes/astra-common-functions.php:371
+#: classes/astra-common-functions.php:375
 msgid "Search"
 msgstr ""
 
@@ -3507,7 +3507,6 @@ msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1946
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1637
-#: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:143
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:120
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:185
 #: addons/spacing/classes/sections/class-astra-customizer-site-identity-spacing-configs.php:54
@@ -3824,7 +3823,7 @@ msgid "As Button"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:506
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:125
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:122
 msgid "Pagination"
 msgstr ""
 
@@ -3939,11 +3938,11 @@ msgid "Text Font"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:994
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:154
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:344
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:434
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:523
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:612
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:152
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:340
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:430
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:519
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:608
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:168
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:291
 #: addons/typography/classes/sections/class-astra-builder-menu-configs.php:358
@@ -4276,14 +4275,14 @@ msgid "Margin"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1240
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:76
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:74
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:76
 #: addons/spacing/classes/sections/class-astra-customizer-sidebar-spacing-configs.php:76
 msgid "Outside"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1272
-#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:102
+#: addons/spacing/classes/sections/class-astra-customizer-blog-spacing-configs.php:99
 #: addons/spacing/classes/sections/class-astra-customizer-container-layout-spacing-configs.php:101
 #: addons/spacing/classes/sections/class-astra-customizer-sidebar-spacing-configs.php:102
 msgid "Inside"
@@ -5402,7 +5401,7 @@ msgstr ""
 msgid "Transparent Header "
 msgstr ""
 
-#: addons/lifterlms/classes/class-astra-ext-lifterlms-markup.php:120
+#: addons/lifterlms/classes/class-astra-ext-lifterlms-markup.php:132
 msgid "LifterLMS profile link"
 msgstr ""
 
@@ -5411,35 +5410,35 @@ msgid "Student View"
 msgstr ""
 
 #: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:84
-#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:163
+#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:150
 msgid "Enable Featured Image"
 msgstr ""
 
 #: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:97
-#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:176
+#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:163
 msgid "Enable Course Description"
 msgstr ""
 
 #: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:110
-#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:190
+#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:177
 msgid "Enable Course Meta"
 msgstr ""
 
 #: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:123
-#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:203
+#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:190
 msgid "Enable Instructor Detail"
 msgstr ""
 
-#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:136
-msgid "Enable Progress Bar"
-msgstr ""
-
-#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:146
+#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:133
 msgid "Visitor View"
 msgstr ""
 
-#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:216
+#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:203
 msgid "Enable Syllabus"
+msgstr ""
+
+#: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-course-lesson-configs.php:220
+msgid "Enable Progress Bar"
 msgstr ""
 
 #: addons/lifterlms/classes/sections/class-astra-customizer-lifterlms-general-configs.php:64
@@ -6128,27 +6127,27 @@ msgstr ""
 msgid "Post Fonts"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:61
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:60
 msgid "Post Title Font"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:162
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:160
 msgid "Meta Font"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:175
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:172
 msgid "Taxonomy Font"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:212
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:209
 msgid "Excerpt Font"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:231
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:228
 msgid "Read More Font"
 msgstr ""
 
-#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:250
+#: addons/typography/classes/sections/class-astra-archive-advanced-typo-configs.php:247
 msgid "Pagination Font"
 msgstr ""
 
@@ -7780,7 +7779,7 @@ msgctxt "advanced-hooks singular name"
 msgid "Site Builder Layout"
 msgstr ""
 
-#: classes/astra-common-functions.php:368
+#: classes/astra-common-functions.php:372
 msgctxt "label"
 msgid "Search for:"
 msgstr ""

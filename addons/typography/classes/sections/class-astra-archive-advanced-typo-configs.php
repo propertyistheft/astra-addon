@@ -49,8 +49,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 145,
-					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'context'  => astra_addon_builder_helper()->design_tab,
 				),
 
 				array(
@@ -62,8 +61,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-					astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'context'   => astra_addon_builder_helper()->design_tab,
 				),
 
 				/**
@@ -135,7 +133,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 						'rem' => array(
 							'min'  => 0,
 							'step' => 0.1,
-							'max'  => 20,   
+							'max'  => 20,
 						),
 					),
 				),
@@ -163,8 +161,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'context'   => astra_addon_builder_helper()->design_tab,
 				),
 
 				array(
@@ -251,8 +248,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
+					'context'   => astra_addon_builder_helper()->design_tab,
 				),
 
 				/**

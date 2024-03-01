@@ -1300,8 +1300,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 			);
 
-			if ( is_callable( 'Astra_Builder_Base_Configuration::prepare_section_spacing_border_options' ) ) {
-				$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_section_spacing_border_options( 'ast-sub-section-author-box' ) );
+			if ( is_callable( 'Astra_Extended_Base_Configuration::prepare_section_spacing_border_options' ) ) {
+				$_configs = array_merge( $_configs, Astra_Extended_Base_Configuration::prepare_section_spacing_border_options( 'ast-sub-section-author-box' ) );
 			}
 
 			return array_merge( $configurations, $_configs );

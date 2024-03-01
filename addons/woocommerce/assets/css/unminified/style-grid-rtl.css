@@ -724,3 +724,8 @@ li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after {
 .ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
   display: none;
 }
+
+.eael-woo-product-carousel-container .woocommerce ul.products li.product,
+.eael-woo-product-carousel-container .woocommerce-page ul.products li.product {
+  transition: inherit;
+}

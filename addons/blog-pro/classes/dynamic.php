@@ -636,8 +636,8 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 
 		$parse_css .= astra_parse_css( $author_box_dynamic_arr );
 
-		if ( is_callable( 'Astra_Builder_Base_Dynamic_CSS::prepare_inner_section_advanced_css' ) ) {
-			$parse_css .= Astra_Builder_Base_Dynamic_CSS::prepare_inner_section_advanced_css( 'ast-sub-section-author-box', '.single .ast-single-author-box .ast-author-meta' );
+		if ( is_callable( 'Astra_Extended_Base_Dynamic_CSS::prepare_inner_section_advanced_css' ) ) {
+			$parse_css .= Astra_Extended_Base_Dynamic_CSS::prepare_inner_section_advanced_css( 'ast-sub-section-author-box', '.single .ast-single-author-box .ast-author-meta' );
 		}
 
 		$author_box_compat_css = '

@@ -127,26 +127,6 @@ if ( ! class_exists( 'Astra_Customizer_Container_Layout_Spacing_Configs' ) ) {
 
 					)
 				);
-
-			} else {
-
-				array_push(
-					$_configs,
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[content-spacing-divider]',
-						'section'  => 'section-container-layout',
-						'type'     => 'control',
-						'control'  => 'ast-heading',
-						'title'    => __( 'Spacing', 'astra-addon' ),
-						'priority' => 90,
-						'settings' => array(),
-						'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
-							astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
-					)
-				);
 			}
 
 			return array_merge( $configurations, $_configs );

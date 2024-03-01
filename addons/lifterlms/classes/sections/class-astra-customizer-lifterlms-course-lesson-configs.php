@@ -125,19 +125,6 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Enable Progress Bar
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-enable-progress-bar]',
-					'default'  => astra_get_option( 'lifterlms-enable-progress-bar' ),
-					'type'     => 'control',
-					'control'  => Astra_Theme_Extension::$switch_control,
-					'section'  => 'section-lifterlms-course-lesson',
-					'title'    => __( 'Enable Progress Bar', 'astra-addon' ),
-					'priority' => 5,
-				),
-
-				/**
 				 * Option: Divider
 				 */
 				array(
@@ -217,6 +204,24 @@ if ( ! class_exists( 'Astra_Customizer_Lifterlms_Course_Lesson_Configs' ) ) {
 					'priority' => 10,
 				),
 			);
+
+			if ( ASTRA_Ext_LifterLMS_Markup::astra_addon_4_6_2_enable_lifterlms_progress_bar_compatibility() ) {
+				array_push(
+					$_configs,
+					/**
+					 * Option: Enable Progress Bar
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-enable-progress-bar]',
+						'default'  => astra_get_option( 'lifterlms-enable-progress-bar' ),
+						'type'     => 'control',
+						'control'  => Astra_Theme_Extension::$switch_control,
+						'section'  => 'section-lifterlms-course-lesson',
+						'title'    => __( 'Enable Progress Bar', 'astra-addon' ),
+						'priority' => 5,
+					),
+				);
+			}
 
 			return array_merge( $configurations, $_configs );
 		}
