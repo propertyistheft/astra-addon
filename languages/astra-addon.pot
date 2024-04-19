@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.6.4\n"
+"Project-Id-Version: Astra Pro 4.6.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2024-02-12 04:36:31+00:00\n"
+"POT-Creation-Date: 2024-04-16 10:58:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,15 +24,15 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2576
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2596
 msgid "1"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2587
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2607
 msgid "2"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2599
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2619
 msgid "3"
 msgstr ""
 
@@ -76,14 +76,14 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:759
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:62
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:946
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:441
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:487
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:102
 #: classes/builder/type/base/configurations/class-astra-language-switcher-component-configs.php:120
 msgid "Layout"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:54
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:220
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:266
 msgid "Disable"
 msgstr ""
 
@@ -799,7 +799,7 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:357
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:388
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:495
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:796
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:842
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:42
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:151
 #: classes/class-astra-theme-extension.php:943
@@ -2347,9 +2347,9 @@ msgid ""
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:342
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1747
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1981
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2013
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1763
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2001
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2033
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:940
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:956
 msgid "Quick View"
@@ -3638,7 +3638,7 @@ msgstr ""
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-loader.php:80
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:136
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:238
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:607
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:623
 msgid "Load More"
 msgstr ""
 
@@ -3673,7 +3673,7 @@ msgid "No more posts to show."
 msgstr ""
 
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:107
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:485
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:488
 msgid "Show Comments"
 msgstr ""
 
@@ -3760,7 +3760,7 @@ msgstr ""
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:575
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:460
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:496
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:223
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:269
 msgid "Square"
 msgstr ""
 
@@ -3768,7 +3768,7 @@ msgstr ""
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:576
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:458
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:497
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:221
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:267
 msgid "Circle"
 msgstr ""
 
@@ -4085,11 +4085,11 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:133
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:204
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:253
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:305
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:306
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:355
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:356
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:528
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:351
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:352
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:401
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:402
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:574
 msgid "Normal"
 msgstr ""
 
@@ -4210,11 +4210,11 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-widget-configs.php:138
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:217
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:266
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:320
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:321
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:370
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:371
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:553
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:366
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:367
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:416
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:417
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:599
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:123
 msgid "Hover"
 msgstr ""
@@ -4261,7 +4261,7 @@ msgstr ""
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1045
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1059
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1060
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:578
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:624
 msgid "Active"
 msgstr ""
 
@@ -4492,7 +4492,7 @@ msgstr ""
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:84
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-account-configs.php:96
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-search-configs.php:89
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:281
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:327
 msgid "Icon Color"
 msgstr ""
 
@@ -5059,8 +5059,8 @@ msgid "Disable Add To Cart Button"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-single-colors-configs.php:90
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:199
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:215
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:245
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:261
 msgid "Product Navigation"
 msgstr ""
 
@@ -6207,238 +6207,240 @@ msgid "Filter"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:243
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:649
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:695
 msgid "Recently Viewed Products"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:258
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:260
 msgid "Free shipping on orders over $50!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:267
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:269
 msgid "No-Risk Money Back Guarantee!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:275
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:277
 msgid "No Hassle Refunds"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:283
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:285
 msgid "Secure Payments"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:302
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:304
 msgid "« Back to Cart"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:309
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:311
 msgid "Place Order"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:316
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:318
 msgid "Checkout Notes"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:317
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:319
 msgid "For Special Offer Click Here"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:318
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:320
 msgid "Yes! I want this offer!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:319
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:321
 msgid "Shipping"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:320
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:322
 msgid "Where to ship it?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:321
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:324
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:323
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:326
 msgid "Payment"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:322
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:324
 msgid "Of your order"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:325
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:327
 msgid "Have a coupon?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:326
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:328
 msgid "Coupon code"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:327
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:329
 msgid "Apply"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:328
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:330
 msgid "Customer information"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:329
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:331
 msgid "Show Order Summary"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:330
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:332
 msgid "Hide Order Summary"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:528
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:530
 msgid "Downloads"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:529
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:531
 msgid "Downloads Remaining:"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:530
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:532
 msgid "Expires:"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:531
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:533
 msgid "Never"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:533
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:535
 msgid "Not a member?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:534
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:536
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:63
+#: classes/builder/type/header/account/classes/class-astra-addon-header-account-markup.php:107
 msgid "Register"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:536
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:538
 msgid "Already a member?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:537
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2842
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:539
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2862
 msgid "Login"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:412
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:415
 msgid "Close Off-Canvas Sidebar"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:426
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:429
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:695
 msgid "Shop Filters"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:428
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:431
 msgid ""
 "This sidebar will show product filters on Shop page. Uncheck \"Disable Off "
 "Canvas\" option from `Customizer > Layout > Woocommerce > Shop` to enable "
 "this on Shop page."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:480
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:483
 msgid "No more products to show."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:482
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:485
 msgid "Back to my details"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:483
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:486
 msgid "Proceed to payment"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:495
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:498
 msgid "View cart"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:524
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:540
 msgid "Entered user detail is not a valid."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:525
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:541
 msgid "This user is already registered. Please enter the password to continue."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1192
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1208
 msgid "Sale!"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2576
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2596
 msgid "Shopping Cart"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2587
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2607
 msgid "Checkout details"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2599
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2619
 msgid "Order Complete"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2775
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2795
 msgid "Exist."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2775
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2795
 msgid "Not exist"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2804
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2824
 #. translators: %1$s: Link HTML start, %2$s Link HTML End
 msgid "Already have an account? %1$1s Log in%2$2s"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2817
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2818
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2837
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2838
 msgid "Username or Email Address"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2817
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2818
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2837
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2838
 msgid "Email Address"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2835
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2836
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2855
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2856
 msgid "Password"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2843
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2863
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:286
+#: classes/builder/type/header/account/classes/class-astra-addon-header-account-markup.php:116
 msgid "Lost your password?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2848
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2868
 msgid "Login is optional, you can continue with your order below."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2861
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2881
 msgid "Create an account?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2876
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2877
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2896
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2897
 msgid "Account username"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2889
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2890
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2909
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2910
 msgid "Create account password"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2900
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2920
 #. translators: %1$s: username, %2$s emailid
 msgid " Welcome Back %1$s (%2$s)"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3327
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3347
 msgid "coupon:"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3734
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3754
 msgid "Your Cart Is Empty Let's Fix That."
 msgstr ""
 
@@ -6700,7 +6702,7 @@ msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:135
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:62
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:449
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:495
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:105
 #: classes/builder/type/base/configurations/class-astra-language-switcher-component-configs.php:123
 msgid "Vertical"
@@ -6762,12 +6764,12 @@ msgid "Sale Bubble Style"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:459
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:222
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:268
 msgid "Circle Outline"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:461
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:224
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:270
 msgid "Square Outline"
 msgstr ""
 
@@ -6989,7 +6991,7 @@ msgid "Horizontal Slider"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:66
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:445
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:491
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:104
 #: classes/builder/type/base/configurations/class-astra-language-switcher-component-configs.php:122
 msgid "Horizontal"
@@ -7012,114 +7014,122 @@ msgid "Enable Image Zoom Effect"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:168
+msgid "Enable Sticky Product Image"
+msgstr ""
+
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:186
+msgid "Sticky Image Top Offset"
+msgstr ""
+
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:214
 msgid "Image Width"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:187
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:233
 msgid "Sticky Product Summary"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:188
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:234
 msgid "Sticks the product summary on the top while scrolling."
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:216
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:262
 msgid "Adds a product navigation control on the top of product summary section."
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:237
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:283
 msgid "Enable Navigation Preview"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:257
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:303
 msgid "Product Navigation Colors"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:332
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:378
 msgid "Navigation Color"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:380
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:426
 msgid "Product Variation"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:396
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:442
 msgid "Change Dropdown to Buttons"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:409
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:455
 msgid "Product Description"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:425
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:471
 msgid "Enable Product Description"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:453
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:499
 msgid "Accordion"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:457
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:503
 msgid "Distributed"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:478
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:524
 msgid "Description Colors"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:502
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:548
 msgid "Heading color"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:600
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:646
 msgid "Accordion Inside Summary"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:620
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:666
 msgid "Related, Recent & Up Sell"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:636
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:682
 msgid "Display Related Products"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:662
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:708
 msgid "Recently Viewed Products Text"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:684
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:730
 msgid "Display Up Sells"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:731
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:777
 msgid "Columns"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:749
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:795
 msgid "No. of Products"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:790
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:836
 msgid "Add To Cart Action"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:797
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:843
 msgid "Real Time Add To Cart"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:798
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:844
 msgid "Slide In Cart"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:799
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:845
 msgid "Redirect To Cart Page"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:800
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:846
 msgid "Redirect To Checkout Page"
 msgstr ""
 
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:819
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:865
 msgid ""
 "Please save and see changes in frontend.<br />[Slide in cart requires Cart "
 "added inside Header Builder]"
@@ -7464,6 +7474,10 @@ msgstr ""
 msgid ""
 "<b>Note:</b> For responsive devices, the menu will be replaced with the "
 "Link provided in the Link Tab."
+msgstr ""
+
+#: classes/builder/type/header/account/classes/class-astra-addon-header-account-markup.php:77
+msgid "Close popup"
 msgstr ""
 
 #: classes/builder/type/header/off-canvas/class-astra-addon-offcanvas-configs.php:45

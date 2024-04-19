@@ -66,34 +66,34 @@
 .ast-header-account {
     display: flex;
 }
-.ast-header-account-wrap {
-	.ast-hb-account-login-wrapper {
-        visibility: hidden;
-        .ast-hb-login-header {
-            -js-display: flex;
-            position: absolute;
-            right: 0;
-            top: 0;
-            display: flex;
-            justify-content: flex-end;
-            min-height: calc(1.2em + 24px);
-        }
+
+.ast-hb-account-login-wrapper {
+    visibility: hidden;
+    .ast-hb-login-header {
+        -js-display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: flex-end;
+        min-height: calc(1.2em + 24px);
+    }
+    .ast-hb-account-login {
+        transform: scale(0.7);
+        opacity: 0;
+        transition: all 0.3s;
+        overflow: auto;
+    }
+    &.show {
+        visibility: visible;
         .ast-hb-account-login {
-            transform: scale(0.7);
-            opacity: 0;
-            transition: all 0.3s;
-            overflow: auto;
+            transform: scale(1)translateY(-50%);
+            opacity: 1;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
         }
-        &.show {
-            visibility: visible;
-            .ast-hb-account-login {
-                transform: scale(1)translateY(-50%);
-                opacity: 1;
-                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-            }
-        }
-	}
+    }
 }
+
 .ast-hb-login-body {
     height: 100%;
 	position: relative;

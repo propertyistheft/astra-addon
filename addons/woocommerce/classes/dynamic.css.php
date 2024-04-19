@@ -3772,6 +3772,19 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			}
 		} else {
 			$my_account_page_css = '
+					.woocommerce-lost-password .woocommerce {
+						max-width: ' . apply_filters( 'astra_addon_modern_account_form_width', '540px' ) . ';
+						margin: 2em auto;
+						border: 1px solid var(--ast-border-color);
+						padding: 40px;
+						border-radius: 3px;
+					}
+					.woocommerce-lost-password .woocommerce form .form-row-first {
+						width: 100%;
+					}
+					.woocommerce-account .woocommerce form .form-row {
+						margin-bottom: 20px;
+					}
 					.ast-modern-woo-account-page .entry-content {
 						margin: 2em auto;
 					}
@@ -4372,7 +4385,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( $woo_empty_cart_featured_product ) {
 		$woo_empty_cart_featured_product_css = array(
 
-			'.astra-cart-drawer-content .ast-mini-cart-empty .ast-mini-cart-message, #ast-site-header-cart .ast-empty-cart-content' => array(
+			'.astra-cart-drawer-content .ast-mini-cart-empty .ast-mini-cart-message, .ast-site-header-cart .ast-empty-cart-content' => array(
 				'display' => 'none',
 			),
 

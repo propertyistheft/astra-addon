@@ -156,6 +156,52 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Handles Single Product Sticky Product Image.
+				 *
+				 * @since 4.6.5
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-sticky-product-image]',
+					'default'  => astra_get_option( 'single-product-sticky-product-image' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Enable Sticky Product Image', 'astra-addon' ),
+					'priority' => 5,
+					'control'  => Astra_Theme_Extension::$switch_control,
+					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				),
+
+				/**
+				 * Option: Sticky Image Top Offset.
+				 *
+				 * @since 4.6.5
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-product-sticky-product-image-top-offset]',
+					'default'     => astra_get_option( 'single-product-sticky-product-image-top-offset' ),
+					'type'        => 'control',
+					'transport'   => 'postMessage',
+					'control'     => 'ast-slider',
+					'section'     => 'section-woo-shop-single',
+					'title'       => __( 'Sticky Image Top Offset', 'astra-addon' ),
+					'suffix'      => 'px',
+					'priority'    => 5,
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 500,
+					),
+					'context'     => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-sticky-product-image]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				),
+
+				/**
 				 * Option: Product Image Width
 				 */
 				array(

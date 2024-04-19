@@ -144,6 +144,9 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			// Check if user exist.
 			add_action( 'wp_ajax_nopriv_astra_woo_check_user_exist', array( $this, 'astra_check_user_exist' ) );
 
+			// Localize single product gallery variables.
+			add_filter( 'astra_addon_js_localize', array( $this, 'single_product_gallery_js_localize' ) );
+
 			// Localize cart variables.
 			add_filter( 'astra_addon_js_localize', array( $this, 'cart_js_localize' ) );
 
@@ -499,6 +502,19 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			$localize['is_astra_pro']                    = astra_has_pro_woocommerce_addon();
 			$localize['shopRevealEffectEnable']          = astra_addon_check_reveal_effect_condition( 'woocommerce' );
 
+			return $localize;
+		}
+
+		/**
+		 * Cart localize
+		 *
+		 * @since 4.6.5
+		 * @param array $localize   JS localize variables.
+		 * @return array
+		 */
+		public function single_product_gallery_js_localize( $localize ) {
+			$localize['single_product_sticky_product_image']            = astra_get_option( 'single-product-sticky-product-image' );
+			$localize['single_product_sticky_product_image_top_offset'] = astra_get_option( 'single-product-sticky-product-image-top-offset' );
 			return $localize;
 		}
 
@@ -1822,6 +1838,10 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			if ( 'vertical-slider' === astra_get_option( 'single-product-gallery-layout' ) || 'horizontal-slider' === astra_get_option( 'single-product-gallery-layout' ) ) {
 				Astra_Minify::add_dependent_js( 'flexslider' );
 				Astra_Minify::add_js( $gen_path . 'single-product-gallery' . $file_prefix . '.js' );
+			}
+
+			if ( astra_get_option( 'single-product-sticky-product-image' ) ) {
+				Astra_Minify::add_js( $gen_path . 'sticky-product-image' . $file_prefix . '.js' );
 			}
 
 			if ( astra_get_option( 'shop-filter-accordion' ) ) {

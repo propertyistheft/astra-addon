@@ -202,6 +202,25 @@
 	} );
 
 	/**
+	 * Single Product: Sticky Image Top Offset
+	 */
+	wp.customize( 'astra-settings[single-product-sticky-product-image-top-offset]', function( setting ) {
+		setting.bind( function( topOffset ) {
+
+			if ( !!topOffset ) {
+				const productImage = document.querySelector('.woocommerce-product-gallery');
+
+				if (productImage) {
+					productImage.style.top = `${topOffset}px`;
+				}
+			}
+			else{
+				wp.customize.preview.send( 'refresh' );
+			}
+		});
+	} );
+
+	/**
 	 * Single Product: Image Width
 	 */
 	wp.customize( 'astra-settings[single-product-image-width]', function( setting ) {

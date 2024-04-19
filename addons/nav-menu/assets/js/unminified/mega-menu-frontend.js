@@ -120,7 +120,7 @@ function apply_megamenu_width_styles() {
 			}
 
 			if (
-				parseInt(jQuery(window).width()) > parseInt(astra.break_point) &&
+				parseInt(window.innerWidth) > parseInt(astra.break_point) &&
 				"ast-hf-mobile-menu" !== $this.parent().attr("id") &&
 				"ast-desktop-toggle-menu" !== $this.parent().attr("id")
 			) {

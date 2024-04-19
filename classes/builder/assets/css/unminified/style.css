@@ -63,11 +63,11 @@
   display: flex;
 }
 
-.ast-header-account-wrap .ast-hb-account-login-wrapper {
+.ast-hb-account-login-wrapper {
   visibility: hidden;
 }
 
-.ast-header-account-wrap .ast-hb-account-login-wrapper .ast-hb-login-header {
+.ast-hb-account-login-wrapper .ast-hb-login-header {
   -js-display: flex;
   position: absolute;
   right: 0;
@@ -77,18 +77,18 @@
   min-height: calc(1.2em + 24px);
 }
 
-.ast-header-account-wrap .ast-hb-account-login-wrapper .ast-hb-account-login {
+.ast-hb-account-login-wrapper .ast-hb-account-login {
   transform: scale(0.7);
   opacity: 0;
   transition: all 0.3s;
   overflow: auto;
 }
 
-.ast-header-account-wrap .ast-hb-account-login-wrapper.show {
+.ast-hb-account-login-wrapper.show {
   visibility: visible;
 }
 
-.ast-header-account-wrap .ast-hb-account-login-wrapper.show .ast-hb-account-login {
+.ast-hb-account-login-wrapper.show .ast-hb-account-login {
   transform: scale(1) translateY(-50%);
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";

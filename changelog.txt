@@ -1,5 +1,15 @@
 *** Astra Pro Changelog ***
 
+2024-04-11 - version 4.6.5
+* New: WooCommerce - Introduced "Sticky Product Image" option: This option allows the featured image on single WooCommerce product pages to remain visible as users scroll down the page.
+* Improvement: WooCommerce - Refactor header account login popup form.
+* Fix: Sticky Header - Transition issue with the Sticky header when the option "Hide when scrolling down" is enabled.
+* Fix: WooCommerce - Sticky cart color & hover styling is not working for cart price.
+* Fix: WooCommerce - With infinite scroll product load only when scrolling down to bottom of the site.
+* Fix: WooCommerce - The lost Password page form doesn't look similar for logged-in and non logged-in user with modern layout.
+* Fix: Mega Menu not working properly between 922px - 938px screen width.
+* Fix: LifterLMS - Profile link was not working properly.
+
 2024-02-12 - version 4.6.4
 * Improvement: Improved accessibility of advanced headers by removing incorrect role="img" attribute.
 * Fix: Live Search - Browser autocomplete disabled when a live search is enabled to avoid search result overlapping issues.

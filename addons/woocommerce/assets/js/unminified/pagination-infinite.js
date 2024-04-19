@@ -53,11 +53,10 @@
 
 						const lastProductRect = lastProduct.getBoundingClientRect();
 
-						const isUserAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
 						const isLastProductVisible = lastProductRect.bottom <= window.innerHeight;
 
 						// Check if the user is scrolling down and the last product is within view
-						if (isUserAtBottom && isLastProductVisible) {
+						if (isLastProductVisible) {
 							// Check if there are more products to load
 							if (count < total && loadStatus) {
 								NextloadArticles(count);

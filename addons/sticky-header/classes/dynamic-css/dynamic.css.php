@@ -778,6 +778,10 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'border-color' => esc_attr( $sticky_header_woo_cart_color ),
 		);
 
+		$sticky_header_cart_icon_css['.ast-sticky-active .ast-woo-header-cart-info-wrap [class^="ast-woo-header-cart-"]'] = array(
+			'color' => esc_attr( $sticky_header_woo_cart_color ),
+		);
+
 		/**
 		 * [6.1.1] Cart icon normal colors for cart count.
 		 */
@@ -796,6 +800,10 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'border-color' => esc_attr( $sticky_header_woo_cart_hover_color ),
 		);
 
+		$sticky_header_cart_icon_css['.ast-sticky-active .ast-site-header-cart-li:hover .ast-icon, .ast-sticky-active .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap [class^="ast-woo-header-cart-"]'] = array(
+			'color' => esc_attr( $sticky_header_woo_cart_hover_color ),
+		);
+		
 		/**
 		 * [6.2.1] Cart icon hover colors for cart count.
 		 */
