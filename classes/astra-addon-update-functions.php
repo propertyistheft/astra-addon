@@ -586,3 +586,17 @@ function astra_addon_background_updater_4_6_1() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Backward compatibility for version 4.6.8
+ *
+ * @since 4.6.8
+ * @return void
+ */
+function astra_addon_background_updater_4_6_8() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['site-builder-templates-headings-space'] ) ) {
+		$theme_options['site-builder-templates-headings-space'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

@@ -145,4 +145,16 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['restrict-banner-layout-with-page-header'] = isset( $astra_settings['restrict-banner-layout-with-page-header'] ) ? false : true;
 		return apply_filters( 'astra_addon_page_header_with_banner', $astra_settings['restrict-banner-layout-with-page-header'] );
 	}
+
+	/**
+	 * Restrict site builder templates heading spacing.
+	 *
+	 * @since 4.6.8
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_update_site_templates_headings_space() {
+		$astra_settings = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings['site-builder-templates-headings-space'] = isset( $astra_settings['site-builder-templates-headings-space'] ) ? false : true;
+		return apply_filters( 'astra_get_option_site-builder-templates-headings-space', $astra_settings['site-builder-templates-headings-space'] );
+	}
 }

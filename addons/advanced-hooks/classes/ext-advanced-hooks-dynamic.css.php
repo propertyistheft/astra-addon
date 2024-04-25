@@ -34,6 +34,15 @@ function astra_ext_advanced_hooks_dynamic_css( $dynamic_css, $dynamic_css_filter
 		),
 	);
 
+	if ( Astra_Addon_Update_Filter_Function::astra_addon_update_site_templates_headings_space() ) {
+		$default_css = array(
+			'h1, h2, h3, h4, h5, h6' => array(
+				'margin-bottom' => '20px',
+			),
+		);
+		$css        .= astra_parse_css( $default_css );
+	}
+
 	if ( Astra_Addon_Builder_Helper::apply_flex_based_css() ) {
 
 		$option = array(

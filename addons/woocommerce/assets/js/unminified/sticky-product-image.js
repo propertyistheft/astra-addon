@@ -47,7 +47,15 @@
 			productImage.appendChild(saleTag);
 		}
 
-		window.addEventListener("resize", function () {
+		/**
+		 * Handle the sticky prodcut image by screen size.
+		 * This needs to be triggered on both document load and window resize.
+		 * This way, we can make sure, sticky image does not block the contents
+		 * or breaks the design.
+		 *
+		 * @since x.x.x
+		 */
+		const handleStickyImageByScreenSize = () => {
 			if (+astraAddon.break_point > window.innerWidth) {
 				/**
 				 * If we are here, then we are in responsive mode.
@@ -68,7 +76,10 @@
 					productImage.appendChild(saleTag);
 				}
 			}
-		});
+		}
+
+		handleStickyImageByScreenSize();
+		window.addEventListener("resize", handleStickyImageByScreenSize);
 
 	});
 })();

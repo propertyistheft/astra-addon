@@ -517,6 +517,11 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			$localize_vars['sticky_header_on_devices'] = astra_get_option_meta( 'sticky-header-on-devices' );
 
 			/**
+			 * Reveal Effect status
+			 */
+			$localize_vars['reveal_effect'] = astra_get_option( 'blog-reveal-effect' );
+			
+			/**
 			 * Sticky Header Style
 			 */
 			$localize_vars['sticky_header_style'] = astra_get_option_meta( 'sticky-header-style' );

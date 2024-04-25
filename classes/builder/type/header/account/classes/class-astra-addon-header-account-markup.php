@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Addon_Header_Account_Markup' ) ) {
 				<div class="ast-hb-account-login-bg"></div>
 				<div class="ast-hb-account-login">
 					<div class="ast-hb-login-header">
-						<button id="ast-hb-login-close" class="ast-hb-login-close" aria-label="<?php esc_attr_e( 'Close popup', 'astra', 'astra-addon' ); ?>">
+						<button id="ast-hb-login-close" class="ast-hb-login-close" aria-label="<?php esc_attr_e( 'Close popup', 'astra-addon' ); ?>">
 							<span class="ast-svg-iconset">
 								<?php
 								if ( is_callable( 'Astra_Builder_UI_Controller', 'fetch_svg_icon' ) ) {

@@ -19,7 +19,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	// Spacing.
 	$is_site_rtl                  = is_rtl();
 	$site_identity_spacing        = astra_get_option( 'site-identity-spacing' );
-	$continder_outside_spacing    = astra_get_option( 'container-outside-spacing' );
+	$container_outside_spacing    = astra_get_option( 'container-outside-spacing' );
 	$container_inside_spacing     = astra_get_option( 'container-inside-spacing' );
 	$single_post_inside_spacing   = astra_get_option( 'single-post-inside-spacing' );
 	$header_spacing               = astra_get_option( 'header-spacing' );
@@ -95,12 +95,12 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'desktop' ),
 		),
 		'.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-plain-container #primary, .ast-narrow-container #primary' => array(
-			'margin-top'    => astra_responsive_spacing( $continder_outside_spacing, 'top', 'desktop' ),
-			'margin-bottom' => astra_responsive_spacing( $continder_outside_spacing, 'bottom', 'desktop' ),
+			'margin-top'    => astra_responsive_spacing( $container_outside_spacing, 'top', 'desktop' ),
+			'margin-bottom' => astra_responsive_spacing( $container_outside_spacing, 'bottom', 'desktop' ),
 		),
 		'.ast-left-sidebar #primary, .ast-right-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-narrow-container #primary' => array(
-			'padding-left'  => astra_responsive_spacing( $continder_outside_spacing, 'left', 'desktop' ),
-			'padding-right' => astra_responsive_spacing( $continder_outside_spacing, 'right', 'desktop' ),
+			'padding-left'  => astra_responsive_spacing( $container_outside_spacing, 'left', 'desktop' ),
+			'padding-right' => astra_responsive_spacing( $container_outside_spacing, 'right', 'desktop' ),
 		),
 
 		// Negative margin for the alignfull gutenberg class based on the padding.
@@ -233,12 +233,12 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'tablet' ),
 		),
 		'.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-plain-container #primary, .ast-narrow-container #primary' => array(
-			'margin-top'    => astra_responsive_spacing( $continder_outside_spacing, 'top', 'tablet' ),
-			'margin-bottom' => astra_responsive_spacing( $continder_outside_spacing, 'bottom', 'tablet' ),
+			'margin-top'    => astra_responsive_spacing( $container_outside_spacing, 'top', 'tablet' ),
+			'margin-bottom' => astra_responsive_spacing( $container_outside_spacing, 'bottom', 'tablet' ),
 		),
 		'.ast-left-sidebar #primary, .ast-right-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-narrow-container #primary' => array(
-			'padding-left'  => astra_responsive_spacing( $continder_outside_spacing, 'left', 'tablet' ),
-			'padding-right' => astra_responsive_spacing( $continder_outside_spacing, 'right', 'tablet' ),
+			'padding-left'  => astra_responsive_spacing( $container_outside_spacing, 'left', 'tablet' ),
+			'padding-right' => astra_responsive_spacing( $container_outside_spacing, 'right', 'tablet' ),
 		),
 
 		/**
@@ -361,12 +361,12 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'mobile' ),
 		),
 		'.ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-plain-container #primary, .ast-narrow-container #primary' => array(
-			'margin-top'    => astra_responsive_spacing( $continder_outside_spacing, 'top', 'mobile' ),
-			'margin-bottom' => astra_responsive_spacing( $continder_outside_spacing, 'bottom', 'mobile' ),
+			'margin-top'    => astra_responsive_spacing( $container_outside_spacing, 'top', 'mobile' ),
+			'margin-bottom' => astra_responsive_spacing( $container_outside_spacing, 'bottom', 'mobile' ),
 		),
 		'.ast-left-sidebar #primary, .ast-right-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container #primary, .ast-narrow-container #primary' => array(
-			'padding-left'  => astra_responsive_spacing( $continder_outside_spacing, 'left', 'mobile' ),
-			'padding-right' => astra_responsive_spacing( $continder_outside_spacing, 'right', 'mobile' ),
+			'padding-left'  => astra_responsive_spacing( $container_outside_spacing, 'left', 'mobile' ),
+			'padding-right' => astra_responsive_spacing( $container_outside_spacing, 'right', 'mobile' ),
 		),
 
 		/**
@@ -489,88 +489,51 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$spacing_css_output .= astra_parse_css( $mobile_spacing, '', astra_addon_get_mobile_breakpoint() );
 
 	// Fixed submenu icon issue for RTL in responsive devices.
-	if ( $is_site_rtl ) {
+	$ltr_left  = $is_site_rtl ? 'right' : 'left';
+	$ltr_right = $is_site_rtl ? 'left' : 'right';
 
-		$rtl_desktop_submenu_arrow_css = array(
-			'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
-				'top'  => astra_responsive_spacing( $primary_menu_spacing, 'top', 'desktop' ),
-				'left' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'left', 'desktop' ), '-', '0.907', 'em' ),
-			),
-			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
-				'left' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'left', 'desktop' ), '-', '0.907', 'em' ),
-			),
-		);
+	$desktop_submenu_arrow_css = array(
+		'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
+			'top'      => astra_responsive_spacing( $primary_menu_spacing, 'top', 'desktop' ),
+			$ltr_right => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, $ltr_right, 'desktop' ), '-', '0.907', 'em' ),
+		),
+		'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
+			$ltr_right => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, $ltr_right, 'desktop' ), '-', '0.907', 'em' ),
+		),
+	);
 
-		$rtl_tablet_submenu_arrow_css = array(
-			'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
-				'top'  => astra_responsive_spacing( $primary_menu_spacing, 'top', 'tablet' ),
-				'left' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'left', 'tablet' ), '-', '0.907', 'em' ),
-			),
-			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
-				'left' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'left', 'tablet' ), '-', '0.907', 'em' ),
-			),
-		);
+	$tablet_submenu_arrow_css = array(
+		'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
+			'top'      => astra_responsive_spacing( $primary_menu_spacing, 'top', 'tablet' ),
+			$ltr_right => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, $ltr_right, 'tablet' ), '-', '0.907', 'em' ),
+		),
+		'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
+			$ltr_right => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, $ltr_right, 'tablet' ), '-', '0.907', 'em' ),
+		),
+	);
 
-		$rtl_mobile_submenu_arrow_css = array(
-			'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
-				'top'  => astra_responsive_spacing( $primary_menu_spacing, 'top', 'mobile' ),
-				'left' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'left', 'mobile' ), '-', '0.907', 'em' ),
-			),
-			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
-				'left' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'left', 'mobile' ), '-', '0.907', 'em' ),
-			),
+	$mobile_submenu_arrow_css = array(
+		'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
+			'top'      => astra_responsive_spacing( $primary_menu_spacing, 'top', 'mobile' ),
+			$ltr_right => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, $ltr_right, 'mobile' ), '-', '0.907', 'em' ),
+		),
+		'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
+			$ltr_right => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, $ltr_right, 'mobile' ), '-', '0.907', 'em' ),
+		),
 
-		);
-		$spacing_css_output .= astra_parse_css( $rtl_desktop_submenu_arrow_css );
-		$spacing_css_output .= astra_parse_css( $rtl_tablet_submenu_arrow_css, '', astra_addon_get_tablet_breakpoint() );
-		$spacing_css_output .= astra_parse_css( $rtl_mobile_submenu_arrow_css, '', astra_addon_get_mobile_breakpoint() );
+	);
+	$spacing_css_output .= astra_parse_css( $desktop_submenu_arrow_css );
+	$spacing_css_output .= astra_parse_css( $tablet_submenu_arrow_css, '', astra_addon_get_tablet_breakpoint() );
+	$spacing_css_output .= astra_parse_css( $mobile_submenu_arrow_css, '', astra_addon_get_mobile_breakpoint() );
 
-	} else {
-
-		$desktop_submenu_arrow_css = array(
-			'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
-				'top'   => astra_responsive_spacing( $primary_menu_spacing, 'top', 'desktop' ),
-				'right' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),
-			),
-			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
-				'right' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),
-			),
-		);
-
-		$tablet_submenu_arrow_css = array(
-			'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
-				'top'   => astra_responsive_spacing( $primary_menu_spacing, 'top', 'tablet' ),
-				'right' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'right', 'tablet' ), '-', '0.907', 'em' ),
-			),
-			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
-				'right' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'right', 'tablet' ), '-', '0.907', 'em' ),
-			),
-		);
-
-		$mobile_submenu_arrow_css = array(
-			'.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
-				'top'   => astra_responsive_spacing( $primary_menu_spacing, 'top', 'mobile' ),
-				'right' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'right', 'mobile' ), '-', '0.907', 'em' ),
-			),
-			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(
-				'right' => astra_calc_spacing( astra_responsive_spacing( $primary_menu_spacing, 'right', 'mobile' ), '-', '0.907', 'em' ),
-			),
-
-		);
-		$spacing_css_output .= astra_parse_css( $desktop_submenu_arrow_css );
-		$spacing_css_output .= astra_parse_css( $tablet_submenu_arrow_css, '', astra_addon_get_tablet_breakpoint() );
-		$spacing_css_output .= astra_parse_css( $mobile_submenu_arrow_css, '', astra_addon_get_mobile_breakpoint() );
-
-	}
-
-	$remove_bottom_sire_brancing = array(
+	$remove_bottom_site_branding_space = array(
 		'.ast-header-break-point .header-main-layout-2 .site-branding, .ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons'                    => array(
 			'padding-bottom' => astra_get_css_value( 0, 'px' ),
 		),
 	);
 
 	if ( isset( $header_spacing['mobile']['bottom'] ) && ( '' != $header_spacing['mobile']['bottom'] ) ) {
-		$spacing_css_output .= astra_parse_css( $remove_bottom_sire_brancing, '', astra_addon_get_mobile_breakpoint() );
+		$spacing_css_output .= astra_parse_css( $remove_bottom_site_branding_space, '', astra_addon_get_mobile_breakpoint() );
 	}
 
 	/**
@@ -609,13 +572,13 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-top' => astra_get_css_value( 0, 'px' ),
 		),
 	);
-	if ( '' != $continder_outside_spacing['desktop']['top'] ) {
+	if ( '' != $container_outside_spacing['desktop']['top'] ) {
 		$spacing_css_output .= astra_parse_css( $remove_top_padding_container );
 	}
-	if ( '' != $continder_outside_spacing['tablet']['top'] ) {
+	if ( '' != $container_outside_spacing['tablet']['top'] ) {
 		$spacing_css_output .= astra_parse_css( $remove_top_padding_container, '', astra_addon_get_tablet_breakpoint() );
 	}
-	if ( '' != $continder_outside_spacing['mobile']['top'] ) {
+	if ( '' != $container_outside_spacing['mobile']['top'] ) {
 		$spacing_css_output .= astra_parse_css( $remove_top_padding_container, '', astra_addon_get_mobile_breakpoint() );
 	}
 
@@ -625,13 +588,13 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'padding-bottom' => astra_get_css_value( 0, 'px' ),
 		),
 	);
-	if ( '' != $continder_outside_spacing['desktop']['top'] ) {
+	if ( '' != $container_outside_spacing['desktop']['top'] ) {
 		$spacing_css_output .= astra_parse_css( $remove_bottom_padding_container );
 	}
-	if ( '' != $continder_outside_spacing['tablet']['top'] ) {
+	if ( '' != $container_outside_spacing['tablet']['top'] ) {
 		$spacing_css_output .= astra_parse_css( $remove_bottom_padding_container, '', astra_addon_get_tablet_breakpoint() );
 	}
-	if ( '' != $continder_outside_spacing['mobile']['top'] ) {
+	if ( '' != $container_outside_spacing['mobile']['top'] ) {
 		$spacing_css_output .= astra_parse_css( $remove_bottom_padding_container, '', astra_addon_get_mobile_breakpoint() );
 	}
 
@@ -2263,14 +2226,14 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		$spacing_css_output .= astra_parse_css( $mobile_spacing, '', astra_addon_get_mobile_breakpoint() );
 
-		$remove_bottom_sire_brancing = array(
+		$remove_bottom_site_branding_space = array(
 			'.ast-header-break-point .header-main-layout-2 .site-branding, .ast-header-break-point .ast-mobile-header-stack .ast-mobile-menu-buttons'                    => array(
 				'padding-bottom' => astra_get_css_value( 0, 'px' ),
 			),
 		);
 
 		if ( isset( $header_spacing['mobile']['bottom'] ) && ( '' != $header_spacing['mobile']['bottom'] ) ) {
-			$spacing_css_output .= astra_parse_css( $remove_bottom_sire_brancing, '', astra_addon_get_mobile_breakpoint() );
+			$spacing_css_output .= astra_parse_css( $remove_bottom_site_branding_space, '', astra_addon_get_mobile_breakpoint() );
 		}
 	}
 

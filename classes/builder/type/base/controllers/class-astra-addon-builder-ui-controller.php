@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 						if ( ! empty( $languages ) ) {
 							?>
 
-							<nav class="ast-builder-language-switcher"><ul class="ast-builder-language-switcher-menu">
+							<nav class="ast-builder-language-switcher" aria-label="<?php _e( 'Language Switcher', 'astra-addon' ); ?>"><ul class="ast-builder-language-switcher-menu">
 							<?php foreach ( $languages as $language ) { ?>
 								<li class="ast-builder-language-switcher-menu-item-<?php echo esc_attr( $builder_type ); ?>">
 
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 
 						if ( is_array( $items ) && ! empty( $items ) ) {
 							?>
-							<nav class="ast-builder-language-switcher"><ul class="ast-builder-language-switcher-menu">
+							<nav class="ast-builder-language-switcher" aria-label="<?php _e( 'Language Switcher', 'astra-addon' ); ?>"><ul class="ast-builder-language-switcher-menu">
 								<?php
 								foreach ( $items as $item ) {
 									if ( $item['enabled'] ) {

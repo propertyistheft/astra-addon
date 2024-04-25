@@ -58,7 +58,7 @@
 						// Check if the user is scrolling down and the last product is within view
 						if (isLastProductVisible) {
 							// Check if there are more products to load
-							if (count < total && loadStatus) {
+							if (count <= total && loadStatus) {
 								NextloadArticles(count);
 								count++;
 								loadStatus = false;

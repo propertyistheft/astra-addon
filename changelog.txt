@@ -1,5 +1,17 @@
 *** Astra Pro Changelog ***
 
+2024-04-25 - version 4.6.8
+* Improvement: Header Builder - Language Switcher - Improved accessibility by adding aria-labels.
+* Improvement: Spacing Addon - Code optimization to reduce extra conditions load & improve performance.
+* Fix: Sticky Header - Transition effect of headers and Account element's Login Popup alignment issue when Shrink Effect is enabled.
+* Fix: WooCommerce - Using "Use Labels as Placeholders" in the Checkout produces inconsistent results for required fields.
+* Fix: Old header menu styling conflicting with new header builder's header structure.
+* Fix: WooCommerce - Infinite scroll does not showing all products on the shop page.
+* Fix: Site Builder - Custom Template's headings don't have bottom spacing on the frontend.
+* Fix: Sticky Header - On window scrolling there is a glitch between site header and Spectra's gallery block.
+* Fix: Sticky Header - On window scrolling there is glitch between site header and Spectra's gallery block.
+* Fix: WooCommerce - Sticky Product Image is breaking UI on responsive devices.
+
 2024-04-11 - version 4.6.5
 * New: WooCommerce - Introduced "Sticky Product Image" option: This option allows the featured image on single WooCommerce product pages to remain visible as users scroll down the page.
 * Improvement: WooCommerce - Refactor header account login popup form.

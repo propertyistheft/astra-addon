@@ -163,6 +163,12 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			add_action( 'template_redirect', array( $this, 'recently_viewed' ), 1 );
 
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 99 );
+
+			// Modify default WooCommerce checkout fields placeholders.
+			add_filter( 'woocommerce_get_country_locale_default', array( $this, 'default_fields_customization' ) );
+
+			// Modify default WooCommerce checkout form fields arguments.
+			add_filter( 'woocommerce_form_field_args', array( $this, 'checkout_form_fields_args_customization' ), 10, 3 );
 		}
 
 		/**
@@ -3236,6 +3242,50 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			}
 
 			return $fields;
+		}
+
+		/**
+		 * Modify billing address placeholder.
+		 *
+		 * @param array $fields Checkout fields.
+		 * @since 4.6.8
+		 * @return array
+		 */
+		public function default_fields_customization( $fields ) {
+			if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) && 'yes' === get_option( 'woocommerce_checkout_highlight_required_fields' ) && ( astra_get_option( 'checkout-labels-as-placeholders' ) || 'modern' === astra_get_option( 'woo-input-style-type' ) ) ) {
+				if ( isset( $fields['address_1'] ) && $fields['address_1']['required'] ) {
+					$fields['address_1']['placeholder'] .= ' *';
+				}
+
+				if ( isset( $fields['address_2'] ) && $fields['address_2']['required'] ) {
+					$fields['address_2']['placeholder'] .= ' *';
+				}
+			}
+
+			return $fields;
+		}
+
+		/**
+		 * Modify billing country & state placeholder.
+		 *
+		 * @param array $args  Checkout form field arguments.
+		 * @param array $key   Checkout form field key.
+		 * @param array $value Checkout form field value.
+		 * @since 4.6.8
+		 * @return array
+		 */
+		public function checkout_form_fields_args_customization( $args, $key, $value ) {
+			if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) && 'yes' === get_option( 'woocommerce_checkout_highlight_required_fields' ) && ( astra_get_option( 'checkout-labels-as-placeholders' ) || 'default' === astra_get_option( 'woo-input-style-type' ) ) ) {
+				if ( 'country' === $args['type'] && 'billing_country' === $key ) {
+					$args['placeholder'] = $args['placeholder'] ? $args['placeholder'] . ' *' : esc_attr__( 'Select a country / region&hellip; *', 'astra-addon' );
+				}
+
+				if ( 'state' === $args['type'] && 'billing_state' === $key ) {
+					$args['placeholder'] = $args['placeholder'] ? $args['placeholder'] . ' *' : esc_attr__( 'Select an option&hellip; *', 'astra-addon' );
+				}
+			}
+
+			return $args;
 		}
 
 		/**
