@@ -221,6 +221,11 @@
   left: 0;
 }
 
+.ast-off-canvas-overlay body > .select2-container {
+  /* Make the select2 container wrapper visible on filter sidebar */
+  z-index: 99;
+}
+
 /**
  * Shop page content alignment.
  */

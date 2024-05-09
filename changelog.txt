@@ -1,5 +1,12 @@
 *** Astra Pro Changelog ***
 
+2024-05-08 - version 4.6.9
+* Improvement: Corrected Dashboard link navigation from Site Builder's UI breadcrumb.
+* Improvement: Duplicate navigation menu markup rendering for sticky header.
+* Fix: WooCommerce - Product gallery horizontal and vertical sliders not displaying variation images.
+* Fix: Legacy Header: Search widget is not visible on mobile device as last item menu with "Full Screen" and "Header Cover" options.
+* Fix: Shop Off-Canvas is not opening the product category dropdown.
+
 2024-04-25 - version 4.6.8
 * Improvement: Header Builder - Language Switcher - Improved accessibility by adding aria-labels.
 * Improvement: Spacing Addon - Code optimization to reduce extra conditions load & improve performance.

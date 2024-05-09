@@ -66,7 +66,6 @@ if ( ! class_exists( 'Astra_Customizer_Adv_Search_Header' ) ) {
 							'value'    => 'search',
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 			);

@@ -146,6 +146,16 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 		}
 
 		/**
+		 * Method to return string 'disabled'.
+		 *
+		 * @return string Returns 'disabled' string literal.
+		 * @since 4.6.9
+		 */
+		public function disabled() {
+			return 'disabled';
+		}
+
+		/**
 		 * Site Header - <header>
 		 *
 		 * @since 1.0.0
@@ -194,14 +204,47 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				add_filter( 'astra_header_site_navigation_id', array( $this, 'update_navigation_id' ), 10, 1 );
 				add_filter( 'astra_header_menu_ul_id', array( $this, 'update_menu_ul_id' ), 10, 1 );
 
+				// Check if globally enabled or specific post/page enabled.
+				$disable_above_markup = ! $above_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' === $sticky_above_header_meta || 'disabled' === $sticky_above_header_meta ) );
+				$disable_main_markup  = ! $main_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) );
+				$disable_below_markup = ! $below_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_below_header_meta || 'disabled' === $sticky_below_header_meta ) );
+
 				?>
 				<header id="ast-fixed-header" <?php astra_header_classes(); ?> style="visibility: hidden;" data-type="fixed-header">
+
+					<?php
+					// Render above sticky header markup only if enabled.
+					if ( $disable_above_markup ) {
+						add_filter( 'astra_above_header_display', array( $this, 'disabled' ) );
+					}
+					// Render main sticky header markup only if enabled.
+					if ( $disable_main_markup ) {
+						add_filter( 'astra_main_header_display', array( $this, 'disabled' ) );
+					}
+					// Render below sticky header markup only if enabled.
+					if ( $disable_below_markup ) {
+						add_filter( 'astra_below_header_display', array( $this, 'disabled' ) );
+					}
+					?>
 
 					<?php astra_masthead_top(); ?>
 
 					<?php astra_masthead(); ?>
 
 					<?php astra_masthead_bottom(); ?>
+
+					<?php
+					// Remove filters
+					if ( $disable_above_markup ) {
+						remove_filter( 'astra_above_header_display', array( $this, 'disabled' ) );
+					}
+					if ( $disable_main_markup ) {
+						remove_filter( 'astra_main_header_display', array( $this, 'disabled' ) );
+					}
+					if ( $disable_below_markup ) {
+						remove_filter( 'astra_below_header_display', array( $this, 'disabled' ) );
+					}
+					?>
 
 				</header><!-- #astra-fixed-header -->
 

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.6.8\n"
+"Project-Id-Version: Astra Pro 4.6.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2024-04-25 03:27:20+00:00\n"
+"POT-Creation-Date: 2024-05-08 09:18:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1291,7 +1291,7 @@ msgstr ""
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1213
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:226
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:240
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:621
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:664
 msgid "Customizer Setting"
 msgstr ""
 
@@ -5139,7 +5139,7 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:68
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:228
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:242
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:623
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:666
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:960
 msgid "Disabled"
 msgstr ""
@@ -5366,19 +5366,19 @@ msgid "Course / Lesson"
 msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:151
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:650
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:693
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:77
 msgid "Stick Primary Header"
 msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:164
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:636
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:679
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-sections-configs.php:60
 msgid "Stick Above Header"
 msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:177
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:663
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:706
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-sections-configs.php:71
 msgid "Stick Below Header"
 msgstr ""
@@ -5393,7 +5393,7 @@ msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:227
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:241
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:622
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:665
 msgid "Enabled"
 msgstr ""
 
@@ -5960,7 +5960,7 @@ msgstr ""
 msgid "Site Identity Space"
 msgstr ""
 
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:618
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:661
 #: addons/sticky-header/classes/class-astra-sticky-header-panels-configs.php:44
 msgid "Sticky Header"
 msgstr ""
@@ -7744,6 +7744,24 @@ msgstr ""
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:1788
 #. translators: %s post title.
 msgid "The same display setting is already exist in %s post/s."
+msgstr ""
+
+#: vendor/wp-phpunit/wp-phpunit/data/plugins/custom-internationalized-plugin/custom-internationalized-plugin.php:13
+#: vendor/wp-phpunit/wp-phpunit/data/plugins/internationalized-plugin.php:11
+msgid "This is a dummy plugin"
+msgstr ""
+
+#: vendor/wp-phpunit/wp-phpunit/data/themedir1/custom-internationalized-theme/functions.php:9
+#: vendor/wp-phpunit/wp-phpunit/data/themedir1/internationalized-theme/functions.php:7
+msgid "This is a dummy theme"
+msgstr ""
+
+#: vendor/wp-phpunit/wp-phpunit/includes/factory/class-wp-unittest-factory-for-bookmark.php:56
+msgid "Could not update link."
+msgstr ""
+
+#: vendor/wp-phpunit/wp-phpunit/includes/factory/class-wp-unittest-factory-for-comment.php:45
+msgid "Could not insert comment into the database."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
