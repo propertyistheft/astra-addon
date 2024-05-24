@@ -351,6 +351,19 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$css_output               .= astra_parse_css( $shop_product_bg_color_css );
 	}
 
+
+	/* Filter flyout background colour */
+	$filter_background_colour = astra_get_option( 'filter-background-color' );
+
+	if ( $filter_background_colour ) {
+		$filter_background_colour_support = array(
+			' .woocommerce .astra-off-canvas-sidebar-wrapper .astra-off-canvas-sidebar, .woocommerce-page .astra-off-canvas-sidebar-wrapper .astra-off-canvas-sidebar' => array(
+				'background-color' => $filter_background_colour,
+			),
+		);
+		$css_output                      .= astra_parse_css( $filter_background_colour_support );
+	}
+
 	$quick_view_bg_color = astra_get_option( 'quick-view-background-color' );
 
 	if ( $quick_view_bg_color ) {

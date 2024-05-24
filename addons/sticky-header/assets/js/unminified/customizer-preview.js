@@ -271,8 +271,44 @@
 	 */
 	wp.customize( 'astra-settings[sticky-header-logo-width]', function( setting ) {
 		setting.bind( function( logo_width ) {
+			let tabletBreakPoint    = astraCustomizer.tablet_breakpoint || 921,
+				mobileBreakPoint    = astraCustomizer.mobile_breakpoint || 544;
+
 			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '.ast-hfb-header .site-logo-img .sticky-custom-logo img {max-width: ' + logo_width['desktop'] + 'px;} #masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg { width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { .ast-hfb-header .site-logo-img .sticky-custom-logo img {max-width: ' + logo_width['tablet'] + 'px;} #masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg { width: ' + logo_width['tablet'] + 'px;} } @media( max-width: 544px ) { .ast-hfb-header .site-logo-img .sticky-custom-logo img {max-width: ' + logo_width['mobile'] + 'px;} #masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg { width: ' + logo_width['mobile'] + 'px;} }'
+				var dynamicStyle = `.ast-hfb-header .site-logo-img .sticky-custom-logo img {
+					max-width: ${logo_width['desktop']}px !important;
+					width: ${logo_width['desktop']}px;
+				}
+				#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg,
+				.site-logo-img .sticky-custom-logo .astra-logo-svg,
+				.ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg {
+					max-width: ${logo_width['desktop']}px !important;
+					width: ${logo_width['desktop']}px;
+				}
+				@media( max-width: ${tabletBreakPoint}px ) {
+					.ast-hfb-header .site-logo-img .sticky-custom-logo img {
+						max-width: ${logo_width['tablet']}px !important;
+						width: ${logo_width['tablet']}px !important;
+					}
+					#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg,
+					.site-logo-img .sticky-custom-logo .astra-logo-svg,
+					.ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg {
+						max-width: ${logo_width['tablet']}px !important;
+						width: ${logo_width['tablet']}px !important;
+					}
+				}
+				@media( max-width: ${mobileBreakPoint}px ) {
+					.ast-hfb-header .site-logo-img .sticky-custom-logo img {
+						max-width: ${logo_width['mobile']}px !important;
+						width: ${logo_width['mobile']}px;
+					}
+					#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg,
+					.site-logo-img .sticky-custom-logo .astra-logo-svg,
+					.ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg {
+						max-width: ${logo_width['mobile']}px !important;
+						width: ${logo_width['mobile']}px !important;
+					}
+				}`
 				astra_add_dynamic_css( 'sticky-header-logo-width', dynamicStyle );
 			}
 			else{

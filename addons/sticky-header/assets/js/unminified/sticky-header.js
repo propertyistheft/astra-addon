@@ -178,13 +178,7 @@
 							'top'            : stickyHeaderFlag ? aboveHeaderSelectorValue : 'unset',
 						});
 
-						let spectra_gallery = document.querySelector('.wp-block-uagb-image-gallery');
-
-						if ( spectra_gallery || astraAddon.reveal_effect ) {
-							selector.parent().css("min-height", selector.outerHeight());
-						} else {
-							selector.parent().css("min-height", 'unset');
-						}
+						selector.parent().css("min-height", selector.outerHeight());
 					}
 
 					selector.addClass( 'ast-sticky-shrunk' ).stop();

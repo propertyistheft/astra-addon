@@ -102,7 +102,7 @@
 
 .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img img {
   max-height: 55px !important;
-  width: auto;
+  width: auto !important;
 }
 
 .ast-sticky-main-shrink.ast-header-break-point .ast-sticky-shrunk .main-header-bar, .ast-sticky-main-shrink.ast-header-break-point .ast-sticky-shrunk.main-header-bar {
@@ -134,7 +134,7 @@
 
 .ast-sticky-above-shrink .ast-sticky-shrunk .site-logo-img img {
   max-height: 55px;
-  width: auto;
+  width: auto !important;
 }
 
 .ast-sticky-above-shrink.ast-header-break-point .ast-sticky-shrunk .ast-above-header-bar, .ast-sticky-above-shrink.ast-header-break-point .ast-sticky-shrunk.ast-above-header-bar {
@@ -166,7 +166,7 @@
 
 .ast-sticky-below-shrink .ast-sticky-shrunk .site-logo-img img {
   max-height: 55px;
-  width: auto;
+  width: auto !important;
 }
 
 .ast-sticky-below-shrink.ast-header-break-point .ast-sticky-shrunk .ast-below-header-bar, .ast-sticky-below-shrink.ast-header-break-point .ast-sticky-shrunk.ast-below-header-bar {

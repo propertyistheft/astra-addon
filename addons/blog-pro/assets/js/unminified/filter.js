@@ -2,6 +2,7 @@
 const masonryEnabled  = astra.masonryEnabled || false;
 const revealEffectEnable  = astra.revealEffectEnable || false;
 const blogArchiveTitleLayout =  astra.blogArchiveTitleLayout || '';
+const blogArchiveTitleOn = astra.blogArchiveTitleOn || '';
 
 function domReady(fn) {
     // If we're early to the party
@@ -28,8 +29,22 @@ domReady(() => {
             });
         });
     }
+
+    astNavigationListener();
 });
 
+// To add ajax functionality on navigation links.
+function astNavigationListener() {
+    const links = document.querySelectorAll('.ast-pagination a');
+    links?.forEach(link => {
+        link?.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const href = e.target?.getAttribute('href');
+            ArticleMarkup(href);
+        });
+    });
+}
 
 function ArticleMarkup(url, value) {
     document.querySelector('.ast-row').style.opacity = .1;
@@ -47,17 +62,33 @@ function ArticleMarkup(url, value) {
             const paginationWrapper = document.querySelector(paginationSelector);
             const paginationHtml = data.querySelector(paginationSelector);
 
+            if ( ! paginationWrapper && paginationHtml ) {
+                document.querySelector('#main')?.insertAdjacentElement('afterend', paginationHtml);
+            } else if ( paginationWrapper && ! paginationHtml ) {
+                paginationWrapper?.remove();
+            } else if ( paginationWrapper && paginationHtml?.innerHTML ) {
+                paginationWrapper.innerHTML = paginationHtml.innerHTML;
+            }
+
             // Pagination numbers for archive blog.
             const paginationTypeNumberSelector = '.ast-pagination';
             const paginationTypeNumberWrapper = document.querySelector(paginationTypeNumberSelector);
             const paginationTypeNumberHtml = data.querySelector(paginationTypeNumberSelector);
 
-            if( paginationTypeNumberWrapper ) {
-                paginationTypeNumberWrapper.innerHTML = '';
-                if( paginationTypeNumberHtml?.innerHTML ) {
-                    paginationTypeNumberWrapper.innerHTML = paginationTypeNumberHtml.innerHTML;
-                }
+            // Handling creation and removal of pagination container.
+            if ( ! paginationTypeNumberWrapper && paginationTypeNumberHtml ) {
+                document.querySelector('#main')?.insertAdjacentElement('afterend', paginationTypeNumberHtml);
+            } else if ( paginationTypeNumberWrapper && ! paginationTypeNumberHtml ) {
+                paginationTypeNumberWrapper?.remove();
+            } else if ( paginationTypeNumberWrapper && paginationTypeNumberHtml?.innerHTML ) {
+                paginationTypeNumberWrapper.innerHTML = paginationTypeNumberHtml.innerHTML;
             }
+
+            // Updating window title.
+            document.title = data?.title || document.title;
+
+            // For loading pagination style.
+            document.querySelector('#astra-theme-css-inline-css').innerHTML = data.querySelector('#astra-theme-css-inline-css').innerHTML;
 
             document.querySelector('#main > .ast-row').innerHTML = '';
             //	Append articles
@@ -103,7 +134,8 @@ function ArticleMarkup(url, value) {
             if( revealEffectEnable ) {
                 fadin('.ast-fade-up', { delay: 200 });
             }
-            
+
+            astNavigationListener();
         }
 }
 
@@ -111,13 +143,15 @@ function BlogBannerLayoutRender( data, titleSelector, value ) {
     // Heading for archive for layouts.
     const titleWrapper = document.querySelector(titleSelector);
     const titleHtml = data.querySelector(titleSelector);
-    if( titleWrapper ) {
-        if( 'layout-1' === blogArchiveTitleLayout ){
-            titleWrapper.style.display = ('all' === value) ? 'none' : 'block'; 
-        }
-        if( titleHtml?.innerHTML ) {
-            titleWrapper.innerHTML = '';
-            titleWrapper.innerHTML = titleHtml.innerHTML;
-        }
+
+    if ( titleWrapper && 'all' === value && (  'layout-2' !== blogArchiveTitleLayout || ! blogArchiveTitleOn ) ) {
+        titleWrapper.remove();
+        document.body.classList.remove('archive');
+    } else if ( ! titleWrapper && titleHtml?.innerHTML ) {
+        const mainSelector = 'layout-2' === blogArchiveTitleLayout ? '#content' : '#main';
+        document.querySelector(mainSelector)?.insertAdjacentElement('beforebegin', titleHtml);
+        document.body.classList.add('archive');
+    } else if ( titleWrapper && titleHtml?.innerHTML ) {
+        titleWrapper.innerHTML = titleHtml.innerHTML;
     }
 }

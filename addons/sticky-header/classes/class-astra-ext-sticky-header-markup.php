@@ -234,7 +234,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 					<?php astra_masthead_bottom(); ?>
 
 					<?php
-					// Remove filters
+					// Remove filters.
 					if ( $disable_above_markup ) {
 						remove_filter( 'astra_above_header_display', array( $this, 'disabled' ) );
 					}
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			}
 		}
 
-	
+
 
 		/**
 		 * Render Svg Mask for Header logo
@@ -559,11 +559,6 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			 */
 			$localize_vars['sticky_header_on_devices'] = astra_get_option_meta( 'sticky-header-on-devices' );
 
-			/**
-			 * Reveal Effect status
-			 */
-			$localize_vars['reveal_effect'] = astra_get_option( 'blog-reveal-effect' );
-			
 			/**
 			 * Sticky Header Style
 			 */

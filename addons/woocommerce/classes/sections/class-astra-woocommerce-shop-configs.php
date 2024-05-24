@@ -202,6 +202,34 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 					'context'           => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
+				),
+
+				/**
+				 * Filter flyout background color
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[filter-background-color]',
+					'default'           => astra_get_option( 'filter-background-color' ),
+					'type'              => 'control',
+					'section'           => 'woocommerce_product_catalog',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Filter Background', 'astra-addon' ),
+					'priority'          => 228.6,
+					'context'           => array(
+						astra_addon_builder_helper()->design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[shop-filter-position]', 
+							'operator' => 'contains',
+							'value'    => 'shop-filter-flyout',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[shop-toolbar-structure]', 
+							'operator' => 'contains',
+							'value'    => 'filters',
+						),
+					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-spacing' ),
 				),
 

@@ -192,10 +192,12 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	// Desktop Sticky Header Logo width.
 	$desktop_css_output = array(
 		'#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg' => array(
-			'width' => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px' ),
+			'max-width' => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px' ),
+			'width'     => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px !important' ),
 		),
 		'.ast-hfb-header .site-logo-img .sticky-custom-logo img' => array(
-			'max-width' => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px' ),
+			'max-width' => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px !important' ),
+			'width'     => astra_get_css_value( $sticky_header_logo_width['desktop'], 'px' ),
 		),
 	);
 	$parse_css         .= astra_parse_css( $desktop_css_output );
@@ -203,10 +205,12 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	// Tablet Sticky Header Logo width.
 	$tablet_css_output = array(
 		'#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg' => array(
-			'width' => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px' ),
+			'max-width' => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px' ),
+			'width'     => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px' ),
 		),
 		'.ast-hfb-header .site-logo-img .sticky-custom-logo img' => array(
-			'max-width' => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px' ),
+			'max-width' => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px !important' ),
+			'width'     => astra_get_css_value( $sticky_header_logo_width['tablet'], 'px' ),
 		),
 	);
 	$parse_css        .= astra_parse_css( $tablet_css_output, '', astra_addon_get_tablet_breakpoint() );
@@ -214,10 +218,12 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	// Mobile Sticky Header Logo width.
 	$mobile_css_output = array(
 		'#masthead .site-logo-img .sticky-custom-logo .astra-logo-svg, .site-logo-img .sticky-custom-logo .astra-logo-svg, .ast-sticky-main-shrink .ast-sticky-shrunk .site-logo-img .astra-logo-svg' => array(
-			'width' => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px' ),
+			'max-width' => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px' ),
+			'width'     => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px !important' ),
 		),
 		'.ast-hfb-header .site-logo-img .sticky-custom-logo img' => array(
-			'max-width' => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px' ),
+			'max-width' => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px !important' ),
+			'width'     => astra_get_css_value( $sticky_header_logo_width['mobile'], 'px' ),
 		),
 	);
 	$parse_css        .= astra_parse_css( $mobile_css_output, '', astra_addon_get_mobile_breakpoint( '1' ) );

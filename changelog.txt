@@ -1,5 +1,15 @@
 *** Astra Pro Changelog ***
 
+2024-05-23 - version 4.6.10
+* New: WooCommerce - Introduce new background color option for filter flyout.
+* Fix: Changing the logo width increase the logo height inside the customizer settings.
+* Fix: Site Builder - Layouts duplicating when multiple layouts are added on the page in some conditions.
+* Fix: Blog archive post filter issues with title and pagination.
+* Fix: Sticky Header - When UABB is activated and on window scrolling there is a glitch between site header and UABB created post grid layout.
+* Fix: WooCommerce - Fixed an issue causing the page to freeze when selecting product variations and ensured smoother image updates on product pages.
+* Fix: WooCommerce - Attribute button state updates automatically when switching valid variation without additional clicks.
+* Fix: PHP Error with undefined function bsf_extract_product_id in some edge cases.
+
 2024-05-08 - version 4.6.9
 * Improvement: Corrected Dashboard link navigation from Site Builder's UI breadcrumb.
 * Improvement: Duplicate navigation menu markup rendering for sticky header.

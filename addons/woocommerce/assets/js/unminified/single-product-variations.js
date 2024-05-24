@@ -1,3 +1,10 @@
+const triggerActiveAttributeButton = () => {
+    const activeAttributeButton = document.querySelector('.ast-variation-button-group .ast-single-variation.active');
+    if (activeAttributeButton) {
+        activeAttributeButton.click();
+    }
+};
+
 const productVariation = (image_slider_wrap) => {
     const productSingleVariations = document.querySelectorAll( '.ast-single-variation' );
     const productVariationReset   = document.querySelector( '.reset_variations' );
@@ -77,6 +84,9 @@ const productVariation = (image_slider_wrap) => {
                     e.target.classList.add( 'active' );
                     currentTarget.value = currentSlug;
                     currentTarget.dispatchEvent( new Event( 'change', { 'bubbles': true } ) )
+
+                    // Triggering the active Attribute button to ensure the state is updated
+                    triggerActiveAttributeButton();
                 }
 
                 if (image_slider_wrap != null) {

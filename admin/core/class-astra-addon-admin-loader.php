@@ -308,7 +308,7 @@ class Astra_Addon_Admin_Loader {
 
 		wp_style_add_data( $handle, 'rtl', 'replace' );
 
-		$product_id = ASTRA_ADDON_BSF_PACKAGE ? bsf_extract_product_id( ASTRA_EXT_DIR ) : '';
+		$product_id = ASTRA_ADDON_BSF_PACKAGE && is_callable( 'bsf_extract_product_id' ) ? bsf_extract_product_id( ASTRA_EXT_DIR ) : '';
 
 		$white_label_markup_instance = Astra_Ext_White_Label_Markup::get_instance();
 		$rollback_version            = isset( self::astra_get_rollback_versions( 'astra-addon' )[0] ) ? self::astra_get_rollback_versions( 'astra-addon' )[0] : ''; // phpcs:ignore PHPCompatibility.Syntax.NewFunctionArrayDereferencing.Found
@@ -482,7 +482,7 @@ class Astra_Addon_Admin_Loader {
 
 	/**
 	 *  Declare Woo HPOS & New Product Editor Compatibility.
-	 * 
+	 *
 	 * @since 4.5.1
 	 * @return void
 	 */

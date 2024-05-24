@@ -19,7 +19,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var object instance
+		 * @var self instance
 		 */
 		private static $instance;
 
@@ -1115,6 +1115,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		}
 
 		/**
+		 * Set the hash of duplicated content.
+		 *
+		 * @var array
+		 * @since 4.6.10
+		 */
+		private static $duplicate_content_hash = array();
+
+		/**
 		 * Create layout blocks data to insert in content.
 		 *
 		 * @param int    $post_id post ID.
@@ -1153,7 +1161,17 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 					ob_start();
 					self::get_instance()->get_action_content( $post_id );
 					$layout_content = ob_get_clean();
-					$content       .= $layout_content;
+
+					$layout_content_hash = md5( $layout_content );
+
+					if ( ! in_array( $layout_content_hash, self::$duplicate_content_hash, true ) ) {
+						/**
+						 * Only concat the "$layout_content" to "$content" if it is not already rendered.
+						 */
+						$content .= $layout_content;
+					}
+
+					self::$duplicate_content_hash[] = $layout_content_hash;
 				}
 			} elseif ( 'before_headings' === $location ) {
 
@@ -1174,7 +1192,17 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 					ob_start();
 					self::get_instance()->get_action_content( $post_id );
 					$layout_content = ob_get_clean();
-					$content        = $layout_content . $content;
+
+					$layout_content_hash = md5( $layout_content );
+
+					if ( ! in_array( $layout_content_hash, self::$duplicate_content_hash, true ) ) {
+						/**
+						 * Only concat the "$layout_content" to "$content" if it is not already rendered.
+						 */
+						$content = $layout_content . $content;
+					}
+
+					self::$duplicate_content_hash[] = $layout_content_hash;
 				}
 			}
 

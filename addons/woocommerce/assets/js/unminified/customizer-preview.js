@@ -388,6 +388,14 @@
 		} );
 	} );
 
+	// Filter Flyout Background color.
+	wp.customize( 'astra-settings[filter-background-color]', function( setting ) {
+		setting.bind( function( color ) {
+			var dynamicStyle = '.woocommerce .astra-off-canvas-sidebar-wrapper .astra-off-canvas-sidebar, .woocommerce-page .astra-off-canvas-sidebar-wrapper .astra-off-canvas-sidebar { background-color: ' + color + ' } ';
+			astra_add_dynamic_css( 'global-color-palette', dynamicStyle );
+		} );
+	} );
+
 	// Quick View Background color.
 	astra_css( 'astra-settings[quick-view-background-color]', 'background-color', '#ast-quick-view-content, .ast-separate-container #ast-quick-view-content .ast-article-post' );
 

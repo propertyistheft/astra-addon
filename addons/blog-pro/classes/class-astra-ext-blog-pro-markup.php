@@ -104,6 +104,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			$localize['grid_layout']            = $grid_layout;
 			$localize['site_url']               = get_site_url();
 			$localize['blogArchiveTitleLayout'] = astra_get_option( 'ast-dynamic-archive-post-layout' );
+			$localize['blogArchiveTitleOn']     = astra_get_option( 'ast-dynamic-archive-post-banner-on-blog' );
 			$localize['show_comments']          = __( 'Show Comments', 'astra-addon' );
 
 			// If woocommerce page template.

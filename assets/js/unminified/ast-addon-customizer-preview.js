@@ -196,8 +196,13 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 					if ( '' !== bg_img ) {
 						if ( 'overlay-type' in bg_obj[device] && 'none' !== bg_obj[device]['overlay-type'] ) {
 							let overlay_color	= 'overlay-color' in bg_obj[device] ? bg_obj[device]['overlay-color'] : '';
+							let overlay_opacity	= 'overlay-opacity' in bg_obj[device] ? bg_obj[device]['overlay-opacity'] : '';
 							let overlay_gradient	= 'overlay-gradient' in bg_obj[device] ? bg_obj[device]['overlay-gradient'] : '';
 							if ( 'classic' === bg_obj[device]['overlay-type'] && '' !== overlay_color ) {
+								if ( '' !== overlay_opacity ) {
+									wp.customize.preview.send( 'refresh' );
+									return;
+								}
 								gen_bg_css = 'background-image: linear-gradient(to right, ' + overlay_color + ', ' + overlay_color + '), url(' + bg_img + ');';
 							} else if ( 'gradient' === bg_obj[device]['overlay-type'] && '' !== overlay_gradient ) {
 								gen_bg_css = 'background-image: ' + overlay_gradient + ', url(' + bg_img + ');';
