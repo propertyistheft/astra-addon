@@ -873,7 +873,6 @@
 }
 
 .ast-offcanvas-wrapper .ast-single-control.ast-spacing .ast-spacing-wrapper li .ast-spacing-input[type=number]::-webkit-inner-spin-button, .ast-offcanvas-wrapper .ast-single-control.ast-spacing .ast-spacing-wrapper li .ast-spacing-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
   appearance: none;
   margin: 0;
 }
@@ -986,7 +985,6 @@
 
 .ast-offcanvas-wrapper .ast-single-control.ast-slider .components-range-control__slider[type="range"], .ast-offcanvas-wrapper .ast-single-control.ast-responsive-slider .components-range-control__slider[type="range"] {
   align-items: center;
-  -webkit-appearance: none;
   appearance: none;
 }
 

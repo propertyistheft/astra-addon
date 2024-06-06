@@ -87,17 +87,21 @@ class Astra_Cache extends Astra_Cache_Base {
 	 */
 	public function setup_cache() {
 
-		$assets_info = $this->get_asset_info( 'theme' );
+		$allow_file_generation = get_option( '_astra_file_generation', 'disable' );
 
-		if ( array_key_exists( 'path', $assets_info ) && ! file_exists( $assets_info['path'] ) && ! self::inline_assets() ) {
-			$theme_css_data = $this->get_dynamic_css();
+		if ( 'enable' === $allow_file_generation && ! is_customize_preview() ) {
+			$assets_info = $this->get_asset_info( 'theme' );
 
-			// Return if there is no data to add in the css file.
-			if ( empty( $theme_css_data ) ) {
-				return;
+			if ( array_key_exists( 'path', $assets_info ) && ! file_exists( $assets_info['path'] ) && ! self::inline_assets() ) {
+				$theme_css_data = $this->get_dynamic_css();
+
+				// Return if there is no data to add in the css file.
+				if ( empty( $theme_css_data ) ) {
+					return;
+				}
+
+				$this->write_assets( $theme_css_data, 'theme' );
 			}
-
-			$this->write_assets( $theme_css_data, 'theme' );
 		}
 
 		if ( true === Astra_Enqueue_Scripts::enqueue_theme_assets() ) {

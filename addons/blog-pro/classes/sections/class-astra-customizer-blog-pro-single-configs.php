@@ -58,6 +58,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 			);
 
+			$hide_social_share_icon_positions = Astra_Addon_Update_Filter_Function::astra_addon_hide_social_share_icon_position();
+
 			$_configs = array(
 
 				/**
@@ -520,21 +522,22 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				 * Option: Social sharing position
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-position]',
-					'default'  => astra_get_option( 'single-post-social-sharing-icon-position' ),
-					'type'     => 'control',
-					'section'  => 'ast-sub-section-post-social-sharing',
-					'title'    => __( 'Icon Position', 'astra-addon' ),
-					'control'  => 'ast-select',
-					'priority' => 9,
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-position]',
+					'default'     => astra_get_option( 'single-post-social-sharing-icon-position' ),
+					'type'        => 'control',
+					'section'     => 'ast-sub-section-post-social-sharing',
+					'title'       => __( 'Icon Position', 'astra-addon' ),
+					'description' => $hide_social_share_icon_positions ? esc_html__( 'Left and Right Sticky Social Share options are for desktop use only to prevent floating UI issues on responsive devices.', 'astra-addon' ) : '',
+					'control'     => 'ast-select',
+					'priority'    => 9,
+					'choices'     => array(
 						'below-post-title' => __( 'Below Post Title', 'astra-addon' ),
 						'below-post'       => __( 'Below Post', 'astra-addon' ),
 						'left-content'     => __( 'Left Content', 'astra-addon' ),
 						'right-content'    => __( 'Right Content', 'astra-addon' ),
 					),
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-section-divider' ),
-					'context'  => array(
+					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-section-divider icon-divider' ),
+					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-enable]',

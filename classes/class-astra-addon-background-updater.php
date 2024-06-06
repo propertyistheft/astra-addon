@@ -26,35 +26,6 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'3.5.0' => array(
-				'astra_addon_page_headers_support_to_builder_layout',
-			),
-			'3.5.1' => array(
-				'astra_addon_headings_font_support',
-				'astra_addon_cart_color_not_working_in_old_header',
-			),
-			'3.5.7' => array(
-				'astra_addon_outline_cart_bg_color_support',
-				'astra_addon_remove_header_sections_deps_new_builder',
-				'astra_addon_swap_section_not_working_in_old_header',
-			),
-			'3.5.8' => array(
-				'astra_sticky_header_site_title_tagline_css',
-			),
-			'3.5.9' => array(
-				'astra_addon_remove_responsive_account_menu_colors_support',
-			),
-			'3.9.0' => array(
-				'astra_addon_responsive_shop_button_padding',
-				'astra_addon_shop_box_shadow_migration',
-				'astra_addon_update_product_gallery_layout',
-				'astra_addon_update_woocommerce_cart_icons',
-				'astra_addon_update_toolbar_seperations',
-				'astra_addon_apply_modern_ecommerce_setup',
-			),
-			'3.9.3' => array(
-				'astra_addon_update_variant_active_state',
-			),
 			'4.0.0' => array(
 				'astra_addon_background_updater_4_0_0',
 			),
@@ -75,6 +46,9 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 			),
 			'4.6.8' => array(
 				'astra_addon_background_updater_4_6_8',
+			),
+			'4.7.0' => array(
+				'astra_addon_background_updater_4_7_0',
 			),
 		);
 
@@ -275,11 +249,15 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 				return false;
 			}
 
+			$versions = array_keys( $updates );
+			$latest   = $versions[ count( $versions ) - 1 ];
+
 			$customizer_options = get_option( 'astra-settings' );
 
 			$addon_auto_version = ( isset( $customizer_options['astra-addon-auto-version'] ) && '' !== $customizer_options['astra-addon-auto-version'] ) ? $customizer_options['astra-addon-auto-version'] : null;
 
-			return ! is_null( $addon_auto_version ) && version_compare( $addon_auto_version, max( array_keys( $updates ) ), '<' );
+			return ! is_null( $addon_auto_version ) && version_compare( $addon_auto_version, $latest, '<' );
+
 		}
 
 		/**

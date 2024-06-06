@@ -157,4 +157,16 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['site-builder-templates-headings-space'] = isset( $astra_settings['site-builder-templates-headings-space'] ) ? false : true;
 		return apply_filters( 'astra_get_option_site-builder-templates-headings-space', $astra_settings['site-builder-templates-headings-space'] );
 	}
+
+	/**
+	 * Hiding Social share post icon left and right side option.
+	 *
+	 * @since 4.7.0
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_hide_social_share_icon_position() {
+		$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings['hiding_social_share_icon_position'] = isset( $astra_settings['hiding_social_share_icon_position'] ) ? false : true;
+		return apply_filters( 'astra_addon_hide_left_right_social_icon_responsive_positions', $astra_settings['hiding_social_share_icon_position'] );
+	}
 }

@@ -65,6 +65,20 @@
 			astra_css( 'astra-settings[sticky-header-builder-site-title-h-color]', 'color', '[CLASS*="-sticky-header-active"] #ast-fixed-header.ast-header-sticked .site-title a:hover, [CLASS*="-sticky-header-active"] .ast-header-sticked .site-title a:hover' );
 			astra_css( 'astra-settings[sticky-header-builder-site-tagline-color]', 'color', '[CLASS*="-sticky-header-active"] #ast-fixed-header.ast-header-sticked .ast-site-identity .site-description, [CLASS*="-sticky-header-active"] .ast-header-sticked .ast-site-identity .site-description' );
 
+			// Logo SVG Icon Color.
+			astra_css(
+				'astra-settings[sticky-logo-svg-icon-color]',
+				'fill',
+				'[CLASS*="-sticky-header-active"] .ast-logo-svg-icon svg'
+			);
+
+			// Logo SVG Icon Hover Color.
+			astra_css(
+				'astra-settings[sticky-logo-svg-icon-hover-color]',
+				'fill',
+				'[CLASS*="-sticky-header-active"] .ast-logo-svg-icon:hover svg'
+			);
+
 			for ( var index = 1; index <= astSticky.component_limit; index++ ) {
 
 				// Menu color preview styles.

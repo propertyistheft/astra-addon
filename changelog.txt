@@ -1,5 +1,15 @@
 *** Astra Pro Changelog ***
 
+2024-06-04 - version 4.7.0
+* New: Header Builder - Added Sticky Header color options for "Logo SVG Icon". ( https://wpastra.com/docs/logo-svg-icon/ )
+* Improvement: File Generation code improved for better PHP exceptions & error handling edge cases.
+* Improvement: Social share icon positions (left and right) now apply only to desktop to avoid overlapping with content issue on responsive devices.
+* Fix: Issue with 'astra_addon_woo_account_user_welcome_message' filter hook for WooCommerce account navigation.
+* Fix: WooCommerce - Ensure Attribute button state updates automatically when switching valid variation without additional clicks.
+
+2024-05-23 - version 4.6.10
+* Fix: Site Builder - PHP Error with undefined property WP_Post_Type::$taxonomy from location ruleset engine.
+
 2024-05-23 - version 4.6.10
 * New: WooCommerce - Introduce new background color option for filter flyout.
 * Fix: Changing the logo width increase the logo height inside the customizer settings.

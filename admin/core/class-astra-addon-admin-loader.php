@@ -199,7 +199,7 @@ class Astra_Addon_Admin_Loader {
 			$rollback_versions = Astra_Rollback_version::get_theme_all_versions();
 
 			if ( 'astra-addon' === $product ) {
-				$product_id        = bsf_extract_product_id( ASTRA_EXT_DIR );
+				$product_id        = is_callable( 'bsf_extract_product_id' ) ? bsf_extract_product_id( ASTRA_EXT_DIR ) : '';
 				$product_details   = get_brainstorm_product( $product_id );
 				$installed_version = isset( $product_details['version'] ) ? $product_details['version'] : '';
 				$product_versions  = BSF_Rollback_Version::bsf_get_product_versions( $product_id ); // Get Remote versions

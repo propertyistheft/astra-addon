@@ -65,6 +65,10 @@
     right: 30px;
 }
 
+.customize-control.customize-control-ast-select.ast-top-dotted-divider.icon-divider .ast-control-tooltip {
+    top: 26px;
+}
+
 #customize-control-astra-settings-blog-archive-image-apply-sizes,
 #customize-control-astra-settings-blog-single-post-image-apply-sizes {
     justify-content: flex-end;

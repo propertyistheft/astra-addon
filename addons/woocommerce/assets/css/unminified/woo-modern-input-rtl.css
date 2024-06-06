@@ -65,7 +65,6 @@ body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row 
   opacity: 0;
   height: auto;
   width: auto;
-  -webkit-clip-path: none;
   clip-path: none;
   clip: unset;
   white-space: nowrap;

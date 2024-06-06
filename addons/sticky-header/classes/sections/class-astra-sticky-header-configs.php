@@ -457,6 +457,28 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 							'title'   => __( 'Hover', 'astra-addon' ),
 						),
 
+						// Option: Logo SVG Icon Color.
+						array(
+							'name'    => 'sticky-logo-svg-icon-color',
+							'parent'  => ASTRA_THEME_SETTINGS . '[sticky-logo-svg-icon-color-group]',
+							'section' => 'title_tagline',
+							'type'    => 'sub-control',
+							'control' => 'ast-color',
+							'default' => astra_get_option( 'sticky-logo-svg-icon-color' ),
+							'title'   => __( 'Normal', 'astra-addon' ),
+						),
+
+						// Option: Logo SVG Icon Hover Color.
+						array(
+							'name'    => 'sticky-logo-svg-icon-hover-color',
+							'parent'  => ASTRA_THEME_SETTINGS . '[sticky-logo-svg-icon-color-group]',
+							'section' => 'title_tagline',
+							'type'    => 'sub-control',
+							'control' => 'ast-color',
+							'default' => astra_get_option( 'sticky-logo-svg-icon-hover-color' ),
+							'title'   => __( 'Hover', 'astra-addon' ),
+						),
+
 						array(
 							'name'       => ASTRA_THEME_SETTINGS . '[sticky-header-bg-color-responsive]',
 							'default'    => astra_get_option( 'sticky-header-bg-color-responsive' ),
@@ -624,6 +646,30 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 										'value'       => true,
 									),
 								),
+							),
+						),
+						array(
+							'name'       => ASTRA_THEME_SETTINGS . '[sticky-logo-svg-icon-color-group]',
+							'default'    => astra_get_option( 'sticky-logo-svg-icon-color-group' ),
+							'type'       => 'control',
+							'control'    => 'ast-color-group',
+							'title'      => __( 'Logo SVG Icon Color', 'astra-addon' ),
+							'section'    => 'title_tagline',
+							'responsive' => false,
+							'transport'  => 'postMessage',
+							'priority'   => 21,
+							'context'    => array(
+								array(
+									'setting'  => 'custom_logo',
+									'operator' => '==',
+									'value'    => false,
+								),
+								array(
+									'setting'  => ASTRA_THEME_SETTINGS . '[use-logo-svg-icon]',
+									'operator' => '==',
+									'value'    => true,
+								),
+								astra_addon_builder_helper()->design_tab_config,
 							),
 						),
 						// Option: Site Tagline Color.

@@ -33,16 +33,18 @@ do_action( 'woocommerce_before_account_navigation' );
 				<div class="ast-wooaccount-user-wrapper">
 					<?php echo get_avatar( $current_user->user_email, '60', null, null, $args = array( 'class' => array( 'lazyload' ) ) ); ?>
 					<span class="ast-username">
-					<?php
-						apply_filters(
-							'astra_addon_woo_account_user_welcome_message',
-							printf(
-								/* translators: 1: Active user name. */
-								esc_attr__( 'Hello %1$s', 'astra-addon' ),
-								'<strong>' . esc_html( $current_user->display_name ) . '</strong>'
+						<?php
+						echo wp_kses_post(
+							apply_filters(
+								'astra_addon_woo_account_user_welcome_message',
+								sprintf(
+									/* translators: 1: Active user name. */
+									esc_attr__( 'Hello %1$s', 'astra-addon' ),
+									'<strong>' . esc_html( $current_user->display_name ) . '</strong>'
+								)
 							)
 						);
-					?>
+						?>
 					</span>
 				</div>
 			<?php

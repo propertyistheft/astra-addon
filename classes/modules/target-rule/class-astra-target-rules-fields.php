@@ -1192,7 +1192,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 												$obj              = get_queried_object();
 												$current_taxonomy = '';
-												if ( '' !== $obj && null !== $obj ) {
+												if ( '' !== $obj && null !== $obj && isset( $obj->taxonomy ) ) {
 													$current_taxonomy = $obj->taxonomy;
 												}
 

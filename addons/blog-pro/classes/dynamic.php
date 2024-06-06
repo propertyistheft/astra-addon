@@ -108,8 +108,9 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 
 	if ( $is_social_sharing_enabled || ( $author_box_enabled && $author_box_social_sharing_enabled ) ) {
 
-		$selector  = '.ast-post-social-sharing'; // Post social sharing selector.
-		$selector2 = '.ast-author-box-sharing'; // Author box social sharing.
+		$selector                   = '.ast-post-social-sharing'; // Post social sharing selector.
+		$selector2                  = '.ast-author-box-sharing'; // Author box social sharing.
+		$social_share_icon_backward = Astra_Addon_Update_Filter_Function::astra_addon_hide_social_share_icon_position(); // Backward checking of social share icon position.
 
 		$alignment             = astra_get_option( 'single-post-social-sharing-alignment' );
 		$icon_sharing_position = astra_get_option( 'single-post-social-sharing-icon-position' );
@@ -243,6 +244,14 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 			),
 			$fixed_social
 		);
+
+
+		// Added this block for hiding responsive devices is present with backward.
+		if ( $social_share_icon_backward && in_array( $icon_sharing_position, array( 'left-content', 'right-content' ) ) ) {
+			$css_output[ '.ast-header-break-point ' . $selector ] = array(
+				'display' => 'none',
+			);
+		}
 
 		$css_output[ $selector2 ] = array(
 			'display'        => 'flex',
