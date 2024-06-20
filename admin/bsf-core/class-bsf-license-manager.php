@@ -120,17 +120,16 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 				return;
 			}
 
-			$product_id  = esc_attr( $_POST['bsf_license_manager']['product_id'] );
+			$product_id = esc_attr( $_POST['bsf_license_manager']['product_id'] );
 
 			$this->process_license_deactivation( $product_id );
 		}
 
 		/**
-		 * Process license deactivation. 
-		 * 
-		 * @param int    $product_id  Product ID.
-		 * @param string $license_key License key.
-		 * 
+		 * Process license deactivation.
+		 *
+		 * @param int $product_id  Product ID.
+		 *
 		 * @return array
 		 */
 		public function process_license_deactivation( $product_id ) {
@@ -171,7 +170,7 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 					$this->bsf_update_product_info( $product_id, $result );
 
-					do_action( 'bsf_deactivate_license_' . $product_id . '_after_success', $result, $response, $_POST );
+					do_action( 'bsf_deactivate_license_' . $product_id . '_after_success', $result, $response, $_POST ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 				} else {
 					$_POST['bsf_license_deactivation']['success'] = $result['success'];
@@ -327,7 +326,7 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 					if ( $id == $product_id ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
 						foreach ( $args as $key => $value ) {
-							if( 'success' === $key || 'message' === $key ) {
+							if ( 'success' === $key || 'message' === $key ) {
 								continue;
 							}
 							$brainstrom_products[ $type ][ $id ][ $key ] = $value;

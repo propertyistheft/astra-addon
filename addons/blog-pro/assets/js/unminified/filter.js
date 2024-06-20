@@ -41,7 +41,14 @@ function astNavigationListener() {
             e.preventDefault();
             e.stopPropagation();
             const href = e.target?.getAttribute('href');
-            ArticleMarkup(href);
+            const request = ArticleMarkup(href);
+
+            request.onloadend = () => {
+                window.scrollTo({
+                    top: document.querySelector('#content')?.offsetTop ?? 0,
+                    behavior: "smooth",
+                });
+            }
         });
     });
 }
@@ -137,6 +144,8 @@ function ArticleMarkup(url, value) {
 
             astNavigationListener();
         }
+
+    return request;
 }
 
 function BlogBannerLayoutRender( data, titleSelector, value ) {

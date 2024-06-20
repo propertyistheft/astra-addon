@@ -49,21 +49,21 @@ if ( is_customize_preview() ) {
 }
 
 /* product registration */
-require_once 'includes/helpers.php';
-require_once 'includes/system-info.php';
-require_once 'auto-update/admin-functions.php';
-require_once 'auto-update/updater.php';
-require_once 'class-bsf-update-manager.php';
-require_once 'class-bsf-rollback-version-manager.php';
-require_once 'class-bsf-license-manager.php';
-require_once 'classes/class-bsf-extension-installer.php';
+require_once BSF_UPDATER_PATH . '/includes/helpers.php';
+require_once BSF_UPDATER_PATH . '/includes/system-info.php';
+require_once BSF_UPDATER_PATH . '/auto-update/admin-functions.php';
+require_once BSF_UPDATER_PATH . '/auto-update/updater.php';
+require_once BSF_UPDATER_PATH . '/class-bsf-update-manager.php';
+require_once BSF_UPDATER_PATH . '/class-bsf-rollback-version-manager.php';
+require_once BSF_UPDATER_PATH . '/class-bsf-license-manager.php';
+require_once BSF_UPDATER_PATH . '/classes/class-bsf-extension-installer.php';
 
-require_once 'classes/class-bsf-core-update.php';
-require_once 'classes/class-bsf-core-rest.php';
-require_once 'classes/class-bsf-rollback-version.php';
+require_once BSF_UPDATER_PATH . '/classes/class-bsf-core-update.php';
+require_once BSF_UPDATER_PATH . '/classes/class-bsf-core-rest.php';
+require_once BSF_UPDATER_PATH . '/classes/class-bsf-rollback-version.php';
 
 if ( defined( 'WP_CLI' ) ) {
-	require 'class-bsf-wp-cli-command.php';
+	require BSF_UPDATER_PATH . '/class-bsf-wp-cli-command.php';
 }
 
 add_action( 'admin_init', 'set_bsf_core_constant', 1 );
@@ -89,7 +89,7 @@ if ( ! function_exists( 'init_bsf_plugin_installer' ) ) {
 	 * BSF Plugin installer.
 	 */
 	function init_bsf_plugin_installer() {
-		require_once 'plugin-installer/admin-functions.php';
+		require_once BSF_UPDATER_PATH . '/plugin-installer/admin-functions.php';
 
 		/**
 		 * Action will run after plugin installer is loaded
