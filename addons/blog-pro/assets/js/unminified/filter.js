@@ -95,7 +95,21 @@ function ArticleMarkup(url, value) {
             document.title = data?.title || document.title;
 
             // For loading pagination style.
-            document.querySelector('#astra-theme-css-inline-css').innerHTML = data.querySelector('#astra-theme-css-inline-css').innerHTML;
+            if (
+                document.querySelector("#astra-theme-css-inline-css") &&
+                data.querySelector("#astra-theme-css-inline-css")
+            ) {
+                document.querySelector("#astra-theme-css-inline-css").innerHTML = data.querySelector("#astra-theme-css-inline-css").innerHTML;
+            } else if ( // When file generation option is active.
+                document.querySelector("#astra-theme-dynamic-css") &&
+                data.querySelector("#astra-theme-dynamic-css")
+            ) {
+                document.querySelector("#astra-theme-dynamic-css")
+                    ?.setAttribute(
+                        "href",
+                        data.querySelector("#astra-theme-dynamic-css")?.getAttribute("href")
+                    );
+            }
 
             document.querySelector('#main > .ast-row').innerHTML = '';
             //	Append articles

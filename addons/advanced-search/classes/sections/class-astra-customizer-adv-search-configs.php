@@ -43,22 +43,23 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 		$_configs = array(
 			// Option: Header Search Style.
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
-				'default'   => astra_get_option( 'header-search-box-type' ),
-				'section'   => $_section,
-				'priority'  => 1,
-				'title'     => __( 'Search Style', 'astra-addon' ),
-				'type'      => 'control',
-				'control'   => 'ast-select',
-				'choices'   => array(
+				'name'        => ASTRA_THEME_SETTINGS . '[header-search-box-type]',
+				'default'     => astra_get_option( 'header-search-box-type' ),
+				'section'     => $_section,
+				'priority'    => 1,
+				'title'       => __( 'Search Style', 'astra-addon' ),
+				'type'        => 'control',
+				'control'     => 'ast-select',
+				'choices'     => array(
 					'slide-search' => __( 'Slide Search', 'astra-addon' ),
 					'full-screen'  => __( 'Full Screen Search', 'astra-addon' ),
 					'header-cover' => __( 'Header Cover Search', 'astra-addon' ),
 					'search-box'   => __( 'Search Box', 'astra-addon' ),
 				),
-				'context'   => astra_addon_builder_helper()->general_tab,
-				'transport' => 'refresh',
-				'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
+				'description' => __( 'Only the Search Box style will work within the Off Canvas section.', 'astra-addon' ),
+				'context'     => astra_addon_builder_helper()->general_tab,
+				'transport'   => 'refresh',
+				'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**

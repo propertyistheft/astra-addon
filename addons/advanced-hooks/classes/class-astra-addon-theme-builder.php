@@ -75,8 +75,22 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 			if ( is_rtl() ) {
 				$file_prefix .= '.rtl';
 			}
+
+			wp_enqueue_style( 'wp-components' );
+
+			if ( isset( $_GET['page'] ) && $_GET['page'] === 'theme-builder' ) {
+				/**
+				 * Enqueue advanced-hook-admin-edit styles for the design consistency for Display Condition Modal.
+				 */
+				if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+					wp_enqueue_style( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/unminified/astra-advanced-hooks-admin-edit.css', null, ASTRA_EXT_VER );
+				} else {
+					wp_enqueue_style( 'advanced-hook-admin-edit', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/minified/astra-advanced-hooks-admin-edit.min.css', null, ASTRA_EXT_VER );
+				}
+			}
+
 			wp_enqueue_style( 'astra-theme-builder-style', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'theme-builder/build/index' . $file_prefix . '.css', array(), ASTRA_EXT_VER );
-			wp_enqueue_script( 'astra-theme-builder-script', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'theme-builder/build/index.js', array( 'wp-element' ), ASTRA_EXT_VER, true );
+			wp_enqueue_script( 'astra-theme-builder-script', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'theme-builder/build/index.js', array( 'react', 'react-dom', 'wp-api-fetch', 'wp-components', 'wp-element', 'wp-i18n' ), ASTRA_EXT_VER, true );
 			wp_enqueue_style( 'dashicons' );
 
 			if ( function_exists( 'astra_is_white_labelled' ) ) {
@@ -97,9 +111,30 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 				'nonce'                      => wp_create_nonce( 'wp_rest' ),
 				'logo_url'                   => apply_filters( 'astra_admin_menu_icon', '' ),
 				'white_labelled'             => isset( $white_labelled ) ? $white_labelled : false,
+				'quick_view'                 => array(
+					'url'              => admin_url( 'admin-ajax.php' ),
+					'quick_view_nonce' => wp_create_nonce( 'astra-addon-quick-layout-view-nonce' ),
+					'nonce'            => wp_create_nonce( 'astra-addon-enable-tgl-nonce' ),
+				),
 			);
 
 			wp_localize_script( 'astra-theme-builder-script', 'astra_theme_builder', $localized_data );
+
+			if ( ! get_post_type() ) {
+				/**
+				 * Here, only localize needed "astCustomLayout" compatible values when on Layout List page.
+				 */
+				wp_localize_script(
+					'astra-theme-builder-script',
+					'astCustomLayout',
+					array(
+						'userRoles'           => Astra_Target_Rules_Fields::get_user_selections(),
+						'displayRules'        => Astra_Target_Rules_Fields::get_location_selections(),
+						'singleDisplayRules'  => Astra_Target_Rules_Fields::get_location_selections( 'single' ),
+						'archiveDisplayRules' => Astra_Target_Rules_Fields::get_location_selections( 'archive' ),
+					)
+				);
+			}
 		}
 
 		/**

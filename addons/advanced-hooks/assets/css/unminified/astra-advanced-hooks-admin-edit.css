@@ -408,6 +408,17 @@ li.ast-advanced-time-duration-enabled {
 .ast-layout-settings-modal .components-modal__header {
     margin: 0;
 }
+
+.ast-layout-settings-modal .ast-display-condition-modal-spinner {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.ast-layout-settings-modal .ast-display-condition-modal-spinner svg {
+    width: 30px;
+    height: 30px;
+}
+
 .ast-time-duration .ast-advanced-hook-row td,
 .ast-cl-settings-content .ast-advanced-hook-row.is-active td {
     border-bottom: 0;

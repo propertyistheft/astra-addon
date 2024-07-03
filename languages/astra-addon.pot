@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.7.1\n"
+"Project-Id-Version: Astra Pro 4.7.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
-"POT-Creation-Date: 2024-06-18 08:47:33+00:00\n"
+"POT-Creation-Date: 2024-06-26 06:47:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -128,7 +128,7 @@ msgid "Width"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:101
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:705
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:713
 #: addons/site-layouts/classes/sections/class-astra-site-layout-configuration.php:56
 msgid "Full Width"
 msgstr ""
@@ -139,8 +139,8 @@ msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:130
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1219
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1364
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1683
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1372
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1691
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1640
 msgid "Padding"
 msgstr ""
@@ -159,9 +159,9 @@ msgstr ""
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:301
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:252
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:127
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1400
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1660
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1687
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1408
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1668
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1695
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-layout.php:55
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-layout.php:55
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-layout.php:56
@@ -225,9 +225,9 @@ msgstr ""
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:253
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:109
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:128
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1401
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1661
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1688
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1409
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1669
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1696
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-layout.php:56
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-layout.php:56
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-layout.php:57
@@ -285,9 +285,9 @@ msgstr ""
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:303
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:254
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:129
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1402
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1662
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1689
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1410
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1670
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1697
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-layout.php:57
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-layout.php:57
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-layout.php:58
@@ -350,9 +350,9 @@ msgstr ""
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:255
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:108
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:130
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1403
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1663
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1690
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1411
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1671
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1698
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-layout.php:58
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-layout.php:58
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-layout.php:59
@@ -618,7 +618,7 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-below-header-typo-configs.php:304
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-typo-configs.php:121
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-typo-configs.php:210
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1488
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1496
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-above-header-typography.php:145
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-below-header-typography.php:153
 #: addons/nav-menu/classes/sections/class-astra-nav-menu-primary-header-typography.php:132
@@ -790,8 +790,8 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:510
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:484
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:219
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:900
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1282
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:908
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1290
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:81
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:132
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:60
@@ -1024,7 +1024,7 @@ msgstr ""
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:748
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:170
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:193
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1058
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1066
 #: addons/nav-menu/classes/sections/class-astra-existing-nav-menu-above-header-colors.php:79
 #: addons/nav-menu/classes/sections/class-astra-existing-nav-menu-above-header-colors.php:93
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1692
@@ -1042,8 +1042,8 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:778
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:81
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1081
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1104
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1089
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1112
 msgid "Image"
 msgstr ""
 
@@ -1206,7 +1206,7 @@ msgstr ""
 #: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:244
 #: addons/header-sections/classes/sections/class-astra-above-header-colors-bg-configs.php:282
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:611
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1627
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1635
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:60
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:122
 #: addons/sticky-header/classes/sections/class-astra-sticky-below-header-colors-bg-configs.php:60
@@ -1313,7 +1313,7 @@ msgstr ""
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1192
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:48
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:47
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:903
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:911
 msgid "Widget"
 msgstr ""
 
@@ -1486,23 +1486,23 @@ msgstr ""
 msgid "Choose..."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:87
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:151
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:152
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:99
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:184
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:185
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:716
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1358
 msgid "Site Builder"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:276
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:309
 msgid "Sorry, you cannot list resources."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:292
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:325
 msgid "Sorry, you are not allowed to move this item to the Trash."
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:315
+#: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:348
 msgid "You do not have permission to delete this item."
 msgstr ""
 
@@ -2609,7 +2609,7 @@ msgstr ""
 #: addons/colors-and-background/classes/class-astra-ext-colors-panels-and-sections.php:53
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-archive.php:44
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:765
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:703
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:711
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:397
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1474
 msgid "Content"
@@ -3506,7 +3506,7 @@ msgid "Priority"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1946
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1637
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1645
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:120
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:185
 #: addons/spacing/classes/sections/class-astra-customizer-site-identity-spacing-configs.php:54
@@ -3603,27 +3603,31 @@ msgstr ""
 msgid "Header Cover"
 msgstr ""
 
-#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:72
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:59
+msgid "Only the Search Box style will work within the Off Canvas section."
+msgstr ""
+
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:73
 msgid "Placeholder Text"
 msgstr ""
 
-#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:92
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:93
 msgid "Modal Box Style"
 msgstr ""
 
-#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:94
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:95
 msgid "Light"
 msgstr ""
 
-#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:95
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:96
 msgid "Dark"
 msgstr ""
 
-#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:116
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:117
 msgid "Modal Box Heading"
 msgstr ""
 
-#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:134
+#: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:135
 msgid "Heading Text"
 msgstr ""
 
@@ -3891,7 +3895,7 @@ msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:720
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:151
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1482
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1490
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:703
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:147
 msgid "Style"
@@ -4269,7 +4273,7 @@ msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:1208
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1244
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1656
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1664
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:163
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:229
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:252
@@ -4312,7 +4316,7 @@ msgstr ""
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:112
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:179
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:201
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1155
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1163
 msgid "Auto"
 msgstr ""
 
@@ -4450,7 +4454,7 @@ msgid "Label Position"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:529
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:822
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:830
 msgid "Icon Position"
 msgstr ""
 
@@ -4524,7 +4528,7 @@ msgid "Icon Size"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:908
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:864
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:872
 msgid "Icon Spacing"
 msgstr ""
 
@@ -4756,7 +4760,7 @@ msgstr ""
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header-builder.php:252
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-sidebar.php:52
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:253
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1211
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1219
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:306
 msgid "Colors"
 msgstr ""
@@ -4840,7 +4844,7 @@ msgstr ""
 
 #: addons/colors-and-background/classes/sections/class-astra-customizer-colors-header.php:279
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:113
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1397
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1405
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-button-configs.php:209
 msgid "Border Width"
 msgstr ""
@@ -4928,16 +4932,16 @@ msgid "Checkout Form Width"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-checkout-configs.php:117
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:707
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:730
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:715
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:738
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:108
 msgid "Custom Width"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-general-configs.php:55
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:751
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:761
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1263
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:759
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:769
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1271
 msgid "Icon"
 msgstr ""
 
@@ -5309,7 +5313,7 @@ msgid "Title Color"
 msgstr ""
 
 #: addons/learndash/classes/sections/class-astra-customizer-learndash-color-configs.php:99
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:533
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:541
 msgid "Separator Color"
 msgstr ""
 
@@ -5580,7 +5584,7 @@ msgid "Saving .."
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:249
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1750
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1758
 msgid "Saved"
 msgstr ""
 
@@ -5589,44 +5593,44 @@ msgstr ""
 msgid "%1$s Menu Settings"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:495
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:503
 msgid "As Heading"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:516
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:587
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:524
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:595
 msgid "Mega Menu"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:549
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:557
 msgid "Hide Menu Label"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:567
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:575
 msgid "Disable Link"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:700
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:708
 msgid "Mega Menu Width"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:704
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:712
 msgid "Menu Container Width"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:706
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:714
 msgid "Full Width Stretched"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:824
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:832
 msgid "Before Menu Label"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:825
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:833
 msgid "After Menu Label"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:842
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:850
 #: classes/builder/type/base/configurations/class-astra-addon-button-component-configs.php:59
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:188
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:294
@@ -5634,210 +5638,210 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:885
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:897
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:893
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:905
 msgid "Content Source"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:901
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:961
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:909
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:969
 msgid "Custom Text"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:902
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:945
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:910
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:953
 msgid "Template"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:928
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:936
 msgid "Widget List"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:976
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1604
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:984
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1612
 msgid "Highlight Labels"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:987
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:995
 msgid "Menu Highlight Label"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:988
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:996
 msgid "Change menu highlight label text"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:998
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1015
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1006
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1023
 msgid "Background Type"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1128
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1136
 msgid "No Repeat"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1129
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1137
 msgid "Repeat All"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1130
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1138
 msgid "Repeat Horizontally\t"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1131
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1139
 msgid "Repeat Vertically"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1156
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1164
 msgid "Cover"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1157
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1165
 msgid "Contain"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1181
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1189
 msgid "Left Top"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1182
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1190
 msgid "Left Center"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1183
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1191
 msgid "Left Bottom\t"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1184
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1192
 msgid "Right Top"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1185
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1193
 msgid "Right Center"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1186
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1194
 msgid "Right Bottom"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1187
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1195
 msgid "Center Top"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1188
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1196
 msgid "Center Center"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1189
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1197
 msgid "Center Bottom"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1228
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1236
 msgid "Heading"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1247
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1255
 msgid "Text/Link"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1280
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1288
 msgid "View"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1283
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1291
 msgid "Stacked"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1284
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1292
 msgid "Framed"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1320
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1328
 msgid "Primary Color"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1337
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1345
 msgid "Secondary Color"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1431
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1439
 msgid "Corner Radius"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1434
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1442
 msgid "Top left"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1435
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1443
 msgid "Top Right"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1436
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1444
 msgid "Bottom Left"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1437
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1445
 msgid "Bottom Right"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1465
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1473
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:86
 #. translators: %s Index
 msgid "Divider"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1484
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1492
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:149
 msgid "Solid"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1485
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1493
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:151
 msgid "Dotted"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1486
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1494
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:150
 msgid "Dashed"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1487
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1495
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:152
 msgid "Double"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1505
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1513
 msgid "Top Border Width"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1527
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1535
 msgid "Column Width"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1549
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1557
 msgid "Row Width"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1571
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1579
 msgid "Top Border"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1588
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1596
 msgid "Column Divider"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1616
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1624
 msgid "Highlight Label Color"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1748
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1756
 msgid "Save Changes"
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1749
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1757
 msgid "Saving..."
 msgstr ""
 
-#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1751
+#: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1759
 msgid "Error Saving"
 msgstr ""
 

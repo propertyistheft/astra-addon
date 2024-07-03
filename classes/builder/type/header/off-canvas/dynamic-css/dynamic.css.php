@@ -42,11 +42,13 @@ function astra_addon_offcanvas_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	}
 
 	if ( ! empty( $popup_width_tablet ) ) {
-		$css_output_tablet[ $selector . ' .ast-mobile-popup-inner' ]['max-width'] = $popup_width_tablet . '%';
+		$css_output_tablet['#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner']['width'] = $popup_width_tablet . '%';
+		$css_output_tablet[ $selector . ' .ast-mobile-popup-inner' ]['max-width']                                 = $popup_width_tablet . '%';
 	}
 
 	if ( ! empty( $popup_width_mobile ) ) {
-		$css_output_mobile[ $selector . ' .ast-mobile-popup-inner' ]['max-width'] = $popup_width_mobile . '%';
+		$css_output_mobile['#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner']['width'] = $popup_width_mobile . '%';
+		$css_output_mobile[ $selector . ' .ast-mobile-popup-inner' ]['max-width']                                 = $popup_width_mobile . '%';
 	}
 
 	$css_output  = astra_parse_css( $css_output );

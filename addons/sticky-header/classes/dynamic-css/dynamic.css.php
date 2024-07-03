@@ -187,6 +187,21 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	}
 
 	/**
+	 *  Added Display none to submenu when sticky Animation is enabled.
+	 *
+	 * @since 4.7.2
+	 */ 
+	if ( 'slide' === $sticky_header_style || 'fade' === $sticky_header_style ) {
+
+		$css_outputs = array(
+			'.ast-primary-sticky-header-active.ast-main-header-nav-open #masthead > #ast-desktop-header ul#ast-desktop-toggle-menu' => array(
+				'display' => 'none',
+			),
+		);      
+		$parse_css  .= astra_parse_css( $css_outputs );
+	}
+
+	/**
 	 * [3]. Sticky Header Logo responsive widths
 	 */
 	// Desktop Sticky Header Logo width.

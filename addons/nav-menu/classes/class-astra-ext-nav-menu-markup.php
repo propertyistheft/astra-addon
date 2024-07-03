@@ -319,12 +319,20 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		 * @return void;
 		 */
 		public function add_mega_menu_classes() {
+			// If primary menu is set then enable mega menu.
 			if ( has_nav_menu( 'primary' ) ) {
 				add_filter( 'astra_primary_menu_classes', array( $this, 'add_primary_menu_classes' ) );
+			}
+			// If secondary menu is set then enable mega menu.
+			if ( has_nav_menu( 'secondary_menu' ) ) {
 				add_filter( 'astra_secondary_menu_menu_classes', array( $this, 'add_primary_menu_classes' ) );
-				$mega_menu_custom_navmenus = apply_filters( 'astra_nav_mega_menu_support', array() );
-				if ( ! empty( $mega_menu_custom_navmenus ) ) {
-					foreach ( $mega_menu_custom_navmenus as $key => $menu_id ) {
+			}
+
+			// If there are other menus having mega menu support.
+			$mega_menu_custom_navmenus = apply_filters( 'astra_nav_mega_menu_support', array() );
+			if ( ! empty( $mega_menu_custom_navmenus ) && is_array( $mega_menu_custom_navmenus ) ) {
+				foreach ( $mega_menu_custom_navmenus as $key => $menu_id ) {
+					if ( has_nav_menu( $menu_id ) ) {
 						add_filter( 'astra_' . $menu_id . '_menu_classes', array( $this, 'add_primary_menu_classes' ) );
 					}
 				}

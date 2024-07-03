@@ -411,8 +411,8 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 			// Quantity Plus Minus Button - Vertical Icon.
 			'.woocommerce .quantity .ast-vertical-icon' => array(
-				'color'            => ( ! empty( $plusminus_text_normal_color ) ) ? $plusminus_text_normal_color : '#ffffff',
-				'background-color' => ( ! empty( $plusminus_background_normal_color ) ) ? $plusminus_background_normal_color : 'var(--ast-global-color-0)',
+				'color'            => ( ! empty( $plusminus_text_normal_color ) ) ? $plusminus_text_normal_color : 'var(--ast-global-color-2)',
+				'background-color' => ( ! empty( $plusminus_background_normal_color ) ) ? $plusminus_background_normal_color : '',
 				'border'           => 'unset',
 				'font-size'        => '15px',
 			),
@@ -633,19 +633,27 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					),
 					'.woocommerce-js .quantity .qty.vertical-icons-applied' => array(
 						'margin-' . $ltr_left => 'unset',
+						'border-radius'       => '4px 0 0 4px',
 					),
 					'.woocommerce-js .quantity .ast-vertical-icon' => array(
 						'margin-' . $ltr_left  => 'unset',
 						'width'                => '25px',
-						'height'               => '17px',
+						'height'               => '50%',
 						'margin-' . $ltr_right => '0px',
 						'border'               => '1px solid var(--ast-border-color)',
 						'position'             => 'absolute',
 						$ltr_right             => '0',
 						'text-decoration'      => 'none',
+						'font-weight'          => 500,
+					),
+					'.woocommerce .quantity .ast-vertical-icon.plus' => array(
+						'border-bottom-width' => '.5px',
+						'border-radius'       => '0 4px 0 0',
 					),
 					'.woocommerce .quantity .ast-vertical-icon.minus' => array(
-						'bottom' => '0',
+						'bottom'           => '0',
+						'border-top-width' => '.5px',
+						'border-radius'    => '0 0 4px 0',
 					),
 					'.woocommerce .woocommerce-grouped-product-list-item__quantity' => array(
 						'padding-' . $ltr_right => '38px',

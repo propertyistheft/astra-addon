@@ -1,5 +1,14 @@
 *** Astra Pro Changelog ***
 
+2024-07-01 - version 4.7.2
+* Improvement: WooCommerce - Cart - Improved the vertical quantity updater style for a better user experience.
+* Improvement: Site Builder - Additional capabilities and options introduced on the dashboard's Site Builder page for better user experience.
+* Fix: Header Builder - Toggle for Desktop - Showing two menus on the desktop when sticky header animation is enabled.
+* Fix: Header Builder - Offcanvas - There was a glitch while closing the flyout in the responsive devices.
+* Fix: Blog Pro - Reveal effect conflicts with the Themify plugin filters.
+* Fix: Blog Pro - Blog post filter clashes when file generation option is enabled.
+* Fix: Mega menu not working with the secondary menu, when the primary menu is not set.
+
 2024-06-18 - version 4.7.1
 * Fix: Blog Pro - The blog's pagination buttons loads the new posts but it does not scroll to the top of the page.
 * Fix: Sticky Header - Sticky menu and submenu colors being overridden by Transparent Header colors.

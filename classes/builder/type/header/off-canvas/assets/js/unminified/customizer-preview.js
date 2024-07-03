@@ -23,6 +23,9 @@
                 dynamicStyle += '} ';
             }
             if ( '' !== newval.tablet ) {
+                dynamicStyle +=  '#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner {';
+                dynamicStyle += 'width: ' + newval.tablet + '%;';
+                dynamicStyle += '} ';
                 dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
                 dynamicStyle += 'max-width: ' + newval.tablet + '%;';
@@ -30,6 +33,9 @@
                 dynamicStyle += '} ';
             }
             if ( '' !== newval.mobile ) {
+                dynamicStyle +=  '#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner {';
+                dynamicStyle += 'width: ' + newval.mobile + '%;';
+                dynamicStyle += '} ';
                 dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner {';
                 dynamicStyle += 'max-width: ' + newval.mobile + '%;';
