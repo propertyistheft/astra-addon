@@ -287,8 +287,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 					return $location_grp['value'][ $key ];
 				}
 			}
-
-			if ( strpos( $key, 'post-' ) !== false ) {
+			if ( is_string( $key ) && strpos( $key, 'post-' ) !== false ) {
 				$post_id = (int) str_replace( 'post-', '', $key );
 				return get_the_title( $post_id );
 			}

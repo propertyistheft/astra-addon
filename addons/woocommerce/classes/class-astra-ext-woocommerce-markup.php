@@ -2193,13 +2193,13 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				}
 			}
 
-			// Beaver Builder themer layout.			
+			// Beaver Builder themer layout.
 			if ( class_exists( 'FLThemeBuilderLoader' ) ) {
 
 				if ( ! class_exists( 'FLThemeBuilderLayoutData' ) ) {
 					return;
 				}
-				
+
 				$template_ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
 				if ( ! empty( $template_ids ) ) {
 					$template_id   = $template_ids[0];
@@ -2665,7 +2665,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			$check_wc_germanized_plugin = class_exists( 'WooCommerce_Germanized' ) ? true : false;
 
-			if ( ! defined( 'CARTFLOWS_VER' ) && is_checkout() && ! is_wc_endpoint_url( 'order-received' ) && 'modern' === astra_get_option( 'checkout-layout-type' ) ) {
+			if ( apply_filters( 'astra_addon_enable_modern_checkout', ! defined( 'CARTFLOWS_VER' ) && is_checkout() && ! is_wc_endpoint_url( 'order-received' ) && 'modern' === astra_get_option( 'checkout-layout-type' ) ) ) {
 
 				// Modern input layout.
 				add_filter( 'woocommerce_checkout_fields', array( $this, 'checkout_column_layout_fields' ) );

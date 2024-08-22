@@ -132,6 +132,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 						'displayRules'        => Astra_Target_Rules_Fields::get_location_selections(),
 						'singleDisplayRules'  => Astra_Target_Rules_Fields::get_location_selections( 'single' ),
 						'archiveDisplayRules' => Astra_Target_Rules_Fields::get_location_selections( 'archive' ),
+						'ajax_nonce'          => wp_create_nonce( 'astra-addon-get-posts-by-query' ),
 					)
 				);
 			}
@@ -324,7 +325,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 			$post_id = $request['id'];
 			if ( get_post_status( $post_id ) ) {
 				if ( ! current_user_can( 'delete_post', $post_id ) ) {
-					wp_die( __( 'Sorry, you are not allowed to move this item to the Trash.', 'astra-addon' ) );
+					wp_die( esc_html__( 'Sorry, you are not allowed to move this item to the Trash.', 'astra-addon' ) );
 				}
 				wp_trash_post( $post_id );
 				return new WP_REST_Response( array( 'message' => 'Post deleted successfully' ), 200 );
@@ -388,8 +389,8 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 				if ( isset( $_GET['type'] ) ) {
 					return;
 				}
-				wp_redirect( admin_url( 'admin.php?page=theme-builder&path=create-new' ) );
-				exit;
+				wp_safe_redirect( admin_url( 'admin.php?page=theme-builder&path=create-new' ) );
+				exit();
 			}
 		}
 

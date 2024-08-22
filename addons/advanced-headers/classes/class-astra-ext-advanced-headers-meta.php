@@ -571,8 +571,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 						default:
 						case 'FILTER_SANITIZE_STRING':
-							// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- This deprecation will be addressed later.
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
+							$meta_value = ! empty( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
 							break;
 
 						case 'FILTER_SANITIZE_URL':

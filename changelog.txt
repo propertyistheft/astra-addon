@@ -1,5 +1,16 @@
 *** Astra Pro Changelog ***
 
+2024-08-20 - version 4.8.0
+* Improvement: Introduced filter 'astra_addon_enable_modern_checkout' to enable/disable the modern checkout feature.
+* Improvement: Made megamenu icon `alt` tags dynamic to ensure unique alt attributes for each image.
+* Fix: Improvements as per Woo Marketplace coding standards.
+* Fix: Sticky Header: Resolved an issue where the primary header would break when a custom hook layout was added using the 'before header' hook.
+* Fix: Mega Menu - While selecting the default color multiple circles are visible.
+* Fix: Resolved issue where Flyout width affected Full Screen layout for Off-Canvas in mobile/tablet views.
+* Fix: Site Builder - Resolved an issue where the custom header hides the default header.
+* Fix: Site Builder - Query Loop Block Preview Not Displaying in Block Editor of Site Builder.
+* Fix: Site Builder - Resolved issue where posts/pages were not displaying under display conditions on the site builder dashboard.
+
 2024-07-01 - version 4.7.2
 * Improvement: WooCommerce - Cart - Improved the vertical quantity updater style for a better user experience.
 * Improvement: Site Builder - Additional capabilities and options introduced on the dashboard's Site Builder page for better user experience.
@@ -56,7 +67,7 @@
 * Improvement: WooCommerce - Refactor header account login popup form.
 * Fix: Sticky Header - Transition issue with the Sticky header when the option "Hide when scrolling down" is enabled.
 * Fix: WooCommerce - Sticky cart color & hover styling is not working for cart price.
-* Fix: WooCommerce - With infinite scroll product load only when scrolling down to bottom of the site.
+* Fix: WooCommerce - With infinite scroll product load only when scrolling down to the bottom of the site.
 * Fix: WooCommerce - The lost Password page form doesn't look similar for logged-in and non logged-in user with modern layout.
 * Fix: Mega Menu not working properly between 922px - 938px screen width.
 * Fix: LifterLMS - Profile link was not working properly.

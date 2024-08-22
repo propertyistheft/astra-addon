@@ -57,6 +57,17 @@
 				on_img_click_els.forEach(element => {
 					element.removeEventListener('click', AstraProQuickView._open_quick_view );
 					element.addEventListener('click', AstraProQuickView._open_quick_view );
+
+					 // Added keyboard event handling.
+					 element.addEventListener('keydown', (event) => {
+						if (event.key === 'Enter' || event.key === ' ') {
+							event.preventDefault();
+							AstraProQuickView._open_quick_view(event);
+						}
+					});
+					
+					element.setAttribute('tabindex', '0');
+
 				});
 			}
 

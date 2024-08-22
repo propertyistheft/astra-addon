@@ -16,3 +16,9 @@
 .summary.entry-summary + [CLASS*="astra-advanced-hook"] {
   clear: both;
 }
+
+.single-astra-advanced-hook .wp-block-buttons,
+.single-astra-advanced-hook .wp-block-uagb-buttons {
+  /* Spacing for WP Core and Spectra's buttons block  */
+  margin-bottom: 1.5em;
+}

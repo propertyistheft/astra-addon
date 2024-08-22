@@ -22,6 +22,9 @@ function astra_ext_advanced_hooks_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'.ast-hide-display-device-desktop' => array(
 			'display' => 'none',
 		),
+		'[class^="astra-advanced-hook-"] .wp-block-query .wp-block-post-template .wp-block-post' => array(
+			'width' => '100%',
+		),
 	);
 	$common_tablet_css_output  = array(
 		'.ast-hide-display-device-tablet' => array(

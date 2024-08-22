@@ -887,7 +887,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			$show_label_class      = $show_label ? 'social-show-label-true' : 'social-show-label-false';
 			$color_type            = astra_get_option( 'single-post-social-sharing-icon-color-type' );
 			$label_position        = astra_get_option( 'single-post-social-sharing-icon-label-position' );
-			$social_icon_condition = array( 'facebook', 'pinterest', 'linkedin', 'reddit', 'whatsapp', 'sms' );
+			$social_icon_condition = array( 'facebook', 'pinterest', 'linkedin', 'reddit', 'whatsapp', 'sms', 'telegram' );
 
 			$markup = '<div class="ast-author-box-sharing"> <div class="ast-social-inner-wrap element-social-inner-wrap ' . esc_attr( $show_label_class ) . ' ast-social-color-type-' . esc_attr( $color_type ) . '">';
 
@@ -1021,6 +1021,10 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 											case 'vk':
 												$link = 'http://vk.com/share.php?url=' . urlencode( $post_link ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
 												break;
+											case 'telegram':
+												// The `Post_link` variable has already been encoded above.
+												$link = 'https://t.me/share/url?url=' . $post_link . '&text=' . rawurlencode( $post_title );
+												break;                                                                                          
 										}
 
 										$aria_label        = $item['label'] ? $item['label'] : $item['id'];

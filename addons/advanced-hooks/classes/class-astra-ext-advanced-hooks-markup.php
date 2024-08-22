@@ -790,6 +790,11 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		 * @return string
 		 */
 		public function get_display_device( $post_id, $hide_classes = true ) {
+			// bail early if the custom layout or hook is disabled.
+			if ( 'no' === get_post_meta( $post_id, 'ast-advanced-hook-enabled', true ) ) {
+				return '';
+			}
+
 			$classes        = '';
 			$display_device = get_post_meta( $post_id, 'ast-advanced-display-device', true );
 			$devices        = array( 'desktop', 'tablet', 'mobile' );

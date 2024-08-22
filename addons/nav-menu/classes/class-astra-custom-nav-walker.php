@@ -504,7 +504,8 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 				}
 
 				if ( 'image' === $mm_megamenu_icon_source ) {
-					$mm_image = $mm_megamenu_image ? '<img src="' . $mm_megamenu_image . '" alt="mm-ast-icon">' : '';
+					$alt_text = 'mm-ast-icon-' . $item->ID;
+					$mm_image = $mm_megamenu_image ? '<img src="' . $mm_megamenu_image . '" alt="' . esc_attr( $alt_text ) . '">' : '';
 				}
 
 				$icon_array_slug        = '.ast-desktop .menu-item-' . $item->ID . ' .astra-mm-icon-label.icon-item-' . $item->ID;

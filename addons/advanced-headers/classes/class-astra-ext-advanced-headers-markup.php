@@ -374,7 +374,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			// Add advanced header wrapper classes.
 			printf(
 				'<div class="%1$s" %2$s %3$s>',
-				$combined . $parallax . $full_screen . $vertical_center,
+				esc_attr( $combined ) . esc_attr( $parallax ) . esc_attr( $full_screen ) . esc_attr( $vertical_center ),
 				( ! empty( $parallax ) ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
 				'aria-label="' . esc_attr( $this->get_header_background_image_alt_text() ) . '"'
 			);
@@ -417,7 +417,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 				// Add advanced header wrapper classes.
 				printf(
 					'<div class="%1$s" %2$s %3$s>',
-					$combined . $parallax . $full_screen . $vertical_center,
+					esc_attr( $combined ) . esc_attr( $parallax ) . esc_attr( $full_screen ) . esc_attr( $vertical_center ),
 					( ! empty( $parallax ) ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
 					'aria-label="' . esc_attr( $this->get_header_background_image_alt_text() ) . '"'
 				);

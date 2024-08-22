@@ -173,11 +173,6 @@
 						'padding-bottom' : self.options.shrink.padding_bottom,
 					});
 					if ( ( selector.hasClass( 'ast-stick-primary-below-wrapper' ) || selector.hasClass( 'ast-primary-header' ) ) && 1 == astraAddon.header_above_stick && 70 > selector.closest('#ast-desktop-header').find('.ast-above-header-bar').outerHeight() ) {
-
-						selector.addClass( 'ast-sticky-active' ).stop().css({
-							'top'            : stickyHeaderFlag ? aboveHeaderSelectorValue : 'unset',
-						});
-
 						selector.parent().css("min-height", selector.outerHeight());
 					}
 
