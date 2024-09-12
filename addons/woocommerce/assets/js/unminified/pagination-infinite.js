@@ -10,7 +10,7 @@
 		astShopLoadMore			= document.querySelector('.ast-shop-load-more');
 
 	//	Is 'infinite' pagination?
-	if( typeof pagination != '' && pagination == 'infinite' ) {
+	if ( typeof pagination === 'string' && pagination === 'infinite' ) {
 
 		var in_customizer = false;
 
@@ -24,7 +24,7 @@
 			}
 		}
 
-		if(	typeof infinite_event != '' ) {
+		if ( typeof infinite_event === 'string' ) {
 			switch( infinite_event ) {
 				case 'click':
 					if(astShopLoadMore){
@@ -75,7 +75,7 @@
 		 *
 		 * Perform masonry operations.
 		 */
-		function NextloadArticles(pageNumber) {
+		const NextloadArticles = (pageNumber) => {
 			if( astShopLoadMore ){
 				astShopLoadMore.classList.remove('active');
 			}

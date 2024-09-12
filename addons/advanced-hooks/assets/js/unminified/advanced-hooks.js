@@ -146,7 +146,7 @@
 			$(document).on( 'click', '.ast-advanced-hook-enable-php-btn', function(e) {
 				e.preventDefault();
 				var editor_type = $( this ).data( 'editor-type' ),
-					url 		= window.location.href;
+					url 		= encodeURI( window.location.href );
 
 				if( url.indexOf( '&code_editor' ) > -1 || 'code_editor' == editor_type ) {
 					button_input.val('enabled');

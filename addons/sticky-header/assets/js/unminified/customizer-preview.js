@@ -80,31 +80,42 @@
 			);
 
 			for ( var index = 1; index <= astSticky.component_limit; index++ ) {
+				// Menu and submenu selectors for item default, hover and active states. 
+				const menuSelector = `[CLASS*="-sticky-header-active"] .ast-builder-menu-${index} .main-header-menu`;
+				const itemSelector = `${menuSelector} > .menu-item > .menu-link`;
+				const itemHSelector = `${menuSelector} > .menu-item > .menu-link:hover, ${menuSelector} > .menu-item:hover > .menu-link`;
+				const itemASelector = `${menuSelector} > .menu-item.current-menu-item > .menu-link`;
+				const subMenuSelector = `${menuSelector} .menu-item .sub-menu`;
+				const subItemSelector = `${subMenuSelector} .menu-item .menu-link`;
+				const subItemHSelector = `${subMenuSelector} .menu-item > .menu-link:hover, ${subMenuSelector} .menu-item:hover > .menu-link`;
+				const subItemASelector = `${subMenuSelector} .menu-item.current-menu-item > .menu-link, ${subMenuSelector} .menu-item.current-menu-ancestor > .menu-link`;
+
+				const stickyOption = (key) => `astra-settings[sticky-header-menu${index}-${key}]`;
 
 				// Menu color preview styles.
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-color-responsive]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' > .menu-item > .menu-link' );
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-bg-obj-responsive]', 'background-color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index );
+				astra_color_responsive_css('sticky-header', stickyOption('color-responsive'), 'color', itemSelector);
+				astra_color_responsive_css('sticky-header', stickyOption('bg-obj-responsive'), 'background-color', menuSelector + ',' + itemSelector);
 
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-h-color-responsive]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .menu-item:hover > .menu-link' );
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-h-bg-color-responsive]', 'background-color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .menu-item:hover > .menu-link' );
+				astra_color_responsive_css('sticky-header', stickyOption('h-color-responsive'), 'color', itemHSelector);
+				astra_color_responsive_css('sticky-header', stickyOption('h-bg-color-responsive'), 'background-color', itemHSelector);
 
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-a-color-responsive]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .menu-item.current-menu-item > .menu-link' );
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-a-bg-color-responsive]', 'background-color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .menu-item.current-menu-item > .menu-link' );
+				astra_color_responsive_css('sticky-header', stickyOption('a-color-responsive'), 'color', itemASelector);
+				astra_color_responsive_css('sticky-header', stickyOption('a-bg-color-responsive'), 'background-color', itemASelector);
 
 				// Submenu color preview styles.
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-submenu-color-responsive]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-link' );
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-submenu-bg-color-responsive]', 'background-color', '.ast-header-sticked .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu, .ast-header-sticked .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-link' );
+				astra_color_responsive_css('sticky-header', stickyOption('submenu-color-responsive'), 'color', subItemSelector);
+				astra_color_responsive_css('sticky-header', stickyOption('submenu-bg-color-responsive'), 'background-color', subMenuSelector + ',' + subItemSelector);
 
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-submenu-h-color-responsive]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item:hover > .menu-link' );
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-submenu-h-bg-color-responsive]', 'background-color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item:hover > .menu-link' );
+				astra_color_responsive_css('sticky-header', stickyOption('submenu-h-color-responsive'), 'color', subItemHSelector);
+				astra_color_responsive_css('sticky-header', stickyOption('submenu-h-bg-color-responsive'), 'background-color', subItemHSelector);
 
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-submenu-a-color-responsive]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item.current-menu-ancestor > .menu-link' );
-				astra_color_responsive_css('sticky-header', 'astra-settings[sticky-header-menu'+ index +'-submenu-a-bg-color-responsive]', 'background-color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' #ast-hf-menu-'+ index +' .sub-menu .menu-item.current-menu-ancestor > .menu-link' );
+				astra_color_responsive_css('sticky-header', stickyOption('submenu-a-color-responsive'), 'color', subItemASelector );
+				astra_color_responsive_css('sticky-header', stickyOption('submenu-a-bg-color-responsive'), 'background-color', subItemASelector);
 
 				if ( 3 > index ) {
 					// Megamenu Heading color preview styles.
-					astra_css( 'astra-settings[sticky-header-menu'+ index +'-header-megamenu-heading-color]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' .main-header-menu.ast-mega-menu-enabled .sub-menu .menu-item.menu-item-heading > .menu-link' );
-					astra_css( 'astra-settings[sticky-header-menu'+ index +'-header-megamenu-heading-h-color]', 'color', '[CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' .main-header-menu.ast-mega-menu-enabled .sub-menu .menu-item.menu-item-heading:hover > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' .main-header-menu.ast-mega-menu-enabled .sub-menu .menu-item.menu-item-heading > .menu-link:hover' );
+					astra_css( stickyOption('header-megamenu-heading-color'), 'color', `${menuSelector}.ast-mega-menu-enabled .sub-menu .menu-item.menu-item-heading > .menu-link` );
+					astra_css( stickyOption('header-megamenu-heading-h-color'), 'color', `${menuSelector}.ast-mega-menu-enabled .sub-menu .menu-item.menu-item-heading:hover > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-'+ index +' .main-header-menu.ast-mega-menu-enabled .sub-menu .menu-item.menu-item-heading > .menu-link:hover` );
 				}
 			}
 

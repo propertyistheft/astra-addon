@@ -112,7 +112,7 @@ body #ast-quick-view-modal div.product .flex-viewport {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: max(80%, 800px);
 }
 
 #ast-quick-view-modal .ast-content-main-wrapper:before {

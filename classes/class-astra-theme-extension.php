@@ -110,6 +110,14 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 
 				// Admin enqueue script alpha color picker.
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_color_picker_scripts' ) );
+
+				// Admin DOMPurify script for DOM sanitization.
+				add_action(
+					'admin_enqueue_scripts',
+					function() {
+						wp_enqueue_script( 'astra-admin-dom-purify', ASTRA_EXT_URI . '/assets/js/minified/purify.min.js', array(), ASTRA_EXT_VER, true );
+					}
+				);
 			}
 
 			add_action( 'init', array( $this, 'addons_action_hooks' ), 1 );

@@ -7,7 +7,7 @@
 		infinite_event 	= astra.infinite_scroll_event || '';
 
 	//	Is 'infinite' pagination?
-	if( typeof pagination != '' && pagination == 'infinite' ) {
+	if ( typeof pagination === 'string' && pagination == 'infinite' ) {
 
 		var in_customizer = false;
 
@@ -21,7 +21,7 @@
 			}
 		}
 
-		if(	typeof infinite_event != '' ) {
+		if ( typeof infinite_event === 'string' ) {
 			switch( infinite_event ) {
 				case 'click':
 				document.addEventListener('click',function(event) {
@@ -84,7 +84,7 @@
 		 *
 		 * Perform masonry operations.
 		 */
-		function NextloadArticles(pageNumber) {
+		const NextloadArticles = (pageNumber) => {
 			const loader 			= document.querySelector('.ast-pagination-infinite .ast-loader');
 			const astLoadMore		= document.querySelector('.ast-load-more');
 			if( astLoadMore ){

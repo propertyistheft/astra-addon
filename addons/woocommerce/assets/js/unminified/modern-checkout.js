@@ -264,7 +264,7 @@ function woocommerceUserLogin() {
 
                         if( customerInfoNotice ) {
                             customerInfoNotice.classList.add('active');
-                            customerInfoNotice.innerHTML = jsonResponse.data.error;
+                            customerInfoNotice.innerHTML = DOMPurify.sanitize( jsonResponse.data.error );
                         }
 
                     }

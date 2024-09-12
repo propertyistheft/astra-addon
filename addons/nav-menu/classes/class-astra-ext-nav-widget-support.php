@@ -154,6 +154,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 
 			$sidebar_widgets = $this->get_ast_sidebar_widgets();
 
+			if ( ! is_array( $sidebar_widgets ) ) {
+				$sidebar_widgets = array();
+			}
+
 			$sidebar_widgets[] = $widget_id;
 
 			$this->set_sidebar_widgets( $sidebar_widgets );

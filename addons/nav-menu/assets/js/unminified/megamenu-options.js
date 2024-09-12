@@ -88,7 +88,7 @@ function onColorReady() {
 
 		$.post(ajaxurl, data, function (response) {
 			var widget_html = $(response.data);
-			container.find(".ast-widget-list").append(widget_html);
+			widget_html?.each((_, element) => container.find(".ast-widget-list").append(DOMPurify.sanitize(element)));
 			$(".widget-action").unbind();
 			$(".widget-action").on("click", editWidget);
 			$("#mega-menu-submit").removeClass('ast-disabled')
@@ -112,7 +112,7 @@ function onColorReady() {
 				$(".ast-widget-list").show();
 			}
 
-			container.find(".ast-widget-list").html(widget_html);
+			container.find(".ast-widget-list").html(DOMPurify.sanitize(widget_html));
 
 			$("#ast-widget-sortable").sortable({
 				change: function (event, ui) {
@@ -144,7 +144,14 @@ function onColorReady() {
 
 		if (!widget.hasClass("open") && !widget.data("loaded")) {
 			$.post(ajaxurl, data, function (response) {
-				widget_inner.html(response.data);
+				// Configure DOMPurify to allow the name="action" attribute on input elements.
+				DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+					if (node.nodeName === 'INPUT' && node?.hasAttribute('value') && node?.getAttribute('value') === 'ast_save_widget') {
+						node?.setAttribute('name', 'action');
+					}
+				});
+
+				widget_inner.html(DOMPurify.sanitize(response.data));
 
 				widget.data("loaded", true).toggleClass("open");
 

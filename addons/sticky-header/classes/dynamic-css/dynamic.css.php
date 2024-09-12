@@ -143,16 +143,16 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'#ast-fixed-header .main-header-bar .site-description, .main-header-bar.ast-sticky-active .site-description' => array(
 				'color' => esc_attr( $text_color ),
 			),
-			'#ast-fixed-header .main-header-menu > .menu-item.current-menu-item > .menu-link, #ast-fixed-header .main-header-menu >.menu-item.current-menu-ancestor > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu > .menu-item.current-menu-item > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu >.menu-item.current-menu-ancestor > .menu-link' => array(
+			'.ast-sticky-active .main-header-menu > .menu-item.current-menu-item > .menu-link, .ast-sticky-active .main-header-menu >.menu-item.current-menu-ancestor > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu > .menu-item.current-menu-item > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu >.menu-item.current-menu-ancestor > .menu-link' => array(
 				'color' => esc_attr( $link_color ),
 			),
-			'#ast-fixed-header .main-header-menu, #ast-fixed-header .main-header-menu > .menu-item > .menu-link, #ast-fixed-header .ast-masthead-custom-menu-items, #ast-fixed-header .ast-masthead-custom-menu-items a, .main-header-bar.ast-sticky-active, .main-header-bar.ast-sticky-active .main-header-menu > .menu-item > .menu-link, .main-header-bar.ast-sticky-active .ast-masthead-custom-menu-items, .main-header-bar.ast-sticky-active .ast-masthead-custom-menu-items a' => array(
+			'.ast-sticky-active .main-header-menu, .ast-sticky-active .main-header-menu > .menu-item > .menu-link, .ast-sticky-active .ast-masthead-custom-menu-items, .ast-sticky-active .ast-masthead-custom-menu-items a, .main-header-bar.ast-sticky-active, .main-header-bar.ast-sticky-active .main-header-menu > .menu-item > .menu-link, .main-header-bar.ast-sticky-active .ast-masthead-custom-menu-items, .main-header-bar.ast-sticky-active .ast-masthead-custom-menu-items a' => array(
 				'color' => esc_attr( $text_color ),
 			),
-			'#ast-fixed-header .main-header-menu .menu-link:hover, #ast-fixed-header .main-header-menu .menu-item:hover > .menu-link, #ast-fixed-header .main-header-menu .menu-item.focus > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu .menu-item:hover > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu .menu-item.focus > .menu-link' => array(
+			'.ast-sticky-active .main-header-menu .menu-link:hover, .ast-sticky-active .main-header-menu .menu-item:hover > .menu-link, .ast-sticky-active .main-header-menu .menu-item.focus > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu .menu-item:hover > .menu-link, .main-header-bar.ast-sticky-active .main-header-menu .menu-item.focus > .menu-link' => array(
 				'color' => esc_attr( $link_color ),
 			),
-			'#ast-fixed-header .main-header-menu .ast-masthead-custom-menu-items a:hover, #ast-fixed-header .main-header-menu .menu-item:hover > .ast-menu-toggle, #ast-fixed-header .main-header-menu .menu-item.focus > .ast-menu-toggle,.main-header-bar.ast-sticky-active .main-header-menu .menu-item:hover > .ast-menu-toggle,.main-header-bar.ast-sticky-active .main-header-menu .menu-item.focus > .ast-menu-toggle' => array(
+			'.ast-sticky-active .main-header-menu .ast-masthead-custom-menu-items a:hover, .ast-sticky-active .main-header-menu .menu-item:hover > .ast-menu-toggle, .ast-sticky-active .main-header-menu .menu-item.focus > .ast-menu-toggle,.main-header-bar.ast-sticky-active .main-header-menu .menu-item:hover > .ast-menu-toggle,.main-header-bar.ast-sticky-active .main-header-menu .menu-item.focus > .ast-menu-toggle' => array(
 				'color' => esc_attr( $link_color ),
 			),
 		);
@@ -953,7 +953,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu > .menu-item > .menu-link' => array(
 					'color' => esc_attr( $desktop_sticky_primary_menu_color ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu,[CLASS*="-sticky-header-active"] .main-header-menu .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu > .menu-item > .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_menu_bg_color['desktop'] ),
 				),
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .current-menu-parent > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item:hover > .menu-link' => array(
@@ -972,14 +972,14 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item .menu-link' => array(
 					'color' => esc_attr( $desktop_sticky_primary_submenu_color ),
 				),
-				'.ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu, .ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-link' => array(
+				'.ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu, .ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_submenu_bg_color['desktop'] ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item:hover > .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item:hover > .menu-link' => array(
 					'color'            => esc_attr( $desktop_sticky_primary_submenu_h_color ),
 					'background-color' => esc_attr( $sticky_header_submenu_h_bg_color['desktop'] ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item.current-menu-ancestor > .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item.current-menu-ancestor > .menu-link' => array(
 					'color'            => esc_attr( $desktop_sticky_primary_submenu_a_color ),
 					'background-color' => esc_attr( $sticky_header_submenu_a_bg_color['desktop'] ),
 				),
@@ -989,7 +989,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu > .menu-item > .menu-link' => array(
 					'color' => esc_attr( $tablet_sticky_primary_menu_color ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu > .menu-item > .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_menu_bg_color['tablet'] ),
 				),
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item:hover > .menu-link' => array(
@@ -1027,7 +1027,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu > .menu-item > .menu-link' => array(
 					'color' => esc_attr( $mobile_sticky_primary_menu_color ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu > .menu-item > .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_menu_bg_color['mobile'] ),
 				),
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item:hover > .menu-link' => array(

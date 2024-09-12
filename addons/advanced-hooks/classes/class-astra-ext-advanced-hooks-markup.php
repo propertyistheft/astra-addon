@@ -584,6 +584,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				'location'  => 'ast-advanced-hook-location',
 				'exclusion' => 'ast-advanced-hook-exclusion',
 				'users'     => 'ast-advanced-hook-users',
+				'enabled'   => 'ast-advanced-hook-enabled', // to prevent irrelevant parent container markup.
 			);
 
 			$result             = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( ASTRA_ADVANCED_HOOKS_POST_TYPE, $option );
@@ -666,8 +667,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 							remove_action( 'astra_header', array( Astra_Builder_Header::get_instance(), 'prepare_header_builder_markup' ) );
 						}
-						// remove default site's fixed header if sticky header is activated.
-						add_filter( 'astra_fixed_header_markup_enabled', '__return_false' );
 
 						$action = 'astra_custom_header';
 						// if astra_custom_header not exist then call astra_header.
@@ -1167,7 +1166,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 					self::get_instance()->get_action_content( $post_id );
 					$layout_content = ob_get_clean();
 
-					$layout_content_hash = md5( $layout_content );
+					$layout_content_hash = hash( 'sha256', $layout_content );
 
 					if ( ! in_array( $layout_content_hash, self::$duplicate_content_hash, true ) ) {
 						/**
@@ -1198,7 +1197,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 					self::get_instance()->get_action_content( $post_id );
 					$layout_content = ob_get_clean();
 
-					$layout_content_hash = md5( $layout_content );
+					$layout_content_hash = hash( 'sha256', $layout_content );
 
 					if ( ! in_array( $layout_content_hash, self::$duplicate_content_hash, true ) ) {
 						/**

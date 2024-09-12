@@ -227,7 +227,7 @@ final class Astra_Addon_Builder_Helper {
 	 */
 	public static function __callStatic( $function_name, $function_agrs ) {
 
-		$key = md5( $function_name ) . md5( maybe_serialize( $function_agrs ) );
+		$key = hash( 'sha256', $function_name ) . hash( 'sha256', maybe_serialize( $function_agrs ) );
 		if ( isset( self::$cached_properties[ $key ] ) ) {
 			return self::$cached_properties[ $key ];
 		}

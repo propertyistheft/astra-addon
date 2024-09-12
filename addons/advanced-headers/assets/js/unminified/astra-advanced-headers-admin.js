@@ -211,8 +211,6 @@
 
 			});
 
-			var file_frame;
-			window.inputWrapper = '';
 		},
 
 		/**

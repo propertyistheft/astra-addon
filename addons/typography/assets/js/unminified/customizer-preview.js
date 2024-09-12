@@ -74,7 +74,7 @@
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-primary-menu]', selector );
 
-	var selector = '.main-navigation';
+	selector = '.main-navigation';
 
 	if ( '' != ast_enabled_addons['header-sections'] ) {
 		selector += ', .ast-header-sections-navigation, .ast-above-header-menu-items, .ast-below-header-menu-items';
@@ -82,7 +82,7 @@
 
 	astra_css( 'astra-settings[font-weight-primary-menu]', 'font-weight', selector );
 
-	var selector = '.main-header-menu > .menu-item > .sub-menu:first-of-type, .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:first-of-type';
+	selector = '.main-header-menu > .menu-item > .sub-menu:first-of-type, .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:first-of-type';
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-primary-dropdown-menu]', selector );
 
@@ -102,7 +102,7 @@
 
 	// Footer Typo
 
-	var selector = '.main-header-menu > .menu-item > .sub-menu:first-of-type, .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:first-of-type';
+	selector = '.main-header-menu > .menu-item > .sub-menu:first-of-type, .main-header-menu > .menu-item > .astra-full-megamenu-wrapper:first-of-type';
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-footer-content]', '.ast-small-footer' );
 
@@ -203,7 +203,7 @@
 	 * Mobile menu - Typography
 	 */
 
-	var selector = '.ast-hfb-header .ast-builder-menu-mobile .main-header-menu';
+	selector = '.ast-hfb-header .ast-builder-menu-mobile .main-header-menu';
 
 	if ( astTypography.astra_not_updated ) {
 		selector = '.astra-hfb-header .ast-builder-menu-mobile .main-header-menu';
@@ -266,8 +266,8 @@
 		astra_font_extras_css( 'font-extras-' + section, selector );
 
 		// Footer.
-		var section = 'section-fb-social-icons-' + index;
-		var selector = '.ast-builder-layout-element .ast-footer-social-' + index + '-wrap .social-item-label';
+		section = 'section-fb-social-icons-' + index;
+		selector = '.ast-builder-layout-element .ast-footer-social-' + index + '-wrap .social-item-label';
 
 		astra_generate_outside_font_family_css(
 			'astra-settings[font-family-' + section + ']',
@@ -454,7 +454,7 @@
 	 * Footer - Copyright - Typography
 	 */
 
-	var selector = '.ast-footer-copyright';
+	selector = '.ast-footer-copyright';
 	var section = 'section-footer-copyright';
 
 	astra_responsive_font_size(
@@ -479,8 +479,8 @@
 	 * Header - Account - Typography
 	 */
 
-	var selector = '.ast-header-account-wrap';
-	var section = 'section-header-account';
+	selector = '.ast-header-account-wrap';
+	section = 'section-header-account';
 
 	astra_generate_outside_font_family_css(
 		'astra-settings[font-family-' + section + ']',
@@ -526,7 +526,7 @@
      * Footer - Menu - Typography.
      */
 
-	var selector = '#astra-footer-menu';
+	selector = '#astra-footer-menu';
 
     astra_generate_outside_font_family_css(
         'astra-settings[footer-menu-font-family]',

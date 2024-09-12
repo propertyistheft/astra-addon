@@ -74,7 +74,7 @@ function ArticleMarkup(url, value) {
             } else if ( paginationWrapper && ! paginationHtml ) {
                 paginationWrapper?.remove();
             } else if ( paginationWrapper && paginationHtml?.innerHTML ) {
-                paginationWrapper.innerHTML = paginationHtml.innerHTML;
+                paginationWrapper.innerHTML = DOMPurify.sanitize( paginationHtml.innerHTML );
             }
 
             // Pagination numbers for archive blog.
@@ -88,7 +88,7 @@ function ArticleMarkup(url, value) {
             } else if ( paginationTypeNumberWrapper && ! paginationTypeNumberHtml ) {
                 paginationTypeNumberWrapper?.remove();
             } else if ( paginationTypeNumberWrapper && paginationTypeNumberHtml?.innerHTML ) {
-                paginationTypeNumberWrapper.innerHTML = paginationTypeNumberHtml.innerHTML;
+                paginationTypeNumberWrapper.innerHTML = DOMPurify.sanitize( paginationTypeNumberHtml.innerHTML );
             }
 
             // Updating window title.
@@ -99,7 +99,7 @@ function ArticleMarkup(url, value) {
                 document.querySelector("#astra-theme-css-inline-css") &&
                 data.querySelector("#astra-theme-css-inline-css")
             ) {
-                document.querySelector("#astra-theme-css-inline-css").innerHTML = data.querySelector("#astra-theme-css-inline-css").innerHTML;
+                document.querySelector("#astra-theme-css-inline-css").innerHTML = DOMPurify.sanitize( data.querySelector("#astra-theme-css-inline-css").innerHTML );
             } else if ( // When file generation option is active.
                 document.querySelector("#astra-theme-dynamic-css") &&
                 data.querySelector("#astra-theme-dynamic-css")
@@ -128,7 +128,7 @@ function ArticleMarkup(url, value) {
             if( paginationWrapper ) {
                 paginationWrapper.innerHTML = '';
                 if( paginationHtml?.innerHTML ) {
-                    paginationWrapper.innerHTML = paginationHtml.innerHTML;
+                    paginationWrapper.innerHTML = DOMPurify.sanitize( paginationHtml.innerHTML );
                     const currentPageData = paginationWrapper.querySelector('.ast-pagination-infinite');
                     currentPageData ? currentPageData.setAttribute('data-page', 2) : '';
                 }
@@ -175,6 +175,6 @@ function BlogBannerLayoutRender( data, titleSelector, value ) {
         document.querySelector(mainSelector)?.insertAdjacentElement('beforebegin', titleHtml);
         document.body.classList.add('archive');
     } else if ( titleWrapper && titleHtml?.innerHTML ) {
-        titleWrapper.innerHTML = titleHtml.innerHTML;
+        titleWrapper.innerHTML = DOMPurify.sanitize( titleHtml.innerHTML );
     }
 }

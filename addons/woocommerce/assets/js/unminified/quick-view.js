@@ -126,7 +126,7 @@
 			xhrRequest.send( 'action=ast_load_product_quick_view&product_id= ' + product_id );
 			xhrRequest.responseType = 'text';
 			xhrRequest.onreadystatechange = function () {
-				const string = xhrRequest.responseText;
+				const string = DOMPurify.sanitize( xhrRequest.responseText );
 
 				if ( xhrRequest.readyState == XMLHttpRequest.DONE ) {   // XMLHttpRequest.DONE == 4
 					if ( 200 <= xhrRequest.status || 400 <= xhrRequest.status ) {
@@ -204,9 +204,16 @@
 						image_slider_wrap.flexslider();
 
 						try {
-								productVariation(image_slider_wrap);
+							productVariation(image_slider_wrap);
+						} catch (err) {
+							console.error('Error initializing product variations with image slider:', err);
 						}
-						catch(err) {
+					} else {
+						try {
+							// Removed Image-Slider Dependency.
+							productVariation(quick_view_box);
+						} catch (err) {
+							console.error('Error initializing product variations without image slider:', err);
 						}
 
 					}

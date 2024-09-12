@@ -30,7 +30,7 @@ const quickViewPopup = function( event ) {
 		if ( response.success ) {
 			const template = wp.template( 'ast-modal-view-layout-details' );
 			document.body.style.overflow = 'hidden';
-			document.querySelector( ".ast-custom-layout-preview-wrapper" ).innerHTML = template( response.data );
+			document.querySelector( ".ast-custom-layout-preview-wrapper" ).innerHTML = DOMPurify.sanitize( template( response.data ) );
 		}
 	}
 }

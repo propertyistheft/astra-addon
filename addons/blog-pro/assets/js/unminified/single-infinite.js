@@ -43,7 +43,7 @@
 		}
 
 		// Add a post divider.
-		temp_content_container.prepend( '<hr style="height: 0" class="post-divider" data-title="' + window.document.title + '" data-url="' + window.location.href + '" data-post-id="' + post_ID + '"/>' );
+		temp_content_container.prepend( DOMPurify.sanitize( '<hr style="height: 0" class="post-divider" data-title="' + window.document.title + '" data-url="' + window.location.href + '" data-post-id="' + post_ID + '"/>' ) );
 
 		// Initialise scrollSpy
 		initialise_scrollspy();
@@ -276,7 +276,7 @@
 				post_ID = post_ID.replace('post-', ''); // Make sure that only the post ID remains.
 			}
 
-			$( content_container ).append( post_html ); // Add next post.
+			post_html?.each( ( _, element ) => $( content_container ).append( DOMPurify.sanitize( element ) ) ); // Add next post.
 
 			// Remove Comments.
 			if ( remove_comments === 'yes' ) {

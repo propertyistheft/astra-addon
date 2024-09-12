@@ -122,6 +122,9 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			add_action( 'astra_addon_deactivated', __CLASS__ . '::refresh_assets', 11 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+			// remove the cached css files when the site language gets changed.
+			add_action( 'update_option_WPLANG', array( __CLASS__, 'remove_cached_css_files' ) );
+
 			if ( version_compare( ASTRA_THEME_VERSION, '3.6.8', '>' ) ) {
 				add_action( 'astra_addon_get_js_files', array( $this, 'add_fronted_pro_script' ) );
 			}
@@ -173,6 +176,8 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 					wp_add_inline_style( 'astra-addon-css', apply_filters( 'astra_addon_dynamic_css', '' ) );
 				}
 
+				// DOMPurify script for DOM sanitization.
+				wp_enqueue_script( 'astra-dom-purify', $dep_gen_path . 'purify.min.js', array(), ASTRA_EXT_VER, true );
 
 				if ( is_archive() || is_home() || is_search() ) {
 					if ( astra_addon_check_reveal_effect_condition() ) {
@@ -702,6 +707,20 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 			/* Update Dynamic css in DB */
 			update_option( self::$_css_key . '-files-' . $css_slug, $css_files );
+		}
+
+		/**
+		 * Removes the cached CSS files.
+		 *
+		 * @since 4.8.1
+		 * @return void
+		 */
+		public static function remove_cached_css_files() {
+
+			$css_slug = self::_asset_slug();
+
+			/* Delete dynamic css files from DB */
+			delete_option( self::$_css_key . '-files-' . $css_slug );
 		}
 
 		/**

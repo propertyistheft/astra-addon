@@ -15,7 +15,7 @@ jQuery( function( $ ) {
 		init: function() {
 			// Inline validation
 			this.ast_checkout_form.on( 'input validate change', '.input-text', this.validate_field );
-			$( document.body ).bind( 'init_checkout', this.init_checkout );
+			$( document.body ).on( 'init_checkout', this.init_checkout );
 
 			$('.input-text').trigger('input');
 		},

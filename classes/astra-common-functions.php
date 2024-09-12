@@ -6,6 +6,73 @@
  */
 
 /**
+ * Return translated theme option.
+ *
+ * This function exists in theme v.4.7.4 though included here to prevent errors caused by version mismatches with the theme.
+ */
+if ( ! function_exists( '__astra_get_option' ) ) {
+
+	/**
+	 * Returns translated string for strings saved in Astra settings.
+	 *
+	 * This function retrieves a theme option value and checks if it needs translation.
+	 * If the option's translation is needed, it looks it up based on the provided context.
+	 * If the translation is not available, it returns the default value.
+	 *
+	 * Usage examples:
+	 * - Retrieve translated theme option with a context description:
+	 *      $value = __astra_get_option( 'astra-option-key', esc_html_x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *
+	 * - Retrieve translated theme option with a different context:
+	 *      $value = __astra_get_option( 'astra-option-key', _x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *
+	 * @param  string $option       Option key.
+	 * @param  string $translated   Default translation flag.
+	 * @param  mixed  $default      Option default value.
+	 * @param  string $deprecated   Option default value.
+	 *
+	 * @return string Return option value.
+	 *
+	 * @since 4.8.1
+	 */
+	function __astra_get_option( $option, $translated, $default = '', $deprecated = '' ) {
+		return '%astra%' !== $translated ? $translated : astra_get_option( $option, $default, $deprecated );
+	}
+}
+
+/**
+ * Return translated string.
+ *
+ * This function exists in theme v.4.7.4 though included here to prevent errors caused by version mismatches with the theme.
+ */
+if ( ! function_exists( '__astra_get_string' ) ) {
+
+	/**
+	 * Returns translated string.
+	 *
+	 * This function checks if string has translation.
+	 * If the translation is not available, it returns the default value.
+	 *
+	 * Usage examples:
+	 * - Retrieve translated theme option with a context description:
+	 *      $value = __astra_get_string( $default, esc_html_x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *
+	 * - Retrieve translated theme option with a different context:
+	 *      $value = __astra_get_string( $default, _x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *
+	 * @param  string $default      Default string value.
+	 * @param  string $translated   Default translation flag.
+	 *
+	 * @return string Return string value.
+	 *
+	 * @since 4.8.1
+	 */
+	function __astra_get_string( $default, $translated ) {
+		return '%astra%' !== $translated ? $translated : $default;
+	}
+}
+
+/**
  * Apply CSS for the element
  */
 if ( ! function_exists( 'astra_color_responsive_css' ) ) {

@@ -1,6 +1,19 @@
 *** Astra Pro Changelog ***
 
+2024-09-11 - version 4.8.1
+* Improvement: Added functionality to allow the translation of strings stored in Astra's settings database.
+* Fix: WooCommerce - Astra Pro Quick View feature was not showing correctly at browser widths between 922px and 999px.
+* Fix: Sticky Header - Hide When Scrolling Down - Menu text colors were not applying when the "Colors & Background" module was disabled.
+* Fix: Sticky Header - Primary menu background color was being affected by extra menus, such as Menu 3, Menu 4, etc.
+* Fix: Sticky Header - Fixed sticky header not functioning with animation even when the Site Builder header layout is disabled.
+* Fix: Search widget was not functioning correctly on mobile devices for RTL (Right-to-Left) sites.
+* Fix: WooCommerce - Variation buttons in quick view are not functional if the product does not have gallery images.
+* Fix: Mega Menu - Disabling the submenu link causes PHP warnings if Mega Menu is not enabled.
+* Fix: Left and right padding not showing with the padded site layout.
+* Fix: Getting PHP warning 'Undefined array key "placeholder"' on the checkout page when WPFunnels Pro plugin is activated.
+
 2024-08-20 - version 4.8.0
+* Fix: Improvements as per Woo Marketplace coding standards.
 * Improvement: Introduced filter 'astra_addon_enable_modern_checkout' to enable/disable the modern checkout feature.
 * Improvement: Made megamenu icon `alt` tags dynamic to ensure unique alt attributes for each image.
 * Fix: Improvements as per Woo Marketplace coding standards.

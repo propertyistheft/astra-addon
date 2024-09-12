@@ -207,8 +207,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function add_registration_link_text() {
-			$my_account_register_description_text = astra_get_option( 'my-account-register-description-text' );
-			$my_account_register_text             = astra_get_option( 'my-account-register-text' );
+			$my_account_register_description_text = __astra_get_option( 'my-account-register-description-text', _x( '%astra%', 'Register Description', 'astra-addon' ) );
+			$my_account_register_text             = __astra_get_option( 'my-account-register-text', _x( '%astra%', 'Register Text', 'astra-addon' ) );
 
 			printf(
 				'<p class="ast-woo-form-actions">
@@ -229,8 +229,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function add_member_login_link_text() {
-			$my_account_login_description_text = astra_get_option( 'my-account-login-description-text' );
-			$my_account_login_text             = astra_get_option( 'my-account-login-text' );
+			$my_account_login_description_text = __astra_get_option( 'my-account-login-description-text', _x( '%astra%', 'Login Description Text', 'astra-addon' ) );
+			$my_account_login_text             = __astra_get_option( 'my-account-login-text', _x( '%astra%', 'Login Text', 'astra-addon' ) );
 
 			printf(
 				'<p class="ast-woo-form-actions">
@@ -1154,7 +1154,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			?>
 				<div class="ast-single-product-extras">
 					<?php
-					$extras_text = astra_get_option( 'single-product-extras-text' );
+					$extras_text = __astra_get_option( 'single-product-extras-text', _x( '%astra%', 'Extras Title (Free shipping on orders over $50!)', 'astra-addon' ) );
 
 					if ( $extras_text ) {
 						?>
@@ -1166,9 +1166,22 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 					$extras_list = astra_get_option( 'single-product-extras-list' );
 
 					if ( isset( $extras_list['items'] ) ) {
+						// We are assuming that user won't add more than 10 extra items.
+						$translatable_item_labels = array(
+							_x( '%astra%', 'Extras item 1', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 2', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 3', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 4', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 5', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 6', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 7', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 8', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 9', 'astra-addon' ),
+							_x( '%astra%', 'Extras item 10', 'astra-addon' ),
+						);
 						?>
 						<ul>
-							<?php foreach ( $extras_list['items'] as $single ) { ?>
+							<?php foreach ( $extras_list['items'] as $key => $single ) { ?>
 								<?php if ( isset( $single['enabled'] ) && true === $single['enabled'] ) { ?>
 									<?php $icon_data_attr = ( ( isset( $single['source'] ) && $single['source'] && 'icon' === $single['source'] && isset( $single['icon'] ) && ! $single['icon'] ) || ( isset( $single['source'] ) && $single['source'] && 'image' === $single['source'] && isset( $single['image'] ) && ! $single['image'] ) ) ? 'false' : 'true'; ?>
 									<li data-icon="<?php echo esc_attr( $icon_data_attr ); ?>">
@@ -1187,6 +1200,9 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 											}
 										}
 										if ( isset( $single['label'] ) ) {
+											$single['label'] = isset( $translatable_item_labels[ $key ] )
+												? __astra_get_string( $single['label'], $translatable_item_labels[ $key ] )
+												: $single['label'];
 											echo esc_html( $single['label'] );
 										}
 										?>
@@ -3254,10 +3270,17 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		public function default_fields_customization( $fields ) {
 			if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) && 'yes' === get_option( 'woocommerce_checkout_highlight_required_fields' ) && ( astra_get_option( 'checkout-labels-as-placeholders' ) || 'modern' === astra_get_option( 'woo-input-style-type' ) ) ) {
 				if ( isset( $fields['address_1'] ) && $fields['address_1']['required'] ) {
+					// Setting up placeholder is an empty string if not defined
+					if ( ! isset( $fields['address_1']['placeholder'] ) ) {
+						$fields['address_1']['placeholder'] = '';
+					}
 					$fields['address_1']['placeholder'] .= ' *';
 				}
 
 				if ( isset( $fields['address_2'] ) && $fields['address_2']['required'] ) {
+					if ( ! isset( $fields['address_2']['placeholder'] ) ) {
+						$fields['address_2']['placeholder'] = '';
+					}
 					$fields['address_2']['placeholder'] .= ' *';
 				}
 			}
@@ -3735,7 +3758,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			}
 
 			$title       = '<h2>' . esc_html( $recently_viewed_heading ) . '</h2>';
-			$product_ids = implode( ',', array_reverse( $viewed_products ) );
+			$product_ids = esc_html( implode( ',', array_reverse( $viewed_products ) ) );
 
 			echo do_shortcode( '<section class="related products">' . $title . "[products ids='$product_ids' orderby='post__in' limit='$number_of_products' columns='$number_of_columns']" . '</section>' );
 		}

@@ -106,6 +106,18 @@ var isEdge = false;
 	wp.customize( 'astra-settings[site-layout-padded-pad]', function( value ) {
 		value.bind( function( padding ) {
 
+			const { desktop, tablet, mobile } = padding;
+			const dUnit = padding['desktop-unit'];
+			const tUnit = padding['tablet-unit'];
+			const mUnit = padding['mobile-unit'];
+
+			if ( desktop.top || desktop.bottom || tablet.top || tablet.bottom || mobile.top || mobile.bottom || desktop.left || desktop.right || tablet.left || tablet.right || mobile.left || mobile.right ) {
+				let dynamicStyle = 'body.ast-padded-layout { padding-top: ' + desktop.top + dUnit + '; padding-right: ' + desktop.right + dUnit + '; padding-bottom: ' + desktop.bottom + dUnit + '; padding-left: ' + desktop.left + dUnit + ' }';
+				dynamicStyle += '@media (max-width: 768px) { body.ast-padded-layout { padding-top: ' + tablet.top + tUnit + '; padding-right: ' + tablet.right + tUnit + '; padding-bottom: ' + tablet.bottom + tUnit + '; padding-left: ' + tablet.left + tUnit + ' } }';
+				dynamicStyle += '@media (max-width: 544px) { body.ast-padded-layout { padding-top: ' + mobile.top + mUnit + '; padding-right: ' + mobile.right + mUnit + '; padding-bottom: ' + mobile.bottom + mUnit + '; padding-left: ' + mobile.left + mUnit + ' } }';
+				astra_add_dynamic_css( 'site-layout-padded-body-padding', dynamicStyle );
+			}
+
 			if ( padding.desktop.top  || padding.desktop.bottom || padding.tablet.top || padding.tablet.bottom || padding.mobile.top || padding.mobile.bottom ) {
 				var dynamicStyle = 'article, .main-header-bar, .ast-above-header, .ast-below-header { transition: max-width 0s !important } ';
 				dynamicStyle +=  ' body.ast-padded-layout::before { height:' + padding['desktop']['top'] + padding['desktop-unit'] + ';} body.ast-padded-layout::after	{ height:' + padding['desktop']['bottom'] + padding['desktop-unit'] +';}';

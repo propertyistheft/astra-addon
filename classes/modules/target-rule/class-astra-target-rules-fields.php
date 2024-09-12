@@ -1613,7 +1613,14 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$wpdb->ast_wpml_translate_query_condition = $wpml_translate_query_condition;
 				$posts                                    = $wpdb->get_results( $wpdb->prepare( "SELECT p.ID, pm.meta_value FROM {$wpdb->postmeta} as pm INNER JOIN {$wpdb->posts} as p ON pm.post_id = p.ID {$wpdb->ast_wpml_translate_query} WHERE pm.meta_key = ('%1s') AND p.post_type = ('%2s') {$wpdb->ast_wpml_translate_query_condition} AND p.post_status = 'publish' AND ({$wpdb->ast_meta_args}) ORDER BY p.post_date DESC", $location, $post_type ) );
 
+				$enabled = isset( $option['enabled'] ) ? $option['enabled'] : '';
+
 				foreach ( $posts as $local_post ) {
+					// ignore disabled layouts.
+					if ( $enabled && 'no' === get_post_meta( $local_post->ID, $enabled, true ) ) {
+						continue;
+					}
+
 					self::$current_page_data[ $post_type ][ $local_post->ID ] = array(
 						'id'       => $local_post->ID,
 						'location' => maybe_unserialize( $local_post->meta_value ),

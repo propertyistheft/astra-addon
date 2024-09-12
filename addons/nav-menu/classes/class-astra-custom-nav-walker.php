@@ -401,11 +401,11 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 			$item_output  = $args->before;
 			$link_classes = array();
 
-			if ( 'disable-link' === $item->megamenu_disable_link ) {
+			if ( isset( $item->megamenu_disable_link ) && 'disable-link' === $item->megamenu_disable_link ) {
 				$link_classes[] = 'ast-disable-link';
 			}
 
-			if ( 'disable-title' === $item->megamenu_disable_title ) {
+			if ( isset( $item->megamenu_disable_title ) && 'disable-title' === $item->megamenu_disable_title ) {
 				$link_classes[] = 'ast-hide-menu-item';
 			}
 
@@ -437,7 +437,7 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 				if ( ! empty( $value ) ) {
 					$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
 
-					if ( 'href' === $attr && 'disable-link' === $item->megamenu_disable_link ) {
+					if ( 'href' === $attr && isset( $item->megamenu_disable_link ) && 'disable-link' === $item->megamenu_disable_link ) {
 						$value = 'javascript:void(0)';
 					}
 					if ( 'class' !== $attr ) {
@@ -464,7 +464,7 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 			// Wrap menu text in a span tag.
 			$title = '<span class="menu-text">' . $title . '</span>';
 
-			$mega_menu_tag = 'disable-link' === $item->megamenu_disable_link ? 'span' : 'a';
+			$mega_menu_tag = isset( $item->megamenu_disable_link ) && 'disable-link' === $item->megamenu_disable_link ? 'span' : 'a';
 
 			$item_output .= '<' . $mega_menu_tag . $attributes . ' class="' . $atts['class'] . '">';
 

@@ -154,7 +154,7 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		 * Padded layout Desktop Spacing
 		 */
 		$padded_layout_spacing = array(
-			'body'                           => array(
+			'body.ast-padded-layout'         => array(
 				'padding-top'    => astra_responsive_spacing( $padded_layout_padding, 'top', 'desktop' ),
 				'padding-right'  => astra_responsive_spacing( $padded_layout_padding, 'right', 'desktop' ),
 				'padding-bottom' => astra_responsive_spacing( $padded_layout_padding, 'bottom', 'desktop' ),
@@ -174,7 +174,7 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		 * Padded layout Tablet Spacing
 		 */
 		$tablet_padded_layout_spacing = array(
-			'body'                           => array(
+			'body.ast-padded-layout'         => array(
 				'padding-top'    => astra_responsive_spacing( $padded_layout_padding, 'top', 'tablet' ),
 				'padding-right'  => astra_responsive_spacing( $padded_layout_padding, 'right', 'tablet' ),
 				'padding-bottom' => astra_responsive_spacing( $padded_layout_padding, 'bottom', 'tablet' ),
@@ -193,7 +193,7 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		 * Padded layout Mobile Spacing
 		 */
 		$mobile_padded_layout_spacing = array(
-			'body'                           => array(
+			'body.ast-padded-layout'         => array(
 				'padding-top'    => astra_responsive_spacing( $padded_layout_padding, 'top', 'mobile' ),
 				'padding-right'  => astra_responsive_spacing( $padded_layout_padding, 'right', 'mobile' ),
 				'padding-bottom' => astra_responsive_spacing( $padded_layout_padding, 'bottom', 'mobile' ),

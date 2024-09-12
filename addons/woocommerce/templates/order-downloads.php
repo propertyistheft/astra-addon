@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="ast-woo-grid-orders-container">
 	<?php
 	if ( isset( $args['show_title'] ) ) :
-		$my_acccount_download_title = astra_get_option( 'my-account-download-text' );
+		$my_acccount_download_title = __astra_get_option( 'my-account-download-text', _x( '%astra%', 'Download Text', 'astra-addon' ) );
 		?>
 		<h2 class="woocommerce-order-downloads__title"><?php echo esc_html( $my_acccount_download_title ); ?></h2>
 	<?php endif; ?>
@@ -47,9 +47,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 						do_action( 'woocommerce_account_downloads_column_' . $column_id, $download );
 					} else {
 
-						$download_remaining_text  = astra_get_option( 'my-account-download-remaining-text' ) . ' ';
-						$download_expire_text     = astra_get_option( 'my-account-download-expire-text' ) . ' ';
-						$download_expire_alt_text = astra_get_option( 'my-account-download-expire-alt-text' ) . ' ';
+						$download_remaining_text  = __astra_get_option( 'my-account-download-remaining-text', _x( '%astra%', 'Download Remaining Text', 'astra-addon' ) ) . ' ';
+						$download_expire_text     = __astra_get_option( 'my-account-download-expire-text', _x( '%astra%', 'Download Expire Text', 'astra-addon' ) ) . ' ';
+						$download_expire_alt_text = __astra_get_option( 'my-account-download-expire-alt-text', _x( '%astra%', 'Download Expire Alt Text', 'astra-addon' ) ) . ' ';
 
 						switch ( $column_id ) {
 							case 'download-product':
