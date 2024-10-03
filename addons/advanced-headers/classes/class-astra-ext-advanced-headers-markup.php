@@ -300,7 +300,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			} elseif ( is_tag() ) {
 				$title = single_tag_title( '', false );
 			} elseif ( is_author() ) {
-				$title = '<span class="vcard">' . get_the_author() . '</span>';
+				// Added author details with hCard if schema is enabled.
+				$title = '<span ' . astra_attr( 'archive-meta-author', array( 'class' => '' ) ) . '>' . get_the_author() . '</span>';
 			} elseif ( is_tax() ) {
 				$title = single_term_title( '', false );
 			}

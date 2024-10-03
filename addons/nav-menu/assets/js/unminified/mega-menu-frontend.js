@@ -104,7 +104,7 @@ function display_mega_menu_on_load() {
 var items = document.getElementsByClassName("astra-megamenu-li");
 
 function apply_megamenu_width_styles() {
-	[].slice.call(items).forEach(function (container) {
+	[].slice.call(items).forEach(container => {
 		jQuery(container).hover(function () {
 			var ast_container = jQuery(container).parents(".ast-container"),
 				$main_container = ast_container.children(),

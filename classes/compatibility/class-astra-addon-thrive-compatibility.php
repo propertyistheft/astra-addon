@@ -53,8 +53,11 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
 
 			$current_post = get_post( $post_id, OBJECT );
 
-			// set the main wp query for the post.
-			wp( 'p=' . $post_id );
+			// Ensure wp() only runs when not on a Thrive Architect or special layout editing page.
+			if ( ! is_admin() && ! defined( 'TVE_EDITOR_FLAG' ) ) {
+				// Setting the main WordPress query for the post if necessary.
+				wp( 'p=' . $post_id );
+			}
 
 			$tve_content = apply_filters( 'the_content', $current_post->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 

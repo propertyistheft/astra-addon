@@ -1,5 +1,17 @@
 *** Astra Pro Changelog ***
 
+2024-10-01 - version 4.8.2
+* Improvement: Accessibility - Improved product quick view modal & close button accessibility.
+* Fix: Site Builder - Astra Hooks settings do not save when the Custom Fields option is enabled from the preferences.
+* Fix: Sticky Header - Scrolling down makes menu text gets disappeared on mobile screens.
+* Fix: Astra modern cart layout styling conflicts with the Elementor cart widget.
+* Fix: Header Builder - Account Widget's login popup colors and font customization not working.
+* Fix: Widget font title not working on customizer and frontend.
+* Fix: Rendered 'vcard' classes for authors only when schema is enabled.
+* Fix: Ensure compatibility with Thrive Architect by preventing query reset during Thrive Architect layout edits.
+* Fix: Resolved a console error on mobile devices in the logged-out view when using the Account widget.
+* Fix: Resolved warnings reported by Woo Marketplace, ensuring compliance with coding standards.
+
 2024-09-11 - version 4.8.1
 * Improvement: Added functionality to allow the translation of strings stored in Astra's settings database.
 * Fix: WooCommerce - Astra Pro Quick View feature was not showing correctly at browser widths between 922px and 999px.
@@ -13,7 +25,6 @@
 * Fix: Getting PHP warning 'Undefined array key "placeholder"' on the checkout page when WPFunnels Pro plugin is activated.
 
 2024-08-20 - version 4.8.0
-* Fix: Improvements as per Woo Marketplace coding standards.
 * Improvement: Introduced filter 'astra_addon_enable_modern_checkout' to enable/disable the modern checkout feature.
 * Improvement: Made megamenu icon `alt` tags dynamic to ensure unique alt attributes for each image.
 * Fix: Improvements as per Woo Marketplace coding standards.

@@ -26,17 +26,15 @@
 	//[2] Mobile Header Priamry Menu BG Color.
 	wp.customize( 'astra-settings[primary-menu-bg-obj-responsive]', function( value ) {
 		value.bind( function( bg_obj ) {
-				if ( jQuery('body').hasClass('ast-fullscreen-menu-enable') || jQuery('body').hasClass('ast-flyout-menu-enable') ) {
-					var primaryMenuBgStyle = '.main-header-menu, .ast-header-break-point .main-header-menu, .ast-header-break-point .ast-header-custom-item, .ast-header-break-point .ast-header-sections-navigation, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'primary-menu-bg-obj-responsive', primaryMenuBgStyle, 'desktop' );
-					var primaryMenuBgStyle = '.main-header-menu, .ast-header-break-point .main-header-menu, .ast-header-break-point .ast-header-custom-item, .ast-header-break-point .ast-header-sections-navigation, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'primary-menu-bg-obj-responsive', primaryMenuBgStyle, 'tablet' );
-					var primaryMenuBgStyle = '.main-header-menu, .ast-header-break-point .main-header-menu, .ast-header-break-point .ast-header-custom-item, .ast-header-break-point .ast-header-sections-navigation, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'primary-menu-bg-obj-responsive', primaryMenuBgStyle, 'mobile' );
+			if ( jQuery('body').hasClass('ast-fullscreen-menu-enable') || jQuery('body').hasClass('ast-flyout-menu-enable') ) {
+				const primaryMenuBgStyle = '.main-header-menu, .ast-header-break-point .main-header-menu, .ast-header-break-point .ast-header-custom-item, .ast-header-break-point .ast-header-sections-navigation, .ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap { {{css}} }';
+				[ 'desktop', 'tablet', 'mobile' ].forEach( ( device ) =>
+					astra_responsive_background_obj_css( wp.customize, bg_obj, 'primary-menu-bg-obj-responsive', primaryMenuBgStyle, device )
+				);
 
-					var dynamicStyle = '.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap{ transition: background 0s;}';
-					astra_add_dynamic_css( 'mobile-header-fullscreen-flyout-bg-color', dynamicStyle );
-				}
+				var dynamicStyle = '.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation, .ast-flyout-menu-enable.ast-header-break-point .ast-primary-menu-disabled .ast-merge-header-navigation-wrap, .ast-fullscreen-menu-enable.ast-header-break-point .main-header-bar-navigation .site-navigation,.ast-fullscreen-menu-enable.ast-header-break-point.admin-bar.ast-admin-bar-visible .ast-primary-menu-disabled .ast-header-custom-item .ast-merge-header-navigation-wrap{ transition: background 0s;}';
+				astra_add_dynamic_css( 'mobile-header-fullscreen-flyout-bg-color', dynamicStyle );
+			}
 		} );
 	} );
 
@@ -206,22 +204,17 @@
 
 	wp.customize( 'astra-settings[above-header-menu-bg-obj-responsive]', function( value ) {
 		value.bind( function( bg_obj ) {
-				var primaryMenuBgStyle = '.ast-header-break-point .ast-above-header-menu, .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'above-header-menu-bg-obj-responsive', primaryMenuBgStyle, 'desktop' );
-				var primaryMenuBgStyle = '.ast-header-break-point .ast-above-header-menu, .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'above-header-menu-bg-obj-responsive', primaryMenuBgStyle, 'tablet' );
-				var primaryMenuBgStyle = '.ast-header-break-point .ast-above-header-menu, .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'above-header-menu-bg-obj-responsive', primaryMenuBgStyle, 'mobile' );
+			const primaryMenuBgStyle = '.ast-header-break-point .ast-above-header-menu, .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
+			[ 'desktop', 'tablet', 'mobile' ].forEach( ( device ) =>
+				astra_responsive_background_obj_css( wp.customize, bg_obj, 'above-header-menu-bg-obj-responsive', primaryMenuBgStyle, device )
+			);
 
-				if ( jQuery('body').hasClass('ast-fullscreen-above-menu-enable') || jQuery('body').hasClass('ast-flyout-above-menu-enable') ) {
-					var headerBgStyle = '.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap,.ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-above-header-menu-bg-obj-responsive', headerBgStyle, 'desktop' );
-					var headerBgStyle = '.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap,.ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-above-header-menu-bg-obj-responsive', headerBgStyle, 'tablet' );
-					var headerBgStyle = '.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap,.ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-above-header-menu-bg-obj-responsive', headerBgStyle, 'mobile' );
-				}
-
+			if ( jQuery('body').hasClass('ast-fullscreen-above-menu-enable') || jQuery('body').hasClass('ast-flyout-above-menu-enable') ) {
+				const headerBgStyle = '.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap,.ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation { {{css}} }';
+				[ 'desktop', 'tablet', 'mobile' ].forEach( ( device ) =>
+					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-above-header-menu-bg-obj-responsive', headerBgStyle, device )
+				);
+			}
 		} );
 	} );
 
@@ -335,21 +328,17 @@
 	 */
 	wp.customize( 'astra-settings[below-header-menu-bg-obj-responsive]', function( value ) {
 		value.bind( function( bg_obj ) {
-				var primaryMenuBgStyle = ' .ast-header-break-point .ast-below-header-section-separated .ast-below-header-actual-nav { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'below-header-menu-bg-obj-responsive', primaryMenuBgStyle, 'desktop' );
-				var primaryMenuBgStyle = '.ast-header-break-point .ast-below-header-section-separated .ast-below-header-actual-nav { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'below-header-menu-bg-obj-responsive', primaryMenuBgStyle, 'tablet' );
-				var primaryMenuBgStyle = '.ast-header-break-point .ast-below-header-section-separated .ast-below-header-actual-nav { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'below-header-menu-bg-obj-responsive', primaryMenuBgStyle, 'mobile' );
+			const primaryMenuBgStyle = ' .ast-header-break-point .ast-below-header-section-separated .ast-below-header-actual-nav { {{css}} }';
+			[ 'desktop', 'tablet', 'mobile' ].forEach( ( device ) =>
+				astra_responsive_background_obj_css( wp.customize, bg_obj, 'below-header-menu-bg-obj-responsive', primaryMenuBgStyle, device )
+			);
 
-				if ( jQuery('body').hasClass('ast-fullscreen-below-menu-enable') || jQuery('body').hasClass('ast-flyout-below-menu-enable') ) {
-					var headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-below-header-menu-bg-obj-responsive', headerBgStyle, 'desktop' );
-					var headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-below-header-menu-bg-obj-responsive', headerBgStyle, 'tablet' );
-					var headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
-					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-below-header-menu-bg-obj-responsive', headerBgStyle, 'mobile' );
-				}
+			if ( jQuery('body').hasClass('ast-fullscreen-below-menu-enable') || jQuery('body').hasClass('ast-flyout-below-menu-enable') ) {
+				const headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
+				[ 'desktop', 'tablet', 'mobile' ].forEach( ( device ) =>
+					astra_responsive_background_obj_css( wp.customize, bg_obj, 'full-fly-below-header-menu-bg-obj-responsive', headerBgStyle, device )
+				);
+			}
 		} );
 	} );
 
@@ -1214,12 +1203,10 @@
 			}
 
 			if ( jQuery('body').hasClass('ast-fullscreen-above-menu-enable') || jQuery('body').hasClass('ast-flyout-above-menu-enable') ) {
-				var headerBgStyle = '  .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-above-header-bg-obj-responsive', headerBgStyle, 'desktop' );
-				var headerBgStyle = '  .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-above-header-bg-obj-responsive', headerBgStyle, 'tablet' );
-				var headerBgStyle = '  .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-above-header-bg-obj-responsive', headerBgStyle, 'mobile' );
+				const headerBgStyle = ' .ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap .ast-above-header-navigation,.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation-wrap { {{css}} }';
+				[ 'desktop', 'tablet', 'mobile' ].forEach( ( device ) =>
+					astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-above-header-bg-obj-responsive', headerBgStyle, device )
+				);
 			}
 		} );
 	} );
@@ -1238,14 +1225,11 @@
 			}
 
 			if ( jQuery('body').hasClass('ast-fullscreen-below-menu-enable') || jQuery('body').hasClass('ast-flyout-below-menu-enable') ) {
-				var headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-below-header-bg-obj-responsive', headerBgStyle, 'desktop' );
-				var headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-below-header-bg-obj-responsive', headerBgStyle, 'tablet' );
-				var headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
-				astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-below-header-bg-obj-responsive', headerBgStyle, 'mobile' );
+				const headerBgStyle = '.ast-fullscreen-below-menu-overlay .ast-fullscreen-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap,.ast-flyout-below-menu-enable.ast-header-break-point .ast-below-header-navigation-wrap .ast-below-header-actual-nav { {{css}} }';
+				[ 'desktop', 'tablet', 'mobile' ].forEach( ( device ) =>
+					astra_responsive_background_obj_css( wp.customize, bg_obj, 'mobile-below-header-bg-obj-responsive', headerBgStyle, device )
+				);
 			}
-
 		} );
 	} );
 

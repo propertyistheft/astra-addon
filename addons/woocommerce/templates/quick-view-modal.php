@@ -11,10 +11,11 @@
 	<div class="ast-content-main-wrapper"><?php /*Don't remove this html comment*/ ?><!--
 	--><div class="ast-content-main">
 			<div class="ast-lightbox-content">
-				<div class="ast-content-main-head">
-					<a href="#" id="ast-quick-view-close" aria-label="<?php esc_attr_e( 'Quick View Close', 'astra-addon' ); ?>" class="ast-quick-view-close-btn"> <?php Astra_Icons::get_icons( 'close', true ); ?> </a>
+				<div id="ast-quick-view-content" class="woocommerce single-product" tabindex="0">
 				</div>
-				<div id="ast-quick-view-content" class="woocommerce single-product"></div>
+				<div class="ast-content-main-head">
+					<a href="#" id="ast-quick-view-close" role="button" aria-label="<?php esc_attr_e( 'Quick View Close', 'astra-addon' ); ?>" class="ast-quick-view-close-btn"> <?php Astra_Icons::get_icons( 'close', true ); ?> </a>
+				</div>
 			</div>
 		</div>
 	</div>

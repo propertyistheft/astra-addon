@@ -1,5 +1,5 @@
 /**
- * Above Header Header Styling
+ * Below Header Header Styling
  *
  * @package Astra Addon
  * @since 1.0.0
@@ -61,37 +61,36 @@
 		}
 	}
 
-	window.addEventListener("resize", function() {
+	window.addEventListener( 'resize', function() {
 
-		if (initial_window_width != screen.width) {
+		if ( initial_window_width != screen.width ) {
 			
-				// Update the window width for next time
-				initial_window_width = screen.width
+			// Update the window width for next time
+			initial_window_width = screen.width
 
-			if( 'BODY' !== document.activeElement.tagName ) {
+			if ( 'BODY' !== document.activeElement.tagName ) {
 				return;
 			}
 
-		var all_sub_menu = document.querySelectorAll( '.ast-below-header .sub-menu' );
-		for (var k = 0; k < all_sub_menu.length; k++) {		
-			all_sub_menu[k].removeAttribute("style");
-		};
-		var all_sub_menu = document.querySelectorAll( '.ast-below-header li' );
-		for (var k = 0; k < all_sub_menu.length; k++) {
-			all_sub_menu[k].classList.remove( 'ast-submenu-expanded' );
-		};
+			// Select all sub-menus within .ast-below-header and remove inline styles.
+			document.querySelectorAll( '.ast-below-header .sub-menu' )
+				?.forEach( ( subMenu ) => subMenu.removeAttribute( 'style' ) );
 
-		var __main_header_all = document.querySelectorAll( '.ast-below-header' );
-		var menu_toggle_all   = document.querySelectorAll( '.ast-below-header' );
+			// Select all list items within .ast-below-header and remove the 'ast-submenu-expanded' class.
+			document.querySelectorAll( '.ast-below-header li' )
+				?.forEach( ( listItem ) => listItem.classList.remove( 'ast-submenu-expanded' ) );
 
-		for (var i = 0; i < menu_toggle_all.length; i++) {
-			var astra_menu_toggle = __main_header_all[i].querySelectorAll( '.ast-below-header-menu > .menu-item > .ast-menu-toggle' );
+			const __main_header_all = document.querySelectorAll( '.ast-below-header' );
+			const menu_toggle_all   = document.querySelectorAll( '.ast-below-header' );
 
-				if (astra_menu_toggle.length !== 0) {
+			for ( let i = 0; i < menu_toggle_all.length; i++ ) {
+				const astra_menu_toggle = __main_header_all[i].querySelectorAll( '.ast-below-header-menu > .menu-item > .ast-menu-toggle' );
 
-					for ( var i = 0; i < astra_menu_toggle.length; i++ ) {
+				if ( astra_menu_toggle.length !== 0 ) {
+					for ( let i = 0; i < astra_menu_toggle.length; i++ ) {
 						astra_menu_toggle[i].nextElementSibling.removeAttribute( 'data-set' );
 					}
+
 					BelowMenuNoToggle( astra_menu_toggle );
 				}
 			}

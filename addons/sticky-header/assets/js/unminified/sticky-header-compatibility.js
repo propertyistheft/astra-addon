@@ -50,7 +50,7 @@
 			if ( null != parentList[i].querySelector( '.sub-menu' ) ) {
 
 				// Insert Toggle Button.
-				var  toggleButton = document.createElement("BUTTON");        // Create a <button> element
+				var toggleButton = document.createElement("button");        // Create a <button> element
 					toggleButton.setAttribute("role", "button");
 					toggleButton.setAttribute("class", "ast-menu-toggle");
 					toggleButton.setAttribute("aria-expanded", "false");

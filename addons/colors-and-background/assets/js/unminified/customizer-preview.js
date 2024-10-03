@@ -301,40 +301,41 @@
 		account_selector + ' .ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + account_selector + ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + account_selector + ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item > .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link, ' + adv_account_selector + ' .main-header-menu.ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active .menu-link'
 	);
 
+	// Logged out view - Login Popup
 	astra_css(
 		'astra-settings[header-account-popup-label-color]',
 		'color',
-		'.ast-header-account-wrap .ast-hb-account-login-form label,.ast-header-account-wrap .ast-hb-account-login-form-footer .ast-header-account-footer-link'
+		'.ast-hb-account-login-wrapper .ast-hb-account-login-form label,.ast-hb-account-login-wrapper .ast-hb-account-login-form-footer .ast-header-account-footer-link'
 	);
 
 	astra_css(
 		'astra-settings[header-account-popup-input-text-color]',
 		'color',
-		'.ast-header-account-wrap .ast-hb-account-login-form input[type=text], .ast-header-account-wrap .ast-hb-account-login-form input[type=password]'
+		'.ast-hb-account-login-wrapper .ast-hb-account-login-form #loginform input[type=text], .ast-hb-account-login-wrapper .ast-hb-account-login-form #loginform input[type=password]'
 	);
 
 	astra_css(
 		'astra-settings[header-account-popup-input-border-color]',
 		'border-color',
-		'.ast-header-account-wrap .ast-hb-account-login-form #loginform input[type=text], .ast-header-account-wrap .ast-hb-account-login-form #loginform input[type=password]'
+		'.ast-hb-account-login-wrapper .ast-hb-account-login-form #loginform input[type=text], .ast-hb-account-login-wrapper .ast-hb-account-login-form #loginform input[type=password]'
 	);
 
 	astra_css(
 		'astra-settings[header-account-popup-button-bg-color]',
 		'background-color',
-		'.ast-header-account-wrap .ast-hb-account-login-form input[type="submit"]'
+		'.ast-hb-account-login-wrapper .ast-hb-account-login-form input[type="submit"]'
 	);
 
 	astra_css(
 		'astra-settings[header-account-popup-button-text-color]',
 		'color',
-		'.ast-header-account-wrap .ast-hb-account-login-form input[type="submit"]'
+		'.ast-hb-account-login-wrapper .ast-hb-account-login-form input[type="submit"]'
 	);
 
 	astra_css(
 		'astra-settings[header-account-popup-bg-color]',
 		'background',
-		'.ast-header-account-wrap .ast-hb-account-login'
+		'.ast-hb-account-login-wrapper .ast-hb-account-login'
 	);
 
 	/**

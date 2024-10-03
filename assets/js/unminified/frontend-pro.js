@@ -177,7 +177,7 @@ const accountMenuToggle = function () {
                 const condition = ( accountMenuClickCondition ) || ( checkAccountActionTypeCondition && document.querySelector('body').classList.contains('ast-header-break-point'));
                 if( condition ) {
                     // if the target of the click isn't the container nor a descendant of the container
-                    if (!element.contains(e.target)) {
+                    if ( accountMenu && !element.contains( e.target ) ) {
                         accountMenu.style.right = '';
                         accountMenu.style.left = '';
                     }

@@ -59,43 +59,40 @@
 		}
 	}
 
-	window.addEventListener("resize", function() {
+	window.addEventListener( 'resize', function() {
 
-
-		if (initial_window_width != screen.width) {
+		if ( initial_window_width != screen.width ) {
 			
-				// Update the window width for next time
-				initial_window_width = screen.width
+			// Update the window width for next time
+			initial_window_width = screen.width
 
-			if( 'BODY' !== document.activeElement.tagName ) {
+			if ( 'BODY' !== document.activeElement.tagName ) {
 				return;
 			}
 
-			var all_sub_menu = document.querySelectorAll( '.main-header-bar .sub-menu' );
-			for (var k = 0; k < all_sub_menu.length; k++) {		
-				all_sub_menu[k].removeAttribute("style");
-			};
-			var all_sub_menu = document.querySelectorAll( '.main-header-bar li' );
-			for (var k = 0; k < all_sub_menu.length; k++) {
-				all_sub_menu[k].classList.remove( 'ast-submenu-expanded' );
-			};
+			// Select all sub-menus within .main-header-bar and remove inline styles.
+			document.querySelectorAll( '.main-header-bar .sub-menu' )
+				?.forEach( ( subMenu ) => subMenu.removeAttribute( 'style' ) );
 
-			var __main_header_all = document.querySelectorAll( '.main-header-bar-navigation' );
-			var menu_toggle_all   = document.querySelectorAll( '.main-header-bar-navigation' );
+			// Select all list items within .main-header-bar and remove the 'ast-submenu-expanded' class.
+			document.querySelectorAll( '.main-header-bar li' )
+				?.forEach( ( listItem ) => listItem.classList.remove( 'ast-submenu-expanded' ) );
 
-		for (var i = 0; i < menu_toggle_all.length; i++) {
-			var astra_menu_toggle = __main_header_all[i].querySelectorAll( '.main-header-menu > .menu-item > .ast-menu-toggle' );
+			const __main_header_all = document.querySelectorAll( '.main-header-bar-navigation' );
+			const menu_toggle_all   = document.querySelectorAll( '.main-header-bar-navigation' );
 
-				if (astra_menu_toggle.length !== 0) {
-					for ( var i = 0; i < astra_menu_toggle.length; i++ ) {
+			for ( let i = 0; i < menu_toggle_all.length; i++ ) {
+				const astra_menu_toggle = __main_header_all[i].querySelectorAll( '.main-header-menu > .menu-item > .ast-menu-toggle' );
+
+				if ( astra_menu_toggle.length !== 0 ) {
+					for ( let i = 0; i < astra_menu_toggle.length; i++ ) {
 						astra_menu_toggle[i].nextElementSibling.removeAttribute( 'data-set' );
 					}
-						
+
 					MenuNoToggle( astra_menu_toggle );
 				}
 			}
 		}
-		
 	});
 
 })();

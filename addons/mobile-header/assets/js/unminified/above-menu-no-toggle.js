@@ -59,34 +59,33 @@
 		}
 	};
 
-	window.addEventListener("resize", function() {
+	window.addEventListener( 'resize', function() {
 
-		if (initial_window_width != screen.width) {
+		if ( initial_window_width != screen.width ) {
 			
 			// Update the window width for next time
 			initial_window_width = screen.width
 
-			if( 'BODY' !== document.activeElement.tagName ) {
+			if ( 'BODY' !== document.activeElement.tagName ) {
 				return;
 			}
-			
-			var all_sub_menu = document.querySelectorAll( '.ast-above-header .sub-menu' );
-			for (var k = 0; k < all_sub_menu.length; k++) {		
-				all_sub_menu[k].removeAttribute("style");
-			};
-			var all_sub_menu = document.querySelectorAll( '.ast-above-header li' );
-			for (var k = 0; k < all_sub_menu.length; k++) {
-				all_sub_menu[k].classList.remove( 'ast-submenu-expanded' );
-			};
 
-			var __main_header_all = document.querySelectorAll( '.ast-above-header' );
-			var menu_toggle_all   = document.querySelectorAll( '.ast-above-header' );
+			// Select all sub-menus within .ast-above-header and remove inline styles.
+			document.querySelectorAll( '.ast-above-header .sub-menu' )
+				?.forEach( ( subMenu ) => subMenu.removeAttribute( 'style' ) );
 
-			for (var i = 0; i < menu_toggle_all.length; i++) {
-				var astra_menu_toggle = __main_header_all[i].querySelectorAll( '.ast-above-header-menu > .menu-item > .ast-menu-toggle' );
+			// Select all list items within .ast-above-header and remove the 'ast-submenu-expanded' class.
+			document.querySelectorAll( '.ast-above-header li' )
+				?.forEach( ( listItem ) => listItem.classList.remove( 'ast-submenu-expanded' ) );
 
-				if (astra_menu_toggle.length !== 0) {
-					for (var i = 0; i < astra_menu_toggle.length; i++) {
+			const __main_header_all = document.querySelectorAll( '.ast-above-header' );
+			const menu_toggle_all   = document.querySelectorAll( '.ast-above-header' );
+
+			for ( let i = 0; i < menu_toggle_all.length; i++ ) {
+				const astra_menu_toggle = __main_header_all[i].querySelectorAll( '.ast-above-header-menu > .menu-item > .ast-menu-toggle' );
+
+				if ( astra_menu_toggle.length !== 0 ) {
+					for ( let i = 0; i < astra_menu_toggle.length; i++ ) {
 						astra_menu_toggle[i].nextElementSibling.removeAttribute( 'data-set' );
 					}
 

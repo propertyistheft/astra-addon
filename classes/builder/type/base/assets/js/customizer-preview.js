@@ -400,11 +400,7 @@ function astra_builder_language_switcher_css( builder_type = 'header' ) {
 	wp.customize( 'astra-settings[' + section + '-flag-spacing]', function( value ) {
 		value.bind( function( size ) {
 			var dynamicStyle = '';
-			if(
-				size.desktop != '' || size.desktop != '' || size.desktop != '' || size.desktop != '' ||
-				size.tablet != '' || size.tablet != '' || size.tablet != '' || size.tablet != '' ||
-				size.mobile != '' || size.mobile != '' || size.mobile != '' || size.mobile != ''
-			) {
+			if ( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
 				dynamicStyle += 'span.ast-lswitcher-item-' + builder_type + ' {';
 				dynamicStyle += 'margin-right: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';

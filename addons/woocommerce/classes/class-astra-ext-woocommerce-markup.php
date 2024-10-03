@@ -66,6 +66,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			add_action( 'wp', array( $this, 'customization_cart_page' ) );
 			add_action( 'wp', array( $this, 'woo_product_tabs_layout' ) );
 			add_action( 'wp', array( $this, 'modern_my_account_template' ) );
+			add_action( 'wp', array( $this, 'restrict_modern_cart' ), );
 
 			// Load WooCommerce shop page styles.
 			add_action( 'wp', array( $this, 'shop_page_styles' ) );
@@ -207,8 +208,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function add_registration_link_text() {
-			$my_account_register_description_text = __astra_get_option( 'my-account-register-description-text', _x( '%astra%', 'Register Description', 'astra-addon' ) );
-			$my_account_register_text             = __astra_get_option( 'my-account-register-text', _x( '%astra%', 'Register Text', 'astra-addon' ) );
+			$my_account_register_description_text = astra_get_i18n_option( 'my-account-register-description-text', _x( '%astra%', 'Register Description', 'astra-addon' ) );
+			$my_account_register_text             = astra_get_i18n_option( 'my-account-register-text', _x( '%astra%', 'Register Text', 'astra-addon' ) );
 
 			printf(
 				'<p class="ast-woo-form-actions">
@@ -229,8 +230,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function add_member_login_link_text() {
-			$my_account_login_description_text = __astra_get_option( 'my-account-login-description-text', _x( '%astra%', 'Login Description Text', 'astra-addon' ) );
-			$my_account_login_text             = __astra_get_option( 'my-account-login-text', _x( '%astra%', 'Login Text', 'astra-addon' ) );
+			$my_account_login_description_text = astra_get_i18n_option( 'my-account-login-description-text', _x( '%astra%', 'Login Description Text', 'astra-addon' ) );
+			$my_account_login_text             = astra_get_i18n_option( 'my-account-login-text', _x( '%astra%', 'Login Text', 'astra-addon' ) );
 
 			printf(
 				'<p class="ast-woo-form-actions">
@@ -1154,7 +1155,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			?>
 				<div class="ast-single-product-extras">
 					<?php
-					$extras_text = __astra_get_option( 'single-product-extras-text', _x( '%astra%', 'Extras Title (Free shipping on orders over $50!)', 'astra-addon' ) );
+					$extras_text = astra_get_i18n_option( 'single-product-extras-text', _x( '%astra%', 'Extras Title (Free shipping on orders over $50!)', 'astra-addon' ) );
 
 					if ( $extras_text ) {
 						?>
@@ -1201,7 +1202,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 										}
 										if ( isset( $single['label'] ) ) {
 											$single['label'] = isset( $translatable_item_labels[ $key ] )
-												? __astra_get_string( $single['label'], $translatable_item_labels[ $key ] )
+												? astra_get_i18n_string( $single['label'], $translatable_item_labels[ $key ] )
 												: $single['label'];
 											echo esc_html( $single['label'] );
 										}
@@ -2222,6 +2223,29 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 					$template_type = get_post_meta( $template_id, '_fl_theme_layout_type', true );
 					if ( 'singular' === $template_type ) {
 						self::$wc_layout_built_with_themer = true;
+					}
+				}
+			}
+		}
+
+		/**
+		 * Function to Check if a specific Elementor widget is used on the cart page and remove Astra's modern cart action.
+		 *
+		 * @global WP_Post $post This is the current post object.
+		 * @return void
+		 */
+		public function restrict_modern_cart() {
+			if ( defined( 'ELEMENTOR_VERSION' ) ) {
+				global $post;
+				if ( ! empty( $post ) ) {
+					$elementor_data = get_post_meta( $post->ID, '_elementor_data', true );
+					if ( $elementor_data ) {
+						$elementor_data = json_decode( $elementor_data, true );
+						if ( $elementor_data && astra_check_elementor_widget( $elementor_data, 'woocommerce-cart' ) ) {
+							if ( class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
+								remove_action( 'wp', array( self::get_instance(), 'modern_cart' ), 99 );
+							}
+						}
 					}
 				}
 			}

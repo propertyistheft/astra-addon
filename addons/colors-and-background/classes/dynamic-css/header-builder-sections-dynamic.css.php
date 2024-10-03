@@ -376,18 +376,18 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 		 * Account CSS.
 		 */
 		$account_css_desktop = array(
-			'.ast-header-account-wrap .ast-hb-account-login-form input[type="submit"]' => array(
+			'.ast-hb-account-login-wrapper .ast-hb-account-login-form input[type="submit"]' => array(
 				'color'            => esc_attr( $login_button_text_color ),
 				'background-color' => esc_attr( $login_button_bg_color ),
 			),
-			'.ast-header-account-wrap .ast-hb-account-login-form label,.ast-header-account-wrap .ast-hb-account-login-form-footer .ast-header-account-footer-link' => array(
+			'.ast-hb-account-login-wrapper .ast-hb-account-login-form label, .ast-hb-account-login-wrapper .ast-hb-account-login-form-footer .ast-header-account-footer-link' => array(
 				'color' => esc_attr( $login_label_color ),
 			),
-			'.ast-header-account-wrap .ast-hb-account-login-form #loginform input[type=text], .ast-header-account-wrap .ast-hb-account-login-form #loginform input[type=password]' => array(
+			'.ast-hb-account-login-wrapper .ast-hb-account-login-form #loginform input[type=text], .ast-hb-account-login-wrapper .ast-hb-account-login-form #loginform input[type=password]' => array(
 				'color'        => esc_attr( $login_input_text_color ),
 				'border-color' => esc_attr( $login_input_border_color ),
 			),
-			'.ast-header-account-wrap .ast-hb-account-login' => array(
+			'.ast-hb-account-login-wrapper .ast-hb-account-login' => array(
 				'background' => $popup_bg_color,
 			),
 			$selector . ' .ast-account-nav-menu .menu-item .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link' => array(

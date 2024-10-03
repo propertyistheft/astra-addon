@@ -176,12 +176,10 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 
 			if ( wp_remote_retrieve_response_code( $result ) >= 300 ) {
 				return true;
-			} else {
-				set_transient( 'astra-addon-cron-test-ok', 1, 3600 );
-				return false;
 			}
 
-			return $migration_fallback;
+			set_transient( 'astra-addon-cron-test-ok', 1, 3600 );
+			return false;
 		}
 
 		/**

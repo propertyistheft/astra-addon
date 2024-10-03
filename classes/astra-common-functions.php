@@ -10,7 +10,7 @@
  *
  * This function exists in theme v.4.7.4 though included here to prevent errors caused by version mismatches with the theme.
  */
-if ( ! function_exists( '__astra_get_option' ) ) {
+if ( ! function_exists( 'astra_get_i18n_option' ) ) {
 
 	/**
 	 * Returns translated string for strings saved in Astra settings.
@@ -21,10 +21,10 @@ if ( ! function_exists( '__astra_get_option' ) ) {
 	 *
 	 * Usage examples:
 	 * - Retrieve translated theme option with a context description:
-	 *      $value = __astra_get_option( 'astra-option-key', esc_html_x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *      $value = astra_get_i18n_option( 'astra-option-key', esc_html_x( '%astra%', 'Context Description', 'astra-addon' ) );
 	 *
 	 * - Retrieve translated theme option with a different context:
-	 *      $value = __astra_get_option( 'astra-option-key', _x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *      $value = astra_get_i18n_option( 'astra-option-key', _x( '%astra%', 'Context Description', 'astra-addon' ) );
 	 *
 	 * @param  string $option       Option key.
 	 * @param  string $translated   Default translation flag.
@@ -35,7 +35,7 @@ if ( ! function_exists( '__astra_get_option' ) ) {
 	 *
 	 * @since 4.8.1
 	 */
-	function __astra_get_option( $option, $translated, $default = '', $deprecated = '' ) {
+	function astra_get_i18n_option( $option, $translated, $default = '', $deprecated = '' ) {
 		return '%astra%' !== $translated ? $translated : astra_get_option( $option, $default, $deprecated );
 	}
 }
@@ -45,7 +45,7 @@ if ( ! function_exists( '__astra_get_option' ) ) {
  *
  * This function exists in theme v.4.7.4 though included here to prevent errors caused by version mismatches with the theme.
  */
-if ( ! function_exists( '__astra_get_string' ) ) {
+if ( ! function_exists( 'astra_get_i18n_string' ) ) {
 
 	/**
 	 * Returns translated string.
@@ -55,10 +55,10 @@ if ( ! function_exists( '__astra_get_string' ) ) {
 	 *
 	 * Usage examples:
 	 * - Retrieve translated theme option with a context description:
-	 *      $value = __astra_get_string( $default, esc_html_x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *      $value = astra_get_i18n_string( $default, esc_html_x( '%astra%', 'Context Description', 'astra-addon' ) );
 	 *
 	 * - Retrieve translated theme option with a different context:
-	 *      $value = __astra_get_string( $default, _x( '%astra%', 'Context Description', 'astra-addon' ) );
+	 *      $value = astra_get_i18n_string( $default, _x( '%astra%', 'Context Description', 'astra-addon' ) );
 	 *
 	 * @param  string $default      Default string value.
 	 * @param  string $translated   Default translation flag.
@@ -67,7 +67,7 @@ if ( ! function_exists( '__astra_get_string' ) ) {
 	 *
 	 * @since 4.8.1
 	 */
-	function __astra_get_string( $default, $translated ) {
+	function astra_get_i18n_string( $default, $translated ) {
 		return '%astra%' !== $translated ? $translated : $default;
 	}
 }
@@ -177,6 +177,35 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 			return $prefix . $spacing;
 		}
 		return $spacing;
+	}
+}
+
+
+/**
+ * Check Elementor widgets.
+ */
+if ( ! function_exists( 'astra_check_elementor_widget' ) ) {
+
+		/**
+		 * Added Check if the cart widget exists in the Elementor meta data.
+		 *
+		 * @since 4.8.2
+		 * @param array  $elements_data
+		 * @param string $widget_name
+		 * @return bool
+		 */
+	function astra_check_elementor_widget( $elements_data, $widget_name ) {
+		foreach ( $elements_data as $element ) {
+			if ( isset( $element['widgetType'] ) && $element['widgetType'] === $widget_name ) {
+				return true;
+			}
+			if ( isset( $element['elements'] ) && is_array( $element['elements'] ) ) {
+				if ( astra_check_elementor_widget( $element['elements'], $widget_name ) ) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
 

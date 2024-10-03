@@ -99,10 +99,9 @@
 		 */
 		 var hook_sticky_header = astraAddon.hook_sticky_header || '';
 		 // Any stick header is enabled?
-		if ( 'enabled' == hook_sticky_header ) {
-			if ( 'desktop' == self.options.sticky_on_device && ( astraAddon.hook_custom_header_break_point > windowWidth ) ) {
-				self.stickRelease( self );
-			} else if ( 'mobile' == self.options.sticky_on_device && ( astraAddon.hook_custom_header_break_point <= windowWidth ) ) {
+		 if ( 'enabled' == hook_sticky_header ) {
+			if ( ( 'desktop' == self.options.sticky_on_device && astraAddon.hook_custom_header_break_point > windowWidth ) ||
+				 ( 'mobile' == self.options.sticky_on_device && astraAddon.hook_custom_header_break_point <= windowWidth ) ) {
 				self.stickRelease( self );
 			} else {
 				if ( jQuery( window ).scrollTop() > stick_upto_scroll ) {
@@ -145,16 +144,17 @@
 		// Any stick header is enabled?
 		if ( 'enabled' == hook_sticky_footer ) {
 
-			if ( 'desktop' == self.options.sticky_on_device && ( astraAddon.hook_custom_footer_break_point > windowWidth ) ) {
+			if ( 
+				( 'desktop' == self.options.sticky_on_device && astraAddon.hook_custom_footer_break_point > windowWidth ) ||
+				( 'mobile' == self.options.sticky_on_device && astraAddon.hook_custom_footer_break_point <= windowWidth )
+			) {
 				self.stickRelease( self );
-			} else if ( 'mobile' == self.options.sticky_on_device && ( astraAddon.hook_custom_footer_break_point <= windowWidth ) ) {
-				self.stickRelease( self );
-			}
+			} 
 			else{
 				jQuery( 'body' ).addClass( 'ast-footer-sticky-active' );
 				selector.parent().css( 'min-height', selector.outerHeight() );
 				selector.stop().css({
-					'max-width'      : max_width,
+					'max-width' : max_width,
 				});
 			}
 		}

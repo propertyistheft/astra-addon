@@ -89,9 +89,11 @@ function onColorReady() {
 		$.post(ajaxurl, data, function (response) {
 			var widget_html = $(response.data);
 			widget_html?.each((_, element) => container.find(".ast-widget-list").append(DOMPurify.sanitize(element)));
-			$(".widget-action").unbind();
+
+			$(".widget-action").off();
+
 			$(".widget-action").on("click", editWidget);
-			$("#mega-menu-submit").removeClass('ast-disabled')
+			$("#mega-menu-submit").removeClass('ast-disabled');
 		});
 	}
 
@@ -122,7 +124,7 @@ function onColorReady() {
 
 			$("#ast-widget-sortable").disableSelection();
 
-			$(".widget-action").unbind();
+			$(".widget-action").off();
 
 			$(".widget-action").on("click", editWidget);
 

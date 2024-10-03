@@ -1380,10 +1380,10 @@ S2.define('select2/results',[
   };
 
   Results.prototype.template = function (result, container) {
-    var template = this.options.get('templateResult');
+    var _template = this.options.get('templateResult');
     var escapeMarkup = this.options.get('escapeMarkup');
 
-    var content = template(result, container);
+    var content = _template(result, container);
 
     if (content == null) {
       container.style.display = 'none';
@@ -1675,10 +1675,10 @@ S2.define('select2/selection/single',[
   };
 
   SingleSelection.prototype.display = function (data, container) {
-    var template = this.options.get('templateSelection');
+    var _template = this.options.get('_Selection');
     var escapeMarkup = this.options.get('escapeMarkup');
 
-    return escapeMarkup(template(data, container));
+    return escapeMarkup(_template(data, container));
   };
 
   SingleSelection.prototype.selectionContainer = function () {
@@ -1773,10 +1773,10 @@ S2.define('select2/selection/multiple',[
   };
 
   MultipleSelection.prototype.display = function (data, container) {
-    var template = this.options.get('templateSelection');
+    var _template = this.options.get('templateSelection');
     var escapeMarkup = this.options.get('escapeMarkup');
 
-    return escapeMarkup(template(data, container));
+    return escapeMarkup(_template(data, container));
   };
 
   MultipleSelection.prototype.selectionContainer = function () {

@@ -141,6 +141,13 @@
 						});
 						document.dispatchEvent(loadAstraQuickViewForModal);
 						AstraProQuickView._after_markup_append_process();
+
+						// Focus into the modal content.
+						setTimeout(
+							() =>
+								quick_view?.querySelector('#ast-quick-view-content')?.focus(),
+							500
+						);
 					}
 				}
 			}

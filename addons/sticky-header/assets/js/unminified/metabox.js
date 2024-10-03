@@ -31,14 +31,15 @@
 	});
 
 	function toggle_sticky_header_opacity() {
-		var checkedValues = $( '#stick-header-meta-options input[type=checkbox]:checked' ).map(function () {
-	        return this.value;
-	    }).get();
-	    if (checkedValues == '') {
-	    	$( '.sticky-header-bg-opc-wrap' ).slideUp();
-	    } else {
-	    	$( '.sticky-header-bg-opc-wrap' ).slideDown();
-	    }
+		var checkedValues = $( '#stick-header-meta-options input[type=checkbox]:checked' ).map((_, element) => {
+			return element.value;
+		}).get();
+
+		if (checkedValues.length === 0) {
+			$( '.sticky-header-bg-opc-wrap' ).slideUp();
+		} else {
+			$( '.sticky-header-bg-opc-wrap' ).slideDown();
+		}
 	}
 	
 	/**

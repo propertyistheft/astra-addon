@@ -972,7 +972,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item .menu-link' => array(
 					'color' => esc_attr( $desktop_sticky_primary_submenu_color ),
 				),
-				'.ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu, .ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_submenu_bg_color['desktop'] ),
 				),
 				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item:hover > .menu-link' => array(
@@ -1001,17 +1001,17 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 					'background-color' => esc_attr( $sticky_header_menu_a_bg_color['tablet'] ),
 				),
 				// Submenu CSS starts.
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item .menu-link' => array(
 					'color' => esc_attr( $tablet_sticky_primary_submenu_color ),
 				),
-				'.ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu, .ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_submenu_bg_color['tablet'] ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item:hover > .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item:hover > .menu-link' => array(
 					'color'            => esc_attr( $tablet_sticky_primary_submenu_h_color ),
 					'background-color' => esc_attr( $sticky_header_submenu_h_bg_color['tablet'] ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item.current-menu-ancestor > .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item.current-menu-ancestor > .menu-link' => array(
 					'color'            => esc_attr( $tablet_sticky_primary_submenu_a_color ),
 					'background-color' => esc_attr( $sticky_header_submenu_a_bg_color['tablet'] ),
 				),
@@ -1039,17 +1039,17 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 					'background-color' => esc_attr( $sticky_header_menu_a_bg_color['mobile'] ),
 				),
 				// Submenu CSS starts.
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item .menu-link' => array(
 					'color' => esc_attr( $mobile_sticky_primary_submenu_color ),
 				),
-				'.ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu,.ast-header-sticked .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-link' => array(
 					'background-color' => esc_attr( $sticky_header_submenu_bg_color['mobile'] ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item:hover > .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item > .menu-link:hover, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item:hover > .menu-link' => array(
 					'color'            => esc_attr( $mobile_sticky_primary_submenu_h_color ),
 					'background-color' => esc_attr( $sticky_header_submenu_h_bg_color['mobile'] ),
 				),
-				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .sub-menu .menu-item.current-menu-ancestor > .menu-link' => array(
+				'[CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item.current-menu-item > .menu-link, [CLASS*="-sticky-header-active"] .ast-builder-menu-' . $index . ' .main-header-menu .menu-item .sub-menu .menu-item.current-menu-ancestor > .menu-link' => array(
 					'color'            => esc_attr( $mobile_sticky_primary_submenu_a_color ),
 					'background-color' => esc_attr( $sticky_header_submenu_a_bg_color['mobile'] ),
 				),

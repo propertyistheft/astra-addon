@@ -384,6 +384,19 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 
 			$html_config[] = array(
 
+				// Font heading.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-font-label]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Font', 'astra-addon' ),
+					'priority' => 21,
+					'settings' => array(),
+					'context'  => astra_addon_builder_helper()->design_tab_config,
+					'divider'  => array(),
+				),
+
 				// Option Group: Menu Typography.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-typography]',
@@ -500,7 +513,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'default'   => astra_get_option( $_section . '-popup-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Login Popup Font', 'astra-addon' ),
+					'title'     => __( 'Login Popup Font Size', 'astra-addon' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'context'   => array(
@@ -514,7 +527,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'priority'  => 22,
 				),
 
-				// Option: Menu Font Size.
+				// Option: Login Popup Label / Input Font Size.
 				array(
 					'name'        => $_section . '-popup-font-size',
 					'default'     => astra_get_option( $_section . '-popup-font-size' ),
@@ -522,7 +535,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'     => $_section,
 					'type'        => 'sub-control',
 					'priority'    => 1,
-					'title'       => __( 'Label / Input Text Size', 'astra-addon' ),
+					'title'       => __( 'Label / Input ', 'astra-addon' ),
 					'transport'   => 'postMessage',
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
@@ -551,7 +564,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'context'     => astra_addon_builder_helper()->general_tab,
 				),
 
-				// Option: Menu Font Size.
+				// Option: Login Popup Button Font Size.
 				array(
 					'name'        => $_section . '-popup-button-font-size',
 					'default'     => astra_get_option( $_section . '-popup-button-font-size' ),
@@ -559,7 +572,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'section'     => $_section,
 					'type'        => 'sub-control',
 					'priority'    => 2,
-					'title'       => __( 'Button Font Size', 'astra-addon' ),
+					'title'       => __( 'Button', 'astra-addon' ),
 					'transport'   => 'postMessage',
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em', 'vw', 'rem' ),
