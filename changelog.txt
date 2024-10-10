@@ -1,5 +1,14 @@
 *** Astra Pro Changelog ***
 
+2024-10-07 - version 4.8.3
+* New: Added option to disable quantity updater from WooCommerce mini cart.
+* Improvement: Site Builder - Added a filter hook 'astra_exclude_wrapper_hooks' to allow excluding the wrapper for specific hooks in site builder content.
+* Improvement: Header Builder - Language Switcher - Added Brazilian Portuguese language option.
+* Fix: Solved image display issue in variation product gallery by matching image URLs more accurately.
+* Fix: Site Builder: Editor width issue in the backend with Beaver Builder/Elementor for some hooks.
+* Fix: Search widget incompatibility with Polylang plugin.
+* Fix: Fatal error '"Uncaught Error: json_decode()' from addon classes files in some rare cases.
+
 2024-10-01 - version 4.8.2
 * Improvement: Accessibility - Improved product quick view modal & close button accessibility.
 * Fix: Site Builder - Astra Hooks settings do not save when the Custom Fields option is enabled from the preferences.

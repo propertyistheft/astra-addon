@@ -617,6 +617,20 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 				),
 
 				/**
+				* Option: Option to Disable Quantity input fields from the mini cart.
+				*/
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[woo-mini-cart-input-field-disable]',
+					'default'     => astra_get_option( 'woo-mini-cart-input-field-disable' ),
+					'type'        => 'control',
+					'control'     => Astra_Theme_Extension::$switch_control,
+					'section'     => $_section,
+					'title'       => __( 'Disable Quantity Updater', 'astra-addon' ),
+					'description' => __( 'Disable quantity updater fields in mini cart', 'astra-addon' ),
+					'priority'    => 59,
+				),
+
+				/**
 				 * Option: Divider.
 				 */
 				array(

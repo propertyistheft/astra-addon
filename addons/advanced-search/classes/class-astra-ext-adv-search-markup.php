@@ -251,7 +251,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 
 				if ( 'search-box' == $search_box_style || ( $search_in_popup && 'mobile' === $device ) ) {
 
-					$search_markup = $this->get_search_form( 'search-box' );
+					$search_markup = $this->get_search_form_shortcode( 'search-box' );
 				} elseif ( ( 'header-cover' == $search_box_style || 'full-screen' == $search_box_style ) && ! ( $search_in_popup && 'mobile' === $device ) ) {
 
 					$search_markup  = $this->get_search_icon( $search_box_style );

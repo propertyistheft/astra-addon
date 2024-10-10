@@ -22,3 +22,14 @@
   /* Spacing for WP Core and Spectra's buttons block  */
   margin-bottom: 1.5em;
 }
+
+/**
+ * Fix shrinking layout with Beaver, Elementor and Thrive Builder.
+ */
+.single-astra-advanced-hook .ast-container {
+  flex-wrap: wrap;
+}
+
+.single-astra-advanced-hook .ast-container > * {
+  width: 100%;
+}

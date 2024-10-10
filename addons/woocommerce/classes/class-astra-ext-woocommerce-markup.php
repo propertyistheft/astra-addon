@@ -2239,8 +2239,12 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				global $post;
 				if ( ! empty( $post ) ) {
 					$elementor_data = get_post_meta( $post->ID, '_elementor_data', true );
-					if ( $elementor_data ) {
+		
+					// Ensure $elementor_data is a string before calling json_decode
+					if ( is_string( $elementor_data ) && ! empty( $elementor_data ) ) {
 						$elementor_data = json_decode( $elementor_data, true );
+		
+						// Proceed if json_decode returns valid data (array or object)
 						if ( $elementor_data && astra_check_elementor_widget( $elementor_data, 'woocommerce-cart' ) ) {
 							if ( class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 								remove_action( 'wp', array( self::get_instance(), 'modern_cart' ), 99 );
@@ -2412,14 +2416,16 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function single_product_quantity_ajax_cart() {
 
-			$woo_header_cart_click_action = astra_get_option( 'woo-header-cart-click-action' );
+			$woo_cart_input_field = boolval( astra_get_option( 'woo-mini-cart-input-field-disable' ) );
 
-			add_filter(
-				'woocommerce_widget_cart_item_quantity',
-				array( $this, 'astra_addon_add_offcanvas_quantity_fields' ),
-				10,
-				3
-			);
+			if ( ! $woo_cart_input_field ) {
+				add_filter(
+					'woocommerce_widget_cart_item_quantity',
+					array( $this, 'astra_addon_add_offcanvas_quantity_fields' ),
+					10,
+					3
+				);
+			} 
 		}
 
 		/**

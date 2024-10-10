@@ -138,6 +138,9 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			// add compatibility for custom layouts with polylang plugin.
 			add_action( 'pll_init', array( $this, 'wpml_compatibility' ) );
 
+			// Add the astra search shortcode function to the Polylang home URL whitelist filter.
+			add_filter( 'pll_home_url_white_list', array( $this, 'polylang_whitelist_search_form_shortcode' ) );
+
 			// Astra Addon List filter.
 			add_filter( 'astra_addon_list', array( $this, 'astra_addon_list' ) );
 
@@ -567,6 +570,20 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		public function wpml_compatibility() {
 
 			require_once ASTRA_EXT_DIR . 'compatibility/class-astra-wpml-compatibility.php';
+		}
+
+		/**
+		 * Method to modify the Polylang home_url whitelist.
+		 *
+		 * @param array $whitelist The current whitelist array.
+		 * @return array Modified whitelist array.
+		 *
+		 * @since 4.8.3
+		 */
+		public function polylang_whitelist_search_form_shortcode( $whitelist ) {
+			// Append the 'get_search_form_shortcode' function to the whitelist array.
+			$whitelist[] = array( 'function' => 'get_search_form_shortcode' );
+			return $whitelist;
 		}
 
 		/**

@@ -50,14 +50,13 @@ function triggerGalleryImageMutation() {
                 );
 
                 let foundInGallery = false;
-                for (let i = 1; i < galleryImages.length; i++) {
+                for (let i = 0; i < galleryImages.length; i++) {
                     const imageWrapper = galleryImages[i];
                     const image = imageWrapper?.querySelector("img");
                     if (!image) continue;
-                    
-                    const imageFound = image.src.includes(
-                        mutation.target?.getAttribute("title")?.split(".")[0]
-                    );
+
+                    const imgTitle = mutation.target?.getAttribute("data-src")
+                    const imageFound = image.src.includes(imgTitle.slice(0, imgTitle.lastIndexOf('.')));
                     if (imageFound) {
                         foundInGallery = true;
 

@@ -326,6 +326,32 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			return $template;
 		}
 
+		/**
+		 * Filters the hooks list that should be excluded from the excluded wrapper hooks for advanced hooks layouts.
+		 *
+		 * @return array List of hooks to exclude from the advanced hook wrapper.
+		 *
+		 * @since 4.8.3
+		 */
+		public function get_exclude_wrapper_hooks() {
+			// Default list of hooks to exclude.
+			$exclude_wrapper_hooks = array(
+				'astra_html_before',
+				'astra_body_top',
+				'astra_head_top',
+				'astra_head_bottom',
+				'wp_head',
+				'astra_body_bottom',
+				'wp_footer',
+			);
+
+			/**
+			 * Filter the hooks that should be excluded from the excluded wrapper hooks for advanced hooks layouts.
+			 *
+			 * @param array $exclude_wrapper_hooks List of hooks to exclude.
+			 */
+			return apply_filters( 'astra_advanced_hook_exclude_wrapper_hooks', $exclude_wrapper_hooks );
+		}
 
 		/**
 		 * Load Advanced hook markup.
@@ -340,8 +366,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				$layout   = get_post_meta( $post_id, 'ast-advanced-hook-layout', true );
 				$priority = get_post_meta( $post_id, 'ast-advanced-hook-priority', true );
 
-				// Exclude default p tag wrapper from the content if selected hook is from below list.
-				$exclude_wrapper_hooks = array( 'astra_html_before', 'astra_body_top', 'astra_head_top', 'astra_head_bottom', 'wp_head', 'astra_body_bottom', 'wp_footer' );
+				// Exclude default p tag wrapper from the content if selected hook is from exclude hooks list.
+				$exclude_wrapper_hooks = $this->get_exclude_wrapper_hooks();
 				$with_wrapper          = in_array( $action, $exclude_wrapper_hooks );
 				if ( $with_wrapper ) {
 					remove_filter( 'the_content', 'wpautop' );
@@ -454,8 +480,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				$display_device_classes = $this->get_display_device( $post_id );
 
 				$action = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
-				// Exclude div wrapper if selected hook is from below list.
-				$exclude_wrapper_hooks = array( 'astra_html_before', 'astra_body_top', 'astra_head_top', 'astra_head_bottom', 'wp_head', 'astra_body_bottom', 'wp_footer' );
+				// Exclude default parent div wrapper from the content if selected hook is from exclude hooks list.
+				$exclude_wrapper_hooks = $this->get_exclude_wrapper_hooks();
 				$with_wrapper          = ! in_array( $action, $exclude_wrapper_hooks );
 				if ( $with_wrapper ) {
 					$content = '<div class="astra-advanced-hook-' . esc_attr( $post_id ) . ' ' . esc_attr( $display_device_classes ) . '">' . $content . '</div>';
@@ -866,8 +892,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			$action                 = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
 			$display_device_classes = $this->get_display_device( $post_id );
 
-			// Exclude div wrapper if selected hook is from below list.
-			$exclude_wrapper_hooks = array( 'astra_html_before', 'astra_body_top', 'astra_head_top', 'astra_head_bottom', 'wp_head', 'astra_body_bottom', 'wp_footer' );
+			// Exclude default parent div wrapper from the content if selected hook is from exclude hooks list.
+			$exclude_wrapper_hooks = $this->get_exclude_wrapper_hooks();
 			$with_wrapper          = ! in_array( $action, $exclude_wrapper_hooks );
 			if ( $with_wrapper ) {
 				?>
