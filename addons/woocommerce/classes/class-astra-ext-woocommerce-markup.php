@@ -170,6 +170,9 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			// Modify default WooCommerce checkout form fields arguments.
 			add_filter( 'woocommerce_form_field_args', array( $this, 'checkout_form_fields_args_customization' ), 10, 3 );
+
+			// Product Flip Image.
+			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'product_flip_image' ), 10 );
 		}
 
 		/**
@@ -455,6 +458,27 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			register_sidebar(
 				$shop_filter_array
 			);
+		}
+
+		/**
+		 * Product Flip Image
+		 */
+		public function product_flip_image() {
+			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			global $product;
+			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			$hover_style = astra_get_option( 'shop-hover-style' );
+
+			if ( 'swap' === $hover_style ) {
+
+				$attachment_ids = $product->get_gallery_image_ids();
+
+				if ( $attachment_ids ) {
+					$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'woocommerce_thumbnail' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+					echo apply_filters( 'astra_woocommerce_product_flip_image', wp_get_attachment_image( reset( $attachment_ids ), $image_size, false, array( 'class' => 'show-on-hover' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
+			}
 		}
 
 		/**
@@ -1507,6 +1531,15 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 					if ( '' !== $hover_style ) {
 						$classes[] = 'astra-woo-hover-' . $hover_style;
 					}
+				}
+			}
+
+			// Product image hover style classes.
+			if ( is_shop() || is_product_taxonomy() ) {
+				$hover_style = astra_get_option( 'shop-hover-style' );
+
+				if ( '' !== $hover_style ) {
+					$classes[] = 'astra-woo-hover-' . $hover_style;
 				}
 			}
 
@@ -3097,10 +3130,13 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 								$default_value = $product->get_default_attributes();
 								$active_class  = ( isset( $default_value[ $term->taxonomy ] ) && $term->slug === $default_value[ $term->taxonomy ] ) ? 'active' : '';
+		
+								// Adding a unique identifier based on the term slug
+								$unique_class = 'variation-' . esc_attr( $term->slug );
 								?>
-									<div class="ast-single-variation <?php echo esc_attr( $active_class ); ?>" data-slug="<?php echo esc_attr( $term->slug ); ?>" >
-										<?php echo esc_html( apply_filters( 'astra_variation_option_name', $term->name, $term, $attribute, $product ) ); ?>
-									</div>
+								<div class="ast-single-variation<?php echo esc_attr( $active_class . ' ' . $unique_class ); ?>" data-slug="<?php echo esc_attr( $term->slug ); ?>">
+									<?php echo esc_html( apply_filters( 'astra_variation_option_name', $term->name, $term, $attribute, $product ) ); ?>
+								</div>
 								<?php
 							}
 						}
@@ -3109,10 +3145,13 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 							// This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
 							$default_value = $product->get_default_attributes();
 							$active_class  = ( isset( $default_value[ strtolower( $attribute ) ] ) && $option === $default_value[ strtolower( $attribute ) ] ) ? 'active' : '';
+		
+							// Adding a unique identifier based on the option values.
+							$unique_class = 'variation-' . esc_attr( sanitize_title( $option ) );
 							?>
-								<div class="ast-single-variation <?php echo esc_attr( $active_class ); ?>" data-slug="<?php echo esc_attr( $option ); ?>" >
-									<?php echo esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ); ?>
-								</div>
+							<div class="ast-single-variation<?php echo esc_attr( $active_class . ' ' . $unique_class ); ?>" data-slug="<?php echo esc_attr( $option ); ?>">
+								<?php echo esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ); ?>
+							</div>
 							<?php
 						}
 					}

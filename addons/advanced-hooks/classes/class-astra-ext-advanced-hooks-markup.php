@@ -1141,7 +1141,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				}
 			}
 
-			return false;
 		}
 
 		/**

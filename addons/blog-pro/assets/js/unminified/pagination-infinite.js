@@ -112,10 +112,10 @@
 						document.querySelector('#main > .ast-row').append(boxes[boxCount]);
 					}
 
-					var grid_layout 	= astra.grid_layout || '3';
+					const gridLayout = astra.grid_layout;
 
 					//	Append articles
-					if( 1 == masonryEnabled && grid_layout > 1 ) {
+					if( 1 == masonryEnabled && ( gridLayout.desktop > 1 || gridLayout.tablet > 1 || gridLayout.mobile > 1 ) ) {
 						var grid = document.querySelector('#main > .ast-row');
 						var msnry = new Masonry( grid, {});
 

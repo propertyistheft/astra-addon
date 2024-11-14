@@ -61,18 +61,23 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 			$improve_blog = astra_addon_4_6_0_compatibility();
 
 			// Blog / Archive.
-			$defaults['blog-masonry']               = false;
-			$defaults['blog-date-box']              = false;
-			$defaults['blog-excerpt-count']         = $improve_blog ? 20 : 55;
-			$defaults['blog-date-box-style']        = 'square';
-			$defaults['first-post-full-width']      = false;
-			$defaults['blog-equal-grid']            = true;
-			$defaults['blog-space-bet-posts']       = $improve_blog ? true : false;
-			$defaults['blog-grid']                  = $improve_blog ? 3 : 1;
+			$defaults['blog-masonry']          = false;
+			$defaults['blog-date-box']         = false;
+			$defaults['blog-excerpt-count']    = $improve_blog ? 20 : 55;
+			$defaults['blog-date-box-style']   = 'square';
+			$defaults['first-post-full-width'] = false;
+			$defaults['blog-equal-grid']       = true;
+			$defaults['blog-space-bet-posts']  = $improve_blog ? true : false;
+			$defaults['blog-grid']             = $improve_blog ? 3 : 1;
+			// For responsive grid columns.
+			$defaults['blog-grid-resp']             = array(
+				'desktop' => $improve_blog ? 3 : 1,
+				'tablet'  => 1,
+				'mobile'  => 1,
+			);
 			$defaults['blog-grid-layout']           = 1;
 			$defaults['blog-pagination']            = 'number';
 			$defaults['blog-pagination-style']      = 'default';
-			$defaults['blog-infinite-scroll-event'] = 'scroll';
 			$defaults['blog-infinite-scroll-event'] = 'scroll';
 
 			$defaults['blog-read-more-text']                  = $improve_blog ? __( 'Read Post »', 'astra-addon' ) : __( 'Read More »', 'astra-addon' );

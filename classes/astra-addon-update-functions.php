@@ -145,10 +145,26 @@ function astra_addon_background_updater_4_6_8() {
  * @return void
  */
 function astra_addon_background_updater_4_7_0() {
-
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['hiding_social_share_icon_position'] ) ) {
 		$theme_options['hiding_social_share_icon_position'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Background updater function for addon v4.8.4
+ *
+ * @since 4.8.4
+ * @return void
+ */
+function astra_addon_background_updater_4_8_4() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( isset( $theme_options['blog-grid'] ) ) {
+		// Get responsive blog grid columns values.
+		$theme_options['blog-grid-resp'] = astra_addon_get_blog_grid_columns();
+		// Update the responsive blog grid column desktop value from old blog grid option.
+		$theme_options['blog-grid-resp']['desktop'] = $theme_options['blog-grid'];
 		update_option( 'astra-settings', $theme_options );
 	}
 }

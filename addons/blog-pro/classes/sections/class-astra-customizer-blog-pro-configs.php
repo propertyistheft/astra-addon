@@ -67,15 +67,15 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				 * Option: No of Columns
 				 */
 				array(
-					'name'         => ASTRA_THEME_SETTINGS . '[blog-grid]',
-					'default'      => astra_get_option( 'blog-grid' ),
+					'name'         => ASTRA_THEME_SETTINGS . '[blog-grid-resp]',
+					'default'      => astra_addon_get_blog_grid_columns(),
 					'type'         => 'control',
 					'control'      => 'ast-number',
 					'qty_selector' => true,
 					'section'      => 'section-blog',
 					'title'        => __( 'No of Columns', 'astra-addon' ),
 					'priority'     => 15,
-					'responsive'   => false,
+					'responsive'   => true,
 					'input_attrs'  => array(
 						'min'  => 1,
 						'step' => 1,
@@ -127,15 +127,16 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				 * Option: Masonry Effect
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-masonry]',
-					'default'  => astra_get_option( 'blog-masonry' ),
-					'type'     => 'control',
-					'control'  => Astra_Theme_Extension::$switch_control,
-					'section'  => 'section-blog',
-					'title'    => __( 'Masonry Layout', 'astra-addon' ),
-					'priority' => 20,
-					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
-					'context'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-masonry]',
+					'default'     => astra_get_option( 'blog-masonry' ),
+					'type'        => 'control',
+					'control'     => Astra_Theme_Extension::$switch_control,
+					'section'     => 'section-blog',
+					'title'       => __( 'Masonry Layout', 'astra-addon' ),
+					'description' => __( 'This will not work if the number of columns is set to 1.', 'astra-addon' ),
+					'priority'    => 20,
+					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'relation' => 'OR',
@@ -155,11 +156,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 								'value'    => 'blog-layout-6',
 							),
 						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[blog-grid]',
-							'operator' => '!=',
-							'value'    => 1,
-						),
 					),
 				),
 
@@ -173,7 +169,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'control'     => Astra_Theme_Extension::$switch_control,
 					'section'     => 'section-blog',
 					'title'       => __( 'Highlight First Post', 'astra-addon' ),
-					'description' => __( 'This will not work if Masonry Layout is enabled.', 'astra-addon' ),
+					'description' => __( 'This will not work if the number of columns is set to 1 or Masonry Layout is enabled.', 'astra-addon' ),
 					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'priority'    => 25,
 					'context'     => array(
@@ -196,11 +192,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 								'value'    => 'blog-layout-6',
 							),
 						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[blog-grid]',
-							'operator' => '!=',
-							'value'    => 1,
-						),
 					),
 				),
 
@@ -208,15 +199,16 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				 * Option: Blog Equal Grids.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-equal-grid]',
-					'default'  => astra_get_option( 'blog-equal-grid' ),
-					'type'     => 'control',
-					'control'  => Astra_Theme_Extension::$switch_control,
-					'section'  => 'section-blog',
-					'title'    => __( 'Equal Grids', 'astra-addon' ),
-					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
-					'priority' => 25,
-					'context'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[blog-equal-grid]',
+					'default'     => astra_get_option( 'blog-equal-grid' ),
+					'type'        => 'control',
+					'control'     => Astra_Theme_Extension::$switch_control,
+					'section'     => 'section-blog',
+					'title'       => __( 'Equal Grids', 'astra-addon' ),
+					'description' => __( 'This will not work if the number of columns is set to 1.', 'astra-addon' ),
+					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
+					'priority'    => 25,
+					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'relation' => 'OR',
@@ -230,11 +222,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 								'operator' => '===',
 								'value'    => 'blog-layout-6',
 							),
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[blog-grid]',
-							'operator' => '!=',
-							'value'    => 1,
 						),
 					),
 				),

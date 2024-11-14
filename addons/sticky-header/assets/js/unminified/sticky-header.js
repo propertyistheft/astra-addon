@@ -113,11 +113,13 @@
 		/**
 		 * Check window width
 		 */
-		if ( 'desktop' == self.options.sticky_on_device && jQuery( 'body' ).hasClass( 'ast-header-break-point' ) ) {
-			self.stickRelease( self );
-		} else if ( 'mobile' == self.options.sticky_on_device && ! jQuery( 'body' ).hasClass( 'ast-header-break-point' ) ) {
-			self.stickRelease( self );
-		} else {
+		if (
+			(self.options.sticky_on_device === 'desktop' && jQuery('body').hasClass('ast-header-break-point')) ||
+			(self.options.sticky_on_device === 'mobile' && !jQuery('body').hasClass('ast-header-break-point'))
+		) {
+			self.stickRelease(self);
+		}
+		else {
 
 			// stick_upto_scroll with negative value enables a sticky by default so rounding up to zero.
 			if ( stick_upto_scroll < 0 ) {

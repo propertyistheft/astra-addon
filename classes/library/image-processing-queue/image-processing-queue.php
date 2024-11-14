@@ -14,4 +14,4 @@ require_once ASTRA_EXT_DIR . 'classes/library/image-processing-queue/includes/cl
 require_once ASTRA_EXT_DIR . 'classes/library/image-processing-queue/includes/class-image-processing-queue.php';
 require_once ASTRA_EXT_DIR . 'classes/library/image-processing-queue/includes/ipq-template-functions.php';
 
-Image_Processing_Queue::instance();
+\Image_Processing_Queue\Queue::instance();

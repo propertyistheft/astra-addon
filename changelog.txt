@@ -1,5 +1,27 @@
 *** Astra Pro Changelog ***
 
+2024-11-12 - version 4.8.5
+* Fix: Remove extra header white space when using tag codes in <head> using Site Builder.
+* Fix: Undefined array key "blog-grid-resp" & Undefined array key "blog-grid" from addon classes files in some rare cases.
+
+2024-11-11 - version 4.8.4
+* New: Header Builder - Added Polylang option type to the Language Switcher widget for dynamic URLs.
+* Improvement: Mega Menu - Enhanced support for uploaded Image and SVG icons, allowing them to inherit color settings seamlessly.
+* Improvement: Added responsive column layout option for the blog archive page.
+* Improvement: Improved product image display case on the "My Account > Orders" page to ensure correct images for variable products and updates even after order edits.
+* Improvement: Added unique CSS class for each product variation button based on term slug or option value to allow independent styling.
+* Improvement: Increase the specificity of Mega Menu colors to avoid inconsistency.
+* Improvement: WooCommerce - Enhanced form field alignment when using the `Checkout Field Editor (Checkout Manager) for WooCommerce` plugin with Astra's Modern Checkout.
+* Improvement: Moved the product image hover effect to the WooCommerce Addon from the theme.
+* Improvement: WooCommerce – Display the product thumbnail image on catalog pages instead of the original image when the "Swap Image" option is enabled for Product Image Hover Style.
+* Fix: Resolved a conflict with the Login Logout Menu plugin that triggered a warning on the admin menu page.
+* Fix: Resolved issue where on single post autoload embeded video not appearing.
+* Fix: BBPress forum layout appears squeezed when Astra Pro is activated.
+* Fix: Site Builder - Vimeo embed not rendering frames when used with the Site Builder.
+* Fix: Resolved issue where 'Load More' button on product archive page became unclickable after multiple AJAX requests.
+* Fix: WooCommerce - Product Variation with buttons not updating the gallery image correctly.
+* Fix: Performance delays and errors due to Outdated Image Processing Library.
+
 2024-10-07 - version 4.8.3
 * New: Added option to disable quantity updater from WooCommerce mini cart.
 * Improvement: Site Builder - Added a filter hook 'astra_exclude_wrapper_hooks' to allow excluding the wrapper for specific hooks in site builder content.

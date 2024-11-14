@@ -43,6 +43,7 @@
 .ast-modern-checkout .woocommerce form.woocommerce-checkout .form-row {
   padding: 7px;
   position: relative;
+  width: 100%;
 }
 
 .ast-modern-checkout .woocommerce form.woocommerce-checkout .form-row.form-row-first, .ast-modern-checkout .woocommerce form.woocommerce-checkout .form-row.form-row-last {

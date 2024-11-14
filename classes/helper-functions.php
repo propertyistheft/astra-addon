@@ -538,3 +538,28 @@ function astra_addon_check_elementor_pro_3_5_version() {
 function astra_addon_get_blog_layout() {
 	return is_callable( 'astra_get_blog_layout' ) ? astra_get_blog_layout() : astra_get_option( 'blog-layout' );
 }
+
+/**
+ * Get Astra number of columns for blog grid layout.
+ * Search / Blog.
+ *
+ * @return array|int Returns number of columns for blog grid.
+ * @since 4.8.4
+ */
+function astra_addon_get_blog_grid_columns( $device = '' ) {
+	$grid_cols = astra_get_option( 'blog-grid-resp' );
+
+	// If the option value is not an array, set it to default values.
+	if ( ! is_array( $grid_cols ) ) {
+		$defaults  = Astra_Theme_Options::defaults();
+		$grid_cols = isset( $defaults['blog-grid-resp'] ) ? $defaults['blog-grid-resp'] : array();
+
+		// Set default desktop value if 'blog-grid' key exists.
+		if ( isset( $defaults['blog-grid'] ) ) {
+			$grid_cols['desktop'] = $defaults['blog-grid'];
+		}
+	}
+
+	// Return default or specified device grid columns.
+	return isset( $grid_cols[ $device ] ) ? $grid_cols[ $device ] : $grid_cols;
+}

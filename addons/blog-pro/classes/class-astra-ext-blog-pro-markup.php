@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			$blog_masonry                       = astra_get_option( 'blog-masonry' );
 			$blog_pagination                    = ( $pagination_enabled ) ? astra_get_option( 'blog-pagination' ) : '';
 			$blog_infinite_scroll_event         = astra_get_option( 'blog-infinite-scroll-event' );
-			$blog_grid                          = astra_get_option( 'blog-grid' );
+			$blog_grid                          = astra_addon_get_blog_grid_columns();
 			$blog_grid_layout                   = astra_get_option( 'blog-grid-layout' );
 			$blog_layout                        = astra_addon_get_blog_layout();
 			$grid_layout                        = ( 'blog-layout-1' == $blog_layout || 'blog-layout-4' == $blog_layout || 'blog-layout-6' == $blog_layout ) ? $blog_grid : $blog_grid_layout;
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 				$localize['masonryEnabled'] = false;
 			} else {
 				$localize['masonryEnabled']        = $blog_masonry;
-				$localize['blogMasonryBreakPoint'] = absint( apply_filters( 'astra_blog_masonry_break_point', astra_addon_get_tablet_breakpoint() ) );
+				$localize['blogMasonryBreakPoint'] = absint( apply_filters( 'astra_blog_masonry_break_point', 0 ) );
 			}
 
 			return $localize;
@@ -344,11 +344,13 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			// Apply grid class to archive page.
 			if ( ( is_home() ) || is_archive() || is_search() ) {
 
-				$blog_grid        = astra_get_option( 'blog-grid' );
+				$blog_grid        = astra_addon_get_blog_grid_columns();
 				$blog_grid_layout = astra_get_option( 'blog-grid-layout' );
 				$blog_layout      = astra_addon_get_blog_layout();
 				if ( 'blog-layout-1' === $blog_layout || 'blog-layout-4' === $blog_layout || 'blog-layout-6' === $blog_layout ) {
-					$classes[] = 'ast-grid-' . esc_attr( $blog_grid );
+					$classes[] = 'ast-grid-' . esc_attr( $blog_grid['desktop'] );
+					$classes[] = 'ast-grid-md-' . esc_attr( $blog_grid['tablet'] ); // For tablet.
+					$classes[] = 'ast-grid-sm-' . esc_attr( $blog_grid['mobile'] ); // For mobile.
 				} else {
 					$classes[] = 'ast-grid-' . esc_attr( $blog_grid_layout );
 				}
@@ -373,7 +375,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 				global $wp_query;
 				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
-				$blog_grid        = astra_get_option( 'blog-grid' );
+				$blog_grid        = astra_addon_get_blog_grid_columns( 'desktop' );
 				$blog_grid_layout = astra_get_option( 'blog-grid-layout' );
 				$blog_layout      = astra_addon_get_blog_layout();
 
@@ -456,7 +458,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 				global $wp_query;
 				$blog_layout      = astra_addon_get_blog_layout();
 				$blog_masonry     = astra_get_option( 'blog-masonry' );
-				$blog_grid        = astra_get_option( 'blog-grid' );
+				$blog_grid        = astra_addon_get_blog_grid_columns( 'desktop' );
 				$blog_grid_layout = astra_get_option( 'blog-grid-layout' );
 				$blog_pagination  = astra_get_option( 'blog-pagination' );
 
@@ -597,7 +599,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			/*** End Path Logic */
 
 			$blog_layout        = astra_addon_get_blog_layout();
-			$blog_grid          = astra_get_option( 'blog-grid' );
+			$blog_grid          = astra_addon_get_blog_grid_columns( 'desktop' );
 			$blog_grid_layout   = astra_get_option( 'blog-grid-layout' );
 			$astra_blog_masonry = astra_get_option( 'blog-masonry' );
 			$blog_filter        = astra_get_option( 'blog-filter' );

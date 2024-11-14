@@ -137,7 +137,8 @@ function get_gallery_thumbnail( $attachment_id, $slide_number ) {
 	$thumbnail_src     = wp_get_attachment_image_src( $attachment_id, $thumbnail_size );
 	$alt_text          = trim( wp_strip_all_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
 	$full_src          = wp_get_attachment_image_src( $attachment_id, $full_size );
-	$image             = wp_get_attachment_image( $attachment_id, $thumbnail_size );
+	$original_src      = wp_get_attachment_image_src( $attachment_id, 'full' );
+	$image             = wp_get_attachment_image( $attachment_id, $thumbnail_size, false, array( 'data-original-src' => $original_src[0] ) );
 	$is_first_slide    = 0 === $slide_number ? 'flex-active-slide' : '';
 
 	return '<div data-slide-number="' . esc_attr( $slide_number ) . '" data-thumb="' . esc_url( isset( $thumbnail_src[0] ) ? $thumbnail_src[0] : '' ) . '" data-thumb-alt="' . esc_attr( $alt_text ) . '" class="ast-woocommerce-product-gallery__image ' . esc_attr( $is_first_slide ) . '">' . $image . '</div>';

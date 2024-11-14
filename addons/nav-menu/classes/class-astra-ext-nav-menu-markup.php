@@ -165,6 +165,11 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		 */
 		public function add_custom_fields_meta( $menu_item ) {
 
+			// Bail early if the ID property is not set to prevent warnings or errors.
+			if ( ! isset( $menu_item->ID ) ) {
+				return $menu_item;
+			}
+
 			$menu_item->megamenu                  = get_post_meta( $menu_item->ID, '_menu_item_megamenu', true );
 			$menu_item->megamenu_width            = get_post_meta( $menu_item->ID, '_menu_item_megamenu_width', true );
 			$menu_item->megamenu_col              = get_post_meta( $menu_item->ID, '_menu_item_megamenu_col', true );

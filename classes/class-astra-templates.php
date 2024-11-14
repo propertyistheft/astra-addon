@@ -38,7 +38,8 @@ if ( ! function_exists( 'astra_addon_get_template' ) ) {
 
 		if ( file_exists( $located ) ) {
 			// @codingStandardsIgnoreStart
-			include $located; // phpcs:ignore audit.php.lang.security.file.inclusion-arg
+			// nosemgrep audit.php.lang.security.file.inclusion-arg
+			include $located; // phpcs:ignore
 			// @codingStandardsIgnoreEnd
 		}
 

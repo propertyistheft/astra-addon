@@ -40,7 +40,7 @@ var isEdge = false;
 			}
 		} else{
 			blogMasonryBp = blogMasonryBp.replace( /[^0-9]/g, '' );
-			blogMasonryBp = parseInt( blogMasonryBp );
+			blogMasonryBp = parseInt( blogMasonryBp < blogMasonryBreakPoint ? blogMasonryBp : blogMasonryBreakPoint );
 		}
 
 		var container = jQuery( '.search.blog-masonry #main > div, .blog.blog-masonry #main > div, .archive.blog-masonry #main > div' );

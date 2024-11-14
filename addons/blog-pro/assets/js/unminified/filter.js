@@ -136,10 +136,10 @@ function ArticleMarkup(url, value) {
 
            window.history.pushState({}, null, url);
 
-            const grid_layout 	= astra.grid_layout || '3';
+            const gridLayout = astra.grid_layout;
 
             //	Append articles
-            if( 1 == masonryEnabled && grid_layout > 1 ) {
+            if( 1 == masonryEnabled && ( gridLayout.desktop > 1 || gridLayout.tablet > 1 || gridLayout.mobile > 1 ) ) {
                 const grid = document.querySelector('#main > .ast-row');
                 const msnry = new Masonry( grid, {});
 

@@ -130,13 +130,13 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 					
 					if ( isset( $this->megamenu_heading_color_group['normal'] ) && $this->megamenu_heading_color_group['normal'] ) {
 
-						$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .menu-item-heading > .menu-link' ] = array(
+						$style[ '.ast-desktop .ast-mega-menu-enabled li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu .menu-item-heading.menu-item-has-children > .menu-link' ] = array(
 							'color' => $this->megamenu_heading_color_group['normal'],
 						);
 					}
 
 					if ( isset( $this->megamenu_heading_color_group['hover'] ) && $this->megamenu_heading_color_group['hover'] ) {
-						$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .menu-item-heading > .menu-link:hover' ] = array(
+						$style[ '.ast-desktop .ast-mega-menu-enabled li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' .astra-megamenu .menu-item-heading.menu-item-has-children > .menu-link:hover' ] = array(
 							'color' => $this->megamenu_heading_color_group['hover'],
 						);
 					}
@@ -575,6 +575,12 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 				if ( $mm_megamenu_icon_primary_color ) {
 					$icon_style[ $icon_array_slug_svg ]['color'] = $mm_megamenu_icon_primary_color;
 					$icon_style[ $icon_array_slug_svg ]['fill']  = $mm_megamenu_icon_primary_color;
+
+					// Allowing uploaded Images/SVG icons to inherit color settings.
+					if ( 'unset' !== $mm_megamenu_icon_primary_color && isset( $mm_megamenu_image ) ) {
+						$icon_style[ $icon_array_slug_image ]['filter'] = 'url(#ast-mm-item' . $item->ID . '-color-filter)';
+						astra_render_svg_mask( 'ast-mm-item' . $item->ID . '-color-filter', 'megamenu_item_image_color', $mm_megamenu_icon_primary_color );
+					}
 				}
 
 				if ( 'stacked' === $mm_megamenu_icon_view || 'framed' === $mm_megamenu_icon_view ) {

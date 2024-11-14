@@ -23,6 +23,26 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 	public function render_content( $post_id ) {
 		$output       = '';
 		$current_post = get_post( $post_id, OBJECT );
+
+		// Initialize post content by applying the 'the_content' filter to handle the rendering.
+		// This ensures that block content is parsed, including handling any dependent styles and scripts.
+		$original_content = $current_post->post_content;
+
+		// Temporarily remove the wpautop filter.
+		$priority = has_filter( 'the_content', 'wpautop' );
+
+		if ( $priority ) {
+			remove_filter( 'the_content', 'wpautop', $priority );
+		}
+
+		// Apply the content filter (the_content).
+		$current_post->post_content = apply_filters( 'the_content', $original_content );
+		
+		if ( $priority ) {
+			// Re-add the wpautop filter.
+			add_filter( 'the_content', 'wpautop', $priority );
+		}
+
 		if ( has_blocks( $current_post ) ) {
 			$blocks = parse_blocks( $current_post->post_content );
 			foreach ( $blocks as $block ) {

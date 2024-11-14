@@ -51,7 +51,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$header_main_shrink      = astra_get_option( 'header-main-shrink' );
 
 	// Blog Grid spacing.
-	$blog_grid   = astra_get_option( 'blog-grid' );
+	$blog_grid   = astra_addon_get_blog_grid_columns( 'desktop' );
 	$blog_layout = astra_addon_get_blog_layout();
 
 	$blog_post_outside_spacing    = astra_get_option( 'blog-post-outside-spacing' );

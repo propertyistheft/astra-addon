@@ -276,8 +276,17 @@
 				post_ID = post_ID.replace('post-', ''); // Make sure that only the post ID remains.
 			}
 
-			post_html?.each( ( _, element ) => $( content_container ).append( DOMPurify.sanitize( element ) ) ); // Add next post.
-
+			const purifyConfig = {
+				ADD_TAGS: ['iframe'], // We can Add other tags as needed.
+				ADD_ATTR: ['src', 'width', 'height', 'frameborder', 'allow', 'allowfullscreen'], // Added required iframe attributes.
+				ALLOW_DATA_ATTR: false,
+			};
+			
+			post_html?.each( ( _, element ) => {
+				const sanitizedElement = DOMPurify.sanitize(element, purifyConfig);
+				$(content_container).append(sanitizedElement);
+			});
+			
 			// Remove Comments.
 			if ( remove_comments === 'yes' ) {
 				initialise_comment( comments_container );

@@ -5,17 +5,19 @@
  * @package Image-Processing-Queue
  */
 
-if ( ! class_exists( 'Image_Processing_Queue' ) ) {
+namespace Image_Processing_Queue;
+
+if ( ! class_exists( __NAMESPACE__ . '\Queue' ) ) {
 
 	/**
 	 * Image Processing Queue
 	 */
-	class Image_Processing_Queue {
+	class Queue {
 
 		/**
 		 * Singleton
 		 *
-		 * @var Image_Processing_Queue|null
+		 * @var Queue|null
 		 */
 		protected static $instance = null;
 
@@ -29,14 +31,14 @@ if ( ! class_exists( 'Image_Processing_Queue' ) ) {
 		/**
 		 * Instance of the background process class
 		 *
-		 * @var IPQ_Process|null
+		 * @var Process|null
 		 */
 		public $process = null;
 
 		/**
 		 * Singleton
 		 *
-		 * @return Image_Processing_Queue|null
+		 * @return Queue|null
 		 */
 		public static function instance() {
 			if ( is_null( self::$instance ) ) {
@@ -46,10 +48,10 @@ if ( ! class_exists( 'Image_Processing_Queue' ) ) {
 		}
 
 		/**
-		 * Image_Processing_Queue constructor.
+		 * Queue constructor.
 		 */
 		public function __construct() {
-			$this->process = new IPQ_Process();
+			$this->process = new Process();
 			add_filter( 'update_post_metadata', array( $this, 'filter_update_post_metadata' ), 10, 5 );
 		}
 
@@ -116,7 +118,10 @@ if ( ! class_exists( 'Image_Processing_Queue' ) ) {
 		 * @param array $sizes
 		 */
 		protected function process_image( $post_id, $sizes ) {
-			$new_item = false;
+			if ( self::is_attachment_locked( $post_id ) ) {
+				return;
+			}
+			$lock_attachment = false;
 
 			foreach ( $sizes as $size ) {
 				if ( self::does_size_already_exist_for_image( $post_id, $size ) ) {
@@ -134,11 +139,12 @@ if ( ! class_exists( 'Image_Processing_Queue' ) ) {
 					'crop'    => $size[2],
 				);
 				$this->process->push_to_queue( $item );
-				$new_item = true;
+				$lock_attachment = true;
 			}
 
-			if ( $new_item ) {
+			if ( $lock_attachment ) {
 				$this->process->save()->dispatch();
+				self::lock_attachment( $post_id );
 			}
 		}
 
@@ -271,6 +277,32 @@ if ( ! class_exists( 'Image_Processing_Queue' ) ) {
 			}
 
 			return false;
+		}
+
+		/**
+		 * Is an attachment locked?
+		 * 
+		 * @param int $post_id
+		 * 
+		 * @return bool
+		 */
+		public static function is_attachment_locked( $post_id ) {
+			$image_meta = self::get_image_meta( $post_id );
+			if ( isset( $image_meta['ipq_locked'] ) && $image_meta['ipq_locked'] ) {
+				return true;
+			}
+			return false;
+		}
+		/**
+		 * Lock an attachment to prevent multiple queue jobs being created.
+		 * 
+		 * @param int $post_id
+		 */
+		public static function lock_attachment( $post_id ) {
+			$image_meta = self::get_image_meta( $post_id );
+			
+			$image_meta['ipq_locked'] = true;
+			wp_update_attachment_metadata( $post_id, $image_meta );
 		}
 	}
 

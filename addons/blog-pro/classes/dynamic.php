@@ -89,6 +89,13 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		);
 	}
 
+	// BBpress forum page width compatibility.
+	if ( is_post_type_archive( 'forum' ) && is_bbpress() ) {
+		$css_output['.post-type-archive-forum .ast-width-md-4, .post-type-archive-forum .ast-width-md-6, .post-type-archive-forum .ast-width-md-3'] = array(
+			'width' => '100%',
+		);
+	}
+
 	if ( 'number' === $blog_pagination ) {
 
 		if ( 'circle' === $blog_pagination_style || 'square' === $blog_pagination_style ) {
@@ -717,7 +724,7 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 
 		// Blog card.
 		$blog_archive_bs_class  = '';
-		$blog_archive_card_grid = astra_get_option( 'blog-grid' );
+		$blog_archive_card_grid = astra_addon_get_blog_grid_columns( 'desktop' );
 		if ( 'blog-layout-4' === $blog_layout || 'blog-layout-6' === $blog_layout ) {
 			if ( 1 === $blog_archive_card_grid ) {
 				$blog_archive_bs_class = '.ast-blog-layout-4-grid .ast-article-post, .ast-blog-layout-5-grid .ast-article-post, .ast-blog-layout-6-grid .ast-article-post';

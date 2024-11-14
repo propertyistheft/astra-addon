@@ -25,6 +25,7 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output  = '';
 	$theme_color = astra_get_option( 'theme-color' );
 	$link_color  = astra_get_option( 'link-color', $theme_color );
+	$blog_grid   = astra_addon_get_blog_grid_columns();
 
 	$desktop_max_css = array(
 		// Updated before content value to fix the masonry layout issue.
@@ -74,6 +75,13 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		),
 		'.ast-separate-container .ast-grid-2 .ast-article-post, .ast-separate-container .ast-grid-3 .ast-article-post, .ast-separate-container .ast-grid-4 .ast-article-post' => array(
 			'width' => '100%',
+		),
+		'.ast-separate-container .ast-grid-md-' . $blog_grid['tablet'] . ' .ast-article-post' => array(
+			'width' => 100 / $blog_grid['tablet'] . '%',
+		),
+		// Setting the default padding if the columns for tablet is more than 1.
+		'.ast-separate-container .ast-grid-md-2 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-md-3 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-md-4 .ast-article-post.ast-separate-posts' => array(
+			'padding' => $is_site_rtl ? '0 0 0 .75em' : '0 .75em 0',
 		),
 		'.blog-layout-1 .post-content, .blog-layout-1 .ast-blog-featured-section' => array(
 			'float' => 'none',
@@ -130,6 +138,13 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'width' => '100%',
 		),
 	);
+
+	// If the Equal Grids option is enabled.
+	if ( astra_get_option( 'blog-equal-grid' ) ) {
+		$tablet_max_css['.ast-separate-container .ast-blog-layout-4-grid .ast-article-post'] = array(
+			'display' => 'flex',
+		);
+	}
 
 	/* Parse CSS from array() -> max-width: (tablet-breakpoint)px */
 	$css_output .= astra_parse_css( $tablet_max_css, '', astra_addon_get_tablet_breakpoint() );
@@ -306,6 +321,17 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output .= astra_parse_css( $tablet_min_lang_direction_css, astra_addon_get_tablet_breakpoint( '', 1 ) );
 
 	$mobile_css = array(
+		'.ast-separate-container .ast-grid-sm-' . $blog_grid['mobile'] . ' .ast-article-post' => array(
+			'width' => 100 / $blog_grid['mobile'] . '%',
+		),
+		// Setting the default padding if the columns for mobile is more than 1.
+		'.ast-separate-container .ast-grid-sm-2 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-sm-3 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-sm-4 .ast-article-post.ast-separate-posts' => array(
+			'padding' => $is_site_rtl ? '0 0 0 .5em' : '0 .5em 0',
+		),
+		// Setting the default padding to 0 if the columns for mobile is 1.
+		'.ast-separate-container .ast-grid-sm-1 .ast-article-post.ast-separate-posts' => array(
+			'padding' => '0',
+		),
 		'.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on' => array(
 			'margin-top' => '0.5em',
 		),

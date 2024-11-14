@@ -3270,6 +3270,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				padding-right: 0.5em;
 				text-align: center;
 				line-height: normal;
+				cursor: pointer;
 			}
 			.ast-coupon-label {
 				display:none;

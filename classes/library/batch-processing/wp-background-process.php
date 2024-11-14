@@ -141,6 +141,7 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 		 * @return string
 		 */
 		protected function generate_key( $length = 64 ) {
+			// deepcode ignore InsecureHash: Opened a PR for respective library.
 			$unique  = md5( microtime() . rand() );
 			$prepend = $this->identifier . '_batch_';
 

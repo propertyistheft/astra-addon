@@ -122,3 +122,4 @@ function astra_addon_filter_code_editor( $output, $key ) {
 }
 
 add_filter( 'astra_addon_php_default_filter_input', 'astra_addon_filter_code_editor', 10, 2 );
+

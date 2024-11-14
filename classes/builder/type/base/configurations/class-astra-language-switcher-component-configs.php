@@ -55,6 +55,10 @@ class Astra_Language_Switcher_Component_Configs {
 			$language_choices['wpml'] = __( 'WPML', 'astra-addon' );
 		}
 
+		if ( is_callable( 'pll_the_languages' ) ) {
+			$language_choices['polylang'] = __( 'Polylang', 'astra-addon' );
+		}
+
 		$type_context = astra_addon_builder_helper()->general_tab;
 
 		if ( count( $language_choices ) > 1 ) {
@@ -204,8 +208,8 @@ class Astra_Language_Switcher_Component_Configs {
 				'context'   => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-language-switcher-type]',
-						'operator' => '==',
-						'value'    => 'wpml',
+						'operator' => '!=',
+						'value'    => 'custom',
 					),
 					astra_addon_builder_helper()->general_tab_config,
 				),
