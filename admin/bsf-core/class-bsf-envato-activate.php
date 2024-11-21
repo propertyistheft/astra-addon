@@ -246,6 +246,7 @@ class BSF_Envato_Activate {
 	public function envato_activation_url( $form_data ) {
 		$product_id = isset( $form_data['product_id'] ) ? esc_attr( $form_data['product_id'] ) : '';
 
+		// deepcode ignore InsecureHash: Will be updated in the BSF Core Library.
 		$form_data['token'] = sha1( $this->create_token( $product_id ) );
 		$url                = bsf_get_api_site() . 'envato-validation-callback/?wp-envato-validate';
 
@@ -310,6 +311,7 @@ class BSF_Envato_Activate {
 
 		$stored_token = get_site_option( "bsf_envato_token_$product_id", '' );
 
+		// deepcode ignore InsecureHash: Will be updated in the BSF Core Library.
 		if ( sha1( $stored_token ) === $token ) {
 			$token_atts = explode( '|', $stored_token );
 

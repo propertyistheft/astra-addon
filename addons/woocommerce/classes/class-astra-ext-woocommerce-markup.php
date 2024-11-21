@@ -3133,8 +3133,10 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		
 								// Adding a unique identifier based on the term slug
 								$unique_class = 'variation-' . esc_attr( $term->slug );
+								// Concatenate the classes, using trim to avoid any extra spaces
+								$ast_single_variation = 'ast-single-variation ' . trim( $active_class . ' ' . $unique_class );
 								?>
-								<div class="ast-single-variation<?php echo esc_attr( $active_class . ' ' . $unique_class ); ?>" data-slug="<?php echo esc_attr( $term->slug ); ?>">
+								<div class="<?php echo esc_attr( $ast_single_variation ); ?>" data-slug="<?php echo esc_attr( $term->slug ); ?>">
 									<?php echo esc_html( apply_filters( 'astra_variation_option_name', $term->name, $term, $attribute, $product ) ); ?>
 								</div>
 								<?php
@@ -3142,14 +3144,16 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 						}
 					} else {
 						foreach ( $options as $option ) {
-							// This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
+							// This handles < 2.4.0 backwards compatibility where text attributes were not sanitized.
 							$default_value = $product->get_default_attributes();
 							$active_class  = ( isset( $default_value[ strtolower( $attribute ) ] ) && $option === $default_value[ strtolower( $attribute ) ] ) ? 'active' : '';
 		
 							// Adding a unique identifier based on the option values.
 							$unique_class = 'variation-' . esc_attr( sanitize_title( $option ) );
+							// Concatenate the classes, using trim to avoid any extra spaces.
+							$ast_single_variation = 'ast-single-variation ' . trim( $active_class . ' ' . $unique_class );
 							?>
-							<div class="ast-single-variation<?php echo esc_attr( $active_class . ' ' . $unique_class ); ?>" data-slug="<?php echo esc_attr( $option ); ?>">
+							<div class="<?php echo esc_attr( $ast_single_variation ); ?>" data-slug="<?php echo esc_attr( $option ); ?>">
 								<?php echo esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ); ?>
 							</div>
 							<?php

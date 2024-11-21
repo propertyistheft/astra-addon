@@ -24,36 +24,23 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 		$output       = '';
 		$current_post = get_post( $post_id, OBJECT );
 
-		// Initialize post content by applying the 'the_content' filter to handle the rendering.
-		// This ensures that block content is parsed, including handling any dependent styles and scripts.
-		$original_content = $current_post->post_content;
-
-		// Temporarily remove the wpautop filter.
-		$priority = has_filter( 'the_content', 'wpautop' );
-
-		if ( $priority ) {
-			remove_filter( 'the_content', 'wpautop', $priority );
-		}
-
-		// Apply the content filter (the_content).
-		$current_post->post_content = apply_filters( 'the_content', $original_content );
-		
-		if ( $priority ) {
-			// Re-add the wpautop filter.
-			add_filter( 'the_content', 'wpautop', $priority );
-		}
-
 		if ( has_blocks( $current_post ) ) {
 			$blocks = parse_blocks( $current_post->post_content );
 			foreach ( $blocks as $block ) {
 				$output .= render_block( $block );
 			}
+
+			// Automatically embed URLs (like Vimeo) using WP_Embed.
+			if ( class_exists( 'WP_Embed' ) ) {
+				$wp_embed = new WP_Embed();
+				$output   = $wp_embed->autoembed( $output );
+			}
 		} else {
 			$output = $current_post->post_content;
 		}
-		ob_start();
-		echo do_shortcode( $output );
-		echo do_shortcode( ob_get_clean() );
+		
+		// Process nested shortcodes as it's for site builder and remove automatic <p> tags around them.
+		echo do_shortcode( do_shortcode( shortcode_unautop( $output ) ) );
 	}
 
 	/**

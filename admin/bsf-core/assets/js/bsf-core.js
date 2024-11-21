@@ -21,6 +21,7 @@ jQuery( document ).on('click', '.bsf-envato-form-activation', function(event) {
 		}
 	})
 	.done(function( response ) {
+		// deepcode ignore OR: Will be updated in the BSF Core Library.
 		window.location = response.data.url;
 		return true;
 	})

@@ -1,5 +1,9 @@
 *** Astra Pro Changelog ***
 
+2024-11-15 - version 4.8.6
+* Fix: Resolved an issue with duplicated content appearing due to Site Builder layouts.
+* Fix: Inconsistent spacing in WooCommerce variation product classes by updating class name concatenation for cleaner HTML markup.
+
 2024-11-12 - version 4.8.5
 * Fix: Remove extra header white space when using tag codes in <head> using Site Builder.
 * Fix: Undefined array key "blog-grid-resp" & Undefined array key "blog-grid" from addon classes files in some rare cases.
