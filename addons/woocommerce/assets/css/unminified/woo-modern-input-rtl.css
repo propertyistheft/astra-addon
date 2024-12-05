@@ -50,7 +50,7 @@ body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row 
   display: none;
 }
 
-body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row label:not(.checkbox):not(.woocommerce-form__label-for-checkbox) {
+body:not(.cartflows-canvas):not(.cartflows-default) .woocommerce form .form-row label:not(.checkbox):not(.radio):not(.woocommerce-form__label-for-checkbox) {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;

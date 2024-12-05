@@ -81,6 +81,7 @@
 				// Add Eevetlisteners for Submenu.
 				if (astra_menu_toggle.length > 0) {
 					for (var k = 0; k < astra_menu_toggle.length; k++) {
+						astra_menu_toggle[k].removeEventListener('click', AstraToggleSubMenu);
 						astra_menu_toggle[k].addEventListener('click', AstraToggleSubMenu, false);
 					};
 				}
@@ -101,6 +102,7 @@
 				// Add Eventlisteners for Submenu.
 				if (astra_menu_toggle_above_header.length > 0) {
 					for (var k = 0; k < astra_menu_toggle_above_header.length; k++) {
+						astra_menu_toggle_above_header[k].removeEventListener('click', AstraToggleSubMenu);
 						astra_menu_toggle_above_header[k].addEventListener('click', AstraToggleSubMenu, false);
 					};
 				}

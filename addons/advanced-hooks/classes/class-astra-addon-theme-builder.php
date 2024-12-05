@@ -467,7 +467,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 						}
 					}
 				} elseif ( 'archive' === $template_type ) {
-					$display_rule = $display_conditions['rule'];
+					$display_rule = isset( $display_conditions['rule'] ) ? $display_conditions['rule'] : array();
 					if ( isset( $display_rule ) && isset( $display_rule[0] ) ) {
 						$display_rule = $display_rule[0];
 

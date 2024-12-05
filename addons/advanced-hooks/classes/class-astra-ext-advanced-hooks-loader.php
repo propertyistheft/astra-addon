@@ -338,7 +338,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			unset( $columns['date'] );
 
 			$columns['advanced_hook_action']     = __( 'Placement', 'astra-addon' );
-			$columns['advanced_hook_shortcode']  = __( 'Shortcode', 'astra-addon' ) . '<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="' . esc_attr__( 'Make sure to set display rule to post/page where you will be adding the Shortcode.', 'astra-addon' ) . '"></i>';
+			$columns['advanced_hook_shortcode']  = __( 'Shortcode', 'astra-addon' ) . '<i class="ast-advanced-hook-heading-help dashicons dashicons-editor-help" title="' . esc_attr__( 'The shortcode is designed to include the custom layout wherever it is used, regardless of the display conditions. Ensure you add the shortcode to the desired post or page.', 'astra-addon' ) . '"></i>';
 			$columns['advanced_hook_quick_view'] = __( 'Quick View', 'astra-addon' );
 			$columns['enable_disable']           = __( 'Enable/Disable', 'astra-addon' );
 
@@ -1360,7 +1360,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				$title       = __( 'Site Builder', 'astra-addon' );
 				$tabs        = true;
 				$button_url  = '/post-new.php?post_type=astra-advanced-hook';
-				$kb_docs_url = 'https://wpastra.com/docs-category/astra-pro-modules/custom-layouts-module/?utm_source=wp&utm_medium=dashboard';
+				$kb_docs_url = 'https://wpastra.com/docs-category/site-builder/';
 				Astra_Addon_Admin_Loader::admin_dashboard_header( $title, $tabs, $button_url, $kb_docs_url );
 			}
 		}

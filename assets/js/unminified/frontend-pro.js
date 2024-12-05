@@ -47,6 +47,7 @@
 
 				if (!menu_click_listeners[i]) {
 					menu_click_listeners[i] = menu_toggle_all[i];
+					menu_toggle_all[i].removeEventListener('click', astraNavMenuToggle);
 					menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 				}
 			}
@@ -65,7 +66,7 @@
                     if (astra_menu_toggle.length > 0) {
 
                         for (var j = 0; j < astra_menu_toggle.length; j++) {
-
+                            astra_menu_toggle[j].removeEventListener('click', AstraToggleSubMenu);
                             astra_menu_toggle[j].addEventListener('click', AstraToggleSubMenu, false);
                         }
                     }

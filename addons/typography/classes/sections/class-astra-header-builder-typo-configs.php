@@ -393,7 +393,14 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 					'title'    => __( 'Font', 'astra-addon' ),
 					'priority' => 21,
 					'settings' => array(),
-					'context'  => astra_addon_builder_helper()->design_tab_config,
+					'context'  => array(
+						astra_addon_builder_helper()->design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-action]',
+							'operator' => '==',
+							'value'    => 'login',
+						),
+					),
 					'divider'  => array(),
 				),
 

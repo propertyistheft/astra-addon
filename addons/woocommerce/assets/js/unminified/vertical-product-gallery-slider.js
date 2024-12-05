@@ -192,10 +192,11 @@ function saleBadgeAlignment() {
     const ThumbnailSectionWidth =  document.querySelector( '#ast-gallery-thumbnails' ).clientWidth;
     if( ThumbnailSectionWidth ) {
       const saleBadge = document.querySelector( '.woocommerce div.product.ast-product-gallery-layout-vertical-slider > span.onsale, .woocommerce div.product.ast-product-gallery-layout-vertical-slider > span.ast-onsale-card' );
-      if( saleBadge ) {
-        const offset = saleBadge.classList.contains( 'ast-onsale-card' ) ? 25 : 15;
-        saleBadge.style.left = ( ThumbnailSectionWidth + offset ) + 'px';
-      }
+      if (saleBadge) {
+        const offset = saleBadge.classList.contains('ast-onsale-card') ? 25 : 15;
+        const position = document.body.classList.contains('rtl') ? 'right' : 'left';
+        saleBadge.style[position] = `${ThumbnailSectionWidth + offset}px`;
+      }      
     }
   }
 }

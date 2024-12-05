@@ -392,12 +392,7 @@ class Astra_Addon_Admin_Loader {
 									<a href="<?php echo esc_url( admin_url( $button_url ) ); ?>" class="text-xs text-astra font-medium leading-4 px-3 py-2 rounded-[0.1875rem] border border-astra bg-[#F6F7F7]">Add New</a>
 								</div>
 							</div>
-							<div class="flex justify-end items-center font-inter">
-								<?php if ( ! astra_is_white_labelled() ) { ?>
-									<div class="text-xs sm:text-sm font-medium sm:leading-[0.875rem] text-slate-600 pr-4 sm:pr-8 border-r border-slate-200">
-										<a href="<?php echo esc_url( $kb_docs_url ); ?>" target="_blank"><?php esc_html_e( 'Knowledge Base', 'astra-addon' ); ?></a>
-									</div>
-								<?php } ?>
+							<div class="flex justify-end items-center font-inter">	
 								<div class="flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-3 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3">
 									<div class="flex items-center">
 										<span><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
@@ -416,14 +411,24 @@ class Astra_Addon_Admin_Loader {
 									?>
 								</div>
 								<?php
+
+								if ( ! astra_is_white_labelled() ) { 
+									?>
+									<a href="<?php echo esc_url( $kb_docs_url ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200 mr-3">
+										<?php echo ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'knowledge-base', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
+									</a>
+									<?php 
+								}
+
 								if ( Astra_Ext_White_Label_Markup::show_branding() ) {
 									?>
-										<a href="<?php echo esc_url( 'https://wpastra.com/changelog/?utm_source=wp&utm_medium=dashboard' ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200">
-											<?php echo ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'horn', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
-										</a>
+									<a href="<?php echo esc_url( 'https://wpastra.com/whats-new/' ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200">
+									<?php echo ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'horn', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
+								</a>
 									<?php
 								}
 								?>
+
 							</div>
 						</div>
 					</div>
