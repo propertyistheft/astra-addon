@@ -688,6 +688,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				ASTRA_EXT_VER,
 				true
 			);
+			wp_set_script_translations( 'astra-custom-layout', 'astra-addon' );
 		}
 
 		/**

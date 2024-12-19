@@ -104,9 +104,12 @@
 				gutter = gutter - 10;
 			}
 
-			var aboveHeaderSelector = document.querySelector('.ast-above-header-bar');
-			if ( 1 == astraAddon.header_above_stick && null !== aboveHeaderSelector ) {
-				aboveHeaderSelectorValue = aboveHeaderSelector.getBoundingClientRect().height + parseInt( aboveHeaderSelector.parentNode.getAttribute( 'data-stick-gutter' ) );
+			const aboveHeaderBar = document.querySelector( '.ast-above-header-bar' );
+			if ( astraAddon.header_above_stick === '1' && aboveHeaderBar !== null ) {
+				const aboveHeaderBarHeight = aboveHeaderBar.getBoundingClientRect().height + parseInt( aboveHeaderBar.parentNode.getAttribute( 'data-stick-gutter' ) );
+				if ( ( selector.hasClass( 'ast-stick-primary-below-wrapper' ) || ( selector.hasClass( 'ast-primary-header' ) ) ) && gutter > 0  ) {
+					gutter = aboveHeaderBarHeight;
+				}
 			}
 		}
 
@@ -481,6 +484,7 @@
 
 			jQuery( document ).ready(function($) {
 				self.stick_me( self );
+				setTimeout( () => self.stick_me( self ), 0 );
 			} );
 		}
 	};

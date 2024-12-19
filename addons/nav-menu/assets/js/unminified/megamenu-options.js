@@ -57,11 +57,20 @@ function onColorReady() {
 // Old code modified to work with current implementation.
 
 (function ($) {
+	const abortController = { current: null };
 	document.addEventListener("astra_mega_menu_loaded", function (event) {
 		renderSavedWidgets(event.detail.menu_id);
 		select2Init();
 		onColorReady();
 	});
+
+	// This event listener is triggered when the mega menu is unmounted.
+	// It checks if there's an ongoing request and aborts it if found.
+	document.addEventListener( 'astra_mega_menu_unmounted', () => {
+		if ( abortController.current ) {
+			abortController.current?.abort();
+		}
+	} );
 
 	document.addEventListener("astra_mega_menu_widget_event", function (event) {
 		dropWidget(event.detail.menu_id);
@@ -100,10 +109,19 @@ function onColorReady() {
 	function renderSavedWidgets(menu_item_id) {
 		const container = $(".astra-mm-options-wrap");
 
-		var data = {
+		// Abort any ongoing request before starting a new one.
+		if ( abortController.current ) {
+			abortController.current?.abort();
+		}
+	
+		// Create a new AbortController for this request.
+		abortController.current = new AbortController();
+
+		const data = {
 			action: "ast_render_widgets",
 			menu_item_id: menu_item_id,
 			security_nonce: AstraBuilderMegaMenu.nonceWidget,
+			signal: abortController.current?.signal,
 		};
 
 		$.post(ajaxurl, data, function (response) {

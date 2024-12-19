@@ -119,6 +119,7 @@ if ( ! class_exists( 'Astra_Addon_Theme_Builder' ) ) {
 			);
 
 			wp_localize_script( 'astra-theme-builder-script', 'astra_theme_builder', $localized_data );
+			wp_set_script_translations( 'astra-theme-builder-script', 'astra-addon' );
 
 			if ( ! get_post_type() ) {
 				/**

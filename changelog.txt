@@ -1,5 +1,10 @@
 *** Astra Pro Changelog ***
 
+2024-12-16 - version 4.8.8
+* Improvement: Automatically enable the 'Site Builder' module when Astra Pro is activated on new installations.
+* Fix: There is a gap between the above and below header when the sticky header is active with a custom width set to the site logo.
+* Fix: Resolved translation issues with Site Builder and Mega Menu strings.
+
 2024-11-26 - version 4.8.7
 * Improvement: Remove broken links from Site Builder and replace with proper links.
 * Security Fix: Updated DOMPurify library to prevent potential tampering issues.
@@ -7,6 +12,7 @@
 * Fix: Resolved a conflict with the Dokan plugin where the Customer/Vendor Registration Toggle becomes disabled.
 * Fix: Showing blank font option in account widget design and general section.
 * Fix: RTL compatibility issue with products sale badge on single product page.
+* Fix: Resolved an issue where `_load_textdomain_just_in_time` function was incorrectly triggered for the `astra-addon` text domain.
 
 2024-11-15 - version 4.8.6
 * Fix: Resolved an issue with duplicated content appearing due to Site Builder layouts.

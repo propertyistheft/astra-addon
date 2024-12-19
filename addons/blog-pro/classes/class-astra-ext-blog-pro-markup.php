@@ -796,7 +796,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 		 */
 		public function read_more_text( $text ) {
 
-			$read_more = astra_get_option( 'blog-read-more-text' );
+			$read_more = astra_get_i18n_option( 'blog-read-more-text', _x( '%astra%', 'Blogs: Read More Text', 'astra', 'astra-addon' ) );
 
 			if ( '' != $read_more ) {
 				$text = $read_more;

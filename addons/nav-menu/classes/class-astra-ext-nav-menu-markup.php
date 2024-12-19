@@ -1770,6 +1770,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 			);
 
 			wp_enqueue_script( 'astra-mega-menu' );
+			wp_set_script_translations( 'astra-mega-menu', 'astra-addon' );
 		}
 
 

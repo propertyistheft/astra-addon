@@ -287,6 +287,7 @@ if ( ! class_exists( 'Astra_Addon_Customizer' ) ) :
 				);
 
 				wp_enqueue_script( 'astra-addon-custom-control-react-script', ASTRA_EXT_URI . 'classes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, ASTRA_EXT_VER, true );
+				wp_set_script_translations( 'astra-addon-custom-control-react-script', 'astra-addon' );
 			}
 		}
 	}

@@ -97,6 +97,27 @@ final class Astra_Ext_Extension {
 	}
 
 	/**
+	 * Activates the specified extension.
+	 *
+	 * @param string  $extension_name Extension Name.
+	 * @param boolean $force          Force to activate.
+	 *
+	 * @return void
+	 *
+	 * @since 4.8.8
+	 */
+	public static function activate_extension( $extension_name, $force = true ) {
+		// Get the list of currently enabled extensions.
+		$extensions = self::get_enabled_addons();
+
+		// Check if the extension needs to be activated.
+		if ( ! isset( $extensions[ $extension_name ] ) || ( $force && ! $extensions[ $extension_name ] ) || $extensions[ $extension_name ] === false ) {
+			$extensions[ $extension_name ] = $extension_name;
+			Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_enabled_extensions', $extensions );
+		}
+	}
+
+	/**
 	 * Check extension status
 	 *
 	 * @param string  $key      Key to find in Extensions Array.

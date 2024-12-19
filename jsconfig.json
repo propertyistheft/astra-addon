@@ -1,8 +1,0 @@
-{
-	"compilerOptions": {
-		"baseUrl": ".", // This makes the root directory of your project the base for relative paths
-		"paths": {
-			"@site-builder/*": [ "addons/advanced-hooks/theme-builder/src/*" ],
-		}
-	}
-}

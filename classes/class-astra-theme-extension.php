@@ -131,7 +131,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			add_filter( 'body_class', array( $this, 'body_classes' ), 11, 1 );
 
 			// Load textdomain.
-			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+			add_action( 'init', array( $this, 'load_textdomain' ) );
 			add_action( 'plugins_loaded', array( $this, 'common_plugin_dependent_files' ) );
 			add_action( 'wpml_loaded', array( $this, 'wpml_compatibility' ) );
 
@@ -297,6 +297,10 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 					update_option( '_astra_ext_white_label', $branding );
 				}
 			}
+
+			// Enable `Site Builder` module by default on plugin activation.
+			Astra_Ext_Extension::activate_extension( 'advanced-hooks', false );
+
 			do_action( 'astra_addon_activate' );
 		}
 
@@ -448,6 +452,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			);
 
 			wp_enqueue_script( 'astra-ext-custom-control-react-script', ASTRA_EXT_URI . 'classes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, ASTRA_EXT_VER, true );
+			wp_set_script_translations( 'astra-ext-custom-control-react-script', 'astra-addon' );
 		}
 
 		/**
