@@ -549,17 +549,34 @@ function astra_addon_get_blog_layout() {
 function astra_addon_get_blog_grid_columns( $device = '' ) {
 	$grid_cols = astra_get_option( 'blog-grid-resp' );
 
-	// If the option value is not an array, set it to default values.
-	if ( ! is_array( $grid_cols ) ) {
-		$defaults  = Astra_Theme_Options::defaults();
-		$grid_cols = isset( $defaults['blog-grid-resp'] ) ? $defaults['blog-grid-resp'] : array();
+	// Check if any of the required keys ('desktop', 'tablet', 'mobile') are missing.
+	if ( ! isset( $grid_cols['desktop'], $grid_cols['tablet'], $grid_cols['mobile'] ) ) {
+		$improve_blog = astra_addon_4_6_0_compatibility();
+		// Fetch default values only when needed.
+		$defaults          = Astra_Theme_Options::defaults();
+		$default_grid_cols = isset( $defaults['blog-grid-resp'] ) && is_array( $defaults['blog-grid-resp'] )
+			? $defaults['blog-grid-resp']
+			: array(
+				'desktop' => $improve_blog ? 3 : 1,
+				'tablet'  => 1,
+				'mobile'  => 1,
+			);
 
-		// Set default desktop value if 'blog-grid' key exists.
-		if ( isset( $defaults['blog-grid'] ) ) {
-			$grid_cols['desktop'] = $defaults['blog-grid'];
+		// If $grid_cols is not an array, initialize it with default values.
+		// Additionally, set the 'desktop' key from the 'blog-grid' option if available for backward.
+		if ( ! is_array( $grid_cols ) ) {
+			$grid_cols = $default_grid_cols;
+
+			// Set default desktop value if 'blog-grid' key exists.
+			if ( isset( $defaults['blog-grid'] ) ) {
+				$grid_cols['desktop'] = $defaults['blog-grid'];
+			}
 		}
+
+		// Merge missing keys from default values into $grid_cols.
+		$grid_cols = array_merge( $default_grid_cols, $grid_cols );
 	}
 
-	// Return default or specified device grid columns.
+	// Return the grid columns for the specified device or the full array if no device is specified.
 	return isset( $grid_cols[ $device ] ) ? $grid_cols[ $device ] : $grid_cols;
 }

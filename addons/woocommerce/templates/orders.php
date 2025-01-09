@@ -51,11 +51,15 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 								$placeholder_image         = sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( $product_filter_image_size ) ), esc_html__( 'Awaiting product image', 'astra-addon' ) );
 
 								foreach ( $an_order->get_items() as $item_id => $item_values ) {
-									$product        = $item_values->get_product();
-									$product_image  = get_the_post_thumbnail( $product->get_id(), $product_filter_image_size );
-									$featured_image = $product_image ? $product_image : $placeholder_image;
-									echo wp_kses_post( $featured_image );
-									break;
+									$product = $item_values->get_product();
+					
+									// Added Check to confirm if $product is valid and an instance of WC_Product is present.
+									if ( $product && is_a( $product, 'WC_Product' ) ) {
+										$product_image  = get_the_post_thumbnail( $product->get_id(), $product_filter_image_size );
+										$featured_image = $product_image ? $product_image : $placeholder_image;
+										echo wp_kses_post( $featured_image );
+										break;
+									} 
 								}
 								?>
 

@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 		public function theme_defaults( $defaults ) {
 
 			$astra_addon_update_modern_shop_defaults = Astra_Ext_WooCommerce::astra_addon_enable_modern_ecommerce_setup();
-			$astra_options                           = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
+			$astra_options                           = astra_get_options();
 
 			// Shop page.
 			$defaults['shop-page-list-style-alignment'] = array(

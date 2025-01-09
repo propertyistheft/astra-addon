@@ -1675,7 +1675,7 @@ S2.define('select2/selection/single',[
   };
 
   SingleSelection.prototype.display = function (data, container) {
-    var _template = this.options.get('_Selection');
+    var _template = this.options.get('templateSelection');
     var escapeMarkup = this.options.get('escapeMarkup');
 
     return escapeMarkup(_template(data, container));

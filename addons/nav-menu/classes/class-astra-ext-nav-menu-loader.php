@@ -619,7 +619,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
-			$astra_options = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
+			$astra_options = astra_get_options();
 
 			$component_limit = astra_addon_builder_helper()->component_limit;
 			for ( $index = 1; $index <= $component_limit; $index++ ) {

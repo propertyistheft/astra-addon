@@ -95,6 +95,10 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 				'color'      => $submenu_resp_color_hover_desktop,
 				'background' => $submenu_resp_bg_color_hover_desktop,
 			),
+			$selector . ' .sub-menu .menu-item:hover > .menu-link,' . $selector . ' .inline-on-mobile .menu-item:hover > .ast-menu-toggle' => array(
+				'color'      => $submenu_resp_color_hover_desktop,
+				'background' => $submenu_resp_bg_color_hover_desktop,
+			),
 			$selector . ' .sub-menu .menu-item:hover > .ast-menu-toggle' => array(
 				'color' => $submenu_resp_color_desktop,
 			),
@@ -121,12 +125,17 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 			$selector . ' .sub-menu .menu-item > .ast-menu-toggle' => array(
 				'color' => $submenu_resp_color_tablet,
 			),
+			$selector . ' .ast-nav-menu .sub-menu .menu-item:hover > .menu-link' => array(
+				'color'      => $submenu_resp_color_hover_tablet,
+				'background' => $submenu_resp_bg_color_hover_tablet,
+			),
 			$selector . '.ast-nav-menu .sub-menu .menu-item .menu-link:hover' => array(
 				'color'      => $submenu_resp_color_hover_tablet,
 				'background' => $submenu_resp_bg_color_hover_tablet,
 			),
 			$selector . ' .sub-menu .menu-item:hover > .ast-menu-toggle' => array(
-				'color' => $submenu_resp_color_hover_tablet,
+				'color'      => $submenu_resp_color_hover_tablet,
+				'background' => $submenu_resp_bg_color_hover_tablet,
 			),
 			$selector . '.ast-nav-menu .sub-menu .menu-item.current-menu-item > .menu-link' => array(
 				'color'      => $submenu_resp_color_active_tablet,
@@ -150,6 +159,10 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 			),
 			$selector . ' .sub-menu .menu-item  > .ast-menu-toggle' => array(
 				'color' => $submenu_resp_color_mobile,
+			),
+			$selector . ' .ast-nav-menu .sub-menu .menu-item:hover > .menu-link' => array(
+				'color'      => $submenu_resp_color_hover_mobile,
+				'background' => $submenu_resp_bg_color_hover_mobile,
 			),
 			$selector . '.ast-nav-menu .sub-menu .menu-item .menu-link:hover' => array(
 				'color'      => $submenu_resp_color_hover_mobile,
@@ -390,7 +403,7 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 			'.ast-hb-account-login-wrapper .ast-hb-account-login' => array(
 				'background' => $popup_bg_color,
 			),
-			$selector . ' .ast-account-nav-menu .menu-item .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link' => array(
+			$selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item .menu-link' => array(
 				'color' => $menu_color,
 			),
 			$selector . ' .ast-account-nav-menu .menu-item:hover > .menu-link, ' . $selector . ' .ast-account-nav-menu .menu-item > .menu-link:hover,' . $selector . ' .ast-account-nav-menu .menu-item.current-menu-item:hover > .menu-link, ' . $selector . ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item:hover > .menu-link, ' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item > .menu-link:hover,' . $adv_selector . ' .main-header-menu.ast-account-nav-menu .menu-item.current-menu-item:hover > .menu-link, ' . $adv_selector . ' .ast-account-nav-menu .woocommerce-MyAccount-navigation-link.is-active:hover > .menu-link' => array(
@@ -402,7 +415,7 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 				'background' => $menu_bg_color_active,
 			),
 
-			$selector . ' .account-main-navigation ul, ' . $selector . ' .account-woo-navigation ul, ' . $adv_selector . ' .account-main-navigation ul, ' . $adv_selector . ' .account-woo-navigation ul' => array(
+			$selector . ' .account-main-navigation ul, ' . $selector . ' .account-main-navigation .main-header-menu .menu-link, ' . $selector . ' .account-woo-navigation ul, ' . $adv_selector . ' .account-main-navigation ul, ' . $adv_selector . ' .account-woo-navigation ul' => array(
 				'background' => $menu_bg_color,
 			),
 			$selector . ' .menu-item .menu-link' => array(

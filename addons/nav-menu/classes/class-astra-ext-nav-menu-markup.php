@@ -1766,6 +1766,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 					'oldMegaMenuUrl'              => admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[primary-header-megamenu-heading-color]' ),
 					'isHeaderFooterBuilderActive' => astra_addon_builder_helper()->is_header_footer_builder_active,
 					'newMegaMenuUrl'              => admin_url( 'customize.php?autofocus[panel]=panel-header-builder-group' ),
+					'theme_name'                  => astra_get_theme_name(),
 				)
 			);
 

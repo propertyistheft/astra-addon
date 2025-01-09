@@ -24,7 +24,7 @@
 .woocommerce-checkout.woocommerce-order-received .woocommerce-order ul.woocommerce-order-overview {
   color: inherit;
   padding: 1.5em 1.5em 1em 1.5em;
-  background: var(--ast-global-color-4);
+  background: var(--ast-global-color-secondary, --ast-global-color-4);
   margin: 2.5em auto 3em;
 }
 

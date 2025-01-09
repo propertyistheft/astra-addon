@@ -240,7 +240,7 @@ function astra_addon_mega_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	 *
 	 * @since 2.6.0
 	 */
-	$astra_settings              = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings              = astra_get_options();
 	$backward_sticky_header_comp = ( isset( $astra_settings['can-inherit-sticky-colors-in-header'] ) && $astra_settings['can-inherit-sticky-colors-in-header'] ) ? true : false;
 
 	if ( $backward_sticky_header_comp ) {

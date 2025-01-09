@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 		 * @return boolean should be svg or font.
 		 */
 		public static function is_svg_icons() {
-			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                               = astra_get_options();
 			$astra_settings['can-update-astra-icons-svg'] = ( isset( $astra_settings['can-update-astra-icons-svg'] ) && false === $astra_settings['can-update-astra-icons-svg'] ) ? false : true;
 			if ( version_compare( ASTRA_THEME_VERSION, '3.3.0', '>=' ) ) {
 				return apply_filters( 'astra_is_svg_icons', $astra_settings['can-update-astra-icons-svg'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound

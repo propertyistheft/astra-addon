@@ -27,7 +27,7 @@
 
 #ast-checkout-wrap a .ast-step-number {
   background-color: var(--ast-global-color-3);
-  color: var(--ast-global-color-5);
+  color: var(--ast-global-color-primary, --ast-global-color-5);
   margin: 0 0.5em;
   margin-left: 0;
   font-weight: bolder;

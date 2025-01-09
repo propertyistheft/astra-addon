@@ -1,9 +1,30 @@
 *** Astra Pro Changelog ***
 
+2025-01-07 - version 4.8.11
+* Fix: Resolved fatal error introduced in v4.8.10.
+
+2025-01-07 - version 4.8.10
+* Fix: Resolved an issue where the query loop block wasn't displaying dynamic content correctly in Site Builder with Archive Template.
+* Fix: White label is not working for the Astra menu panel strings.
+* Fix: Resolved undefined array key warnings for 'tablet' and 'mobile' in dynamic CSS PHP files when the blog Reveal effect is enabled.
+* Fix: Resolved color inheritance issues between Account widget menu, and transparent header.
+
+2024-12-31 - version 4.8.9
+* Improvement: Color settings synced with updated global color palette from theme.
+* Improvement: Added post-type specific cached style file generation for better compatibility with plugins like Toolset Post Type using the Astra File Generation option.
+* Fix: Resolved an issue where nested submenus incorrectly inherited hover colors from the parent menu, despite having separate hover colors set.
+* Fix: Resolved an error encountered when translating media in WPML while using the Astra theme and Astra Pro plugin.
+* Fix: Resolved a fatal error on the order page that occurred when a product was removed from the website.
+* Fix: Resolved misalignment issues for Mega Menu submenu items in RTL mode when using a custom width.
+* Fix: Resolved inconsistent variation selection for products with custom attributes in URLs.
+* Fix: Resolved RTL compatibility issue with Masonry layout by adding dynamic alignment detection.
+* Fix: Resolved an issue where the Template Source dropdown was missing for Mega Menu templates.
+
 2024-12-16 - version 4.8.8
 * Improvement: Automatically enable the 'Site Builder' module when Astra Pro is activated on new installations.
 * Fix: There is a gap between the above and below header when the sticky header is active with a custom width set to the site logo.
 * Fix: Resolved translation issues with Site Builder and Mega Menu strings.
+* Fix: Resolved an issue where `_load_textdomain_just_in_time` function was incorrectly triggered for the `astra-addon` text domain.
 
 2024-11-26 - version 4.8.7
 * Improvement: Remove broken links from Site Builder and replace with proper links.
@@ -12,7 +33,6 @@
 * Fix: Resolved a conflict with the Dokan plugin where the Customer/Vendor Registration Toggle becomes disabled.
 * Fix: Showing blank font option in account widget design and general section.
 * Fix: RTL compatibility issue with products sale badge on single product page.
-* Fix: Resolved an issue where `_load_textdomain_just_in_time` function was incorrectly triggered for the `astra-addon` text domain.
 
 2024-11-15 - version 4.8.6
 * Fix: Resolved an issue with duplicated content appearing due to Site Builder layouts.

@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 		 * @since 4.0.0
 		 */
 		private function get_font_extras_default( $font_extras_key, $line_height_key, $text_transform_key ) {
-			$astra_options = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
+			$astra_options = astra_get_options();
 
 			return array(
 				'line-height'         => ! isset( $astra_options[ $font_extras_key ] ) && isset( $astra_options[ $line_height_key ] ) ? $astra_options[ $line_height_key ] : '',

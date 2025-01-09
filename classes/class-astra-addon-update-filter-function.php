@@ -33,7 +33,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function support_addon_font_css_to_widget_and_in_editor() {
-		$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings                                        = astra_get_options();
 		$astra_settings['can-support-widget-and-editor-fonts'] = isset( $astra_settings['can-support-widget-and-editor-fonts'] ) ? false : true;
 		return apply_filters( 'astra_heading_fonts_typo_support', $astra_settings['can-support-widget-and-editor-fonts'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
@@ -46,7 +46,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_cart_color_default_icon_old_header() {
-		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings = astra_get_options();
 		$astra_settings['can-reflect-cart-color-in-old-header'] = isset( $astra_settings['can-reflect-cart-color-in-old-header'] ) ? false : true;
 		return apply_filters( 'astra_support_default_cart_color_in_old_header', $astra_settings['can-reflect-cart-color-in-old-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
@@ -59,7 +59,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_add_bg_color_outline_cart_header_builder() {
-		$astra_settings                                   = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings                                   = astra_get_options();
 		$astra_settings['add-outline-cart-bg-new-header'] = isset( $astra_settings['add-outline-cart-bg-new-header'] ) ? false : true;
 		return apply_filters( 'astra_apply_background_to_outline_cart_builder_element', $astra_settings['add-outline-cart-bg-new-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
@@ -81,7 +81,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_remove_header_sections_deps_header_builder() {
-		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings = astra_get_options();
 		$astra_settings['remove-header-sections-deps-in-new-header'] = isset( $astra_settings['remove-header-sections-deps-in-new-header'] ) ? false : true;
 		return apply_filters( 'astra_remove_header_sections_dependency', $astra_settings['remove-header-sections-deps-in-new-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
@@ -93,7 +93,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_addon_update_variant_active_style() {
-		$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings                                    = astra_get_options();
 		$astra_settings['can-update-variant-active-style'] = isset( $astra_settings['can-update-variant-active-style'] ) ? false : true;
 		return apply_filters( 'astra_addon_update_wc_variant_style', $astra_settings['can-update-variant-active-style'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
@@ -105,7 +105,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_addon_sale_badge_background_color() {
-		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings = astra_get_options();
 		$astra_settings['apply-modern-layout-sale-badge-styles'] = isset( $astra_settings['apply-modern-layout-sale-badge-styles'] ) ? false : true;
 		return apply_filters( 'astra_addon_apply_sale_badge_styles_modern_layout', $astra_settings['apply-modern-layout-sale-badge-styles'] );
 	}
@@ -117,7 +117,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_addon_upgrade_fullscreen_search_submit_style() {
-		$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings                           = astra_get_options();
 		$astra_settings['v4-4-0-backward-option'] = isset( $astra_settings['v4-4-0-backward-option'] ) ? false : true;
 		return apply_filters( 'astra_addon_upgrade_fullscreen_search_submit_style', $astra_settings['v4-4-0-backward-option'] );
 	}
@@ -129,7 +129,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_addon_update_default_menu_styling() {
-		$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings                                      = astra_get_options();
 		$astra_settings['update-default-spacing-for-header'] = isset( $astra_settings['update-default-spacing-for-header'] ) ? false : true;
 		return apply_filters( 'astra_addon_update_legacy_menu_spacing', $astra_settings['update-default-spacing-for-header'] );
 	}
@@ -141,7 +141,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_addon_restrict_banner_area_with_page_header() {
-		$astra_settings = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings = astra_get_options();
 		$astra_settings['restrict-banner-layout-with-page-header'] = isset( $astra_settings['restrict-banner-layout-with-page-header'] ) ? false : true;
 		return apply_filters( 'astra_addon_page_header_with_banner', $astra_settings['restrict-banner-layout-with-page-header'] );
 	}
@@ -153,7 +153,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_addon_update_site_templates_headings_space() {
-		$astra_settings = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings = astra_get_options();
 		$astra_settings['site-builder-templates-headings-space'] = isset( $astra_settings['site-builder-templates-headings-space'] ) ? false : true;
 		return apply_filters( 'astra_get_option_site-builder-templates-headings-space', $astra_settings['site-builder-templates-headings-space'] );
 	}
@@ -165,7 +165,7 @@ class Astra_Addon_Update_Filter_Function {
 	 * @return boolean false if it is an existing user, true if not.
 	 */
 	public static function astra_addon_hide_social_share_icon_position() {
-		$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS, array() );
+		$astra_settings                                      = astra_get_options();
 		$astra_settings['hiding_social_share_icon_position'] = isset( $astra_settings['hiding_social_share_icon_position'] ) ? false : true;
 		return apply_filters( 'astra_addon_hide_left_right_social_icon_responsive_positions', $astra_settings['hiding_social_share_icon_position'] );
 	}

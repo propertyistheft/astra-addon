@@ -75,8 +75,12 @@ if ( ! class_exists( __NAMESPACE__ . '\Queue' ) ) {
 
 			$current_value = get_post_meta( $object_id, $meta_key, true );
 
-			if ( ! $current_value ) {
-				$current_value = array();
+			// Ensure both values are arrays
+			if ( ! is_array( $meta_value ) ) {
+				$meta_value = [];
+			}
+			if ( ! is_array( $current_value ) ) {
+				$current_value = [];
 			}
 
 			$diff = array_diff_key( $meta_value, $current_value );

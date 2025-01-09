@@ -1256,7 +1256,7 @@ function astra_pro_sticky_header_submenu_below_header_fix() {
  * @return boolean false if it is an existing user , true if not.
  */
 function astra_addon_sticky_site_title_tagline_css_comp() {
-	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings = astra_get_options();
 	$astra_settings['sticky-header-default-site-title-tagline-css'] = isset( $astra_settings['sticky-header-default-site-title-tagline-css'] ) ? false : true;
 	return apply_filters( 'astra_default_site_title_tagline_css_comp', $astra_settings['sticky-header-default-site-title-tagline-css'] );
 }

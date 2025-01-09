@@ -9,7 +9,7 @@
 }
 
 .ast-cart-non-sticky .cross-sells > h2 {
-  background-color: var(--ast-global-color-4);
+  background-color: var(--ast-global-color-secondary, --ast-global-color-4);
   border-bottom: 1px solid var(--ast-border-color);
   padding-left: 1em;
   padding-right: 1em;
@@ -44,7 +44,7 @@
 }
 
 .woocommerce-cart table.shop_table thead {
-  background-color: var(--ast-global-color-4);
+  background-color: var(--ast-global-color-secondary, --ast-global-color-4);
 }
 
 .woocommerce-cart table.shop_table td {
@@ -60,7 +60,7 @@
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals > h2 {
-  background-color: var(--ast-global-color-4);
+  background-color: var(--ast-global-color-secondary, --ast-global-color-4);
   border-bottom: 1px solid var(--ast-border-color);
 }
 

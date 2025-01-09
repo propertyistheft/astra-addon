@@ -440,6 +440,10 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		 * @return void
 		 */
 		public function controls_scripts() {
+			// Bail early if it is not astra customizer.
+			if ( is_callable( [ 'Astra_Customizer', 'is_astra_customizer' ] ) && ! Astra_Customizer::is_astra_customizer() ) {
+				return;
+			}
 
 			// Enqueue Customizer React.JS script.
 			$custom_controls_react_deps = array(

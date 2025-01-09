@@ -6,6 +6,61 @@
  */
 
 /**
+ * Return theme options from astra-settings option key.
+ *
+ * This function exists in theme v4.8.9 though included here to prevent errors caused by version mismatches with the theme.
+ */
+if ( ! function_exists( 'astra_get_options' ) ) {
+
+	/**
+	 * Retrieve Astra theme options array.
+	 *
+	 * @return array The theme options array.
+	 *
+	 * @since 4.8.9
+	 */
+	function astra_get_options() {
+		// Ensure we're not interfering during WordPress installation.
+		if ( wp_installing() ) {
+			return array();
+		}
+
+		/**
+		 * Filter to bypass the cached Astra options.
+		 *
+		 * Example usage:
+		 *     add_filter( 'astra_get_options_nocache', '__return_true' );
+		 *
+		 * @since 4.8.9
+		 * @return bool Whether to bypass the cache. Default is false.
+		 */
+		if ( apply_filters( 'astra_get_options_nocache', false ) ) {
+			$astra_options = get_option( ASTRA_THEME_SETTINGS );
+		} else {
+			// Use a static variable to cache the options for this request.
+			static $cached_astra_options = null;
+
+			// Fetch the options once and cache them in the static variable.
+			if ( is_null( $cached_astra_options ) || is_customize_preview() ) {
+				$cached_astra_options = is_callable( 'Astra_Theme_Options::get_astra_options' )
+					? Astra_Theme_Options::get_astra_options() :
+					get_option( ASTRA_THEME_SETTINGS );
+			}
+
+			$astra_options = $cached_astra_options;
+		}
+
+		/**
+		 * Filter the options array for Astra Settings.
+		 *
+		 * @since 4.8.9
+		 * @return array The theme options array.
+		 */
+		return apply_filters( 'astra_get_options', $astra_options );
+	}
+}
+
+/**
  * Return translated theme option.
  *
  * This function exists in theme v.4.7.4 though included here to prevent errors caused by version mismatches with the theme.

@@ -111,3 +111,21 @@ jQuery('.composite_data').on('wc-composite-initializing', function (event, compo
         productVariation();
     }, 100)
 });
+
+// Adding Function to read URL parameters dynamically.
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    urlParams.forEach((value, key) => {
+        const variationButton = document.querySelector(`.ast-single-variation[data-slug="${value}"]`);
+
+        if (variationButton) {
+            variationButton.classList.add('active');
+            const selectElement = document.querySelector(`select[name="${key}"]`);
+            if (selectElement) {
+                selectElement.value = value;
+                selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        }
+    });
+});

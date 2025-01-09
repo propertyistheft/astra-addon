@@ -18,7 +18,7 @@
   border-bottom-right-radius: 3px;
   padding: .7em 1.7em 1.7em;
   overflow: hidden;
-  background-color: var(--ast-global-color-5);
+  background-color: var(--ast-global-color-primary, --ast-global-color-5);
 }
 
 .ast-woo-two-step-modern-checkout .woocommerce .ast-embed-checkout-form-nav-btns a.ast-next-button {
@@ -137,7 +137,7 @@
 }
 
 .ast-woo-two-step-modern-checkout ul.ast-embed-checkout-form-steps {
-  background-color: var(--ast-global-color-4);
+  background-color: var(--ast-global-color-secondary, --ast-global-color-4);
   -js-display: flex;
   display: flex;
   list-style: none;
@@ -214,7 +214,7 @@
 }
 
 .ast-woo-two-step-modern-checkout .ast-embed-checkout-form-steps .steps.ast-current {
-  background-color: var(--ast-global-color-5);
+  background-color: var(--ast-global-color-primary, --ast-global-color-5);
 }
 
 .ast-woo-two-step-modern-checkout .ast-embed-checkout-form-steps .ast-current .step-name {

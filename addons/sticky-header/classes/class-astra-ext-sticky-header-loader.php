@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
-			$astra_options                            = is_callable( 'Astra_Theme_Options::get_astra_options' ) ? Astra_Theme_Options::get_astra_options() : get_option( ASTRA_THEME_SETTINGS );
+			$astra_options                            = astra_get_options();
 			$defaults['header-main-shrink']           = 1;
 			$defaults['different-sticky-logo']        = 0;
 			$defaults['different-sticky-retina-logo'] = 0;

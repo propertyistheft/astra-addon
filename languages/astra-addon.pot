@@ -1,43 +1,39 @@
-# Copyright (C) 2024 Brainstorm Force
-# This file is distributed under the same license as the Astra Pro plugin.
+# Copyright (C) 2025 Brainstorm Force
+# This file is distributed under the same license as the Astra Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra Pro 4.8.8\n"
+"Project-Id-Version: Astra Pro 4.8.11\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/astra-addon\n"
+"POT-Creation-Date: 2025-01-07 10:55:40+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-13T05:35:17+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
-"X-Domain: astra-addon\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#. Plugin Name of the plugin
-#: astra-addon.php
-#: classes/helper-functions.php:307
-msgid "Astra Pro"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2681
+msgid "1"
 msgstr ""
 
-#. Plugin URI of the plugin
-#: astra-addon.php
-msgid "https://wpastra.com/"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2692
+msgid "2"
 msgstr ""
 
-#. Description of the plugin
-#: astra-addon.php
-msgid "This plugin is an add-on for the Astra WordPress Theme. It offers premium features & functionalities that enhance your theming experience at next level."
-msgstr ""
-
-#. Author of the plugin
-#: astra-addon.php
-msgid "Brainstorm Force"
-msgstr ""
-
-#. Author URI of the plugin
-#: astra-addon.php
-msgid "https://www.brainstormforce.com"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2704
+msgid "3"
 msgstr ""
 
 #: addons/advanced-footer/classes/class-astra-advanced-footer-panels-configs.php:42
@@ -83,13 +79,11 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:487
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:102
 #: classes/builder/type/base/configurations/class-astra-language-switcher-component-configs.php:124
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Layout"
 msgstr ""
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:54
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:266
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Disable"
 msgstr ""
 
@@ -209,7 +203,6 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:406
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:461
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:256
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Top"
 msgstr ""
 
@@ -334,7 +327,6 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:253
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:463
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:258
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Bottom"
 msgstr ""
 
@@ -745,18 +737,7 @@ msgstr ""
 #: addons/advanced-headers/classes/astra-breadcrumbs.php:200
 #: addons/advanced-headers/classes/astra-breadcrumbs.php:212
 #: addons/nav-menu/classes/class-astra-ext-nav-widget-support.php:221
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Edit"
-msgstr ""
-
-#: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:174
-msgctxt "advanced-header general name"
-msgid "Page Headers"
-msgstr ""
-
-#: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:175
-msgctxt "advanced-header singular name"
-msgid "Page Header"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:176
@@ -789,14 +770,13 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:243
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:217
-#: classes/class-astra-theme-extension.php:971
-#: addons/nav-menu/react/build/index.js:1
+#: classes/class-astra-theme-extension.php:975
 msgid "Clear"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:244
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:218
-#: classes/class-astra-theme-extension.php:972
+#: classes/class-astra-theme-extension.php:976
 msgid "Clear color"
 msgstr ""
 
@@ -822,25 +802,25 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:842
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:42
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:151
-#: classes/class-astra-theme-extension.php:973
+#: classes/class-astra-theme-extension.php:977
 msgid "Default"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:246
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:220
-#: classes/class-astra-theme-extension.php:974
+#: classes/class-astra-theme-extension.php:978
 msgid "Select default color"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:247
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:221
-#: classes/class-astra-theme-extension.php:975
+#: classes/class-astra-theme-extension.php:979
 msgid "Select Color"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:248
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-loader.php:222
-#: classes/class-astra-theme-extension.php:976
+#: classes/class-astra-theme-extension.php:980
 msgid "Color value"
 msgstr ""
 
@@ -848,59 +828,60 @@ msgstr ""
 msgid "Page Headers"
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:321
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:327
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:628
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:634
+#. translators: %s: singular custom post type name
 msgid "%s updated."
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:323
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:630
+#. translators: %s: singular custom post type name
 msgid "Custom %s updated."
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:325
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:632
+#. translators: %s: singular custom post type name
 msgid "Custom %s deleted."
 msgstr ""
 
-#. translators: %1$s: singular custom post type name ,%2$s: date and time of the revision
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:329
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:636
+#. translators: %1$s: singular custom post type name ,%2$s: date and time of
+#. the revision
 msgid "%1$s restored to revision from %2$s"
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:331
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:638
+#. translators: %s: singular custom post type name
 msgid "%s published."
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:333
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:640
+#. translators: %s: singular custom post type name
 msgid "%s saved."
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:335
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:642
+#. translators: %s: singular custom post type name
 msgid "%s submitted."
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:337
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:644
+#. translators: %s: singular custom post type name
 msgid "%s scheduled for."
 msgstr ""
 
-#. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:339
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:646
+#. translators: %s: singular custom post type name
 msgid "%s draft updated."
 msgstr ""
 
@@ -1012,7 +993,9 @@ msgid "Background Size"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:730
-msgid "Custom Size can be given any positive number with or without units as \"5\" or \"5px\". Default unit is \"%\""
+msgid ""
+"Custom Size can be given any positive number with or without units as \"5\" "
+"or \"5px\". Default unit is \"%\""
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:736
@@ -1054,7 +1037,6 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:389
 #: classes/builder/type/base/configurations/class-astra-addon-base-configs.php:92
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:220
-#: addons/nav-menu/react/build/index.js:1
 msgid "Color"
 msgstr ""
 
@@ -1062,7 +1044,6 @@ msgstr ""
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:81
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1094
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1117
-#: addons/nav-menu/react/build/index.js:1
 msgid "Image"
 msgstr ""
 
@@ -1071,7 +1052,6 @@ msgid "Select Image"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:802
-#: addons/nav-menu/react/build/index.js:1
 msgid "Remove Image"
 msgstr ""
 
@@ -1089,7 +1069,7 @@ msgid "Parallax"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:834
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:835
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:802
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1865
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1891
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:265
@@ -1097,8 +1077,8 @@ msgid "Desktop + Mobile"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:835
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:833
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1417
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:800
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1384
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1863
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1889
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2029
@@ -1108,8 +1088,8 @@ msgid "Desktop"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:836
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:834
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1423
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:801
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1390
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1864
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1890
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2041
@@ -1320,7 +1300,7 @@ msgstr ""
 #: addons/advanced-search/template/full-screen.php:25
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:46
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:45
-#: classes/astra-common-functions.php:475
+#: classes/astra-common-functions.php:530
 msgid "Search"
 msgstr ""
 
@@ -1410,15 +1390,13 @@ msgid "Display Below Header"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1674
-#: classes/class-astra-theme-extension.php:506
+#: classes/class-astra-theme-extension.php:510
 msgid "Primary Header"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2029
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:13
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1962
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Display On"
 msgstr ""
 
@@ -1433,8 +1411,6 @@ msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2051
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1982
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Do Not Display On"
 msgstr ""
 
@@ -1480,15 +1456,18 @@ msgid "Force Disable Transparency on Archives?"
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2098
-msgid "Merge Page Header with Site Header is generally not recommended on achieve pages such as search, 404, etc. If you would like to enable it, use this setting."
+msgid ""
+"Merge Page Header with Site Header is generally not recommended on achieve "
+"pages such as search, 404, etc. If you would like to enable it, use this "
+"setting."
 msgstr ""
 
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:2106
 msgid "Yes"
 msgstr ""
 
-#. translators: %s: singular  post name;
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:14
+#. translators: %s: singular  post name;
 msgid "Add locations for where this %s should appear."
 msgstr ""
 
@@ -1496,8 +1475,8 @@ msgstr ""
 msgid "Add Location Rule"
 msgstr ""
 
-#. translators: %s: singular  post name;
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:29
+#. translators: %s: singular  post name;
 msgid "This %s will not appear at these locations."
 msgstr ""
 
@@ -1511,9 +1490,7 @@ msgstr ""
 #: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:188
 #: addons/advanced-hooks/classes/class-astra-addon-theme-builder.php:189
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:719
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1361
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1328
 msgid "Site Builder"
 msgstr ""
 
@@ -2356,7 +2333,6 @@ msgid "Custom Hook"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:340
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Placement"
 msgstr ""
 
@@ -2365,7 +2341,10 @@ msgid "Shortcode"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:341
-msgid "The shortcode is designed to include the custom layout wherever it is used, regardless of the display conditions. Ensure you add the shortcode to the desired post or page."
+msgid ""
+"The shortcode is designed to include the custom layout wherever it is used, "
+"regardless of the display conditions. Ensure you add the shortcode to the "
+"desired post or page."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:342
@@ -2374,7 +2353,6 @@ msgstr ""
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2089
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:968
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:984
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Quick View"
 msgstr ""
 
@@ -2386,27 +2364,16 @@ msgstr ""
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:464
-msgctxt "advanced-hooks general name"
-msgid "Site Builder"
-msgstr ""
-
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:465
-msgctxt "advanced-hooks singular name"
-msgid "Site Builder Layout"
-msgstr ""
-
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:466
 msgid "Search Layout"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:467
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "All Layouts"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:468
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1341
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1308
 #: classes/class-astra-ext-model.php:141
 msgid "Edit Layout"
 msgstr ""
@@ -2423,142 +2390,131 @@ msgstr ""
 msgid "New Layout Name"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:846
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:813
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1806
 msgid "After certain number of blocks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:847
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:814
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1807
 msgid "Before certain number of Heading blocks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1235
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1202
 msgid "— Select —"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1236
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1203
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:63
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:107
 #: addons/colors-and-background/classes/class-astra-ext-colors-panels-and-sections.php:61
 #: admin/core/class-astra-addon-admin-loader.php:453
-#: classes/class-astra-theme-extension.php:522
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
+#: classes/class-astra-theme-extension.php:526
 msgid "Header"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1237
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1204
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:66
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:339
 #: admin/core/class-astra-addon-admin-loader.php:454
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Footer"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1238
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1205
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:69
 #: admin/core/class-astra-addon-admin-loader.php:456
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:132
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "404 Page"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1239
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1206
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:72
 #: admin/core/class-astra-addon-admin-loader.php:455
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Hooks"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1240
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1207
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:75
 msgid "Inside Post/Page Content"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1241
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1208
 #: admin/core/class-astra-addon-admin-loader.php:458
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Custom Template"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1296
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1263
 msgid "Close modal panel"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1303
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1270
 msgid "Display On:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1309
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1276
 msgid "Do Not Display On:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1315
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1282
 msgid "Display for Users:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1321
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1288
 msgid "Display on Devices:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1327
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1294
 msgid "Time Rule:"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1338
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1305
 msgid "Status: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1339
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1306
 msgid "Published date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1341
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1308
 msgid "Edit this layout"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1380
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1388
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1396
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1408
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1431
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1347
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1355
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1363
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1375
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1398
 msgid "No Conditions"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1420
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1387
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2035
 #: classes/builder/type/base/configurations/class-astra-social-component-configs.php:62
 msgid "Tablet"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1435
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1402
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:854
 msgid "Visibility"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1438
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1405
 msgid "Not visible"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1443
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1410
 msgid "Visible"
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1444
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1411
 msgid "Start Date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1445
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1412
 msgid "End Date: "
 msgstr ""
 
-#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1451
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:1418
 msgid "(no title)"
 msgstr ""
 
@@ -2567,59 +2523,87 @@ msgid "Head"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:90
-msgid "astra_html_before - Placement to add your content or snippet just before the opening of <html> tag."
+msgid ""
+"astra_html_before - Placement to add your content or snippet just before "
+"the opening of <html> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:94
-msgid "astra_head_top - Placement to add your content or snippet at top of the <head> tag."
+msgid ""
+"astra_head_top - Placement to add your content or snippet at top of the "
+"<head> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:98
-msgid "astra_head_bottom - Placement to add your content or snippet at bottom of the <head> tag."
+msgid ""
+"astra_head_bottom - Placement to add your content or snippet at bottom of "
+"the <head> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:102
-msgid "wp_head - Action to add custom style, script and meta at the bottom of <head> tag."
+msgid ""
+"wp_head - Action to add custom style, script and meta at the bottom of "
+"<head> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:111
-msgid "astra_body_top - Placement to add your content or snippet at top of the <body> tag."
+msgid ""
+"astra_body_top - Placement to add your content or snippet at top of the "
+"<body> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:115
-msgid "astra_header_before - Placement to add your content or snippet just before the opening <header> tag."
+msgid ""
+"astra_header_before - Placement to add your content or snippet just before "
+"the opening <header> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:119
-msgid "astra_masthead_top - Placement to add your content or snippet at  top of the <header> tag."
+msgid ""
+"astra_masthead_top - Placement to add your content or snippet at  top of "
+"the <header> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:123
-msgid "astra_main_header_bar_top - Placement to add your content or snippet at top of the Main header."
+msgid ""
+"astra_main_header_bar_top - Placement to add your content or snippet at top "
+"of the Main header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:127
-msgid "astra_masthead_content - Placement to add your content or snippet in <header> tag."
+msgid ""
+"astra_masthead_content - Placement to add your content or snippet in "
+"<header> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:131
-msgid "astra_masthead_toggle_buttons_before - Placement to add your content or snippet before responsive menu toggle button."
+msgid ""
+"astra_masthead_toggle_buttons_before - Placement to add your content or "
+"snippet before responsive menu toggle button."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:135
-msgid "astra_masthead_toggle_buttons_after - Placement to add your content or snippet after responsive menu toggle button."
+msgid ""
+"astra_masthead_toggle_buttons_after - Placement to add your content or "
+"snippet after responsive menu toggle button."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:139
-msgid "astra_main_header_bar_bottom - Placement to add your content or snippet after at bottom of the Main header."
+msgid ""
+"astra_main_header_bar_bottom - Placement to add your content or snippet "
+"after at bottom of the Main header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:143
-msgid "astra_masthead_bottom - Placement to add your content or snippet at  bottom of the <header> tag."
+msgid ""
+"astra_masthead_bottom - Placement to add your content or snippet at  bottom "
+"of the <header> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:147
-msgid "astra_header_after - Placement to add your content or snippet after the closing <header> tag."
+msgid ""
+"astra_header_after - Placement to add your content or snippet after the "
+"closing <header> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:152
@@ -2629,164 +2613,241 @@ msgstr ""
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:716
 #: addons/sticky-header/classes/sections/class-astra-sticky-above-header-colors-bg-configs.php:397
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1474
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Content"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:156
-msgid "astra_content_before - Placement to add your content or snippet before main content."
+msgid ""
+"astra_content_before - Placement to add your content or snippet before main "
+"content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:160
-msgid "astra_content_top - Placement to add your content or snippet at top of main content."
+msgid ""
+"astra_content_top - Placement to add your content or snippet at top of main "
+"content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:164
-msgid "astra_primary_content_top - Placement to add your content or snippet at top of the primary content."
+msgid ""
+"astra_primary_content_top - Placement to add your content or snippet at top "
+"of the primary content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:168
-msgid "astra_content_loop - Placement to add your content or snippet at top of the primary content loop."
+msgid ""
+"astra_content_loop - Placement to add your content or snippet at top of the "
+"primary content loop."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:172
-msgid "astra_template_parts_content_none - Placement to add your content or snippet at top of the primary content."
+msgid ""
+"astra_template_parts_content_none - Placement to add your content or "
+"snippet at top of the primary content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:176
-msgid "astra_content_while_before - Placement to add your content or snippet before loop start."
+msgid ""
+"astra_content_while_before - Placement to add your content or snippet "
+"before loop start."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:180
-msgid "astra_template_parts_content_top - Placement to add your content or snippet at top of the primary template content."
+msgid ""
+"astra_template_parts_content_top - Placement to add your content or snippet "
+"at top of the primary template content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:184
-msgid "astra_template_parts_content - Placement to add your content or snippet at top of the primary template content."
+msgid ""
+"astra_template_parts_content - Placement to add your content or snippet at "
+"top of the primary template content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:188
-msgid "astra_entry_before - Placement to add your content or snippet before <article> tag."
+msgid ""
+"astra_entry_before - Placement to add your content or snippet before "
+"<article> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:192
-msgid "astra_entry_top - Placement to add your content or snippet at top of the <article> tag."
+msgid ""
+"astra_entry_top - Placement to add your content or snippet at top of the "
+"<article> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:196
-msgid "astra_single_header_before - Placement to add your content or snippet before single post header."
+msgid ""
+"astra_single_header_before - Placement to add your content or snippet "
+"before single post header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:200
-msgid "astra_single_header_top - Placement to add your content or snippet at top of the single post header."
+msgid ""
+"astra_single_header_top - Placement to add your content or snippet at top "
+"of the single post header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:204
-msgid "astra_single_post_banner_breadcrumb_before - Placement to add your content before post breadcrumb for singular post."
+msgid ""
+"astra_single_post_banner_breadcrumb_before - Placement to add your content "
+"before post breadcrumb for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:208
-msgid "astra_single_post_banner_breadcrumb_after - Placement to add your content after post breadcrumb for singular post."
+msgid ""
+"astra_single_post_banner_breadcrumb_after - Placement to add your content "
+"after post breadcrumb for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:212
-msgid "astra_single_post_banner_title_before - Placement to add your content before post title for singular post."
+msgid ""
+"astra_single_post_banner_title_before - Placement to add your content "
+"before post title for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:216
-msgid "astra_single_post_banner_title_after - Placement to add your content after post title for singular post."
+msgid ""
+"astra_single_post_banner_title_after - Placement to add your content after "
+"post title for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:220
-msgid "astra_single_post_banner_excerpt_before - Placement to add your content before post excerpt for singular post."
+msgid ""
+"astra_single_post_banner_excerpt_before - Placement to add your content "
+"before post excerpt for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:224
-msgid "astra_single_post_banner_excerpt_after - Placement to add your content after post excerpt for singular post."
+msgid ""
+"astra_single_post_banner_excerpt_after - Placement to add your content "
+"after post excerpt for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:228
-msgid "astra_single_post_banner_meta_before - Placement to add your content before post meta for singular post."
+msgid ""
+"astra_single_post_banner_meta_before - Placement to add your content before "
+"post meta for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:232
-msgid "astra_single_post_banner_meta_after - Placement to add your content before post meta for singular post."
+msgid ""
+"astra_single_post_banner_meta_after - Placement to add your content before "
+"post meta for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:236
-msgid "astra_blog_single_featured_image_before - Placement to add your content before post featured image for singular post."
+msgid ""
+"astra_blog_single_featured_image_before - Placement to add your content "
+"before post featured image for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:240
-msgid "astra_blog_single_featured_image_after - Placement to add your content after post featured image for singular post."
+msgid ""
+"astra_blog_single_featured_image_after - Placement to add your content "
+"after post featured image for singular post."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:244
-msgid "astra_blog_archive_title_before - Placement to add your content before archive title for post archive."
+msgid ""
+"astra_blog_archive_title_before - Placement to add your content before "
+"archive title for post archive."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:248
-msgid "astra_blog_archive_title_after - Placement to add your content after archive title for post archive."
+msgid ""
+"astra_blog_archive_title_after - Placement to add your content after "
+"archive title for post archive."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:252
-msgid "astra_blog_archive_breadcrumb_before - Placement to add your content before archive breadcrumb for post archive."
+msgid ""
+"astra_blog_archive_breadcrumb_before - Placement to add your content before "
+"archive breadcrumb for post archive."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:256
-msgid "astra_blog_archive_breadcrumb_after - Placement to add your content after archive breadcrumb for post archive."
+msgid ""
+"astra_blog_archive_breadcrumb_after - Placement to add your content after "
+"archive breadcrumb for post archive."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:260
-msgid "astra_blog_archive_description_before - Placement to add your content before archive description for post archive."
+msgid ""
+"astra_blog_archive_description_before - Placement to add your content "
+"before archive description for post archive."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:264
-msgid "astra_blog_archive_description_after - Placement to add your content after archive description for post archive."
+msgid ""
+"astra_blog_archive_description_after - Placement to add your content after "
+"archive description for post archive."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:268
-msgid "astra_single_header_bottom - Placement to add your content or snippet at bottom of the single post header."
+msgid ""
+"astra_single_header_bottom - Placement to add your content or snippet at "
+"bottom of the single post header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:272
-msgid "astra_single_header_after - Placement to add your content or snippet after single post header."
+msgid ""
+"astra_single_header_after - Placement to add your content or snippet after "
+"single post header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:276
-msgid "astra_entry_content_before - Placement to add your content or snippet before post content."
+msgid ""
+"astra_entry_content_before - Placement to add your content or snippet "
+"before post content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:280
-msgid "astra_entry_content_after - Placement to add your content or snippet after post content"
+msgid ""
+"astra_entry_content_after - Placement to add your content or snippet after "
+"post content"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:284
-msgid "astra_entry_bottom - Placement to add your content or snippet at bottom of the <article> tag."
+msgid ""
+"astra_entry_bottom - Placement to add your content or snippet at bottom of "
+"the <article> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:288
-msgid "astra_entry_after - Placement to add your content or snippet after closing <article> tag."
+msgid ""
+"astra_entry_after - Placement to add your content or snippet after closing "
+"<article> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:292
-msgid "astra_template_parts_content_bottom - Placement to add your content or snippet after closing <article> tag."
+msgid ""
+"astra_template_parts_content_bottom - Placement to add your content or "
+"snippet after closing <article> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:296
-msgid "astra_primary_content_bottom - Placement to add your content or snippet at bottom of the primary content."
+msgid ""
+"astra_primary_content_bottom - Placement to add your content or snippet at "
+"bottom of the primary content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:300
-msgid "astra_content_while_after - Placement to add your content or snippet after loop end."
+msgid ""
+"astra_content_while_after - Placement to add your content or snippet after "
+"loop end."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:304
-msgid "astra_content_bottom - Placement to add your content or snippet at bottom of the main content."
+msgid ""
+"astra_content_bottom - Placement to add your content or snippet at bottom "
+"of the main content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:308
-msgid "astra_content_after - Placement to add your content or snippet after main content."
+msgid ""
+"astra_content_after - Placement to add your content or snippet after main "
+"content."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:313
@@ -2794,47 +2855,69 @@ msgid "Comment"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:317
-msgid "astra_comments_before - Placement to add your content or snippet before opening of comment start."
+msgid ""
+"astra_comments_before - Placement to add your content or snippet before "
+"opening of comment start."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:321
-msgid "astra_comments_after - Placement to add your content or snippet after closing of comment wrapper."
+msgid ""
+"astra_comments_after - Placement to add your content or snippet after "
+"closing of comment wrapper."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:330
-msgid "astra_sidebars_before - Placement to add your content or snippet before opening of sidebar wrapper."
+msgid ""
+"astra_sidebars_before - Placement to add your content or snippet before "
+"opening of sidebar wrapper."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:334
-msgid "astra_sidebars_after - Placement to add your content or snippet after closing of sidebar wrapper."
+msgid ""
+"astra_sidebars_after - Placement to add your content or snippet after "
+"closing of sidebar wrapper."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:343
-msgid "astra_footer_before - Placement to add your content or snippet before the opening <footer> tag."
+msgid ""
+"astra_footer_before - Placement to add your content or snippet before the "
+"opening <footer> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:347
-msgid "astra_footer_content_top - Placement to add your content or snippet at top in the <footer> tag."
+msgid ""
+"astra_footer_content_top - Placement to add your content or snippet at top "
+"in the <footer> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:351
-msgid "astra_footer_inside_container_top - Placement to add your content or snippet at top of the footer container."
+msgid ""
+"astra_footer_inside_container_top - Placement to add your content or "
+"snippet at top of the footer container."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:355
-msgid "astra_footer_inside_container_bottom - Placement to add your content or snippet at bottom of the footer container."
+msgid ""
+"astra_footer_inside_container_bottom - Placement to add your content or "
+"snippet at bottom of the footer container."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:359
-msgid "astra_footer_content_bottom - Placement to add your content or snippet at bottom in the <footer> tag."
+msgid ""
+"astra_footer_content_bottom - Placement to add your content or snippet at "
+"bottom in the <footer> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:363
-msgid "astra_footer_after - Placement to add your content or snippet after the closing <footer> tag."
+msgid ""
+"astra_footer_after - Placement to add your content or snippet after the "
+"closing <footer> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:367
-msgid "astra_body_bottom - Placement to add your content or snippet at bottom of the <body> tag."
+msgid ""
+"astra_body_bottom - Placement to add your content or snippet at bottom of "
+"the <body> tag."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:371
@@ -3190,7 +3273,9 @@ msgid "Placement to add your content on WooCommerce checkout main header bar top
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:739
-msgid "Placement to add your content on WooCommerce checkout main header bar bottom."
+msgid ""
+"Placement to add your content on WooCommerce checkout main header bar "
+"bottom."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:743
@@ -3222,51 +3307,75 @@ msgid "Placement to add your content after WooCommerce account navigation."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:794
-msgid "astra_header_above_container_before - Placement to add your content or snippet at top of the Above header."
+msgid ""
+"astra_header_above_container_before - Placement to add your content or "
+"snippet at top of the Above header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:806
-msgid "astra_header_above_container_after - Placement to add your content or snippet at bottom of the Above header."
+msgid ""
+"astra_header_above_container_after - Placement to add your content or "
+"snippet at bottom of the Above header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:822
-msgid "astra_header_primary_container_before - Placement to add your content or snippet at top of the Primary header."
+msgid ""
+"astra_header_primary_container_before - Placement to add your content or "
+"snippet at top of the Primary header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:834
-msgid "astra_header_primary_container_after - Placement to add your content or snippet at bottom of the Primary header."
+msgid ""
+"astra_header_primary_container_after - Placement to add your content or "
+"snippet at bottom of the Primary header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:850
-msgid "astra_header_below_container_before - Placement to add your content or snippet at top of the Below header."
+msgid ""
+"astra_header_below_container_before - Placement to add your content or "
+"snippet at top of the Below header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:862
-msgid "astra_header_below_container_after - Placement to add your content or snippet at bottom of the Below header."
+msgid ""
+"astra_header_below_container_after - Placement to add your content or "
+"snippet at bottom of the Below header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:878
-msgid "astra_footer_above_container_before - Placement to add your content or snippet at top of the Above Footer."
+msgid ""
+"astra_footer_above_container_before - Placement to add your content or "
+"snippet at top of the Above Footer."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:890
-msgid "astra_footer_above_container_after - Placement to add your content or snippet at bottom of the Above Footer."
+msgid ""
+"astra_footer_above_container_after - Placement to add your content or "
+"snippet at bottom of the Above Footer."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:906
-msgid "astra_footer_primary_container_before - Placement to add your content or snippet at top of the Primary header."
+msgid ""
+"astra_footer_primary_container_before - Placement to add your content or "
+"snippet at top of the Primary header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:920
-msgid "astra_footer_primary_container_after - Placement to add your content or snippet at bottom of the Primary header."
+msgid ""
+"astra_footer_primary_container_after - Placement to add your content or "
+"snippet at bottom of the Primary header."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:936
-msgid "astra_footer_below_container_before - Placement to add your content or snippet at top of the Below Footer."
+msgid ""
+"astra_footer_below_container_before - Placement to add your content or "
+"snippet at top of the Below Footer."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:948
-msgid "astra_footer_below_container_after - Placement to add your content or snippet at bottom of the Below Footer."
+msgid ""
+"astra_footer_below_container_after - Placement to add your content or "
+"snippet at bottom of the Below Footer."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:959
@@ -3282,8 +3391,8 @@ msgstr ""
 msgid "Trigger your content or snippet on your custom action."
 msgstr ""
 
-#. translators: %s layout.
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1311
+#. translators: %s layout.
 msgid "Another %s Layout is selected for the same display rules."
 msgstr ""
 
@@ -3311,28 +3420,27 @@ msgid "Select"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1775
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "This option will be applicable only for the posts/pages created with the block editor."
+msgid ""
+"This option will be applicable only for the posts/pages created with the "
+"block editor."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1782
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Disable Primary Header"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1792
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Disable Footer Bar"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1802
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Location on post/page"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1802
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Layout will be inserted at a selected location on page/post in the block editor."
+msgid ""
+"Layout will be inserted at a selected location on page/post in the block "
+"editor."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1813
@@ -3348,7 +3456,9 @@ msgid "Block(s)"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1819
-msgid "Layout will be inserted after the selected number of blocks. Example - If you set it 3, the layout will be added after the first 3 blocks."
+msgid ""
+"Layout will be inserted after the selected number of blocks. Example - If "
+"you set it 3, the layout will be added after the first 3 blocks."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1824
@@ -3364,7 +3474,10 @@ msgid "Heading Block(s)"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1830
-msgid "Layout will be inserted before the selected number of Heading blocks. Example - If you set it 3, the layout will be added just before 3rd Heading block on page."
+msgid ""
+"Layout will be inserted before the selected number of Heading blocks. "
+"Example - If you set it 3, the layout will be added just before 3rd Heading "
+"block on page."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1838
@@ -3378,7 +3491,6 @@ msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1858
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1884
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Stick On"
 msgstr ""
 
@@ -3387,12 +3499,10 @@ msgid "Action"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1930
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Custom Hook Name"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1938
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Priority"
 msgstr ""
 
@@ -3402,12 +3512,13 @@ msgstr ""
 #: addons/spacing/classes/sections/class-astra-customizer-header-builder-menu-configs.php:185
 #: addons/spacing/classes/sections/class-astra-customizer-site-identity-spacing-configs.php:54
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:231
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Spacing"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1946
-msgid "Spacing can be given any positive number with or without units as &quot;5&quot; or &quot;5px&quot;. Default unit is &quot;px&quot;"
+msgid ""
+"Spacing can be given any positive number with or without units as "
+"&quot;5&quot; or &quot;5px&quot;. Default unit is &quot;px&quot;"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1951
@@ -3447,7 +3558,6 @@ msgid "Select Time Duration in which this Custom Layout should appear."
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2057
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Enable"
 msgstr ""
 
@@ -3465,7 +3575,6 @@ msgid "End Date/Time"
 msgstr ""
 
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:2071
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Timezone:"
 msgstr ""
 
@@ -3581,8 +3690,10 @@ msgstr ""
 msgid "minutes of reading"
 msgstr ""
 
-#. translators: %1$s: $read_time the time to read the article, %2%s: $singular_min_reading_text the singular minute reading time text, %3%s: $plural_mins_reading_text the plural minutes reading time text
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:705
+#. translators: %1$s: $read_time the time to read the article, %2%s:
+#. $singular_min_reading_text the singular minute reading time text, %3%s:
+#. $plural_mins_reading_text the plural minutes reading time text
 msgid "%1$s %2$s"
 msgid_plural "%1$s %3$s"
 msgstr[0] ""
@@ -3591,8 +3702,6 @@ msgstr[1] ""
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1176
 #: admin/core/class-astra-addon-admin-loader.php:468
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:246
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "All"
 msgstr ""
 
@@ -3618,7 +3727,9 @@ msgid "Highlight First Post"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:172
-msgid "This will not work if the number of columns is set to 1 or Masonry Layout is enabled."
+msgid ""
+"This will not work if the number of columns is set to 1 or Masonry Layout "
+"is enabled."
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:207
@@ -3757,7 +3868,6 @@ msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-configs.php:534
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:554
-#: addons/nav-menu/react/build/index.js:1
 msgid "Scroll"
 msgstr ""
 
@@ -3996,7 +4106,6 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:401
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:402
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:574
-#: addons/nav-menu/react/build/index.js:1
 msgid "Normal"
 msgstr ""
 
@@ -4124,7 +4233,6 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:417
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:599
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:123
-#: addons/nav-menu/react/build/index.js:1
 msgid "Hover"
 msgstr ""
 
@@ -4220,7 +4328,6 @@ msgstr ""
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:179
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:201
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1168
-#: addons/nav-menu/react/build/index.js:1
 msgid "Auto"
 msgstr ""
 
@@ -4237,7 +4344,9 @@ msgid "Apply Size"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php:161
-msgid "This custom size will be used for the title area and content before featured images."
+msgid ""
+"This custom size will be used for the title area and content before "
+"featured images."
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:86
@@ -4291,7 +4400,9 @@ msgid "Section Placement"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:230
-msgid "Decide whether to isolate or integrate the module with the entry content area."
+msgid ""
+"Decide whether to isolate or integrate the module with the entry content "
+"area."
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:232
@@ -4359,7 +4470,9 @@ msgid "Icon Position"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:530
-msgid "Left and Right Sticky Social Share options are for desktop use only to prevent floating UI issues on responsive devices."
+msgid ""
+"Left and Right Sticky Social Share options are for desktop use only to "
+"prevent floating UI issues on responsive devices."
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:534
@@ -4379,11 +4492,15 @@ msgid "Right Content"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:557
-msgid "Note: Explore social icons design settings by navigating to the Design tab within the parent Single Post section."
+msgid ""
+"Note: Explore social icons design settings by navigating to the Design tab "
+"within the parent Single Post section."
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:582
-msgid "These design choices are applicable to both the Author Box and post Social Sharing elements."
+msgid ""
+"These design choices are applicable to both the Author Box and post Social "
+"Sharing elements."
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:595
@@ -4469,7 +4586,9 @@ msgid "Background"
 msgstr ""
 
 #: addons/blog-pro/classes/sections/class-astra-customizer-blog-pro-single-configs.php:1301
-msgid "Note: Explore social icons additional design settings by navigating to the Design tab within the parent Single Post section."
+msgid ""
+"Note: Explore social icons additional design settings by navigating to the "
+"Design tab within the parent Single Post section."
 msgstr ""
 
 #: addons/blog-pro/template/author-info.php:36
@@ -4772,7 +4891,6 @@ msgstr ""
 #: addons/woocommerce/classes/sections/class-astra-addon-woocommerce-my-account-configs.php:55
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:62
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-cart-configs.php:47
-#: addons/nav-menu/react/build/index.js:1
 msgid "General"
 msgstr ""
 
@@ -4893,7 +5011,9 @@ msgid "Product Structure"
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:79
-msgid "The Image option cannot be sortable if the Product Style is selected to the List Style "
+msgid ""
+"The Image option cannot be sortable if the Product Style is selected to the "
+"List Style "
 msgstr ""
 
 #: addons/edd/classes/sections/class-astra-edd-shop-configs.php:83
@@ -5165,7 +5285,9 @@ msgstr ""
 
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:725
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:886
-msgid "You can merge menu with primary menu in mobile devices by enabling this option."
+msgid ""
+"You can merge menu with primary menu in mobile devices by enabling this "
+"option."
 msgstr ""
 
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:747
@@ -5405,7 +5527,9 @@ msgstr ""
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:50
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-below-header-configs.php:49
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-header-configs.php:50
-msgid "No Toggle style will no longer supported. We recommend you to choose different menu style."
+msgid ""
+"No Toggle style will no longer supported. We recommend you to choose "
+"different menu style."
 msgstr ""
 
 #: addons/mobile-header/classes/sections/class-astra-customizer-mobile-above-header-configs.php:57
@@ -5476,8 +5600,8 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
-#. translators: Astra Pro whitelabbeled string
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:148
+#. translators: Astra Pro whitelabbeled string
 msgid "%1$s Menu Settings"
 msgstr ""
 
@@ -5523,7 +5647,6 @@ msgstr ""
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:188
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:294
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:324
-#: addons/nav-menu/react/build/index.js:1
 msgid "Size"
 msgstr ""
 
@@ -5565,12 +5688,10 @@ msgid "Background Type"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1141
-#: addons/nav-menu/react/build/index.js:1
 msgid "No Repeat"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1142
-#: addons/nav-menu/react/build/index.js:1
 msgid "Repeat All"
 msgstr ""
 
@@ -5579,27 +5700,22 @@ msgid "Repeat Horizontally\t"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1144
-#: addons/nav-menu/react/build/index.js:1
 msgid "Repeat Vertically"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1169
-#: addons/nav-menu/react/build/index.js:1
 msgid "Cover"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1170
-#: addons/nav-menu/react/build/index.js:1
 msgid "Contain"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1194
-#: addons/nav-menu/react/build/index.js:1
 msgid "Left Top"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1195
-#: addons/nav-menu/react/build/index.js:1
 msgid "Left Center"
 msgstr ""
 
@@ -5608,32 +5724,26 @@ msgid "Left Bottom\t"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1197
-#: addons/nav-menu/react/build/index.js:1
 msgid "Right Top"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1198
-#: addons/nav-menu/react/build/index.js:1
 msgid "Right Center"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1199
-#: addons/nav-menu/react/build/index.js:1
 msgid "Right Bottom"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1200
-#: addons/nav-menu/react/build/index.js:1
 msgid "Center Top"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1201
-#: addons/nav-menu/react/build/index.js:1
 msgid "Center Center"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1202
-#: addons/nav-menu/react/build/index.js:1
 msgid "Center Bottom"
 msgstr ""
 
@@ -5685,9 +5795,9 @@ msgstr ""
 msgid "Bottom Right"
 msgstr ""
 
-#. translators: %s Index
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1478
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:86
+#. translators: %s Index
 msgid "Divider"
 msgstr ""
 
@@ -5770,8 +5880,6 @@ msgid "Close"
 msgstr ""
 
 #: addons/nav-menu/classes/class-astra-ext-nav-widget-support.php:283
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-#: admin/core/assets/build/dashboard-app.js:1
 msgid "Save"
 msgstr ""
 
@@ -5960,12 +6068,13 @@ msgid "Sticky Logo Width"
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:203
-#: addons/advanced-hooks/react/build/index.js:1
 msgid "Enable Shrink Effect"
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:206
-msgid "It will shrink the sticky header height, logo, and menu size. Sticky header will display in a compact size."
+msgid ""
+"It will shrink the sticky header height, logo, and menu size. Sticky header "
+"will display in a compact size."
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:217
@@ -6033,7 +6142,9 @@ msgid "Hover Color"
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:1740
-msgid "Note: You can find all the Sticky Header related design options in the individual Elements for Logo, Primary Menu, Button etc."
+msgid ""
+"Note: You can find all the Sticky Header related design options in the "
+"individual Elements for Logo, Primary Menu, Button etc."
 msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-sections-configs.php:49
@@ -6237,26 +6348,6 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:214
-msgctxt "Register Description"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:215
-msgctxt "Register Text"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:236
-msgctxt "Login Description Text"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:237
-msgctxt "Login Text"
-msgid "%astra%"
-msgstr ""
-
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:425
 msgid "Close Off-Canvas Sidebar"
 msgstr ""
@@ -6267,7 +6358,10 @@ msgid "Shop Filters"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:441
-msgid "This sidebar will show product filters on Shop page. Uncheck \"Disable Off Canvas\" option from `Customizer > Layout > Woocommerce > Shop` to enable this on Shop page."
+msgid ""
+"This sidebar will show product filters on Shop page. Uncheck \"Disable Off "
+"Canvas\" option from `Customizer > Layout > Woocommerce > Shop` to enable "
+"this on Shop page."
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:514
@@ -6294,67 +6388,8 @@ msgstr ""
 msgid "This user is already registered. Please enter the password to continue."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1182
-msgctxt "Extras Title (Free shipping on orders over $50!)"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1196
-msgctxt "Extras item 1"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1197
-msgctxt "Extras item 2"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1198
-msgctxt "Extras item 3"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1199
-msgctxt "Extras item 4"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1200
-msgctxt "Extras item 5"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1201
-msgctxt "Extras item 6"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1202
-msgctxt "Extras item 7"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1203
-msgctxt "Extras item 8"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1204
-msgctxt "Extras item 9"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1205
-msgctxt "Extras item 10"
-msgid "%astra%"
-msgstr ""
-
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1255
 msgid "Sale!"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2681
-msgid "1"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2681
@@ -6362,15 +6397,7 @@ msgid "Shopping Cart"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2692
-msgid "2"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2692
 msgid "Checkout details"
-msgstr ""
-
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2704
-msgid "3"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2704
@@ -6385,8 +6412,8 @@ msgstr ""
 msgid "Not exist"
 msgstr ""
 
-#. translators: %1$s: Link HTML start, %2$s Link HTML End
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2909
+#. translators: %1$s: Link HTML start, %2$s Link HTML End
 msgid "Already have an account? %1$1s Log in%2$2s"
 msgstr ""
 
@@ -6429,8 +6456,8 @@ msgstr ""
 msgid "Create account password"
 msgstr ""
 
-#. translators: %1$s: username, %2$s emailid
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3005
+#. translators: %1$s: username, %2$s emailid
 msgid " Welcome Back %1$s (%2$s)"
 msgstr ""
 
@@ -6467,7 +6494,6 @@ msgid "Enable Modern Layout"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-addon-woocommerce-my-account-configs.php:83
-#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Dashboard"
 msgstr ""
 
@@ -6645,7 +6671,9 @@ msgid "Persistent Checkout Form Data"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:839
-msgid "Retain the Checkout form fields even if the visitor accidentally reloads the checkout page."
+msgid ""
+"Retain the Checkout form fields even if the visitor accidentally reloads "
+"the checkout page."
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:851
@@ -6759,7 +6787,9 @@ msgid "Sale % Value"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:414
-msgid "Display custom value for sale badge notification. You can use [value] shortcode to display sale percentage."
+msgid ""
+"Display custom value for sale badge notification. You can use [value] "
+"shortcode to display sale percentage."
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-general-configs.php:440
@@ -6973,7 +7003,9 @@ msgid "Stick Add to Cart Button"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:1005
-msgid "If contents of the popup is larger then the button will stick at the end of the popup."
+msgid ""
+"If contents of the popup is larger then the button will stick at the end of "
+"the popup."
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-colors-configs.php:93
@@ -7143,7 +7175,9 @@ msgid "Redirect To Checkout Page"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-configs.php:865
-msgid "Please save and see changes in frontend.<br />[Slide in cart requires Cart added inside Header Builder]"
+msgid ""
+"Please save and see changes in frontend.<br />[Slide in cart requires Cart "
+"added inside Header Builder]"
 msgstr ""
 
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-single-typo-configs.php:48
@@ -7163,14 +7197,9 @@ msgstr ""
 msgid "Breadcrumb Font"
 msgstr ""
 
-#. translators: 1: Active user name.
 #: addons/woocommerce/templates/navigation.php:42
+#. translators: 1: Active user name.
 msgid "Hello %1$s"
-msgstr ""
-
-#: addons/woocommerce/templates/order-downloads.php:28
-msgctxt "Download Text"
-msgid "%astra%"
 msgstr ""
 
 #: addons/woocommerce/templates/order-downloads.php:38
@@ -7179,49 +7208,34 @@ msgstr ""
 msgid "Awaiting product image"
 msgstr ""
 
-#: addons/woocommerce/templates/order-downloads.php:50
-msgctxt "Download Remaining Text"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/templates/order-downloads.php:51
-msgctxt "Download Expire Text"
-msgid "%astra%"
-msgstr ""
-
-#: addons/woocommerce/templates/order-downloads.php:52
-msgctxt "Download Expire Alt Text"
-msgid "%astra%"
-msgstr ""
-
 #: addons/woocommerce/templates/order-downloads.php:67
 msgid "&infin;"
 msgstr ""
 
-#: addons/woocommerce/templates/orders.php:66
+#: addons/woocommerce/templates/orders.php:70
 msgid "Status - "
 msgstr ""
 
+#: addons/woocommerce/templates/orders.php:75
 #. translators: 1: formatted order total 2: total order items
-#: addons/woocommerce/templates/orders.php:71
 msgid "%1$s for %2$s item"
 msgid_plural "%1$s for %2$s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: addons/woocommerce/templates/orders.php:97
+#: addons/woocommerce/templates/orders.php:101
 msgid "Previous"
 msgstr ""
 
-#: addons/woocommerce/templates/orders.php:101
+#: addons/woocommerce/templates/orders.php:105
 msgid "Next"
 msgstr ""
 
-#: addons/woocommerce/templates/orders.php:108
+#: addons/woocommerce/templates/orders.php:112
 msgid "Browse products"
 msgstr ""
 
-#: addons/woocommerce/templates/orders.php:109
+#: addons/woocommerce/templates/orders.php:113
 msgid "No order has been made yet."
 msgstr ""
 
@@ -7239,23 +7253,20 @@ msgstr ""
 
 #: admin/astra-rollback/class-astra-rollback-version-manager.php:69
 #: admin/astra-rollback/class-astra-rollback-version-manager.php:70
-#: admin/core/assets/build/dashboard-app.js:1
 msgid "Rollback"
 msgstr ""
 
-#. translators: %s: whitelable name
 #: admin/astra-rollback/class-astra-rollback-version-manager.php:121
+#. translators: %s: whitelable name
 msgid "Rollback %s Version"
 msgstr ""
 
-#. translators: %s: whitelable name
 #: admin/astra-rollback/class-astra-rollback-version-manager.php:122
+#. translators: %s: whitelable name
 msgid "Are you sure you want to rollback %s to version #VERSION#?"
 msgstr ""
 
 #: admin/astra-rollback/class-astra-rollback-version-manager.php:124
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-#: admin/core/assets/build/dashboard-app.js:1
 msgid "Cancel"
 msgstr ""
 
@@ -7263,8 +7274,8 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#. translators: %s: whitelable name and version
 #: admin/astra-rollback/class-astra-rollback-version.php:114
+#. translators: %s: whitelable name and version
 msgid "Rollback %1$s to version %2$s"
 msgstr ""
 
@@ -7273,17 +7284,19 @@ msgstr ""
 msgid "Astra"
 msgstr ""
 
-#. translators: %s product name
 #: admin/bsf-analytics/class-bsf-analytics.php:216
-msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+#. translators: %s product name
+msgid ""
+"Want to help make <strong>%1s</strong> even more awesome? Allow us to "
+"collect non-sensitive diagnostic data and usage information. "
 msgstr ""
 
 #: admin/bsf-analytics/class-bsf-analytics.php:219
 msgid "This will be applicable for all sites from the network."
 msgstr ""
 
-#. translators: %s usage doc link
 #: admin/bsf-analytics/class-bsf-analytics.php:243
+#. translators: %s usage doc link
 msgid " Know More."
 msgstr ""
 
@@ -7299,8 +7312,8 @@ msgstr ""
 msgid "Usage Tracking"
 msgstr ""
 
-#. translators: %s Product title
 #: admin/bsf-analytics/class-bsf-analytics.php:410
+#. translators: %s Product title
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr ""
 
@@ -7321,12 +7334,10 @@ msgid "PRO"
 msgstr ""
 
 #: admin/core/class-astra-addon-admin-loader.php:408
-#: admin/core/assets/build/dashboard-app.js:1
 msgid "License activated"
 msgstr ""
 
 #: admin/core/class-astra-addon-admin-loader.php:408
-#: admin/core/assets/build/dashboard-app.js:1
 msgid "License not activated"
 msgstr ""
 
@@ -7350,18 +7361,15 @@ msgstr ""
 msgid "No post data found!"
 msgstr ""
 
-#. translators: %s - Astra theme install URL.
 #: astra-addon.php:37
-msgid "Astra Pro requires <strong> Astra </strong> to be your active theme. <a href=\"%s\">Install and activate now.</a>"
+#. translators: %s - Astra theme install URL.
+msgid ""
+"Astra Pro requires <strong> Astra </strong> to be your active theme. <a "
+"href=\"%s\">Install and activate now.</a>"
 msgstr ""
 
 #: class-brainstorm-update-astra-addon.php:237
 msgid "Get the license »"
-msgstr ""
-
-#: classes/astra-common-functions.php:472
-msgctxt "label"
-msgid "Search for:"
 msgstr ""
 
 #: classes/builder/type/base/configurations/class-astra-addon-button-component-configs.php:62
@@ -7380,14 +7388,15 @@ msgstr ""
 msgid "Extra Large"
 msgstr ""
 
-#. translators: %s Index
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:86
 msgid "Divider %s"
 msgstr ""
 
-#. translators: %1$s builder type param
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:126
-msgid "If the Divider don't seem to be visible please check if elements are added in the current %1$s row."
+#. translators: %1$s builder type param
+msgid ""
+"If the Divider don't seem to be visible please check if elements are added "
+"in the current %1$s row."
 msgstr ""
 
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:167
@@ -7406,8 +7415,7 @@ msgstr ""
 #: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:85
 #: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:122
 #: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:156
-#: classes/class-astra-builder.php:92
-#: classes/class-astra-builder.php:147
+#: classes/class-astra-builder.php:92 classes/class-astra-builder.php:147
 #: classes/class-astra-builder.php:187
 msgid "Language Switcher"
 msgstr ""
@@ -7491,7 +7499,6 @@ msgid "Click Action"
 msgstr ""
 
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:315
-#: addons/nav-menu/react/build/index.js:1
 msgid "Select Icon"
 msgstr ""
 
@@ -7500,15 +7507,21 @@ msgid "Select Account"
 msgstr ""
 
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:381
-msgid "<b>Note:</b> For responsive devices, the menu will be replaced with the WooCommerce \"My Account\" link."
+msgid ""
+"<b>Note:</b> For responsive devices, the menu will be replaced with the "
+"WooCommerce \"My Account\" link."
 msgstr ""
 
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:383
-msgid "<b>Note:</b> For responsive devices, the menu will be replaced with the LifterLMS \"My Account\" link."
+msgid ""
+"<b>Note:</b> For responsive devices, the menu will be replaced with the "
+"LifterLMS \"My Account\" link."
 msgstr ""
 
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:385
-msgid "<b>Note:</b> For responsive devices, the menu will be replaced with the Link provided in the Link Tab."
+msgid ""
+"<b>Note:</b> For responsive devices, the menu will be replaced with the "
+"Link provided in the Link Tab."
 msgstr ""
 
 #: classes/builder/type/header/account/classes/class-astra-addon-header-account-markup.php:77
@@ -7527,8 +7540,7 @@ msgstr ""
 msgid "Off-Canvas Menu"
 msgstr ""
 
-#: classes/class-astra-ext-model.php:154
-#: classes/class-astra-ext-model.php:186
+#: classes/class-astra-ext-model.php:154 classes/class-astra-ext-model.php:186
 msgid "Untitled"
 msgstr ""
 
@@ -7536,8 +7548,8 @@ msgstr ""
 msgid "Edit Shortcode Layouts"
 msgstr ""
 
-#. translators: 1: file location
 #: classes/class-astra-templates.php:30
+#. translators: 1: file location
 msgid "%s does not exist."
 msgstr ""
 
@@ -7546,72 +7558,90 @@ msgid "View Astra Pro settings"
 msgstr ""
 
 #: classes/class-astra-theme-extension.php:265
-#: classes/class-astra-theme-extension.php:828
-#: classes/class-astra-theme-extension.php:835
-#: classes/class-astra-theme-extension.php:844
-#: classes/class-astra-theme-extension.php:854
+#: classes/class-astra-theme-extension.php:832
+#: classes/class-astra-theme-extension.php:839
+#: classes/class-astra-theme-extension.php:848
+#: classes/class-astra-theme-extension.php:858
 msgid "Settings"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:559
-msgid "Looking for a theme? You can search or browse the WordPress.org theme directory, install and preview themes, then activate them right here."
+#: classes/class-astra-theme-extension.php:563
+msgid ""
+"Looking for a theme? You can search or browse the WordPress.org theme "
+"directory, install and preview themes, then activate them right here."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:560
-msgid "While previewing a new theme, you can continue to tailor things like widgets and menus, and explore theme-specific options."
+#: classes/class-astra-theme-extension.php:564
+msgid ""
+"While previewing a new theme, you can continue to tailor things like "
+"widgets and menus, and explore theme-specific options."
 msgstr ""
 
-#. translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the Astra Theme
-#: classes/class-astra-theme-extension.php:625
-msgid "Please update %1$1s Theme to version %2$2s or higher. Ignore if already updated."
+#: classes/class-astra-theme-extension.php:629
+#. translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the Astra
+#. Theme
+msgid ""
+"Please update %1$1s Theme to version %2$2s or higher. Ignore if already "
+"updated."
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:765
-#: classes/class-astra-theme-extension.php:772
-#: classes/class-astra-theme-extension.php:779
-#: classes/class-astra-theme-extension.php:786
-#: classes/class-astra-theme-extension.php:793
-#: classes/class-astra-theme-extension.php:800
-#: classes/class-astra-theme-extension.php:807
-#: classes/class-astra-theme-extension.php:814
-#: classes/class-astra-theme-extension.php:821
-#: classes/class-astra-theme-extension.php:864
-#: classes/class-astra-theme-extension.php:873
-#: classes/class-astra-theme-extension.php:882
-#: classes/class-astra-theme-extension.php:891
+#: classes/class-astra-theme-extension.php:769
+#: classes/class-astra-theme-extension.php:776
+#: classes/class-astra-theme-extension.php:783
+#: classes/class-astra-theme-extension.php:790
+#: classes/class-astra-theme-extension.php:797
+#: classes/class-astra-theme-extension.php:804
+#: classes/class-astra-theme-extension.php:811
+#: classes/class-astra-theme-extension.php:818
+#: classes/class-astra-theme-extension.php:825
+#: classes/class-astra-theme-extension.php:868
+#: classes/class-astra-theme-extension.php:877
+#: classes/class-astra-theme-extension.php:886
+#: classes/class-astra-theme-extension.php:895
+#. translators: %1$s: Theme Name, %2$s: Plugin Name, %3$s: Supported required
+#. version of the addon
 msgid "Customize"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:765
-#: classes/class-astra-theme-extension.php:772
-#: classes/class-astra-theme-extension.php:779
-#: classes/class-astra-theme-extension.php:786
-#: classes/class-astra-theme-extension.php:793
-#: classes/class-astra-theme-extension.php:800
-#: classes/class-astra-theme-extension.php:807
-#: classes/class-astra-theme-extension.php:814
-#: classes/class-astra-theme-extension.php:821
-#: classes/class-astra-theme-extension.php:864
-#: classes/class-astra-theme-extension.php:873
-#: classes/class-astra-theme-extension.php:882
-#: classes/class-astra-theme-extension.php:891
+#: classes/class-astra-theme-extension.php:769
+#: classes/class-astra-theme-extension.php:776
+#: classes/class-astra-theme-extension.php:783
+#: classes/class-astra-theme-extension.php:790
+#: classes/class-astra-theme-extension.php:797
+#: classes/class-astra-theme-extension.php:804
+#: classes/class-astra-theme-extension.php:811
+#: classes/class-astra-theme-extension.php:818
+#: classes/class-astra-theme-extension.php:825
+#: classes/class-astra-theme-extension.php:868
+#: classes/class-astra-theme-extension.php:877
+#: classes/class-astra-theme-extension.php:886
+#: classes/class-astra-theme-extension.php:895
 msgid " | Customize"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:828
-#: classes/class-astra-theme-extension.php:835
-#: classes/class-astra-theme-extension.php:844
-#: classes/class-astra-theme-extension.php:854
+#: classes/class-astra-theme-extension.php:832
+#: classes/class-astra-theme-extension.php:839
+#: classes/class-astra-theme-extension.php:848
+#: classes/class-astra-theme-extension.php:858
 msgid " | Settings"
 msgstr ""
 
-#: classes/class-astra-theme-extension.php:919
+#: classes/class-astra-theme-extension.php:923
 msgid "Stylish, Lightning Fast & Easily Customizable!"
 msgstr ""
 
-#. translators: %s is the page title
 #: classes/compatibility/class-astra-addon-brizy-compatibility.php:143
+#. translators: %s is the page title
 msgid "Edit %1$s with %2$s"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Astra Pro"
+msgstr ""
+
+#: classes/library/batch-processing/wp-background-process.php:410
+#. translators: %d Time interval
+msgid "Every %d Minutes"
 msgstr ""
 
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:133
@@ -7737,486 +7767,163 @@ msgstr ""
 msgid "Add Rule"
 msgstr ""
 
-#. translators: %s post label
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:906
+#. translators: %s post label
 msgid "All %s"
 msgstr ""
 
-#. translators: %s post label
-#. translators: %s taxonomy label
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:912
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:922
+#. translators: %s post label
+#. translators: %s taxonomy label
 msgid "All %s Archive"
 msgstr ""
 
-#. translators: %s post title.
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:1794
+#. translators: %s post title.
 msgid "The same display setting is already exist in %s post/s."
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Click To Pick Date"
+#. Plugin URI of the plugin/theme
+msgid "https://wpastra.com/"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Return To Post"
+#. Description of the plugin/theme
+msgid ""
+"This plugin is an add-on for the Astra WordPress Theme. It offers premium "
+"features & functionalities that enhance your theming experience at next "
+"level."
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Make sure to update your post for changes to take effect."
+#. Author of the plugin/theme
+msgid "Brainstorm Force"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Display and User Conditions"
+#. Author URI of the plugin/theme
+msgid "https://www.brainstormforce.com"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Display for Users"
+#: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:174
+msgctxt "advanced-header general name"
+msgid "Page Headers"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Dynamic Content Preview"
+#: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:175
+msgctxt "advanced-header singular name"
+msgid "Page Header"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Apply & Reload"
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:464
+msgctxt "advanced-hooks general name"
+msgid "Site Builder"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Click To Select Date"
+#: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:465
+msgctxt "advanced-hooks singular name"
+msgid "Site Builder Layout"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Inside Post/Page"
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:799
+msgctxt "Blogs: Read More Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Choose Site Builder Layout Type"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:214
+msgctxt "Register Description"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Please select the type of your Site Builder Layout, you can modify this later."
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:215
+msgctxt "Register Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Select Template"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:236
+msgctxt "Login Description Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Single"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:237
+msgctxt "Login Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Archive"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1182
+msgctxt "Extras Title (Free shipping on orders over $50!)"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Template Type"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1196
+msgctxt "Extras item 1"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Spacing can be given any positive number with or without units as \"5\" or \"5px\". Default unit is \"px\""
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1197
+msgctxt "Extras item 2"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Sticky Settings"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1198
+msgctxt "Extras item 3"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Enable Sticky Header"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1199
+msgctxt "Extras item 4"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Enable Sticky Footer"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1200
+msgctxt "Extras item 5"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "404 Page Display Settings"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1201
+msgctxt "Extras item 6"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Location Settings"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1202
+msgctxt "Extras item 7"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Add layout after block(s)"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1203
+msgctxt "Extras item 8"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Add content before Heading Block(s)"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1204
+msgctxt "Extras item 9"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Device Visibility"
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:1205
+msgctxt "Extras item 10"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Visible On"
+#: addons/woocommerce/templates/order-downloads.php:28
+msgctxt "Download Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Select device for where this custom layout should appear"
+#: addons/woocommerce/templates/order-downloads.php:50
+msgctxt "Download Remaining Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Date & Time Conditions"
+#: addons/woocommerce/templates/order-downloads.php:51
+msgctxt "Download Expire Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Time Event"
+#: addons/woocommerce/templates/order-downloads.php:52
+msgctxt "Download Expire Alt Text"
+msgid "%astra%"
 msgstr ""
 
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Start Date/Time:"
-msgstr ""
-
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "End Date/Time:"
-msgstr ""
-
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "The selected end date occurs before your start date. Choose the end date and time which is later than the start date and time."
-msgstr ""
-
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Spectra – Gutenberg Blocks"
-msgstr ""
-
-#: addons/advanced-hooks/react/build/index.js:1
-msgid "Spectra – WordPress Gutenberg Blocks plugin can help you take full advantage of Custom Layouts."
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Create New"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Single Template"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Archive Template"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Switch to Table View"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Website Parts"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Help"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Start customizing every part of your website."
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Create Layout"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "(untitled)"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Preview"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Copied"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Copy Shortcode"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Display Conditions"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "No Layouts Found"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Move to Trash"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Are you sure you want to move this item to Trash?"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "404 Not Found!"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Saving"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Please make sure to save any changes made to take effect."
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Install Now"
-msgstr ""
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Dismiss"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Astra Menu Options"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Editing"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Gradient"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Reset"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Select Background Image"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Replace image"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Left Bottom"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Attachment"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Fixed"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Repeat"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Repeat Horizontally"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Insert Widget"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Add Widget"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Replace Image"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Choose Image"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Open In Customizer"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Design"
-msgstr ""
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Close Mega Menu"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Rollback to Previous Version"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Experiencing an issue with current versions of software? Roll back to a previous version to help troubleshoot the issue."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Successfully saved!"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Close "
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Enable Beta"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Enable this option to receive update notifications for beta versions. Please read "
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "this article"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid " to know more."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Deactivate"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Activate"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Your license is active."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Paste your license key here"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "You are using"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Your License"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Activate "
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid " addon to get professional support and automatic updates from your WordPress dashboard."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Need more license?"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Need Help?"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "File Generation"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid " to learn the difference between generating CSS and JS inline and in a separate file."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Asset Regeneration"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Regenerate Assets"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Facing issues with style, layout, color or another page element? Use this option to regenerate CSS and Javascript assets. It can help with all kinds of asset issues."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Enable White Label"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "White Label removes any links to Astra website and change the identity in the dashboard. This setting is mostly used by agencies and developers who are building websites for clients."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Agency Details"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Agency author name"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Agency author URL"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Agency license link"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Get license link will be displayed in the license form when the purchase key is expired/not valid."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Astra Theme Branding"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Theme Name"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Theme Description"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Theme Screenshot URL"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "The recommended image size is 1200px wide by 900px tall."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Theme Icon URL"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "The recommended icon should have some background to get adjust properly on white background too."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Astra Pro Branding"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Plugin Name"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Plugin Description"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Starter Templates Branding"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Version Control"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "White Label"
+#: classes/astra-common-functions.php:527
+msgctxt "label"
+msgid "Search for:"
 msgstr ""

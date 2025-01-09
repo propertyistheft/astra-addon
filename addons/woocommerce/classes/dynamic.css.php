@@ -2068,7 +2068,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 						left: 10px;
 						height: 1.8em;
 						width: 1.8em;
-						background-color: var( --ast-global-color-5 );
+						background-color: var( --ast-global-color-primary, --ast-global-color-5 );
 						border-radius: 100%;
 						opacity: 0;
 						transition: .3s;
@@ -2113,7 +2113,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 						right: 10px;
 						height: 1.8em;
 						width: 1.8em;
-						background-color: var( --ast-global-color-5 );
+						background-color: var( --ast-global-color-primary, --ast-global-color-5 );
 						border-radius: 100%;
 						opacity: 0;
 						transition: .3s;
@@ -2182,7 +2182,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 						top: 50%;
 						transform: translateY(-50%);
 						color: transparent;
-						background-color: var(--ast-global-color-5);
+						background-color: var(--ast-global-color-primary, --ast-global-color-5);
 						border-radius: 100%;
 						font-size: 0;
 						box-shadow: 0 0 5px 0px rgb(0 0 0 / 30%);
@@ -2283,7 +2283,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 						top: 50%;
 						transform: translateY(-50%);
 						color: transparent;
-						background-color: var(--ast-global-color-5);
+						background-color: var(--ast-global-color-primary, --ast-global-color-5);
 						border-radius: 100%;
 						font-size: 0;
 						box-shadow: 0 0 5px 0px rgb(0 0 0 / 30%);
@@ -2371,7 +2371,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 						height: 30px;
 						padding: 0;
 						color: transparent;
-						background-color: var(--ast-global-color-5);
+						background-color: var(--ast-global-color-primary, --ast-global-color-5);
 						border-radius: 100%;
 						font-size: 0;
 						box-shadow: 0 0 5px 0px rgb(0 0 0 / 30%);
@@ -2457,7 +2457,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 						height: 30px;
 						padding: 0;
 						color: transparent;
-						background-color: var(--ast-global-color-5);
+						background-color: var(--ast-global-color-primary, --ast-global-color-5);
 						border-radius: 100%;
 						font-size: 0;
 						box-shadow: 0 0 5px 0px rgb(0 0 0 / 30%);
@@ -2900,7 +2900,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	$order_summary_bg_color = astra_get_option( 'order-summary-background-color' );
 	$font_style_updates     = Astra_Addon_Update_Filter_Function::astra_update_default_font_styling_addon();
-	
+
 	if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) ) {
 		if ( class_exists( 'WooCommerce_Germanized' ) ) {
 			$germanized_checkout_css = array(
@@ -3335,7 +3335,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			display: flex;
 			align-items: center;
 			min-width: 240px;
-			background-color: var( --ast-global-color-5 );
+			background-color: var( --ast-global-color-primary, --ast-global-color-5 );
 			box-shadow: 0 0px 3px ' . $woo_np_box_shadow_color . ';
 		}
 
@@ -3736,7 +3736,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				.woocommerce input[type="checkbox"]:checked::before {
 					content: "\2713";
 					background: var( --ast-global-color-0 );
-					color: var( --ast-global-color-5 );
+					color: var( --ast-global-color-primary, --ast-global-color-5 );
 					display: block;
 					text-align: center;
 					padding-top: 1px;
@@ -3827,7 +3827,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					.woocommerce-MyAccount-navigation ul {
 						list-style: none;
 						padding: 0;
-						background: var(--ast-global-color-5);
+						background: var(--ast-global-color-primary, --ast-global-color-5);
 					}
 					.woocommerce-MyAccount-navigation-link span.ahfb-svg-iconset {
 						vertical-align: middle;
@@ -3984,7 +3984,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 						grid-template-columns: repeat( 1, 1fr );
 					}
 					.ast-orders-table__row {
-						background: var(--ast-global-color-5);
+						background: var(--ast-global-color-primary, --ast-global-color-5);
 						padding: 20px;
 						border: 1px solid var(--ast-border-color);
 						border-radius: 4px;

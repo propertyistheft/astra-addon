@@ -106,47 +106,69 @@ function onColorReady() {
 		});
 	}
 
-	function renderSavedWidgets(menu_item_id) {
-		const container = $(".astra-mm-options-wrap");
+	function renderSavedWidgets( menu_item_id ) {
+		const container = $( '.astra-mm-options-wrap' );
 
 		// Abort any ongoing request before starting a new one.
 		if ( abortController.current ) {
 			abortController.current?.abort();
 		}
-	
+
 		// Create a new AbortController for this request.
 		abortController.current = new AbortController();
 
 		const data = {
-			action: "ast_render_widgets",
+			action: 'ast_render_widgets',
 			menu_item_id: menu_item_id,
 			security_nonce: AstraBuilderMegaMenu.nonceWidget,
-			signal: abortController.current?.signal,
 		};
 
-		$.post(ajaxurl, data, function (response) {
-			var widget_html = response.data.html;
-			var has_widgets = response.data.has_widgets;
+		// Convert data to URL-encoded format
+		const params = new URLSearchParams( data ).toString();
 
-			if (has_widgets) {
-				$(".ast-widget-list").show();
-			}
-
-			container.find(".ast-widget-list").html(DOMPurify.sanitize(widget_html));
-
-			$("#ast-widget-sortable").sortable({
-				change: function (event, ui) {
-					$("#mega-menu-submit").removeClass('ast-disabled');
+		// Using fetch instead of $.post() to make use of the AbortController.
+		fetch( ajaxurl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			body: params,
+			signal: abortController.current?.signal,
+		} )
+			.then( ( response ) => {
+				if ( ! response.ok ) {
+					throw new Error( 'Network response was not ok!' );
 				}
-			});
+				return response.json();
+			} )
+			.then( ( response ) => {
+				const widgetHTML = response.data.html;
+				const hasWidgets = response.data.has_widgets;
 
-			$("#ast-widget-sortable").disableSelection();
+				if ( hasWidgets ) {
+					$( '.ast-widget-list' ).show();
+				}
 
-			$(".widget-action").off();
+				container.find( '.ast-widget-list' ).html( DOMPurify.sanitize( widgetHTML ) );
 
-			$(".widget-action").on("click", editWidget);
+				$( '#ast-widget-sortable' ).sortable( {
+					change: function ( event, ui ) {
+						$( '#mega-menu-submit' ).removeClass( 'ast-disabled' );
+					},
+				} );
 
-		});
+				$( '#ast-widget-sortable' ).disableSelection();
+
+				$( '.widget-action' ).off();
+
+				$( '.widget-action' ).on( 'click', editWidget );
+			} )
+			.catch( ( error ) => {
+				if ( error.name === 'AbortError' ) {
+					return;
+				}
+				console.error( 'Fetch error: ', error );
+			} );
 	}
 
 	function editWidget() {

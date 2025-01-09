@@ -569,7 +569,7 @@ function astra_ext_below_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
  * @return boolean false if it is an existing user, true if not.
  */
 function astra_addon_swap_mobile_below_header_sections() {
-	$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings                                        = astra_get_options();
 	$astra_settings['support-swap-mobile-header-sections'] = isset( $astra_settings['support-swap-mobile-header-sections'] ) ? false : true;
 	return apply_filters( 'astra_apply_swap_mobile_header_sections_css', $astra_settings['support-swap-mobile-header-sections'] );
 }

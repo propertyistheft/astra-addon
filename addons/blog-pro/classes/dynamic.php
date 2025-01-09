@@ -75,7 +75,7 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 			'border-radius' => '4px',
 		);
 		$css_output['.ast-separate-container.single .post-navigation a'] = array(
-			'background-color' => 'var(--ast-global-color-5)',
+			'background-color' => 'var(--ast-global-color-primary, --ast-global-color-5)',
 		);
 		$css_output['.single .post-navigation a:hover']                  = array(
 			'color'        => esc_attr( astra_get_option( 'theme-color' ) ),

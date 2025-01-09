@@ -44,6 +44,10 @@ if ( ! class_exists( 'Astra_Addon_Customizer' ) ) :
 		 * @since 1.4.0
 		 */
 		public function __construct() {
+			// Bail early if it is not astra customizer.
+			if ( is_callable( 'Astra_Customizer::is_astra_customizer()' ) && ! Astra_Customizer::is_astra_customizer() ) {
+				return;
+			}
 
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_scripts' ) );

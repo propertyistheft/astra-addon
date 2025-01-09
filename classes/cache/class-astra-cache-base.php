@@ -184,7 +184,8 @@ class Astra_Cache_Base {
 				$title = 'chats';
 			}
 		} elseif ( is_post_type_archive() ) {
-			$title = 'archives';
+			// Allowing paths for custom post type archives.
+			$title = get_query_var( 'post_type' ) . '-archives';
 		} elseif ( is_tax() ) {
 			$queried_object = get_queried_object();
 			if ( $queried_object && is_a( $queried_object, 'WP_Term' ) ) {
@@ -458,7 +459,6 @@ class Astra_Cache_Base {
 	 * @return array
 	 */
 	public function get_asset_info( $type ) {
-		$css_suffix = 'astra-' . $type . '-dynamic-css';
 		$css_suffix = 'astra-' . $type . '-dynamic-css';
 		$info       = array();
 

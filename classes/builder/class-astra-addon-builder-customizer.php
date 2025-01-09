@@ -154,6 +154,10 @@ final class Astra_Addon_Builder_Customizer {
 	 * @since 3.0.0
 	 */
 	public function enqueue_customizer_preview_scripts() {
+		// Bail early if it is not astra customizer.
+		if ( is_callable( [ 'Astra_Customizer', 'is_astra_customizer' ] ) && ! Astra_Customizer::is_astra_customizer() ) {
+			return;
+		}
 
 		// Base Dynamic CSS.
 		wp_enqueue_script(
