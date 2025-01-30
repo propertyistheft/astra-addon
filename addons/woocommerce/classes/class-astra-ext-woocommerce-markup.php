@@ -211,8 +211,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function add_registration_link_text() {
-			$my_account_register_description_text = astra_get_i18n_option( 'my-account-register-description-text', _x( '%astra%', 'Register Description', 'astra-addon' ) );
-			$my_account_register_text             = astra_get_i18n_option( 'my-account-register-text', _x( '%astra%', 'Register Text', 'astra-addon' ) );
+			$my_account_register_description_text = astra_get_i18n_option( 'my-account-register-description-text', _x( '%astra%', 'WooCommerce My Account: Register Description', 'astra-addon' ) );
+			$my_account_register_text             = astra_get_i18n_option( 'my-account-register-text', _x( '%astra%', 'WooCommerce My Account: Register Text', 'astra-addon' ) );
 
 			printf(
 				'<p class="ast-woo-form-actions">
@@ -233,8 +233,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function add_member_login_link_text() {
-			$my_account_login_description_text = astra_get_i18n_option( 'my-account-login-description-text', _x( '%astra%', 'Login Description Text', 'astra-addon' ) );
-			$my_account_login_text             = astra_get_i18n_option( 'my-account-login-text', _x( '%astra%', 'Login Text', 'astra-addon' ) );
+			$my_account_login_description_text = astra_get_i18n_option( 'my-account-login-description-text', _x( '%astra%', 'WooCommerce My Account: Login Description Text', 'astra-addon' ) );
+			$my_account_login_text             = astra_get_i18n_option( 'my-account-login-text', _x( '%astra%', 'WooCommerce My Account: Login Text', 'astra-addon' ) );
 
 			printf(
 				'<p class="ast-woo-form-actions">
@@ -648,7 +648,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			global $wp_query;
 
 			$infinite_event = astra_get_option( 'shop-infinite-scroll-event' );
-			$load_more_text = astra_get_option( 'shop-load-more-text' );
+			$load_more_text = astra_get_i18n_option( 'shop-load-more-text', _x( '%astra%', 'WooCommerce Product Catalog: Shop Load More Text', 'astra-addon' ) );
 
 			if ( '' === $load_more_text ) {
 				$load_more_text = __( 'Load More', 'astra-addon' );
@@ -1083,7 +1083,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			$icon_class      = apply_filters( 'astra_woo_off_canvas_trigger_icon', 'astra-woo-filter-icon' );
 			$filter_text     = '';
-			$trigger_link    = astra_get_option( 'shop-filter-trigger-link' );
+			$trigger_link    = astra_get_i18n_option( 'shop-filter-trigger-link', _x( '%astra%', 'WooCommerce Product Catalog: Shop Filter Button Text', 'astra-addon' ) );
 			$filter_position = astra_get_option( 'shop-filter-position' );
 			$class_attribute = '';
 
@@ -1179,7 +1179,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			?>
 				<div class="ast-single-product-extras">
 					<?php
-					$extras_text = astra_get_i18n_option( 'single-product-extras-text', _x( '%astra%', 'Extras Title (Free shipping on orders over $50!)', 'astra-addon' ) );
+					$extras_text = astra_get_i18n_option( 'single-product-extras-text', _x( '%astra%', 'WooCommerce Single Product: Extras Title (Free shipping on orders over $50!)', 'astra-addon' ) );
 
 					if ( $extras_text ) {
 						?>
@@ -2721,7 +2721,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		public function back_to_cart_button_on_checkout() {
 			if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) && astra_get_option( 'checkout-back-to-cart-button' ) ) {
 
-				$back_to_cart_text = astra_get_option( 'checkout-back-to-cart-button-text' );
+				$back_to_cart_text = astra_get_i18n_option( 'checkout-back-to-cart-button-text', _x( '%astra%', 'WooCommerce Checkout: Back to Cart Text (« Back to Cart)', 'astra-addon' ) );
 
 				ob_start();
 				?>
@@ -2899,7 +2899,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 					<div class="ast-customer-info__notice woocommerce-error"></div>
 					<div class="woocommerce-billing-fields-custom">
 					<?php
-						$customer_information_text = astra_get_option( 'checkout-customer-information-text' );
+						$customer_information_text = astra_get_i18n_option( 'checkout-customer-information-text', _x( '%astra%', 'WooCommerce Checkout: Customer information Text', 'astra-addon' ) );
 					?>
 						<div class="ast-checkout-form-heading">
 							<h3>
@@ -3035,7 +3035,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 				}
 
-				$is_custom_text = astra_get_option( 'checkout-place-order-text' );
+				$is_custom_text = astra_get_i18n_option( 'checkout-place-order-text', _x( '%astra%', 'WooCommerce Checkout: Button Text (Place Order)', 'astra-addon' ) );
 
 				if ( $is_custom_text && ! empty( $is_custom_text ) ) {
 					$button_text = $is_custom_text;
@@ -3054,7 +3054,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @return void
 		 */
 		public function display_custom_payment_heading() {
-			$payment_text = astra_get_option( 'checkout-payment-text' );
+			$payment_text = astra_get_i18n_option( 'checkout-payment-text', _x( '%astra%', 'WooCommerce Checkout: Payment Text', 'astra-addon' ) );
 			ob_start();
 			?>
 			<div class="ast-payment-option-heading">
@@ -3482,21 +3482,20 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function woocommerce_modern_coupon_cart() {
 			if ( wc_coupons_enabled() ) {
-
-				$coupon_text       = astra_get_option( 'woo-coupon-text' );
-				$coupon_input_text = astra_get_option( 'woo-coupon-input-text' );
-				$coupon_apply_text = astra_get_option( 'woo-coupon-apply-text' );
+				$coupon_text       = astra_get_i18n_option( 'woo-coupon-text', _x( '%astra%', 'WooCommerce Misc: Coupon Text', 'astra-addon' ) );
+				$coupon_input_text = astra_get_i18n_option( 'woo-coupon-input-text', _x( '%astra%', 'WooCommerce Misc: Coupon Input Text', 'astra-addon' ) );
+				$coupon_apply_text = astra_get_i18n_option( 'woo-coupon-apply-text', _x( '%astra%', 'WooCommerce Misc: Coupon Apply Text', 'astra-addon' ) );
 				?>
-			<div id="ast-checkout-coupon">
-				<p id="ast-coupon-trigger" tabindex="0" ><?php echo esc_html( $coupon_text ); ?></p>
-				<div class="coupon">
-				<label class="ast-coupon-label" for="ast-coupon-code" ><?php esc_html_e( 'coupon:', 'astra-addon' ); ?></label>
-					<input type="text" name="ast-coupon-code" id="ast-coupon-code" tabindex="0" value="" placeholder="<?php echo esc_attr( $coupon_input_text ); ?>" />
-					<a class="button" id="ast-apply-coupon" tabindex="0" name="ast-apply-coupon" value="<?php echo esc_attr( $coupon_apply_text ); ?>">
-						<?php echo esc_html( $coupon_apply_text ); ?>
-					</a>
+				<div id="ast-checkout-coupon">
+					<p id="ast-coupon-trigger" tabindex="0" ><?php echo esc_html( $coupon_text ); ?></p>
+					<div class="coupon">
+					<label class="ast-coupon-label" for="ast-coupon-code" ><?php esc_html_e( 'coupon:', 'astra-addon' ); ?></label>
+						<input type="text" name="ast-coupon-code" id="ast-coupon-code" tabindex="0" value="" placeholder="<?php echo esc_attr( $coupon_input_text ); ?>" />
+						<a class="button" id="ast-apply-coupon" tabindex="0" name="ast-apply-coupon" value="<?php echo esc_attr( $coupon_apply_text ); ?>">
+							<?php echo esc_html( $coupon_apply_text ); ?>
+						</a>
+					</div>
 				</div>
-			</div>
 				<?php
 			}
 		}
@@ -3552,10 +3551,10 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			// Get the values form the applied settings.
 			// Get step titles.
-			$step_one_title     = astra_get_option( 'two-step-checkout-modern-step-1-text' );
-			$step_one_sub_title = astra_get_option( 'two-step-checkout-modern-step-1-sub-text' );
-			$step_two_title     = astra_get_option( 'two-step-checkout-modern-step-2-text' );
-			$step_two_sub_title = astra_get_option( 'two-step-checkout-modern-step-2-sub-text' );
+			$step_one_title     = astra_get_i18n_option( 'two-step-checkout-modern-step-1-text', _x( '%astra%', 'WooCommerce Checkout: Step One Title', 'astra-addon' ) );
+			$step_one_sub_title = astra_get_i18n_option( 'two-step-checkout-modern-step-1-sub-text', _x( '%astra%', 'WooCommerce Checkout: Step One Sub Title', 'astra-addon' ) );
+			$step_two_title     = astra_get_i18n_option( 'two-step-checkout-modern-step-2-text', _x( '%astra%', 'WooCommerce Checkout: Step Two Title', 'astra-addon' ) );
+			$step_two_sub_title = astra_get_i18n_option( 'two-step-checkout-modern-step-2-sub-text', _x( '%astra%', 'WooCommerce Checkout: Step Two Sub Title', 'astra-addon' ) );
 
 			$two_step_section_border = 'none';
 
@@ -3595,7 +3594,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 
 			if ( astra_get_option( 'two-step-checkout-modern-note' ) ) {
 
-				$checkout_note = astra_get_option( 'two-step-checkout-modern-note-text' );
+				$checkout_note = astra_get_i18n_option( 'two-step-checkout-modern-note-text', _x( '%astra%', 'WooCommerce Checkout: Note Text', 'astra-addon' ) );
 				?>
 					<div class='ast-embed-checkout-form-note'>
 						<p> <?php echo wp_kses_post( $checkout_note ); ?> </p>
@@ -3612,8 +3611,8 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 */
 		public function add_two_step_next_btn() {
 
-			$button_title     = astra_get_option( 'two-step-checkout-modern-button-text' );
-			$button_sub_title = astra_get_option( 'two-step-checkout-modern-button-sub-text' );
+			$button_title     = astra_get_i18n_option( 'two-step-checkout-modern-button-text', _x( '%astra%', 'WooCommerce Checkout: Offer Button Title', 'astra-addon' ) );
+			$button_sub_title = astra_get_i18n_option( 'two-step-checkout-modern-button-sub-text', _x( '%astra%', 'WooCommerce Checkout: Offer Button Sub Title', 'astra-addon' ) );
 			?>
 				<div class="ast-embed-checkout-form-nav-btns">
 					<a href="#ast-order-wrap" class="button ast-next-button" >
@@ -3810,7 +3809,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			global $post;
 
 			$number_of_products      = astra_get_option( 'single-product-related-upsell-per-page' );
-			$recently_viewed_heading = astra_get_option( 'single-product-recently-viewed-text' );
+			$recently_viewed_heading = astra_get_i18n_option( 'single-product-recently-viewed-text', _x( '%astra%', 'WooCommerce Single Product: Recently Viewed Products Text', 'astra-addon' ) );
 			$number_of_columns       = astra_get_option( 'single-product-related-upsell-grid' );
 			$number_of_columns       = ! empty( $number_of_columns['desktop'] ) ? $number_of_columns['desktop'] : 4;
 

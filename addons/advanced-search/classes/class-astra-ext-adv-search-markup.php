@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 */
 		public function header_builder_default_strings( $strings ) {
 
-			$search_string = astra_get_option( 'header-search-box-placeholder' );
+			$search_string = $this->header_builder_default_search_string( '' );
 
 			$strings['string-header-cover-search-placeholder'] = esc_attr( $search_string );
 			$strings['string-search-input-placeholder']        = esc_attr( $search_string );
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 */
 		public function header_builder_default_search_string( $search_string ) {
 
-			$search_string = esc_attr( astra_get_option( 'header-search-box-placeholder' ) );
+			$search_string = esc_attr( astra_get_i18n_option( 'header-search-box-placeholder', _x( '%astra%', 'Search: Placeholder Text', 'astra-addon' ) ) );
 
 			return $search_string;
 		}
@@ -119,6 +119,10 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 * @return void
 		 */
 		public function header_builder_cover_search() {
+			// Bail early if the search widget is not loaded in the header.
+			if ( ! Astra_Builder_Helper::is_component_loaded( 'search', 'header' ) ) {
+				return;
+			}
 
 			if ( 'header-cover' === astra_get_option( 'header-search-box-type' ) ) {
 				$this->get_search_form_shortcode( 'header-cover', true );
@@ -220,7 +224,11 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 				'full-screen' === astra_get_option( 'header-main-rt-section-search-box-type' ) ||
 				'full-screen' === astra_get_option( 'below-header-section-1-search-box-type' ) ||
 				'full-screen' === astra_get_option( 'below-header-section-2-search-box-type' ) ||
-				( true === astra_addon_builder_helper()->is_header_footer_builder_active && 'full-screen' === astra_get_option( 'header-search-box-type' ) )
+				(
+					true === astra_addon_builder_helper()->is_header_footer_builder_active &&
+					Astra_Builder_Helper::is_component_loaded( 'search', 'header' ) &&
+					'full-screen' === astra_get_option( 'header-search-box-type' )
+				)
 			) {
 				$this->get_search_form_shortcode( 'full-screen', true );
 			}

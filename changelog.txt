@@ -1,5 +1,13 @@
 *** Astra Pro Changelog ***
 
+2025-01-28 - version 4.8.12
+* Improvement: Enhanced accessibility of the Search Widget by addressing form label issues flagged by the WAVE tool.
+* Improvement: Enhanced Astra Real-Time Add to Cart functionality to make it compatible with WooCommerce Subscription's Proration feature.
+* Improvement: Added hash-based URL functionality to toggle between login and registration forms.
+* Improvement: Enhanced Search Widget markup rendering to occur only when the widget is present in the Header Builder with Header Cover and Full-Screen Search options.
+* Fix: String Translations not working correctly for Astra Customizer settings.
+* Fix: Resolved layout breakage in Astra Mega Menu to ensure proper display for both normal and custom width.
+
 2025-01-07 - version 4.8.11
 * Fix: Resolved fatal error introduced in v4.8.10.
 

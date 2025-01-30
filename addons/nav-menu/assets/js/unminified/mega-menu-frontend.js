@@ -210,11 +210,21 @@ function apply_megamenu_width_styles() {
 							width: $fullMenuWidth,
 						});
 				} else if ($this.hasClass("custom-width-mega")) {
-					$this
-						.find(".astra-mega-menu-width-custom")
-						.css({
-							width: customMegaMenuWidth + "px",
-						});
+					if (astra.isRtl) {
+						$this
+							.find(".astra-mega-menu-width-custom")
+							.css({
+								// right: "-" + customWithPositionRight + "px",
+								width: customMegaMenuWidth + "px",
+							});
+					} else {
+						$this
+							.find(".astra-mega-menu-width-custom")
+							.css({
+								left: "-" + customWithPositionLeft + "px",
+								width: customMegaMenuWidth + "px",
+							});
+					}
 				}
 				else {
 					if (astra.isRtl) {

@@ -7,6 +7,9 @@
 .justify-items-end {
 	justify-items: end;
 }
+.w-\[350px\] {
+	max-width: 350px;
+}
 .w-max {
 	width: max-content;
 }
@@ -74,6 +77,9 @@ a.bsf-core-license-form-btn {
 	padding: 6px 36px;
 	border-radius: 6px;
 	width: 28.3125rem;
+}
+.cursor-help {
+	cursor: help;
 }
 
 @media(max-width: 781px) {

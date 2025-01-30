@@ -211,6 +211,10 @@ class Astra_Addon_Kses {
 						'name'           => array(),
 						'target'         => array(),
 					),
+					'label'  => array(
+						'class' => array(),
+						'for'   => array(),
+					),
 					'input'  => array(
 						'class'        => array(),
 						'placeholder'  => array(),

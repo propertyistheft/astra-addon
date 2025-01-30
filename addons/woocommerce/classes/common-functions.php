@@ -162,8 +162,8 @@ endif;
  * @return string
  */
 function order_review_toggle_texts( $text = 'show_text' ) {
-	$order_summary_show_text = astra_get_option( 'checkout-show-summary-text' );
-	$order_summary_hide_text = astra_get_option( 'checkout-hide-summary-text' );
+	$order_summary_show_text = astra_get_i18n_option( 'checkout-show-summary-text', _x( '%astra%', 'WooCommerce Checkout: Show Summary Text', 'astra-addon' ) );
+	$order_summary_hide_text = astra_get_i18n_option( 'checkout-hide-summary-text', _x( '%astra%', 'WooCommerce Checkout: Hide Summary Text', 'astra-addon' ) );
 
 	$toggle_texts = apply_filters(
 		'astra_addon_order_review_toggle_texts',

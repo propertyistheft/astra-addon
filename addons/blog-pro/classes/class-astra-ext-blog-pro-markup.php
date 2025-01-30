@@ -131,7 +131,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 			$pagination     = astra_get_option( 'blog-pagination' );
 			$infinite_event = astra_get_option( 'blog-infinite-scroll-event' );
-			$load_more_text = astra_get_option( 'blog-load-more-text' );
+			$load_more_text = astra_get_i18n_option( 'blog-load-more-text', _x( '%astra%', 'Blogs: Load More Text', 'astra-addon' ) );
 
 			if ( '' === $load_more_text ) {
 				$load_more_text = __( 'Load More', 'astra-addon' );
@@ -796,7 +796,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 		 */
 		public function read_more_text( $text ) {
 
-			$read_more = astra_get_i18n_option( 'blog-read-more-text', _x( '%astra%', 'Blogs: Read More Text', 'astra', 'astra-addon' ) );
+			$read_more = astra_get_i18n_option( 'blog-read-more-text', _x( '%astra%', 'Blogs: Read More Text', 'astra-addon' ) );
 
 			if ( '' != $read_more ) {
 				$text = $read_more;
@@ -883,7 +883,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			$post_link             = urlencode( get_the_permalink() ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
 			$email_title           = str_replace( '&', '%26', $title );
 			$enable_heading        = astra_get_option( 'single-post-social-sharing-heading-enable' );
-			$heading_text          = astra_get_option( 'single-post-social-sharing-heading-text' );
+			$heading_text          = astra_get_i18n_option( 'single-post-social-sharing-heading-text', _x( '%astra%', 'Single Post: Social Sharing: Heading Text', 'astra-addon' ) );
 			$heading_position      = astra_get_option( 'single-post-social-sharing-heading-position' );
 			$show_label            = $show_label;
 			$show_label_class      = $show_label ? 'social-show-label-true' : 'social-show-label-false';
@@ -948,7 +948,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			$post_link             = urlencode( get_the_permalink() ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
 			$email_title           = str_replace( '&', '%26', $post_title );
 			$enable_heading        = astra_get_option( 'single-post-social-sharing-heading-enable' );
-			$heading_text          = astra_get_option( 'single-post-social-sharing-heading-text' );
+			$heading_text          = astra_get_i18n_option( 'single-post-social-sharing-heading-text', _x( '%astra%', 'Single Post: Social Sharing: Heading Text', 'astra-addon' ) );
 			$heading_position      = astra_get_option( 'single-post-social-sharing-heading-position' );
 			$show_label            = astra_get_option( 'single-post-social-sharing-icon-label' );
 			$show_label_class      = $show_label ? 'social-show-label-true' : 'social-show-label-false';

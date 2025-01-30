@@ -219,7 +219,7 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'display' => 'flex',
 		),
 		'.ast-plain-container .ast-grid-2 .ast-article-post:last-child, .ast-plain-container .ast-grid-3 .ast-article-post:last-child, .ast-plain-container .ast-grid-4 .ast-article-post:last-child, .ast-page-builder-template .ast-grid-2 .ast-article-post:last-child, .ast-page-builder-template .ast-grid-3 .ast-article-post:last-child, .ast-page-builder-template .ast-grid-4 .ast-article-post:last-child' => array(
-			'margin-bottom' => '2.5em',
+			'margin-bottom' => '1.5em',
 		),
 	);
 
