@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Sidebar' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 23,
-					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'  => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Sidebar' ) ) {
 					'default'   => astra_get_option( 'sidebar-bg-obj' ),
 					'title'     => __( 'Background', 'astra-addon' ),
 					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'   => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 					astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Sidebar' ) ) {
 					'section'   => 'section-sidebars',
 					'transport' => 'postMessage',
 					'priority'  => 24,
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'   => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Sidebar' ) ) {
 					'transport'         => 'postMessage',
 					'name'              => ASTRA_THEME_SETTINGS . '[sidebar-widget-title-color]',
 					'title'             => __( 'Content Title', 'astra-addon' ),
-					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'           => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Sidebar' ) ) {
 					'transport'         => 'postMessage',
 					'name'              => ASTRA_THEME_SETTINGS . '[sidebar-text-color]',
 					'title'             => __( 'Content Text', 'astra-addon' ),
-					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'           => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 

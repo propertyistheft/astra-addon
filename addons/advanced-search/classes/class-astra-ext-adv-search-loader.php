@@ -60,6 +60,10 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Loader' ) ) {
 			 * Header Builder > Search style.
 			 */
 			$defaults['header-search-box-type']        = 'slide-search';
+			$defaults['header-search-icon']            = array(
+				'type'  => 'search', // Could be icon name, `icon-library` or `custom`.
+				'value' => 'search', // Could be icon name for `icon-library` or svg code for `custom` type.
+			);
 			$defaults['fullsearch-modal-color-mode']   = 'dark';
 			$defaults['full-screen-modal-heading']     = true;
 			$defaults['fullscreen-modal-heading-text'] = astra_default_strings( 'string-full-width-search-message', false );
@@ -97,6 +101,6 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Loader' ) ) {
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Adv_Search_Loader::get_instance();

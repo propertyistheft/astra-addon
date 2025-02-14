@@ -70,8 +70,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 		/**
 		 * Disable breadcrumb if Page Header already has Breadcrumb enabled.
 		 *
-		 * @param boolean $status checks ruleset value.
-		 * @return boolean
+		 * @param bool $status checks ruleset value.
+		 * @return bool
 		 */
 		public function disable_breadcrumb_page_header( $status ) {
 			$show_breadcrumb = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_layout_option( 'breadcrumb' );
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 		public function header_custom_menu_text( $value ) {
 
 			$custom_menu_item = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'custom-menu-item' );
-			if ( ! ( self::advanced_header_enabled() ) || ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) || 'default' == $custom_menu_item || '' == $custom_menu_item ) {
+			if ( ! self::advanced_header_enabled() || ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) || 'default' == $custom_menu_item || '' == $custom_menu_item ) {
 				return $value;
 			}
 
@@ -127,18 +127,17 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 		/**
 		 * Advanced Header Custom Menu Outside/Inside
 		 *
-		 * @param  string|boolean $value display menu outside or not.
-		 * @return string|boolean
+		 * @param  string|bool $value display menu outside or not.
+		 * @return string|bool
 		 */
 		public function header_display_outside_menu( $value ) {
 
 			$custom_menu_item = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'custom-menu-item' );
-			if ( ! ( self::advanced_header_enabled() ) || ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) || 'default' == $custom_menu_item || '' == $custom_menu_item ) {
+			if ( ! self::advanced_header_enabled() || ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) || 'default' == $custom_menu_item || '' == $custom_menu_item ) {
 				return $value;
 			}
 
-			$display_outside = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'custom-menu-item-outside' );
-			return $display_outside;
+			return Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'custom-menu-item-outside' );
 		}
 
 		/**
@@ -150,7 +149,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 		public function header_custom_menu_item( $value ) {
 
 			$custom_menu_item = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'custom-menu-item' );
-			if ( ! ( self::advanced_header_enabled() ) || ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) || 'default' == $custom_menu_item || '' == $custom_menu_item ) {
+			if ( ! self::advanced_header_enabled() || ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) || 'default' == $custom_menu_item || '' == $custom_menu_item ) {
 				return $value;
 			}
 
@@ -160,8 +159,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 		/**
 		 * Remove Post Featured Image If advanced headers is enable with featured image as background image
 		 *
-		 * @param  boolean $is_featured Markup of featured image.
-		 * @return boolean $is_featured
+		 * @param  bool $is_featured Markup of featured image.
+		 * @return bool $is_featured
 		 */
 		public function remove_post_thumbnail( $is_featured ) {
 
@@ -180,7 +179,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			}
 
 			return $is_featured;
-
 		}
 
 		/**
@@ -340,7 +338,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			return $classes;
 		}
 
-
 		/**
 		 * Advanced Headers Bar markup loader if we are using merged with header
 		 *
@@ -363,24 +360,23 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			$combined = 'ast-merged-advanced-header ast-title-bar-wrap';
 
 			// Parallax variable.
-			$parallax = ( 'none' !== $advanced_header_parallax_device ) ? ' ast-advanced-headers-parallax' : '';
+			$parallax = 'none' !== $advanced_header_parallax_device ? ' ast-advanced-headers-parallax' : '';
 			// Parallax Device.
-			$parallax_device = ( 'none' !== $advanced_header_parallax_device ) ? $advanced_header_parallax_device : '';
+			$parallax_device = 'none' !== $advanced_header_parallax_device ? $advanced_header_parallax_device : '';
 			// Parallax speed variable.
 			$parallax_speed = apply_filters( 'astra_advanced_header_parallax_speed', 2 );
 			// Full Screen vertical align center.
 			$vertical_center = ' ast-advanced-headers-vertical-center';
 			// Full Screen.
-			$full_screen = ( 'full-screen' == $advanced_header_bg_size ) ? ' ast-full-advanced-header' : '';
+			$full_screen = 'full-screen' == $advanced_header_bg_size ? ' ast-full-advanced-header' : '';
 			// Add advanced header wrapper classes.
 			printf(
 				'<div class="%1$s" %2$s %3$s>',
 				esc_attr( $combined ) . esc_attr( $parallax ) . esc_attr( $full_screen ) . esc_attr( $vertical_center ),
-				( ! empty( $parallax ) ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
+				! empty( $parallax ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
 				'aria-label="' . esc_attr( $this->get_header_background_image_alt_text() ) . '"'
 			);
 		}
-
 
 		/**
 		 * Advanced Headers markup loader
@@ -405,21 +401,21 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 				$combined = 'ast-title-bar-wrap';
 
 				// Parallax variable.
-				$parallax = ( 'none' !== $advanced_header_parallax_device ) ? '  ast-advanced-headers-parallax' : '';
+				$parallax = 'none' !== $advanced_header_parallax_device ? '  ast-advanced-headers-parallax' : '';
 				// Parallax Device.
-				$parallax_device = ( 'none' !== $advanced_header_parallax_device ) ? $advanced_header_parallax_device : '';
+				$parallax_device = 'none' !== $advanced_header_parallax_device ? $advanced_header_parallax_device : '';
 				// Parallax speed variable.
 				$parallax_speed = apply_filters( 'astra_advanced_header_parallax_speed', 2 );
 				// Full Screen vertical align center.
 				$vertical_center = ' ast-advanced-headers-vertical-center';
 				// Full Screen.
-				$full_screen = ( 'full-screen' == $advanced_header_bg_size ) ? ' ast-full-advanced-header' : '';
+				$full_screen = 'full-screen' == $advanced_header_bg_size ? ' ast-full-advanced-header' : '';
 
 				// Add advanced header wrapper classes.
 				printf(
 					'<div class="%1$s" %2$s %3$s>',
 					esc_attr( $combined ) . esc_attr( $parallax ) . esc_attr( $full_screen ) . esc_attr( $vertical_center ),
-					( ! empty( $parallax ) ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
+					! empty( $parallax ) ? 'data-parallax-speed="' . esc_attr( $parallax_speed ) . '" data-parallax-device="' . esc_attr( $parallax_device ) . '"' : '',
 					'aria-label="' . esc_attr( $this->get_header_background_image_alt_text() ) . '"'
 				);
 			}
@@ -460,7 +456,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			}
 			return $args;
 		}
-
 
 		/**
 		 * Next Breadcrumbs
@@ -518,7 +513,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			}
 		}
 
-
 		/**
 		 * Check transparent header is enabled or not
 		 */
@@ -573,7 +567,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Markup' ) ) {
 			/**
 			 * Get options
 			 */
-			$header_id = ( isset( $meta['adv-header-id-meta']['default'] ) ) ? $meta['adv-header-id-meta']['default'] : '';
+			$header_id = isset( $meta['adv-header-id-meta']['default'] ) ? $meta['adv-header-id-meta']['default'] : '';
 
 			$header_options  = Astra_Target_Rules_Fields::get_post_selection( 'astra_adv_header' );
 			$show_meta_field = ! astra_check_is_bb_themer_layout();

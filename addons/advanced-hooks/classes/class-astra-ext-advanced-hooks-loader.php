@@ -252,7 +252,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			add_filter(
 				'block_parser_class',
-				function( $content ) {
+				static function( $content ) {
 					// Check if we're inside the main post content.
 					if ( is_singular() && in_the_loop() && is_main_query() ) {
 						return 'Astra_WP_Block_Parser';
@@ -704,7 +704,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				return;
 			}
 
-			$responsive_visibility_status = ( 'array' == gettype( get_post_meta( get_the_ID(), 'ast-advanced-display-device', true ) ) ) ? true : false;
+			$responsive_visibility_status = 'array' == gettype( get_post_meta( get_the_ID(), 'ast-advanced-display-device', true ) ) ? true : false;
 
 			// UAG plugin slug.
 			$plugin_slug = 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php';

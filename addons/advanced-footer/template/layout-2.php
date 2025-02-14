@@ -20,6 +20,10 @@ if ( ! is_user_logged_in() ) {
 	}
 }
 
+if ( ! isset( $astra_addon_footer_layout_classes ) || ! is_array( $astra_addon_footer_layout_classes ) ) {
+	$astra_addon_footer_layout_classes = array();
+}
+
 $astra_addon_footer_layout_classes[] = 'footer-adv';
 $astra_addon_footer_layout_classes[] = 'footer-adv-layout-2';
 $astra_addon_footer_layout_classes   = implode( ' ', $astra_addon_footer_layout_classes );

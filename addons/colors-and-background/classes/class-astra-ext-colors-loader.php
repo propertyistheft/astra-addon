@@ -42,7 +42,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			add_action( 'customize_register', array( $this, 'new_customize_register' ), 2 );
-
 		}
 
 		/**
@@ -54,8 +53,8 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 		public function theme_defaults( $defaults ) {
 
 			/**
-			* Heading Tags <h1> to <h6>
-			*/
+			 * Heading Tags <h1> to <h6>
+			 */
 			$defaults['h1-color'] = '';
 			$defaults['h2-color'] = '';
 			$defaults['h3-color'] = '';
@@ -64,8 +63,8 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			$defaults['h6-color'] = '';
 
 			/**
-			* Header
-			*/
+			 * Header
+			 */
 			$defaults['header-bg-obj']             = array(
 				'background-color'      => '',
 				'background-image'      => '',
@@ -111,8 +110,8 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			$defaults['header-color-site-tagline'] = '';
 
 			/**
-			* Primary Menu
-			*/
+			 * Primary Menu
+			 */
 			$defaults['primary-menu-bg-color']          = '';
 			$defaults['primary-menu-color']             = '';
 			$defaults['primary-menu-h-bg-color']        = '';
@@ -182,8 +181,8 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			);
 
 			/**
-			* Primary Submenu
-			*/
+			 * Primary Submenu
+			 */
 			$defaults['primary-submenu-bg-color']   = '';
 			$defaults['primary-submenu-color']      = '';
 			$defaults['primary-submenu-h-bg-color'] = '';
@@ -228,8 +227,8 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			);
 
 			/**
-			* Sidebar
-			*/
+			 * Sidebar
+			 */
 			$defaults['sidebar-bg-obj']             = array(
 				'background-color'      => '',
 				'background-image'      => '',
@@ -246,8 +245,8 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			$defaults['sidebar-link-h-color']       = '';
 
 			/**
-			* Blog / Archive
-			*/
+			 * Blog / Archive
+			 */
 			$defaults['page-title-color']        = '';
 			$defaults['blog-content-color']      = '';
 			$defaults['blog-content-bg-color']   = '';
@@ -264,8 +263,8 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			$defaults['blog-tax-border-h-color'] = '';
 
 			/**
-			* Footer
-			*/
+			 * Footer
+			 */
 			$defaults['footer-bg-color']     = '';
 			$defaults['footer-bg-color-opc'] = '0.8';
 			$defaults['footer-color']        = '';
@@ -317,7 +316,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			}
 			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-sidebar.php';
 			require_once ASTRA_ADDON_EXT_COLORS_DIR . 'classes/sections/class-astra-customizer-colors-header-builder.php';
-
 		}
 
 		/**
@@ -341,7 +339,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 			);
 
 			wp_localize_script( 'astra-ext-colors-customize-preview-js', 'astColors', $localize_array );
-
 		}
 	}
 }

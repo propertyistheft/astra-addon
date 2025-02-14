@@ -49,7 +49,6 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro' ) ) {
 			if ( ! is_admin() ) {
 				require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/dynamic.php';
 			}
-
 		}
 	}
 

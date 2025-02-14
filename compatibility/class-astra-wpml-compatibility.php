@@ -7,7 +7,7 @@
  * @since       Astra 1.0
  */
 
-if ( ! class_exists( 'Astra_Wpml_Compatibility' ) ) :
+if ( ! class_exists( 'Astra_Wpml_Compatibility' ) ) {
 
 	/**
 	 * WPML Compatibility
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Wpml_Compatibility' ) ) :
 			return $current_posts;
 		}
 	}
-endif;
+}
 
 /**
  * Initiate the class.

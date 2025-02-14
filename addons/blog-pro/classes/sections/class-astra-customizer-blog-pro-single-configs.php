@@ -327,8 +327,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social sharing label position
-				*/
+				 * Option: Social sharing label position
+				 */
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-alignment]',
 					'default'    => astra_get_option( 'single-post-social-sharing-alignment' ),
@@ -648,8 +648,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Text Color
-				*/
+				 * Option: Social Text Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-icon-color',
 					'transport'  => 'postMessage',
@@ -667,8 +667,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Text Hover Color
-				*/
+				 * Option: Social Text Hover Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-icon-h-color',
 					'default'    => astra_get_option( 'single-post-social-sharing-icon-h-color' ),
@@ -686,8 +686,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Background Color
-				*/
+				 * Option: Social Background Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-icon-background-color',
 					'default'    => astra_get_option( 'single-post-social-sharing-icon-background-color' ),
@@ -705,8 +705,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Background Hover Color
-				*/
+				 * Option: Social Background Hover Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-icon-background-h-color',
 					'default'    => astra_get_option( 'single-post-social-sharing-icon-background-h-color' ),
@@ -724,8 +724,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Label Color
-				*/
+				 * Option: Social Label Color
+				 */
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-label-color-group]',
 					'default'    => astra_get_option( 'single-post-social-sharing-icon-label-color-group' ),
@@ -752,8 +752,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Label Normal Color
-				*/
+				 * Option: Social Label Normal Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-icon-label-color',
 					'default'    => astra_get_option( 'single-post-social-sharing-icon-label-color' ),
@@ -771,8 +771,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Label Hover Color
-				*/
+				 * Option: Social Label Hover Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-icon-label-h-color',
 					'default'    => astra_get_option( 'single-post-social-sharing-icon-label-h-color' ),
@@ -790,8 +790,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Heading Color
-				*/
+				 * Option: Social Heading Color
+				 */
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-heading-color-group]',
 					'default'    => astra_get_option( 'single-post-social-sharing-heading-color-group' ),
@@ -818,8 +818,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Heading Normal Color
-				*/
+				 * Option: Social Heading Normal Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-heading-color',
 					'default'    => astra_get_option( 'single-post-social-sharing-heading-color' ),
@@ -837,8 +837,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Heading Hover Color
-				*/
+				 * Option: Social Heading Hover Color
+				 */
 				array(
 					'name'       => 'single-post-social-sharing-heading-h-color',
 					'default'    => astra_get_option( 'single-post-social-sharing-heading-h-color' ),
@@ -941,8 +941,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option: Social Icon Radius
-				*/
+				 * Option: Social Icon Radius
+				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-radius]',
 					'section'     => 'section-blog-single',
@@ -970,8 +970,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option:  Social Heading typography section.
-				*/
+				 * Option:  Social Heading typography section.
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-heading-typo]',
 					'default'   => astra_get_option( 'single-post-social-sharing-heading-typo' ),
@@ -1087,8 +1087,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				),
 
 				/**
-				* Option:  Social icon label typography section.
-				*/
+				 * Option:  Social icon label typography section.
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-label-typo]',
 					'default'   => astra_get_option( 'single-post-social-sharing-icon-label-typo' ),

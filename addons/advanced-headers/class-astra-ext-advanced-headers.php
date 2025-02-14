@@ -50,7 +50,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers' ) ) {
 			if ( ! is_admin() ) {
 				require_once ASTRA_ADDON_EXT_ADVANCED_HEADERS_DIR . 'classes/dynamic.css.php';
 			}
-
 		}
 	}
 

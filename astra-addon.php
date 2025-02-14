@@ -3,12 +3,12 @@
  * Plugin Name: Astra Pro
  * Plugin URI: https://wpastra.com/
  * Description: This plugin is an add-on for the Astra WordPress Theme. It offers premium features & functionalities that enhance your theming experience at next level.
- * Version: 4.8.12
+ * Version: 4.8.13
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Text Domain: astra-addon
  * WC requires at least: 3.0
- * WC tested up to: 9.3
+ * WC tested up to: 9.6
  *
  * @package Astra Addon
  */
@@ -63,7 +63,7 @@ define( 'ASTRA_EXT_FILE', __FILE__ );
 define( 'ASTRA_EXT_BASE', plugin_basename( ASTRA_EXT_FILE ) );
 define( 'ASTRA_EXT_DIR', plugin_dir_path( ASTRA_EXT_FILE ) );
 define( 'ASTRA_EXT_URI', plugins_url( '/', ASTRA_EXT_FILE ) );
-define( 'ASTRA_EXT_VER', '4.8.12' );
+define( 'ASTRA_EXT_VER', '4.8.13' );
 define( 'ASTRA_EXT_TEMPLATE_DEBUG_MODE', false );
 define( 'ASTRA_ADDON_BSF_PACKAGE', file_exists( ASTRA_EXT_DIR . 'class-brainstorm-update-astra-addon.php' ) );
 
@@ -77,14 +77,14 @@ define( 'ASTRA_WITH_EXTENDED_FUNCTIONALITY', file_exists( ASTRA_EXT_DIR . 'class
  * Minimum Version requirement of the Astra Theme.
  * This will display the notice asking user to update the theme to the version defined below.
  */
-define( 'ASTRA_THEME_MIN_VER', '4.8.9' );
+define( 'ASTRA_THEME_MIN_VER', '4.8.12' );
 
 // 'ast-container' has 20px left, right padding. For pixel perfect added ( twice ) 40px padding to the 'ast-container'.
 // E.g. If width set 1200px then with padding left ( 20px ) & right ( 20px ) its 1240px for 'ast-container'. But, Actual contents are 1200px.
 define( 'ASTRA_THEME_CONTAINER_PADDING', 20 );
-define( 'ASTRA_THEME_CONTAINER_PADDING_TWICE', ( 20 * 2 ) );
+define( 'ASTRA_THEME_CONTAINER_PADDING_TWICE', 20 * 2 );
 define( 'ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING', 40 );
-define( 'ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE', ( 40 * 2 ) );
+define( 'ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE', 40 * 2 );
 // @codingStandardsIgnoreEnd
 
 /**
@@ -121,7 +121,6 @@ require_once ASTRA_EXT_DIR . 'admin/core/class-astra-addon-admin-loader.php';
  * Builder Core Files.
  */
 require_once ASTRA_EXT_DIR . 'classes/builder/class-astra-addon-builder-helper.php';
-
 
 /**
  * Header Footer Builder

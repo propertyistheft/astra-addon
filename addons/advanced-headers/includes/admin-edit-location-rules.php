@@ -42,13 +42,13 @@
 		<div class="ast-advanced-headers-saved-rule-select">
 			<select name="ast-advanced-headers-{{data.type}}[]" class="ast-advanced-headers-locations">
 				<option value=""><?php esc_html_e( 'Choose...', 'astra-addon' ); ?></option>
-				<?php foreach ( $locations['by_post_type'] as $astra_addon_group ) : ?>
-				<optgroup label="<?php echo esc_attr( $astra_addon_group['label'] ); ?>">
-					<?php foreach ( $astra_addon_group['locations'] as $astra_addon_location ) : ?>
-					<option value='<?php echo wp_json_encode( $astra_addon_location ); ?>' data-type="<?php echo esc_attr( $astra_addon_location['type'] ); ?>" data-location="<?php echo esc_attr( $astra_addon_location['type'] . ':' . $astra_addon_location['id'] ); ?>"><?php echo esc_html( $astra_addon_location['label'] ); ?></option>
-		<?php endforeach; ?>
-				</optgroup>
-				<?php endforeach; ?>
+				<?php foreach ( $locations['by_post_type'] as $astra_addon_group ) { ?>
+					<optgroup label="<?php echo esc_attr( $astra_addon_group['label'] ); ?>">
+						<?php foreach ( $astra_addon_group['locations'] as $astra_addon_location ) { ?>
+							<option value='<?php echo wp_json_encode( $astra_addon_location ); ?>' data-type="<?php echo esc_attr( $astra_addon_location['type'] ); ?>" data-location="<?php echo esc_attr( $astra_addon_location['type'] . ':' . $astra_addon_location['id'] ); ?>"><?php echo esc_html( $astra_addon_location['label'] ); ?></option>
+						<?php } ?>
+					</optgroup>
+				<?php } ?>
 			</select>
 			<select name="ast-advanced-headers-{{data.type}}-objects[]" class="ast-advanced-headers-location-objects ast-advanced-headers-rule-objects">
 				<option value=""><?php esc_html_e( 'Choose...', 'astra-addon' ); ?></option>

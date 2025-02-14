@@ -47,7 +47,6 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 			}
 
 			add_action( 'customize_register', array( $this, 'new_customize_register' ), 2 );
-
 		}
 
 		/**
@@ -244,39 +243,38 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 			$defaults['author-box-in-new-tab']         = false;
 			$defaults['author-box-socials']            = $improve_blog ? true : false;
 			$defaults['author-box-social-icon-list']   = array(
-				'items' =>
+				'items' => array(
 					array(
-						array(
-							'id'         => 'facebook',
-							'enabled'    => true,
-							'source'     => 'icon',
-							'url'        => '',
-							'color'      => '#557dbc',
-							'background' => 'transparent',
-							'icon'       => 'facebook',
-							'label'      => __( 'Facebook', 'astra-addon' ),
-						),
-						array(
-							'id'         => 'twitter-x',
-							'enabled'    => true,
-							'source'     => 'icon',
-							'url'        => '',
-							'color'      => '#000000',
-							'background' => 'transparent',
-							'icon'       => 'twitter-x',
-							'label'      => __( 'Twitter / X', 'astra-addon' ),
-						),
-						array(
-							'id'         => 'linkedin',
-							'enabled'    => true,
-							'source'     => 'icon',
-							'url'        => '',
-							'color'      => '#1c86c6',
-							'background' => 'transparent',
-							'icon'       => 'linkedin',
-							'label'      => __( 'Linkedin', 'astra-addon' ),
-						),
+						'id'         => 'facebook',
+						'enabled'    => true,
+						'source'     => 'icon',
+						'url'        => '',
+						'color'      => '#557dbc',
+						'background' => 'transparent',
+						'icon'       => 'facebook',
+						'label'      => __( 'Facebook', 'astra-addon' ),
 					),
+					array(
+						'id'         => 'twitter-x',
+						'enabled'    => true,
+						'source'     => 'icon',
+						'url'        => '',
+						'color'      => '#000000',
+						'background' => 'transparent',
+						'icon'       => 'twitter-x',
+						'label'      => __( 'Twitter / X', 'astra-addon' ),
+					),
+					array(
+						'id'         => 'linkedin',
+						'enabled'    => true,
+						'source'     => 'icon',
+						'url'        => '',
+						'color'      => '#1c86c6',
+						'background' => 'transparent',
+						'icon'       => 'linkedin',
+						'label'      => __( 'Linkedin', 'astra-addon' ),
+					),
+				),
 			);
 			$defaults['ast-single-post-navigation']    = false;
 			$defaults['single-post-navigation-style']  = 'default';
@@ -289,49 +287,48 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Loader' ) ) {
 			$defaults['single-post-social-sharing-heading-text']     = __( 'Share your love', 'astra-addon' );
 
 			$defaults['single-post-social-sharing-icon-list'] = array(
-				'items' =>
+				'items' => array(
 					array(
-						array(
-							'id'         => 'facebook',
-							'enabled'    => true,
-							'source'     => 'icon',
-							'url'        => '',
-							'color'      => '#557dbc',
-							'background' => 'transparent',
-							'icon'       => 'facebook',
-							'label'      => __( 'Facebook', 'astra-addon' ),
-						),
-						array(
-							'id'         => 'twitter',
-							'enabled'    => true,
-							'source'     => 'icon',
-							'url'        => '',
-							'color'      => '#7acdee',
-							'background' => 'transparent',
-							'icon'       => 'twitter',
-							'label'      => __( 'Twitter', 'astra-addon' ),
-						),
-						array(
-							'id'         => 'pinterest',
-							'enabled'    => true,
-							'source'     => 'icon',
-							'url'        => '',
-							'color'      => '#E60023',
-							'background' => 'transparent',
-							'icon'       => 'pinterest',
-							'label'      => __( 'Pinterest', 'astra-addon' ),
-						),
-						array(
-							'id'         => 'linkedin',
-							'enabled'    => true,
-							'source'     => 'icon',
-							'url'        => '',
-							'color'      => '#1c86c6',
-							'background' => 'transparent',
-							'icon'       => 'linkedin',
-							'label'      => __( 'Linkedin', 'astra-addon' ),
-						),
+						'id'         => 'facebook',
+						'enabled'    => true,
+						'source'     => 'icon',
+						'url'        => '',
+						'color'      => '#557dbc',
+						'background' => 'transparent',
+						'icon'       => 'facebook',
+						'label'      => __( 'Facebook', 'astra-addon' ),
 					),
+					array(
+						'id'         => 'twitter',
+						'enabled'    => true,
+						'source'     => 'icon',
+						'url'        => '',
+						'color'      => '#7acdee',
+						'background' => 'transparent',
+						'icon'       => 'twitter',
+						'label'      => __( 'Twitter', 'astra-addon' ),
+					),
+					array(
+						'id'         => 'pinterest',
+						'enabled'    => true,
+						'source'     => 'icon',
+						'url'        => '',
+						'color'      => '#E60023',
+						'background' => 'transparent',
+						'icon'       => 'pinterest',
+						'label'      => __( 'Pinterest', 'astra-addon' ),
+					),
+					array(
+						'id'         => 'linkedin',
+						'enabled'    => true,
+						'source'     => 'icon',
+						'url'        => '',
+						'color'      => '#1c86c6',
+						'background' => 'transparent',
+						'icon'       => 'linkedin',
+						'label'      => __( 'Linkedin', 'astra-addon' ),
+					),
+				),
 			);
 
 			$defaults['single-post-social-sharing-icon-label']          = false;

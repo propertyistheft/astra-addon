@@ -52,35 +52,35 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Configs' ) ) {
 					'choices'           => array(
 						'disabled' => array(
 							'label' => __( 'Disable', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled', false ) : '',
 						),
 						'layout-1' => array(
 							'label' => __( 'Layout 1', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-1', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-1', false ) : '',
 						),
 						'layout-2' => array(
 							'label' => __( 'Layout 2', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-2', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-2', false ) : '',
 						),
 						'layout-3' => array(
 							'label' => __( 'Layout 3', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-3', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-3', false ) : '',
 						),
 						'layout-4' => array(
 							'label' => __( 'Layout 4', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-layout-4', false ) : '',
 						),
 						'layout-5' => array(
 							'label' => __( 'Layout 5', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-5', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-5', false ) : '',
 						),
 						'layout-6' => array(
 							'label' => __( 'Layout 6', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-6', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-6', false ) : '',
 						),
 						'layout-7' => array(
 							'label' => __( 'Layout 7', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-7', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'footer-adv-layout-7', false ) : '',
 						),
 					),
 				),

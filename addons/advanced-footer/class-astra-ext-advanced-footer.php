@@ -54,7 +54,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Footer' ) ) {
 			if ( ! is_admin() ) {
 				require_once ASTRA_ADDON_EXT_ADVANCED_FOOTER_DIR . 'classes/dynamic.css.php';
 			}
-
 		}
 	}
 

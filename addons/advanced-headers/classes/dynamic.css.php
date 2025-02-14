@@ -405,7 +405,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active && Astra_Addon_Builder_Helper::is_row_empty( 'above', 'header', 'desktop' ) ) {
 				/**
 				 * Above Heaader
-				*/
+				 */
 				$above_header_style = array(
 					/**
 					 * Above Header Menus
@@ -451,7 +451,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 			} elseif ( $above_header_enabled ) {
 				/**
 				 * Above Heaader
-				*/
+				 */
 				$above_header_style = array(
 					'.ast-advanced-headers .ast-above-header, .ast-advanced-headers .ast-above-header .slide-search' => array(
 						'background' => esc_attr( $above_header_bg_color ),
@@ -597,6 +597,8 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 			$css       .= '}';
 			$parse_css .= $css;
 		}
+
+		$background = array();
 		/**
 		 * Background
 		 */

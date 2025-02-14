@@ -34,7 +34,7 @@ if ( $astra_addon_show_breadcrumb ) {
 					ob_start();
 					do_action( 'astra_advanced_header_layout_2_after_title' );
 					$after_title = ob_get_clean();
-					
+
 					echo sprintf(
 						'<%1$s class="ast-advanced-headers-title">
 							%2$s
@@ -68,11 +68,11 @@ if ( $astra_addon_show_breadcrumb ) {
 				<?php do_action( 'astra_advanced_header_layout_2_wrap_bottom' ); ?>
 			</div>
 
-	<?php if ( $astra_addon_is_breadcrumb_enabled ) { ?>
+			<?php if ( $astra_addon_is_breadcrumb_enabled ) { ?>
 				<div class="ast-advanced-headers-breadcrumb">
 					<?php Astra_Ext_Advanced_Headers_Markup::advanced_headers_breadcrumbs_markup(); ?>
 				</div><!-- .ast-advanced-headers-breadcrumb -->
-	<?php } ?>
+			<?php } ?>
 		</div>
 	</div>
 </div>

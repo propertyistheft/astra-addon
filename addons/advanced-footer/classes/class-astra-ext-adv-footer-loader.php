@@ -42,7 +42,6 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			add_action( 'customize_register', array( $this, 'new_customize_register' ), 2 );
-
 		}
 
 		/**
@@ -142,6 +141,6 @@ if ( ! class_exists( 'Astra_Ext_Adv_Footer_Loader' ) ) {
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Adv_Footer_Loader::get_instance();

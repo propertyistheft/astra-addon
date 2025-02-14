@@ -55,10 +55,6 @@ function astra_addon_adv_search_dynamic_css( $dynamic_css, $dynamic_css_filtered
 
 			if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
 
-				if ( empty( $btn_border_color ) ) {
-					$btn_border_color = $btn_bg_color;
-				}
-
 				if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
 					$btn_text_color = $theme_color;
 				} elseif ( '' === astra_get_option( 'button-color' ) ) {
@@ -182,6 +178,6 @@ function astra_addon_adv_search_dynamic_css( $dynamic_css, $dynamic_css_filtered
 				}
 			';
 	}
-	
+
 	return $dynamic_css . $css;
 }

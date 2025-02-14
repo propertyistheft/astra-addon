@@ -122,7 +122,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					),
 				),
 
-
 				/**
 				 * Option: Masonry Effect
 				 */
@@ -432,8 +431,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				),
 
 				/**
-				* Option: Excerpt Count
-				*/
+				 * Option: Excerpt Count
+				 */
 				array(
 					'name'         => 'blog-excerpt-count',
 					'parent'       => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
@@ -708,11 +707,11 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 					'choices'           => array(
 						'blog-filter-layout-1' => array(
 							'label' => __( 'Style 1', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-filter-layout-1', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-filter-layout-1', false ) : '',
 						),
 						'blog-filter-layout-2' => array(
 							'label' => __( 'Style 2', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-filter-layout-2', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-filter-layout-2', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-top-section-spacing' ),
@@ -727,8 +726,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				),
 
 				/**
-				* Option: Blog Filter by
-				*/
+				 * Option: Blog Filter by
+				 */
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[blog-filter-by]',
 					'default'    => astra_get_option( 'blog-filter-by' ),
@@ -755,8 +754,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				),
 
 				/**
-				* Option: Blog filter category to include
-				*/
+				 * Option: Blog filter category to include
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-filter-category-exclude]',
 					'default'   => astra_get_option( 'blog-filter-category-exclude' ),
@@ -784,8 +783,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				),
 
 				/**
-				* Option: Blog filter tags to include
-				*/
+				 * Option: Blog filter tags to include
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-filter-tag-exclude]',
 					'default'   => astra_get_option( 'blog-filter-tag-exclude' ),
@@ -813,8 +812,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				),
 
 				/**
-				* Option: Blog Filter alignment
-				*/
+				 * Option: Blog Filter alignment
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-filter-alignment]',
 					'default'   => astra_get_option( 'blog-filter-alignment' ),
@@ -842,8 +841,8 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				),
 
 				/**
-				* Option: Blog Filter visibility
-				*/
+				 * Option: Blog Filter visibility
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[responsive-blog-filter-visibility]',
 					'default'   => astra_get_option( 'responsive-blog-filter-visibility' ),
@@ -982,31 +981,31 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Configs' ) ) {
 				),
 
 				/**
-				* Option: Blog Filter taxonomy background color group.
-			*/
-			array(
-				'name'       => ASTRA_THEME_SETTINGS . '[blog-filter-taxonomy-bg-colors]',
-				'default'    => astra_get_option( 'blog-filter-taxonomy-bg-colors' ),
-				'type'       => 'control',
-				'section'    => 'ast-sub-section-post-filter',
-				'title'      => __( 'Background Color', 'astra-addon' ),
-				'control'    => 'ast-color-group',
-				'priority'   => 163,
-				'responsive' => false,
-				'context'    => array(
-					astra_addon_builder_helper()->design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[blog-filter]',
-						'operator' => '===',
-						'value'    => true,
-					),
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[blog-filter-layout]',
-						'operator' => '===',
-						'value'    => 'blog-filter-layout-2',
+				 * Option: Blog Filter taxonomy background color group.
+				 */
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[blog-filter-taxonomy-bg-colors]',
+					'default'    => astra_get_option( 'blog-filter-taxonomy-bg-colors' ),
+					'type'       => 'control',
+					'section'    => 'ast-sub-section-post-filter',
+					'title'      => __( 'Background Color', 'astra-addon' ),
+					'control'    => 'ast-color-group',
+					'priority'   => 163,
+					'responsive' => false,
+					'context'    => array(
+						astra_addon_builder_helper()->design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-filter]',
+							'operator' => '===',
+							'value'    => true,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-filter-layout]',
+							'operator' => '===',
+							'value'    => 'blog-filter-layout-2',
+						),
 					),
 				),
-			),
 
 				/**
 				 * Option: Blog Filter taxonomy background normal color.

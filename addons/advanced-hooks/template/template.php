@@ -10,9 +10,9 @@
 
 get_header();
 
-while ( have_posts() ) :
+while ( have_posts() ) {
 	the_post();
 	do_action( 'astra_advanced_hook_template' );
-	endwhile;
+}
 
 get_footer();

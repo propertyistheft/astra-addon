@@ -35,7 +35,7 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 
 		/* Format the title. */
 		$title     = ( ! empty( $args['title'] ) ? '<span class="breadcrumbs-title">' . $args['title'] . '</span>' : '' );
-		$delimiter = ( ! empty( $args['delimiter'] ) ) ? "<span class='separator'>{$args['delimiter']}</span>" : "<span class='separator'>»</span>";
+		$delimiter = ! empty( $args['delimiter'] ) ? "<span class='separator'>{$args['delimiter']}</span>" : "<span class='separator'>»</span>";
 		/* Get the items. */
 
 		$items = astra_breadcrumb_get_items( $args );
@@ -51,9 +51,9 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 			$breadcrumbs  = apply_filters( 'astra_breadcrumb', $breadcrumbs );
 			if ( ! $args['echo'] ) {
 				return $breadcrumbs;
-			} else {
-				echo wp_kses_post( $breadcrumbs );
 			}
+
+			echo wp_kses_post( $breadcrumbs );
 		}
 	}
 
@@ -65,8 +65,7 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 	 */
 	function astra_breadcrumb_get_items( $args ) {
 		global $wp_query;
-		$item          = array();
-		$show_on_front = get_option( 'show_on_front' );
+		$item = array();
 		/* Link to front page. */
 		if ( ! is_front_page() ) {
 			$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( home_url( '/' ) ) . '"><span itemprop="name">' . $args['home'] . '</span><meta itemprop="position" content="${content}"/></a></span>';
@@ -109,7 +108,7 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 					$item[] = get_the_term_list( $post_id, $args[ "singular_{$post_type}_taxonomy" ], '', ', ', '' );
 				}
 			}
-			$post_parent = ( isset( $wp_query->post->post_parent ) ) ? $wp_query->post->post_parent : '';
+			$post_parent = isset( $wp_query->post->post_parent ) ? $wp_query->post->post_parent : '';
 			$parents     = astra_breadcrumb_get_parents( $post_parent );
 			if ( ( is_post_type_hierarchical( $wp_query->post->post_type ) || 'attachment' === $wp_query->post->post_type ) && $parents ) {
 				$item = array_merge( $item, $parents );
@@ -118,9 +117,8 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 			// If viewing any type of archive.
 		} elseif ( is_archive() ) {
 			if ( is_category() || is_tag() || is_tax() ) {
-				$term     = $wp_query->get_queried_object();
-				$taxonomy = get_taxonomy( $term->taxonomy );
-				$parents  = astra_breadcrumb_get_term_parents( $term->parent, $term->taxonomy );
+				$term    = $wp_query->get_queried_object();
+				$parents = astra_breadcrumb_get_term_parents( $term->parent, $term->taxonomy );
 				if ( ( is_taxonomy_hierarchical( $term->taxonomy ) && $term->parent ) && $parents ) {
 					$item = array_merge( $item, $parents );
 				}
@@ -137,7 +135,7 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 					$item['last'] = '<span itemprop="name">' . $args['archive-prefix'] . get_the_time( 'Y' ) . '</span>';
 				}
 			} elseif ( is_author() ) {
-				$item['last'] = '<span itemprop="name">' . $args['author-prefix'] . get_the_author_meta( 'display_name', ( isset( $wp_query->post->post_author ) ) ? $wp_query->post->post_author : '' ) . '</span>';
+				$item['last'] = '<span itemprop="name">' . $args['author-prefix'] . get_the_author_meta( 'display_name', isset( $wp_query->post->post_author ) ? $wp_query->post->post_author : '' ) . '</span>';
 			}
 			// If viewing search results.
 		} elseif ( is_search() ) {
@@ -254,10 +252,9 @@ if ( ! function_exists( 'astra_breadcrumb' ) ) {
 	 * @param object|string $taxonomy The taxonomy of the term whose parents we want.
 	 * @param string        $delimiter The separator.
 	 *
-	 * @return string $html String of links to parent terms.
+	 * @return string String of links to parent terms.
 	 */
 	function astra_breadcrumb_get_term_parents( $parent_id = '', $taxonomy = '', $delimiter = '/' ) {
-		$html    = array();
 		$parents = array();
 		if ( empty( $parent_id ) || empty( $taxonomy ) ) {
 			return $parents;

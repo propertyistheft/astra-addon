@@ -1,5 +1,9 @@
 *** Astra Pro Changelog ***
 
+2025-02-11 - version 4.8.13
+* New: Search Widget - Added support to search icon from the icon library or using a custom SVG code.
+* Improvement: Enhanced coupon field in Modern Cart Layout to display error notices for invalid or empty coupon submissions.
+
 2025-01-28 - version 4.8.12
 * Improvement: Enhanced accessibility of the Search Widget by addressing form label issues flagged by the WAVE tool.
 * Improvement: Enhanced Astra Real-Time Add to Cart functionality to make it compatible with WooCommerce Subscription's Proration feature.

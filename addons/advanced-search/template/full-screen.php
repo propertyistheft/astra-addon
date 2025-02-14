@@ -22,7 +22,7 @@
 						<span class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?></span>
 						<input name="s" class="search-field" autocomplete="off" type="text" value="" placeholder="<?php echo esc_attr( astra_default_strings( 'string-full-width-search-placeholder', false ) ); ?>" tabindex="1">
 					</label>
-					<button aria-label="<?php esc_attr_e( 'Search', 'astra-addon' ); ?>" id="search_submit" class="button search-submit" tabindex="2"><i class="astra-search-icon"> <?php Astra_Icons::get_icons( 'search', true ); ?> </i></button>
+					<button aria-label="<?php esc_attr_e( 'Search', 'astra-addon' ); ?>" id="search_submit" class="button search-submit" tabindex="2"><i class="astra-search-icon"> <?php Astra_Ext_Adv_Search_Markup::search_icon( true ); ?> </i></button>
 				</fieldset>
 			</form>
 		</div>

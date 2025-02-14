@@ -11,7 +11,7 @@
 define( 'BSF_REMOVE_astra-addon_FROM_REGISTRATION_LISTING', true );
 // @codingStandardsIgnoreEnd
 
-if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
+if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) {
 
 	/**
 	 * Brainstorm Update
@@ -129,8 +129,8 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 		 * Enable autoupdates for Astra Theme if beta updates option is selected or currently installed theme/pro versions are beta or alpha.
 		 *
 		 * @since 1.5.1
-		 * @param boolean $status True if updates are tobe enabled. False if updates are to be disabled.
-		 * @return boolean True if updates are tobe enabled. False if updates are to be disabled.
+		 * @param bool $status True if updates are tobe enabled. False if updates are to be disabled.
+		 * @return bool True if updates are tobe enabled. False if updates are to be disabled.
 		 */
 		public function enable_astra_beta_updates( $status ) {
 			if ( BSF_Update_Manager::bsf_allow_beta_updates( 'astra' ) || $this->is_using_beta() ) {
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 		 * Check if Astra Theme or Astra Pro are using beta/alpha versions
 		 *
 		 * @since 1.6.0
-		 * @return boolean True if Astra Theme or Pro are using beta/alpha versions. False is both theme and pro are using stable versions.
+		 * @return bool True if Astra Theme or Pro are using beta/alpha versions. False is both theme and pro are using stable versions.
 		 */
 		private function is_using_beta() {
 			return strpos( ASTRA_EXT_VER, 'beta' ) ||
@@ -157,8 +157,8 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 		 * Enable/Disable beta updates for Astra Theme and Astra Pro.
 		 *
 		 * @since 1.5.1
-		 * @param boolean $status True - If beta updates are enabled. False - If beta updates are disabled.
-		 * @return boolean
+		 * @param bool $status True - If beta updates are enabled. False - If beta updates are disabled.
+		 * @return bool
 		 */
 		public function enable_beta_updates( $status ) {
 			$allow_beta = Astra_Admin_Helper::get_admin_settings_option( '_astra_beta_updates', true, 'disable' );
@@ -234,8 +234,7 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 
 			$purchase_url = apply_filters( 'astra_addon_licence_url', $purchase_url );
 
-			$message = "<p><a target='_blank' href='" . esc_url( $purchase_url ) . "'>" . esc_html__( 'Get the license »', 'astra-addon' ) . '</a></p>';
-			return $message;
+			return "<p><a target='_blank' href='" . esc_url( $purchase_url ) . "'>" . esc_html__( 'Get the license »', 'astra-addon' ) . '</a></p>';
 		}
 
 		/**
@@ -334,4 +333,4 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) :
 	 */
 	Brainstorm_Update_Astra_Addon::get_instance();
 
-endif;
+}

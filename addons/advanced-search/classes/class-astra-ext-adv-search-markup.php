@@ -64,6 +64,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 				add_action( 'astra_above_header_top', array( $this, 'top_header_cover_search' ) );
 				add_action( 'astra_below_header_top', array( $this, 'below_header_cover_search' ) );
 			}
+
+			// Filter to modify the search icon for slide search from theme.
+			add_filter( 'astra_get_search_icon', array( $this, 'search_icon' ) );
 		}
 
 		/**
@@ -91,9 +94,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 */
 		public function header_builder_default_search_string( $search_string ) {
 
-			$search_string = esc_attr( astra_get_i18n_option( 'header-search-box-placeholder', _x( '%astra%', 'Search: Placeholder Text', 'astra-addon' ) ) );
-
-			return $search_string;
+			return esc_attr( astra_get_i18n_option( 'header-search-box-placeholder', _x( '%astra%', 'Search: Placeholder Text', 'astra-addon' ) ) );
 		}
 
 		/**
@@ -290,20 +291,91 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		/**
 		 * Search icon markup
 		 *
+		 * @param  string $style Search style.
+		 *
+		 * @return void|string Returns or echo search icon HTML markup.
+		 *
+		 * @since 4.8.13
+		 */
+		public static function search_icon( $echo = false ) {
+			$svg     = '';
+			$classes = array(
+				'ast-icon',
+				'icon-search',
+			);
+			$icon    = astra_get_option( 'header-search-icon' );
+
+			if ( isset( $icon['type'], $icon['value'] ) ) {
+				$type  = $icon['type'];
+				$value = $icon['value'];
+
+				if ( $type === 'custom' ) {
+					$svg       = do_shortcode( $value );
+					$classes[] = 'icon-' . $type;
+				} elseif ( is_callable( 'Astra_Builder_UI_Controller::fetch_svg_icon' ) ) {
+					$svg       = Astra_Builder_UI_Controller::fetch_svg_icon( $value );
+					$classes[] = 'icon-' . $value;
+				}
+			}
+
+			$svg = $svg ?: Astra_Icons::get_icons( 'search' );
+			$svg = sprintf(
+				'<span class="%1$s">%2$s</span>',
+				implode( ' ', $classes ),
+				$svg
+			);
+
+			$allowed_svg_args = array(
+				'span'  => array( 'class' => array() ),
+				'svg'   => array(
+					'xmlns:xlink'       => array(),
+					'version'           => array(),
+					'id'                => array(),
+					'x'                 => array(),
+					'y'                 => array(),
+					'enable-background' => array(),
+					'xml:space'         => array(),
+					'class'             => array(),
+					'aria-hidden'       => array(),
+					'aria-labelledby'   => array(),
+					'role'              => array(),
+					'xmlns'             => array(),
+					'width'             => array(),
+					'height'            => array(),
+					'viewbox'           => array(),
+				),
+				'g'     => array( 'fill' => array() ),
+				'title' => array( 'title' => array() ),
+				'path'  => array(
+					'd'    => array(),
+					'fill' => array(),
+				),
+			);
+
+			if ( $echo !== true ) {
+				return wp_kses( $svg, $allowed_svg_args );
+			}
+			
+			echo wp_kses( $svg, $allowed_svg_args );
+		}
+
+		/**
+		 * Search icon markup
+		 *
 		 * @since 1.4.8
 		 * @param  string $style Search style.
 		 * @return mixed        HTML Markup.
 		 */
 		public function get_search_icon( $style ) {
-			return '<div class="ast-search-icon"><a class="' . esc_attr( $style ) . ' astra-search-icon" aria-label="Search icon link" href="#">' . Astra_Icons::get_icons( 'search' ) . '</a></div>';
+			return '<div class="ast-search-icon"><a class="' . esc_attr( $style ) . ' astra-search-icon" aria-label="Search icon link" href="#">' . self::search_icon() . '</a></div>';
 		}
 
 		/**
 		 * Search Form
 		 *
 		 * @since 1.4.8
-		 * @param string  $style Search Form Style.
-		 * @param boolean $echo Print or return.
+		 * @param string $style Search Form Style.
+		 * @param bool   $echo Print or return.
 		 * @return mixed
 		 */
 		public function get_search_form( $style = 'slide-search', $echo = false ) {
@@ -324,8 +396,8 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 * Search Form Shortcode
 		 *
 		 * @since 3.6.8
-		 * @param string  $style Search Form Style.
-		 * @param boolean $echo Print or return.
+		 * @param string $style Search Form Style.
+		 * @param bool   $echo Print or return.
 		 * @return mixed
 		 */
 		public function get_search_form_shortcode( $style = 'slide-search', $echo = false ) {
@@ -348,7 +420,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 */
 		public function add_styles() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_ADVANCED_SEARCH_URL . 'assets/css/';
@@ -377,12 +449,11 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 				$gen_path = $css_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 
 			/* Add style.css */
 			Astra_Minify::add_css( $gen_path . 'style' . $file_prefix . '.css' );
 		}
-
 
 		/**
 		 * Add Scripts Callback
@@ -391,7 +462,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 */
 		public function add_scripts() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_ADVANCED_SEARCH_URL . 'assets/js/';
@@ -415,13 +486,13 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 				$gen_path = $js_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 			Astra_Minify::add_js( $gen_path . 'advanced-search' . $file_prefix . '.js' );
 		}
 	}
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Adv_Search_Markup::get_instance();

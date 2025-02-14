@@ -35,7 +35,12 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = 'section-header-search';
+		$_section       = 'section-header-search';
+		$markup_partial = array(
+			'selector'            => '.ast-header-search',
+			'container_inclusive' => false,
+			'render_callback'     => array( Astra_Ext_Adv_Search_Markup::get_instance(), 'get_search_markup' ),
+		);
 
 		/**
 		 * Option: Pro Search Bar Configs.
@@ -62,6 +67,31 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
+			// Option: Search Icon.
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[header-search-icon]',
+				'default'     => astra_get_option( 'header-search-icon' ),
+				'section'     => $_section,
+				'priority'    => 1,
+				'title'       => __( 'Search Icon', 'astra-addon' ),
+				'type'        => 'control',
+				'control'     => 'ast-svg-icon-selector',
+				'keyword'     => 'search', // to pull the icons in first related to search keyword.
+				'choices'     => array(
+					'search'        => 'search',
+					'search-thin'   => 'search-thin',
+					'search-filled' => 'search-filled',
+					'icon-library'  => 'upload',
+					'custom'        => 'code',
+				),
+				'partial'     => $markup_partial,
+				'transport'   => 'postMessage',
+				'description' => '',
+				'context'     => astra_addon_builder_helper()->general_tab,
+				'responsive'  => false,
+				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+			),
+
 			/**
 			 * Option: search placeholder text.
 			 */
@@ -74,11 +104,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'type'      => 'control',
 				'control'   => 'ast-text-input',
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => '.ast-header-search',
-					'container_inclusive' => false,
-					'render_callback'     => array( Astra_Ext_Adv_Search_Markup::get_instance(), 'get_search_markup' ),
-				),
+				'partial'   => $markup_partial,
 				'context'   => astra_addon_builder_helper()->general_tab,
 				'divider'   => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 			),
@@ -137,11 +163,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'control'   => 'ast-text-input',
 				'transport' => 'refresh',
 				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
-				'partial'   => array(
-					'selector'            => '.ast-header-search',
-					'container_inclusive' => false,
-					'render_callback'     => array( Astra_Ext_Adv_Search_Markup::get_instance(), 'get_search_markup' ),
-				),
+				'partial'   => $markup_partial,
 				'context'   => array(
 					astra_addon_builder_helper()->general_tab_config,
 					array(
@@ -167,4 +189,3 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
  */
 
 new Astra_Customizer_Adv_Search_Configs();
-

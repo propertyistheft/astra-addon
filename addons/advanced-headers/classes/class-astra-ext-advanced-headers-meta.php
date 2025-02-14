@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 		 */
 		public function menu_highlight() {
 			global $post_type;
-			if ( 'astra_adv_header' == $post_type ) :
+			if ( 'astra_adv_header' == $post_type ) {
 				/* Same display rule assign notice */
 				$option = array(
 					'location'  => 'ast-advanced-headers-location',
@@ -121,9 +121,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					'users'     => 'ast-advanced-headers-users',
 				);
 				Astra_Target_Rules_Fields::same_display_on_notice( 'astra_adv_header', $option );
-			endif;
+			}
 		}
-
 
 		/**
 		 *  Init Metabox
@@ -302,9 +301,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 			// Set stored and override defaults.
 			foreach ( $stored as $key => $value ) {
 				if ( in_array( $key, $advanced_headers_meta ) ) {
-					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? maybe_unserialize( $stored[ $key ][0] ) : '';
+					self::$meta_option[ $key ]['default'] = isset( $stored[ $key ][0] ) ? maybe_unserialize( $stored[ $key ][0] ) : '';
 				} else {
-					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+					self::$meta_option[ $key ]['default'] = isset( $stored[ $key ][0] ) ? $stored[ $key ][0] : '';
 				}
 			}
 
@@ -317,14 +316,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 			/**
 			 * Get options
 			 */
-			$ast_advanced_headers_layout = ( isset( $meta['ast-advanced-headers-layout']['default'] ) ) ? $meta['ast-advanced-headers-layout']['default'] : array(
+			$ast_advanced_headers_layout = isset( $meta['ast-advanced-headers-layout']['default'] ) ? $meta['ast-advanced-headers-layout']['default'] : array(
 				'layout'                     => 'advanced-headers-layout-2',
 				'breadcrumb'                 => '',
 				'force-transparent-disabled' => 'yes',
 				'above-header-enabled'       => $default_above_header,
 				'below-header-enabled'       => $default_below_header,
 			);
-			$ast_advanced_headers_design = ( isset( $meta['ast-advanced-headers-design']['default'] ) ) ? $meta['ast-advanced-headers-design']['default'] : array(
+			$ast_advanced_headers_design = isset( $meta['ast-advanced-headers-design']['default'] ) ? $meta['ast-advanced-headers-design']['default'] : array(
 				'title-color'                     => '#ffffff',
 				'b-text-color'                    => '',
 				'b-link-color'                    => '',
@@ -383,9 +382,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 				'search-style'                    => 'default',
 			);
 
-			$display_locations = ( isset( $meta['ast-advanced-headers-location']['default'] ) ) ? $meta['ast-advanced-headers-location']['default'] : '';
-			$exclude_locations = ( isset( $meta['ast-advanced-headers-exclusion']['default'] ) ) ? $meta['ast-advanced-headers-exclusion']['default'] : '';
-			$user_roles        = ( isset( $meta['ast-advanced-headers-users']['default'] ) ) ? $meta['ast-advanced-headers-users']['default'] : '';
+			$display_locations = isset( $meta['ast-advanced-headers-location']['default'] ) ? $meta['ast-advanced-headers-location']['default'] : '';
+			$exclude_locations = isset( $meta['ast-advanced-headers-exclusion']['default'] ) ? $meta['ast-advanced-headers-exclusion']['default'] : '';
+			$user_roles        = isset( $meta['ast-advanced-headers-users']['default'] ) ? $meta['ast-advanced-headers-users']['default'] : '';
 
 			// settings added after published/updated the meta.
 			$unsaved_array           = array();
@@ -478,7 +477,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 								id='ast-adv-headers-tab-<?php echo esc_attr( $slug ); ?>'> <?php echo esc_html( $data['label'] ); ?> </a>
 							</li>
 							<?php
-							$count ++;
+							$count++;
 						}
 						?>
 					</ul>
@@ -505,7 +504,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<?php do_action( 'astra_adv_headers_tabs_' . esc_attr( $slug ) . '_action', $ast_advanced_headers ); ?>
 					</div>
 					<?php
-					$count ++;
+					$count++;
 				}
 				?>
 			</div> <!-- #ast-advanced-headers-tabs -->
@@ -528,7 +527,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 			$is_autosave = wp_is_post_autosave( $post_id );
 			$is_revision = wp_is_post_revision( $post_id );
 
-			$is_valid_nonce = ( isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( sanitize_text_field( $_POST['astra-advanced-headers'] ), basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( sanitize_text_field( $_POST['astra-advanced-headers'] ), basename( __FILE__ ) ) ? true : false;
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
@@ -565,7 +564,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						$meta_value = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, $key );
 				} else {
 					// Sanitize values.
-					$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_SANITIZE_STRING';
+					$sanitize_filter = isset( $data['sanitize'] ) ? $data['sanitize'] : 'FILTER_SANITIZE_STRING';
 
 					switch ( $sanitize_filter ) {
 
@@ -795,7 +794,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							href="#"><?php esc_html_e( 'Select Image', 'astra-addon' ); ?></a>
 						<?php
 						// Remove button based on image is selected or not.
-						$remove_button = ( isset( $design['bg-image'] ) && '' != $design['bg-image'] ) ? 'display:inline-block' : 'display:none';
+						$remove_button = isset( $design['bg-image'] ) && '' != $design['bg-image'] ? 'display:inline-block' : 'display:none';
 						?>
 						<button class="ast-advanced-headers-bg-image-remove button" type="button"
 								style="<?php echo esc_attr( $remove_button ); ?>">
@@ -827,7 +826,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					<td class="ast-advanced-headers-row-content">
 						<!-- Deprecated checkbox to enable Parallax effect, this is now replaced by select box to enable parallax effect on responsive devices from version 2.3.0 This option should be removed after 4 major updates. -->
 						<input type="hidden" name="ast-advanced-headers-design[parallax]"
-								value="<?php echo esc_attr( ( 'none' !== $design['parallax-device'] ) ? 'enabled' : '' ); ?>" />
+								value="<?php echo esc_attr( 'none' !== $design['parallax-device'] ? 'enabled' : '' ); ?>" />
 						<select name="ast-advanced-headers-design[parallax-device]" id="ast-advanced-header-design-parallax-device"
 								style="width:210px;">
 							<option value="none" <?php selected( $design['parallax-device'], 'none' ); ?> > <?php esc_html_e( 'None', 'astra-addon' ); ?></option>
@@ -907,7 +906,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							href="#"><?php esc_html_e( 'Select logo', 'astra-addon' ); ?></a>
 						<?php
 						// Remove button based on image is selected or not.
-						$remove_logo_button = ( isset( $design['logo-url'] ) && '' != $design['logo-url'] ) ? 'display:inline-block;' : 'display:none;';
+						$remove_logo_button = isset( $design['logo-url'] ) && '' != $design['logo-url'] ? 'display:inline-block;' : 'display:none;';
 						?>
 						<button class="ast-advanced-headers-logo-remove button" type="button"
 								style="<?php echo esc_attr( $remove_logo_button ); ?>">
@@ -948,7 +947,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							href="#"><?php esc_html_e( 'Select logo', 'astra-addon' ); ?></a>
 						<?php
 						// Remove button based on image is selected or not.
-						$remove_logo_button = ( isset( $design['retina-logo-url'] ) && '' != $design['retina-logo-url'] ) ? 'display:inline-block;' : 'display:none;';
+						$remove_logo_button = isset( $design['retina-logo-url'] ) && '' != $design['retina-logo-url'] ? 'display:inline-block;' : 'display:none;';
 						?>
 						<button class="ast-advanced-headers-logo-remove button" type="button"
 								style="<?php echo esc_attr( $remove_logo_button ); ?>">
@@ -985,7 +984,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 				<?php
 				$site_title_setting = astra_get_option( 'display-site-title-responsive' );
-				$site_title         = ( $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ) ? true : false;
+				$site_title         = $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ? true : false;
 				if ( $site_title ) {
 					?>
 					<tr class="ast-advanced-headers-row">
@@ -1011,7 +1010,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					<?php
 				}
 				$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );
-				$display_site_tagline = ( $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ) ? true : false;
+				$display_site_tagline = $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ? true : false;
 				if ( $display_site_tagline ) {
 					?>
 
@@ -1093,7 +1092,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-menu-a-color]"
-									value="<?php echo ( isset( $design['primary-menu-a-color'] ) ) ? esc_attr( $design['primary-menu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-menu-a-color'] ) ? esc_attr( $design['primary-menu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 
@@ -1105,7 +1104,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-bg-color]"
-									value="<?php echo ( isset( $design['primary-submenu-bg-color'] ) ) ? esc_attr( $design['primary-submenu-bg-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-bg-color'] ) ? esc_attr( $design['primary-submenu-bg-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
@@ -1115,7 +1114,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-color]"
-									value="<?php echo ( isset( $design['primary-submenu-color'] ) ) ? esc_attr( $design['primary-submenu-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-color'] ) ? esc_attr( $design['primary-submenu-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
@@ -1125,7 +1124,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-h-color]"
-									value="<?php echo ( isset( $design['primary-submenu-h-color'] ) ) ? esc_attr( $design['primary-submenu-h-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-h-color'] ) ? esc_attr( $design['primary-submenu-h-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
@@ -1135,7 +1134,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-a-color]"
-									value="<?php echo ( isset( $design['primary-submenu-a-color'] ) ) ? esc_attr( $design['primary-submenu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-a-color'] ) ? esc_attr( $design['primary-submenu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<?php
@@ -1151,7 +1150,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							<?php
 							if ( isset( $design['custom-menu'] ) ) {
 								$primary_manu = isset( $menu_locations['primary'] ) ? $menu_locations['primary'] : '';
-								$custom_menu  = ( ( isset( $design['custom-menu'] ) && '' == $design['custom-menu'] ) ) ? $primary_manu : $design['custom-menu'];
+								$custom_menu  = isset( $design['custom-menu'] ) && '' == $design['custom-menu'] ? $primary_manu : $design['custom-menu'];
 								$nav_menus    = wp_get_nav_menus();
 							}
 							?>
@@ -1161,14 +1160,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 									value="0"><?php printf( '&mdash; %s &mdash;', esc_html__( 'Default', 'astra-addon' ) ); ?></option>
 								<?php
 								if ( isset( $design['custom-menu'] ) && ! empty( $nav_menus ) ) {
-									foreach ( $nav_menus as $menu ) :
+									foreach ( $nav_menus as $menu ) {
 										?>
-									<option <?php selected( $custom_menu == $menu->term_id ); ?>
-										value="<?php echo esc_attr( $menu->term_id ); ?>">
-										<?php echo esc_html( $menu->name ); ?>
-									</option>
+										<option <?php selected( $custom_menu === $menu->term_id ); ?>
+											value="<?php echo esc_attr( $menu->term_id ); ?>">
+											<?php echo esc_html( $menu->name ); ?>
+										</option>
 										<?php
-								endforeach;
+									}
 								}
 								?>
 							</select>
@@ -1303,7 +1302,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-a-color]"
-									value="<?php echo ( isset( $design['above-header-a-color'] ) ) ? esc_attr( $design['above-header-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-a-color'] ) ? esc_attr( $design['above-header-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<!-- Above menu -> submenu Colors  -->
@@ -1314,7 +1313,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-bg-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-bg-color'] ) ) ? esc_attr( $design['above-header-submenu-bg-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-bg-color'] ) ? esc_attr( $design['above-header-submenu-bg-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
@@ -1324,7 +1323,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-link-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-link-color'] ) ) ? esc_attr( $design['above-header-submenu-link-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-link-color'] ) ? esc_attr( $design['above-header-submenu-link-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
@@ -1334,7 +1333,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-h-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-h-color'] ) ) ? esc_attr( $design['above-header-submenu-h-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-h-color'] ) ? esc_attr( $design['above-header-submenu-h-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
@@ -1344,7 +1343,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-a-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-a-color'] ) ) ? esc_attr( $design['above-header-submenu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-a-color'] ) ? esc_attr( $design['above-header-submenu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 				</table>
@@ -1410,7 +1409,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-a-color]"
-									value="<?php echo ( isset( $design['below-header-a-color'] ) ) ? esc_attr( $design['below-header-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-a-color'] ) ? esc_attr( $design['below-header-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<!-- Below menu -> submenu Colors  -->
@@ -1421,7 +1420,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-bg-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-bg-color'] ) ) ? esc_attr( $design['below-header-submenu-bg-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-bg-color'] ) ? esc_attr( $design['below-header-submenu-bg-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
@@ -1431,7 +1430,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-link-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-link-color'] ) ) ? esc_attr( $design['below-header-submenu-link-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-link-color'] ) ? esc_attr( $design['below-header-submenu-link-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
@@ -1441,7 +1440,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-h-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-h-color'] ) ) ? esc_attr( $design['below-header-submenu-h-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-h-color'] ) ? esc_attr( $design['below-header-submenu-h-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
@@ -1451,7 +1450,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-a-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-a-color'] ) ) ? esc_attr( $design['below-header-submenu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-a-color'] ) ? esc_attr( $design['below-header-submenu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 				</table>
@@ -1525,7 +1524,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							href="#"><?php esc_html_e( 'Select logo', 'astra-addon' ); ?></a>
 						<?php
 						// Remove button based on image is selected or not.
-						$remove_logo_button = ( isset( $design['logo-url'] ) && '' != $design['logo-url'] ) ? 'display:inline-block;' : 'display:none;';
+						$remove_logo_button = isset( $design['logo-url'] ) && '' != $design['logo-url'] ? 'display:inline-block;' : 'display:none;';
 						?>
 						<button class="ast-advanced-headers-logo-remove button" type="button"
 								style="<?php echo esc_attr( $remove_logo_button ); ?>">
@@ -1566,7 +1565,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							href="#"><?php esc_html_e( 'Select logo', 'astra-addon' ); ?></a>
 						<?php
 						// Remove button based on image is selected or not.
-						$remove_logo_button = ( isset( $design['retina-logo-url'] ) && '' != $design['retina-logo-url'] ) ? 'display:inline-block;' : 'display:none;';
+						$remove_logo_button = isset( $design['retina-logo-url'] ) && '' != $design['retina-logo-url'] ? 'display:inline-block;' : 'display:none;';
 						?>
 						<button class="ast-advanced-headers-logo-remove button" type="button"
 								style="<?php echo esc_attr( $remove_logo_button ); ?>">
@@ -1603,7 +1602,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 				<?php
 				$site_title_setting = astra_get_option( 'display-site-title-responsive' );
-				$site_title         = ( $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ) ? true : false;
+				$site_title         = $site_title_setting['desktop'] || $site_title_setting['tablet'] || $site_title_setting['mobile'] ? true : false;
 				if ( $site_title ) {
 					?>
 					<tr class="ast-advanced-headers-row">
@@ -1629,7 +1628,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 					<?php
 				}
 				$site_tagline_setting = astra_get_option( 'display-site-tagline-responsive' );
-				$display_site_tagline = ( $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ) ? true : false;
+				$display_site_tagline = $site_tagline_setting['desktop'] || $site_tagline_setting['tablet'] || $site_tagline_setting['mobile'] ? true : false;
 				if ( $display_site_tagline ) {
 					?>
 
@@ -1711,7 +1710,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-menu-a-color]"
-									value="<?php echo ( isset( $design['primary-menu-a-color'] ) ) ? esc_attr( $design['primary-menu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-menu-a-color'] ) ? esc_attr( $design['primary-menu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 
@@ -1723,7 +1722,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-bg-color]"
-									value="<?php echo ( isset( $design['primary-submenu-bg-color'] ) ) ? esc_attr( $design['primary-submenu-bg-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-bg-color'] ) ? esc_attr( $design['primary-submenu-bg-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
@@ -1733,7 +1732,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-color]"
-									value="<?php echo ( isset( $design['primary-submenu-color'] ) ) ? esc_attr( $design['primary-submenu-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-color'] ) ? esc_attr( $design['primary-submenu-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
@@ -1743,7 +1742,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-h-color]"
-									value="<?php echo ( isset( $design['primary-submenu-h-color'] ) ) ? esc_attr( $design['primary-submenu-h-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-h-color'] ) ? esc_attr( $design['primary-submenu-h-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row require-merge-ast-advanced-header">
@@ -1753,7 +1752,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[primary-submenu-a-color]"
-									value="<?php echo ( isset( $design['primary-submenu-a-color'] ) ) ? esc_attr( $design['primary-submenu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['primary-submenu-a-color'] ) ? esc_attr( $design['primary-submenu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<?php
@@ -1769,7 +1768,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 							<?php
 							if ( isset( $design['custom-menu'] ) ) {
 								$primary_manu = isset( $menu_locations['primary'] ) ? $menu_locations['primary'] : '';
-								$custom_menu  = ( ( isset( $design['custom-menu'] ) && '' == $design['custom-menu'] ) ) ? $primary_manu : $design['custom-menu'];
+								$custom_menu  = isset( $design['custom-menu'] ) && '' == $design['custom-menu'] ? $primary_manu : $design['custom-menu'];
 								$nav_menus    = wp_get_nav_menus();
 							}
 							?>
@@ -1779,14 +1778,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 									value="0"><?php printf( '&mdash; %s &mdash;', esc_html__( 'Default', 'astra-addon' ) ); ?></option>
 								<?php
 								if ( isset( $design['custom-menu'] ) && ! empty( $nav_menus ) ) {
-									foreach ( $nav_menus as $menu ) :
+									foreach ( $nav_menus as $menu ) {
 										?>
-									<option <?php selected( $custom_menu == $menu->term_id ); ?>
-										value="<?php echo esc_attr( $menu->term_id ); ?>">
-										<?php echo esc_html( $menu->name ); ?>
-									</option>
+										<option <?php selected( $custom_menu === $menu->term_id ); ?>
+											value="<?php echo esc_attr( $menu->term_id ); ?>">
+											<?php echo esc_html( $menu->name ); ?>
+										</option>
 										<?php
-								endforeach;
+									}
 								}
 								?>
 							</select>
@@ -1852,7 +1851,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-a-color]"
-									value="<?php echo ( isset( $design['above-header-a-color'] ) ) ? esc_attr( $design['above-header-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-a-color'] ) ? esc_attr( $design['above-header-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<!-- Above menu -> submenu Colors  -->
@@ -1863,7 +1862,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-bg-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-bg-color'] ) ) ? esc_attr( $design['above-header-submenu-bg-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-bg-color'] ) ? esc_attr( $design['above-header-submenu-bg-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
@@ -1873,7 +1872,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-link-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-link-color'] ) ) ? esc_attr( $design['above-header-submenu-link-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-link-color'] ) ? esc_attr( $design['above-header-submenu-link-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
@@ -1883,7 +1882,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-h-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-h-color'] ) ) ? esc_attr( $design['above-header-submenu-h-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-h-color'] ) ? esc_attr( $design['above-header-submenu-h-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-above-header-required">
@@ -1893,7 +1892,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[above-header-submenu-a-color]"
-									value="<?php echo ( isset( $design['above-header-submenu-a-color'] ) ) ? esc_attr( $design['above-header-submenu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['above-header-submenu-a-color'] ) ? esc_attr( $design['above-header-submenu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 				</table>
@@ -1957,7 +1956,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-a-color]"
-									value="<?php echo ( isset( $design['below-header-a-color'] ) ) ? esc_attr( $design['below-header-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-a-color'] ) ? esc_attr( $design['below-header-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<!-- Below menu -> submenu Colors  -->
@@ -1968,7 +1967,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-bg-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-bg-color'] ) ) ? esc_attr( $design['below-header-submenu-bg-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-bg-color'] ) ? esc_attr( $design['below-header-submenu-bg-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
@@ -1978,7 +1977,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-link-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-link-color'] ) ) ? esc_attr( $design['below-header-submenu-link-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-link-color'] ) ? esc_attr( $design['below-header-submenu-link-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
@@ -1988,7 +1987,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-h-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-h-color'] ) ) ? esc_attr( $design['below-header-submenu-h-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-h-color'] ) ? esc_attr( $design['below-header-submenu-h-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 					<tr class="ast-advanced-headers-row ast-below-header-required">
@@ -1998,7 +1997,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<td class="ast-advanced-headers-row-content">
 							<input type="text" class="ast-advanced-headers-color-picker" data-alpha="true"
 									name="ast-advanced-headers-design[below-header-submenu-a-color]"
-									value="<?php echo ( isset( $design['below-header-submenu-a-color'] ) ) ? esc_attr( $design['below-header-submenu-a-color'] ) : ''; ?>" />
+									value="<?php echo isset( $design['below-header-submenu-a-color'] ) ? esc_attr( $design['below-header-submenu-a-color'] ) : ''; ?>" />
 						</td>
 					</tr>
 				</table>
@@ -2121,7 +2120,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 		 */
 		public static function logo_image_sizes( $sizes, $metadata ) {
 
-			$is_valid_nonce = ( isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( sanitize_text_field( $_POST['astra-advanced-headers'] ), basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = isset( $_POST['astra-advanced-headers'] ) && wp_verify_nonce( sanitize_text_field( $_POST['astra-advanced-headers'] ), basename( __FILE__ ) ) ? true : false;
 
 			if ( ! $is_valid_nonce ) {
 				return;

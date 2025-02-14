@@ -1022,7 +1022,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			}
 		}
 
-
 		/**
 		 * Filter location rule post types to skip current post type.
 		 *
@@ -1130,7 +1129,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 					),
 				)
 			);
-
 		}
 
 		/**
@@ -1165,7 +1163,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 		 */
 		public function menu_highlight() {
 			global $post_type;
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $post_type ) :
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
 
 				/* Same display rule assign notice */
 				$option = array(
@@ -1176,7 +1174,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				);
 
 				self::hook_same_display_on_notice( ASTRA_ADVANCED_HOOKS_POST_TYPE, $option );
-			endif;
+			}
 		}
 
 		/**
@@ -1299,7 +1297,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			if ( ! empty( $already_set_rule ) ) {
 				add_action(
 					'admin_notices',
-					function() use ( $current_post_layout ) {
+					static function() use ( $current_post_layout ) {
 
 						if ( 'template' === $current_post_layout ) {
 							return; // No need of admin notice for template type layout.
@@ -1313,7 +1311,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 						echo '<div class="notice notice-warning">';
 						echo '<p>' . wp_kses( $notice, array( 'strong' => true ) ) . '</p>';
 						echo '</div>';
-
 					}
 				);
 			}
@@ -1326,7 +1323,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			// Get all posts.
 			$post_types = get_post_types();
 
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == get_post_type() ) {
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === get_post_type() ) {
 				// Enable for all posts.
 				foreach ( $post_types as $type ) {
 
@@ -1425,14 +1422,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			$editor_type = get_post_meta( $post->ID, 'editor_type', true );
 
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $post->post_type ) {
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $post->post_type ) {
 
 				wp_nonce_field( basename( __FILE__ ), ASTRA_ADVANCED_HOOKS_POST_TYPE );
 				$stored = get_post_meta( $post->ID );
 
 				// Set stored and override defaults.
 				foreach ( $stored as $key => $value ) {
-					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+					self::$meta_option[ $key ]['default'] = isset( $stored[ $key ][0] ) ? $stored[ $key ][0] : '';
 				}
 
 				// Get defaults.
@@ -1441,8 +1438,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				/**
 				 * Get options.
 				 */
-				$with_php      = ( isset( $meta['ast-advanced-hook-with-php']['default'] ) ) ? $meta['ast-advanced-hook-with-php']['default'] : '';
-				$editor_type   = ( isset( $meta['editor_type']['default'] ) ) ? $meta['editor_type']['default'] : 'wordpress_editor';
+				$with_php      = isset( $meta['ast-advanced-hook-with-php']['default'] ) ? $meta['ast-advanced-hook-with-php']['default'] : '';
+				$editor_type   = isset( $meta['editor_type']['default'] ) ? $meta['editor_type']['default'] : 'wordpress_editor';
 				$enable_label  = __( 'Enable Code Editor', 'astra-addon' );
 				$disable_label = __( 'Enable WordPress Editor', 'astra-addon' );
 
@@ -1492,7 +1489,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 				// Set stored and override defaults.
 				foreach ( $stored as $key => $value ) {
-					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+					self::$meta_option[ $key ]['default'] = isset( $stored[ $key ][0] ) ? $stored[ $key ][0] : '';
 				}
 
 				// Get defaults.
@@ -1501,7 +1498,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				/**
 				 * Get options
 				 */
-				$content = ( isset( $meta['ast-advanced-hook-php-code']['default'] ) ) ? $meta['ast-advanced-hook-php-code']['default'] : "<?php\n	// Add your snippet here.\n?>";
+				$content = isset( $meta['ast-advanced-hook-php-code']['default'] ) ? $meta['ast-advanced-hook-php-code']['default'] : "<?php\n	// Add your snippet here.\n?>";
 				?>
 				<div class="wp-editor-container astra-php-editor-container">
 					<textarea id="ast-advanced-hook-php-code" name="ast-advanced-hook-php-code" class="wp-editor-area ast-advanced-hook-php-content"><?php echo esc_textarea( $content ); ?></textarea>
@@ -1533,9 +1530,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			// Set stored and override defaults.
 			foreach ( $stored as $key => $value ) {
 				if ( in_array( $key, $advanced_hooks_meta ) ) {
-					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? maybe_unserialize( $stored[ $key ][0] ) : '';
+					self::$meta_option[ $key ]['default'] = isset( $stored[ $key ][0] ) ? maybe_unserialize( $stored[ $key ][0] ) : '';
 				} else {
-					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+					self::$meta_option[ $key ]['default'] = isset( $stored[ $key ][0] ) ? $stored[ $key ][0] : '';
 				}
 			}
 
@@ -1545,20 +1542,20 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			/**
 			 * Get options
 			 */
-			$display_locations = ( isset( $meta['ast-advanced-hook-location']['default'] ) ) ? $meta['ast-advanced-hook-location']['default'] : '';
-			$exclude_locations = ( isset( $meta['ast-advanced-hook-exclusion']['default'] ) ) ? $meta['ast-advanced-hook-exclusion']['default'] : '';
-			$layout            = ( isset( $meta['ast-advanced-hook-layout']['default'] ) ) ? $meta['ast-advanced-hook-layout']['default'] : '';
-			$action            = ( isset( $meta['ast-advanced-hook-action']['default'] ) ) ? $meta['ast-advanced-hook-action']['default'] : '';
-			$priority          = ( isset( $meta['ast-advanced-hook-priority']['default'] ) ) ? $meta['ast-advanced-hook-priority']['default'] : '';
-			$user_roles        = ( isset( $meta['ast-advanced-hook-users']['default'] ) ) ? $meta['ast-advanced-hook-users']['default'] : '';
-			$padding           = ( isset( $meta['ast-advanced-hook-padding']['default'] ) ) ? $meta['ast-advanced-hook-padding']['default'] : array();
-			$header            = ( isset( $meta['ast-advanced-hook-header']['default'] ) ) ? $meta['ast-advanced-hook-header']['default'] : array();
-			$footer            = ( isset( $meta['ast-advanced-hook-footer']['default'] ) ) ? $meta['ast-advanced-hook-footer']['default'] : array();
-			$layout_404        = ( isset( $meta['ast-404-page']['default'] ) ) ? $meta['ast-404-page']['default'] : array();
-			$content           = ( isset( $meta['ast-advanced-hook-content']['default'] ) ) ? $meta['ast-advanced-hook-content']['default'] : array();
-			$display_devices   = ( isset( $meta['ast-advanced-display-device']['default'] ) ) ? $meta['ast-advanced-display-device']['default'] : array();
-			$time_duration     = ( isset( $meta['ast-advanced-time-duration']['default'] ) ) ? $meta['ast-advanced-time-duration']['default'] : array();
-			$custom_action     = ( isset( $meta['ast-custom-hook']['default'] ) ) ? $meta['ast-custom-hook']['default'] : '';
+			$display_locations = isset( $meta['ast-advanced-hook-location']['default'] ) ? $meta['ast-advanced-hook-location']['default'] : '';
+			$exclude_locations = isset( $meta['ast-advanced-hook-exclusion']['default'] ) ? $meta['ast-advanced-hook-exclusion']['default'] : '';
+			$layout            = isset( $meta['ast-advanced-hook-layout']['default'] ) ? $meta['ast-advanced-hook-layout']['default'] : '';
+			$action            = isset( $meta['ast-advanced-hook-action']['default'] ) ? $meta['ast-advanced-hook-action']['default'] : '';
+			$priority          = isset( $meta['ast-advanced-hook-priority']['default'] ) ? $meta['ast-advanced-hook-priority']['default'] : '';
+			$user_roles        = isset( $meta['ast-advanced-hook-users']['default'] ) ? $meta['ast-advanced-hook-users']['default'] : '';
+			$padding           = isset( $meta['ast-advanced-hook-padding']['default'] ) ? $meta['ast-advanced-hook-padding']['default'] : array();
+			$header            = isset( $meta['ast-advanced-hook-header']['default'] ) ? $meta['ast-advanced-hook-header']['default'] : array();
+			$footer            = isset( $meta['ast-advanced-hook-footer']['default'] ) ? $meta['ast-advanced-hook-footer']['default'] : array();
+			$layout_404        = isset( $meta['ast-404-page']['default'] ) ? $meta['ast-404-page']['default'] : array();
+			$content           = isset( $meta['ast-advanced-hook-content']['default'] ) ? $meta['ast-advanced-hook-content']['default'] : array();
+			$display_devices   = isset( $meta['ast-advanced-display-device']['default'] ) ? $meta['ast-advanced-display-device']['default'] : array();
+			$time_duration     = isset( $meta['ast-advanced-time-duration']['default'] ) ? $meta['ast-advanced-time-duration']['default'] : array();
+			$custom_action     = isset( $meta['ast-custom-hook']['default'] ) ? $meta['ast-custom-hook']['default'] : '';
 
 			$ast_advanced_hooks = array(
 				'include-locations' => $display_locations,
@@ -1597,7 +1594,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			$is_autosave = wp_is_post_autosave( $post_id );
 			$is_revision = wp_is_post_revision( $post_id );
 
-			$is_valid_nonce = ( isset( $_POST[ ASTRA_ADVANCED_HOOKS_POST_TYPE ] ) && wp_verify_nonce( sanitize_text_field( $_POST[ ASTRA_ADVANCED_HOOKS_POST_TYPE ] ), basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = isset( $_POST[ ASTRA_ADVANCED_HOOKS_POST_TYPE ] ) && wp_verify_nonce( sanitize_text_field( $_POST[ ASTRA_ADVANCED_HOOKS_POST_TYPE ] ), basename( __FILE__ ) ) ? true : false;
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
@@ -1618,7 +1615,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			 */
 			$post_meta = self::get_meta_option();
 			foreach ( $post_meta as $key => $data ) {
-				$post_key = ( ! empty( $_POST[ $key ] ) && is_array( $_POST[ $key ] ) ) ? array_map( 'sanitize_text_field', $_POST[ $key ] ) : array();
+				$post_key = ! empty( $_POST[ $key ] ) && is_array( $_POST[ $key ] ) ? array_map( 'sanitize_text_field', $_POST[ $key ] ) : array();
 				if ( in_array( $key, array( 'ast-advanced-hook-users', 'ast-advanced-hook-padding' ) ) ) {
 					$index = ! empty( $post_key ) ? array_search( '', $post_key ) : false;
 					if ( false !== $index ) {
@@ -1631,7 +1628,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 					$meta_value = Astra_Target_Rules_Fields::get_format_rule_value( $_POST, $key );
 				} else {
 					// Sanitize values.
-					$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_SANITIZE_STRING';
+					$sanitize_filter = isset( $data['sanitize'] ) ? $data['sanitize'] : 'FILTER_SANITIZE_STRING';
 
 					switch ( $sanitize_filter ) {
 
@@ -1693,7 +1690,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			update_post_meta( get_the_ID(), 'ast-advanced-hook-location', $target_rule_404 );
 		}
-
 
 		/**
 		 * Get the timezone string as selected in wp general setting.
@@ -1764,13 +1760,11 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 					<td class="ast-advanced-hook-row-content">
 						<select id="ast-advanced-hook-layout" name="ast-advanced-hook-layout" style="width: 50%;" >
 							<option value="0"><?php printf( '&mdash; %s &mdash;', esc_html__( 'Select', 'astra-addon' ) ); ?></option>
-							<?php if ( is_array( self::$layouts ) && ! empty( self::$layouts ) ) : ?>
-								<?php foreach ( self::$layouts as $key => $layout ) : ?>
-
+							<?php if ( is_array( self::$layouts ) && ! empty( self::$layouts ) ) { ?>
+								<?php foreach ( self::$layouts as $key => $layout ) { ?>
 									<option <?php selected( $key, $options['layout'] ); ?> value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_html( $layout['title'] ); ?></option>
-
-								<?php endforeach; ?>
-							<?php endif; ?>
+								<?php } ?>
+							<?php } ?>
 						</select>
 						<p class="ast-inside-content-notice"><?php esc_html_e( 'This option will be applicable only for the posts/pages created with the block editor.', 'astra-addon' ); ?></p>
 					</td>
@@ -1904,25 +1898,25 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 						?>
 						<select id="ast-advanced-hook-action" name="ast-advanced-hook-action" style="width: 50%;" >
 							<option value="0"><?php printf( '&mdash; %s &mdash;', esc_html__( 'Select', 'astra-addon' ) ); ?></option>
-							<?php if ( is_array( self::$hooks ) && ! empty( self::$hooks ) ) : ?>
-								<?php foreach ( self::$hooks as $hook_cat ) : ?>
+							<?php if ( is_array( self::$hooks ) && ! empty( self::$hooks ) ) { ?>
+								<?php foreach ( self::$hooks as $hook_cat ) { ?>
 								<optgroup label="<?php echo esc_attr( $hook_cat['title'] ); ?>" >
-									<?php if ( is_array( $hook_cat['hooks'] ) && ! empty( $hook_cat['hooks'] ) ) : ?>
-										<?php foreach ( $hook_cat['hooks'] as $key => $hook ) : ?>
+									<?php if ( is_array( $hook_cat['hooks'] ) && ! empty( $hook_cat['hooks'] ) ) { ?>
+										<?php foreach ( $hook_cat['hooks'] as $key => $hook ) { ?>
 											<?php
-											if ( $key == $options['action'] && isset( $hook['description'] ) ) {
+											if ( $key === $options['action'] && isset( $hook['description'] ) ) {
 												$description = $hook['description'];
 											}
 											$hook_description = isset( $hook['description'] ) ? $hook['description'] : '';
 											?>
-										<option <?php selected( $key, $options['action'] ); ?> value="<?php echo esc_attr( $key ); ?>" data-desc="<?php echo esc_attr( $hook_description ); ?>"><?php echo esc_html( $hook['title'] ); ?></option>
-									<?php endforeach; ?>
-									<?php endif; ?>
+											<option <?php selected( $key, $options['action'] ); ?> value="<?php echo esc_attr( $key ); ?>" data-desc="<?php echo esc_attr( $hook_description ); ?>"><?php echo esc_html( $hook['title'] ); ?></option>
+										<?php } ?>
+									<?php } ?>
 								</optgroup>
-							<?php endforeach; ?>
-							<?php endif; ?>
+								<?php } ?>
+							<?php } ?>
 						</select>
-						<p class="description ast-advanced-hook-action-desc <?php echo ( '' == $description ) ? 'ast-no-desc' : ''; ?>"><?php echo esc_html( $description ); ?></p>
+						<p class="description ast-advanced-hook-action-desc <?php echo '' == $description ? 'ast-no-desc' : ''; ?>"><?php echo esc_html( $description ); ?></p>
 					</td>
 				</tr>
 				<tr class="ast-advanced-hook-row ast-layout-hooks-required ast-custom-action-wrap">
@@ -2079,7 +2073,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			<?php
 		}
-
 
 	}
 }

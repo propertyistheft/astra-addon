@@ -276,6 +276,3 @@ if ( ! class_exists( 'Astra_Advanced_Footer_Typo_Configs' ) ) {
 }
 
 new Astra_Advanced_Footer_Typo_Configs();
-
-
-

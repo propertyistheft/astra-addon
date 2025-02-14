@@ -38,7 +38,6 @@ if ( class_exists( 'Subtitles' ) && ! class_exists( 'Astra_Advanced_Headers_Subt
 				return $output;
 			}
 			return $title;
-
 		}
 	}
 

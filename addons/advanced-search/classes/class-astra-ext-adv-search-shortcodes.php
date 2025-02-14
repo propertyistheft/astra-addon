@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 
 			$css_uri = $uri . $dir_name . '/';
 
-			/*** End Path Logic */
+			/* End Path Logic */
 
 			wp_register_style( 'advanced-search-shortcode', $css_uri . 'advanced-search-shortcode' . $file_prefix . '.css', array(), ASTRA_EXT_VER );
 		}
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 				$markup     = '<div class="ast-search-icon"><a class="full-screen astra-search-icon" aria-label="Search icon link" href="#" >' . $svg_markup . '</a></div>';
 				add_action(
 					'wp_footer',
-					function() {
+					static function() {
 						astra_addon_get_template( 'advanced-search/template/full-screen.php' );
 					}
 				);
@@ -145,10 +145,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 			ob_start();
 			?>
 			<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra-addon' ); ?></span>
-			<?php Astra_Icons::get_icons( 'search', true ); ?>
+			<?php Astra_Ext_Adv_Search_Markup::search_icon( true ); ?>
 			<?php
-			$search_svg_html = ob_get_clean();
-			return $search_svg_html;
+			return ob_get_clean();
 		}
 
 	}
@@ -158,4 +157,3 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Shortcodes' ) ) {
 	 */
 	Astra_Ext_Adv_Search_Shortcodes::get_instance();
 }
-

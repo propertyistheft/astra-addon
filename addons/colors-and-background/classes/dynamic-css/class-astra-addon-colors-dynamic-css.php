@@ -11,14 +11,12 @@
  * @since 1.7.0
  */
 class Astra_Addon_Colors_Dynamic_CSS {
-
 	/**
 	 *  Constructor
 	 */
 	public function __construct() {
 		add_filter( 'astra_addon_dynamic_css', array( $this, 'astra_ext_colors_dynamic_css' ) );
 	}
-
 
 	/**
 	 * Dynamic CSS
@@ -250,7 +248,6 @@ class Astra_Addon_Colors_Dynamic_CSS {
 				'color' => esc_attr( $post_read_more_h_cover ),
 			),
 
-
 			/**
 			 *Blog / Archive Content Color
 			 */
@@ -264,7 +261,6 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			$post_blog_bg_content_color_normal => array(
 				'background-color' => esc_attr( $post_blog_bg_content_color ),
 			),
-
 
 			/**
 			 * Footer
@@ -618,6 +614,6 @@ class Astra_Addon_Colors_Dynamic_CSS {
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 new Astra_Addon_Colors_Dynamic_CSS();

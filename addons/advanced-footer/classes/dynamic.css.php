@@ -193,23 +193,29 @@ function astra_ext_footer_adv_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		$adv_footer_css_output .= astra_parse_css( $mobile_css, '', astra_addon_get_mobile_breakpoint() );
 
 	} else {
-		$desktop_lr_padding['.footer-adv .ast-container'] = array(
-			'padding-right' => astra_responsive_spacing( $footer_adv_area_padding, 'right', 'desktop' ),
-			'padding-left'  => astra_responsive_spacing( $footer_adv_area_padding, 'left', 'desktop' ),
+		$desktop_lr_padding     = array(
+			'.footer-adv .ast-container' => array(
+				'padding-right' => astra_responsive_spacing( $footer_adv_area_padding, 'right', 'desktop' ),
+				'padding-left'  => astra_responsive_spacing( $footer_adv_area_padding, 'left', 'desktop' ),
+			),
 		);
-		$adv_footer_css_output                           .= astra_parse_css( $desktop_lr_padding );
+		$adv_footer_css_output .= astra_parse_css( $desktop_lr_padding );
 
-		$tablet_lr_padding['.footer-adv .ast-container'] = array(
-			'padding-right' => astra_responsive_spacing( $footer_adv_area_padding, 'right', 'tablet' ),
-			'padding-left'  => astra_responsive_spacing( $footer_adv_area_padding, 'left', 'tablet' ),
+		$tablet_lr_padding      = array(
+			'.footer-adv .ast-container' => array(
+				'padding-right' => astra_responsive_spacing( $footer_adv_area_padding, 'right', 'tablet' ),
+				'padding-left'  => astra_responsive_spacing( $footer_adv_area_padding, 'left', 'tablet' ),
+			),
 		);
-		$adv_footer_css_output                          .= astra_parse_css( $tablet_lr_padding, '', astra_addon_get_tablet_breakpoint() );
+		$adv_footer_css_output .= astra_parse_css( $tablet_lr_padding, '', astra_addon_get_tablet_breakpoint() );
 
-		$mobile_lr_padding['.footer-adv .ast-container'] = array(
-			'padding-right' => astra_responsive_spacing( $footer_adv_area_padding, 'right', 'mobile' ),
-			'padding-left'  => astra_responsive_spacing( $footer_adv_area_padding, 'left', 'mobile' ),
+		$mobile_lr_padding      = array(
+			'.footer-adv .ast-container' => array(
+				'padding-right' => astra_responsive_spacing( $footer_adv_area_padding, 'right', 'mobile' ),
+				'padding-left'  => astra_responsive_spacing( $footer_adv_area_padding, 'left', 'mobile' ),
+			),
 		);
-		$adv_footer_css_output                          .= astra_parse_css( $mobile_lr_padding, '', astra_addon_get_mobile_breakpoint() );
+		$adv_footer_css_output .= astra_parse_css( $mobile_lr_padding, '', astra_addon_get_mobile_breakpoint() );
 
 	}
 	// Foreground color.

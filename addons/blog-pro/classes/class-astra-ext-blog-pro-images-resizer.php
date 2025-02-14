@@ -53,12 +53,11 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 		/**
 		 * Filter to disable Image Processing Queue by DeliciousBrains.
 		 *
-		 * @return boolean true if Library is included/loaded.
+		 * @return bool true if Library is included/loaded.
 		 */
 		public function is_image_resizer() {
 			return apply_filters( 'astra_image_resizer', true );
 		}
-
 
 		/**
 		 * Register panel, section and controls
@@ -68,7 +67,6 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 		public function customize_register( $wp_customize ) {
 
 			require_once ASTRA_ADDON_EXT_BLOG_PRO_DIR . 'classes/sections/class-astra-customizer-blog-pro-image-resizer-configs.php';
-
 		}
 
 		/**
@@ -79,7 +77,6 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 		public static function includes() {
 
 			require_once ASTRA_EXT_DIR . 'classes/library/image-processing-queue/image-processing-queue.php';
-
 		}
 
 		/**
@@ -100,7 +97,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 				$attributes = array(
 					'width'  => empty( $blog_archive_image_width ) ? false : $blog_archive_image_width,
 					'height' => empty( $blog_archive_image_height ) ? false : $blog_archive_image_height,
-					'crop'   => ( empty( $blog_archive_image_width ) || empty( $blog_archive_image_height ) ) ? false : true,
+					'crop'   => empty( $blog_archive_image_width ) || empty( $blog_archive_image_height ) ? false : true,
 				);
 
 				if ( ! $attributes['width'] && ! $attributes['height'] ) {
@@ -154,7 +151,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 				$attributes = array(
 					'width'  => empty( $blog_single_image_width ) ? false : $blog_single_image_width,
 					'height' => empty( $blog_single_image_height ) ? false : $blog_single_image_height,
-					'crop'   => ( empty( $blog_single_image_width ) || empty( $blog_single_image_height ) ) ? false : true,
+					'crop'   => empty( $blog_single_image_width ) || empty( $blog_single_image_height ) ? false : true,
 				);
 
 				if ( ! $attributes['width'] && ! $attributes['height'] ) {
@@ -211,7 +208,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 				$attributes = array(
 					'width'  => empty( $blog_single_image_width ) ? false : $blog_single_image_width,
 					'height' => empty( $blog_single_image_height ) ? false : $blog_single_image_height,
-					'crop'   => ( empty( $blog_single_image_width ) || empty( $blog_single_image_height ) ) ? false : true,
+					'crop'   => empty( $blog_single_image_width ) || empty( $blog_single_image_height ) ? false : true,
 				);
 
 				if ( ! $attributes['width'] && ! $attributes['height'] ) {

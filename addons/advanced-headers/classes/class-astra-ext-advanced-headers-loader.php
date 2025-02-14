@@ -63,7 +63,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 			self::load_files();
 		}
 
-
 		/**
 		 * Add Custom Class to setting meta box
 		 *
@@ -88,7 +87,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 			include_once ASTRA_ADDON_EXT_ADVANCED_HEADERS_DIR . 'classes/astra-breadcrumbs.php';
 		}
 
-
 		/**
 		 * Return Advanced Headers layout options.
 		 *
@@ -107,9 +105,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 			if ( ! $advanced_headers_options ) {
 				return false;
 			}
-			$value = ( isset( $advanced_headers_options[ $option ] ) && '' !== $advanced_headers_options[ $option ] ) ? $advanced_headers_options[ $option ] : $default;
 
-			return $value;
+			return isset( $advanced_headers_options[ $option ] ) && '' !== $advanced_headers_options[ $option ] ? $advanced_headers_options[ $option ] : $default;
 		}
 
 		/**
@@ -128,9 +125,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 
 			$advanced_headers_options = self::get_advanced_headers_design();
 
-			$value = ( isset( $advanced_headers_options[ $option ] ) && '' !== $advanced_headers_options[ $option ] ) ? $advanced_headers_options[ $option ] : $default;
-
-			return $value;
+			return isset( $advanced_headers_options[ $option ] ) && '' !== $advanced_headers_options[ $option ] ? $advanced_headers_options[ $option ] : $default;
 		}
 
 		/**
@@ -144,9 +139,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 				return false;
 			}
 
-			$settings = get_post_meta( $ids, 'ast-advanced-headers-layout', true );
-
-			return $settings;
+			return get_post_meta( $ids, 'ast-advanced-headers-layout', true );
 		}
 
 		/**
@@ -160,9 +153,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 				return false;
 			}
 
-			$settings = get_post_meta( $ids, 'ast-advanced-headers-design', true );
-
-			return $settings;
+			return get_post_meta( $ids, 'ast-advanced-headers-design', true );
 		}
 
 		/**

@@ -58,7 +58,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_And_Background' ) ) {
 					}
 				}
 			}
-
 		}
 	}
 

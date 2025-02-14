@@ -22,7 +22,7 @@
 						array(
 							'class' => '',
 						)
-					) 
+					)
 				);
 				?>
 				>
@@ -44,11 +44,11 @@
 	</div><!-- .post-content -->
 
 	<?php $astra_addon_featured_item = apply_filters( 'astra_featured_image_enabled', true ); ?>
-	<?php if ( $astra_addon_featured_item ) : ?>
+	<?php if ( $astra_addon_featured_item ) { ?>
 		<?php
 		// Blog Post Featured Image.
 			astra_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ' . esc_html( apply_filters( 'astra_attr_ast-grid-col-6_output', 'ast-grid-col-6' ) ) . '">', '</div>' );
 		?>
-	<?php endif; ?>
+	<?php } ?>
 
 </div> <!-- .blog-layout-2 -->
