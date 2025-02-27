@@ -298,6 +298,11 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 * @since 4.8.13
 		 */
 		public static function search_icon( $echo = false ) {
+			// Bail early if SVG icons are not enabled.
+			if ( ! Astra_Icons::is_svg_icons() ) {
+				return $echo ? null : '';
+			}
+
 			$svg     = '';
 			$classes = array(
 				'ast-icon',

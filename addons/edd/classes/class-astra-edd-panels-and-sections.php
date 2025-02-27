@@ -61,18 +61,9 @@ if ( ! class_exists( 'Astra_Edd_Panels_And_Sections' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
-
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
 
-
 new Astra_Edd_Panels_And_Sections();
-
-
-
-
-

@@ -39,8 +39,6 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$header_logo_width            = astra_get_option( 'ast-header-logo-width' );
 	$header_responsive_logo_width = astra_get_option( 'ast-header-responsive-logo-width' );
 
-	$site_layout = astra_get_option( 'site-layout' );
-
 	$header_color_site_title = '#222';
 	$text_color              = astra_get_option( 'text-color' );
 	$link_color              = astra_get_option( 'link-color' );
@@ -190,14 +188,14 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	 *  Added Display none to submenu when sticky Animation is enabled.
 	 *
 	 * @since 4.7.2
-	 */ 
+	 */
 	if ( 'slide' === $sticky_header_style || 'fade' === $sticky_header_style ) {
 
 		$css_outputs = array(
 			'.ast-primary-sticky-header-active.ast-main-header-nav-open #masthead > #ast-desktop-header ul#ast-desktop-toggle-menu' => array(
 				'display' => 'none',
 			),
-		);      
+		);
 		$parse_css  .= astra_parse_css( $css_outputs );
 	}
 
@@ -280,7 +278,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	/**
 	 * [4]. Compatible with Header Width
 	 */
-	if ( 'content' != $astra_header_width ) {
+	if ( 'content' !== $astra_header_width ) {
 
 		$general_global_responsive = array(
 			'#ast-fixed-header .ast-container' => array(
@@ -752,7 +750,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		$sticky_header_cart_icon_css['.ast-sticky-active .ast-site-header-cart-li:hover .ast-icon, .ast-sticky-active .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap [class^="ast-woo-header-cart-"]'] = array(
 			'color' => esc_attr( $sticky_header_woo_cart_hover_color ),
 		);
-		
+
 		/**
 		 * [6.2.1] Cart icon hover colors for cart count.
 		 */
@@ -782,10 +780,10 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 				'border-radius'       => astra_get_css_value( $header_custom_sticky_button_radius, 'px' ),
 				'border-style'        => 'solid',
 				'border-color'        => esc_attr( $header_custom_sticky_button_border_color ),
-				'border-top-width'    => ( isset( $header_custom_sticky_button_border_size['top'] ) && '' !== $header_custom_sticky_button_border_size['top'] ) ? astra_get_css_value( $header_custom_sticky_button_border_size['top'], 'px' ) : '',
-				'border-right-width'  => ( isset( $header_custom_sticky_button_border_size['right'] ) && '' !== $header_custom_sticky_button_border_size['right'] ) ? astra_get_css_value( $header_custom_sticky_button_border_size['right'], 'px' ) : '',
-				'border-left-width'   => ( isset( $header_custom_sticky_button_border_size['left'] ) && '' !== $header_custom_sticky_button_border_size['left'] ) ? astra_get_css_value( $header_custom_sticky_button_border_size['left'], 'px' ) : '',
-				'border-bottom-width' => ( isset( $header_custom_sticky_button_border_size['bottom'] ) && '' !== $header_custom_sticky_button_border_size['bottom'] ) ? astra_get_css_value( $header_custom_sticky_button_border_size['bottom'], 'px' ) : '',
+				'border-top-width'    => isset( $header_custom_sticky_button_border_size['top'] ) && '' !== $header_custom_sticky_button_border_size['top'] ? astra_get_css_value( $header_custom_sticky_button_border_size['top'], 'px' ) : '',
+				'border-right-width'  => isset( $header_custom_sticky_button_border_size['right'] ) && '' !== $header_custom_sticky_button_border_size['right'] ? astra_get_css_value( $header_custom_sticky_button_border_size['right'], 'px' ) : '',
+				'border-left-width'   => isset( $header_custom_sticky_button_border_size['left'] ) && '' !== $header_custom_sticky_button_border_size['left'] ? astra_get_css_value( $header_custom_sticky_button_border_size['left'], 'px' ) : '',
+				'border-bottom-width' => isset( $header_custom_sticky_button_border_size['bottom'] ) && '' !== $header_custom_sticky_button_border_size['bottom'] ? astra_get_css_value( $header_custom_sticky_button_border_size['bottom'], 'px' ) : '',
 			),
 			'.ast-primary-sticky-header-active .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' => array(
 				'color'            => esc_attr( $header_custom_sticky_button_text_h_color ),
@@ -822,7 +820,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		$parse_css .= astra_parse_css( $custom_trans_button, '', astra_addon_get_mobile_breakpoint() );
 	}
 
-	if ( false === astra_pro_sticky_header_submenu_below_header_fix() ) :
+	if ( false === astra_pro_sticky_header_submenu_below_header_fix() ) {
 		$submenu_below_header = array(
 			'.ast-sticky-main-shrink .ast-sticky-shrunk .main-header-bar' => array(
 				'padding-top'    => '0.5em',
@@ -835,7 +833,7 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		);
 
 		$parse_css .= astra_parse_css( $submenu_below_header );
-	endif;
+	}
 
 	/**
 	 * Sticky Header with Builder > Site Identity colors.
@@ -1233,27 +1231,25 @@ function astra_ext_sticky_header_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	return $dynamic_css . $parse_css;
 }
 
-
 /**
  * Check backwards compatibility CSS for loading submenu below the header needs to be added.
  *
  * @since 1.6.0
- * @return boolean true if CSS should be included, False if not.
+ * @return bool true if CSS should be included, False if not.
  */
 function astra_pro_sticky_header_submenu_below_header_fix() {
 
 	if ( false == astra_get_option( 'submenu-below-header', true ) && false === apply_filters( 'astra_submenu_below_header_fix', false ) ) {
 		return false;
-	} else {
-		return true;
 	}
+		return true;
 }
 
 /**
  * For existing users, do not apply the defaut header site title color by default.
  *
  * @since 3.5.8
- * @return boolean false if it is an existing user , true if not.
+ * @return bool false if it is an existing user , true if not.
  */
 function astra_addon_sticky_site_title_tagline_css_comp() {
 	$astra_settings = astra_get_options();

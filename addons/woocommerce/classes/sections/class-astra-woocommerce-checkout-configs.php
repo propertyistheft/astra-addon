@@ -117,8 +117,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 				),
 
 				/**
-				* Option: Checkout Layout.
-				*/
+				 * Option: Checkout Layout.
+				 */
 
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
@@ -807,8 +807,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 				),
 
 				/**
-				* Option: Back to cart button text on checkout.
-				*/
+				 * Option: Back to cart button text on checkout.
+				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[checkout-back-to-cart-button-text]',
 					'default'  => astra_get_option( 'checkout-back-to-cart-button-text' ),
@@ -929,18 +929,9 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
-
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
 
-
 new Astra_Woocommerce_Checkout_Configs();
-
-
-
-
-

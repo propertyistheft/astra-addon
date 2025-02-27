@@ -100,24 +100,10 @@
 			// Process the AJAX
 			var cartFormData = $form.serialize();
 
-			// Parse query parameters from the current URL (Useful for compatibility with WooCommerce Subscription Proration feature).
-			const urlParams = new URLSearchParams( window.location.search );
-			const queryParams = Object.fromEntries( urlParams.entries() );
-
-			// Convert cartFormData to an object for easier manipulation
-			const formData = new URLSearchParams( cartFormData );
-			product_id = product_id || formData.get( 'product_id' );
-
-			// Add query parameters to the form data object.
-			Object.entries( queryParams ).forEach( ( [ key, value ] ) => formData.set( key, value ) );
-
-			// Add the action and add-to-cart params.
-			formData.set( 'action', 'astra_add_cart_single_product' );
-			formData.set( 'add-to-cart', product_id );
-
 			$.ajax ({
-				url: astra.ajax_url + '?' + formData.toString(),
-				type: 'GET',
+				url: astra.ajax_url,
+				type:'POST',
+				data:'action=astra_add_cart_single_product&add-to-cart='+product_id+'&'+cartFormData,
 				success:function(results) {
 
 					if( 0 === results.length ) {

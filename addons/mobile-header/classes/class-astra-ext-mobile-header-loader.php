@@ -45,7 +45,6 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Loader' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
-
 		}
 
 		/**
@@ -313,7 +312,6 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Loader' ) ) {
 			$font_family_below_header_submenu = astra_get_option( 'font-family-mobile-below-header-submenu' );
 			$font_weight_below_header_submenu = astra_get_option( 'font-weight-mobile-below-header-submenu' );
 			Astra_Fonts::add_font( $font_family_below_header_submenu, $font_weight_below_header_submenu );
-
 		}
 
 		/**
@@ -333,7 +331,6 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Loader' ) ) {
 					require_once ASTRA_ADDON_EXT_MOBILE_HEADER_DIR . 'classes/sections/class-astra-customizer-mobile-below-header-configs.php';
 				}
 			}
-
 		}
 
 		/**
@@ -352,6 +349,6 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Loader' ) ) {
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Mobile_Header_Loader::get_instance();

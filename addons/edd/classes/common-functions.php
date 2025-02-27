@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Current Page is EDD page
  */
-if ( ! function_exists( 'astra_is_edd_page' ) ) :
+if ( ! function_exists( 'astra_is_edd_page' ) ) {
 
 	/**
 	 * Check current page is an EDD page
@@ -36,13 +36,12 @@ if ( ! function_exists( 'astra_is_edd_page' ) ) :
 		}
 		return false;
 	}
-
-endif;
+}
 
 /**
  * Current Page is EDD single page
  */
-if ( ! function_exists( 'astra_is_edd_single_page' ) ) :
+if ( ! function_exists( 'astra_is_edd_single_page' ) ) {
 
 	/**
 	 * Check current page is an EDD single page
@@ -62,13 +61,12 @@ if ( ! function_exists( 'astra_is_edd_single_page' ) ) :
 		}
 		return false;
 	}
-
-endif;
+}
 
 /**
  * Current Page is EDD archive page
  */
-if ( ! function_exists( 'astra_is_edd_archive_page' ) ) :
+if ( ! function_exists( 'astra_is_edd_archive_page' ) ) {
 
 	/**
 	 * Check current page is an EDD archive page
@@ -86,14 +84,12 @@ if ( ! function_exists( 'astra_is_edd_archive_page' ) ) :
 		}
 		return false;
 	}
-
-endif;
-
+}
 
 /**
  * Current Page is EDD single Product page
  */
-if ( ! function_exists( 'astra_is_edd_single_product_page' ) ) :
+if ( ! function_exists( 'astra_is_edd_single_product_page' ) ) {
 
 	/**
 	 * Check current page is an EDD single product page
@@ -107,5 +103,4 @@ if ( ! function_exists( 'astra_is_edd_single_product_page' ) ) :
 		}
 		return false;
 	}
-
-endif;
+}

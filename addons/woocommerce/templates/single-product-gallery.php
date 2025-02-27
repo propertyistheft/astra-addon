@@ -55,15 +55,12 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 	</figure>
 
 	<?php
-		$attachment_ids = $product->get_gallery_image_ids();
+	$attachment_ids  = $product->get_gallery_image_ids();
+	$slider_disabled = $attachment_ids && $product->get_image_id() && count( $attachment_ids ) + 1 <= 4;
 	?>
 	<!-- Product gallery thumbnail -->
 	<?php if ( $is_vertical_layout ) { ?>
-		<div id="ast-gallery-thumbnails" class="
-		<?php
-		if ( $attachment_ids && $product->get_image_id() && count( $attachment_ids ) + 1 <= 4 ) {
-			?>
-			slider-disabled <?php } ?>">
+		<div id="ast-gallery-thumbnails" class="<?php echo esc_attr( $slider_disabled ? 'slider-disabled' : '' ); ?>">
 			<div class="ast-vertical-navigation-wrapper">
 				<button id="ast-vertical-navigation-prev"></button>
 				<button id="ast-vertical-navigation-next"></button>
@@ -76,10 +73,9 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 						echo wp_kses_post( get_gallery_thumbnail( $post_thumbnail_id, 0 ) );
 					}
 
-						/**
-						 *  Implement code inside do_action( 'woocommerce_product_thumbnails' ); without the 'woocommerce_single_product_image_thumbnail_html' filter
-						 */
-
+					/**
+					 *  Implement code inside do_action( 'woocommerce_product_thumbnails' ); without the 'woocommerce_single_product_image_thumbnail_html' filter
+					 */
 					if ( $attachment_ids && $product->get_image_id() ) {
 						$slide_number = 1;
 						foreach ( $attachment_ids as $attachment_id ) {
@@ -92,21 +88,17 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 			</div>
 	</div>
 	<?php } else { ?>
-		<div class="ast-single-product-thumbnails
-		<?php
-		if ( $attachment_ids && $product->get_image_id() && count( $attachment_ids ) + 1 <= 4 ) {
-			?>
-			slider-disabled <?php } ?>">
+		<div class="ast-single-product-thumbnails <?php echo esc_attr( $slider_disabled ? 'slider-disabled' : '' ); ?>">
 			<div class="woocommerce-product-gallery-thumbnails__wrapper">
 				<?php
 
 				if ( $post_thumbnail_id ) {
 					echo wp_kses_post( get_gallery_thumbnail( $post_thumbnail_id, 0 ) );
 				}
-					/**
-					 *  Implement code inside do_action( 'woocommerce_product_thumbnails' ); without the 'woocommerce_single_product_image_thumbnail_html' filter
-					 */
 
+				/**
+				 *  Implement code inside do_action( 'woocommerce_product_thumbnails' ); without the 'woocommerce_single_product_image_thumbnail_html' filter
+				 */
 				if ( $attachment_ids && $product->get_image_id() ) {
 					$slide_number = 1;
 					foreach ( $attachment_ids as $attachment_id ) {
@@ -131,17 +123,18 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
  * @return html
  */
 function get_gallery_thumbnail( $attachment_id, $slide_number ) {
-	$gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
-	$thumbnail_size    = apply_filters( 'ast_gallery_thumbnail_size', array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] ) );
-	$full_size         = apply_filters( 'ast_gallery_full_size', apply_filters( 'ast_product_thumbnails_large_size', 'full' ) );
-	$thumbnail_src     = wp_get_attachment_image_src( $attachment_id, $thumbnail_size );
-	$alt_text          = trim( wp_strip_all_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
-	$full_src          = wp_get_attachment_image_src( $attachment_id, $full_size );
-	$original_src      = wp_get_attachment_image_src( $attachment_id, 'full' );
-	$image             = wp_get_attachment_image( $attachment_id, $thumbnail_size, false, array( 'data-original-src' => $original_src[0] ) );
-	$is_first_slide    = 0 === $slide_number ? 'flex-active-slide' : '';
+	$gallery_thumbnail  = wc_get_image_size( 'gallery_thumbnail' );
+	$wc_image_thumbnail = wc_get_image_size( 'woocommerce_thumbnail' );
+	$thumbnail_size     = apply_filters( 'ast_gallery_thumbnail_size', array( max( $gallery_thumbnail['width'], $wc_image_thumbnail['width'] ), max( $gallery_thumbnail['height'], $wc_image_thumbnail['height'] ) ) );
+	$thumbnail_src      = wp_get_attachment_image_src( $attachment_id, $thumbnail_size );
+	$alt_text           = trim( wp_strip_all_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
+	$original_src       = wp_get_attachment_image_src( $attachment_id, 'full' );
+
+	if ( empty( $thumbnail_src[0] ) || strpos( $thumbnail_src[0], '-100x100' ) !== false ) {
+		$thumbnail_src = wp_get_attachment_image_src( $attachment_id, 'woocommerce_thumbnail' );
+	}
+	$image          = wp_get_attachment_image( $attachment_id, $thumbnail_size, false, array( 'data-original-src' => $original_src[0] ) );
+	$is_first_slide = 0 === $slide_number ? 'flex-active-slide' : '';
 
 	return '<div data-slide-number="' . esc_attr( $slide_number ) . '" data-thumb="' . esc_url( isset( $thumbnail_src[0] ) ? $thumbnail_src[0] : '' ) . '" data-thumb-alt="' . esc_attr( $alt_text ) . '" class="ast-woocommerce-product-gallery__image ' . esc_attr( $is_first_slide ) . '">' . $image . '</div>';
 }
-
-?>

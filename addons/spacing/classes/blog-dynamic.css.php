@@ -34,12 +34,8 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$below_header_submenu_spacing = astra_get_option( 'below-header-submenu-spacing' );
 	$sidebar_outside_spacing      = astra_get_option( 'sidebar-outside-spacing' );
 	$sidebar_inside_spacing       = astra_get_option( 'sidebar-inside-spacing' );
-	$astra_footer_width           = astra_get_option( 'footer-layout-width' );
 	$footer_spacing               = astra_get_option( 'footer-sml-spacing' );
 	$footer_menu_spacing          = astra_get_option( 'footer-menu-spacing' );
-	$site_content_layout          = astra_get_option( 'site-content-layout' );
-	$header_content_layout        = astra_get_option( 'header-main-layout-width' );
-	$header_layouts               = astra_get_option( 'header-layouts' );
 
 	// Sticky header.
 	$stick_header_main       = astra_get_option( 'header-main-stick' );
@@ -60,12 +56,9 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	$blog_featured_image_padding    = astra_get_option( 'blog-featured-image-padding' );
 	$remove_single_featured_padding = astra_get_option( 'single-featured-image-padding' );
-	$alignfull_editor_selector      = ( true === astra_get_option( 'improve-gb-editor-ui' ) ) ? '.ast-no-sidebar.ast-separate-container .entry-content > .alignfull, .ast-no-sidebar.ast-narrow-container .entry-content > .alignfull' : '.ast-no-sidebar.ast-separate-container .entry-content .alignfull, .ast-no-sidebar.ast-narrow-container .entry-content .alignfull'; // Updated selector here because there is no requirement of extra spacing for nested alignfull blocks.
+	$alignfull_editor_selector      = true === astra_get_option( 'improve-gb-editor-ui' ) ? '.ast-no-sidebar.ast-separate-container .entry-content > .alignfull, .ast-no-sidebar.ast-narrow-container .entry-content > .alignfull' : '.ast-no-sidebar.ast-separate-container .entry-content .alignfull, .ast-no-sidebar.ast-narrow-container .entry-content .alignfull'; // Updated selector here because there is no requirement of extra spacing for nested alignfull blocks.
 
 	// Desktop Spacing.
-	$is_new_structural_defaults         = astra_get_option( 'customizer-default-layout-update', true );
-	$author_meta_boxed_selector         = astra_addon_4_6_0_compatibility() ? '' : ', .single.ast-separate-container.ast-single-post .ast-author-meta';
-	$author_meta_narrow_selector        = astra_addon_4_6_0_compatibility() ? '' : ', .single.ast-narrow-container.ast-single-post .ast-author-meta';
 	$author_box_minimal_boxed_selector  = astra_addon_4_6_0_compatibility() ? '' : ', .single.ast-separate-container .ast-author-details';
 	$author_box_minimal_narrow_selector = astra_addon_4_6_0_compatibility() ? '' : ', .single.ast-narrow-container .ast-author-details';
 	$related_boxed_selector             = astra_addon_4_6_0_compatibility() ? '' : ', .ast-separate-container .ast-single-related-posts-container';
@@ -477,7 +470,6 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	}
 
 	/**
-	 *
 	 * Sidebar Desktop/Tablet/Mobile Spacing
 	 */
 	$remove_sidebar_widget_outside_margin_desktop = array(
@@ -541,7 +533,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * Blog Grid Outer spacing
 	 */
-	if ( ( 1 == $blog_grid || 'blog-layout-2' === $blog_layout || 'blog-layout-3' === $blog_layout || 'blog-layout-5' === $blog_layout || ! Astra_Ext_Extension::is_active( 'blog-pro' ) ) ) {
+	if ( 1 == $blog_grid || 'blog-layout-2' === $blog_layout || 'blog-layout-3' === $blog_layout || 'blog-layout-5' === $blog_layout || ! Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
 		// Apply margin only if grid is selected 1 column.
 		$single_column_margin_blog_pro = array(
 			'.ast-separate-container .ast-article-post, .ast-separate-container .ast-separate-posts.ast-article-post, .ast-narrow-container .ast-article-post, .ast-narrow-container .ast-separate-posts.ast-article-post' => array(
@@ -619,42 +611,42 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		$remove_featured_image_margin_top = array(
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content,.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content, .ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on,.ast-desktop.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on' . $blog_layout_4_class_first => array(
-				'margin-top' => ( ! empty( $blog_post_inside_spacing['desktop']['top'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'top', 'desktop' ) ) : '' ),
+				'margin-top' => ( ! empty( $blog_post_inside_spacing['desktop']['top'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'top', 'desktop' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on' . $blog_layout_4_class => array(
-				'margin-left'  => ( ! empty( $blog_post_inside_spacing['desktop']['left'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'desktop' ) ) : '' ),
-				'margin-right' => ( ! empty( $blog_post_inside_spacing['desktop']['right'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'right', 'desktop' ) ) : '' ),
+				'margin-left'  => ( ! empty( $blog_post_inside_spacing['desktop']['left'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'desktop' ) : '' ),
+				'margin-right' => ( ! empty( $blog_post_inside_spacing['desktop']['right'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'right', 'desktop' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on' . $blog_layout_4_class => array(
-				'margin-left' => ( ! empty( $blog_post_inside_spacing['desktop']['left'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'desktop' ) ) : '' ),
+				'margin-left' => ( ! empty( $blog_post_inside_spacing['desktop']['left'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'desktop' ) : '' ),
 			),
 		);
 		$spacing_css_output              .= astra_parse_css( $remove_featured_image_margin_top );
 
 		$remove_featured_image_margin_top_tablet = array(
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content,.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content' . $blog_layout_4_class_first => array(
-				'margin-top' => ( ! empty( $blog_post_inside_spacing['tablet']['top'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'top', 'tablet' ) ) : '' ),
+				'margin-top' => ( ! empty( $blog_post_inside_spacing['tablet']['top'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'top', 'tablet' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content,.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on' . $blog_layout_4_class => array(
-				'margin-left'  => ( ! empty( $blog_post_inside_spacing['tablet']['left'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'tablet' ) ) : '' ),
-				'margin-right' => ( ! empty( $blog_post_inside_spacing['tablet']['right'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'right', 'tablet' ) ) : '' ),
+				'margin-left'  => ( ! empty( $blog_post_inside_spacing['tablet']['left'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'tablet' ) : '' ),
+				'margin-right' => ( ! empty( $blog_post_inside_spacing['tablet']['right'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'right', 'tablet' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on' . $blog_layout_4_class => array(
-				'margin-left' => ( ! empty( $blog_post_inside_spacing['tablet']['left'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'tablet' ) ) : '' ),
+				'margin-left' => ( ! empty( $blog_post_inside_spacing['tablet']['left'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'tablet' ) : '' ),
 			),
 		);
 		$spacing_css_output                     .= astra_parse_css( $remove_featured_image_margin_top_tablet, '', astra_addon_get_tablet_breakpoint() );
 
 		$remove_featured_image_margin_top_mobile = array(
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content,.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content' . $blog_layout_4_class_first => array(
-				'margin-top' => ( ! empty( $blog_post_inside_spacing['mobile']['top'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'top', 'mobile' ) ) : '' ),
+				'margin-top' => ( ! empty( $blog_post_inside_spacing['mobile']['top'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'top', 'mobile' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content,.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content, .ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on, .ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on, .ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on' . $blog_layout_4_class => array(
-				'margin-left'  => ( ! empty( $blog_post_inside_spacing['mobile']['left'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'mobile' ) ) : '' ),
-				'margin-right' => ( ! empty( $blog_post_inside_spacing['mobile']['right'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'right', 'mobile' ) ) : '' ),
+				'margin-left'  => ( ! empty( $blog_post_inside_spacing['mobile']['left'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'mobile' ) : '' ),
+				'margin-right' => ( ! empty( $blog_post_inside_spacing['mobile']['right'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'right', 'mobile' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on' . $blog_layout_4_class => array(
-				'margin-left' => ( ! empty( $blog_post_inside_spacing['mobile']['left'] ) ? ( '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'mobile' ) ) : '' ),
+				'margin-left' => ( ! empty( $blog_post_inside_spacing['mobile']['left'] ) ? '-' . astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'mobile' ) : '' ),
 			),
 		);
 		$spacing_css_output                     .= astra_parse_css( $remove_featured_image_margin_top_mobile, '', astra_addon_get_mobile_breakpoint() );
@@ -668,33 +660,33 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		// Container inside spacing for single post if single_post_inside_spacing is not given then fallback to  container_inside_spacing.
 		$remove_single_featured_image_margin_top = array(
 			'.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child' => array(
-				'margin-top' => ( isset( $container_inside_spacing['desktop']['top'] ) && ( '' != $container_inside_spacing['desktop']['top'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'top', 'desktop' ) ) : '' ),
+				'margin-top' => ( isset( $container_inside_spacing['desktop']['top'] ) && ( '' != $container_inside_spacing['desktop']['top'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'top', 'desktop' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child, .ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content' => array(
-				'margin-left'  => ( isset( $container_inside_spacing['desktop']['left'] ) && ( '' != $container_inside_spacing['desktop']['left'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'left', 'desktop' ) ) : '' ),
-				'margin-right' => ( isset( $container_inside_spacing['desktop']['right'] ) && ( '' != $container_inside_spacing['desktop']['right'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'right', 'desktop' ) ) : '' ),
+				'margin-left'  => ( isset( $container_inside_spacing['desktop']['left'] ) && ( '' != $container_inside_spacing['desktop']['left'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'left', 'desktop' ) : '' ),
+				'margin-right' => ( isset( $container_inside_spacing['desktop']['right'] ) && ( '' != $container_inside_spacing['desktop']['right'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'right', 'desktop' ) : '' ),
 			),
 		);
 		$spacing_css_output                     .= astra_parse_css( $remove_single_featured_image_margin_top );
 
 		$remove_single_featured_image_margin_top_tablet = array(
 			'.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child' => array(
-				'margin-top' => ( isset( $container_inside_spacing['tablet']['top'] ) && ( '' != $container_inside_spacing['tablet']['top'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'top', 'tablet' ) ) : '' ),
+				'margin-top' => ( isset( $container_inside_spacing['tablet']['top'] ) && ( '' != $container_inside_spacing['tablet']['top'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'top', 'tablet' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child, .ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content' => array(
-				'margin-left'  => ( isset( $container_inside_spacing['tablet']['left'] ) && ( '' != $container_inside_spacing['tablet']['left'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'left', 'tablet' ) ) : '' ),
-				'margin-right' => ( isset( $container_inside_spacing['tablet']['right'] ) && ( '' != $container_inside_spacing['tablet']['right'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'right', 'tablet' ) ) : '' ),
+				'margin-left'  => ( isset( $container_inside_spacing['tablet']['left'] ) && ( '' != $container_inside_spacing['tablet']['left'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'left', 'tablet' ) : '' ),
+				'margin-right' => ( isset( $container_inside_spacing['tablet']['right'] ) && ( '' != $container_inside_spacing['tablet']['right'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'right', 'tablet' ) : '' ),
 			),
 		);
 		$spacing_css_output                            .= astra_parse_css( $remove_single_featured_image_margin_top_tablet, '', astra_addon_get_tablet_breakpoint() );
 
 		$remove_single_featured_image_margin_top_mobile = array(
 			'.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child' => array(
-				'margin-top' => ( isset( $container_inside_spacing['mobile']['top'] ) && ( '' != $container_inside_spacing['mobile']['top'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'top', 'mobile' ) ) : '' ),
+				'margin-top' => ( isset( $container_inside_spacing['mobile']['top'] ) && ( '' != $container_inside_spacing['mobile']['top'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'top', 'mobile' ) : '' ),
 			),
 			'.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child, .ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content' => array(
-				'margin-left'  => ( isset( $container_inside_spacing['mobile']['left'] ) && ( '' != $container_inside_spacing['mobile']['left'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'left', 'mobile' ) ) : '' ),
-				'margin-right' => ( isset( $container_inside_spacing['mobile']['right'] ) && ( '' != $container_inside_spacing['mobile']['right'] ) ? ( '-' . astra_responsive_spacing( $container_inside_spacing, 'right', 'mobile' ) ) : '' ),
+				'margin-left'  => ( isset( $container_inside_spacing['mobile']['left'] ) && ( '' != $container_inside_spacing['mobile']['left'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'left', 'mobile' ) : '' ),
+				'margin-right' => ( isset( $container_inside_spacing['mobile']['right'] ) && ( '' != $container_inside_spacing['mobile']['right'] ) ? '-' . astra_responsive_spacing( $container_inside_spacing, 'right', 'mobile' ) : '' ),
 			),
 		);
 		$spacing_css_output                            .= astra_parse_css( $remove_single_featured_image_margin_top_mobile, '', astra_addon_get_mobile_breakpoint() );
@@ -703,33 +695,33 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		// Works only for single post if single_post_inside_spacing is given.
 		$remove_single_post_featured_image_margin_top = array(
 			'.ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child' => array(
-				'margin-top' => ( isset( $single_post_inside_spacing['desktop']['top'] ) && ( '' != $single_post_inside_spacing['desktop']['top'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'top', 'desktop' ) ) : '' ),
+				'margin-top' => ( isset( $single_post_inside_spacing['desktop']['top'] ) && ( '' != $single_post_inside_spacing['desktop']['top'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'top', 'desktop' ) : '' ),
 			),
 			'.ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child, .ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content' => array(
-				'margin-left'  => ( isset( $single_post_inside_spacing['desktop']['left'] ) && ( '' != $single_post_inside_spacing['desktop']['left'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'left', 'desktop' ) ) : '' ),
-				'margin-right' => ( isset( $single_post_inside_spacing['desktop']['right'] ) && ( '' != $single_post_inside_spacing['desktop']['right'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'right', 'desktop' ) ) : '' ),
+				'margin-left'  => ( isset( $single_post_inside_spacing['desktop']['left'] ) && ( '' != $single_post_inside_spacing['desktop']['left'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'left', 'desktop' ) : '' ),
+				'margin-right' => ( isset( $single_post_inside_spacing['desktop']['right'] ) && ( '' != $single_post_inside_spacing['desktop']['right'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'right', 'desktop' ) : '' ),
 			),
 		);
 		$spacing_css_output                          .= astra_parse_css( $remove_single_post_featured_image_margin_top );
 
 		$remove_single_post_featured_image_margin_top_tablet = array(
 			'.ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child' => array(
-				'margin-top' => ( isset( $single_post_inside_spacing['tablet']['top'] ) && ( '' != $single_post_inside_spacing['tablet']['top'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'top', 'tablet' ) ) : '' ),
+				'margin-top' => ( isset( $single_post_inside_spacing['tablet']['top'] ) && ( '' != $single_post_inside_spacing['tablet']['top'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'top', 'tablet' ) : '' ),
 			),
 			'.ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child, .ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content' => array(
-				'margin-left'  => ( isset( $single_post_inside_spacing['tablet']['left'] ) && ( '' != $single_post_inside_spacing['tablet']['left'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'left', 'tablet' ) ) : '' ),
-				'margin-right' => ( isset( $single_post_inside_spacing['tablet']['right'] ) && ( '' != $single_post_inside_spacing['tablet']['right'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'right', 'tablet' ) ) : '' ),
+				'margin-left'  => ( isset( $single_post_inside_spacing['tablet']['left'] ) && ( '' != $single_post_inside_spacing['tablet']['left'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'left', 'tablet' ) : '' ),
+				'margin-right' => ( isset( $single_post_inside_spacing['tablet']['right'] ) && ( '' != $single_post_inside_spacing['tablet']['right'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'right', 'tablet' ) : '' ),
 			),
 		);
 		$spacing_css_output                                 .= astra_parse_css( $remove_single_post_featured_image_margin_top_tablet, '', astra_addon_get_tablet_breakpoint() );
 
 		$remove_single_post_featured_image_margin_top_mobile = array(
 			'.ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child' => array(
-				'margin-top' => ( isset( $single_post_inside_spacing['mobile']['top'] ) && ( '' != $single_post_inside_spacing['mobile']['top'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'top', 'mobile' ) ) : '' ),
+				'margin-top' => ( isset( $single_post_inside_spacing['mobile']['top'] ) && ( '' != $single_post_inside_spacing['mobile']['top'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'top', 'mobile' ) : '' ),
 			),
 			'.ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child, .ast-separate-container.ast-single-post .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content' => array(
-				'margin-left'  => ( isset( $single_post_inside_spacing['mobile']['left'] ) && ( '' != $single_post_inside_spacing['mobile']['left'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'left', 'mobile' ) ) : '' ),
-				'margin-right' => ( isset( $single_post_inside_spacing['mobile']['right'] ) && ( '' != $single_post_inside_spacing['mobile']['right'] ) ? ( '-' . astra_responsive_spacing( $single_post_inside_spacing, 'right', 'mobile' ) ) : '' ),
+				'margin-left'  => ( isset( $single_post_inside_spacing['mobile']['left'] ) && ( '' != $single_post_inside_spacing['mobile']['left'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'left', 'mobile' ) : '' ),
+				'margin-right' => ( isset( $single_post_inside_spacing['mobile']['right'] ) && ( '' != $single_post_inside_spacing['mobile']['right'] ) ? '-' . astra_responsive_spacing( $single_post_inside_spacing, 'right', 'mobile' ) : '' ),
 			),
 		);
 		$spacing_css_output                                 .= astra_parse_css( $remove_single_post_featured_image_margin_top_mobile, '', astra_addon_get_mobile_breakpoint() );
@@ -783,17 +775,17 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$hba_header_height = astra_get_option( 'hba-header-height' );
 		$hbb_header_height = astra_get_option( 'hbb-header-height' );
 
-		$hb_header_height_desktop = ( isset( $hb_header_height['desktop'] ) && is_numeric( $hb_header_height['desktop'] ) ) ? $hb_header_height['desktop'] - 10 : '';
-		$hb_header_height_tablet  = ( isset( $hb_header_height['tablet'] ) && is_numeric( $hb_header_height['tablet'] ) ) ? $hb_header_height['tablet'] - 10 : '';
-		$hb_header_height_mobile  = ( isset( $hb_header_height['mobile'] ) && is_numeric( $hb_header_height['mobile'] ) ) ? $hb_header_height['mobile'] - 10 : '';
+		$hb_header_height_desktop = isset( $hb_header_height['desktop'] ) && is_numeric( $hb_header_height['desktop'] ) ? $hb_header_height['desktop'] - 10 : '';
+		$hb_header_height_tablet  = isset( $hb_header_height['tablet'] ) && is_numeric( $hb_header_height['tablet'] ) ? $hb_header_height['tablet'] - 10 : '';
+		$hb_header_height_mobile  = isset( $hb_header_height['mobile'] ) && is_numeric( $hb_header_height['mobile'] ) ? $hb_header_height['mobile'] - 10 : '';
 
-		$hba_header_height_desktop = ( isset( $hba_header_height['desktop'] ) && is_numeric( $hba_header_height['desktop'] ) ) ? $hba_header_height['desktop'] - 10 : '';
-		$hba_header_height_tablet  = ( isset( $hba_header_height['tablet'] ) && is_numeric( $hba_header_height['tablet'] ) ) ? $hba_header_height['tablet'] - 10 : '';
-		$hba_header_height_mobile  = ( isset( $hba_header_height['mobile'] ) && is_numeric( $hba_header_height['mobile'] ) ) ? $hba_header_height['mobile'] - 10 : '';
+		$hba_header_height_desktop = isset( $hba_header_height['desktop'] ) && is_numeric( $hba_header_height['desktop'] ) ? $hba_header_height['desktop'] - 10 : '';
+		$hba_header_height_tablet  = isset( $hba_header_height['tablet'] ) && is_numeric( $hba_header_height['tablet'] ) ? $hba_header_height['tablet'] - 10 : '';
+		$hba_header_height_mobile  = isset( $hba_header_height['mobile'] ) && is_numeric( $hba_header_height['mobile'] ) ? $hba_header_height['mobile'] - 10 : '';
 
-		$hbb_header_height_desktop = ( isset( $hbb_header_height['desktop'] ) && is_numeric( $hbb_header_height['desktop'] ) ) ? $hbb_header_height['desktop'] - 10 : '';
-		$hbb_header_height_tablet  = ( isset( $hbb_header_height['tablet'] ) && is_numeric( $hbb_header_height['tablet'] ) ) ? $hbb_header_height['tablet'] - 10 : '';
-		$hbb_header_height_mobile  = ( isset( $hbb_header_height['mobile'] ) && is_numeric( $hbb_header_height['mobile'] ) ) ? $hbb_header_height['mobile'] - 10 : '';
+		$hbb_header_height_desktop = isset( $hbb_header_height['desktop'] ) && is_numeric( $hbb_header_height['desktop'] ) ? $hbb_header_height['desktop'] - 10 : '';
+		$hbb_header_height_tablet  = isset( $hbb_header_height['tablet'] ) && is_numeric( $hbb_header_height['tablet'] ) ? $hbb_header_height['tablet'] - 10 : '';
+		$hbb_header_height_mobile  = isset( $hbb_header_height['mobile'] ) && is_numeric( $hbb_header_height['mobile'] ) ? $hbb_header_height['mobile'] - 10 : '';
 
 		$css_output_shrink_desktop = array(
 			// Primary Header Shrink for Desktop & mobile.
@@ -874,48 +866,48 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			$mega_menu_heading_spacing = astra_get_option( 'header-' . $_prefix . '-megamenu-heading-space' );
 			$sub_menu_border           = astra_get_option( 'header-' . $_prefix . '-submenu-border' );
 
-			$sub_menu_border_top = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['top'] ) ) ? $sub_menu_border['top'] : 0;
+			$sub_menu_border_top = isset( $sub_menu_border ) && ! empty( $sub_menu_border['top'] ) ? $sub_menu_border['top'] : 0;
 
-			$sub_menu_border_bottom = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['bottom'] ) ) ? $sub_menu_border['bottom'] : 0;
+			$sub_menu_border_bottom = isset( $sub_menu_border ) && ! empty( $sub_menu_border['bottom'] ) ? $sub_menu_border['bottom'] : 0;
 
-			$sub_menu_border_right = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['right'] ) ) ? $sub_menu_border['right'] : 0;
+			$sub_menu_border_right = isset( $sub_menu_border ) && ! empty( $sub_menu_border['right'] ) ? $sub_menu_border['right'] : 0;
 
-			$sub_menu_border_left = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['left'] ) ) ? $sub_menu_border['left'] : 0;
+			$sub_menu_border_left = isset( $sub_menu_border ) && ! empty( $sub_menu_border['left'] ) ? $sub_menu_border['left'] : 0;
 
 			// SubMenu Spacing.
 
 			// - Desktop
-			$sub_menu_desktop_spacing_top = ( isset( $sub_menu_spacing['desktop']['top'] ) ) ? $sub_menu_spacing['desktop']['top'] : '';
+			$sub_menu_desktop_spacing_top = isset( $sub_menu_spacing['desktop']['top'] ) ? $sub_menu_spacing['desktop']['top'] : '';
 
-			$sub_menu_desktop_spacing_bottom = ( isset( $sub_menu_spacing['desktop']['bottom'] ) ) ? $sub_menu_spacing['desktop']['bottom'] : '';
+			$sub_menu_desktop_spacing_bottom = isset( $sub_menu_spacing['desktop']['bottom'] ) ? $sub_menu_spacing['desktop']['bottom'] : '';
 
-			$sub_menu_desktop_spacing_right = ( isset( $sub_menu_spacing['desktop']['right'] ) ) ? $sub_menu_spacing['desktop']['right'] : '';
+			$sub_menu_desktop_spacing_right = isset( $sub_menu_spacing['desktop']['right'] ) ? $sub_menu_spacing['desktop']['right'] : '';
 
-			$sub_menu_desktop_spacing_left = ( isset( $sub_menu_spacing['desktop']['left'] ) ) ? $sub_menu_spacing['desktop']['left'] : '';
+			$sub_menu_desktop_spacing_left = isset( $sub_menu_spacing['desktop']['left'] ) ? $sub_menu_spacing['desktop']['left'] : '';
 
-			$sub_menu_desktop_spacing_unit = ( isset( $sub_menu_spacing['desktop-unit'] ) && ! empty( $sub_menu_spacing['desktop-unit'] ) ) ? $sub_menu_spacing['desktop-unit'] : 'px';
+			$sub_menu_desktop_spacing_unit = isset( $sub_menu_spacing['desktop-unit'] ) && ! empty( $sub_menu_spacing['desktop-unit'] ) ? $sub_menu_spacing['desktop-unit'] : 'px';
 
 			// - Tablet.
-			$sub_menu_tablet_spacing_top = ( isset( $sub_menu_spacing['tablet']['top'] ) ) ? $sub_menu_spacing['tablet']['top'] : '';
+			$sub_menu_tablet_spacing_top = isset( $sub_menu_spacing['tablet']['top'] ) ? $sub_menu_spacing['tablet']['top'] : '';
 
-			$sub_menu_tablet_spacing_bottom = ( isset( $sub_menu_spacing['tablet']['bottom'] ) ) ? $sub_menu_spacing['tablet']['bottom'] : '';
+			$sub_menu_tablet_spacing_bottom = isset( $sub_menu_spacing['tablet']['bottom'] ) ? $sub_menu_spacing['tablet']['bottom'] : '';
 
-			$sub_menu_tablet_spacing_right = ( isset( $sub_menu_spacing['tablet']['right'] ) ) ? $sub_menu_spacing['tablet']['right'] : '';
+			$sub_menu_tablet_spacing_right = isset( $sub_menu_spacing['tablet']['right'] ) ? $sub_menu_spacing['tablet']['right'] : '';
 
-			$sub_menu_tablet_spacing_left = ( isset( $sub_menu_spacing['tablet']['left'] ) ) ? $sub_menu_spacing['tablet']['left'] : '';
+			$sub_menu_tablet_spacing_left = isset( $sub_menu_spacing['tablet']['left'] ) ? $sub_menu_spacing['tablet']['left'] : '';
 
-			$sub_menu_tablet_spacing_unit = ( isset( $sub_menu_spacing['tablet-unit'] ) && ! empty( $sub_menu_spacing['tablet-unit'] ) ) ? $sub_menu_spacing['tablet-unit'] : 'px';
+			$sub_menu_tablet_spacing_unit = isset( $sub_menu_spacing['tablet-unit'] ) && ! empty( $sub_menu_spacing['tablet-unit'] ) ? $sub_menu_spacing['tablet-unit'] : 'px';
 
 			// - Mobile.
-			$sub_menu_mobile_spacing_top = ( isset( $sub_menu_spacing['mobile']['top'] ) ) ? $sub_menu_spacing['mobile']['top'] : '';
+			$sub_menu_mobile_spacing_top = isset( $sub_menu_spacing['mobile']['top'] ) ? $sub_menu_spacing['mobile']['top'] : '';
 
-			$sub_menu_mobile_spacing_bottom = ( isset( $sub_menu_spacing['mobile']['bottom'] ) ) ? $sub_menu_spacing['mobile']['bottom'] : '';
+			$sub_menu_mobile_spacing_bottom = isset( $sub_menu_spacing['mobile']['bottom'] ) ? $sub_menu_spacing['mobile']['bottom'] : '';
 
-			$sub_menu_mobile_spacing_right = ( isset( $sub_menu_spacing['mobile']['right'] ) ) ? $sub_menu_spacing['mobile']['right'] : '';
+			$sub_menu_mobile_spacing_right = isset( $sub_menu_spacing['mobile']['right'] ) ? $sub_menu_spacing['mobile']['right'] : '';
 
-			$sub_menu_mobile_spacing_left = ( isset( $sub_menu_spacing['mobile']['left'] ) ) ? $sub_menu_spacing['mobile']['left'] : '';
+			$sub_menu_mobile_spacing_left = isset( $sub_menu_spacing['mobile']['left'] ) ? $sub_menu_spacing['mobile']['left'] : '';
 
-			$sub_menu_mobile_spacing_unit = ( isset( $sub_menu_spacing['mobile-unit'] ) && ! empty( $sub_menu_spacing['mobile-unit'] ) ) ? $sub_menu_spacing['mobile-unit'] : 'px';
+			$sub_menu_mobile_spacing_unit = isset( $sub_menu_spacing['mobile-unit'] ) && ! empty( $sub_menu_spacing['mobile-unit'] ) ? $sub_menu_spacing['mobile-unit'] : 'px';
 
 			$css_output_desktop = array(
 				// Sub Menu.
@@ -944,7 +936,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				$sub_menu_spacing_tablet_top = $sub_menu_spacing_desktop_top;
 			}
 
-			$sub_menu_spacing_tablet_top = ( isset( $sub_menu_spacing_tablet_top ) && ! empty( $sub_menu_spacing_tablet_top ) ) ? $sub_menu_spacing_tablet_top : 0;
+			$sub_menu_spacing_tablet_top = isset( $sub_menu_spacing_tablet_top ) && ! empty( $sub_menu_spacing_tablet_top ) ? $sub_menu_spacing_tablet_top : 0;
 
 			$sub_menu_spacing_mobile_top = astra_responsive_spacing( $sub_menu_spacing, 'top', 'mobile' );
 
@@ -953,7 +945,7 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				$sub_menu_spacing_mobile_top = $sub_menu_spacing_tablet_top;
 			}
 
-			$sub_menu_spacing_mobile_top = ( isset( $sub_menu_spacing_mobile_top ) && ! empty( $sub_menu_spacing_mobile_top ) ) ? $sub_menu_spacing_mobile_top : 0;
+			$sub_menu_spacing_mobile_top = isset( $sub_menu_spacing_mobile_top ) && ! empty( $sub_menu_spacing_mobile_top ) ? $sub_menu_spacing_mobile_top : 0;
 
 			$css_output_tablet = array(
 				// Sub Menu.
@@ -988,37 +980,37 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				// Mega Menu heading Spacing.
 
 				// - Desktop
-				$mega_menu_desktop_spacing_top = ( isset( $mega_menu_heading_spacing['desktop']['top'] ) ) ? $mega_menu_heading_spacing['desktop']['top'] : '';
+				$mega_menu_desktop_spacing_top = isset( $mega_menu_heading_spacing['desktop']['top'] ) ? $mega_menu_heading_spacing['desktop']['top'] : '';
 
-				$mega_menu_desktop_spacing_bottom = ( isset( $mega_menu_heading_spacing['desktop']['bottom'] ) ) ? $mega_menu_heading_spacing['desktop']['bottom'] : '';
+				$mega_menu_desktop_spacing_bottom = isset( $mega_menu_heading_spacing['desktop']['bottom'] ) ? $mega_menu_heading_spacing['desktop']['bottom'] : '';
 
-				$mega_menu_desktop_spacing_right = ( isset( $mega_menu_heading_spacing['desktop']['right'] ) ) ? $mega_menu_heading_spacing['desktop']['right'] : '';
+				$mega_menu_desktop_spacing_right = isset( $mega_menu_heading_spacing['desktop']['right'] ) ? $mega_menu_heading_spacing['desktop']['right'] : '';
 
-				$mega_menu_desktop_spacing_left = ( isset( $mega_menu_heading_spacing['desktop']['left'] ) ) ? $mega_menu_heading_spacing['desktop']['left'] : '';
+				$mega_menu_desktop_spacing_left = isset( $mega_menu_heading_spacing['desktop']['left'] ) ? $mega_menu_heading_spacing['desktop']['left'] : '';
 
-				$mega_menu_desktop_spacing_unit = ( isset( $mega_menu_heading_spacing['desktop-unit'] ) && ! empty( $mega_menu_heading_spacing['desktop-unit'] ) ) ? $mega_menu_heading_spacing['desktop-unit'] : 'px';
+				$mega_menu_desktop_spacing_unit = isset( $mega_menu_heading_spacing['desktop-unit'] ) && ! empty( $mega_menu_heading_spacing['desktop-unit'] ) ? $mega_menu_heading_spacing['desktop-unit'] : 'px';
 
 				// - Tablet.
-				$mega_menu_tablet_spacing_top = ( isset( $mega_menu_heading_spacing['tablet']['top'] ) ) ? $mega_menu_heading_spacing['tablet']['top'] : '';
+				$mega_menu_tablet_spacing_top = isset( $mega_menu_heading_spacing['tablet']['top'] ) ? $mega_menu_heading_spacing['tablet']['top'] : '';
 
-				$mega_menu_tablet_spacing_bottom = ( isset( $mega_menu_heading_spacing['tablet']['bottom'] ) ) ? $mega_menu_heading_spacing['tablet']['bottom'] : '';
+				$mega_menu_tablet_spacing_bottom = isset( $mega_menu_heading_spacing['tablet']['bottom'] ) ? $mega_menu_heading_spacing['tablet']['bottom'] : '';
 
-				$mega_menu_tablet_spacing_right = ( isset( $mega_menu_heading_spacing['tablet']['right'] ) ) ? $mega_menu_heading_spacing['tablet']['right'] : '';
+				$mega_menu_tablet_spacing_right = isset( $mega_menu_heading_spacing['tablet']['right'] ) ? $mega_menu_heading_spacing['tablet']['right'] : '';
 
-				$mega_menu_tablet_spacing_left = ( isset( $mega_menu_heading_spacing['tablet']['left'] ) ) ? $mega_menu_heading_spacing['tablet']['left'] : '';
+				$mega_menu_tablet_spacing_left = isset( $mega_menu_heading_spacing['tablet']['left'] ) ? $mega_menu_heading_spacing['tablet']['left'] : '';
 
-				$mega_menu_tablet_spacing_unit = ( isset( $mega_menu_heading_spacing['tablet-unit'] ) && ! empty( $mega_menu_heading_spacing['tablet-unit'] ) ) ? $mega_menu_heading_spacing['tablet-unit'] : 'px';
+				$mega_menu_tablet_spacing_unit = isset( $mega_menu_heading_spacing['tablet-unit'] ) && ! empty( $mega_menu_heading_spacing['tablet-unit'] ) ? $mega_menu_heading_spacing['tablet-unit'] : 'px';
 
 				// - Mobile.
-				$mega_menu_mobile_spacing_top = ( isset( $mega_menu_heading_spacing['mobile']['top'] ) ) ? $mega_menu_heading_spacing['mobile']['top'] : '';
+				$mega_menu_mobile_spacing_top = isset( $mega_menu_heading_spacing['mobile']['top'] ) ? $mega_menu_heading_spacing['mobile']['top'] : '';
 
-				$mega_menu_mobile_spacing_bottom = ( isset( $mega_menu_heading_spacing['mobile']['bottom'] ) ) ? $mega_menu_heading_spacing['mobile']['bottom'] : '';
+				$mega_menu_mobile_spacing_bottom = isset( $mega_menu_heading_spacing['mobile']['bottom'] ) ? $mega_menu_heading_spacing['mobile']['bottom'] : '';
 
-				$mega_menu_mobile_spacing_right = ( isset( $mega_menu_heading_spacing['mobile']['right'] ) ) ? $mega_menu_heading_spacing['mobile']['right'] : '';
+				$mega_menu_mobile_spacing_right = isset( $mega_menu_heading_spacing['mobile']['right'] ) ? $mega_menu_heading_spacing['mobile']['right'] : '';
 
-				$mega_menu_mobile_spacing_left = ( isset( $mega_menu_heading_spacing['mobile']['left'] ) ) ? $mega_menu_heading_spacing['mobile']['left'] : '';
+				$mega_menu_mobile_spacing_left = isset( $mega_menu_heading_spacing['mobile']['left'] ) ? $mega_menu_heading_spacing['mobile']['left'] : '';
 
-				$mega_menu_mobile_spacing_unit = ( isset( $mega_menu_heading_spacing['mobile-unit'] ) && ! empty( $mega_menu_heading_spacing['mobile-unit'] ) ) ? $mega_menu_heading_spacing['mobile-unit'] : 'px';
+				$mega_menu_mobile_spacing_unit = isset( $mega_menu_heading_spacing['mobile-unit'] ) && ! empty( $mega_menu_heading_spacing['mobile-unit'] ) ? $mega_menu_heading_spacing['mobile-unit'] : 'px';
 
 				$css_megamenu_output_desktop = array(
 					// Mega Menu.
@@ -1069,37 +1061,37 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			// SubMenu Spacing.
 
 			// - Desktop.
-			$sub_menu_desktop_spacing_top = ( isset( $sub_menu_spacing['desktop']['top'] ) && ! empty( $sub_menu_spacing['desktop']['top'] ) ) ? $sub_menu_spacing['desktop']['top'] : '';
+			$sub_menu_desktop_spacing_top = isset( $sub_menu_spacing['desktop']['top'] ) && ! empty( $sub_menu_spacing['desktop']['top'] ) ? $sub_menu_spacing['desktop']['top'] : '';
 
-			$sub_menu_desktop_spacing_bottom = ( isset( $sub_menu_spacing['desktop']['bottom'] ) && ! empty( $sub_menu_spacing['desktop']['bottom'] ) ) ? $sub_menu_spacing['desktop']['bottom'] : '';
+			$sub_menu_desktop_spacing_bottom = isset( $sub_menu_spacing['desktop']['bottom'] ) && ! empty( $sub_menu_spacing['desktop']['bottom'] ) ? $sub_menu_spacing['desktop']['bottom'] : '';
 
-			$sub_menu_desktop_spacing_right = ( isset( $sub_menu_spacing['desktop']['right'] ) && ! empty( $sub_menu_spacing['desktop']['right'] ) ) ? $sub_menu_spacing['desktop']['right'] : '';
+			$sub_menu_desktop_spacing_right = isset( $sub_menu_spacing['desktop']['right'] ) && ! empty( $sub_menu_spacing['desktop']['right'] ) ? $sub_menu_spacing['desktop']['right'] : '';
 
-			$sub_menu_desktop_spacing_left = ( isset( $sub_menu_spacing['desktop']['left'] ) && ! empty( $sub_menu_spacing['desktop']['left'] ) ) ? $sub_menu_spacing['desktop']['left'] : '';
+			$sub_menu_desktop_spacing_left = isset( $sub_menu_spacing['desktop']['left'] ) && ! empty( $sub_menu_spacing['desktop']['left'] ) ? $sub_menu_spacing['desktop']['left'] : '';
 
-			$sub_menu_desktop_spacing_unit = ( isset( $sub_menu_spacing['desktop-unit'] ) && ! empty( $sub_menu_spacing['desktop-unit'] ) ) ? $sub_menu_spacing['desktop-unit'] : '';
+			$sub_menu_desktop_spacing_unit = isset( $sub_menu_spacing['desktop-unit'] ) && ! empty( $sub_menu_spacing['desktop-unit'] ) ? $sub_menu_spacing['desktop-unit'] : '';
 
 			// - Tablet.
-			$sub_menu_tablet_spacing_top = ( isset( $sub_menu_spacing['tablet']['top'] ) && ! empty( $sub_menu_spacing['tablet']['top'] ) ) ? $sub_menu_spacing['tablet']['top'] : '';
+			$sub_menu_tablet_spacing_top = isset( $sub_menu_spacing['tablet']['top'] ) && ! empty( $sub_menu_spacing['tablet']['top'] ) ? $sub_menu_spacing['tablet']['top'] : '';
 
-			$sub_menu_tablet_spacing_bottom = ( isset( $sub_menu_spacing['tablet']['bottom'] ) && ! empty( $sub_menu_spacing['tablet']['bottom'] ) ) ? $sub_menu_spacing['tablet']['bottom'] : '';
+			$sub_menu_tablet_spacing_bottom = isset( $sub_menu_spacing['tablet']['bottom'] ) && ! empty( $sub_menu_spacing['tablet']['bottom'] ) ? $sub_menu_spacing['tablet']['bottom'] : '';
 
-			$sub_menu_tablet_spacing_right = ( isset( $sub_menu_spacing['tablet']['right'] ) && ! empty( $sub_menu_spacing['tablet']['right'] ) ) ? $sub_menu_spacing['tablet']['right'] : '';
+			$sub_menu_tablet_spacing_right = isset( $sub_menu_spacing['tablet']['right'] ) && ! empty( $sub_menu_spacing['tablet']['right'] ) ? $sub_menu_spacing['tablet']['right'] : '';
 
-			$sub_menu_tablet_spacing_left = ( isset( $sub_menu_spacing['tablet']['left'] ) && ! empty( $sub_menu_spacing['tablet']['left'] ) ) ? $sub_menu_spacing['tablet']['left'] : '';
+			$sub_menu_tablet_spacing_left = isset( $sub_menu_spacing['tablet']['left'] ) && ! empty( $sub_menu_spacing['tablet']['left'] ) ? $sub_menu_spacing['tablet']['left'] : '';
 
-			$sub_menu_tablet_spacing_unit = ( isset( $sub_menu_spacing['tablet-unit'] ) && ! empty( $sub_menu_spacing['tablet-unit'] ) ) ? $sub_menu_spacing['tablet-unit'] : '';
+			$sub_menu_tablet_spacing_unit = isset( $sub_menu_spacing['tablet-unit'] ) && ! empty( $sub_menu_spacing['tablet-unit'] ) ? $sub_menu_spacing['tablet-unit'] : '';
 
 			// - Mobile.
-			$sub_menu_mobile_spacing_top = ( isset( $sub_menu_spacing['mobile']['top'] ) && ! empty( $sub_menu_spacing['mobile']['top'] ) ) ? $sub_menu_spacing['mobile']['top'] : '';
+			$sub_menu_mobile_spacing_top = isset( $sub_menu_spacing['mobile']['top'] ) && ! empty( $sub_menu_spacing['mobile']['top'] ) ? $sub_menu_spacing['mobile']['top'] : '';
 
-			$sub_menu_mobile_spacing_bottom = ( isset( $sub_menu_spacing['mobile']['bottom'] ) && ! empty( $sub_menu_spacing['mobile']['bottom'] ) ) ? $sub_menu_spacing['mobile']['bottom'] : '';
+			$sub_menu_mobile_spacing_bottom = isset( $sub_menu_spacing['mobile']['bottom'] ) && ! empty( $sub_menu_spacing['mobile']['bottom'] ) ? $sub_menu_spacing['mobile']['bottom'] : '';
 
-			$sub_menu_mobile_spacing_right = ( isset( $sub_menu_spacing['mobile']['right'] ) && ! empty( $sub_menu_spacing['mobile']['right'] ) ) ? $sub_menu_spacing['mobile']['right'] : '';
+			$sub_menu_mobile_spacing_right = isset( $sub_menu_spacing['mobile']['right'] ) && ! empty( $sub_menu_spacing['mobile']['right'] ) ? $sub_menu_spacing['mobile']['right'] : '';
 
-			$sub_menu_mobile_spacing_left = ( isset( $sub_menu_spacing['mobile']['left'] ) && ! empty( $sub_menu_spacing['mobile']['left'] ) ) ? $sub_menu_spacing['mobile']['left'] : '';
+			$sub_menu_mobile_spacing_left = isset( $sub_menu_spacing['mobile']['left'] ) && ! empty( $sub_menu_spacing['mobile']['left'] ) ? $sub_menu_spacing['mobile']['left'] : '';
 
-			$sub_menu_mobile_spacing_unit = ( isset( $sub_menu_spacing['mobile-unit'] ) && ! empty( $sub_menu_spacing['mobile-unit'] ) ) ? $sub_menu_spacing['mobile-unit'] : '';
+			$sub_menu_mobile_spacing_unit = isset( $sub_menu_spacing['mobile-unit'] ) && ! empty( $sub_menu_spacing['mobile-unit'] ) ? $sub_menu_spacing['mobile-unit'] : '';
 
 			$css_output_desktop = array(
 				// Sub Menu.

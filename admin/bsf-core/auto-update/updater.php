@@ -61,9 +61,9 @@ if ( ! function_exists( 'bsf_get_remote_version' ) ) {
 			if ( ! empty( $result ) ) {
 				if ( empty( $result->error ) ) {
 					return $result->updated_versions;
-				} else {
-					return $result->error;
 				}
+					return $result->error;
+
 			}
 		}
 	}
@@ -122,19 +122,19 @@ if ( ! function_exists( 'bsf_check_product_update' ) ) {
 		if ( false !== $remote_versions ) {
 			if ( ! empty( $remote_versions ) ) {
 				$is_bundled_update = false;
-				foreach ( $remote_versions as $rkey => $remote_data ) {
-					$rid               = ( isset( $remote_data->id ) ) ? (string) $remote_data->id : '';
-					$remote_version    = ( isset( $remote_data->remote_version ) ) ? $remote_data->remote_version : '';
-					$in_house          = ( isset( $remote_data->in_house ) ) ? $remote_data->in_house : '';
-					$on_market         = ( isset( $remote_data->on_market ) ) ? $remote_data->on_market : '';
-					$is_product_free   = ( isset( $remote_data->is_product_free ) ) ? $remote_data->is_product_free : '';
-					$short_name        = ( isset( $remote_data->short_name ) ) ? $remote_data->short_name : '';
-					$changelog_url     = ( isset( $remote_data->changelog_url ) ) ? $remote_data->changelog_url : '';
-					$purchase_url      = ( isset( $remote_data->purchase_url ) ) ? $remote_data->purchase_url : '';
-					$version_beta      = ( isset( $remote_data->version_beta ) ) ? $remote_data->version_beta : '';
-					$download_url      = ( isset( $remote_data->download_url ) ) ? $remote_data->download_url : '';
-					$download_url_beta = ( isset( $remote_data->download_url_beta ) ) ? $remote_data->download_url_beta : '';
-					$tested_upto       = ( isset( $remote_data->tested ) ) ? $remote_data->tested : '';
+				foreach ( $remote_versions as $remote_data ) {
+					$rid               = isset( $remote_data->id ) ? (string) $remote_data->id : '';
+					$remote_version    = isset( $remote_data->remote_version ) ? $remote_data->remote_version : '';
+					$in_house          = isset( $remote_data->in_house ) ? $remote_data->in_house : '';
+					$on_market         = isset( $remote_data->on_market ) ? $remote_data->on_market : '';
+					$is_product_free   = isset( $remote_data->is_product_free ) ? $remote_data->is_product_free : '';
+					$short_name        = isset( $remote_data->short_name ) ? $remote_data->short_name : '';
+					$changelog_url     = isset( $remote_data->changelog_url ) ? $remote_data->changelog_url : '';
+					$purchase_url      = isset( $remote_data->purchase_url ) ? $remote_data->purchase_url : '';
+					$version_beta      = isset( $remote_data->version_beta ) ? $remote_data->version_beta : '';
+					$download_url      = isset( $remote_data->download_url ) ? $remote_data->download_url : '';
+					$download_url_beta = isset( $remote_data->download_url_beta ) ? $remote_data->download_url_beta : '';
+					$tested_upto       = isset( $remote_data->tested ) ? $remote_data->tested : '';
 					foreach ( $bsf_product_plugins as $key => $plugin ) {
 						if ( ! isset( $plugin['id'] ) ) {
 							continue;
@@ -203,7 +203,6 @@ if ( ! function_exists( 'bsf_check_product_update' ) ) {
 											continue;
 										}
 										if ( $rbp->id === $bp->id ) {
-											$bprd = $brainstrom_bundled_products[ $bkeys ];
 											$brainstrom_bundled_products[ $bkeys ][ $bkey ]->remote        = $rbp->remote_version;
 											$brainstrom_bundled_products[ $bkeys ][ $bkey ]->parent        = $rbp->parent;
 											$brainstrom_bundled_products[ $bkeys ][ $bkey ]->short_name    = $rbp->short_name;

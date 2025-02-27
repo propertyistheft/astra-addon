@@ -21,7 +21,7 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 
 	$above_header_layout = astra_get_option( 'above-header-layout' );
 
-	if ( 'disabled' == $above_header_layout ) {
+	if ( 'disabled' === $above_header_layout ) {
 		return $dynamic_css;
 	}
 
@@ -33,7 +33,6 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 
 	$mobile_above_header_toggle_btn_style_color   = astra_get_option( 'mobile-above-header-toggle-btn-style-color', $btn_bg_color );
 	$mobile_above_header_toggle_btn_border_radius = astra_get_option( 'mobile-above-header-toggle-btn-border-radius' );
-	$mobile_above_header_toggle_btn_style         = astra_get_option( 'mobile-above-header-toggle-btn-style' );
 
 	// Mobile Above Header Section options.
 	$above_menu_style            = astra_get_option( 'mobile-above-header-menu-style' );
@@ -76,8 +75,6 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 
 	$mobile_above_header_menu_all_border = astra_get_option( 'mobile-above-header-menu-all-border' );
 	$mobile_above_header_menu_b_color    = astra_get_option( 'mobile-above-header-menu-b-color', '#dadada' );
-
-	$above_header_merge = astra_get_option( 'above-header-merge-menu' );
 
 	$header_break_point = astra_header_break_point(); // Header Break Point.
 
@@ -345,7 +342,7 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 	 * Responsive Colors options
 	 * [2]. Above Header Menu Responsive Colors only for Full Screen menu style
 	 */
-	if ( 'fullscreen' == $above_menu_style ) {
+	if ( 'fullscreen' === $above_menu_style ) {
 			$desktop_colors = array(
 				'.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation .menu-item.current-menu-item > .menu-link, .ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header-navigation .menu-item.current-menu-ancestor > .menu-link' => array(
 					'background-color' => 'transparent',
@@ -496,19 +493,19 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 						'border-color'       => esc_attr( $mobile_above_header_menu_b_color ),
 					),
 					'.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header .ast-above-header-navigation .ast-above-header-menu > .menu-item:not(:first-child):not(:last-child)' => array(
-						'border-top-width'    => ( ! empty( $mobile_above_header_menu_all_border['top'] ) && ! empty( $mobile_above_header_menu_all_border['bottom'] ) ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['top'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['top'], 'px' ),
-						'border-bottom-width' => ( ! empty( $mobile_above_header_menu_all_border['bottom'] ) && ! empty( $mobile_above_header_menu_all_border['top'] ) ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['bottom'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['bottom'], 'px' ),
+						'border-top-width'    => ! empty( $mobile_above_header_menu_all_border['top'] ) && ! empty( $mobile_above_header_menu_all_border['bottom'] ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['top'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['top'], 'px' ),
+						'border-bottom-width' => ! empty( $mobile_above_header_menu_all_border['bottom'] ) && ! empty( $mobile_above_header_menu_all_border['top'] ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['bottom'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['bottom'], 'px' ),
 						'border-style'        => 'solid',
 						'border-color'        => esc_attr( $mobile_above_header_menu_b_color ),
 					),
 					'.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header .ast-above-header-navigation .ast-above-header-menu .menu-item:first-child' => array(
 						'border-top-width'    => astra_get_css_value( $mobile_above_header_menu_all_border['top'], 'px' ),
-						'border-bottom-width' => ( ! empty( $mobile_above_header_menu_all_border['bottom'] ) && ! empty( $mobile_above_header_menu_all_border['top'] ) ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['bottom'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['bottom'], 'px' ),
+						'border-bottom-width' => ! empty( $mobile_above_header_menu_all_border['bottom'] ) && ! empty( $mobile_above_header_menu_all_border['top'] ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['bottom'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['bottom'], 'px' ),
 						'border-style'        => 'solid',
 						'border-color'        => esc_attr( $mobile_above_header_menu_b_color ),
 					),
 					'.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header .ast-above-header-navigation .ast-above-header-menu .menu-item:last-child' => array(
-						'border-top-width'    => ( ! empty( $mobile_above_header_menu_all_border['top'] ) && ! empty( $mobile_above_header_menu_all_border['bottom'] ) ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['top'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['top'], 'px' ),
+						'border-top-width'    => ! empty( $mobile_above_header_menu_all_border['top'] ) && ! empty( $mobile_above_header_menu_all_border['bottom'] ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['top'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['top'], 'px' ),
 						'border-bottom-width' => astra_get_css_value( $mobile_above_header_menu_all_border['bottom'], 'px' ),
 						'border-style'        => 'solid',
 						'border-color'        => esc_attr( $mobile_above_header_menu_b_color ),
@@ -520,7 +517,7 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 						'border-color'        => esc_attr( $mobile_above_header_menu_b_color ),
 					),
 					'.ast-fullscreen-above-menu-enable.ast-header-break-point .ast-above-header .ast-above-header-navigation .ast-above-header-menu .ast-masthead-custom-menu-items' => array(
-						'border-top-width'    => ( ! empty( $mobile_above_header_menu_all_border['top'] ) && ! empty( $mobile_above_header_menu_all_border['bottom'] ) ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['top'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['top'], 'px' ),
+						'border-top-width'    => ! empty( $mobile_above_header_menu_all_border['top'] ) && ! empty( $mobile_above_header_menu_all_border['bottom'] ) ? astra_calc_spacing( $mobile_above_header_menu_all_border['top'] . 'px', '/', '2' ) : astra_get_css_value( $mobile_above_header_menu_all_border['top'], 'px' ),
 						'border-bottom-width' => astra_get_css_value( $mobile_above_header_menu_all_border['bottom'], 'px' ),
 						'border-right-width'  => astra_get_css_value( $mobile_above_header_menu_all_border['right'], 'px' ),
 						'border-left-width'   => astra_get_css_value( $mobile_above_header_menu_all_border['left'], 'px' ),
@@ -530,7 +527,7 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 				);
 				$css_output                .= astra_parse_css( $mobile_above_header_border );
 			}
-	} elseif ( 'no-toggle' == $above_menu_style ) {
+	} elseif ( 'no-toggle' === $above_menu_style ) {
 		// Border only for responsive devices.
 		if ( '' !== $mobile_above_header_menu_all_border['top'] || '' !== $mobile_above_header_menu_all_border['right'] || '' !== $mobile_above_header_menu_all_border['bottom'] || '' !== $mobile_above_header_menu_all_border['left'] ) {
 			$mobile_header_border = array(
@@ -585,7 +582,7 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 			);
 				$css_output     .= astra_parse_css( $mobile_above_header );
 
-			if ( 'no-toggle' == $above_menu_style ) {
+			if ( 'no-toggle' === $above_menu_style ) {
 				$mobile_above_header = array(
 					'.ast-header-break-point .ast-above-header-section-separated .ast-above-header-menu' => array(
 						'border-bottom-width' => astra_get_css_value( $mobile_above_header_menu_all_border['bottom'], 'px' ),
@@ -600,7 +597,7 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 	 * Responsive Colors options
 	 * [3]. Above Header Menu Responsive Colors only for Flyout menu style
 	 */
-	if ( 'flyout' == $above_menu_style ) {
+	if ( 'flyout' === $above_menu_style ) {
 		$desktop_colors = array(
 			'.ast-flyout-above-menu-enable.ast-header-break-point .ast-above-header-navigation' => array(
 				'width' => astra_get_css_value( $above_flayout_sidebar_width, 'px' ),
@@ -650,7 +647,7 @@ function astra_addon_mobile_above_header_dynamic_css( $dynamic_css, $dynamic_css
 	 * Responsive Colors options
 	 * [4]. Below Header Menu Responsive Colors only for No Toggle menu style
 	 */
-	if ( 'no-toggle' == $above_menu_style ) {
+	if ( 'no-toggle' === $above_menu_style ) {
 
 		$desktop_colors = array(
 			'.ast-no-toggle-above-menu-enable.ast-header-break-point .ast-above-header-navigation li:hover .ast-menu-toggle' => array(

@@ -25,7 +25,6 @@ function triggerGalleryImageMutation() {
     );
 
     if (!mainImageElement) {
-        console.warn('Main image element not found');
         return;
     }
 
@@ -62,7 +61,8 @@ function triggerGalleryImageMutation() {
                 const mutatedImgSrc = mutation.target?.getAttribute("data-src");
 
                 let foundInGallery = false;
-                for (let i = 0; i < galleryImages.length; i++) {
+                // Skipping the first image as it's the featured image, and starting the loop from the second image from where gallery images starts.
+                for (let i = 1; i < galleryImages.length; i++) {
                     const imageWrapper = galleryImages[i];
                     const image = imageWrapper?.querySelector("img");
                     if (!image) continue;

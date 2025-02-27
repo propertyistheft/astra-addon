@@ -340,7 +340,6 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'    => __( 'Font Extras', 'astra-addon' ),
 				),
 
-
 				/**
 				 * Option: Post Tax Font Family
 				 */

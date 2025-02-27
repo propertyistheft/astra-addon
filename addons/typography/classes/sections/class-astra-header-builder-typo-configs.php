@@ -254,8 +254,8 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				$html_config[] = $this->get_typo_configs( 'section-hb-social-icons-' . $index, ASTRA_THEME_SETTINGS . '[section-hb-social-icons-' . $index . '-typography]' );
 				$html_config[] = $this->get_typo_configs( 'section-fb-social-icons-' . $index, ASTRA_THEME_SETTINGS . '[section-fb-social-icons-' . $index . '-typography]' );
 
-				$header_section = ( ! $astra_has_widgets_block_editor ) ? 'sidebar-widgets-header-widget-' . $index : 'astra-sidebar-widgets-header-widget-' . $index;
-				$footer_section = ( ! $astra_has_widgets_block_editor ) ? 'sidebar-widgets-footer-widget-' . $index : 'astra-sidebar-widgets-footer-widget-' . $index;
+				$header_section = ! $astra_has_widgets_block_editor ? 'sidebar-widgets-header-widget-' . $index : 'astra-sidebar-widgets-header-widget-' . $index;
+				$footer_section = ! $astra_has_widgets_block_editor ? 'sidebar-widgets-footer-widget-' . $index : 'astra-sidebar-widgets-footer-widget-' . $index;
 				$html_config[]  = $this->get_widget_typo_configs_by_builder_type( $header_section, 'header-widget-' . $index );
 				$html_config[]  = $this->get_widget_typo_configs_by_builder_type( $footer_section, 'footer-widget-' . $index );
 			}
@@ -673,8 +673,8 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				),
 
 				/**
-				* Option: Font Size
-				*/
+				 * Option: Font Size
+				 */
 				array(
 					'name'              => 'font-size-' . $hb_lswitcher_section,
 					'type'              => 'sub-control',
@@ -791,8 +791,8 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				),
 
 				/**
-				* Option: Font Size
-				*/
+				 * Option: Font Size
+				 */
 
 				array(
 					'name'              => 'font-size-' . $fb_lswitcher_section,
@@ -845,10 +845,8 @@ if ( ! class_exists( 'Astra_Header_Builder_Typo_Configs' ) ) {
 				),
 			);
 
-			$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
-			$configurations = array_merge( $configurations, $html_config );
-
-			return $configurations;
+			$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+			return array_merge( $configurations, $html_config );
 		}
 	}
 }

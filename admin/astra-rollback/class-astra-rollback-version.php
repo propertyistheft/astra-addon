@@ -8,14 +8,13 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit();
+	exit;
 }
 
 /**
  * Class Astra_Rollback_version.
  */
 class Astra_Rollback_Version {
-
 	/**
 	 * Version.
 	 *
@@ -53,7 +52,6 @@ class Astra_Rollback_Version {
 	protected $theme_slug;
 
 	/**
-	 *
 	 * Initializing Rollback.
 	 *
 	 * @since 3.6.1
@@ -119,7 +117,6 @@ class Astra_Rollback_Version {
 	}
 
 	/**
-	 *
 	 * Rollback to previous versions.
 	 *
 	 * @since 3.6.1

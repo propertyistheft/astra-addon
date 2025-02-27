@@ -10,7 +10,7 @@
 
 	<?php do_action( 'astra_edd_checkout_footer_content_top' ); ?>
 
-	<?php ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? do_action( 'astra_below_footer' ) : astra_footer_small_footer_template(); ?>
+	<?php true === astra_addon_builder_helper()->is_header_footer_builder_active ? do_action( 'astra_below_footer' ) : astra_footer_small_footer_template(); ?>
 
 	<?php do_action( 'astra_edd_checkout_footer_content_bottom' ); ?>
 

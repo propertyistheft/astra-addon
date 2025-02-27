@@ -52,8 +52,6 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// Padded Layout - Padding.
 	$padded_layout_padding = astra_get_option( 'site-layout-padded-pad' );
 
-	$body_font_weight = astra_get_option( 'body-font-weight' );
-
 	if ( 'ast-box-layout' == $layout || 'ast-padded-layout' == $layout ) {
 		$blog_max_width        = absint( $blog_max_width ) + ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE;
 		$single_post_max_width = absint( $single_post_max_width ) + ASTRA_THEME_CONTAINER_BOX_PADDED_PADDING_TWICE;
@@ -92,7 +90,7 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	}
 
 	/* Fluid Width Layout CSS */
-	if ( 'ast-fluid-width-layout' == $layout ) :
+	if ( 'ast-fluid-width-layout' == $layout ) {
 		$fw_layout          = '@media (min-width: ' . astra_addon_get_tablet_breakpoint( '', 1 ) . 'px) {';
 			$fw_layout     .= '.ast-container {';
 				$fw_layout .= 'padding-left:' . esc_attr( $fluid_layout_padding ) . 'px;';
@@ -101,7 +99,7 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		$fw_layout         .= '}';
 		$parse_css         .= $fw_layout;
 
-		if ( 'default' === $woo_shop_archive_width ) :
+		if ( 'default' === $woo_shop_archive_width ) {
 			$woo_shop_archive_padding_css  = '@media (min-width:921px) {';
 			$woo_shop_archive_padding_css .= 'body.ast-woo-shop-archive .site-content > .ast-container{';
 			$woo_shop_archive_padding_css .= 'padding-left:' . esc_attr( $fluid_layout_padding ) . 'px;';
@@ -109,12 +107,11 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 			$woo_shop_archive_padding_css .= '}';
 			$woo_shop_archive_padding_css .= '}';
 			$parse_css                    .= $woo_shop_archive_padding_css;
-		endif;
-
-	endif;
+		}   
+	}
 
 	/* Box Layout CSS */
-	if ( 'ast-box-layout' == $layout ) :
+	if ( 'ast-box-layout' == $layout ) {
 		$box_layout = array(
 			'#page' => array(
 				'max-width'    => $page_width,
@@ -137,10 +134,10 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 			$bx_layout     .= '}';
 		$bx_layout         .= '}';
 		$parse_css         .= $bx_layout;
-	endif;
+	}
 
 	/* Padded Layout CSS */
-	if ( 'ast-padded-layout' == $layout ) :
+	if ( 'ast-padded-layout' == $layout ) {
 		$padded_layout = array(
 			'body' => array(
 				'background' => $box_bg_color,
@@ -233,11 +230,11 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		$parse_css .= astra_parse_css( $tablet_padded_layout_spacing, '', astra_addon_get_tablet_breakpoint() );
 		$parse_css .= astra_parse_css( $mobile_padded_layout_spacing, '', astra_addon_get_mobile_breakpoint() );
 
-	endif;
+	}
 
 	/* Blog */
-	if ( 'ast-fluid-width-layout' == $layout ) :
-		if ( 'custom' === $blog_width ) :
+	if ( 'ast-fluid-width-layout' == $layout ) {
+		if ( 'custom' === $blog_width ) {
 			$blog_css   = '@media (min-width:921px) {';
 			$blog_css  .= '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container{';
 			$blog_css  .= 'padding-left:' . ASTRA_THEME_CONTAINER_PADDING . 'px;';
@@ -245,8 +242,8 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 			$blog_css  .= '}';
 			$blog_css  .= '}';
 			$parse_css .= $blog_css;
-		endif;
-		if ( 'custom' === $woo_shop_archive_width ) :
+		}
+		if ( 'custom' === $woo_shop_archive_width ) {
 			$woo_shop_archive_css  = '@media (min-width:921px) {';
 			$woo_shop_archive_css .= '.ast-woo-shop-archive .site-content > .ast-container{';
 			$woo_shop_archive_css .= 'padding-left:' . ASTRA_THEME_CONTAINER_PADDING . 'px;';
@@ -254,12 +251,12 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 			$woo_shop_archive_css .= '}';
 			$woo_shop_archive_css .= '}';
 			$parse_css            .= $woo_shop_archive_css;
-		endif;
-	endif;
+		}
+	}
 
 	/* Single Blog */
-	if ( 'ast-fluid-width-layout' == $layout ) :
-		if ( 'custom' === $single_post_max ) :
+	if ( 'ast-fluid-width-layout' == $layout ) {
+		if ( 'custom' === $single_post_max ) {
 			$single_blog_css  = '@media (min-width:921px) {';
 			$single_blog_css .= '.single .site-content > .ast-container{';
 			$single_blog_css .= 'padding-left:' . ASTRA_THEME_CONTAINER_PADDING . 'px;';
@@ -267,11 +264,11 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 			$single_blog_css .= '}';
 			$single_blog_css .= '}';
 			$parse_css       .= $single_blog_css;
-		endif;
-	endif;
+		}
+	}
 
 	/** Scroll to top compatibility with padded layout. */
-	if ( 'ast-padded-layout' === $layout && true === astra_get_option( 'scroll-to-top-enable', true ) ) :
+	if ( 'ast-padded-layout' === $layout && true === astra_get_option( 'scroll-to-top-enable', true ) ) {
 		$scroll_to_top_icon_alignment = astra_get_option( 'scroll-to-top-icon-position' );
 		$scroll_to_top_padded_padding = apply_filters( 'astra_scroll_top_padded_padding', 30 );
 		$padded_layout_padding        = astra_get_option( 'site-layout-padded-pad' );
@@ -318,8 +315,7 @@ function astra_ext_site_layouts_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		$parse_css .= astra_parse_css( $padded_spacing );
 		$parse_css .= astra_parse_css( $tablet_padded_spacing, '', astra_addon_get_tablet_breakpoint() );
 		$parse_css .= astra_parse_css( $mobile_padded_spacing, '', astra_addon_get_mobile_breakpoint() );
-	endif;
+	}
 
 	return $dynamic_css . $parse_css;
-
 }

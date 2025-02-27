@@ -33,7 +33,6 @@ function astra_addon_mobile_header_colors_background_dynamic_css( $dynamic_css, 
 	$primary_menu_a_bg_color = astra_get_option( 'primary-menu-a-bg-color-responsive' );
 	$primary_menu_a_color    = astra_get_option( 'primary-menu-a-color-responsive' );
 
-	$primary_submenu_b_color    = astra_get_option( 'primary-submenu-b-color' );
 	$primary_submenu_bg_color   = astra_get_option( 'primary-submenu-bg-color-responsive' );
 	$primary_submenu_color      = astra_get_option( 'primary-submenu-color-responsive' );
 	$primary_submenu_h_bg_color = astra_get_option( 'primary-submenu-h-bg-color-responsive' );
@@ -41,10 +40,7 @@ function astra_addon_mobile_header_colors_background_dynamic_css( $dynamic_css, 
 	$primary_submenu_a_bg_color = astra_get_option( 'primary-submenu-a-bg-color-responsive' );
 	$primary_submenu_a_color    = astra_get_option( 'primary-submenu-a-color-responsive' );
 
-	$header_bg_obj           = astra_get_option( 'header-bg-obj-responsive' );
-	$desktop_header_bg_color = isset( $header_bg_obj['desktop']['background-color'] ) ? $header_bg_obj['desktop']['background-color'] : '';
-	$tablet_header_bg_color  = isset( $header_bg_obj['tablet']['background-color'] ) ? $header_bg_obj['tablet']['background-color'] : '';
-	$mobile_header_bg_color  = isset( $header_bg_obj['mobile']['background-color'] ) ? $header_bg_obj['mobile']['background-color'] : '';
+	$header_bg_obj = astra_get_option( 'header-bg-obj-responsive' );
 
 	$mobile_header_close_desktop_color = astra_get_prop( astra_get_option( 'primary-menu-color-responsive' ), 'desktop', $text_color );
 	$mobile_header_close_tablet_color  = astra_get_prop( astra_get_option( 'primary-menu-color-responsive' ), 'tablet' );
@@ -267,7 +263,7 @@ function astra_addon_mobile_header_colors_background_dynamic_css( $dynamic_css, 
 	 * Responsive Colors options
 	 * [2]. Primary Menu Responsive Colors only for Full Screen menu style
 	 */
-	if ( 'fullscreen' == $menu_style ) {
+	if ( 'fullscreen' === $menu_style ) {
 			$desktop_colors = array(
 				'.ast-fullscreen-menu-overlay .main-header-menu .menu-item.current-menu-item > .menu-link, .ast-fullscreen-menu-overlay .main-header-menu .menu-item.current-menu-ancestor > .menu-link' => array(
 					'background-color' => 'transparent',
@@ -490,7 +486,7 @@ function astra_addon_mobile_header_colors_background_dynamic_css( $dynamic_css, 
 			$css_output .= astra_parse_css( $tablet_colors, '', astra_addon_get_tablet_breakpoint() );
 			$css_output .= astra_parse_css( $mobile_colors, '', astra_addon_get_mobile_breakpoint() );
 
-	} elseif ( 'no-toggle' == $menu_style ) {
+	} elseif ( 'no-toggle' === $menu_style ) {
 
 		/**
 		 * Responsive Colors options
@@ -608,7 +604,7 @@ function astra_addon_mobile_header_colors_background_dynamic_css( $dynamic_css, 
 	 * Responsive Colors options
 	 * [3]. Primary Menu Responsive Colors only for Flyout menu style
 	 */
-	if ( 'flyout' == $menu_style ) {
+	if ( 'flyout' === $menu_style ) {
 		$desktop_colors = array(
 			'.ast-flyout-menu-enable.ast-header-break-point .main-header-bar-navigation .close' => array(
 				'color' => esc_attr( $mobile_header_close_desktop_color ),
@@ -655,7 +651,7 @@ function astra_addon_mobile_header_colors_background_dynamic_css( $dynamic_css, 
 	 * Responsive Colors options
 	 * [4]. Below Header Menu Responsive Colors only for No Toggle menu style
 	 */
-	if ( 'no-toggle' == $menu_style ) {
+	if ( 'no-toggle' === $menu_style ) {
 
 		$link_colors = array(
 			'.ast-no-toggle-menu-enable.ast-header-break-point .main-header-menu .menu-item:hover' => array(

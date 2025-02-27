@@ -300,10 +300,8 @@ if ( ! class_exists( 'Astra_Customizer_Header_Builder_Menu_Configs' ) ) {
 				),
 			);
 
-			$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
-			$configurations = array_merge( $configurations, $html_config );
-
-			return $configurations;
+			$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+			return array_merge( $configurations, $html_config );
 		}
 	}
 }

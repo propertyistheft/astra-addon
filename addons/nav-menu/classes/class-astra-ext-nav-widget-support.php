@@ -84,7 +84,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			}
 
 			return $widgets;
-
 		}
 
 		/**
@@ -120,7 +119,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			$html = $this->render_widget( $widget_id, $title );
 
 			wp_send_json_success( $html );
-
 		}
 
 		/**
@@ -150,7 +148,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 		 */
 		private function add_widget_to_sidebar( $widget_id, $next_id ) {
 
-			$widget_id = $widget_id . '-' . $next_id;
+			$widget_id .= '-' . $next_id;
 
 			$sidebar_widgets = $this->get_ast_sidebar_widgets();
 
@@ -165,7 +163,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			do_action( 'ast_after_widget_add' );
 
 			return $widget_id;
-
 		}
 
 		/**
@@ -183,7 +180,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			}
 
 			return $sidebar_widgets['ast-widgets'];
-
 		}
 
 		/**
@@ -199,7 +195,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			$sidebar_widgets['ast-widgets'] = $widgets;
 
 			wp_set_sidebars_widgets( $sidebar_widgets );
-
 		}
 
 		/**
@@ -230,7 +225,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			$html .= '</div>';
 
 			return $html;
-
 		}
 
 		/**
@@ -292,7 +286,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			$output = ob_get_clean();
 
 			wp_send_json_success( $output );
-
 		}
 
 		/**
@@ -312,10 +305,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 
 			$control = $wp_registered_widget_controls[ $widget_id ];
 
-			$id_base = isset( $control['id_base'] ) ? $control['id_base'] : $control['id'];
-
-			return $id_base;
-
+			return isset( $control['id_base'] ) ? $control['id_base'] : $control['id'];
 		}
 
 		/**
@@ -386,7 +376,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			}
 
 			return false;
-
 		}
 
 		/**
@@ -428,7 +417,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			);
 
 			wp_send_json_success( $data );
-
 		}
 
 		/**
@@ -503,7 +491,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			$registered_widget = $wp_registered_widgets[ $widget_id ];
 
 			return $registered_widget['name'];
-
 		}
 
 		/**
@@ -538,7 +525,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 			}
 
 			wp_send_json_error();
-
 		}
 
 		/**
@@ -647,4 +633,3 @@ if ( ! class_exists( 'Astra_Ext_Nav_Widget_Support' ) ) {
 
 	Astra_Ext_Nav_Widget_Support::get_instance();
 }
-

@@ -48,4 +48,3 @@ function astra_lifterlms_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 
 	return $dynamic_css . $css_output;
 }
-

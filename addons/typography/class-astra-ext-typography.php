@@ -48,7 +48,6 @@ if ( ! class_exists( 'Astra_Ext_Typography' ) ) {
 			if ( ! is_admin() ) {
 				require_once ASTRA_ADDON_EXT_TYPOGRAPHY_DIR . 'classes/dynamic.css.php';
 			}
-
 		}
 	}
 
@@ -58,4 +57,3 @@ if ( ! class_exists( 'Astra_Ext_Typography' ) ) {
 	Astra_Ext_Typography::get_instance();
 
 }
-

@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 24,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'  => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 24,
 					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'   => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 					'section'   => 'section-sidebars',
 					'transport' => 'postMessage',
 					'priority'  => 24,
-					'context'   => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'   => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
-					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'           => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -320,7 +320,7 @@ if ( ! class_exists( 'Astra_Sidebar_Typo_Configs' ) ) {
 							'max'  => 5,
 						),
 					),
-					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'           => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 			);

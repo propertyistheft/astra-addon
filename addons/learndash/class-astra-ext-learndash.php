@@ -53,12 +53,10 @@ if ( ! class_exists( 'Astra_Ext_LearnDash' ) ) {
 					require_once ASTRA_ADDON_EXT_LEARNDASH_DIR . 'classes/dynamic.css.php';
 				}
 			}
-
 		}
 	}
 
 }
-
 
 if ( apply_filters( 'astra_enable_learndash_integration', true ) ) {
 

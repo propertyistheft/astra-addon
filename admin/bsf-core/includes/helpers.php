@@ -14,7 +14,7 @@
  * @return $bsf_api_site.
  */
 function bsf_get_api_site( $prefer_unsecure = false, $is_rest_api = false ) {
-	$rest_api_endoint = ( true === $is_rest_api ) ? 'wp-json/bsf-products/v1/' : '';
+	$rest_api_endoint = true === $is_rest_api ? 'wp-json/bsf-products/v1/' : '';
 
 	if ( defined( 'BSF_API_URL' ) ) {
 		$bsf_api_site = BSF_API_URL . $rest_api_endoint;
@@ -36,9 +36,7 @@ function bsf_get_api_site( $prefer_unsecure = false, $is_rest_api = false ) {
  * @return $url.
  */
 function bsf_get_api_url( $prefer_unsecure = false ) {
-	$url = bsf_get_api_site( $prefer_unsecure ) . 'wp-admin/admin-ajax.php';
-
-	return $url;
+	return bsf_get_api_site( $prefer_unsecure ) . 'wp-admin/admin-ajax.php';
 }
 
 /**
@@ -103,9 +101,11 @@ if ( ! function_exists( 'bsf_core_url' ) ) {
 
 		if ( strpos( $path, $theme_dir ) !== false ) {
 			return rtrim( get_template_directory_uri() . '/admin/bsf-core/', '/' ) . $append;
-		} elseif ( strpos( $path, $plugin_dir ) !== false ) {
+		}
+		if ( strpos( $path, $plugin_dir ) !== false ) {
 			return rtrim( plugin_dir_url( BSF_UPDATER_FILE ), '/' ) . $append;
-		} elseif ( strpos( $path, dirname( plugin_basename( BSF_UPDATER_FILE ) ) ) !== false ) {
+		}
+		if ( strpos( $path, dirname( plugin_basename( BSF_UPDATER_FILE ) ) ) !== false ) {
 			return rtrim( plugin_dir_url( BSF_UPDATER_FILE ), '/' ) . $append;
 		}
 
@@ -124,7 +124,7 @@ if ( ! function_exists( 'get_brainstorm_product' ) ) {
 	function get_brainstorm_product( $product_id = '' ) {
 		$all_products = brainstorm_get_all_products();
 
-		foreach ( $all_products as $key => $product ) {
+		foreach ( $all_products as $product ) {
 			$product_id_bsf = isset( $product['id'] ) ? ( is_numeric( $product['id'] ) ? (int) $product['id'] : $product['id'] ) : '';
 			if ( $product_id === $product_id_bsf ) {
 				return $product;
@@ -163,9 +163,9 @@ if ( ! function_exists( 'brainstorm_get_all_products' ) ) {
 
 		if ( false === $skip_bundled ) {
 
-			foreach ( $brainstrom_bundled_products as $parent_id => $parent ) {
+			foreach ( $brainstrom_bundled_products as $parent ) {
 
-				foreach ( $parent as $key => $product ) {
+				foreach ( $parent as $product ) {
 
 					if ( isset( $all_products[ $product->id ] ) ) {
 						$all_products[ $product->id ] = array_merge( $all_products[ $product->id ], (array) $product );
@@ -180,7 +180,6 @@ if ( ! function_exists( 'brainstorm_get_all_products' ) ) {
 	}
 }
 if ( ! function_exists( 'bsf_extension_nag' ) ) {
-
 
 	/**
 	 * Generate's markup to generate notice to ask users to install required extensions.
@@ -204,7 +203,6 @@ if ( ! function_exists( 'bsf_extension_nag' ) ) {
 			return;
 		}
 
-		$bsf_installed_plugins     = '';
 		$bsf_not_installed_plugins = '';
 		$bsf_not_activated_plugins = '';
 		$installer                 = '';
@@ -320,7 +318,7 @@ function bsf_get_loaded_bsf_core_name() {
 	}
 
 	$brainstrom_products = get_option( 'brainstrom_products', array() );
-	foreach ( $brainstrom_products as $type => $products ) {
+	foreach ( $brainstrom_products as $products ) {
 		foreach ( $products as $product ) {
 			if ( $product['slug'] === $product_slug ) {
 				$product_name = $product['name'];

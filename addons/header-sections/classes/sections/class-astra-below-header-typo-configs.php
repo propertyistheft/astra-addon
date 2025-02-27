@@ -316,5 +316,3 @@ if ( ! class_exists( 'Astra_Below_Header_Typo_Configs' ) ) {
 }
 
 new Astra_Below_Header_Typo_Configs();
-
-

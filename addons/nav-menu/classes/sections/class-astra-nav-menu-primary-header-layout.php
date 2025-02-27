@@ -61,12 +61,9 @@ if ( ! class_exists( 'Astra_Nav_Menu_Primary_Header_Layout' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
 
 new Astra_Nav_Menu_Primary_Header_Layout();
-

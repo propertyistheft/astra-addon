@@ -49,7 +49,6 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts' ) ) {
 			if ( ! is_admin() ) {
 				require_once ASTRA_ADDON_EXT_SITE_LAYOUTS_DIR . 'classes/dynamic.css.php';
 			}
-
 		}
 	}
 

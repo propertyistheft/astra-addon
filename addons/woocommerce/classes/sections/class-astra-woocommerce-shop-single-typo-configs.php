@@ -597,10 +597,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Typo_Configs' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
-
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }

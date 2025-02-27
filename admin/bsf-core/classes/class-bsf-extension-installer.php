@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * BSF_Extension_Installer Extension installer.
  */
 class BSF_Extension_Installer {
-
 	/**
 	 *  Constructor
 	 */
@@ -31,7 +30,7 @@ class BSF_Extension_Installer {
 	public function load_scripts( $hook ) {
 		$bsf_ext_inst = apply_filters( 'bsf_extension_installer_screens', array( 'bsf-extensions' ), $hook );
 
-		foreach ( $bsf_ext_inst as $key => $value ) {
+		foreach ( $bsf_ext_inst as $value ) {
 			if ( false !== strpos( $hook, $value ) ) {
 				wp_register_script( 'bsf-extension-installer', bsf_core_url( '/assets/js/extension-installer.js' ), array( 'jquery', 'wp-util', 'updates' ), BSF_UPDATER_VERSION, true );
 				wp_enqueue_script( 'bsf-extension-installer' );
@@ -65,7 +64,7 @@ class BSF_Extension_Installer {
 			);
 		}
 
-		$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : '';
+		$plugin_init = isset( $_POST['init'] ) ? esc_attr( $_POST['init'] ) : '';
 		$activate    = activate_plugin( $plugin_init, '', false, true );
 
 		if ( is_wp_error( $activate ) ) {

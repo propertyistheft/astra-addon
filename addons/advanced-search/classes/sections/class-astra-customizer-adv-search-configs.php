@@ -86,7 +86,8 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				),
 				'partial'     => $markup_partial,
 				'transport'   => 'postMessage',
-				'description' => '',
+				/* translators: %s: filter to enable svg icons */
+				'description' => Astra_Icons::is_svg_icons() ? '' : sprintf( __( 'SVG icons are currently disabled. To enable them, use the filter `%s`.', 'astra-addon' ), 'apply_filters( \'astra_is_svg_icons\', \'__return_true\' )' ),
 				'context'     => astra_addon_builder_helper()->general_tab,
 				'responsive'  => false,
 				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),

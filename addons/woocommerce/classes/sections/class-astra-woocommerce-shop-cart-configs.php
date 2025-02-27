@@ -17,7 +17,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 	return;
 }
 
-
 /**
  * Register Woocommerce shop cart Layout Configurations.
  */
@@ -113,10 +112,7 @@ class Astra_Woocommerce_Shop_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 		);
 
-		$configurations = array_merge( $configurations, $_configs );
-
-		return $configurations;
-
+		return array_merge( $configurations, $_configs );
 	}
 
 }

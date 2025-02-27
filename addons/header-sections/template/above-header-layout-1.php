@@ -12,7 +12,6 @@
 $astra_addon_abv_header_section_1 = Astra_Ext_Header_Sections_Markup::get_above_header_section( 'above-header-section-1' );
 $astra_addon_abv_header_section_2 = Astra_Ext_Header_Sections_Markup::get_above_header_section( 'above-header-section-2' );
 
-
 $astra_addon_section_1_value = astra_get_option( 'above-header-section-1' );
 $astra_addon_section_2_value = astra_get_option( 'above-header-section-2' );
 /**

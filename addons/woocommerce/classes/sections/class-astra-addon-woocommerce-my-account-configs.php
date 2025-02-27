@@ -21,7 +21,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  * Register Woocommerce My-Account Configurations.
  */
 class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config_Base {
-
 	/**
 	 * Register Woocommerce My-Account Configurations.
 	 *
@@ -406,9 +405,7 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 
 		);
 
-		$configurations = array_merge( $configurations, $_configs );
-
-		return $configurations;
+		return array_merge( $configurations, $_configs );
 	}
 }
 

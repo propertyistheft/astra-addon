@@ -43,7 +43,8 @@ if ( ! class_exists( 'Astra_Customizer_Ext_WooCommerce_Partials' ) ) {
 		/**
 		 * Constructor
 		 */
-		public function __construct() { }
+		public function __construct() {
+		}
 
 		/**
 		 * Render the Below Header Section 1 for the selective refresh partial.

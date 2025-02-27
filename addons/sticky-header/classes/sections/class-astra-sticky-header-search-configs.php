@@ -189,6 +189,3 @@ if ( ! class_exists( 'Astra_Sticky_Header_Search_Configs' ) ) {
 }
 
 new Astra_Sticky_Header_Search_Configs();
-
-
-

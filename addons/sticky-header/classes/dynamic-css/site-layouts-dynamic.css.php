@@ -92,5 +92,4 @@ function astra_ext_sticky_header_with_site_layouts_dynamic_css( $dynamic_css, $d
 	$parse_css .= $css;
 
 	return $dynamic_css . $parse_css;
-
 }

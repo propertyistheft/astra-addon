@@ -38,7 +38,6 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$archive_page_title_text_decoration = astra_addon_get_font_extras( astra_get_option( 'font-extras-page-title' ), 'text-decoration' );
 
 	$post_meta_font_size      = astra_get_option( 'font-size-post-meta' );
-	$post_tax_font_size       = astra_get_option( 'font-size-post-tax' );
 	$post_excerpt_font_size   = astra_get_option( 'font-size-post-excerpt' );
 	$post_read_more_font_size = astra_get_option( 'font-size-post-read-more' );
 
@@ -79,10 +78,10 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$outside_menu_line_height = astra_get_option( 'outside-menu-line-height' );
 
 	$is_widget_title_support_font_weight = Astra_Addon_Update_Filter_Function::support_addon_font_css_to_widget_and_in_editor();
-	$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
+	$font_weight_prop                    = $is_widget_title_support_font_weight ? 'inherit' : 'normal';
 
 	// Fallback for Site Title - headings typography.
-	if ( 'inherit' == $site_title_font_family ) {
+	if ( 'inherit' === $site_title_font_family ) {
 		$site_title_font_family = $headings_font_family;
 	}
 
@@ -91,7 +90,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	}
 
 	// Fallback for Archive Page Title - headings typography.
-	if ( 'inherit' == $archive_page_title_font_family ) {
+	if ( 'inherit' === $archive_page_title_font_family ) {
 		$archive_page_title_font_family = $headings_font_family;
 	}
 	if ( $font_weight_prop === $archive_page_title_font_weight ) {
@@ -99,7 +98,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	}
 
 	// Fallback for Sidebar Widget Title - headings typography.
-	if ( 'inherit' == $widget_title_font_family ) {
+	if ( 'inherit' === $widget_title_font_family ) {
 		$widget_title_font_family = $headings_font_family;
 	}
 	if ( $font_weight_prop === $widget_title_font_weight ) {
@@ -542,12 +541,12 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			}
 
 			$sub_menu_font_size              = astra_get_option( 'header-font-size-' . $_prefix . '-sub-menu' );
-			$sub_menu_font_size_desktop      = ( isset( $sub_menu_font_size['desktop'] ) ) ? $sub_menu_font_size['desktop'] : '';
-			$sub_menu_font_size_tablet       = ( isset( $sub_menu_font_size['tablet'] ) ) ? $sub_menu_font_size['tablet'] : '';
-			$sub_menu_font_size_mobile       = ( isset( $sub_menu_font_size['mobile'] ) ) ? $sub_menu_font_size['mobile'] : '';
-			$sub_menu_font_size_desktop_unit = ( isset( $sub_menu_font_size['desktop-unit'] ) ) ? $sub_menu_font_size['desktop-unit'] : '';
-			$sub_menu_font_size_tablet_unit  = ( isset( $sub_menu_font_size['tablet-unit'] ) ) ? $sub_menu_font_size['tablet-unit'] : '';
-			$sub_menu_font_size_mobile_unit  = ( isset( $sub_menu_font_size['mobile-unit'] ) ) ? $sub_menu_font_size['mobile-unit'] : '';
+			$sub_menu_font_size_desktop      = isset( $sub_menu_font_size['desktop'] ) ? $sub_menu_font_size['desktop'] : '';
+			$sub_menu_font_size_tablet       = isset( $sub_menu_font_size['tablet'] ) ? $sub_menu_font_size['tablet'] : '';
+			$sub_menu_font_size_mobile       = isset( $sub_menu_font_size['mobile'] ) ? $sub_menu_font_size['mobile'] : '';
+			$sub_menu_font_size_desktop_unit = isset( $sub_menu_font_size['desktop-unit'] ) ? $sub_menu_font_size['desktop-unit'] : '';
+			$sub_menu_font_size_tablet_unit  = isset( $sub_menu_font_size['tablet-unit'] ) ? $sub_menu_font_size['tablet-unit'] : '';
+			$sub_menu_font_size_mobile_unit  = isset( $sub_menu_font_size['mobile-unit'] ) ? $sub_menu_font_size['mobile-unit'] : '';
 
 			$css_output_desktop = array(
 				$selector . ' .sub-menu .menu-link' => astra_addon_get_font_array_css( astra_get_option( 'header-font-family-' . $_prefix . '-sub-menu' ), astra_get_option( 'header-font-weight-' . $_prefix . '-sub-menu' ), $sub_menu_font_size, 'header-font-extras-' . $_prefix . '-sub-menu' ),
@@ -568,11 +567,10 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			if ( 3 > $index ) {
 
 				$mega_menu_heading_font_size             = astra_get_option( 'header-' . $_prefix . '-megamenu-heading-font-size' );
-				$mega_menu_heading_font_size_desktop     = ( isset( $mega_menu_heading_font_size['desktop'] ) ) ? $mega_menu_heading_font_size['desktop'] : '';
-				$mega_menu_heading_font_size_tablet      = ( isset( $mega_menu_heading_font_size['tablet'] ) ) ? $mega_menu_heading_font_size['tablet'] : '';
-				$mega_menu_heading_font_size_mobile      = ( isset( $mega_menu_heading_font_size['mobile'] ) ) ? $mega_menu_heading_font_size['mobile'] : '';
-				$mega_menu_heading_font_size_tablet_unit = ( isset( $mega_menu_heading_font_size['tablet-unit'] ) ) ? $mega_menu_heading_font_size['tablet-unit'] : '';
-				$mega_menu_heading_font_size_mobile_unit = ( isset( $mega_menu_heading_font_size['mobile-unit'] ) ) ? $mega_menu_heading_font_size['mobile-unit'] : '';
+				$mega_menu_heading_font_size_tablet      = isset( $mega_menu_heading_font_size['tablet'] ) ? $mega_menu_heading_font_size['tablet'] : '';
+				$mega_menu_heading_font_size_mobile      = isset( $mega_menu_heading_font_size['mobile'] ) ? $mega_menu_heading_font_size['mobile'] : '';
+				$mega_menu_heading_font_size_tablet_unit = isset( $mega_menu_heading_font_size['tablet-unit'] ) ? $mega_menu_heading_font_size['tablet-unit'] : '';
+				$mega_menu_heading_font_size_mobile_unit = isset( $mega_menu_heading_font_size['mobile-unit'] ) ? $mega_menu_heading_font_size['mobile-unit'] : '';
 
 				$css_megamenu_output_desktop = array(
 					// Mega Menu.
@@ -613,7 +611,6 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 				continue;
 			}
 
-			$_prefix    = 'html' . $index;
 			$section    = 'section-hb-html-';
 			$selector   = '.site-header-section .ast-builder-layout-element.ast-header-html-' . $index . ' .ast-builder-html-element';
 			$section_id = $section . $index;
@@ -699,7 +696,6 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 				continue;
 			}
 
-			$_prefix  = 'html' . $index;
 			$section  = 'section-fb-html-';
 			$selector = '.site-footer-section .ast-footer-html-' . $index . ' .ast-builder-html-element';
 
@@ -790,10 +786,10 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			$_section = 'section-header-account';
 
 			$menu_font_size             = astra_get_option( $_section . '-menu-font-size' );
-			$menu_font_size_tablet      = ( isset( $menu_font_size['tablet'] ) ) ? $menu_font_size['tablet'] : '';
-			$menu_font_size_mobile      = ( isset( $menu_font_size['mobile'] ) ) ? $menu_font_size['mobile'] : '';
-			$menu_font_size_tablet_unit = ( isset( $menu_font_size['tablet-unit'] ) ) ? $menu_font_size['tablet-unit'] : '';
-			$menu_font_size_mobile_unit = ( isset( $menu_font_size['mobile-unit'] ) ) ? $menu_font_size['mobile-unit'] : '';
+			$menu_font_size_tablet      = isset( $menu_font_size['tablet'] ) ? $menu_font_size['tablet'] : '';
+			$menu_font_size_mobile      = isset( $menu_font_size['mobile'] ) ? $menu_font_size['mobile'] : '';
+			$menu_font_size_tablet_unit = isset( $menu_font_size['tablet-unit'] ) ? $menu_font_size['tablet-unit'] : '';
+			$menu_font_size_mobile_unit = isset( $menu_font_size['mobile-unit'] ) ? $menu_font_size['mobile-unit'] : '';
 			$popup_font_size            = astra_get_option( $_section . '-popup-font-size' );
 			$popup_button_size          = astra_get_option( $_section . '-popup-button-font-size' );
 
@@ -928,12 +924,12 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$sidebar_title_font_size = astra_get_option( 'font-size-sidebar-title' );
 		if ( $sidebar_title_font_size ) {
 
-			$sidebar_title_font_size_desktop      = ( isset( $sidebar_title_font_size['desktop'] ) ) ? $sidebar_title_font_size['desktop'] : '';
-			$sidebar_title_font_size_tablet       = ( isset( $sidebar_title_font_size['tablet'] ) ) ? $sidebar_title_font_size['tablet'] : '';
-			$sidebar_title_font_size_mobile       = ( isset( $sidebar_title_font_size['mobile'] ) ) ? $sidebar_title_font_size['mobile'] : '';
-			$sidebar_title_font_size_desktop_unit = ( isset( $sidebar_title_font_size['desktop-unit'] ) ) ? $sidebar_title_font_size['desktop-unit'] : '';
-			$sidebar_title_font_size_tablet_unit  = ( isset( $sidebar_title_font_size['tablet-unit'] ) ) ? $sidebar_title_font_size['tablet-unit'] : '';
-			$sidebar_title_font_size_mobile_unit  = ( isset( $sidebar_title_font_size['mobile-unit'] ) ) ? $sidebar_title_font_size['mobile-unit'] : '';
+			$sidebar_title_font_size_desktop      = isset( $sidebar_title_font_size['desktop'] ) ? $sidebar_title_font_size['desktop'] : '';
+			$sidebar_title_font_size_tablet       = isset( $sidebar_title_font_size['tablet'] ) ? $sidebar_title_font_size['tablet'] : '';
+			$sidebar_title_font_size_mobile       = isset( $sidebar_title_font_size['mobile'] ) ? $sidebar_title_font_size['mobile'] : '';
+			$sidebar_title_font_size_desktop_unit = isset( $sidebar_title_font_size['desktop-unit'] ) ? $sidebar_title_font_size['desktop-unit'] : '';
+			$sidebar_title_font_size_tablet_unit  = isset( $sidebar_title_font_size['tablet-unit'] ) ? $sidebar_title_font_size['tablet-unit'] : '';
+			$sidebar_title_font_size_mobile_unit  = isset( $sidebar_title_font_size['mobile-unit'] ) ? $sidebar_title_font_size['mobile-unit'] : '';
 
 			$css_output_common = array(
 				'#secondary .wp-block-group h2:first-of-type' => array(
@@ -965,12 +961,12 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$sidebar_content_font_size = astra_get_option( 'font-size-sidebar-content' );
 		if ( $sidebar_content_font_size ) {
 
-			$sidebar_content_font_size_desktop      = ( isset( $sidebar_content_font_size['desktop'] ) ) ? $sidebar_content_font_size['desktop'] : '';
-			$sidebar_content_font_size_tablet       = ( isset( $sidebar_content_font_size['tablet'] ) ) ? $sidebar_content_font_size['tablet'] : '';
-			$sidebar_content_font_size_mobile       = ( isset( $sidebar_content_font_size['mobile'] ) ) ? $sidebar_content_font_size['mobile'] : '';
-			$sidebar_content_font_size_desktop_unit = ( isset( $sidebar_content_font_size['desktop-unit'] ) ) ? $sidebar_content_font_size['desktop-unit'] : '';
-			$sidebar_content_font_size_tablet_unit  = ( isset( $sidebar_content_font_size['tablet-unit'] ) ) ? $sidebar_content_font_size['tablet-unit'] : '';
-			$sidebar_content_font_size_mobile_unit  = ( isset( $sidebar_content_font_size['mobile-unit'] ) ) ? $sidebar_content_font_size['mobile-unit'] : '';
+			$sidebar_content_font_size_desktop      = isset( $sidebar_content_font_size['desktop'] ) ? $sidebar_content_font_size['desktop'] : '';
+			$sidebar_content_font_size_tablet       = isset( $sidebar_content_font_size['tablet'] ) ? $sidebar_content_font_size['tablet'] : '';
+			$sidebar_content_font_size_mobile       = isset( $sidebar_content_font_size['mobile'] ) ? $sidebar_content_font_size['mobile'] : '';
+			$sidebar_content_font_size_desktop_unit = isset( $sidebar_content_font_size['desktop-unit'] ) ? $sidebar_content_font_size['desktop-unit'] : '';
+			$sidebar_content_font_size_tablet_unit  = isset( $sidebar_content_font_size['tablet-unit'] ) ? $sidebar_content_font_size['tablet-unit'] : '';
+			$sidebar_content_font_size_mobile_unit  = isset( $sidebar_content_font_size['mobile-unit'] ) ? $sidebar_content_font_size['mobile-unit'] : '';
 
 			$css_output_common = array(
 				'#secondary .wp-block-group *:not(h2:first-of-type)' => array(
@@ -996,9 +992,9 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 
 		}
 
-		/**
-		 * Header - Mobile Trigger - Typography
-		 */
+			/**
+			 * Header - Mobile Trigger - Typography
+			 */
 
 			/**
 			 * Typography CSS.
@@ -1013,8 +1009,6 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			 * Mobile Menu - Typography.
 			 */
 
-			$_section = 'section-header-mobile-menu';
-
 			$selector = '.ast-hfb-header .ast-builder-menu-mobile .main-header-menu';
 
 			if ( version_compare( ASTRA_THEME_VERSION, '3.2.0', '<' ) ) {
@@ -1022,12 +1016,12 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 			}
 
 			$sub_menu_font_size              = astra_get_option( 'header-font-size-mobile-menu-sub-menu' );
-			$sub_menu_font_size_desktop      = ( isset( $sub_menu_font_size['desktop'] ) ) ? $sub_menu_font_size['desktop'] : '';
-			$sub_menu_font_size_tablet       = ( isset( $sub_menu_font_size['tablet'] ) ) ? $sub_menu_font_size['tablet'] : '';
-			$sub_menu_font_size_mobile       = ( isset( $sub_menu_font_size['mobile'] ) ) ? $sub_menu_font_size['mobile'] : '';
-			$sub_menu_font_size_desktop_unit = ( isset( $sub_menu_font_size['desktop-unit'] ) ) ? $sub_menu_font_size['desktop-unit'] : '';
-			$sub_menu_font_size_tablet_unit  = ( isset( $sub_menu_font_size['tablet-unit'] ) ) ? $sub_menu_font_size['tablet-unit'] : '';
-			$sub_menu_font_size_mobile_unit  = ( isset( $sub_menu_font_size['mobile-unit'] ) ) ? $sub_menu_font_size['mobile-unit'] : '';
+			$sub_menu_font_size_desktop      = isset( $sub_menu_font_size['desktop'] ) ? $sub_menu_font_size['desktop'] : '';
+			$sub_menu_font_size_tablet       = isset( $sub_menu_font_size['tablet'] ) ? $sub_menu_font_size['tablet'] : '';
+			$sub_menu_font_size_mobile       = isset( $sub_menu_font_size['mobile'] ) ? $sub_menu_font_size['mobile'] : '';
+			$sub_menu_font_size_desktop_unit = isset( $sub_menu_font_size['desktop-unit'] ) ? $sub_menu_font_size['desktop-unit'] : '';
+			$sub_menu_font_size_tablet_unit  = isset( $sub_menu_font_size['tablet-unit'] ) ? $sub_menu_font_size['tablet-unit'] : '';
+			$sub_menu_font_size_mobile_unit  = isset( $sub_menu_font_size['mobile-unit'] ) ? $sub_menu_font_size['mobile-unit'] : '';
 
 			$css_output_common = array(
 				$selector . ' .sub-menu .menu-link' => astra_addon_get_font_array_css( astra_get_option( 'header-font-family-mobile-menu-sub-menu' ), astra_get_option( 'header-font-weight-mobile-menu-sub-menu' ), array(), 'font-extras-mobile-menu-sub-menu' ),
@@ -1054,9 +1048,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	}
 
 	return $dynamic_css . $css_output;
-
 }
-
 
 /**
  * Conditionally iclude CSS Selectors with anchors in the typography settings.
@@ -1076,17 +1068,16 @@ function astra_addon_typography_conditional_headings_css_selectors( $selectors_w
 
 	if ( true == astra_addon_typography_anchors_in_css_selectors_heading() ) {
 		return $selectors_with_achors;
-	} else {
-		return $selectors_without_achors;
 	}
 
+	return $selectors_without_achors;
 }
 
 /**
  * Check if CSS selectors in Headings should use anchors.
  *
  * @since 1.5.0
- * @return boolean true if it should include anchors, False if not.
+ * @return bool true if it should include anchors, False if not.
  */
 function astra_addon_typography_anchors_in_css_selectors_heading() {
 
@@ -1095,11 +1086,8 @@ function astra_addon_typography_anchors_in_css_selectors_heading() {
 			'astra_include_achors_in_headings_typography',
 			true
 		) ) {
-
-			return true;
-	} else {
-
-		return false;
+		return true;
 	}
 
+	return false;
 }

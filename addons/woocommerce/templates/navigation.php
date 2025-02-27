@@ -51,7 +51,7 @@ do_action( 'woocommerce_before_account_navigation' );
 	}
 	?>
 	<ul>
-		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) { ?>
 			<?php
 			switch ( $endpoint ) {
 				case 'dashboard':
@@ -87,7 +87,7 @@ do_action( 'woocommerce_before_account_navigation' );
 			<li class="<?php echo esc_html( wc_get_account_menu_item_classes( $endpoint ) ); ?>">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo wp_kses( $endpoint_icon, Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) . '<span class="ast-woo-nav-link-name">' . esc_html( $label ) . '</span>'; ?></a>
 			</li>
-		<?php endforeach; ?>
+		<?php } ?>
 	</ul>
 </nav>
 

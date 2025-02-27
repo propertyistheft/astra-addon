@@ -17,12 +17,11 @@ if ( ! class_exists( 'BSF_Core_Update' ) ) {
 	 * @since 1.0.0
 	 */
 	class BSF_Core_Update {
-
 		/**
 		 * Class instance.
 		 *
 		 * @access private
-		 * @var $instance Class instance.
+		 * @var Class $instance instance.
 		 */
 		private static $instance;
 
@@ -42,7 +41,7 @@ if ( ! class_exists( 'BSF_Core_Update' ) ) {
 		 */
 		public function __construct() {
 			// Theme Updates.
-			add_action( 'admin_init', __CLASS__ . '::init', 0 );
+			add_action( 'admin_init', self::class . '::init', 0 );
 			add_filter( 'all_plugins', array( $this, 'update_products_slug' ), 10, 1 );
 		}
 
@@ -78,7 +77,7 @@ if ( ! class_exists( 'BSF_Core_Update' ) ) {
 		public function update_products_slug( $plugins ) {
 			$bsf_products = bsf_get_brainstorm_products( true );
 
-			foreach ( $bsf_products as $product => $data ) {
+			foreach ( $bsf_products as $data ) {
 				$plugin_file = isset( $data['template'] ) ? sanitize_text_field( $data['template'] ) : '';
 				if ( isset( $plugins[ $plugin_file ] ) && ! empty( $data['slug'] ) ) {
 					$plugins[ $plugin_file ]['slug'] = $data['slug'];

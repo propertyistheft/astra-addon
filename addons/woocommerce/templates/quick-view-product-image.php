@@ -32,7 +32,6 @@ global $post, $product, $woocommerce;
 		);
 
 		if ( $astra_addon_image_attachment_ids ) {
-			$astra_addon_image_loop = 0;
 
 			foreach ( $astra_addon_image_attachment_ids as $astra_addon_attachment_id ) {
 
@@ -47,7 +46,6 @@ global $post, $product, $woocommerce;
 					wp_get_attachment_image( $astra_addon_attachment_id, 'shop_single', 0, $astra_addon_image_props )
 				);
 
-				$astra_addon_image_loop++;
 			}
 		}
 	} else {

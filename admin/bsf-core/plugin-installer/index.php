@@ -9,7 +9,7 @@
  * Prevent direct access.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit();
+	exit;
 }
 
 require_once BSF_UPDATER_PATH . '/includes/views/list-bundled-products.php';

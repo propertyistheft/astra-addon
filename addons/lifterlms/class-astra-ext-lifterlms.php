@@ -52,7 +52,6 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS' ) ) {
 					require_once ASTRA_ADDON_EXT_LIFTERLMS_DIR . 'classes/dynamic.css.php';
 				}
 			}
-
 		}
 	}
 
@@ -62,4 +61,3 @@ if ( ! class_exists( 'Astra_Ext_LifterLMS' ) ) {
 	Astra_Ext_LifterLMS::get_instance();
 
 }
-

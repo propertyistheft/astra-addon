@@ -81,9 +81,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Divider_Configs' ) ) {
 			}
 
 			$divider_config = call_user_func_array( 'array_merge', $divider_config + array( array() ) );
-			$configurations = array_merge( $configurations, $divider_config );
-
-			return $configurations;
+			return array_merge( $configurations, $divider_config );
 		}
 	}
 }

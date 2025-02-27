@@ -84,7 +84,6 @@ class BSF_Rollback_Version {
 	protected $product_id;
 
 	/**
-	 *
 	 * Initializing Rollback.
 	 *
 	 * @access public
@@ -142,7 +141,6 @@ class BSF_Rollback_Version {
 	}
 
 	/**
-	 *
 	 * Rollback to previous versions.
 	 *
 	 * @since 1.0.0
@@ -223,7 +221,7 @@ class BSF_Rollback_Version {
 	 */
 	public static function is_beta_enabled_rollback( $product_id ) {
 		$allow_beta_update = BSF_Update_Manager::bsf_allow_beta_updates( $product_id );
-		$is_beta_enable    = ( false === $allow_beta_update ) ? '0' : '1';
+		$is_beta_enable    = false === $allow_beta_update ? '0' : '1';
 
 		// Set the initial flag for is beta enelbled/ disabled.
 		if ( false === get_option( 'is_beta_enable_rollback_' . $product_id ) ) {

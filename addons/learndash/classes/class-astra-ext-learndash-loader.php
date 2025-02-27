@@ -64,7 +64,6 @@ if ( ! class_exists( 'Astra_Ext_LearnDash_Loader' ) ) {
 			$font_family_table_content = astra_get_option( 'font-family-learndash-table-content' );
 			$font_weight_table_content = astra_get_option( 'font-weight-learndash-table-content' );
 			Astra_Fonts::add_font( $font_family_table_content, $font_weight_table_content );
-
 		}
 
 		/**
@@ -180,6 +179,6 @@ if ( ! class_exists( 'Astra_Ext_LearnDash_Loader' ) ) {
 }
 
 /**
-* Kicking this off by calling 'get_instance()' method
-*/
+ * Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_LearnDash_Loader::get_instance();

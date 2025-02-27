@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-while ( have_posts() ) :
+while ( have_posts() ) {
 	the_post();
 	if ( get_the_ID() === absint( $args['product_id'] ) ) { ?>
 			<div class="ast-woo-product">
@@ -20,4 +20,4 @@ while ( have_posts() ) :
 			</div>
 		<?php
 	}
-endwhile; // end of the loop.
+} // end of the loop.

@@ -30,7 +30,7 @@ function astra_addon_mobile_header_spacing_dynamic_css( $dynamic_css, $dynamic_c
 	 * Responsive Colors options
 	 * [4]. Below Header Menu Responsive Colors only for No Toggle menu style
 	 */
-	if ( 'no-toggle' == $menu_style ) {
+	if ( 'no-toggle' === $menu_style ) {
 		if ( $primary_menu_spacing ) {
 			$desktop_spacing = array(
 				'.ast-no-toggle-menu-enable.ast-header-break-point .main-header-bar .main-header-menu > .menu-item-has-children > .ast-menu-toggle' => array(

@@ -17,7 +17,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 	 * BSF analytics
 	 */
 	class BSF_Analytics {
-
 		/**
 		 * Member Variable
 		 *
@@ -116,9 +115,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			 *
 			 * Directory and Extensions.
 			 */
-			$dir_name = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-			$file_rtl = ( is_rtl() ) ? '-rtl' : '';
-			$css_ext  = ( SCRIPT_DEBUG ) ? '.css' : '.min.css';
+			$dir_name = SCRIPT_DEBUG ? 'unminified' : 'minified';
+			$file_rtl = is_rtl() ? '-rtl' : '';
+			$css_ext  = SCRIPT_DEBUG ? '.css' : '.min.css';
 
 			$css_uri = BSF_ANALYTICS_URI . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
 
@@ -298,7 +297,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			wp_safe_redirect(
-				esc_url_raw( 
+				esc_url_raw(
 					remove_query_arg(
 						array(
 							$source . '_analytics_optin',

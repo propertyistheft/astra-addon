@@ -364,6 +364,3 @@ if ( ! class_exists( 'Astra_Above_Header_Colors_Bg_Configs' ) ) {
 }
 
 new Astra_Above_Header_Colors_Bg_Configs();
-
-
-

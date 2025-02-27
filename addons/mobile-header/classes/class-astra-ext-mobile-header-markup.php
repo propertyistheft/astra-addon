@@ -158,7 +158,7 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 		public function merge_header_custom_menu_item_wrap( $markup ) {
 			$mobile_above_menu_style = astra_get_option( 'mobile-menu-style' );
 			if ( 'default' !== $mobile_above_menu_style ) {
-				$markup = $markup . '<div class="ast-merge-header-navigation-wrap"><div class="ast-merge-header-sections-menu">';
+				$markup .= '<div class="ast-merge-header-navigation-wrap"><div class="ast-merge-header-sections-menu">';
 			}
 			return $markup;
 		}
@@ -234,7 +234,6 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 			return $classes;
 		}
 
-
 		/**
 		 * Body Class
 		 *
@@ -264,11 +263,11 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 				$classes[] = 'ast-' . $mobile_above_menu_style . '-above-menu-enable';
 			}
 
-			if ( 'flyout' == $mobile_menu_style ) {
+			if ( 'flyout' === $mobile_menu_style ) {
 				$classes[] = 'ast-flyout-' . $flyout_alignment . '-side';
 			}
 
-			if ( 'flyout' == $mobile_above_menu_style ) {
+			if ( 'flyout' === $mobile_above_menu_style ) {
 				$classes[] = 'ast-flyout-above-' . $above_flyout_alignment . '-side';
 			}
 
@@ -276,17 +275,16 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 				$classes[] = 'ast-' . $mobile_below_menu_style . '-below-menu-enable';
 			}
 
-			if ( 'flyout' == $mobile_below_menu_style ) {
+			if ( 'flyout' === $mobile_below_menu_style ) {
 				$classes[] = 'ast-flyout-below-' . $below_flyout_alignment . '-side';
 			}
 
-			if ( 'flyout' == $mobile_below_menu_style ) {
+			if ( 'flyout' === $mobile_below_menu_style ) {
 				$classes[] = 'ast-flyout-below-' . $below_flyout_alignment . '-side';
 			}
 
 			return $classes;
 		}
-
 
 		/**
 		 * Add Styles
@@ -296,7 +294,7 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 		 */
 		public function add_styles() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_MOBILE_HEADER_URL . 'assets/css/';
@@ -325,7 +323,7 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 				$gen_path = $css_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 
 			/* Add style.css */
 			$above_header_merged = astra_get_option( 'above-header-merge-menu' );
@@ -335,33 +333,33 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 			$mobile_above_header_menu_style = astra_get_option( 'mobile-above-header-menu-style' );
 			$mobile_below_header_menu_style = astra_get_option( 'mobile-below-header-menu-style' );
 
-			if ( 'flyout' == $mobile_menu_style ) {
+			if ( 'flyout' === $mobile_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'primary-menu-flyout' . $file_prefix . '.css' );
 			}
-			if ( 'no-toggle' == $mobile_menu_style ) {
+			if ( 'no-toggle' === $mobile_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'primary-menu-no-toggle' . $file_prefix . '.css' );
 			}
-			if ( 'fullscreen' == $mobile_menu_style ) {
+			if ( 'fullscreen' === $mobile_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'fullscreen-menu-common' . $file_prefix . '.css' );
 				Astra_Minify::add_css( $gen_path . 'primary-menu-fullscreen' . $file_prefix . '.css' );
 			}
-			if ( 'flyout' == $mobile_above_header_menu_style ) {
+			if ( 'flyout' === $mobile_above_header_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'above-menu-flyout' . $file_prefix . '.css' );
 			}
-			if ( ! $above_header_merged && 'no-toggle' == $mobile_above_header_menu_style ) {
+			if ( ! $above_header_merged && 'no-toggle' === $mobile_above_header_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'above-menu-no-toggle' . $file_prefix . '.css' );
 			}
-			if ( 'fullscreen' == $mobile_above_header_menu_style ) {
+			if ( 'fullscreen' === $mobile_above_header_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'fullscreen-menu-common' . $file_prefix . '.css' );
 				Astra_Minify::add_css( $gen_path . 'above-menu-fullscreen' . $file_prefix . '.css' );
 			}
-			if ( 'flyout' == $mobile_below_header_menu_style ) {
+			if ( 'flyout' === $mobile_below_header_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'below-menu-flyout' . $file_prefix . '.css' );
 			}
-			if ( ! $below_header_merged && 'no-toggle' == $mobile_below_header_menu_style ) {
+			if ( ! $below_header_merged && 'no-toggle' === $mobile_below_header_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'below-menu-no-toggle' . $file_prefix . '.css' );
 			}
-			if ( 'fullscreen' == $mobile_below_header_menu_style ) {
+			if ( 'fullscreen' === $mobile_below_header_menu_style ) {
 				Astra_Minify::add_css( $gen_path . 'fullscreen-menu-common' . $file_prefix . '.css' );
 				Astra_Minify::add_css( $gen_path . 'below-menu-fullscreen' . $file_prefix . '.css' );
 			}
@@ -371,9 +369,7 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 		 * Add Scripts Callback
 		 */
 		public function add_scripts() {
-			/*** Start Path Logic */
-			$below_section_1     = astra_get_option( 'below-header-section-1' );
-			$below_section_2     = astra_get_option( 'below-header-section-2' );
+			/* Start Path Logic */
 			$below_header_merged = astra_get_option( 'below-header-merge-menu' );
 			$above_section_1     = astra_get_option( 'above-header-section-1' );
 			$above_section_2     = astra_get_option( 'above-header-section-2' );
@@ -406,18 +402,18 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header_Markup' ) ) {
 				$gen_path = $js_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 			Astra_Minify::add_dependent_js( 'jquery' );
 
-			if ( ! $above_header_merged && 'no-toggle' == $above_header_style && ( 'menu' === $above_section_1 || 'menu' === $above_section_2 ) ) {
+			if ( ! $above_header_merged && 'no-toggle' === $above_header_style && ( 'menu' === $above_section_1 || 'menu' === $above_section_2 ) ) {
 				Astra_Minify::add_js( $gen_path . 'above-menu-no-toggle' . $file_prefix . '.js' );
 			}
 
-			if ( ! $below_header_merged && 'no-toggle' == $below_header_style && ( 'menu' === $above_section_1 || 'menu' === $above_section_2 ) ) {
+			if ( ! $below_header_merged && 'no-toggle' === $below_header_style && ( 'menu' === $above_section_1 || 'menu' === $above_section_2 ) ) {
 				Astra_Minify::add_js( $gen_path . 'below-menu-no-toggle' . $file_prefix . '.js' );
 			}
 
-			if ( 'no-toggle' == $mobile_menu_style && '1' != $disable_primary_nav ) {
+			if ( 'no-toggle' === $mobile_menu_style && '1' != $disable_primary_nav ) {
 				Astra_Minify::add_js( $gen_path . 'primary-menu-no-toggle' . $file_prefix . '.js' );
 			}
 		}

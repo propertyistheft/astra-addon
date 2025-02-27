@@ -130,10 +130,10 @@ if ( ! function_exists( '_bsf_maybe_add_dashboard_menu' ) ) {
 	 *
 	 * @param int $product_id Product if of brainstorm product.
 	 *
-	 * @return boolean true - If menu is to be shown | false - if menu is not to be displayed.
+	 * @return bool true - If menu is to be shown | false - if menu is not to be displayed.
 	 */
 	function _bsf_maybe_add_dashboard_menu( $product_id ) {
-		$brainstrom_products = ( get_option( 'brainstrom_products' ) ) ? get_option( 'brainstrom_products' ) : array();
+		$brainstrom_products = get_option( 'brainstrom_products' ) ? get_option( 'brainstrom_products' ) : array();
 		$template_plugin     = '';
 		$template_theme      = '';
 		$is_theme            = false;
@@ -175,7 +175,8 @@ if ( ! function_exists( '_bsf_maybe_add_dashboard_menu' ) ) {
 				// don't display menu if theme/parent theme does not need extension installer.
 				return false;
 
-			} elseif ( false === $is_theme && '' !== $template_plugin ) {
+			}
+			if ( false === $is_theme && '' !== $template_plugin ) {
 
 				include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
@@ -192,10 +193,8 @@ if ( ! function_exists( '_bsf_maybe_add_dashboard_menu' ) ) {
 
 		// do not register menu if all conditions fail.
 		return false;
-
 	}
 }
-
 
 if ( ! function_exists( 'register_bsf_extension_page_network' ) ) {
 	/**
@@ -252,7 +251,7 @@ if ( ! function_exists( 'bsf_extract_product_id' ) ) {
 		if ( stripos( $filelines, 'ID:[' ) !== false ) {
 			preg_match_all( '/ID:\[(.*?)\]/', $filelines, $matches );
 			if ( isset( $matches[1] ) ) {
-				$id = ( isset( $matches[1][0] ) ) ? $matches[1][0] : '';
+				$id = isset( $matches[1][0] ) ? $matches[1][0] : '';
 			}
 		}
 
@@ -336,7 +335,7 @@ if ( ! function_exists( 'init_bsf_core' ) ) {
 		// Update newly added brainstorm_products.
 		if ( ! empty( $bsf_products ) ) {
 			foreach ( $bsf_products as $key => $product ) {
-				if ( ! ( isset( $product['id'] ) ) || '' === $product['id'] ) {
+				if ( ! isset( $product['id'] ) || '' === $product['id'] ) {
 					continue;
 				}
 				if ( isset( $brainstrom_products[ $product['type'] . 's' ][ $product['id'] ] ) ) {
@@ -552,8 +551,8 @@ if ( ! function_exists( 'brainstrom_product_id_by_name' ) ) {
 		$product_id          = '';
 		$brainstrom_products = get_option( 'brainstrom_products', array() );
 
-		foreach ( $brainstrom_products as $key => $value ) {
-			foreach ( $value as $key => $product ) {
+		foreach ( $brainstrom_products as $value ) {
+			foreach ( $value as $product ) {
 				if ( isset( $product['product_name'] ) && strcasecmp( $product['product_name'], $product_name ) === 0 ) {
 					$product_id = isset( $product['id'] ) ? $product['id'] : '';
 				}
@@ -578,7 +577,7 @@ if ( ! function_exists( 'brainstrom_product_id_by_init' ) ) {
 
 		$all_products = $brainstorm_plugins + $brainstorm_themes;
 
-		foreach ( $all_products as $key => $product ) {
+		foreach ( $all_products as $product ) {
 
 			$template = isset( $product['template'] ) ? $product['template'] : '';
 			if ( $plugin_init === $template ) {
@@ -653,9 +652,7 @@ if ( ! function_exists( 'bsf_core_debug_link' ) ) {
 
 		$url  = bsf_registration_page_url( '&author' );
 		$link = '<a href="' . $url . '">' . BSF_UPDATER_SHORTNAME . ' Updater debug settings</a>';
-		$text = $link . ' | ' . $text;
-
-		return $text;
+		return $link . ' | ' . $text;
 	}
 }
 
@@ -685,9 +682,7 @@ if ( ! function_exists( 'bsf_registration_page_url' ) ) {
 		if ( ( defined( 'BSF_UNREG_MENU' ) && ( BSF_UNREG_MENU === true || BSF_UNREG_MENU === 'true' ) ) ||
 			true === $skip_brainstorm_menu
 		) {
-
 			if ( '&author' === $append ) {
-
 				return admin_url( 'options.php?page=bsf-registration' . $append );
 			}
 		}
@@ -701,26 +696,23 @@ if ( ! function_exists( 'bsf_registration_page_url' ) ) {
 		}
 
 		if ( '' !== $product_registration_link ) {
-
 			return $product_registration_link . '' . $append;
-		} else {
-
-			if ( true === $option || true === $constant ) {
-				// bsf menu in settings.
-				if ( is_multisite() ) {
-					return network_admin_url( 'settings.php?page=bsf-registration' . $append );
-				} else {
-					return admin_url( 'options-general.php?page=bsf-registration' . $append );
-				}
-			} else {
-				if ( is_multisite() ) {
-					return network_admin_url( 'admin.php?page=bsf-registration' . $append );
-				} else {
-					return admin_url( 'index.php?page=bsf-registration' . $append );
-				}
-			}
 		}
 
+		if ( true === $option || true === $constant ) {
+			// bsf menu in settings.
+			if ( is_multisite() ) {
+				return network_admin_url( 'settings.php?page=bsf-registration' . $append );
+			}
+
+			return admin_url( 'options-general.php?page=bsf-registration' . $append );
+		}
+
+		if ( is_multisite() ) {
+			return network_admin_url( 'admin.php?page=bsf-registration' . $append );
+		}
+
+		return admin_url( 'index.php?page=bsf-registration' . $append );
 	}
 }
 
@@ -740,12 +732,12 @@ if ( ! function_exists( 'bsf_exension_installer_url' ) ) {
 
 			if ( defined( 'BSF_REG_MENU_TO_SETTINGS' ) && ( BSF_REG_MENU_TO_SETTINGS === true || BSF_REG_MENU_TO_SETTINGS === 'true' ) ) {
 				return network_admin_url( 'settings.php?page=bsf-extensions-' . $priduct_id );
-			} else {
-				return network_admin_url( 'admin.php?page=bsf-extensions-' . $priduct_id );
 			}
-		} else {
-			return admin_url( 'admin.php?page=bsf-extensions-' . $priduct_id );
+
+			return network_admin_url( 'admin.php?page=bsf-extensions-' . $priduct_id );
 		}
+
+		return admin_url( 'admin.php?page=bsf-extensions-' . $priduct_id );
 	}
 }
 
@@ -780,7 +772,7 @@ if ( ! function_exists( 'bsf_set_options' ) ) {
 		$ids                  = array();
 		$skip_author_option   = get_site_option( 'bsf_skip_author', false );
 		$brainstorm_products  = bsf_get_brainstorm_products( true );
-		foreach ( $brainstorm_products as $key => $product ) {
+		foreach ( $brainstorm_products as $product ) {
 
 			if ( isset( $product['id'] ) && ! in_array( $product['id'], $skip_author_products, true ) ) {
 				$ids[] = $product['id'];
@@ -816,7 +808,7 @@ if ( ! function_exists( 'bsf_set_options' ) ) {
 		$skip_brainstorm_menu_products = apply_filters( 'bsf_skip_braisntorm_menu', $default_skip_brainstorm_menu );
 		$ids                           = array();
 		$skip_brainstorm_menu          = get_site_option( 'bsf_skip_braisntorm_menu', false );
-		foreach ( $brainstorm_products as $key => $product ) {
+		foreach ( $brainstorm_products as $product ) {
 
 			if ( isset( $product['id'] ) && ! in_array( $product['id'], $skip_brainstorm_menu_products, true ) ) {
 				$ids[] = $product['id'];
@@ -854,7 +846,6 @@ if ( ! function_exists( 'bsf_set_options' ) ) {
 				exit;
 			}
 		}
-
 	}
 }
 
@@ -875,7 +866,7 @@ add_action( 'brainstorm_updater_new_product_added', 'bsf_flush_skip_registration
  *
  * Brainstorm_options option saves the data related to all the brainstorm products required for license management and updates.
  *
- * @param (boolean) $mix true: the output will be combined array of themes and plugins.
+ * @param bool $mix true: the output will be combined array of themes and plugins.
  * @return (array) $brainstorm_products
  */
 if ( ! function_exists( 'bsf_get_brainstorm_products' ) ) {
@@ -889,8 +880,8 @@ if ( ! function_exists( 'bsf_get_brainstorm_products' ) ) {
 		$brainstorm_products = get_option( 'brainstrom_products', array() );
 
 		if ( true === $mix ) {
-			$plugins = ( isset( $brainstorm_products['plugins'] ) ) ? $brainstorm_products['plugins'] : array();
-			$themes  = ( isset( $brainstorm_products['themes'] ) ) ? $brainstorm_products['themes'] : array();
+			$plugins = isset( $brainstorm_products['plugins'] ) ? $brainstorm_products['plugins'] : array();
+			$themes  = isset( $brainstorm_products['themes'] ) ? $brainstorm_products['themes'] : array();
 
 			$brainstorm_products = array_merge( $plugins, $themes );
 		}
@@ -916,8 +907,8 @@ function bsf_envato_redirect_url_callback() {
 	$form_data['product_id']               = isset( $_GET['product_id'] ) ? esc_attr( $_GET['product_id'] ) : '';
 	$form_data['url']                      = isset( $_GET['url'] ) ? esc_url_raw( $_GET['url'] ) : '';
 	$form_data['redirect']                 = isset( $_GET['redirect'] ) ? rawurlencode( $_GET['redirect'] ) : '';
-	$form_data['privacy_consent']          = ( isset( $_GET['privacy_consent'] ) && 'true' === $_GET['privacy_consent'] ) ? true : false;
-	$form_data['terms_conditions_consent'] = ( isset( $_GET['terms_conditions_consent'] ) && 'true' === $_GET['terms_conditions_consent'] ) ? true : false;
+	$form_data['privacy_consent']          = isset( $_GET['privacy_consent'] ) && 'true' === $_GET['privacy_consent'] ? true : false;
+	$form_data['terms_conditions_consent'] = isset( $_GET['terms_conditions_consent'] ) && 'true' === $_GET['terms_conditions_consent'] ? true : false;
 
 	$url = $envato_activate->envato_activation_url( $form_data );
 

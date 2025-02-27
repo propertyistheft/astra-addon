@@ -43,7 +43,6 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
-
 		}
 
 		/**

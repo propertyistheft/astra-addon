@@ -367,6 +367,7 @@ body #ast-quick-view-modal div.product .flex-viewport {
 
 .woocommerce #ast-quick-view-modal div.product form.cart .button.single_add_to_cart_button {
   padding: 10px 20px;
+  height: 40px;
 }
 
 .woocommerce #ast-quick-view-modal div.product form.cart .button.single_add_to_cart_button.loading {

@@ -28,7 +28,6 @@ function astra_sticky_header_button_dynamic_css( $dynamic_css, $dynamic_css_filt
 		}
 
 		$_prefix  = 'button' . $index;
-		$_section = 'section-hb-button-' . $index;
 		$selector = '.ast-header-sticked .ast-header-button-' . $index;
 
 		$button_border_width         = astra_get_option( 'sticky-header-' . $_prefix . '-border-size' );
@@ -175,5 +174,4 @@ function astra_sticky_header_button_dynamic_css( $dynamic_css, $dynamic_css_filt
 	}
 
 	return $dynamic_css;
-
 }

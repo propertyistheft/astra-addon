@@ -47,7 +47,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Customizer_Partials' ) ) {
 		/**
 		 * Constructor
 		 */
-		public function __construct() { }
+		public function __construct() {
+		}
 
 		/**
 		 * Render Stickt Header Custom Logo
@@ -57,7 +58,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Customizer_Partials' ) ) {
 
 			if ( '' !== $header_logo ) {
 				$custom_logo_id = attachment_url_to_postid( $header_logo );
-				$html           = sprintf(
+				return sprintf(
 					'<a href="%1$s" class="sticky-custom-logo-link" rel="home" %3$s>%2$s</a>',
 					esc_url( home_url( '/' ) ),
 					wp_get_attachment_image(
@@ -75,9 +76,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Customizer_Partials' ) ) {
 						)
 					)
 				);
-				return $html;
 			}
-
 		}
 
 	}

@@ -31,11 +31,11 @@ $product_tabs      = apply_filters( 'woocommerce_product_tabs', array() );
 $product_tabs_type = astra_get_option( 'single-product-tabs-layout' );
 $current_tab_class = 'accordion' === $product_tabs_type ? 'accordion' : 'distributed';
 
-if ( ! empty( $product_tabs ) ) : ?>
+if ( ! empty( $product_tabs ) ) { ?>
 	<div class="ast-woocommerce-<?php echo esc_attr( $current_tab_class ); ?> woocommerce-tabs ast-woocommerce-tabs">
 	<?php
 		$count = 1;
-	foreach ( $product_tabs as $key => $product_tab ) :
+	foreach ( $product_tabs as $key => $product_tab ) {
 		?>
 			<?php $accordion_active = 1 === $count && 'accordion' === $product_tabs_type ? 'active' : ''; ?>
 			<div class="ast-single-tab">
@@ -60,8 +60,8 @@ if ( ! empty( $product_tabs ) ) : ?>
 			</div>
 		<?php
 		$count++;
-		endforeach;
+	}
 	?>
 	<?php do_action( 'woocommerce_product_after_tabs' ); ?>
 </div>
-<?php endif; ?>
+<?php } ?>

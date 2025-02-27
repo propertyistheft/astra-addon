@@ -23,17 +23,11 @@ function astra_ext_below_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 		return $dynamic_css;
 	}
 
-	$theme_text_color = astra_get_option( 'text-color' );
-	$theme_link_color = astra_get_option( 'link-color' );
-
 	// Below Header - Height/Line-Height.
 	$below_header_line_height = astra_get_option( 'below-header-height' );
 	$below_header_border      = astra_get_option( 'below-header-separator' );
 
 	// Background & Color.
-	$link_color            = astra_get_option( 'link-color' );
-	$link_hover_color      = astra_get_option( 'link-h-color' );
-	$text_color            = astra_get_option( 'text-color' );
 	$right_left_text_color = astra_get_option( 'below-header-text-color-responsive' );
 
 	$desktop_right_left_link_color = astra_get_prop( astra_get_option( 'below-header-link-color-responsive' ), 'desktop', '#d6d6d6' );
@@ -514,12 +508,12 @@ function astra_ext_below_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// Below header border.
 	$border = array(
 		'.ast-desktop .ast-below-header-menu.submenu-with-border .sub-menu .menu-link' => array(
-			'border-bottom-width' => ( true == $below_header_submenu_item_border ) ? '1px' : '0px',
+			'border-bottom-width' => true == $below_header_submenu_item_border ? '1px' : '0px',
 			'border-style'        => 'solid',
 			'border-color'        => esc_attr( $below_header_submenu_item_b_color ),
 		),
 		'.ast-desktop .ast-below-header-menu.submenu-with-border .sub-menu .sub-menu' => array(
-			'top' => ( isset( $below_header_submenu_border['top'] ) && '' != $below_header_submenu_border['top'] ) ? astra_get_css_value( '-' . $below_header_submenu_border['top'], 'px' ) : '',
+			'top' => isset( $below_header_submenu_border['top'] ) && '' != $below_header_submenu_border['top'] ? astra_get_css_value( '-' . $below_header_submenu_border['top'], 'px' ) : '',
 		),
 		'.ast-desktop .ast-below-header-menu.submenu-with-border .sub-menu' => array(
 			'border-top-width'    => astra_get_css_value( $below_header_submenu_border['top'], 'px' ),
@@ -533,7 +527,7 @@ function astra_ext_below_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// Submenu items goes outside?
 	$submenu_border_for_left_align_menu = array(
 		'.ast-below-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu, .ast-below-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu' => array(
-			'margin-left' => ( ( isset( $below_header_submenu_border['left'] ) && '' != $below_header_submenu_border['left'] ) || isset( $below_header_submenu_border['right'] ) && '' != $below_header_submenu_border['right'] ) ? astra_get_css_value( '-' . ( $below_header_submenu_border['left'] + $below_header_submenu_border['right'] ), 'px' ) : '',
+			'margin-left' => ( isset( $below_header_submenu_border['left'] ) && '' != $below_header_submenu_border['left'] ) || isset( $below_header_submenu_border['right'] ) && '' != $below_header_submenu_border['right'] ? astra_get_css_value( '-' . ( $below_header_submenu_border['left'] + $below_header_submenu_border['right'] ), 'px' ) : '',
 		),
 	);
 
@@ -566,7 +560,7 @@ function astra_ext_below_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
  * As this is frontend reflecting change added this backwards for existing users.
  *
  * @since 3.5.7
- * @return boolean false if it is an existing user, true if not.
+ * @return bool false if it is an existing user, true if not.
  */
 function astra_addon_swap_mobile_below_header_sections() {
 	$astra_settings                                        = astra_get_options();

@@ -113,8 +113,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 					),
 
 					/**
-					* Option: Social Text Color
-					*/
+					 * Option: Social Text Color
+					 */
 					array(
 						'name'       => 'sticky-header-social-' . $index . '-color',
 						'transport'  => 'postMessage',
@@ -132,8 +132,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 					),
 
 					/**
-					* Option: Social Text Hover Color
-					*/
+					 * Option: Social Text Hover Color
+					 */
 					array(
 						'name'       => 'sticky-header-social-' . $index . '-h-color',
 						'default'    => astra_get_option( 'sticky-header-social-' . $index . '-h-color' ),
@@ -151,8 +151,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 					),
 
 					/**
-					* Option: Social Background Color
-					*/
+					 * Option: Social Background Color
+					 */
 					array(
 						'name'       => 'sticky-header-social-' . $index . '-bg-color',
 						'default'    => astra_get_option( 'sticky-header-social-' . $index . '-bg-color' ),
@@ -170,8 +170,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 					),
 
 					/**
-					* Option: Social Background Hover Color
-					*/
+					 * Option: Social Background Hover Color
+					 */
 					array(
 						'name'       => 'sticky-header-social-' . $index . '-bg-h-color',
 						'default'    => astra_get_option( 'sticky-header-social-' . $index . '-bg-h-color' ),
@@ -196,26 +196,22 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 
 			$social_config = call_user_func_array( 'array_merge', $social_config + array( array() ) );
 
-			$configurations = array_merge( $configurations, $social_config );
-			return $configurations;
+			return array_merge( $configurations, $social_config );
 		}
 
 		/**
 		 * Get Social color type..
 		 *
 		 * @since  3.0.0
-		 * @return boolean True - If Transparent Header is enabled, False if not.
+		 * @return bool True - If Transparent Header is enabled, False if not.
 		 */
 		public function is_social_color_custom() {
 
 			$social_color_type = astra_get_option( 'header-social-color-type' );
 
-			return ( 'custom' === $social_color_type ? true : false );
+			return 'custom' === $social_color_type ? true : false;
 		}
 	}
 }
 
 new Astra_Sticky_Header_Social_Configs();
-
-
-

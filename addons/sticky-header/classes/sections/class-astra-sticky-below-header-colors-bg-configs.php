@@ -394,8 +394,8 @@ if ( ! class_exists( 'Astra_Sticky_Below_Header_Colors_Bg_Configs' ) ) {
 					),
 
 					/**
-					* Option: Content Section Link color.
-					*/
+					 * Option: Content Section Link color.
+					 */
 					array(
 						'name'       => 'sticky-below-header-content-section-link-color-responsive',
 						'default'    => astra_get_option( 'sticky-below-header-content-section-link-color-responsive' ),
@@ -409,8 +409,8 @@ if ( ! class_exists( 'Astra_Sticky_Below_Header_Colors_Bg_Configs' ) ) {
 						'rgba'       => true,
 					),
 					/**
-					* Option: Content Section Link Hover color.
-					*/
+					 * Option: Content Section Link Hover color.
+					 */
 					array(
 						'name'       => 'sticky-below-header-content-section-link-h-color-responsive',
 						'default'    => astra_get_option( 'sticky-below-header-content-section-link-h-color-responsive' ),
@@ -434,6 +434,3 @@ if ( ! class_exists( 'Astra_Sticky_Below_Header_Colors_Bg_Configs' ) ) {
 }
 
 new Astra_Sticky_Below_Header_Colors_Bg_Configs();
-
-
-

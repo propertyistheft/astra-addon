@@ -19,9 +19,9 @@
 						</div>
 					</div>
 					<?php
-					if ( ! is_llms_checkout() ) :
+					if ( ! is_llms_checkout() ) {
 						ASTRA_Ext_LifterLMS_Markup::astra_header_lifterlms();
-					endif;
+					}
 					?>
 				</div><!-- Main Header Container -->
 			</div><!-- ast-row -->

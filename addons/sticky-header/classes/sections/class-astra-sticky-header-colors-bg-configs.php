@@ -40,8 +40,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 			$_config = array(
 
 				/**
-				* Option: Primary Menu Color
-				*/
+				 * Option: Primary Menu Color
+				 */
 				array(
 					'name'       => 'sticky-header-menu-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-menu-color-responsive' ),
@@ -57,8 +57,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 					'rgba'       => true,
 				),
 				/**
-				* Option: Menu Background Color
-				*/
+				 * Option: Menu Background Color
+				 */
 				array(
 					'name'       => 'sticky-header-menu-bg-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-menu-bg-color-responsive' ),
@@ -75,8 +75,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 				),
 
 				/**
-				* Option: Menu Hover Color
-				*/
+				 * Option: Menu Hover Color
+				 */
 				array(
 					'name'       => 'sticky-header-menu-h-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-menu-h-color-responsive' ),
@@ -93,8 +93,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 					'connect'    => ASTRA_THEME_SETTINGS . '[sticky-header-menu-h-color-responsive]',
 				),
 				/**
-				* Option: Menu Link / Hover Background Color
-				*/
+				 * Option: Menu Link / Hover Background Color
+				 */
 				array(
 					'name'       => 'sticky-header-menu-h-a-bg-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-menu-h-a-bg-color-responsive' ),
@@ -110,8 +110,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 					'rgba'       => true,
 				),
 				/**
-				* Option: Primary Menu Color
-				*/
+				 * Option: Primary Menu Color
+				 */
 				array(
 					'name'       => 'sticky-header-submenu-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-submenu-color-responsive' ),
@@ -127,8 +127,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 					'connect'    => ASTRA_THEME_SETTINGS . '[sticky-header-submenu-color-responsive]',
 				),
 				/**
-				* Option: SubMenu Background Color
-				*/
+				 * Option: SubMenu Background Color
+				 */
 				array(
 					'name'       => 'sticky-header-submenu-bg-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-submenu-bg-color-responsive' ),
@@ -158,8 +158,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 				),
 
 				/**
-				* Option: Menu Hover Color
-				*/
+				 * Option: Menu Hover Color
+				 */
 				array(
 					'name'       => 'sticky-header-submenu-h-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-submenu-h-color-responsive' ),
@@ -175,8 +175,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 					'connect'    => ASTRA_THEME_SETTINGS . '[sticky-header-submenu-h-color-responsive]',
 				),
 				/**
-				* Option: SubMenu Link / Hover Background Color
-				*/
+				 * Option: SubMenu Link / Hover Background Color
+				 */
 				array(
 					'name'       => 'sticky-header-submenu-h-a-bg-color-responsive',
 					'default'    => astra_get_option( 'sticky-header-submenu-h-a-bg-color-responsive' ),
@@ -236,6 +236,3 @@ if ( ! class_exists( 'Astra_Sticky_Header_Colors_Bg_Configs' ) ) {
 }
 
 new Astra_Sticky_Header_Colors_Bg_Configs();
-
-
-

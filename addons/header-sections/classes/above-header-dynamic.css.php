@@ -514,12 +514,12 @@ function astra_ext_above_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// Above header border.
 	$border = array(
 		'.ast-desktop .ast-above-header-menu.submenu-with-border .sub-menu .menu-link' => array(
-			'border-bottom-width' => ( true == $above_header_submenu_item_border ) ? '1px' : '0px',
+			'border-bottom-width' => true == $above_header_submenu_item_border ? '1px' : '0px',
 			'border-style'        => 'solid',
 			'border-color'        => esc_attr( $above_header_submenu_item_b_color ),
 		),
 		'.ast-desktop .ast-above-header-menu.submenu-with-border .sub-menu .sub-menu' => array(
-			'top' => ( isset( $above_header_submenu_border['top'] ) && '' != $above_header_submenu_border['top'] ) ? astra_get_css_value( '-' . $above_header_submenu_border['top'], 'px' ) : '',
+			'top' => isset( $above_header_submenu_border['top'] ) && '' != $above_header_submenu_border['top'] ? astra_get_css_value( '-' . $above_header_submenu_border['top'], 'px' ) : '',
 		),
 		'.ast-desktop .ast-above-header-menu.submenu-with-border .sub-menu' => array(
 			'border-top-width'    => ! empty( $above_header_submenu_border['top'] ) ? astra_get_css_value( $above_header_submenu_border['top'], 'px' ) : '',
@@ -533,7 +533,7 @@ function astra_ext_above_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// Submenu items goes outside?
 	$submenu_border_for_left_align_menu = array(
 		'.ast-above-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu, .ast-above-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu' => array(
-			'margin-left' => ( ( isset( $above_header_submenu_border['left'] ) && '' != $above_header_submenu_border['left'] ) || isset( $above_header_submenu_border['right'] ) && '' != $above_header_submenu_border['right'] ) ? astra_get_css_value( '-' . ( $above_header_submenu_border['left'] + $above_header_submenu_border['right'] ), 'px' ) : '',
+			'margin-left' => ( isset( $above_header_submenu_border['left'] ) && '' != $above_header_submenu_border['left'] ) || isset( $above_header_submenu_border['right'] ) && '' != $above_header_submenu_border['right'] ? astra_get_css_value( '-' . ( $above_header_submenu_border['left'] + $above_header_submenu_border['right'] ), 'px' ) : '',
 		),
 	);
 
@@ -566,7 +566,7 @@ function astra_ext_above_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
  * As this is frontend reflecting change added this backwards for existing users.
  *
  * @since 3.5.7
- * @return boolean false if it is an existing user, true if not.
+ * @return bool false if it is an existing user, true if not.
  */
 function astra_addon_support_swap_mobile_above_header_sections() {
 	$astra_settings                                        = astra_get_options();

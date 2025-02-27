@@ -81,7 +81,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 			}
 
 			add_action( 'rest_api_init', array( $this, 'create_rest_routes' ) );
-
 		}
 
 		/**
@@ -290,7 +289,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 					while ( $query->have_posts() ) {
 						$query->the_post();
 						$title  = get_the_title();
-						$title .= ( 0 != $query->post->post_parent ) ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
+						$title .= 0 != $query->post->post_parent ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
 						$id     = get_the_id();
 						$data[] = array(
 							'id'   => $id,
@@ -306,8 +305,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 					);
 				}
 			}
-
-			$data = array();
 
 			wp_reset_postdata();
 
@@ -336,7 +333,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 			// If there are other menus having mega menu support.
 			$mega_menu_custom_navmenus = apply_filters( 'astra_nav_mega_menu_support', array() );
 			if ( ! empty( $mega_menu_custom_navmenus ) && is_array( $mega_menu_custom_navmenus ) ) {
-				foreach ( $mega_menu_custom_navmenus as $key => $menu_id ) {
+				foreach ( $mega_menu_custom_navmenus as $menu_id ) {
 					if ( has_nav_menu( $menu_id ) ) {
 						add_filter( 'astra_' . $menu_id . '_menu_classes', array( $this, 'add_primary_menu_classes' ) );
 					}
@@ -444,7 +441,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 			return current_user_can( 'edit_theme_options' );
 		}
 
-
 		/**
 		 * Mega set configs
 		 *
@@ -455,7 +451,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 		public function set_mega_menu_option( $req ) {
 
 			$fields  = isset( $req['options'] ) ? $req['options'] : array();
-			$nav_id  = isset( $req['nav_id'] ) ? sanitize_text_field( $req['nav_id'] ) : '';
 			$menu_id = isset( $req['menu_id'] ) ? sanitize_text_field( $req['menu_id'] ) : '';
 			$widgets = isset( $req['widgets'] ) ? $req['widgets'] : array();
 
@@ -473,7 +468,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 
 					$key = sanitize_text_field( str_replace( 'menu-item-', '', $key ) );
 
-					if ( 'megamenu_custom_text' == $key ) {
+					if ( 'megamenu_custom_text' === $key ) {
 						$value = wp_kses_post( wp_unslash( $value ) );
 					} else {
 						$value = wp_unslash( $value );
@@ -484,7 +479,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 			}
 
 			return rest_ensure_response( 'success' );
-
 		}
 
 		/**
@@ -1773,7 +1767,6 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 			wp_enqueue_script( 'astra-mega-menu' );
 			wp_set_script_translations( 'astra-mega-menu', 'astra-addon' );
 		}
-
 
 		/**
 		 * Add Body Classes

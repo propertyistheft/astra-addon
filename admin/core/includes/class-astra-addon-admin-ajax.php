@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 4.0.0
  */
 class Astra_Addon_Admin_Ajax {
-
 	/**
 	 * Ajax action prefix.
 	 *

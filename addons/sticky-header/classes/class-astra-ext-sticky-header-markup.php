@@ -52,8 +52,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			add_filter( 'astra_addon_js_localize', array( $this, 'localize_variables' ) );
 
 			/**
-			* Metabox setup
-			*/
+			 * Metabox setup
+			 */
 			add_filter( 'astra_meta_box_options', array( $this, 'add_options' ) );
 			add_action( 'astra_meta_box_markup_after', array( $this, 'add_options_markup' ) );
 
@@ -206,8 +206,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 
 				// Check if globally enabled or specific post/page enabled.
 				$disable_above_markup = ! $above_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' === $sticky_above_header_meta || 'disabled' === $sticky_above_header_meta ) );
-				$disable_main_markup  = ! $main_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) );
-				$disable_below_markup = ! $below_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_below_header_meta || 'disabled' === $sticky_below_header_meta ) );
+				$disable_main_markup  = ! $main_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' === $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) );
+				$disable_below_markup = ! $below_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' === $sticky_below_header_meta || 'disabled' === $sticky_below_header_meta ) );
 
 				?>
 				<header id="ast-fixed-header" <?php astra_header_classes(); ?> style="visibility: hidden;" data-type="fixed-header">
@@ -266,8 +266,6 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			}
 		}
 
-
-
 		/**
 		 * Render Svg Mask for Header logo
 		 *
@@ -282,7 +280,6 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				astra_render_svg_mask( 'ast-img-color-filter-3', 'sticky_header_logo_color', $header_sticky_logo_color );
 			}
 		}
-
 
 		/**
 		 * Update Navigation ID
@@ -349,12 +346,11 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 
 				remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'sticky_replace_header_logo_attr' ) );
 
-				$html = $html . $logo;
+				$html .= $logo;
 			}
 
 			return $html;
 		}
-
 
 		/**
 		 * Filter the output of logo to fix Googles Error about itemprop logo.
@@ -495,7 +491,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 		 */
 		public function add_scripts() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_STICKY_HEADER_URI . 'assets/js/';
@@ -519,7 +515,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				$gen_path = $js_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 			Astra_Minify::add_dependent_js( 'jquery' );
 
 			if ( version_compare( '1.0.17', ASTRA_THEME_VERSION ) > -1 ) {
@@ -582,9 +578,9 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			 * Site Layout
 			 */
 			$localize_vars['site_layout']              = esc_attr( $site_layout );
-			$localize_vars['site_content_width']       = ( ASTRA_THEME_CONTAINER_PADDING_TWICE + astra_get_option( 'site-content-width' ) );
-			$localize_vars['site_layout_padded_width'] = ( astra_get_option( 'site-layout-padded-width', 1200 ) );
-			$localize_vars['site_layout_box_width']    = ( astra_get_option( 'site-layout-box-width', 1200 ) );
+			$localize_vars['site_content_width']       = ASTRA_THEME_CONTAINER_PADDING_TWICE + astra_get_option( 'site-content-width' );
+			$localize_vars['site_layout_padded_width'] = astra_get_option( 'site-layout-padded-width', 1200 );
+			$localize_vars['site_layout_box_width']    = astra_get_option( 'site-layout-box-width', 1200 );
 
 			/**
 			 * Is new header builder active.
@@ -640,13 +636,13 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			/**
 			 * Get options
 			 */
-			$sticky_main       = ( isset( $meta['header-main-stick-meta']['default'] ) ) ? $meta['header-main-stick-meta']['default'] : 'on';
-			$stick_header_meta = ( isset( $meta['stick-header-meta']['default'] ) ) ? $meta['stick-header-meta']['default'] : 'default';
+			$sticky_main       = isset( $meta['header-main-stick-meta']['default'] ) ? $meta['header-main-stick-meta']['default'] : 'on';
+			$stick_header_meta = isset( $meta['stick-header-meta']['default'] ) ? $meta['stick-header-meta']['default'] : 'default';
 			$show_meta_field   = ! astra_check_is_bb_themer_layout();
 
 			if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
-				$sticky_top   = ( isset( $meta['header-above-stick-meta']['default'] ) ) ? $meta['header-above-stick-meta']['default'] : 'on';
-				$sticky_below = ( isset( $meta['header-below-stick-meta']['default'] ) ) ? $meta['header-below-stick-meta']['default'] : 'on';
+				$sticky_top   = isset( $meta['header-above-stick-meta']['default'] ) ? $meta['header-above-stick-meta']['default'] : 'on';
+				$sticky_below = isset( $meta['header-below-stick-meta']['default'] ) ? $meta['header-below-stick-meta']['default'] : 'on';
 			}
 			?>
 
@@ -716,7 +712,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 		 * Add Styles Callback
 		 */
 		public function add_styles() {
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_STICKY_HEADER_URI . 'assets/css/';
@@ -745,7 +741,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				$gen_path = $css_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 
 			Astra_Minify::add_css( $gen_path . 'style' . $file_prefix . '.css' );
 		}
@@ -778,7 +774,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 
 			$logo_width = astra_get_option( 'sticky-header-logo-width' );
 
-			if ( is_array( $sizes ) && '' != $logo_width['desktop'] ) {
+			if ( is_array( $sizes ) && '' !== $logo_width['desktop'] ) {
 				$max_value                     = max( $logo_width );
 				$sizes['ast-sticky-logo-size'] = array(
 					'width'  => (int) $max_value,
@@ -793,6 +789,6 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Sticky_Header_Markup::get_instance();

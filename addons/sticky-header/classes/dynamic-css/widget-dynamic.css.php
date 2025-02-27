@@ -23,7 +23,6 @@ function astra_sticky_header_widget_dynamic_css( $dynamic_css, $dynamic_css_filt
 			continue;
 		}
 
-		$_section = 'sidebar-widgets-header-widget-' . $index;
 		$selector = '.ast-header-sticked .header-widget-area[data-section="sidebar-widgets-header-widget-' . $index . '"]';
 
 		/**
@@ -56,5 +55,4 @@ function astra_sticky_header_widget_dynamic_css( $dynamic_css, $dynamic_css_filt
 	}
 
 	return $dynamic_css;
-
 }

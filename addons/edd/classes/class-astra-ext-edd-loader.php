@@ -41,9 +41,7 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
-
 		}
-
 
 		/**
 		 * Set Options Default Values
@@ -228,7 +226,6 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 
 			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-shop-typo-configs.php';
 			require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/sections/class-astra-edd-archive-colors-configs.php';
-
 		}
 
 		/**
@@ -260,6 +257,6 @@ if ( ! class_exists( 'Astra_Ext_Edd_Loader' ) ) {
 }
 
 /**
-* Kicking this off by calling 'get_instance()' method
-*/
+ * Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Edd_Loader::get_instance();

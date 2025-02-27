@@ -17,7 +17,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 	return;
 }
 
-
 if ( ! class_exists( 'Astra_Above_Header_Typo_Configs' ) ) {
 
 	/**

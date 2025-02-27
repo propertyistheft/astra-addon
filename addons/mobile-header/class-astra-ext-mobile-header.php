@@ -67,7 +67,6 @@ if ( ! class_exists( 'Astra_Ext_Mobile_Header' ) ) {
 					require_once ASTRA_ADDON_EXT_MOBILE_HEADER_DIR . 'classes/dynamic-css/dynamic-spacing.css.php';
 				}
 			}
-
 		}
 	}
 

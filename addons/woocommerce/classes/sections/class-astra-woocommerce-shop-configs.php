@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 
 				/**
 				 * Option: Easy list alignment.
-				*/
+				 */
 				array(
 					'name'       => 'easy-list-content-alignment',
 					'parent'     => ASTRA_THEME_SETTINGS . '[shop-toolbar-structure]',
@@ -220,12 +220,12 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 					'context'           => array(
 						astra_addon_builder_helper()->design_tab_config,
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[shop-filter-position]', 
+							'setting'  => ASTRA_THEME_SETTINGS . '[shop-filter-position]',
 							'operator' => 'contains',
 							'value'    => 'shop-filter-flyout',
 						),
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[shop-toolbar-structure]', 
+							'setting'  => ASTRA_THEME_SETTINGS . '[shop-toolbar-structure]',
 							'operator' => 'contains',
 							'value'    => 'filters',
 						),
@@ -393,7 +393,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 
 				/**
 				 * Option: Content alignment for style 2
-				*/
+				 */
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[shop-page-list-style-alignment]',
 					'default'    => astra_get_option( 'shop-page-list-style-alignment' ),
@@ -792,8 +792,8 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 				),
 
 				/**
-				* Option: Filter Button Text
-				*/
+				 * Option: Filter Button Text
+				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[shop-filter-trigger-link]',
 					'default'  => astra_get_option( 'shop-filter-trigger-link' ),
@@ -1017,13 +1017,9 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Configs' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
-
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
-
 
 new Astra_Woocommerce_Shop_Configs();

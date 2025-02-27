@@ -300,3 +300,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 });
+
+// Stripe Express Checkout Element Positioning in Modern Checkout Layout compatibility.
+document.addEventListener( 'DOMContentLoaded', function () {
+    if ( document.body.classList.contains( 'ast-modern-checkout' ) ) {
+        const stripeElement = document.getElementById( 'wc-stripe-express-checkout-element' );
+        const orderAttribution = document.querySelector( '.wc-order-attribution-inputs' );
+        const buttonSeparator = document.getElementById( 'wc-stripe-express-checkout-button-separator' );
+        const checkoutForm = document.querySelector( 'form.checkout' );
+
+        if ( checkoutForm ) {
+            if ( stripeElement ) {
+                checkoutForm.parentNode.insertBefore( stripeElement, checkoutForm );
+            }
+            if ( orderAttribution ) {
+                checkoutForm.parentNode.insertBefore( orderAttribution, checkoutForm );
+            }
+            if ( buttonSeparator ) {
+                checkoutForm.parentNode.insertBefore( buttonSeparator, checkoutForm );
+            }
+        }
+    }
+} );
+

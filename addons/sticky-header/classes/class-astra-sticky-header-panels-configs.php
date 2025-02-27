@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Panels_Configs' ) ) {
 				array(
 					'name'     => $_section,
 					'title'    => __( 'Sticky Header', 'astra-addon' ),
-					'panel'    => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? 'panel-header-builder-group' : 'panel-header-group',
+					'panel'    => true === astra_addon_builder_helper()->is_header_footer_builder_active ? 'panel-header-builder-group' : 'panel-header-group',
 					'priority' => 31,
 					'type'     => 'section',
 				),

@@ -42,7 +42,8 @@ if ( ! class_exists( 'Astra_Customizer_Header_Sections_Partials' ) ) {
 		/**
 		 * Constructor
 		 */
-		public function __construct() { }
+		public function __construct() {
+		}
 
 		/**
 		 * Render the Below Header Section 1 for the selective refresh partial.
@@ -61,7 +62,6 @@ if ( ! class_exists( 'Astra_Customizer_Header_Sections_Partials' ) ) {
 		public static function _render_below_header_section_2() { // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 			return do_shortcode( astra_get_option( 'below-header-section-2-html' ) );
 		}
-
 
 		/**
 		 * Render the Above Header Section 1 for the selective refresh partial.

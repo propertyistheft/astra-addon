@@ -4,9 +4,9 @@ Contributors: brainstormforce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: astra, custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
-Tested up to: 6.7.1
+Tested up to: 6.7.2
 Requires PHP: 5.3
-Stable tag: 4.8.13
+Stable tag: 4.8.14
 Requires at least: 5.3
 
 Premium Addons for the Astra Theme.

@@ -95,25 +95,25 @@ if ( ! class_exists( 'ASTRA_Ext_LearnDash_Markup' ) ) {
 		 */
 		public static function astra_header_learndash( $profile_link = '' ) {
 
-			if ( is_user_logged_in() ) :
+			if ( is_user_logged_in() ) {
 				?>
 				<div class="ast-masthead-custom-menu-items learndash-custom-menu-item">
 					<div class="main-header-log-out">
-						<?php if ( ! empty( $profile_link ) ) : ?>
+						<?php if ( ! empty( $profile_link ) ) { ?>
 							<a class="learndash-profile-link" href="<?php echo empty( $profile_link ) ? '#' : esc_url( $profile_link ); ?>">
-						<?php else : ?>
+						<?php } else { ?>
 							<span class="learndash-profile-link">
-						<?php endif; ?>
+						<?php } ?>
 						<?php echo get_avatar( get_current_user_id(), 45 ); ?>
-						<?php if ( ! empty( $profile_link ) ) : ?>
+						<?php if ( ! empty( $profile_link ) ) { ?>
 							</a>
-						<?php else : ?>
+						<?php } else { ?>
 							</span>
-						<?php endif; ?>
+						<?php } ?>
 					</div>
 				</div>
 				<?php
-			endif;
+			}
 		}
 
 		/**
@@ -184,7 +184,7 @@ if ( ! class_exists( 'ASTRA_Ext_LearnDash_Markup' ) ) {
 		 */
 		public function add_styles() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_LEARNDASH_URI . 'assets/css/';
@@ -213,7 +213,7 @@ if ( ! class_exists( 'ASTRA_Ext_LearnDash_Markup' ) ) {
 				$gen_path = $css_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 
 			/* Add style.css */
 			Astra_Minify::add_css( $gen_path . 'style' . $file_prefix . '.css' );

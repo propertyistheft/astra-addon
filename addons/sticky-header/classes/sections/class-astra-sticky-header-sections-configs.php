@@ -83,6 +83,3 @@ if ( ! class_exists( 'Astra_Sticky_Header_Sections_Configs' ) ) {
 }
 
 new Astra_Sticky_Header_Sections_Configs();
-
-
-

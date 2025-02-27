@@ -9,7 +9,6 @@
  * License Activation/Deactivation REST API.
  */
 class Bsf_Core_Rest {
-
 	/**
 	 * Member Variable
 	 *
@@ -82,7 +81,7 @@ class Bsf_Core_Rest {
 	 * Check if a given request has access to activate license.
 	 *
 	 * @param  WP_REST_Request $request Full details about the request.
-	 * @return WP_Error|boolean
+	 * @return WP_Error|bool
 	 */
 	public function get_items_permissions_check( $request ) {
 		if ( current_user_can( 'manage_options' ) ) {

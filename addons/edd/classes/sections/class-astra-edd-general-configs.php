@@ -36,11 +36,11 @@ if ( ! class_exists( 'Astra_Edd_General_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_section = ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
+			$_section = true === astra_addon_builder_helper()->is_header_footer_builder_active ? 'section-header-edd-cart' : 'section-edd-general';
 
-			$context = ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab;
+			$context = true === astra_addon_builder_helper()->is_header_footer_builder_active ? astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab;
 
-			$cart_outline_width_context = ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? astra_addon_builder_helper()->design_tab_config : astra_addon_builder_helper()->general_tab_config;
+			$cart_outline_width_context = true === astra_addon_builder_helper()->is_header_footer_builder_active ? astra_addon_builder_helper()->design_tab_config : astra_addon_builder_helper()->general_tab_config;
 
 			$_configs = array(
 
@@ -277,13 +277,9 @@ if ( ! class_exists( 'Astra_Edd_General_Configs' ) ) {
 				);
 			}
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
-
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
-
 
 new Astra_Edd_General_Configs();

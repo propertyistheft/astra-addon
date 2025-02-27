@@ -81,10 +81,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Html_Configs' ) ) {
 				$html_config[] = $_configs;
 			}
 
-			$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
-			$configurations = array_merge( $configurations, $html_config );
-
-			return $configurations;
+			$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+			return array_merge( $configurations, $html_config );
 		}
 	}
 }

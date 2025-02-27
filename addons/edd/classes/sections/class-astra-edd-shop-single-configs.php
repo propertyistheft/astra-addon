@@ -83,18 +83,9 @@ if ( ! class_exists( 'Astra_Edd_Shop_Single_Configs' ) ) {
 
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
-
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
 
-
 new Astra_Edd_Shop_Single_Configs();
-
-
-
-
-

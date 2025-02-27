@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Widget_Configs' ) ) {
 			$num_of_header_widgets = astra_addon_builder_helper()->num_of_header_widgets;
 			for ( $index = 1; $index <= $num_of_header_widgets; $index++ ) {
 
-				$_section = ( ! $astra_has_widgets_block_editor ) ? 'sidebar-widgets-header-widget-' . $index : 'astra-sidebar-widgets-header-widget-' . $index;
+				$_section = ! $astra_has_widgets_block_editor ? 'sidebar-widgets-header-widget-' . $index : 'astra-sidebar-widgets-header-widget-' . $index;
 
 				$_configs = array(
 
@@ -143,10 +143,8 @@ if ( ! class_exists( 'Astra_Sticky_Header_Widget_Configs' ) ) {
 				$html_config[] = $_configs;
 			}
 
-			$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
-			$configurations = array_merge( $configurations, $html_config );
-
-			return $configurations;
+			$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+			return array_merge( $configurations, $html_config );
 		}
 	}
 }

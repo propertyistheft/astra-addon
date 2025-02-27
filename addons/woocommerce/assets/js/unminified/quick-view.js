@@ -303,13 +303,24 @@
 						// Stick Class.
 						quick_view.querySelector('.cart').classList.add('stick');
 
+						// Wrap the quantity and add to cart button to stick them at bottom.
+						const quantityElement = quick_view?.querySelector( '.quantity' );
+						const addToCartButton = quick_view?.querySelector( '.button[type="submit"]' );
+						const wrapper = document.createElement( 'div' );
+						wrapper.classList.add( 'sticky-add-to-cart' );
+						quantityElement && wrapper.appendChild( quantityElement );
+						addToCartButton && wrapper.appendChild( addToCartButton );
+
+						quick_view?.querySelector( '.cart ')?.appendChild( wrapper );
+
 						// Recalculate the outer heights,
 						// Because, These are change after adding `stick` class to the form.
-						popup_height   = document.querySelector('#ast-quick-view-content').getBoundingClientRect().height;
-						cart_height    = quick_view.querySelector('.cart').getBoundingClientRect().height;
-						summery_height = parseFloat(popup_height) - parseFloat(cart_height);
+						popup_height   = document.querySelector( '#ast-quick-view-content' ).getBoundingClientRect().height;
+						cart_height    = quick_view.querySelector( '.sticky-add-to-cart' ).getBoundingClientRect().height;
+						summery_height = parseFloat( popup_height ) - parseFloat( cart_height );
 
 						summary.style.maxHeight = parseFloat(summery_height) + 'px';
+						summary.style.marginBottom = ( wrapper.getBoundingClientRect()?.height || 0 ) + 'px';
 
 					} else {
 

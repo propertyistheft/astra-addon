@@ -379,8 +379,8 @@ if ( ! class_exists( 'Astra_Sticky_Above_Header_Colors_Bg_Configs' ) ) {
 					),
 
 					/**
-					* Option: Content Section Text color.
-					*/
+					 * Option: Content Section Text color.
+					 */
 					array(
 						'name'       => ASTRA_THEME_SETTINGS . '[sticky-above-header-content-section-text-color-responsive]',
 						'default'    => astra_get_option( 'sticky-above-header-content-section-text-color-responsive' ),

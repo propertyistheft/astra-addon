@@ -41,7 +41,6 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Markup' ) ) {
 
 			add_filter( 'body_class', array( $this, 'body_classes' ), 10, 1 );
 			add_action( 'astra_addon_get_css_files', array( $this, 'add_styles' ) );
-
 		}
 
 		/**
@@ -63,7 +62,7 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Markup' ) ) {
 		 */
 		public function add_styles() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_SITE_LAYOUTS_URL . 'assets/css/';
@@ -92,7 +91,7 @@ if ( ! class_exists( 'Astra_Ext_Site_Layouts_Markup' ) ) {
 				$gen_path = $css_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 
 			/* Add style.css */
 			Astra_Minify::add_css( $gen_path . 'style' . $file_prefix . '.css' );

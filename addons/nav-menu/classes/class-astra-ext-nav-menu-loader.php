@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 *
 		 * @since 4.6.2
 		 */
-		const NAV_MENU_TRANSIENT_KEY = 'astra_addons_nav_menu_loader_nav_items_transient';
+		public const NAV_MENU_TRANSIENT_KEY = 'astra_addons_nav_menu_loader_nav_items_transient';
 
 		/**
 		 *  Constructor
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 * @since 4.6.2
 		 * @return array
 		 */
-		protected function get_cached_nav_menu_items() {
+		private function get_cached_nav_menu_items() {
 
 			$nav_items = get_transient( self::NAV_MENU_TRANSIENT_KEY );
 
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				if ( is_rtl() ) {
 					$rtl = '-rtl';
 				}
-				if ( 'nav-menus.php' == $pagenow || 'widgets.php' == $pagenow ) {
+				if ( 'nav-menus.php' === $pagenow || 'widgets.php' === $pagenow ) {
 
 					wp_enqueue_media();
 					wp_enqueue_style( 'wp-color-picker' );
@@ -273,7 +273,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 */
 		public function modify_nav_menu_args( $args ) {
 			$mega_menu_custom_navmenus = apply_filters( 'astra_nav_mega_menu_support', array() );
-			if ( 'primary' == $args['theme_location'] || 'secondary_menu' == $args['theme_location'] || 'above_header_menu' == $args['theme_location'] || 'below_header_menu' == $args['theme_location'] || 'mobile_menu' == $args['theme_location'] || ( ! empty( $mega_menu_custom_navmenus ) && in_array( $args['theme_location'], $mega_menu_custom_navmenus ) ) ) {
+			if ( 'primary' === $args['theme_location'] || 'secondary_menu' === $args['theme_location'] || 'above_header_menu' === $args['theme_location'] || 'below_header_menu' === $args['theme_location'] || 'mobile_menu' === $args['theme_location'] || ( ! empty( $mega_menu_custom_navmenus ) && in_array( $args['theme_location'], $mega_menu_custom_navmenus ) ) ) {
 				$args['walker'] = new Astra_Custom_Nav_Walker();
 			}
 
@@ -307,7 +307,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				$gen_path = $js_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 			Astra_Minify::add_dependent_js( 'jquery' );
 			Astra_Minify::add_js( $gen_path . 'mega-menu-frontend' . $file_prefix . '.js' );
 		}
@@ -320,7 +320,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		 */
 		public function add_styles() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_NAV_MENU_URL . 'assets/css/';

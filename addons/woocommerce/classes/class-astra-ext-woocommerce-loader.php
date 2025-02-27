@@ -46,7 +46,6 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			add_filter( 'astra_woo_shop_hover_style', array( $this, 'woo_shop_hover_style_callback' ) );
 
 			add_filter( 'wc_add_to_cart_message_html', array( $this, 'disable_woo_cart_msg' ), 10, 2 );
-
 		}
 
 		/**
@@ -259,33 +258,32 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['single-product-sticky-summary']                  = false;
 			$defaults['single-product-extras-text']                     = __( 'Free shipping on orders over $50!', 'astra-addon' );
 			$defaults['single-product-extras-list']                     = array(
-				'items' =>
+				'items' => array(
 					array(
-						array(
-							'id'      => 'item-1',
-							'enabled' => true,
-							'source'  => 'icon',
-							'icon'    => 'check-circle',
-							'label'   => __( 'No-Risk Money Back Guarantee!', 'astra-addon' ),
-							'image'   => '',
-						),
-						array(
-							'id'      => 'item-2',
-							'enabled' => true,
-							'source'  => 'icon',
-							'icon'    => 'check-circle',
-							'label'   => __( 'No Hassle Refunds', 'astra-addon' ),
-							'image'   => '',
-						),
-						array(
-							'id'      => 'item-3',
-							'enabled' => true,
-							'source'  => 'icon',
-							'icon'    => 'check-circle',
-							'label'   => __( 'Secure Payments', 'astra-addon' ),
-							'image'   => '',
-						),
+						'id'      => 'item-1',
+						'enabled' => true,
+						'source'  => 'icon',
+						'icon'    => 'check-circle',
+						'label'   => __( 'No-Risk Money Back Guarantee!', 'astra-addon' ),
+						'image'   => '',
 					),
+					array(
+						'id'      => 'item-2',
+						'enabled' => true,
+						'source'  => 'icon',
+						'icon'    => 'check-circle',
+						'label'   => __( 'No Hassle Refunds', 'astra-addon' ),
+						'image'   => '',
+					),
+					array(
+						'id'      => 'item-3',
+						'enabled' => true,
+						'source'  => 'icon',
+						'icon'    => 'check-circle',
+						'label'   => __( 'Secure Payments', 'astra-addon' ),
+						'image'   => '',
+					),
+				),
 			);
 
 			$defaults['single-product-tabs-display']             = true;
@@ -518,7 +516,7 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 			$defaults['product-sale-bg-color']       = '';
 
 			// Cart.
-			$defaults['cart-modern-layout']      = ( $astra_addon_update_modern_shop_defaults && ! defined( 'ELEMENTOR_PRO_VERSION' ) ) ? true : false;
+			$defaults['cart-modern-layout']      = $astra_addon_update_modern_shop_defaults && ! defined( 'ELEMENTOR_PRO_VERSION' ) ? true : false;
 			$defaults['cart-ajax-cart-quantity'] = $astra_addon_update_modern_shop_defaults ? true : false;
 			$defaults['cart-sticky-cart-totals'] = $astra_addon_update_modern_shop_defaults ? true : false;
 
@@ -603,6 +601,6 @@ if ( ! class_exists( 'Astra_Ext_Woocommerce_Loader' ) ) {
 }
 
 /**
-* Kicking this off by calling 'get_instance()' method
-*/
+ * Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Woocommerce_Loader::get_instance();

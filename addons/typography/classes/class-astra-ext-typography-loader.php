@@ -312,7 +312,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 				Astra_Fonts::add_font( $footer_lang_switcher_font_family, $footer_lang_switcher_font_weight );
 
 			}
-
 		}
 
 		/**
@@ -694,8 +693,8 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 		/**
 		 * Prepare Social Icons Defaults.
 		 *
-		 * @param array   $defaults defaults.
-		 * @param integer $index index.
+		 * @param array $defaults defaults.
+		 * @param int   $index index.
 		 * @return array
 		 * @since 3.1.0
 		 */
@@ -805,6 +804,6 @@ if ( ! class_exists( 'Astra_Ext_Typography_Loader' ) ) {
 }
 
 /**
-* Kicking this off by calling 'get_instance()' method
-*/
+ * Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Typography_Loader::get_instance();

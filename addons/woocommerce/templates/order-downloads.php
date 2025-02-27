@@ -24,14 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <section class="ast-woo-grid-orders-container">
 	<?php
-	if ( isset( $args['show_title'] ) ) :
+	if ( isset( $args['show_title'] ) ) {
 		$my_acccount_download_title = astra_get_i18n_option( 'my-account-download-text', _x( '%astra%', 'WooCommerce My Account: Download Text', 'astra-addon' ) );
 		?>
 		<h2 class="woocommerce-order-downloads__title"><?php echo esc_html( $my_acccount_download_title ); ?></h2>
-	<?php endif; ?>
+	<?php } ?>
 
 	<div class="ast-orders-table__row shop_table shop_table_responsive order_details">
-		<?php foreach ( $args['downloads'] as $download ) : ?>
+		<?php foreach ( $args['downloads'] as $download ) { ?>
 			<div class="ast-dl-single">
 			<?php
 				$product_filter_image_size = apply_filters( 'astra_downloaded_product_image_size', array( 60, 60 ) );
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$featured_image            = $product_image ? $product_image : $placeholder_image;
 			?>
 			<?php echo '<div class="ast-woo-order-image-wrap">' . wp_kses_post( $featured_image ) . '</div>'; ?>
-			<?php foreach ( wc_get_account_downloads_columns() as $column_id => $column_name ) : ?>
+			<?php foreach ( wc_get_account_downloads_columns() as $column_id => $column_name ) { ?>
 				<div class="<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
 					<?php
 					if ( has_action( 'woocommerce_account_downloads_column_' . $column_id ) ) {
@@ -78,8 +78,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					}
 					?>
 				</div>
-			<?php endforeach; ?>
+			<?php } ?>
 			</div>
-		<?php endforeach; ?>
+		<?php } ?>
 	</div>
 </section>

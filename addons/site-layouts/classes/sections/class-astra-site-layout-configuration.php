@@ -54,19 +54,19 @@ if ( ! class_exists( 'Astra_Site_Layout_Configuration' ) ) {
 					'choices'           => array(
 						'ast-full-width-layout'  => array(
 							'label' => __( 'Full Width', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-full-width', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-full-width', false ) : '',
 						),
 						'ast-box-layout'         => array(
 							'label' => __( 'Max Width', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-max-width', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-max-width', false ) : '',
 						),
 						'ast-padded-layout'      => array(
 							'label' => __( 'Padded', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-padded', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-padded', false ) : '',
 						),
 						'ast-fluid-width-layout' => array(
 							'label' => __( 'Fluid', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-fluid', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-fluid', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
@@ -224,13 +224,9 @@ if ( ! class_exists( 'Astra_Site_Layout_Configuration' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
 
 new Astra_Site_Layout_Configuration();
-
-

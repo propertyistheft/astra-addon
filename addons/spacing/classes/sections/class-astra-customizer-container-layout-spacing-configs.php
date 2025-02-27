@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Customizer_Container_Layout_Spacing_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 90,
 					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
-					'context'  => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'  => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
 
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Customizer_Container_Layout_Spacing_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'transport'         => 'postMessage',
 					'section'           => 'section-container-layout',
-					'context'           => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'           => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 					'priority'          => 95,
 					'title'             => __( 'Outside', 'astra-addon' ),
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Customizer_Container_Layout_Spacing_Configs' ) ) {
 					'default'        => astra_get_option( 'container-inside-spacing' ),
 					'type'           => 'control',
 					'control'        => 'ast-responsive-spacing',
-					'context'        => ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ?
+					'context'        => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 					'transport'      => 'postMessage',
 					'section'        => 'section-container-layout',

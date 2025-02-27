@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * BSF Rollback Version manager.
  */
 class BSF_Rollback_Version_Manager {
-
 	/**
 	 * This is set for page reload cache.
 	 *

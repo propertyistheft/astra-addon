@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Astra Rollback Version manager.
  */
 class Astra_Rollback_Version_Manager {
-
 	/**
 	 * This is set for lage reload cache.
 	 *
@@ -97,7 +96,6 @@ class Astra_Rollback_Version_Manager {
 		);
 		$rollback->run();
 		wp_die();
-
 	}
 
 	/**

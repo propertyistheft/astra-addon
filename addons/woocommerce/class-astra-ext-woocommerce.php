@@ -75,4 +75,3 @@ if ( ! class_exists( 'Astra_Ext_WooCommerce' ) ) {
 	Astra_Ext_WooCommerce::get_instance();
 
 }
-

@@ -59,9 +59,9 @@ function astra_above_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 	 * [1]. Sticky Header Above colors options.
 	 */
 
-		/**
-		 * Above Header.
-		 */
+	/**
+	 * Above Header.
+	 */
 	if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
 
 		$desktop_above_header_css_output = array(
@@ -111,7 +111,6 @@ function astra_above_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 	$parse_css .= astra_parse_css( $mobile_above_header_css_output, '', astra_addon_get_mobile_breakpoint() );
 
 	return $dynamic_css . $parse_css;
-
 }
 
 /**
@@ -180,9 +179,9 @@ function astra_ext_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css
 	 * [1]. Sticky Header Above colors options.
 	 */
 
-		/**
-		 * Above Header.
-		 */
+	/**
+	 * Above Header.
+	 */
 	if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
 
 		$desktop_above_header_css_output = array(
@@ -574,7 +573,6 @@ function astra_ext_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css
 		$parse_css .= astra_parse_css( $mobile_above_header_css_output, '', astra_addon_get_mobile_breakpoint() );
 
 	return $dynamic_css . $parse_css;
-
 }
 
 if ( false === astra_addon_builder_helper()->is_header_footer_builder_active && Astra_Ext_Extension::is_active( 'header-sections' ) ) {
@@ -629,9 +627,9 @@ function astra_below_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 	 * [1]. Sticky Header Below colors options.
 	 */
 
-		/**
-		 * Below Header.
-		 */
+	/**
+	 * Below Header.
+	 */
 	if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
 		$desktop_below_header_css_output = array(
 			'.ast-below-sticky-header-active .ast-below-header-wrap .ast-below-header' => array(
@@ -704,7 +702,7 @@ function astra_ext_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css
 	/**
 	 * Below Header.
 	 */
-	$default_sticky_below_header_bg_color = ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) ? '' : '#414042';
+	$default_sticky_below_header_bg_color = true === astra_addon_builder_helper()->is_header_footer_builder_active ? '' : '#414042';
 	$desktop_sticky_below_header_bg_color = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'desktop', $default_sticky_below_header_bg_color );
 	$tablet_sticky_below_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'tablet' );
 	$mobile_sticky_below_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'mobile' );
@@ -735,9 +733,9 @@ function astra_ext_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css
 	 * [1]. Sticky Header Below colors options.
 	 */
 
-		/**
-		 * Below Header.
-		 */
+	/**
+	 * Below Header.
+	 */
 	if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
 		$desktop_below_header_css_output = array(
 			'.ast-below-sticky-header-active .ast-below-header-wrap .ast-below-header' => array(
@@ -1168,5 +1166,4 @@ function astra_ext_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css
 		$parse_css .= astra_parse_css( $mobile_below_header_css_output, '', astra_addon_get_mobile_breakpoint() );
 
 	return $dynamic_css . $parse_css;
-
 }

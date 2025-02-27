@@ -43,7 +43,6 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			add_action( 'customize_register', array( $this, 'new_customize_register' ), 2 );
-
 		}
 
 		/**
@@ -532,7 +531,6 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Loader' ) ) {
 				require_once ASTRA_ADDON_EXT_HEADER_SECTIONS_DIR . 'classes/sections/class-astra-below-header-configs.php';
 				require_once ASTRA_ADDON_EXT_HEADER_SECTIONS_DIR . 'classes/sections/class-astra-below-header-typo-configs.php';
 			}
-
 		}
 
 		/**
@@ -545,13 +543,12 @@ if ( ! class_exists( 'Astra_Ext_Header_Sections_Loader' ) ) {
 			} else {
 				wp_enqueue_script( 'astra-below-header-customize-preview-js', ASTRA_ADDON_EXT_HEADER_SECTIONS_URL . 'assets/js/minified/customizer-preview.min.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 			}
-
 		}
 
 	}
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Header_Sections_Loader::get_instance();

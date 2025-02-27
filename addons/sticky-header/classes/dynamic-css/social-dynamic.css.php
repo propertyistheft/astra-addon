@@ -24,8 +24,6 @@ function astra_sticky_header_social_dynamic_css( $dynamic_css, $dynamic_css_filt
 		}
 
 		$selector = '.ast-header-sticked .ast-header-social-' . $index . '-wrap';
-		$_section = 'section-hb-social-icons-' . $index;
-
 		// Normal Responsive Colors.
 		$color_type                 = astra_get_option( 'header-social-' . $index . '-color-type' );
 		$social_icons_color_desktop = astra_get_prop( astra_get_option( 'sticky-header-social-' . $index . '-color' ), 'desktop' );
@@ -123,5 +121,4 @@ function astra_sticky_header_social_dynamic_css( $dynamic_css, $dynamic_css_filt
 	}
 
 	return $dynamic_css;
-
 }

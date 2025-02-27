@@ -78,9 +78,7 @@ if ( ! class_exists( 'Astra_Existing_Nav_Menu_Primary_Header_Colors' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }

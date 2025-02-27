@@ -33,7 +33,7 @@ function bsf_systeminfo() {
 		</tr>
 		<tr>
 			<td>Multisite</td>
-			<td><?php echo ( is_multisite() ) ? 'Yes' : 'No'; ?></td>
+			<td><?php echo is_multisite() ? 'Yes' : 'No'; ?></td>
 		</tr>
 		<?php
 		$limit = (int) ini_get( 'memory_limit' );
@@ -56,7 +56,7 @@ function bsf_systeminfo() {
 		</tr>
 		<tr>
 			<td>WP Debug</td>
-			<td><?php echo ( WP_DEBUG ) ? 'Enabled' : 'Disabled'; ?></td>
+			<td><?php echo WP_DEBUG ? 'Enabled' : 'Disabled'; ?></td>
 		</tr>
 		<tr>
 			<td>WP Lang</td>
@@ -68,7 +68,7 @@ function bsf_systeminfo() {
 			<td>
 				<?php
 				$wp_up = wp_upload_dir();
-				echo ( is_writable( $wp_up['basedir'] ) ) ? 'Writable' : 'Readable';
+				echo is_writable( $wp_up['basedir'] ) ? 'Writable' : 'Readable';
 				?>
 			</td>
 		</tr>
@@ -78,27 +78,27 @@ function bsf_systeminfo() {
 				<?php echo '(v' . esc_attr( BSF_UPDATER_VERSION ) . ') ' . esc_attr( BSF_UPDATER_PATH ); ?>
 			</td>
 		</tr>
-		<?php if ( defined( 'WPB_VC_VERSION' ) ) : ?>
+		<?php if ( defined( 'WPB_VC_VERSION' ) ) { ?>
 			<tr>
 				<td>vc_shortcode_output Filter</td>
 				<td>
-					<?php echo ( has_filter( 'vc_shortcode_output' ) ) ? 'Available' : 'Not Available'; ?>
+					<?php echo has_filter( 'vc_shortcode_output' ) ? 'Available' : 'Not Available'; ?>
 				</td>
 			</tr>
-		<?php endif; ?>
+		<?php } ?>
 		<?php
 		$mix           = bsf_get_brainstorm_products( true );
 		$temp_constant = '';
-		if ( ! empty( $mix ) ) :
-			foreach ( $mix as $key => $product ) :
+		if ( ! empty( $mix ) ) {
+			foreach ( $mix as $product ) {
 				$constant = strtoupper( str_replace( '-', '_', $product['id'] ) );
 				$constant = 'BSF_' . $constant . '_CHECK_UPDATES';
 				if ( defined( $constant ) && ( constant( $constant ) === 'false' || constant( $constant ) === false ) ) {
 					$temp_constant .= $constant . '<br/>';
 					continue;
 				}
-			endforeach;
-		endif;
+			}
+		}
 		if ( defined( 'BSF_CHECK_PRODUCT_UPDATES' ) && false === BSF_CHECK_PRODUCT_UPDATES ) {
 			$temp_constant .= 'BSF_CHECK_PRODUCT_UPDATES';
 		}
@@ -108,14 +108,14 @@ function bsf_systeminfo() {
 			}
 		}
 		?>
-		<?php if ( defined( 'BSF_RESTRICTED_UPDATES' ) ) : ?>
+		<?php if ( defined( 'BSF_RESTRICTED_UPDATES' ) ) { ?>
 			<tr>
 				<td>Restrited Updates Filter</td>
 				<td>
 					<?php echo esc_html( BSF_RESTRICTED_UPDATES ); ?>
 				</td>
 			</tr>
-		<?php endif; ?>
+		<?php } ?>
 		</tbody>
 	</table>
 	<table class="wp-list-table widefat fixed bsf-sys-info">
@@ -129,7 +129,7 @@ function bsf_systeminfo() {
 		</tr>
 		<tr>
 			<td>PHP Version</td>
-			<td><?php echo ( function_exists( 'phpversion' ) ) ? floatval( phpversion() ) : 'Not sure'; ?></td>
+			<td><?php echo function_exists( 'phpversion' ) ? floatval( phpversion() ) : 'Not sure'; ?></td>
 		</tr>
 		<tr>
 			<td>MYSQL Version</td>
@@ -169,7 +169,7 @@ function bsf_systeminfo() {
 				?>
 			</td>
 		</tr>
-		<tr class="<?php echo ( ! function_exists( 'curl_version' ) ) ? 'bsf-alert' : ''; ?>">
+		<tr class="<?php echo ! function_exists( 'curl_version' ) ? 'bsf-alert' : ''; ?>">
 			<td>SimpleXML</td>
 			<td>
 				<?php
@@ -181,7 +181,7 @@ function bsf_systeminfo() {
 				?>
 			</td>
 		</tr>
-		<tr class="<?php echo ( ! function_exists( 'curl_version' ) ) ? 'bsf-alert' : ''; ?>">
+		<tr class="<?php echo ! function_exists( 'curl_version' ) ? 'bsf-alert' : ''; ?>">
 			<td>cURL</td>
 			<td>
 				<?php
@@ -202,7 +202,7 @@ function bsf_systeminfo() {
 		</tr>
 		<?php
 		$connection    = wp_remote_get( bsf_get_api_site() );
-		$support_class = ( is_wp_error( $connection ) || 200 !== wp_remote_retrieve_response_code( $connection ) ) ? 'bsf-alert' : '';
+		$support_class = is_wp_error( $connection ) || 200 !== wp_remote_retrieve_response_code( $connection ) ? 'bsf-alert' : '';
 
 		?>
 		<tr class="<?php echo esc_attr( $support_class ); ?>">
@@ -288,5 +288,4 @@ function get_bsf_systeminfo() {
 	$table .= '</div>';
 
 	return $table;
-
 }

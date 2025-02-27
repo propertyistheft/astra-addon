@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Customizer_Mobile_Below_Header_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$show_deprecated_no_toggle_style = 'no-toggle' == astra_get_option( 'mobile-below-header-menu-style' ) ? true : false;
+			$show_deprecated_no_toggle_style = 'no-toggle' === astra_get_option( 'mobile-below-header-menu-style' ) ? true : false;
 
 			// Check deprecated flag has been set or not.
 			if ( apply_filters( 'astra_no_toggle_menu_style_deprecate', $show_deprecated_no_toggle_style ) ) {
@@ -121,8 +121,8 @@ if ( ! class_exists( 'Astra_Customizer_Mobile_Below_Header_Configs' ) ) {
 				),
 
 				/**
-				* Option: Toggle Button Style
-				*/
+				 * Option: Toggle Button Style
+				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[mobile-below-header-toggle-btn-style]',
 					'type'      => 'control',
@@ -154,8 +154,8 @@ if ( ! class_exists( 'Astra_Customizer_Mobile_Below_Header_Configs' ) ) {
 				),
 
 				/**
-				* Option: Toggle Button Color
-				*/
+				 * Option: Toggle Button Color
+				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[mobile-below-header-toggle-btn-style-color]',
 					'type'              => 'control',
@@ -184,8 +184,8 @@ if ( ! class_exists( 'Astra_Customizer_Mobile_Below_Header_Configs' ) ) {
 				),
 
 				/**
-				* Option: Border Radius
-				*/
+				 * Option: Border Radius
+				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[mobile-below-header-toggle-btn-border-radius]',
 					'type'        => 'control',

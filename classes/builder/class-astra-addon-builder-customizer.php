@@ -155,7 +155,7 @@ final class Astra_Addon_Builder_Customizer {
 	 */
 	public function enqueue_customizer_preview_scripts() {
 		// Bail early if it is not astra customizer.
-		if ( is_callable( [ 'Astra_Customizer', 'is_astra_customizer' ] ) && ! Astra_Customizer::is_astra_customizer() ) {
+		if ( is_callable( array( 'Astra_Customizer', 'is_astra_customizer' ) ) && ! Astra_Customizer::is_astra_customizer() ) {
 			return;
 		}
 

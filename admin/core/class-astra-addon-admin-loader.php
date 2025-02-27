@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 4.0.0
  */
 class Astra_Addon_Admin_Loader {
-
 	/**
 	 * Instance
 	 *
@@ -231,8 +230,7 @@ class Astra_Addon_Admin_Loader {
 	 * @since 4.0.0
 	 */
 	public static function get_admin_settings_option( $key, $default = false ) {
-		$value = isset( self::$astra_admin_settings[ $key ] ) ? self::$astra_admin_settings[ $key ] : $default;
-		return $value;
+		return isset( self::$astra_admin_settings[ $key ] ) ? self::$astra_admin_settings[ $key ] : $default;
 	}
 
 	/**
@@ -412,18 +410,18 @@ class Astra_Addon_Admin_Loader {
 								</div>
 								<?php
 
-								if ( ! astra_is_white_labelled() ) { 
+								if ( ! astra_is_white_labelled() ) {
 									?>
 									<a href="<?php echo esc_url( $kb_docs_url ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200 mr-3">
-										<?php echo ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'knowledge-base', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
+										<?php echo class_exists( 'Astra_Builder_UI_Controller' ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'knowledge-base', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
 									</a>
-									<?php 
+									<?php
 								}
 
 								if ( Astra_Ext_White_Label_Markup::show_branding() ) {
 									?>
 									<a href="<?php echo esc_url( 'https://wpastra.com/whats-new/' ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200">
-									<?php echo ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'horn', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
+									<?php echo class_exists( 'Astra_Builder_UI_Controller' ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'horn', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
 								</a>
 									<?php
 								}
@@ -471,7 +469,7 @@ class Astra_Addon_Admin_Loader {
 						<?php
 						foreach ( $custom_layout_types as $type => $title ) {
 							$type_url     = esc_url( add_query_arg( 'layout_type', $type, $baseurl ) );
-							$active_class = ( $current_type === $type ) ? ' text-astra border-astra' : 'text-slate-600 border-white';
+							$active_class = $current_type === $type ? ' text-astra border-astra' : 'text-slate-600 border-white';
 							?>
 									<a class="text-sm font-medium px-5 py-4 border-b-2 <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $type_url ); ?>">
 								<?php echo esc_attr( $title ); ?>

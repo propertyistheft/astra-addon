@@ -49,5 +49,4 @@ function astra_sticky_header_search_dynamic_css( $dynamic_css, $dynamic_css_filt
 	$dynamic_css .= $css_output;
 
 	return $dynamic_css;
-
 }

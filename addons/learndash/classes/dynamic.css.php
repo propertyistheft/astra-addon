@@ -60,7 +60,7 @@ function astra_addon_learndash_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 			'background-color' => $title_bg_color,
 		),
 		'body #course_list > div:nth-of-type(odd), body #lessons_list > div:nth-of-type(odd), body #quiz_list > div:nth-of-type(odd), body #learndash_lesson_topics_list .learndash_topic_dots ul > li.nth-of-type-odd' => array(
-			'background-color' => ( $differentiate_row && ! empty( $title_bg_color ) ) ? astra_hex_to_rgba( $title_bg_color, .8 ) : $title_bg_color,
+			'background-color' => $differentiate_row && ! empty( $title_bg_color ) ? astra_hex_to_rgba( $title_bg_color, .8 ) : $title_bg_color,
 		),
 		'body #learndash_lessons #quiz_list, body #learndash_lessons .lessons_list, body #learndash_quizzes #quiz_list, body #learndash_quizzes .lessons_list, #lessons_list > div h4, #course_list > div h4, #quiz_list > div h4, #learndash_lesson_topics_list ul > li > span.topic_item, #lessons_list > div > div, #course_list > div > div, #quiz_list > div > div, .single-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn, .singular-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn, body #learndash_profile .profile_info, body #learndash_profile #course_list, body #learndash_lesson_topics_list .learndash_topic_dots .topic-completed, body #learndash_lesson_topics_list .learndash_topic_dots .topic-notcompleted, body #learndash_lesson_topics_list div > strong' => array(
 			'border-color' => $separator_color,
@@ -250,4 +250,3 @@ function astra_addon_ldrv3_dynamic_css() {
 
 	return $css_output;
 }
-

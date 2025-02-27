@@ -1,5 +1,15 @@
 *** Astra Pro Changelog ***
 
+2025-02-26- version 4.8.14
+* Fix: Resolved an issue where product gallery thumbnails appeared blurry by ensuring the correct image size is used.
+* Fix: Resolved a UI issue where the "Re-enter New Password" field was displaying incorrectly.
+* Fix: Resolved a CSS conflict where the Stripe Checkout payment button affected the Astra Modern Checkout layout.
+* Fix: WooCommerce - Resolved UI issue in Astra Pro's Quick View feature where landscape images distorted the layout for variable products.
+* Fix: Resolved an issue where the WooCommerce Product Variation Switcher displayed the featured image instead of the selected variation’s image in Astra Pro's Gallery Layouts.
+* Fix: Resolved an issue causing double search icons to appear for some existing users.
+* Fix: Resolved an issue where custom layouts created using Theme Builder did not render on empty category archives.
+* Fix: Resolved an issue where extra field data on single product page was not being submitted when adding the product to the cart.
+
 2025-02-11 - version 4.8.13
 * New: Search Widget - Added support to search icon from the icon library or using a custom SVG code.
 * Improvement: Enhanced coupon field in Modern Cart Layout to display error notices for invalid or empty coupon submissions.

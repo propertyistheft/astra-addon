@@ -89,7 +89,6 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 			if ( 'header-main-layout-2' === $header_layout && $header_profile_link ) {
 				echo '<div class="ast-header-nav-lifter-profile-wrap">';
 			}
-
 		}
 
 		/**
@@ -125,14 +124,14 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 		 */
 		public static function astra_header_lifterlms() {
 
-			if ( is_user_logged_in() ) :
+			if ( is_user_logged_in() ) {
 				$my_account_permalink = get_permalink( get_option( 'lifterlms_myaccount_page_id' ) );
 				?>
 				<div class="main-header-log-out">
 					<a class="llms-profile-link" role="link" aria-label="<?php esc_attr_e( 'LifterLMS profile link', 'astra-addon' ); ?>" href="<?php echo esc_url_raw( apply_filters( 'astra_llms_profile_link', $my_account_permalink ) ); ?>"><?php echo get_avatar( get_current_user_id(), 45 ); ?></a>
 				</div>
 				<?php
-			endif;
+			}
 		}
 
 		/**
@@ -344,7 +343,7 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 		 */
 		public function add_styles() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_LIFTERLMS_URI . 'assets/css/';
@@ -373,7 +372,7 @@ if ( ! class_exists( 'ASTRA_Ext_LifterLMS_Markup' ) ) {
 				$gen_path = $css_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 
 			/* Add style.css */
 			Astra_Minify::add_css( $gen_path . 'style' . $file_prefix . '.css' );

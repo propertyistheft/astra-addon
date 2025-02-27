@@ -63,5 +63,4 @@ function astra_sticky_header_account_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$dynamic_css .= $css_output;
 
 	return $dynamic_css;
-
 }

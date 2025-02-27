@@ -54,11 +54,11 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'choices'           => array(
 						'edd-archive-page-grid-style' => array(
 							'label' => __( 'Grid View', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
 						),
 						'edd-archive-page-list-style' => array(
 							'label' => __( 'List View', 'astra-addon' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
+							'path'  => class_exists( 'Astra_Builder_UI_Controller' ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
 						),
 					),
 				),
@@ -295,13 +295,9 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
-
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
-
 
 new Astra_Edd_Shop_Configs();

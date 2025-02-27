@@ -150,12 +150,9 @@ if ( ! class_exists( 'Astra_Nav_Menu_Above_Header_Typography' ) ) {
 				),
 			);
 
-			$configurations = array_merge( $configurations, $_configs );
-
-			return $configurations;
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }
 
 new Astra_Nav_Menu_Above_Header_Typography();
-

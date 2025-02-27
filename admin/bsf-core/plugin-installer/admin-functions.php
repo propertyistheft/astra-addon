@@ -9,7 +9,7 @@
  * Prevent direct access.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit();
+	exit;
 }
 
 if ( ! function_exists( 'check_bsf_product_status' ) ) {
@@ -20,8 +20,7 @@ if ( ! function_exists( 'check_bsf_product_status' ) ) {
 	 * @return bool
 	 */
 	function check_bsf_product_status( $id ) {
-		$brainstrom_products = ( get_option( 'brainstrom_products' ) ) ? get_option( 'brainstrom_products' ) : array();
-		$bsf_product_themes  = ( isset( $brainstrom_products['themes'] ) ) ? $brainstrom_products['themes'] : array();
+		$brainstrom_products = get_option( 'brainstrom_products' ) ? get_option( 'brainstrom_products' ) : array();
 
 		if ( empty( $brainstrom_products ) ) {
 			return false;
@@ -29,9 +28,9 @@ if ( ! function_exists( 'check_bsf_product_status' ) ) {
 
 		$status = false;
 		foreach ( $brainstrom_products as $products ) {
-			foreach ( $products as $key => $product ) {
+			foreach ( $products as $product ) {
 				if ( $product['id'] === $id ) {
-					$status = ( isset( $product['status'] ) ) ? $product['status'] : '';
+					$status = isset( $product['status'] ) ? $product['status'] : '';
 					break;
 				}
 			}
@@ -42,7 +41,6 @@ if ( ! function_exists( 'check_bsf_product_status' ) ) {
 }
 
 if ( ! function_exists( 'get_bundled_plugins' ) ) {
-
 
 	/**
 	 * Retrieves bundled plugin data.
@@ -125,7 +123,7 @@ if ( ! function_exists( 'get_bundled_plugins' ) ) {
 
 			foreach ( $brainstrom_products as $type => $products ) {
 
-				foreach ( $products as $key => $product ) {
+				foreach ( $products as $product ) {
 					$old_id = isset( $product['id'] ) ? $product['id'] : '';
 
 					$simple[ $type ][ $old_id ]['template']     = isset( $brainstrom_products[ $type ][ $old_id ]['template'] ) ? $brainstrom_products[ $type ][ $old_id ]['template'] : '';
@@ -258,7 +256,7 @@ function bsf_render_bundled_products( $product_id, $installed ) {
 					</div>
 				<?php } ?>
 				<div class="bsf-extension-info">
-					<?php $name = ( isset( $product->short_name ) ) ? $product->short_name : $product->name; ?>
+					<?php $name = isset( $product->short_name ) ? $product->short_name : $product->name; ?>
 					<h4 class="title"><?php echo esc_html( $name ); ?></h4>
 					<p class="desc"><?php echo esc_html( $product->description ); ?><span class="author"><cite>By <?php echo esc_html( $product->author ); ?></cite></span></p>
 				</div>

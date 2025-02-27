@@ -20,7 +20,6 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 	 * @class BSF_Update_Manager
 	 */
 	class BSF_Update_Manager {
-
 		/**
 		 * Constructor function that initializes required sections
 		 */
@@ -62,7 +61,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 
 			$update_data = $this->bsf_update_transient_data( 'plugins' );
 
-			foreach ( $update_data as $key => $product ) {
+			foreach ( $update_data as $product ) {
 
 				if ( isset( $product['template'] ) && '' !== $product['template'] ) {
 					$template = $product['template'];
@@ -113,9 +112,9 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 				$plugin->icons = apply_filters(
 					"bsf_product_icons_{$product['id']}",
 					array(
-						'1x'      => ( isset( $product['product_image'] ) ) ? $product['product_image'] : '',
-						'2x'      => ( isset( $product['product_image'] ) ) ? $product['product_image'] : '',
-						'default' => ( isset( $product['product_image'] ) ) ? $product['product_image'] : '',
+						'1x'      => isset( $product['product_image'] ) ? $product['product_image'] : '',
+						'2x'      => isset( $product['product_image'] ) ? $product['product_image'] : '',
+						'default' => isset( $product['product_image'] ) ? $product['product_image'] : '',
 					)
 				);
 
@@ -146,7 +145,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 
 			$update_data = $this->bsf_update_transient_data( 'themes' );
 
-			foreach ( $update_data as $key => $product ) {
+			foreach ( $update_data as $product ) {
 
 				if ( false === $this->enable_auto_updates( $product['id'] ) ) {
 					continue;
@@ -186,14 +185,13 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 		 * Allow autoupdates to be enabled/disabled per product basis.
 		 *
 		 * @param String $product_id - Product ID.
-		 * @return boolean True - IF updates are to be enabled. False if updates are to be disabled.
+		 * @return bool True - IF updates are to be enabled. False if updates are to be disabled.
 		 */
 		private function enable_auto_updates( $product_id ) {
 			return apply_filters( "bsf_enable_product_autoupdates_{$product_id}", true );
 		}
 
 		/**
-		 *
 		 * Updates information on the "View version x.x details" page with custom data.
 		 *
 		 * @uses api_request()
@@ -218,7 +216,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 			$themes       = isset( $brainstrom_products['themes'] ) ? $brainstrom_products['themes'] : array();
 			$all_products = $plugins + $themes;
 
-			foreach ( $all_products as $key => $product ) {
+			foreach ( $all_products as $product ) {
 
 				$product_slug = isset( $product['slug'] ) ? $product['slug'] : '';
 
@@ -274,7 +272,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 
 			foreach ( $brainstrom_bundled_products as $parent => $products ) {
 
-				foreach ( $products as $key => $product ) {
+				foreach ( $products as $product ) {
 
 					if ( 'init' === $search_by ) {
 
@@ -295,9 +293,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 				}
 			}
 
-			$product_parent = apply_filters( 'bsf_is_product_bundled', array_unique( $product_parent ), $bsf_product, $search_by );
-
-			return $product_parent;
+			return apply_filters( 'bsf_is_product_bundled', array_unique( $product_parent ), $bsf_product, $search_by );
 		}
 		/**
 		 * Get package URL
@@ -321,7 +317,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 			if ( '' !== $version && false !== $status ) {
 				$bundled_product = self::bsf_is_product_bundled( $product_id );
 				$purchase_key    = $this->get_purchse_key( $product_id );
-				$is_bundled      = ( ! empty( $bundled_product ) ) ? '1' : '0';
+				$is_bundled      = ! empty( $bundled_product ) ? '1' : '0';
 
 				$download_params = array(
 					'version_no'   => $version,
@@ -361,7 +357,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 				$all_products = brainstorm_get_all_products( true, false, true );
 			}
 
-			foreach ( $all_products as $key => $product ) {
+			foreach ( $all_products as $product ) {
 
 				$product_id = isset( $product['id'] ) ? $product['id'] : '';
 
@@ -453,9 +449,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 		public function beta_version_normalized( $beta ) {
 			$beta_explode = explode( '-', $beta );
 
-			$version = $beta_explode[0] . '.' . str_replace( 'beta', '', $beta_explode[1] );
-
-			return $version;
+			return $beta_explode[0] . '.' . str_replace( 'beta', '', $beta_explode[1] );
 		}
 
 		/**
@@ -490,7 +484,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 		public function bsf_update_display_license_link() {
 			$brainstorm_all_products = $this->brainstorm_all_products();
 
-			foreach ( $brainstorm_all_products as $key => $product ) {
+			foreach ( $brainstorm_all_products as $product ) {
 
 				if ( isset( $product['id'] ) ) {
 					$id = $product['id'];
@@ -505,7 +499,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 
 						if ( is_plugin_active( $template ) ) {
 							add_action(
-								"in_plugin_update_message-$template",
+								"in_plugin_update_message-{$template}",
 								array(
 									$this,
 									'bsf_add_registration_message',
@@ -516,7 +510,7 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 						}
 					} else {
 						add_action(
-							"in_plugin_update_message-$template",
+							"in_plugin_update_message-{$template}",
 							array(
 								$this,
 								'add_beta_update_message',
@@ -527,7 +521,6 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 					}
 				}
 			}
-
 		}
 		/**
 		 *  Brainstorm All Products.
@@ -540,17 +533,15 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 
 			$bundled = array();
 
-			foreach ( $brainstrom_bundled_products as $parent => $children ) {
+			foreach ( $brainstrom_bundled_products as $children ) {
 
-				foreach ( $children as $key => $product ) {
+				foreach ( $children as $product ) {
 					$bundled[ $product->id ] = (array) $product;
 				}
 			}
 
 			// array of all the products.
-			$all_products = $brainstrom_products_plugins + $brainstrom_products_themes + $bundled;
-
-			return $all_products;
+			return $brainstrom_products_plugins + $brainstrom_products_themes + $bundled;
 		}
 		/**
 		 *  Add Registration message.
@@ -585,11 +576,10 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 			}
 
 			if ( true === self::bsf_allow_beta_updates( $product_id ) && $this->is_beta_version( $plugin_data['new_version'] ) ) {
-				$message = $message . ' <i>It is recommended to use the beta version on a staging enviornment only.</i>';
+				$message .= ' <i>It is recommended to use the beta version on a staging enviornment only.</i>';
 			}
 
 			echo wp_kses_post( $message );
-
 		}
 		/**
 		 * Add Beta update message.
@@ -674,8 +664,8 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 
 			$main_products = (array) get_option( 'brainstrom_bundled_products', array() );
 
-			foreach ( $main_products as $single_product_key => $single_product ) {
-				foreach ( $single_product as $bundle_product_key => $bundle_product ) {
+			foreach ( $main_products as $single_product ) {
+				foreach ( $single_product as $bundle_product ) {
 
 					if ( is_object( $bundle_product ) ) {
 						$type = $bundle_product->type;

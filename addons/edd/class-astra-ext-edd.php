@@ -53,13 +53,10 @@ if ( ! class_exists( 'Astra_Ext_Edd' ) ) {
 					require_once ASTRA_ADDON_EXT_EDD_DIR . 'classes/dynamic.css.php';
 				}
 			}
-
 		}
 	}
 
-
 }
-
 
 if ( apply_filters( 'astra_enable_edd_integration', true ) ) {
 	/**

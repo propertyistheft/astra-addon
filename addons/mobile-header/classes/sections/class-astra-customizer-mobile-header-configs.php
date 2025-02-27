@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Customizer_Mobile_Header_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$show_deprecated_no_toggle_style = 'no-toggle' == astra_get_option( 'mobile-menu-style' ) ? true : false;
+			$show_deprecated_no_toggle_style = 'no-toggle' === astra_get_option( 'mobile-menu-style' ) ? true : false;
 
 			// Check deprecated flag has been set or not.
 			if ( apply_filters( 'astra_no_toggle_menu_style_deprecate', $show_deprecated_no_toggle_style ) ) {

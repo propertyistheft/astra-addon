@@ -43,7 +43,6 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			add_action( 'customize_register', array( $this, 'new_customize_register' ), 2 );
-
 		}
 
 		/**
@@ -75,8 +74,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			);
 
 			/**
-			* Sticky Header
-			*/
+			 * Sticky Header
+			 */
 			$defaults['sticky-header-bg-color-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -102,8 +101,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 
 				$sticky_header_button_border_radius = ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius-fields' ] ) && isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] : '';
 				/**
-				* Sticky Header > Menu color configs.
-				*/
+				 * Sticky Header > Menu color configs.
+				 */
 				$defaults[ 'sticky-header-menu' . $index . '-color-responsive' ]                = array(
 					'desktop' => '',
 					'tablet'  => '',
@@ -262,8 +261,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			);
 
 			/**
-			* Sticky Above Header
-			*/
+			 * Sticky Above Header
+			 */
 			$defaults['sticky-above-header-bg-color-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -333,8 +332,8 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 			);
 
 			/**
-			* Sticky below Header
-			*/
+			 * Sticky below Header
+			 */
 			$defaults['sticky-below-header-bg-color-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -496,12 +495,11 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 
 			wp_localize_script( 'astra-sticky-header-customizer-preview-js', 'astSticky', $localize_array );
 			wp_enqueue_script( 'astra-sticky-header-customizer-preview-js' );
-
 		}
 	}
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 Astra_Ext_Sticky_Header_Loader::get_instance();

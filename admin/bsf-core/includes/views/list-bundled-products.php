@@ -9,7 +9,7 @@
  * Prevent direct access.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit();
+	exit;
 }
 
 $current_page = '';
@@ -61,7 +61,7 @@ $reset_bundled_url = bsf_exension_installer_url( $product_id . '&remove-bundled-
 			<p class="bsf-text-light"><em><?php esc_html_e( 'No extensions available yet!', 'bsf' ); ?></em></p>
 
 			<div class="bsf-cp-rem-bundle" style="margin-top: 30px;">
-				<a class="button-primary" href="<?php echo( htmlentities( $reset_bundled_url, ENT_QUOTES, 'utf-8' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>"><?php esc_html_e( 'Refresh Bundled Products', 'bsf' ); ?></a>
+				<a class="button-primary" href="<?php echo htmlentities( $reset_bundled_url, ENT_QUOTES, 'utf-8' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>"><?php esc_html_e( 'Refresh Bundled Products', 'bsf' ); ?></a>
 			</div>
 		</div>
 			<?php
