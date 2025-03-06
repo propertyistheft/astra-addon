@@ -1,6 +1,12 @@
 *** Astra Pro Changelog ***
 
-2025-02-26- version 4.8.14
+2025-03-06 - 4.9.0
+* New: Astra New color palette compatibility with Astra Addon features - (Beta Feature) (https://wpastra.com/docs/dark-colour-palette/)
+* Fix: Resolved an issue where the inside spacing of responsive blog posts was not applied correctly.
+* Fix: Resolved an issue where Social widget Alignment option not working properly when Stack option is used. 
+* Fix: Gracefully handled `astra_get_post_type` undefined function error caused by theme and addon version mismatch.
+
+2025-02-26 - version 4.8.14
 * Fix: Resolved an issue where product gallery thumbnails appeared blurry by ensuring the correct image size is used.
 * Fix: Resolved a UI issue where the "Re-enter New Password" field was displaying incorrectly.
 * Fix: Resolved a CSS conflict where the Stripe Checkout payment button affected the Astra Modern Checkout layout.

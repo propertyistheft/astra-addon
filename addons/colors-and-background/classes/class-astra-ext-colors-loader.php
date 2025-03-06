@@ -105,7 +105,6 @@ if ( ! class_exists( 'Astra_Ext_Colors_Loader' ) ) {
 					'background-media'      => '',
 				),
 			);
-			$defaults['header-color-site-title']   = '';
 			$defaults['header-color-h-site-title'] = '';
 			$defaults['header-color-site-tagline'] = '';
 

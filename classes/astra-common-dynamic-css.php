@@ -328,10 +328,6 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		'.ast-separate-container .ast-grid-sm-2 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-sm-3 .ast-article-post.ast-separate-posts, .ast-separate-container .ast-grid-sm-4 .ast-article-post.ast-separate-posts' => array(
 			'padding' => $is_site_rtl ? '0 0 0 .5em' : '0 .5em 0',
 		),
-		// Setting the default padding to 0 if the columns for mobile is 1.
-		'.ast-separate-container .ast-grid-sm-1 .ast-article-post.ast-separate-posts' => array(
-			'padding' => '0',
-		),
 		'.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on' => array(
 			'margin-top' => '0.5em',
 		),
@@ -363,6 +359,23 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'padding' => '1.5em 1em',
 		),
 	);
+
+	$blog_post_inside_spacing = astra_get_option( 'blog-post-inside-spacing' );
+
+	$has_inside_value = ! empty(
+		array_filter(
+			$blog_post_inside_spacing['mobile'],
+			function ( $value ) {
+				return $value !== ''; // Check if any value is not empty.
+			} 
+		) 
+	);
+
+	if ( ! $has_inside_value ) {
+		$mobile_css['.ast-separate-container .ast-grid-sm-1 .ast-article-post.ast-separate-posts'] = array(
+			'padding' => '0',
+		);
+	}
 
 	/* Parse CSS from array() -> max-width: (mobile-breakpoint)px */
 	$css_output .= astra_parse_css( $mobile_css, '', astra_addon_get_mobile_breakpoint() );

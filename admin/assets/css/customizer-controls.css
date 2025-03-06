@@ -100,6 +100,7 @@
 }
 
 [ID*="-image-apply-sizes"] .button {
+    background-color: var( --ast-customizer-color-9 );
 	border-radius: 2px;
 	margin-left: 10px;
 	height: 34px;

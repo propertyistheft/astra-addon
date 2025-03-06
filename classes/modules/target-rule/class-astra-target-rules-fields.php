@@ -1517,7 +1517,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			/* Meta option is enabled */
 			if ( false === $meta_header ) {
 
-				$current_post_type = esc_sql( astra_get_post_type() );
+				$current_post_type = esc_sql( function_exists( 'astra_get_post_type' ) ? astra_get_post_type() : get_post_type() );
 				$current_post_id   = false;
 				$q_obj             = get_queried_object();
 

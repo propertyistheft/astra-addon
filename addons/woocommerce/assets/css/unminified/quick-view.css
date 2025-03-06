@@ -145,7 +145,7 @@ body #ast-quick-view-modal div.product .flex-viewport {
 #ast-quick-view-modal .ast-lightbox-content {
   display: table;
   pointer-events: auto;
-  background-color: #fff;
+  background-color: var(--ast-global-color-5);
   margin: 0 auto;
   box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, 0.15);
   position: relative;

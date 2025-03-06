@@ -17,6 +17,7 @@
   border: 1px solid var(--ast-border-color) !important;
   border-radius: 4px;
   z-index: 90 !important;
+  background: var(--ast-global-color-5) !important;
 }
 
 .ast-modern-checkout .woocommerce .woocommerce-checkout-review-order-table .blockUI.blockOverlay::before, .ast-modern-checkout .woocommerce #payment .blockUI.blockOverlay::before {

@@ -77,13 +77,15 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 				);
 
 				$css_output_tablet[ $selector . ' .ast-social-stack-desktop .ast-builder-social-element' ] = array(
-					'margin-top'    => astra_get_css_value( $icon_spacing_tablet, 'px' ),
-					'margin-bottom' => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+					'margin-top'      => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+					'margin-bottom'   => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+					'justify-content' => $justify_content_tablet,
 				);
 
 				$css_output_mobile[ $selector . ' .ast-social-stack-desktop .ast-builder-social-element' ] = array(
-					'margin-top'    => astra_get_css_value( $icon_spacing_mobile, 'px' ),
-					'margin-bottom' => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'margin-top'      => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'margin-bottom'   => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'justify-content' => $justify_content_mobile,
 				);
 			}
 			/**
@@ -105,8 +107,9 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 				);
 
 				$css_output_mobile[ $selector . ' .ast-social-stack-tablet .ast-builder-social-element' ] = array(
-					'margin-top'    => astra_get_css_value( $icon_spacing_mobile, 'px' ),
-					'margin-bottom' => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'margin-top'      => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'margin-bottom'   => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'justify-content' => $justify_content_mobile,
 				);
 			}
 

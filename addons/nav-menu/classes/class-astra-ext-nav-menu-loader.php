@@ -620,6 +620,10 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 		public function theme_defaults( $defaults ) {
 
 			$astra_options = astra_get_options();
+			$palette_key   = ''; // Initialize with a default value
+			if ( method_exists( 'Astra_Global_Palette', 'astra_get_active_global_palette' ) ) {
+				$palette_key = Astra_Global_Palette::astra_get_active_global_palette();
+			}
 
 			$component_limit = astra_addon_builder_helper()->component_limit;
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
@@ -630,7 +634,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Loader' ) ) {
 				 * Menu + Submenu Colors
 				 */
 				$defaults[ 'header-' . $_prefix . '-submenu-bg-color-responsive' ] = array(
-					'desktop' => '',
+					'desktop' => ( $palette_key === 'palette_4' ) ? 'var( --ast-global-color-secondary, --ast-global-color-5 )' : '',
 					'tablet'  => '',
 					'mobile'  => '',
 				);
