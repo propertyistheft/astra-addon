@@ -1,5 +1,8 @@
 *** Astra Pro Changelog ***
 
+2025-03-07 - 4.9.1
+* Fix: Resolved critical error which was introduced in previous version (v4.9.0).
+
 2025-03-06 - 4.9.0
 * New: Astra New color palette compatibility with Astra Addon features - (Beta Feature) (https://wpastra.com/docs/dark-colour-palette/)
 * Fix: Resolved an issue where the inside spacing of responsive blog posts was not applied correctly.
