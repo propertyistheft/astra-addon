@@ -358,7 +358,7 @@
 .woocommerce .astra-off-canvas-sidebar-wrapper .astra-off-canvas-sidebar,
 .woocommerce-page .astra-off-canvas-sidebar-wrapper .astra-off-canvas-sidebar {
   position: absolute;
-  background: var(--ast-global-color-5);
+  background: var(--ast-global-color-primary, --ast-global-color-5);
   height: 100%;
   top: 0;
   left: -100%;

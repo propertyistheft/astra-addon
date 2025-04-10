@@ -38,7 +38,7 @@ final class Astra_Ext_Model {
 
 		$enabled_extension  = Astra_Ext_Extension::get_enabled_addons();
 		$default_extensions = Astra_Ext_Extension::get_default_addons();
-		$enabled_extension  = $enabled_extension + $default_extensions;
+		$enabled_extension += $default_extensions;
 
 		if ( 0 < count( $enabled_extension ) ) {
 
@@ -84,7 +84,7 @@ final class Astra_Ext_Model {
 		$page_headers_addon_active  = Astra_Ext_Extension::is_active( 'advanced-headers' ) ? true : false;
 		$post_id                    = get_the_ID() ? get_the_ID() : 0;
 		$current_post               = $post_id ? get_post( $post_id, OBJECT ) : false;
-		$has_shortcode              = ( is_object( $current_post ) && has_shortcode( $current_post->post_content, 'astra_custom_layout' ) ) ? true : false;
+		$has_shortcode              = is_object( $current_post ) && has_shortcode( $current_post->post_content, 'astra_custom_layout' ) ? true : false;
 
 		if ( $custom_layout_addon_active || $page_headers_addon_active || $has_shortcode ) {
 			$custom_layouts = false;
@@ -145,7 +145,7 @@ final class Astra_Ext_Model {
 				// Add dynamic layouts assigned on current location.
 				foreach ( $custom_layouts as $post_id => $post_data ) {
 					$post_type = get_post_type();
-					if ( ASTRA_ADVANCED_HOOKS_POST_TYPE != $post_type ) {
+					if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
 						$layout_title = get_the_title( $post_id );
 						$admin_bar->add_node(
 							array(
@@ -177,7 +177,7 @@ final class Astra_Ext_Model {
 				// Add dynamic headers assigned on current location.
 				foreach ( $page_headers as $post_id => $post_data ) {
 					$post_type = get_post_type();
-					if ( 'astra_adv_header' != $post_type ) {
+					if ( 'astra_adv_header' !== $post_type ) {
 						$layout_title = get_the_title( $post_id );
 						$admin_bar->add_node(
 							array(
@@ -219,8 +219,8 @@ final class Astra_Ext_Model {
 								'title'  => esc_html__( 'Edit Shortcode Layouts', 'astra-addon' ),
 							)
 						);
-						foreach ( $output as $key => $value ) {
-							foreach ( $value as $attr_key => $attr_val ) {
+						foreach ( $output as $value ) {
+							foreach ( $value as $attr_val ) {
 								$cl_layout_id = absint( $attr_val );
 								$layout_title = get_the_title( $cl_layout_id );
 								$admin_bar->add_node(
@@ -295,4 +295,3 @@ final class Astra_Ext_Model {
 
 }
 new Astra_Ext_Model();
-

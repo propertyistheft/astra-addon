@@ -14,19 +14,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Astra_Addon_Base_Configs.
  */
 class Astra_Addon_Base_Configs {
-
 	/**
 	 * Prepare Box Shadow options.
 	 *
-	 * @param string  $_section section id.
-	 * @param string  $_prefix Control Prefix.
-	 * @param integer $priority Priority.
+	 * @param string $_section section id.
+	 * @param string $_prefix Control Prefix.
+	 * @param int    $priority Priority.
 	 * @since 3.3.0
 	 * @return array
 	 */
 	public static function prepare_box_shadow_tab( $_section, $_prefix, $priority = 90 ) {
 
-		$configs = array(
+		return array(
 
 			// Option Group: Box shadow Group.
 			array(
@@ -95,8 +94,6 @@ class Astra_Addon_Base_Configs {
 				'context'   => astra_addon_builder_helper()->general_tab,
 			),
 		);
-
-		return $configs;
 	}
 
 }

@@ -6,7 +6,7 @@
  * @since 1.6.0
  */
 
-if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
+if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) {
 
 	/**
 	 * Astra Addon Page Builder Compatibility base class
@@ -14,7 +14,6 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 	 * @since 1.6.0
 	 */
 	class Astra_Addon_Divi_Compatibility extends Astra_Addon_Page_Builder_Compatibility {
-
 		/**
 		 * Instance
 		 *
@@ -82,7 +81,7 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 			$inner_class   = apply_filters( 'et_builder_inner_content_class', array( 'et_builder_inner_content' ) );// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 			$inner_classes = implode( ' ', $inner_class );
 
-			$content = sprintf(
+			return sprintf(
 				'<div class="%2$s" id="%4$s">
 					<div class="%3$s">
 						%1$s
@@ -93,8 +92,6 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 				esc_attr( $inner_classes ),
 				esc_attr( $outer_id )
 			);
-
-			return $content;
 		}
 
 		/**
@@ -107,7 +104,7 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 		 */
 		public static function add_main_divi_wrapper( $content ) {
 
-			$content = sprintf(
+			return sprintf(
 				'<div id="%2$s" class="%2$s">
 					%1$s
 				</div>',
@@ -115,8 +112,7 @@ if ( ! class_exists( 'Astra_Addon_Divi_Compatibility' ) ) :
 				esc_attr( 'et-boc' ),
 				esc_attr( 'et-boc' )
 			);
-			return $content;
 		}
 	}
 
-endif;
+}

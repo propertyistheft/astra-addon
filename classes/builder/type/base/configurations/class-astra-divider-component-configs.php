@@ -55,7 +55,6 @@ class Astra_Divider_Component_Configs {
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
-			$_prefix  = 'divider' . $index;
 
 			/**
 			 * These options are related to Header Section - divider.
@@ -83,7 +82,7 @@ class Astra_Divider_Component_Configs {
 					'type'        => 'section',
 					'priority'    => 50,
 					/* translators: %s Index */
-					'title'       => ( 1 === $number_of_divider ) ? __( 'Divider', 'astra-addon' ) : sprintf( __( 'Divider %s', 'astra-addon' ), $index ),
+					'title'       => 1 === $number_of_divider ? __( 'Divider', 'astra-addon' ) : sprintf( __( 'Divider %s', 'astra-addon' ), $index ),
 					'panel'       => 'panel-' . $builder_type . '-builder-group',
 					'clone_index' => $index,
 					'clone_type'  => $builder_type . '-divider',
@@ -350,9 +349,7 @@ class Astra_Divider_Component_Configs {
 		}
 
 		$divider_config = call_user_func_array( 'array_merge', $divider_config + array( array() ) );
-		$configurations = array_merge( $configurations, $divider_config );
-
-		return $configurations;
+		return array_merge( $configurations, $divider_config );
 	}
 }
 

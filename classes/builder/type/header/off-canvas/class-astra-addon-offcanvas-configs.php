@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 3.3.0
  */
 class Astra_Addon_Offcanvas_Configs extends Astra_Customizer_Config_Base {
-
 	/**
 	 * Register Builder Above Customizer Configurations.
 	 *

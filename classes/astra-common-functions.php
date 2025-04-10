@@ -35,7 +35,7 @@ if ( ! function_exists( 'astra_get_options' ) ) {
 		 * @return bool Whether to bypass the cache. Default is false.
 		 */
 		if ( apply_filters( 'astra_get_options_nocache', false ) ) {
-			$astra_options = get_option( ASTRA_THEME_SETTINGS );
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 		} else {
 			// Use a static variable to cache the options for this request.
 			static $cached_astra_options = null;
@@ -173,7 +173,6 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 	 * @return mixed
 	 */
 	function astra_responsive_font( $font, $device = 'desktop', $default = '' ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
-		$css_val = '';
 
 		if ( isset( $font[ $device ] ) && isset( $font[ $device . '-unit' ] ) ) {
 			if ( '' != $default ) {
@@ -184,7 +183,7 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 		} elseif ( is_numeric( $font ) ) {
 			$font_size = astra_get_css_value( $font );
 		} else {
-			$font_size = ( ! is_array( $font ) ) ? $font : '';
+			$font_size = ! is_array( $font ) ? $font : '';
 		}
 
 		return $font_size;
@@ -229,7 +228,7 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 		} elseif ( is_numeric( $option ) ) {
 			$spacing = astra_get_css_value( $option );
 		} else {
-			$spacing = ( ! is_array( $option ) ) ? $option : '';
+			$spacing = ! is_array( $option ) ? $option : '';
 		}
 
 		if ( '' !== $prefix && '' !== $spacing ) {
@@ -239,20 +238,19 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	}
 }
 
-
 /**
  * Check Elementor widgets.
  */
 if ( ! function_exists( 'astra_check_elementor_widget' ) ) {
 
-		/**
-		 * Added Check if the cart widget exists in the Elementor meta data.
-		 *
-		 * @since 4.8.2
-		 * @param array  $elements_data
-		 * @param string $widget_name
-		 * @return bool
-		 */
+	/**
+	 * Added Check if the cart widget exists in the Elementor meta data.
+	 *
+	 * @since 4.8.2
+	 * @param array  $elements_data
+	 * @param string $widget_name
+	 * @return bool
+	 */
 	function astra_check_elementor_widget( $elements_data, $widget_name ) {
 		foreach ( $elements_data as $element ) {
 			if ( isset( $element['widgetType'] ) && $element['widgetType'] === $widget_name ) {
@@ -412,10 +410,10 @@ if ( ! function_exists( 'astra_get_responsive_background_obj' ) ) {
 		$bg_tab_img  = isset( $bg_obj_res['tablet']['background-image'] ) ? $bg_obj_res['tablet']['background-image'] : '';
 		$bg_desk_img = isset( $bg_obj_res['desktop']['background-image'] ) ? $bg_obj_res['desktop']['background-image'] : '';
 		$bg_color    = isset( $bg_obj['background-color'] ) ? $bg_obj['background-color'] : '';
-		$tablet_css  = ( isset( $bg_obj_res['tablet']['background-image'] ) && $bg_obj_res['tablet']['background-image'] ) ? true : false;
-		$desktop_css = ( isset( $bg_obj_res['desktop']['background-image'] ) && $bg_obj_res['desktop']['background-image'] ) ? true : false;
+		$tablet_css  = isset( $bg_obj_res['tablet']['background-image'] ) && $bg_obj_res['tablet']['background-image'] ? true : false;
+		$desktop_css = isset( $bg_obj_res['desktop']['background-image'] ) && $bg_obj_res['desktop']['background-image'] ? true : false;
 
-		$bg_type = ( isset( $bg_obj['background-type'] ) && $bg_obj['background-type'] ) ? $bg_obj['background-type'] : '';
+		$bg_type = isset( $bg_obj['background-type'] ) && $bg_obj['background-type'] ? $bg_obj['background-type'] : '';
 
 		if ( '' !== $bg_type ) {
 			switch ( $bg_type ) {
@@ -506,7 +504,7 @@ if ( ! function_exists( 'astra_get_responsive_background_obj' ) ) {
 /**
  * Search Form
  */
-if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
+if ( ! function_exists( 'astra_addon_get_search_form' ) ) {
 	/**
 	 * Display search form.
 	 *
@@ -547,7 +545,7 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) :
 			return $result;
 		}
 	}
-endif;
+}
 
 /**
  * Get instance of WP_Filesystem.

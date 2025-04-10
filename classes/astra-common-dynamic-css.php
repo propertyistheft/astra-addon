@@ -223,7 +223,6 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		),
 	);
 
-
 	if ( 'blog-layout-1' === astra_addon_get_blog_layout() || astra_get_option( 'blog-equal-grid' ) ) {
 		$tablet_min_css['.ast-separate-container .ast-grid-2 > .site-main > .ast-row, .ast-separate-container .ast-grid-3 > .site-main > .ast-row, .ast-separate-container .ast-grid-4 > .site-main > .ast-row'] = array(
 			'margin-left'  => esc_attr( $margin_space ),

@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 3.3.0
  */
 class Astra_Addon_Button_Component_Dynamic_CSS {
-
 	/**
 	 * Dynamic CSS
 	 *
@@ -31,15 +30,13 @@ class Astra_Addon_Button_Component_Dynamic_CSS {
 
 		$dynamic_css = '';
 
-		$number_of_button = ( 'header' === $builder_type ) ? astra_addon_builder_helper()->num_of_header_button : astra_addon_builder_helper()->num_of_footer_button;
+		$number_of_button = 'header' === $builder_type ? astra_addon_builder_helper()->num_of_header_button : astra_addon_builder_helper()->num_of_footer_button;
 
 		for ( $index = 1; $index <= $number_of_button; $index++ ) {
 
 			if ( ! Astra_Addon_Builder_Helper::is_component_loaded( 'button-' . $index, $builder_type ) ) {
 				continue;
 			}
-			$_section = ( 'header' === $builder_type ) ? 'section-hb-button-' . $index : 'section-fb-button-' . $index;
-			$_prefix  = 'button' . $index;
 
 			$selector = '.ast-' . $builder_type . '-button-' . $index . ' .ast-custom-button';
 

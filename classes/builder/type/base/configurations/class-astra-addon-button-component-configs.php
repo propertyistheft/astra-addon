@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 3.1.0
  */
 class Astra_Addon_Button_Component_Configs {
-
 	/**
 	 * Register Button Customizer Configurations.
 	 *
@@ -86,7 +85,6 @@ class Astra_Addon_Button_Component_Configs {
 		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
 
 		return array_merge( $configurations, $html_config );
-
 	}
 }
 

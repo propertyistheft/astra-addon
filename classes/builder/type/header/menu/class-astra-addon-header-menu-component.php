@@ -20,7 +20,6 @@ define( 'ASTRA_ADDON_HEADER_MENU_URI', ASTRA_EXT_URI . 'classes/builder/type/hea
  * @since 3.3.0
  */
 class Astra_Addon_Header_Menu_Component {
-
 	/**
 	 * Constructor function that initializes required actions and hooks
 	 */
@@ -41,4 +40,3 @@ class Astra_Addon_Header_Menu_Component {
  *  Kicking this off by creating an object.
  */
 new Astra_Addon_Header_Menu_Component();
-

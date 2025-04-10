@@ -44,4 +44,3 @@ class Astra_Footer_Social_Component {
  *  Kicking this off by creating an object.
  */
 new Astra_Footer_Social_Component();
-

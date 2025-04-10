@@ -34,7 +34,7 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 
 		$generated_css = '';
 
-		$number_of_social_icons = ( 'header' === $builder_type ) ? astra_addon_builder_helper()->num_of_header_social_icons : astra_addon_builder_helper()->num_of_footer_social_icons;
+		$number_of_social_icons = 'header' === $builder_type ? astra_addon_builder_helper()->num_of_header_social_icons : astra_addon_builder_helper()->num_of_footer_social_icons;
 
 		for ( $index = 1; $index <= $number_of_social_icons; $index++ ) {
 
@@ -46,9 +46,9 @@ class Astra_Social_Icon_Component_Dynamic_CSS {
 			$icon_spacing    = astra_get_option( $builder_type . '-social-' . $index . '-space' );
 			$social_stack_on = astra_get_option( $builder_type . '-social-' . $index . '-stack', 'none' );
 
-			$icon_spacing_desktop = ( isset( $icon_spacing['desktop'] ) && '' !== $icon_spacing['desktop'] ) ? (int) $icon_spacing['desktop'] / 2 : '';
-			$icon_spacing_tablet  = ( isset( $icon_spacing['tablet'] ) && '' !== $icon_spacing['tablet'] ) ? (int) $icon_spacing['tablet'] / 2 : '';
-			$icon_spacing_mobile  = ( isset( $icon_spacing['mobile'] ) && '' !== $icon_spacing['mobile'] ) ? (int) $icon_spacing['mobile'] / 2 : '';
+			$icon_spacing_desktop = isset( $icon_spacing['desktop'] ) && '' !== $icon_spacing['desktop'] ? (int) $icon_spacing['desktop'] / 2 : '';
+			$icon_spacing_tablet  = isset( $icon_spacing['tablet'] ) && '' !== $icon_spacing['tablet'] ? (int) $icon_spacing['tablet'] / 2 : '';
+			$icon_spacing_mobile  = isset( $icon_spacing['mobile'] ) && '' !== $icon_spacing['mobile'] ? (int) $icon_spacing['mobile'] / 2 : '';
 			$alignment            = astra_get_option( 'footer-social-' . $index . '-alignment' );
 			// Catch alignment option when stacked in variable.
 			$justify_content_desktop = $alignment['desktop'] === 'right' ? 'flex-end' : ( $alignment['desktop'] === 'left' ? 'flex-start' : 'center' );

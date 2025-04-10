@@ -858,44 +858,69 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			if ( ! is_product() ) {
 				return;
 			}
-			$show_product_thumbnails_on_hover = astra_get_option( 'single-product-navigation-preview', false );
-			$previous_icon                    = '<i class="ast-icon-previous"></i>';
-			$next_icon                        = '<i class="ast-icon-next"></i>';
+			global $post;
+			// Default sorting by title (alphabetical)
+			$sort_args = array(
+				'post_type'      => 'product',
+				'posts_per_page' => -1,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			);
+		
+			// Allowing users to modify the sorting logic via a filter.
+			$sort_args = apply_filters( 'astra_woo_product_navigation_sort_args', $sort_args );
+			
+			$products      = get_posts( $sort_args );
+			$current_index = -1;
+			foreach ( $products as $index => $product ) {
+				if ( $product->ID === $post->ID ) {
+					$current_index = $index;
+					break;
+				}
+			}
+		
+			$previous_product = ( $current_index > 0 ) ? $products[ $current_index - 1 ] : null;
+			$next_product     = $current_index < count( $products ) - 1 ? $products[ $current_index + 1 ] : null;
+		
+			$previous_icon = '<i class="ast-icon-previous"></i>';
+			$next_icon     = '<i class="ast-icon-next"></i>';
 			if ( true === Astra_Icons::is_svg_icons() ) {
 				$previous_icon = '<i class="ast-product-icon-previous">' . Astra_Icons::get_icons( 'arrow' ) . '</i>';
 				$next_icon     = '<i class="ast-product-icon-next">' . Astra_Icons::get_icons( 'arrow' ) . '</i>';
 			}
+		
+			// Showing product thumbnails on hover.
+			$show_product_thumbnails_on_hover = astra_get_option( 'single-product-navigation-preview', false );
 			if ( true === $show_product_thumbnails_on_hover ) {
 				add_filter( 'previous_post_link', array( $this, 'previous_product_preview_image_insertion' ), 10, 5 );
 				add_filter( 'next_post_link', array( $this, 'next_product_preview_image_insertion' ), 10, 5 );
 			}
 
+			$prev_link = $previous_product ? '<a href="' . get_permalink( $previous_product->ID ) . '" rel="prev">' . $previous_icon . '</a>' : '<a href="#" class="ast-disable" rel="prev">' . $previous_icon . '</a>';
+			$next_link = $next_product ? '<a href="' . get_permalink( $next_product->ID ) . '" rel="next">' . $next_icon . '</a>' : '<a href="#" class="ast-disable" rel="next">' . $next_icon . '</a>';
+		
+			// Apply filters to the generated links for hover preview
+			if ( true === $show_product_thumbnails_on_hover ) {
+				if ( $previous_product ) {
+					$prev_link = apply_filters( 'previous_post_link', $prev_link, '%link', $previous_icon, $previous_product, 'previous' );
+				}
+				if ( $next_product ) {
+					$next_link = apply_filters( 'next_post_link', $next_link, '%link', $next_icon, $next_product, 'next' );
+				}
+			}
+		
 			?>
 			<div class="product-links">
 				<?php
-				$prev_args = apply_filters( 'astra_woo_product_previous_post_nav_args', $args );
-				$next_args = apply_filters( 'astra_woo_product_next_post_nav_args', $args );
-
-				if ( ! empty( $prev_args ) || ! empty( $next_args ) ) {
-					$prev_args_icon = ! empty( $prev_args['link'] ) ? $prev_args['link'] : $previous_icon;
-					$next_args_icon = ! empty( $next_args['link'] ) ? $next_args['link'] : $next_icon;
-					$prev_post_link = get_previous_post_link( $prev_args['format'], $prev_args_icon, $prev_args['in_same_term'], $prev_args['excluded_terms'], $prev_args['taxonomy'] );
-					$next_post_link = get_next_post_link( $next_args['format'], $next_args_icon, $next_args['in_same_term'], $next_args['excluded_terms'], $next_args['taxonomy'] );
-				} else {
-					$prev_post_link = get_previous_post_link( '%link', $previous_icon );
-					$next_post_link = get_next_post_link( '%link', $next_icon );
-				}
-
-				echo get_previous_post_link() ? wp_kses( $prev_post_link, Astra_Addon_Kses::astra_addon_svg_with_post_kses_protocols() ) : '<a href="#" class="ast-disable" rel="prev">' . wp_kses( $previous_icon, Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) . '</a>';
-				echo get_next_post_link() ? wp_kses( $next_post_link, Astra_Addon_Kses::astra_addon_svg_with_post_kses_protocols() ) : '<a href="#" class="ast-disable" rel="next">' . wp_kses( $next_icon, Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) . '</a>';
-
+				echo wp_kses( $prev_link, Astra_Addon_Kses::astra_addon_svg_with_post_kses_protocols() );
+				echo wp_kses( $next_link, Astra_Addon_Kses::astra_addon_svg_with_post_kses_protocols() );
 				?>
 			</div>
 			<?php
 
 			if ( true === $show_product_thumbnails_on_hover ) {
-				remove_filter( 'previous_post_link', array( $this, 'previous_product_preview_image_insertion' ), 10, 4 );
-				remove_filter( 'next_post_link', array( $this, 'next_product_preview_image_insertion' ), 10, 4 );
+				remove_filter( 'previous_post_link', array( $this, 'previous_product_preview_image_insertion' ), 10, 5 );
+				remove_filter( 'next_post_link', array( $this, 'next_product_preview_image_insertion' ), 10, 5 );
 			}
 		}
 

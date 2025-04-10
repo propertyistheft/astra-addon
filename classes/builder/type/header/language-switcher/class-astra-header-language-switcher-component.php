@@ -44,4 +44,3 @@ class Astra_Header_Language_Switcher_Component {
  *  Kicking this off by creating an object.
  */
 new Astra_Header_Language_Switcher_Component();
-

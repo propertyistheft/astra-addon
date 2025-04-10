@@ -22,7 +22,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  * @since 3.1.0
  */
 class Astra_Addon_Header_Button_Component_Configs extends Astra_Customizer_Config_Base {
-
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
@@ -33,9 +32,7 @@ class Astra_Addon_Header_Button_Component_Configs extends Astra_Customizer_Confi
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$configurations = Astra_Addon_Button_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-button-' );
-
-		return $configurations;
+		return Astra_Addon_Button_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-button-' );
 	}
 }
 

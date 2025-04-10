@@ -9,7 +9,7 @@
  * @since       Astra 1.0
  */
 
-if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
+if ( ! class_exists( 'Astra_Admin_Helper' ) ) {
 
 	/**
 	 * Admin Helper
@@ -25,9 +25,9 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 		 * @since 1.0.0
 		 * @since 1.5.1 Added $default parameter which can be passed to get_option|get_site_option functions.
 		 *
-		 * @param  string  $key     The option key.
-		 * @param  boolean $network Whether to allow the network admin setting to be overridden on subsites.
-		 * @param mixed   $default Default value to be passed to get_option|get_site_option functions.
+		 * @param  string $key     The option key.
+		 * @param  bool   $network Whether to allow the network admin setting to be overridden on subsites.
+		 * @param mixed  $default Default value to be passed to get_option|get_site_option functions.
 		 * @return string           Return the option value
 		 */
 		public static function get_admin_settings_option( $key, $network = false, $default = false ) {
@@ -58,7 +58,6 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 			} else {
 				update_option( $key, $value );
 			}
-
 		}
 
 		/**
@@ -82,5 +81,4 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 		}
 	}
 
-
-endif;
+}

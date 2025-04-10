@@ -15,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Class Astra_Addon_Base_Dynamic_CSS.
  */
 class Astra_Addon_Base_Dynamic_CSS {
-
 	/**
 	 * Dynamic CSS
 	 *
@@ -35,15 +34,15 @@ class Astra_Addon_Base_Dynamic_CSS {
 		$is_shadow        = isset( $box_shadow );
 
 		// Box Shadow.
-		$box_shadow_x = ( $is_shadow && isset( $box_shadow['x'] ) && '' !== $box_shadow['x'] ) ? ( $box_shadow['x'] . 'px ' ) : '0px ';
+		$box_shadow_x = $is_shadow && isset( $box_shadow['x'] ) && '' !== $box_shadow['x'] ? $box_shadow['x'] . 'px ' : '0px ';
 
-		$box_shadow_y = ( $is_shadow && isset( $box_shadow['y'] ) && '' !== $box_shadow['y'] ) ? ( $box_shadow['y'] . 'px ' ) : '0px ';
+		$box_shadow_y = $is_shadow && isset( $box_shadow['y'] ) && '' !== $box_shadow['y'] ? $box_shadow['y'] . 'px ' : '0px ';
 
-		$box_shadow_blur = ( $is_shadow && isset( $box_shadow['blur'] ) && '' !== $box_shadow['blur'] ) ? ( $box_shadow['blur'] . 'px ' ) : '0px ';
+		$box_shadow_blur = $is_shadow && isset( $box_shadow['blur'] ) && '' !== $box_shadow['blur'] ? $box_shadow['blur'] . 'px ' : '0px ';
 
-		$box_shadow_spread = ( $is_shadow && isset( $box_shadow['spread'] ) && '' !== $box_shadow['spread'] ) ? ( $box_shadow['spread'] . 'px ' ) : '0px ';
+		$box_shadow_spread = $is_shadow && isset( $box_shadow['spread'] ) && '' !== $box_shadow['spread'] ? $box_shadow['spread'] . 'px ' : '0px ';
 
-		$shadow_position = ( $is_shadow && isset( $position ) && 'inset' === $position ) ? ' inset' : '';
+		$shadow_position = $is_shadow && isset( $position ) && 'inset' === $position ? ' inset' : '';
 
 		$shadow_color = ( isset( $box_shadow_color ) ? $box_shadow_color : 'rgba(0,0,0,0.5)' );
 
@@ -55,9 +54,7 @@ class Astra_Addon_Base_Dynamic_CSS {
 		);
 
 		/* Parse CSS from array() */
-		$dynamic_css .= astra_parse_css( $css_output );
-
-		return $dynamic_css;
+		return $dynamic_css . astra_parse_css( $css_output );
 	}
 }
 

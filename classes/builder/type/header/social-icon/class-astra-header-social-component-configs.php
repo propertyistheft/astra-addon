@@ -36,9 +36,7 @@ class Astra_Header_Social_Component_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$configurations = Astra_Social_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-social-icons-' );
-
-		return $configurations;
+		return Astra_Social_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-social-icons-' );
 	}
 }
 

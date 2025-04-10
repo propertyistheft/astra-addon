@@ -18,7 +18,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
 		// @codingStandardsIgnoreEnd
 
-
 		/**
 		 * Instance
 		 *
@@ -189,7 +188,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				foreach ( $taxonomies as $taxonomy ) {
 
 					// skip post format taxonomy.
-					if ( 'post_format' == $taxonomy->name ) {
+					if ( 'post_format' === $taxonomy->name ) {
 						continue;
 					}
 
@@ -300,9 +299,9 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				if ( ! is_wp_error( $term ) ) {
 					$term_taxonomy = ucfirst( str_replace( '_', ' ', $term->taxonomy ) );
 					return $term->name . ' - ' . $term_taxonomy;
-				} else {
-					return '';
 				}
+
+				return '';
 			}
 
 			return $key;
@@ -322,7 +321,8 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 			if ( isset( $user_selection['basic']['value'][ $key ] ) ) {
 				return $user_selection['basic']['value'][ $key ];
-			} elseif ( $user_selection['advanced']['value'][ $key ] ) {
+			}
+			if ( $user_selection['advanced']['value'][ $key ] ) {
 				return $user_selection['advanced']['value'][ $key ];
 			}
 			return $key;
@@ -372,7 +372,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 					while ( $query->have_posts() ) {
 						$query->the_post();
 						$title  = get_the_title();
-						$title .= ( 0 != $query->post->post_parent ) ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
+						$title .= 0 != $query->post->post_parent ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
 						$id     = get_the_id();
 						$data[] = array(
 							'id'   => 'post-' . $id,
@@ -418,9 +418,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				if ( ! empty( $terms ) ) {
 
 					foreach ( $terms as $term ) {
-
-						$term_taxonomy_name = ucfirst( str_replace( '_', ' ', $taxonomy->name ) );
-
 						$data[] = array(
 							'id'   => 'tax-' . $term->term_id,
 							'text' => $term->name . ' archive page',
@@ -430,7 +427,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 							'id'   => 'tax-' . $term->term_id . '-single-' . $taxonomy->name,
 							'text' => 'All singulars from ' . $term->name,
 						);
-
 					}
 				}
 
@@ -491,7 +487,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 					while ( $query->have_posts() ) {
 						$query->the_post();
 						$title  = get_the_title();
-						$title .= ( 0 != $query->post->post_parent ) ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
+						$title .= 0 != $query->post->post_parent ? ' (' . get_the_title( $query->post->post_parent ) . ')' : '';
 						$id     = get_the_id();
 						$data[] = array(
 							'id'   => $post_type . '__' . $id,
@@ -537,9 +533,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				if ( ! empty( $terms ) ) {
 
 					foreach ( $terms as $term ) {
-
-						$term_taxonomy_name = ucfirst( str_replace( '_', ' ', $taxonomy->name ) );
-
 						$data[] = array(
 							'id'   => 'tax-' . $term->term_id,
 							'text' => $term->name . ' archive page',
@@ -549,7 +542,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 							'id'   => 'tax-' . $term->term_id . '-single-' . $taxonomy->name,
 							'text' => 'All singulars from ' . $term->name,
 						);
-
 					}
 				}
 
@@ -584,11 +576,11 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$search = array();
 
 				foreach ( (array) $q['search_terms'] as $term ) {
-					$search[] = $wpdb->prepare( "$wpdb->posts.post_title LIKE %s", $n . $wpdb->esc_like( $term ) . $n );
+					$search[] = $wpdb->prepare( "{$wpdb->posts}.post_title LIKE %s", $n . $wpdb->esc_like( $term ) . $n );
 				}
 
 				if ( ! is_user_logged_in() ) {
-					$search[] = "$wpdb->posts.post_password = ''";
+					$search[] = "{$wpdb->posts}.post_password = ''";
 				}
 
 				$search = ' AND ' . implode( ' AND ', $search );
@@ -794,8 +786,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 */
 		public static function target_rule_settings_field( $name, $settings, $value ) {
 			$input_name     = $name;
-			$type           = isset( $settings['type'] ) ? $settings['type'] : 'target_rule';
-			$class          = isset( $settings['class'] ) ? $settings['class'] : '';
 			$rule_type      = isset( $settings['rule_type'] ) ? $settings['rule_type'] : 'target_rule';
 			$add_rule_label = isset( $settings['add_rule_label'] ) ? $settings['add_rule_label'] : __( 'Add Rule', 'astra-addon' );
 			$saved_values   = $value;
@@ -815,7 +805,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			$output .= '<select name="' . esc_attr( $input_name ) . '[rule][{{data.id}}]" class="target_rule-condition form-control ast-input">';
 			$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
-			foreach ( $selection_options as $group => $group_data ) {
+			foreach ( $selection_options as $group_data ) {
 
 				$output .= '<optgroup label="' . $group_data['label'] . '">';
 				foreach ( $group_data['value'] as $opt_key => $opt_value ) {
@@ -907,7 +897,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$post_option[ $post_name . '|all' ] = $all_posts;
 			}
 
-			if ( 'pages' != $post_key && 'single' !== $consider_type ) {
+			if ( 'pages' !== $post_key && 'single' !== $consider_type ) {
 				/* translators: %s post label */
 				$all_archive                                = sprintf( __( 'All %s Archive', 'astra-addon' ), $post_label );
 				$post_option[ $post_name . '|all|archive' ] = $all_archive;
@@ -925,6 +915,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				}
 			}
 
+			$post_output             = array();
 			$post_output['post_key'] = $post_key;
 			$post_output['label']    = $post_label;
 			$post_output['value']    = $post_option;
@@ -965,7 +956,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$output .= '<select name="' . esc_attr( $input_name ) . '[rule][' . $index . ']" class="target_rule-condition form-control ast-input">';
 				$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
-				foreach ( $selection_options as $group => $group_data ) {
+				foreach ( $selection_options as $group_data ) {
 
 					$output .= '<optgroup label="' . $group_data['label'] . '">';
 					foreach ( $group_data['value'] as $opt_key => $opt_value ) {
@@ -990,9 +981,9 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 				$output .= '<div class="target_rule-specific-page-wrap" style="display:none">';
 				$output .= '<select name="' . esc_attr( $input_name ) . '[specific][]" class="target-rule-select2 target_rule-specific-page form-control ast-input " multiple="multiple">';
 
-				if ( 'specifics' == $data && isset( $saved_values['specific'] ) && null != $saved_values['specific'] && is_array( $saved_values['specific'] ) ) {
+				if ( 'specifics' === $data && isset( $saved_values['specific'] ) && null != $saved_values['specific'] && is_array( $saved_values['specific'] ) ) {
 
-					foreach ( $saved_values['specific'] as $data_key => $sel_value ) {
+					foreach ( $saved_values['specific'] as $sel_value ) {
 						// posts.
 						if ( strpos( $sel_value, 'post-' ) !== false ) {
 							$post_id    = (int) str_replace( 'post-', '', $sel_value );
@@ -1034,7 +1025,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			$output .= '<a href="#" class="button" data-rule-id="' . absint( $index ) . '" data-rule-type="' . $type . '">' . $add_rule_label . '</a>';
 			$output .= '</div>';
 
-			if ( 'display' == $type ) {
+			if ( 'display' === $type ) {
 				/* Add new rule */
 				$output .= '<div class="target_rule-add-exclusion-rule">';
 				$output .= '<a href="#" class="button">' . __( 'Add Exclusion Rule', 'astra-addon' ) . '</a>';
@@ -1051,10 +1042,10 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 * @param int    $layout_id Layout ID.
 		 * @param string $option Option prefix.
 		 *
-		 * @return int|boolean If the current layout is to be displayed it will be returned back else a boolean will be passed.
+		 * @return int|bool If the current layout is to be displayed it will be returned back else a boolean will be passed.
 		 */
 		public function get_current_layout( $layout_id, $option ) {
-			$post_id        = ( ! is_404() && ! is_search() && ! is_archive() && ! is_home() ) ? get_the_id() : false;
+			$post_id        = ! is_404() && ! is_search() && ! is_archive() && ! is_home() ? get_the_id() : false;
 			$current_layout = false;
 			$is_exclude     = false;
 			$is_user_role   = false;
@@ -1077,9 +1068,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			}
 
 			// filter target page settings.
-			$current_layout = apply_filters( 'astra_addon_target_page_settings', $current_layout, $layout_id );
-
-			return $current_layout;
+			return apply_filters( 'astra_addon_target_page_settings', $current_layout, $layout_id );
 		}
 
 		/**
@@ -1088,7 +1077,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 * @param  int   $post_id Current post ID.
 		 * @param  array $rules   Array of rules Display on | Exclude on.
 		 *
-		 * @return boolean      Returns true or false depending on if the $rules match for the current page and the layout is to be displayed.
+		 * @return bool      Returns true or false depending on if the $rules match for the current page and the layout is to be displayed.
 		 */
 		public function parse_layout_display_condition( $post_id, $rules ) {
 
@@ -1096,7 +1085,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			$current_post_type = get_post_type( $post_id );
 
 			if ( isset( $rules['rule'] ) && is_array( $rules['rule'] ) && ! empty( $rules['rule'] ) ) {
-				foreach ( $rules['rule'] as $key => $rule ) {
+				foreach ( $rules['rule'] as $rule ) {
 
 					if ( ! empty( $rule ) ) {
 
@@ -1185,9 +1174,9 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 										$current_post_type = get_post_type();
 										if ( $current_post_type == $post_type ) {
-											if ( 'archive' == $archieve_type ) {
+											if ( 'archive' === $archieve_type ) {
 												$display = true;
-											} elseif ( 'taxarchive' == $archieve_type ) {
+											} elseif ( 'taxarchive' === $archieve_type ) {
 
 												$obj              = get_queried_object();
 												$current_taxonomy = '';
@@ -1212,11 +1201,11 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 										$specific_post_type = isset( $specific_data[0] ) ? $specific_data[0] : false;
 										$specific_post_id   = isset( $specific_data[1] ) ? $specific_data[1] : false;
-										if ( 'post' == $specific_post_type ) {
+										if ( 'post' === $specific_post_type ) {
 											if ( $specific_post_id == $post_id ) {
 												$display = true;
 											}
-										} elseif ( isset( $specific_data[2] ) && ( 'single' == $specific_data[2] ) && 'tax' == $specific_post_type ) {
+										} elseif ( isset( $specific_data[2] ) && ( 'single' === $specific_data[2] ) && 'tax' === $specific_post_type ) {
 
 											if ( is_singular() ) {
 												$term_details = get_term( $specific_post_id );
@@ -1229,9 +1218,9 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 													}
 												}
 											}
-										} elseif ( 'tax' == $specific_post_type ) {
+										} elseif ( 'tax' === $specific_post_type ) {
 											$tax_id = get_queried_object_id();
-											if ( $specific_post_id == $tax_id ) {
+											if ( $specific_post_id === $tax_id ) {
 												$display = true;
 											}
 										}
@@ -1263,9 +1252,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 */
 		public static function target_user_role_settings_field( $name, $settings, $value ) {
 			$input_name     = $name;
-			$type           = isset( $settings['type'] ) ? $settings['type'] : 'target_rule';
-			$class          = isset( $settings['class'] ) ? $settings['class'] : '';
-			$rule_type      = isset( $settings['rule_type'] ) ? $settings['rule_type'] : 'target_rule';
 			$add_rule_label = isset( $settings['add_rule_label'] ) ? $settings['add_rule_label'] : __( 'Add Rule', 'astra-addon' );
 			$saved_values   = $value;
 			$output         = '';
@@ -1284,7 +1270,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						$output .= '<select name="' . esc_attr( $input_name ) . '[{{data.id}}]" class="user_role-condition form-control ast-input">';
 						$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
-			foreach ( $selection_options as $group => $group_data ) {
+			foreach ( $selection_options as $group_data ) {
 
 				$output .= '<optgroup label="' . $group_data['label'] . '">';
 				foreach ( $group_data['value'] as $opt_key => $opt_value ) {
@@ -1316,7 +1302,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						$output .= '<select name="' . esc_attr( $input_name ) . '[' . $index . ']" class="user_role-condition form-control ast-input">';
 						$output .= '<option value="">' . __( 'Select', 'astra-addon' ) . '</option>';
 
-				foreach ( $selection_options as $group => $group_data ) {
+				foreach ( $selection_options as $group_data ) {
 
 					$output .= '<optgroup label="' . $group_data['label'] . '">';
 					foreach ( $group_data['value'] as $opt_key => $opt_value ) {
@@ -1384,7 +1370,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 * @param  int   $post_id Post ID.
 		 * @param  Array $rules   Current user rules.
 		 *
-		 * @return boolean  True = user condition passes. False = User condition does not pass.
+		 * @return bool  True = user condition passes. False = User condition does not pass.
 		 */
 		public function parse_user_role_condition( $post_id, $rules ) {
 
@@ -1393,7 +1379,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			if ( is_array( $rules ) && ! empty( $rules ) ) {
 				$show_popup = false;
 
-				foreach ( $rules as $i => $rule ) {
+				foreach ( $rules as $rule ) {
 
 					switch ( $rule ) {
 						case '':
@@ -1557,15 +1543,15 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						$meta_args .= " OR pm.meta_value LIKE '%\"basic-archives\"%'";
 						$meta_args .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all|archive\"%'";
 
-						if ( 'is_tax' == $current_page_type && ( is_category() || is_tag() || is_tax() ) ) {
+						if ( 'is_tax' === $current_page_type && ( is_category() || is_tag() || is_tax() ) ) {
 
 							if ( is_object( $q_obj ) ) {
 								$meta_args .= " OR pm.meta_value LIKE '%\"{$current_post_type}|all|taxarchive|{$q_obj->taxonomy}\"%'";
 								$meta_args .= " OR pm.meta_value LIKE '%\"tax-{$q_obj->term_id}\"%'";
 							}
-						} elseif ( 'is_date' == $current_page_type ) {
+						} elseif ( 'is_date' === $current_page_type ) {
 							$meta_args .= " OR pm.meta_value LIKE '%\"special-date\"%'";
-						} elseif ( 'is_author' == $current_page_type ) {
+						} elseif ( 'is_author' === $current_page_type ) {
 							$meta_args .= " OR pm.meta_value LIKE '%\"special-author\"%'";
 						}
 						break;
@@ -1594,7 +1580,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 							$taxonomies = get_object_taxonomies( $q_obj->post_type );
 							$terms      = wp_get_post_terms( $q_obj->ID, $taxonomies );
 
-							foreach ( $terms as $key => $term ) {
+							foreach ( $terms as $term ) {
 								$meta_args .= " OR pm.meta_value LIKE '%\"tax-{$term->term_id}-single-{$term->taxonomy}\"%'";
 							}
 						}
@@ -1716,15 +1702,15 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 				if ( is_array( $location_rules ) && isset( $location_rules['rule'] ) ) {
 
-					foreach ( $location_rules['rule'] as $key => $rule ) {
+					foreach ( $location_rules['rule'] as $rule ) {
 
 						if ( ! isset( $all_rules[ $rule ] ) ) {
 							$all_rules[ $rule ] = array();
 						}
 
-						if ( 'specifics' == $rule && isset( $location_rules['specific'] ) && is_array( $location_rules['specific'] ) ) {
+						if ( 'specifics' === $rule && isset( $location_rules['specific'] ) && is_array( $location_rules['specific'] ) ) {
 
-							foreach ( $location_rules['specific'] as $s_index => $s_value ) {
+							foreach ( $location_rules['specific'] as $s_value ) {
 
 								$all_rules[ $rule ][ $s_value ][ $header->ID ] = array(
 									'ID'   => $header->ID,
@@ -1747,7 +1733,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 			if ( is_array( $current_post_data ) && isset( $current_post_data['rule'] ) ) {
 
-				foreach ( $current_post_data['rule'] as $c_key => $c_rule ) {
+				foreach ( $current_post_data['rule'] as $c_rule ) {
 
 					if ( ! isset( $all_rules[ $c_rule ] ) ) {
 						continue;
@@ -1755,7 +1741,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 					if ( 'specifics' === $c_rule ) {
 
-						foreach ( $current_post_data['specific'] as $s_index => $s_id ) {
+						foreach ( $current_post_data['specific'] as $s_id ) {
 							if ( ! isset( $all_rules[ $c_rule ][ $s_id ] ) ) {
 								continue;
 							}
@@ -1786,7 +1772,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 			if ( ! empty( $already_set_rule ) ) {
 				add_action(
 					'admin_notices',
-					function() use ( $already_set_rule ) {
+					static function() use ( $already_set_rule ) {
 
 						$rule_set_titles = '<strong>' . implode( ',', $already_set_rule ) . '</strong>';
 
@@ -1796,7 +1782,6 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 						echo '<div class="notice notice-warning is-dismissible">';
 						echo '<p>' . wp_kses( $notice, array( 'strong' => true ) ) . '</p>';
 						echo '</div>';
-
 					}
 				);
 			}
@@ -1812,13 +1797,13 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 		 * @return false | object
 		 */
 		public static function get_meta_option_post( $post_type, $option ) {
-			$page_meta = ( isset( $option['page_meta'] ) && '' != $option['page_meta'] ) ? $option['page_meta'] : false;
+			$page_meta = isset( $option['page_meta'] ) && '' != $option['page_meta'] ? $option['page_meta'] : false;
 
 			if ( false !== $page_meta ) {
 				$current_post_id = isset( $option['current_post_id'] ) ? $option['current_post_id'] : false;
 				$meta_id         = get_post_meta( $current_post_id, $option['page_meta'], true );
 
-				if ( false !== $meta_id && '' != $meta_id ) {
+				if ( false != $meta_id && '' != $meta_id ) {
 					self::$current_page_data[ $post_type ][ $meta_id ] = array(
 						'id'       => $meta_id,
 						'location' => '',
@@ -1854,7 +1839,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 					'' => __( 'Select', 'astra-addon' ),
 				);
 
-				foreach ( $all_headers as $i => $data ) {
+				foreach ( $all_headers as $data ) {
 
 					$headers[ $data->ID ] = $data->post_title;
 				}

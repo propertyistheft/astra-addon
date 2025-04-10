@@ -16,7 +16,6 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 	 * Class Astra_Addon_Builder_UI_Controller.
 	 */
 	final class Astra_Addon_Builder_UI_Controller {
-
 		/**
 		 * Astra Flags SVGs.
 		 *
@@ -108,7 +107,7 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 										<?php } ?>
 									</a>
 								</li>
-								<?php } ?>
+							<?php } ?>
 							</ul></nav>
 							<?php
 						}
@@ -158,7 +157,7 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 								foreach ( $items as $item ) {
 									if ( $item['enabled'] ) {
 
-										$link = ( '' !== $item['url'] ) ? $item['url'] : '';
+										$link = '' !== $item['url'] ? $item['url'] : '';
 										?>
 										<li class="ast-builder-language-switcher-menu-item-<?php echo esc_attr( $builder_type ); ?>">
 											<a href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $item['label'] ); ?>" class="ast-builder-language-switcher-item">

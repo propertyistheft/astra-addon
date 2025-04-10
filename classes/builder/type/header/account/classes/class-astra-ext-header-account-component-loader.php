@@ -48,6 +48,6 @@ class Astra_Ext_Header_Account_Component_Loader {
 }
 
 /**
-*  Kicking this off by creating the object of the class.
-*/
+ *  Kicking this off by creating the object of the class.
+ */
 new Astra_Ext_Header_Account_Component_Loader();

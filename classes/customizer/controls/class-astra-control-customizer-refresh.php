@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Field overrides.
  */
-if ( ! class_exists( 'Astra_Control_Customizer_Refresh' ) && class_exists( 'WP_Customize_Control' ) ) :
+if ( ! class_exists( 'Astra_Control_Customizer_Refresh' ) && class_exists( 'WP_Customize_Control' ) ) {
 
 	/**
 	 * Color control (alpha).
@@ -69,7 +69,8 @@ if ( ! class_exists( 'Astra_Control_Customizer_Refresh' ) && class_exists( 'WP_C
 		 *
 		 * @see WP_Customize_Control::render_content()
 		 */
-		protected function render_content() {}
+		protected function render_content() {
+		}
 	}
 
-endif;
+}

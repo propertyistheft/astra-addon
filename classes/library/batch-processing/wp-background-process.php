@@ -14,7 +14,6 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 	 * @extends WP_Async_Request
 	 */
 	abstract class WP_Background_Process extends WP_Async_Request {
-
 		/**
 		 * Action
 		 *
@@ -194,7 +193,7 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 			$key = $wpdb->esc_like( $this->identifier . '_batch_' ) . '%';
 			$count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$wpdb->ast_db_table} WHERE {$wpdb->ast_db_column} LIKE %s ", $key ) );
 
-			return ( $count > 0 ) ? false : true;
+			return $count > 0 ? false : true;
 		}
 
 		/**
@@ -222,7 +221,7 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 		protected function lock_process() {
 			$this->start_time = time(); // Set start time of current process.
 
-			$lock_duration = ( property_exists( $this, 'queue_lock_time' ) ) ? $this->queue_lock_time : 60; // 1 minute
+			$lock_duration = property_exists( $this, 'queue_lock_time' ) ? $this->queue_lock_time : 60; // 1 minute
 			$lock_duration = apply_filters( $this->identifier . '_queue_lock_time', $lock_duration );
 
 			set_site_transient( $this->identifier . '_process_lock', microtime(), $lock_duration );
@@ -469,7 +468,6 @@ if ( ! class_exists( 'WP_Background_Process' ) ) {
 
 				wp_clear_scheduled_hook( $this->cron_hook_identifier );
 			}
-
 		}
 
 		/**

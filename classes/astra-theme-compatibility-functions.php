@@ -5,7 +5,7 @@
  * @package Astra Addon
  */
 
-if ( ! function_exists( 'astra_get_theme_name' ) ) :
+if ( ! function_exists( 'astra_get_theme_name' ) ) {
 
 	/**
 	 * Get theme name.
@@ -18,4 +18,4 @@ if ( ! function_exists( 'astra_get_theme_name' ) ) :
 
 		return apply_filters( 'astra_theme_name', $theme_name ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
-endif;
+}

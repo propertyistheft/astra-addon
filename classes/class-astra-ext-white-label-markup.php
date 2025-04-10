@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 			$current_screen = get_current_screen();
 
 			if ( 'toplevel_page_' . $this->astra_whitelabelled_slug( 'astra' ) === $current_screen->base ) {
-				$classes = $classes . ' toplevel_page_astra';
+				$classes .= ' toplevel_page_astra';
 			}
 
 			return $classes;
@@ -297,7 +297,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 					$themes[ $astra_key ]['name'] = self::get_whitelabel_string( 'astra', 'name', false );
 
 					foreach ( $themes as $key => $theme ) {
-						if ( isset( $theme['parent'] ) && 'Astra' == $theme['parent'] ) {
+						if ( isset( $theme['parent'] ) && 'Astra' === $theme['parent'] ) {
 							$themes[ $key ]['parent'] = self::get_whitelabel_string( 'astra', 'name', false );
 						}
 					}
@@ -308,7 +308,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				}
 
 				if ( false !== self::get_whitelabel_string( 'astra-agency', 'author', false ) ) {
-					$author_url                           = ( '' === self::get_whitelabel_string( 'astra-agency', 'author_url', '' ) ) ? '#' : self::get_whitelabel_string( 'astra-agency', 'author_url', '' );
+					$author_url                           = '' === self::get_whitelabel_string( 'astra-agency', 'author_url', '' ) ? '#' : self::get_whitelabel_string( 'astra-agency', 'author_url', '' );
 					$themes[ $astra_key ]['author']       = self::get_whitelabel_string( 'astra-agency', 'author', false );
 					$themes[ $astra_key ]['authorAndUri'] = '<a href="' . esc_url( $author_url ) . '">' . self::get_whitelabel_string( 'astra-agency', 'author', false ) . '</a>';
 				}
@@ -361,7 +361,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 					$network_theme_data['Name'] = self::get_whitelabel_string( 'astra', 'name', false );
 
 					foreach ( $themes as $theme_key => $theme ) {
-						if ( isset( $theme['parent'] ) && 'Astra' == $theme['parent'] ) {
+						if ( isset( $theme['parent'] ) && 'Astra' === $theme['parent'] ) {
 							$themes[ $theme_key ]['parent'] = self::get_whitelabel_string( 'astra', 'name', false );
 						}
 					}
@@ -372,7 +372,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				}
 
 				if ( false !== self::get_whitelabel_string( 'astra-agency', 'author', false ) ) {
-					$author_url                      = ( '' === self::get_whitelabel_string( 'astra-agency', 'author_url', '' ) ) ? '#' : self::get_whitelabel_string( 'astra-agency', 'author_url', '' );
+					$author_url                      = '' === self::get_whitelabel_string( 'astra-agency', 'author_url', '' ) ? '#' : self::get_whitelabel_string( 'astra-agency', 'author_url', '' );
 					$network_theme_data['Author']    = self::get_whitelabel_string( 'astra-agency', 'author', false );
 					$network_theme_data['AuthorURI'] = $author_url;
 					$network_theme_data['ThemeURI']  = $author_url;
@@ -406,7 +406,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		 * @return array
 		 */
 		public function admin_dashboard_page( $content ) {
-			if ( is_admin() && 'Astra' == wp_get_theme() && false !== self::get_whitelabel_string( 'astra', 'name', false ) ) {
+			if ( is_admin() && 'Astra' === wp_get_theme() && false !== self::get_whitelabel_string( 'astra', 'name', false ) ) {
 				return sprintf( $content, get_bloginfo( 'version', 'display' ), '<a href="themes.php">' . self::get_whitelabel_string( 'astra', 'name', false ) . '</a>' );
 			}
 
@@ -423,7 +423,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		 * @return string
 		 */
 		public function theme_gettext( $text, $original, $domain ) {
-			if ( 'Astra' == $original ) {
+			if ( 'Astra' === $original ) {
 				$text = self::get_whitelabel_string( 'astra', 'name', false );
 			}
 
@@ -440,7 +440,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		 * @return string
 		 */
 		public function plugin_gettext( $text, $original, $domain ) {
-			if ( 'Astra Pro' == $original ) {
+			if ( 'Astra Pro' === $original ) {
 				$text = self::astra_pro_whitelabel_name();
 			}
 
@@ -456,7 +456,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 		 */
 		public function theme_customizer( $instance ) {
 
-			if ( 'Astra' == $instance->title ) {
+			if ( 'Astra' === $instance->title ) {
 
 				if ( false !== self::get_whitelabel_string( 'astra', 'name', false ) ) {
 					$instance->title = self::get_whitelabel_string( 'astra', 'name', false );
@@ -715,7 +715,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 				</style>';
 			}
 
-			if ( 'update-core.php' == $pagenow ) {
+			if ( 'update-core.php' === $pagenow ) {
 				$default_screenshot = sprintf( '%s/astra/screenshot.jpg?ver=%s', get_theme_root_uri(), ASTRA_THEME_VERSION );
 				$branded_screenshot = self::get_whitelabel_string( 'astra', 'screenshot', false );
 
@@ -726,7 +726,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 					wp_add_inline_script(
 						'updates',
 						"
-						var _ast_default_ss = '$default_screenshot', _ast_branded_ss = '$branded_screenshot';
+						var _ast_default_ss = '{$default_screenshot}', _ast_branded_ss = '{$branded_screenshot}';
 
 						document.querySelectorAll( '#update-themes-table .plugin-title .updates-table-screenshot' ).forEach(function(theme) {
 							if( _ast_default_ss === theme.src ) {
@@ -740,7 +740,7 @@ if ( ! class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
 					wp_add_inline_script(
 						'updates',
 						"
-						var _ast_default_name = '$default_name', _ast_branded_name = '" . esc_js( $branded_name ) . "';
+						var _ast_default_name = '{$default_name}', _ast_branded_name = '" . esc_js( $branded_name ) . "';
 
 						document.querySelectorAll( '#update-themes-table .plugin-title strong' )
 						.forEach(function(plugin) {

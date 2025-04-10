@@ -9,7 +9,6 @@
  * Class Astra_Addon_Filesystem.
  */
 class Astra_Addon_Filesystem {
-
 	/**
 	 * Store instance of Astra_Addon_Filesystem
 	 *
@@ -84,9 +83,11 @@ class Astra_Addon_Filesystem {
 	public function is_ssl() {
 		if ( is_ssl() ) {
 			return true;
-		} elseif ( 0 === stripos( get_option( 'siteurl' ), 'https://' ) ) {
+		}
+		if ( 0 === stripos( get_option( 'siteurl' ), 'https://' ) ) {
 			return true;
-		} elseif ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' == $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+		}
+		if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
 			return true;
 		}
 
@@ -98,7 +99,7 @@ class Astra_Addon_Filesystem {
 	 *
 	 * @since 2.6.4
 	 * @param String $dir directory path to be created.
-	 * @return boolean True of the directory is created. False if directory is not created.
+	 * @return bool True of the directory is created. False if directory is not created.
 	 */
 	public function maybe_create_uploads_dir( $dir ) {
 		// Create the upload dir if it doesn't exist.
@@ -123,7 +124,7 @@ class Astra_Addon_Filesystem {
 	 * Update Filesystem status.
 	 *
 	 * @since 2.6.4
-	 * @param boolean $status status for filesystem access.
+	 * @param bool $status status for filesystem access.
 	 * @return void
 	 */
 	public function update_filesystem_access_status( $status ) {
@@ -134,7 +135,7 @@ class Astra_Addon_Filesystem {
 	 * Check if filesystem has write access.
 	 *
 	 * @since 2.6.4
-	 * @return boolean True if filesystem has access, false if does not have access.
+	 * @return bool True if filesystem has access, false if does not have access.
 	 */
 	public function can_access_filesystem() {
 		return (bool) astra_get_option( 'file-write-access', true );
@@ -179,9 +180,9 @@ class Astra_Addon_Filesystem {
 	 * Delete file from the filesystem.
 	 *
 	 * @since 2.6.4
-	 * @param String  $file Path to the file or directory.
-	 * @param boolean $recursive If set to true, changes file group recursively.
-	 * @param boolean $type Type of resource. 'f' for file, 'd' for directory.
+	 * @param String $file Path to the file or directory.
+	 * @param bool   $recursive If set to true, changes file group recursively.
+	 * @param bool   $type Type of resource. 'f' for file, 'd' for directory.
 	 * @return void
 	 */
 	public function delete( $file, $recursive = false, $type = false ) {

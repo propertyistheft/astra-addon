@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'astra_pagination_infinite' ) ) :
+if ( ! function_exists( 'astra_pagination_infinite' ) ) {
 
 	/**
 	 * Deprecating astra_pagination_infinite function.
@@ -22,10 +22,9 @@ if ( ! function_exists( 'astra_pagination_infinite' ) ) :
 	function astra_pagination_infinite() {
 		_deprecated_function( __FUNCTION__, '3.5.7' );
 	}
+}
 
-endif;
-
-if ( ! function_exists( 'astra_shop_pagination_infinite' ) ) :
+if ( ! function_exists( 'astra_shop_pagination_infinite' ) ) {
 
 	/**
 	 * Deprecating astra_shop_pagination_infinite function.
@@ -36,10 +35,9 @@ if ( ! function_exists( 'astra_shop_pagination_infinite' ) ) :
 	function astra_shop_pagination_infinite() {
 		_deprecated_function( __FUNCTION__, '3.5.7' );
 	}
+}
 
-endif;
-
-if ( ! function_exists( 'astra_addon_clear_assets_cache' ) ) :
+if ( ! function_exists( 'astra_addon_clear_assets_cache' ) ) {
 
 	/**
 	 * Deprecating astra_addon_clear_assets_cache function.
@@ -50,8 +48,7 @@ if ( ! function_exists( 'astra_addon_clear_assets_cache' ) ) :
 	function astra_addon_clear_assets_cache() {
 		_deprecated_function( __FUNCTION__, '3.5.9' );
 	}
-
-endif;
+}
 
 /**
  * Deprecating astra_get_supported_posts function.
@@ -60,7 +57,7 @@ endif;
  *
  * @since 3.6.2
  * @deprecated 3.6.2 Use astra_addon_get_supported_posts()
- * @param  boolean $with_tax Post has taxonomy.
+ * @param  bool $with_tax Post has taxonomy.
  *
  * @see astra_addon_get_supported_posts()
  *
@@ -100,7 +97,7 @@ function astra_rgba2hex( $string, $include_alpha = false ) {
  *
  * @see astra_addon_check_is_hex()
  *
- * @return boolean          Return true | false.
+ * @return bool          Return true | false.
  */
 function astra_check_is_hex( $string ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 	_deprecated_function( __FUNCTION__, '3.6.2', 'astra_addon_check_is_hex()' );
@@ -249,7 +246,7 @@ function astra_breadcrumb_shortcode() { // phpcs:ignore WordPress.NamingConventi
  *
  * @see astra_addon_get_template()
  *
- * @return callback
+ * @return callable
  */
 function astra_get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 	_deprecated_function( __FUNCTION__, '3.6.2', 'astra_addon_get_template()' );
@@ -346,7 +343,6 @@ function astra_ext_header_sections_colors_dynamic_css( $dynamic_css, $dynamic_cs
 	_deprecated_function( __FUNCTION__, '3.6.2', 'astra_addon_header_sections_colors_dynamic_css()' );
 	return astra_addon_header_sections_colors_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' );
 }
-
 
 /**
  * Deprecating astra_ldrv3_dynamic_css function.

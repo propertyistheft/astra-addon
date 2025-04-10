@@ -16,7 +16,7 @@
  * Check if code editor custom layout enabled.
  *
  * @param  int $post_id Post Id.
- * @return boolean
+ * @return bool
  * @since 4.1.5
  */
 function astra_addon_is_code_editor_layout( $post_id ) {
@@ -31,7 +31,7 @@ function astra_addon_is_code_editor_layout( $post_id ) {
  * Get PHP snippet if enabled.
  *
  * @param  int $post_id Post Id.
- * @return boolean|html
+ * @return bool|html
  * @since 4.1.1
  */
 function astra_addon_get_php_snippet( $post_id ) {

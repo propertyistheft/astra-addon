@@ -1,5 +1,9 @@
 *** Astra Pro Changelog ***
 
+2025-04-02 - 4.9.2
+* Improvement: Added alphabetical sorting for next/previous product navigation with the `astra_woo_product_navigation_sort_args` filter for custom sorting. (https://wpastra.com/docs/product-navigation-with-custom-sorting/)
+* Fix: Resolved an issue where Banner Layout 2 was displaying on Single/Archive pages when Site Builder Templates were applied.
+
 2025-03-07 - 4.9.1
 * Fix: Resolved critical error which was introduced in previous version (v4.9.0).
 

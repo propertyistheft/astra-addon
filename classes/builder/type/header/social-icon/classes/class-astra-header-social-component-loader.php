@@ -60,9 +60,6 @@ class Astra_Header_Social_Component_Loader {
 		/**
 		 * Load unminified if SCRIPT_DEBUG is true.
 		 */
-		/* Directory and Extension */
-		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_script( 'astra-social-icon-addon-header-customizer-preview-js', ASTRA_ADDON_HEADER_SOCIAL_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'ahfb-addon-base-customizer-preview' ), ASTRA_EXT_VER, true );
 
 		// Localize variables for divider JS.
@@ -77,6 +74,6 @@ class Astra_Header_Social_Component_Loader {
 }
 
 /**
-*  Kicking this off by creating the object of the class.
-*/
+ *  Kicking this off by creating the object of the class.
+ */
 new Astra_Header_Social_Component_Loader();

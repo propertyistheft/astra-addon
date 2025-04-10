@@ -12,7 +12,6 @@
  * @since 2.5.0
  */
 class Astra_Addon_Run_Cloud_Helper_Compatibility {
-
 	/**
 	 * Constructor
 	 *

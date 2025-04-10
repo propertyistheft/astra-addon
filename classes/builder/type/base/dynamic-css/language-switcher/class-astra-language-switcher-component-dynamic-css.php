@@ -44,9 +44,9 @@ class Astra_Language_Switcher_Component_Dynamic_CSS {
 			}';
 		}
 
-		$_section = ( 'header' === $builder_type ) ? 'section-hb-language-switcher' : 'section-fb-language-switcher';
+		$_section = 'header' === $builder_type ? 'section-hb-language-switcher' : 'section-fb-language-switcher';
 
-		$selector = ( 'header' === $builder_type ) ? '.ast-header-language-switcher' : '.ast-footer-language-switcher-element[data-section="section-fb-language-switcher"]';
+		$selector = 'header' === $builder_type ? '.ast-header-language-switcher' : '.ast-footer-language-switcher-element[data-section="section-fb-language-switcher"]';
 
 		$flag_spacing         = astra_get_option( $_section . '-flag-spacing' );
 		$flag_spacing_desktop = isset( $flag_spacing['desktop'] ) ? $flag_spacing['desktop'] : '';

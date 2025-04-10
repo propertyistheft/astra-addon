@@ -76,7 +76,7 @@ final class Astra_Ext_Extension {
 		if ( empty( $enabled_extensions ) ) {
 
 			foreach ( $extensions as $slug => $data ) {
-				$enabled_data[ $slug ] = ( isset( $data['default'] ) ) ? $data['default'] : false;
+				$enabled_data[ $slug ] = isset( $data['default'] ) ? $data['default'] : false;
 			}
 
 			$enabled_data['all'] = 'all';
@@ -87,7 +87,7 @@ final class Astra_Ext_Extension {
 				// add new key.
 				foreach ( $extensions as $slug => $data ) {
 					if ( ! array_key_exists( $slug, $enabled_extensions ) ) {
-						$enabled_data[ $slug ] = ( isset( $data['default'] ) ) ? $data['default'] : false;
+						$enabled_data[ $slug ] = isset( $data['default'] ) ? $data['default'] : false;
 					}
 				}
 			}
@@ -99,8 +99,8 @@ final class Astra_Ext_Extension {
 	/**
 	 * Activates the specified extension.
 	 *
-	 * @param string  $extension_name Extension Name.
-	 * @param boolean $force          Force to activate.
+	 * @param string $extension_name Extension Name.
+	 * @param bool   $force          Force to activate.
 	 *
 	 * @return void
 	 *
@@ -120,9 +120,9 @@ final class Astra_Ext_Extension {
 	/**
 	 * Check extension status
 	 *
-	 * @param string  $key      Key to find in Extensions Array.
-	 * @param boolean $default  Default if Key not exist in Extensions Array.
-	 * @return boolean
+	 * @param string $key      Key to find in Extensions Array.
+	 * @param bool   $default  Default if Key not exist in Extensions Array.
+	 * @return bool
 	 * @since 1.0
 	 */
 	public static function is_active( $key, $default = false ) {
@@ -130,9 +130,9 @@ final class Astra_Ext_Extension {
 
 		if ( array_key_exists( $key, $extensions ) && $extensions[ $key ] ) {
 			return true;
-		} else {
-			return $default;
 		}
+
+		return $default;
 	}
 
 	/**
@@ -149,15 +149,6 @@ final class Astra_Ext_Extension {
 			'page_404_id' => '',
 		);
 
-		$custom_404 = Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_custom_404' );
-
-		if ( empty( $custom_404 ) ) {
-
-			$custom_404 = $custom_404_default;
-		}
-
-		$custom_404 = apply_filters( 'astra_addon_custom_404_options', $custom_404_default );
-
-		return $custom_404;
+		return apply_filters( 'astra_addon_custom_404_options', $custom_404_default );
 	}
 }

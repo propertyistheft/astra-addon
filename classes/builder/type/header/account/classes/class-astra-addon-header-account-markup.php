@@ -13,7 +13,6 @@ if ( ! class_exists( 'Astra_Addon_Header_Account_Markup' ) ) {
 	 * @since 4.3.1
 	 */
 	class Astra_Addon_Header_Account_Markup {
-
 		/**
 		 * Member Variable
 		 *
@@ -97,7 +96,7 @@ if ( ! class_exists( 'Astra_Addon_Header_Account_Markup' ) ) {
 							?>
 						</div>
 
-						<?php if ( $show_register || $show_lost_password ) : ?>
+						<?php if ( $show_register || $show_lost_password ) { ?>
 							<div class="ast-hb-account-login-form-footer">
 								<?php
 								if ( $show_register ) {
@@ -119,7 +118,7 @@ if ( ! class_exists( 'Astra_Addon_Header_Account_Markup' ) ) {
 								}
 								?>
 							</div>
-						<?php endif; ?>
+						<?php } ?>
 					</div>
 				</div>
 			</div>

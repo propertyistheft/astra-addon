@@ -16,7 +16,6 @@ if ( ! class_exists( 'Astra_Addon_Builder_Footer' ) ) {
 	 * Class Astra_Addon_Builder_Footer.
 	 */
 	final class Astra_Addon_Builder_Footer {
-
 		/**
 		 * Member Variable
 		 *

@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Menu_Sidebar_Animation' ) ) {
 		 */
 		public function add_scripts() {
 
-			/*** Start Path Logic */
+			/* Start Path Logic */
 
 			/* Define Variables */
 			$uri  = ASTRA_ADDON_EXT_MENU_SIDEBAR_URI . 'assets/js/';
@@ -84,19 +84,17 @@ if ( ! class_exists( 'Astra_Menu_Sidebar_Animation' ) ) {
 				$gen_path = $js_dir;
 			}
 
-			/*** End Path Logic */
-
-			$canvas_trigger_type     = astra_get_option( 'shop-off-canvas-trigger-type' );
+			/* End Path Logic */
 			$mobile_menu_style       = astra_get_option( 'mobile-menu-style' );
 			$mobile_above_menu_style = astra_get_option( 'mobile-above-header-menu-style' );
 			$mobile_below_menu_style = astra_get_option( 'mobile-below-header-menu-style' );
 
 			if ( in_array( 'filters', astra_get_option( 'shop-toolbar-structure', array() ) ) ||
-				'flyout' == $mobile_menu_style || 'fullscreen' == $mobile_menu_style ||
-				'flyout' == $mobile_above_menu_style ||
-				'fullscreen' == $mobile_above_menu_style ||
-				'flyout' == $mobile_below_menu_style ||
-				'fullscreen' == $mobile_below_menu_style
+				'flyout' === $mobile_menu_style || 'fullscreen' === $mobile_menu_style ||
+				'flyout' === $mobile_above_menu_style ||
+				'fullscreen' === $mobile_above_menu_style ||
+				'flyout' === $mobile_below_menu_style ||
+				'fullscreen' === $mobile_below_menu_style
 			) {
 				Astra_Minify::add_dependent_js( 'jquery' );
 				Astra_Minify::add_js( $gen_path . 'common-sidebar-and-menu' . $file_prefix . '.js' );
@@ -130,20 +128,20 @@ if ( ! class_exists( 'Astra_Menu_Sidebar_Animation' ) ) {
 				if ( 'shop-filter-flyout' === astra_get_option( 'shop-filter-position' ) && ( is_shop() || is_product_taxonomy() ) ) {
 					$canvas_enable = true;
 				}
-				if ( 'custom-class' == $canvas_trigger_type && '' != $canvas_trigger_class ) {
+				if ( 'custom-class' === $canvas_trigger_type && '' !== $canvas_trigger_class ) {
 					$canvas_trigger_class = astra_get_option( 'shop-filter-trigger-custom-class' );
 				}
 				if ( in_array( 'filters', astra_get_option( 'shop-toolbar-structure', array() ) ) ) {
 					$localize_vars['off_canvas_trigger_class'] = $canvas_trigger_class;
 					$localize_vars['off_canvas_enable']        = $canvas_enable;
 				}
-				if ( 'flyout' == $mobile_menu_style ) {
+				if ( 'flyout' === $mobile_menu_style ) {
 					$localize_vars['main_menu_flyout_alignment'] = $mobile_menu_flyout;
 				}
-				if ( 'flyout' == $above_mobile_menu_style ) {
+				if ( 'flyout' === $above_mobile_menu_style ) {
 					$localize_vars['above_menu_flyout_alignment'] = $above_mobile_menu_flyout;
 				}
-				if ( 'flyout' == $below_mobile_menu_style ) {
+				if ( 'flyout' === $below_mobile_menu_style ) {
 					$localize_vars['below_menu_flyout_alignment'] = $below_mobile_menu_flyout;
 				}
 			}

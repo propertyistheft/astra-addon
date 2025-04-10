@@ -121,21 +121,22 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 				 */
 
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
-					'default'    => astra_get_option( 'checkout-layout-type' ),
-					'section'    => 'woocommerce_checkout',
-					'type'       => 'control',
-					'control'    => 'ast-selector',
-					'title'      => __( 'Checkout Layout', 'astra-addon' ),
-					'priority'   => 5,
-					'choices'    => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[checkout-layout-type]',
+					'default'     => astra_get_option( 'checkout-layout-type' ),
+					'section'     => 'woocommerce_checkout',
+					'type'        => 'control',
+					'control'     => 'ast-selector',
+					'title'       => __( 'Checkout Layout', 'astra-addon' ),
+					'priority'    => 5,
+					'choices'     => array(
 						'default' => __( 'Default', 'astra-addon' ),
 						'modern'  => __( 'Modern', 'astra-addon' ),
 					),
-					'transport'  => 'refresh',
-					'renderAs'   => 'text',
-					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
+					'transport'   => 'refresh',
+					'renderAs'    => 'text',
+					'responsive'  => false,
+					'description' => defined( 'CARTFLOWS_VER' ) ? __( 'Astra’s modern checkout is disabled when CartFlows is active to prevent layout conflicts.', 'astra-addon' ) : '',
+					'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

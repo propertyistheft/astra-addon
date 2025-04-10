@@ -20,7 +20,6 @@ define( 'ASTRA_ADDON_HEADER_BUTTON_URI', ASTRA_EXT_URI . 'classes/builder/type/h
  * @since 3.1.0
  */
 class Astra_Addon_Header_Button_Component {
-
 	/**
 	 * Constructor function that initializes required actions and hooks
 	 */
@@ -42,4 +41,3 @@ class Astra_Addon_Header_Button_Component {
  *  Kicking this off by creating an object.
  */
 new Astra_Addon_Header_Button_Component();
-

@@ -9,9 +9,10 @@ namespace Image_Processing_Queue;
 
 if ( ! class_exists( __NAMESPACE__ . '\Exception' ) ) {
 	/**
-	* Custom exception class for IPQ background processing
+	 * Custom exception class for IPQ background processing
 	 */
-	class Exception extends \Exception {}
+	class Exception extends \Exception {
+	}
 }
 
 if ( ! class_exists( __NAMESPACE__ . '\Process' ) ) {
@@ -102,4 +103,3 @@ if ( ! class_exists( __NAMESPACE__ . '\Process' ) ) {
 		}
 	}
 }
-

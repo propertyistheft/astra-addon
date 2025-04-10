@@ -75,6 +75,17 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		}
 
 		/**
+		 * Checks if the banner layout 2 compatibility is enabled.
+		 *
+		 * @return bool True if banner layout 2 compatibility is enabled, false otherwise.
+		 * @since 4.9.2
+		 */
+		public static function banner_layout_2_compatibility() {
+			$options = astra_get_options();
+			return apply_filters( 'astra_addon_site_builder_banner_layout_2_compatibility', ! isset( $options['v4-9-2-comp'] ) );
+		}
+
+		/**
 		 * Overriding default template by Custom Layout.
 		 *
 		 * @since 4.3.0
@@ -85,6 +96,11 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			$post_content = get_post( $post_id );
 			if ( empty( $post_content ) ) {
 				return;
+			}
+
+			if ( self::banner_layout_2_compatibility() ) {
+				// If the custom layout is set then hide the banner title area of layout-2.
+				add_filter( 'astra_apply_hero_header_banner', '__return_false' );
 			}
 
 			get_header();

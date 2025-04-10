@@ -8,7 +8,7 @@
 /**
  * Contrasting Color
  */
-if ( ! function_exists( 'astra_addon_contrasting_color' ) ) :
+if ( ! function_exists( 'astra_addon_contrasting_color' ) ) {
 
 	/**
 	 * Contrasting Color
@@ -20,15 +20,14 @@ if ( ! function_exists( 'astra_addon_contrasting_color' ) ) :
 	 * @return string           Contrasting Color.
 	 */
 	function astra_addon_contrasting_color( $hexcolor, $dark = '#000000', $light = '#FFFFFF' ) {
-		return ( hexdec( $hexcolor ) > 0xffffff / 2 ) ? $dark : $light;
+		return hexdec( $hexcolor ) > 0xffffff / 2 ? $dark : $light;
 	}
-
-endif;
+}
 
 /**
  * Color conversion from HEX to RGB or RGBA.
  */
-if ( ! function_exists( 'astra_addon_hex2rgba' ) ) :
+if ( ! function_exists( 'astra_addon_hex2rgba' ) ) {
 
 	/**
 	 * Color conversion from HEX to RGB or RGBA.
@@ -40,7 +39,7 @@ if ( ! function_exists( 'astra_addon_hex2rgba' ) ) :
 	 */
 	function astra_addon_hex2rgba( $hex, $alpha = '' ) {
 		$hex = str_replace( '#', '', $hex );
-		if ( strlen( $hex ) == 3 ) {
+		if ( strlen( $hex ) === 3 ) {
 			$r = hexdec( substr( $hex, 0, 1 ) . substr( $hex, 0, 1 ) );
 			$g = hexdec( substr( $hex, 1, 1 ) . substr( $hex, 1, 1 ) );
 			$b = hexdec( substr( $hex, 2, 1 ) . substr( $hex, 2, 1 ) );
@@ -53,25 +52,24 @@ if ( ! function_exists( 'astra_addon_hex2rgba' ) ) :
 
 		if ( '' === $alpha ) {
 			return 'rgb(' . $rgb . ')';
-		} else {
-			$alpha = floatval( $alpha );
-
-			return 'rgba(' . $rgb . ',' . $alpha . ')';
 		}
-	}
 
-endif;
+		$alpha = floatval( $alpha );
+
+		return 'rgba(' . $rgb . ',' . $alpha . ')';
+	}
+}
 
 /**
  * Convert colors from HEX to RGBA
  */
-if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
+if ( ! function_exists( 'astra_hex_to_rgba' ) ) {
 
 	/**
 	 * Convert colors from HEX to RGBA
 	 *
-	 * @param  string  $color   Color code in HEX.
-	 * @param  boolean $opacity Color code opacity.
+	 * @param  string $color   Color code in HEX.
+	 * @param  bool   $opacity Color code opacity.
 	 * @return string           Color code in RGB or RGBA.
 	 */
 	function astra_hex_to_rgba( $color, $opacity = false ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
@@ -84,14 +82,14 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 		}
 
 		// Sanitize $color if "#" is provided.
-		if ( '#' == $color[0] ) {
+		if ( '#' === $color[0] ) {
 			$color = substr( $color, 1 );
 		}
 
 		// Check if color has 6 or 3 characters and get values.
-		if ( 6 == strlen( $color ) ) {
+		if ( 6 === strlen( $color ) ) {
 			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-		} elseif ( 3 == strlen( $color ) ) {
+		} elseif ( 3 === strlen( $color ) ) {
 			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
 		} else {
 			return $default;
@@ -113,18 +111,17 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 		// Return RGB(a) color string.
 		return $output;
 	}
-
-endif;
+}
 
 /**
  * Function to get Supported Custom Posts
  */
-if ( ! function_exists( 'astra_addon_get_supported_posts' ) ) :
+if ( ! function_exists( 'astra_addon_get_supported_posts' ) ) {
 
 	/**
 	 * Function to get Supported Custom Posts
 	 *
-	 * @param  boolean $with_tax Post has taxonomy.
+	 * @param  bool $with_tax Post has taxonomy.
 	 * @return array
 	 */
 	function astra_addon_get_supported_posts( $with_tax = false ) {
@@ -159,7 +156,7 @@ if ( ! function_exists( 'astra_addon_get_supported_posts' ) ) :
 			$another    = array();
 			foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
 
-				if ( ! $taxonomy->public || ! $taxonomy->show_ui || 'post_format' == $taxonomy_slug ) {
+				if ( ! $taxonomy->public || ! $taxonomy->show_ui || 'post_format' === $taxonomy_slug ) {
 					continue;
 				}
 
@@ -174,17 +171,16 @@ if ( ! function_exists( 'astra_addon_get_supported_posts' ) ) :
 
 		if ( $with_tax ) {
 			return $supported_types_tax;
-		} else {
-			return $supported_types;
 		}
-	}
 
-endif;
+		return $supported_types;
+	}
+}
 
 /**
  * Function to check if it is Internet Explorer
  */
-if ( ! function_exists( 'astra_check_is_ie' ) ) :
+if ( ! function_exists( 'astra_check_is_ie' ) ) {
 
 	/**
 	 * Function to check if it is Internet Explorer.
@@ -202,11 +198,9 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 
 		return $is_ie;
 	}
+}
 
-endif;
-
-
-if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
+if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) {
 
 	/**
 	 * Check if layout is bb themer's layout
@@ -225,11 +219,9 @@ if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
 
 		return $is_layout;
 	}
+}
 
-endif;
-
-
-if ( ! function_exists( 'astra_addon_rgba2hex' ) ) :
+if ( ! function_exists( 'astra_addon_rgba2hex' ) ) {
 
 	/**
 	 * Color conversion from RGBA / RGB to HEX.
@@ -262,22 +254,21 @@ if ( ! function_exists( 'astra_addon_rgba2hex' ) ) :
 				$aa = dechex( $rgba['3'] * 255 );
 			}
 
-			$hex_color = strtoupper( "#$aa$rr$gg$bb" );
+			$hex_color = strtoupper( "#{$aa}{$rr}{$gg}{$bb}" );
 		}
 
 		return $hex_color;
 	}
+}
 
-endif;
-
-if ( ! function_exists( 'astra_addon_check_is_hex' ) ) :
+if ( ! function_exists( 'astra_addon_check_is_hex' ) ) {
 
 	/**
 	 * Check if color code is HEX.
 	 *
 	 * @since 1.0.0
 	 * @param  string $string   Color code any format.
-	 * @return boolean          Return true | false.
+	 * @return bool          Return true | false.
 	 */
 	function astra_addon_check_is_hex( $string ) {
 
@@ -291,11 +282,9 @@ if ( ! function_exists( 'astra_addon_check_is_hex' ) ) :
 
 		return $is_hex;
 	}
+}
 
-endif;
-
-
-if ( ! function_exists( 'astra_get_addon_name' ) ) :
+if ( ! function_exists( 'astra_get_addon_name' ) ) {
 
 	/**
 	 * Get addon name.
@@ -308,10 +297,9 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 
 		return apply_filters( 'astra_addon_name', $addon_name );
 	}
+}
 
-endif;
-
-if ( ! function_exists( 'astra_addon_return_content_layout_page_builder' ) ) :
+if ( ! function_exists( 'astra_addon_return_content_layout_page_builder' ) ) {
 
 	/**
 	 * String for content layout - page-builder
@@ -322,11 +310,9 @@ if ( ! function_exists( 'astra_addon_return_content_layout_page_builder' ) ) :
 	function astra_addon_return_content_layout_page_builder() {
 		return 'page-builder';
 	}
+}
 
-endif;
-
-
-if ( ! function_exists( 'astra_addon_return_page_layout_no_sidebar' ) ) :
+if ( ! function_exists( 'astra_addon_return_page_layout_no_sidebar' ) ) {
 
 	/**
 	 * String for sidebar Layout - no-sidebar
@@ -337,11 +323,9 @@ if ( ! function_exists( 'astra_addon_return_page_layout_no_sidebar' ) ) :
 	function astra_addon_return_page_layout_no_sidebar() {
 		return 'no-sidebar';
 	}
+}
 
-endif;
-
-
-if ( ! function_exists( 'astra_get_prop' ) ) :
+if ( ! function_exists( 'astra_get_prop' ) ) {
 
 	/**
 	 * Get a specific property of an array without needing to check if that property exists.
@@ -355,7 +339,7 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 	 * @param string $prop    Name of the property to be retrieved.
 	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
 	 *
-	 * @return null|string|mixed The value
+	 * @return string|mixed|null The value
 	 */
 	function astra_get_prop( $array, $prop, $default = null ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
@@ -375,8 +359,7 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 
 		return empty( $value ) && null !== $default ? $default : $value;
 	}
-
-endif;
+}
 
 /**
  * Check if we're being delivered AMP
@@ -434,14 +417,14 @@ function astra_addon_get_tablet_breakpoint( $min = '', $max = '' ) {
 	$update_breakpoint = astra_get_option( 'can-update-addon-tablet-breakpoint', true );
 
 	// Change default for new users.
-	$default = ( true === $update_breakpoint ) ? 921 : 768;
+	$default = true === $update_breakpoint ? 921 : 768;
 
 	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 	if ( '' !== $min ) {
-		$header_breakpoint = $header_breakpoint - $min;
+		$header_breakpoint -= $min;
 	} elseif ( '' !== $max ) {
-		$header_breakpoint = $header_breakpoint + $max;
+		$header_breakpoint += $max;
 	}
 
 	return $header_breakpoint;
@@ -462,9 +445,9 @@ function astra_addon_get_mobile_breakpoint( $min = '', $max = '' ) {
 	$header_breakpoint = apply_filters( 'astra_mobile_breakpoint', 544 ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 	if ( '' !== $min ) {
-		$header_breakpoint = $header_breakpoint - $min;
+		$header_breakpoint -= $min;
 	} elseif ( '' !== $max ) {
-		$header_breakpoint = $header_breakpoint + $max;
+		$header_breakpoint += $max;
 	}
 
 	return absint( $header_breakpoint );
@@ -475,7 +458,7 @@ function astra_addon_get_mobile_breakpoint( $min = '', $max = '' ) {
  *
  * @since 2.7.0
  *
- * @return boolean true/false.
+ * @return bool true/false.
  */
 function astra_addon_existing_header_footer_configs() {
 	return apply_filters( 'astra_addon_existing_header_footer_configs', true );
@@ -485,7 +468,7 @@ function astra_addon_existing_header_footer_configs() {
  * Check is WordPress version is greater than or equal to 5.8 version.
  *
  * @since 3.5.5
- * @return boolean
+ * @return bool
  */
 function astra_addon_has_widgets_block_editor() {
 	if ( function_exists( 'astra_has_widgets_block_editor' ) ) {
@@ -493,7 +476,6 @@ function astra_addon_has_widgets_block_editor() {
 	}
 	return false;
 }
-
 
 /**
  * Regenerate Theme and Addon cache files.
@@ -519,7 +501,7 @@ add_action( 'astra_addon_update_after', 'astra_addon_clear_cache_assets', 10 );
  * Check is Elementor Pro version is greater than or equal to beta 3.5 version.
  *
  * @since 3.6.3
- * @return boolean
+ * @return bool
  */
 function astra_addon_check_elementor_pro_3_5_version() {
 	if ( defined( 'ELEMENTOR_PRO_VERSION' ) && version_compare( ELEMENTOR_PRO_VERSION, '3.5', '>=' ) ) {

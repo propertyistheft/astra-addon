@@ -13,11 +13,10 @@ if ( ! class_exists( 'Astra_Addon_Update' ) ) {
 	 * @since 1.0.0
 	 */
 	class Astra_Addon_Update {
-
 		/**
 		 * Class instance.
 		 *
-		 * @var $instance Class instance.
+		 * @var Class $instance instance.
 		 */
 		private static $instance;
 
@@ -37,7 +36,7 @@ if ( ! class_exists( 'Astra_Addon_Update' ) ) {
 		public function __construct() {
 
 			// Theme Updates.
-			add_action( 'astra_update_before', __CLASS__ . '::init' );
+			add_action( 'astra_update_before', self::class . '::init' );
 		}
 
 		/**
@@ -71,9 +70,7 @@ if ( ! class_exists( 'Astra_Addon_Update' ) ) {
 
 			$theme_options = get_option( 'astra-settings' );
 
-			$value = ( isset( $theme_options['astra-addon-auto-version'] ) && '' !== $theme_options['astra-addon-auto-version'] ) ? $theme_options['astra-addon-auto-version'] : false;
-
-			return $value;
+			return isset( $theme_options['astra-addon-auto-version'] ) && '' !== $theme_options['astra-addon-auto-version'] ? $theme_options['astra-addon-auto-version'] : false;
 		}
 	}
 }

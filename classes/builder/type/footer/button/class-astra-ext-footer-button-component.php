@@ -44,4 +44,3 @@ class Astra_Ext_Footer_Button_Component {
  *  Kicking this off by creating an object.
  */
 new Astra_Ext_Footer_Button_Component();
-

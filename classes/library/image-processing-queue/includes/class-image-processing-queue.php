@@ -13,7 +13,6 @@ if ( ! class_exists( __NAMESPACE__ . '\Queue' ) ) {
 	 * Image Processing Queue
 	 */
 	class Queue {
-
 		/**
 		 * Singleton
 		 *
@@ -285,9 +284,9 @@ if ( ! class_exists( __NAMESPACE__ . '\Queue' ) ) {
 
 		/**
 		 * Is an attachment locked?
-		 * 
+		 *
 		 * @param int $post_id
-		 * 
+		 *
 		 * @return bool
 		 */
 		public static function is_attachment_locked( $post_id ) {
@@ -299,12 +298,12 @@ if ( ! class_exists( __NAMESPACE__ . '\Queue' ) ) {
 		}
 		/**
 		 * Lock an attachment to prevent multiple queue jobs being created.
-		 * 
+		 *
 		 * @param int $post_id
 		 */
 		public static function lock_attachment( $post_id ) {
 			$image_meta = self::get_image_meta( $post_id );
-			
+
 			$image_meta['ipq_locked'] = true;
 			wp_update_attachment_metadata( $post_id, $image_meta );
 		}

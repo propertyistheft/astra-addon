@@ -6,7 +6,7 @@
  * @since 1.6.0
  */
 
-if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
+if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) {
 
 	/**
 	 * Astra Addon Page Builder Compatibility base class
@@ -14,7 +14,6 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 	 * @since 1.6.0
 	 */
 	class Astra_Addon_Page_Builder_Compatibility {
-
 		/**
 		 * Instance
 		 *
@@ -124,7 +123,7 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 		 *
 		 * @since 1.6.0
 		 * @param int $post_id Post ID of a Post to be checked for.
-		 * @return boolean
+		 * @return bool
 		 */
 		public static function is_vc_activated( $post_id ) {
 			$post      = get_post( $post_id );
@@ -143,4 +142,4 @@ if ( ! class_exists( 'Astra_Addon_Page_Builder_Compatibility' ) ) :
 	 */
 	Astra_Addon_Page_Builder_Compatibility::get_instance();
 
-endif;
+}

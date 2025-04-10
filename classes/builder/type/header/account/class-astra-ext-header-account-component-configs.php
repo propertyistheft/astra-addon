@@ -201,8 +201,8 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 			),
 
 			/**
-			* Option: Theme Menu create link
-			*/
+			 * Option: Theme Menu create link
+			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-create-menu-link]',
 				'default'   => astra_get_option( 'header-account-create-menu-link' ),
@@ -364,9 +364,7 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 			);
 		}
 
-		$configurations = array_merge( $configurations, $_configs );
-
-		return $configurations;
+		return array_merge( $configurations, $_configs );
 	}
 
 	/**

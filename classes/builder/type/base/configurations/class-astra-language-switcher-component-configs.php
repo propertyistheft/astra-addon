@@ -315,10 +315,8 @@ class Astra_Language_Switcher_Component_Configs {
 
 		$lang_config[] = $_configs;
 
-		$lang_config    = call_user_func_array( 'array_merge', $lang_config + array( array() ) );
-		$configurations = array_merge( $configurations, $lang_config );
-
-		return $configurations;
+		$lang_config = call_user_func_array( 'array_merge', $lang_config + array( array() ) );
+		return array_merge( $configurations, $lang_config );
 	}
 }
 

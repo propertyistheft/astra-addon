@@ -25,7 +25,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_addon_hb_account_dynamic_css' );
  * @since 4.3.1
  */
 function astra_addon_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
-	$css_output_desktop = array(); 
+	$css_output_desktop = array();
 
 	if ( ! Astra_Addon_Builder_Helper::is_component_loaded( 'account', 'header' ) ) {
 		return $dynamic_css;

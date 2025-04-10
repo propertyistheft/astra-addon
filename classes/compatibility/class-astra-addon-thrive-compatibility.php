@@ -6,7 +6,7 @@
  * @since 1.6.0
  */
 
-if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
+if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) {
 
 	/**
 	 * Astra Addon Page Builder Compatibility base class
@@ -14,7 +14,6 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
 	 * @since 1.6.0
 	 */
 	class Astra_Addon_Thrive_Compatibility extends Astra_Addon_Page_Builder_Compatibility {
-
 		/**
 		 * Instance
 		 *
@@ -95,7 +94,6 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
 			add_filter( 'tcb_enqueue_resources', '__return_true' );
 			tve_frontend_enqueue_scripts();
 			remove_filter( 'tcb_enqueue_resources', '__return_true' );
-
 		}
 
 		/**
@@ -103,15 +101,15 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) :
 		 *
 		 * @since 1.6.2
 		 * @param String $post_id  Post ID which is to be rendered.
-		 * @return boolean True if current if is being rendered is not being edited.
+		 * @return bool True if current if is being rendered is not being edited.
 		 */
 		private function is_thrive_builder_page( $post_id ) {
-			$tve  = ( isset( $_GET['tve'] ) && 'true' == $_GET['tve'] ) ? true : false;  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$tve  = isset( $_GET['tve'] ) && 'true' == $_GET['tve'] ? true : false;  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$post = isset( $_GET['post'] ) ? sanitize_text_field( $_GET['post'] ) : false;  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-			return ( true == $tve && $post_id !== $post );
+			return true == $tve && $post_id !== $post;
 		}
 
 	}
 
-endif;
+}

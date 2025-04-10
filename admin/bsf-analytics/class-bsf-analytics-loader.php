@@ -8,13 +8,14 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit();
 }
 
 /**
  * Class BSF_Analytics_Loader.
  */
 class BSF_Analytics_Loader {
+
 	/**
 	 * Analytics Entities.
 	 *

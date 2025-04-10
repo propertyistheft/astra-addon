@@ -24,8 +24,6 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 		 */
 		private static $instance;
 
-
-
 		/**
 		 *  Initiator
 		 */
@@ -43,7 +41,7 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 
 			add_filter(
 				'astra_footer_row_layout',
-				function( $layout ) {
+				static function( $layout ) {
 					// Modify Layouts here.
 					return $layout;
 				}
@@ -79,7 +77,7 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 				}
 
 				$header_items[ 'divider-' . $index ] = array(
-					'name'    => ( 1 === $num_of_header_divider ) ? 'Divider' : 'Divider ' . $index,
+					'name'    => 1 === $num_of_header_divider ? 'Divider' : 'Divider ' . $index,
 					'icon'    => 'minus',
 					'section' => $header_divider_section,
 					'clone'   => true,
@@ -134,7 +132,7 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 				}
 
 				$mobile_items[ 'divider-' . $index ] = array(
-					'name'    => ( 1 === $num_of_header_divider ) ? 'Divider' : 'Divider ' . $index,
+					'name'    => 1 === $num_of_header_divider ? 'Divider' : 'Divider ' . $index,
 					'icon'    => 'minus',
 					'section' => $header_mobile_divider_section,
 					'clone'   => true,
@@ -174,7 +172,7 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 				}
 
 				$footer_items[ 'divider-' . $index ] = array(
-					'name'    => ( 1 === $num_of_footer_divider ) ? 'Divider' : 'Divider ' . $index,
+					'name'    => 1 === $num_of_footer_divider ? 'Divider' : 'Divider ' . $index,
 					'icon'    => 'minus',
 					'section' => $footer_divider_section,
 					'clone'   => true,
@@ -309,7 +307,6 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 					</div>
 				<?php
 			}
-
 		}
 
 		/**
@@ -404,7 +401,6 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 					</div>
 				<?php
 			}
-
 		}
 
 	}

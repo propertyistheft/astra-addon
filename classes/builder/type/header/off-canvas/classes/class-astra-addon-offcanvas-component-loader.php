@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 3.3.0
  */
 class Astra_Addon_Offcanvas_Component_Loader {
-
 	/**
 	 * Constructor
 	 *
@@ -482,13 +481,13 @@ class Astra_Addon_Offcanvas_Component_Loader {
 		 * Load unminified if SCRIPT_DEBUG is true.
 		 */
 		/* Directory and Extension */
-		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+		$dir_name    = SCRIPT_DEBUG ? 'unminified' : 'minified';
+		$file_prefix = SCRIPT_DEBUG ? '' : '.min';
 		wp_enqueue_script( 'astra-addon-offcanvas-customizer-preview-js', ASTRA_ADDON_OFFCANVAS_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'ahfb-addon-base-customizer-preview' ), ASTRA_EXT_VER, true );
 	}
 }
 
 /**
-*  Kicking this off by creating the object of the class.
-*/
+ *  Kicking this off by creating the object of the class.
+ */
 new Astra_Addon_Offcanvas_Component_Loader();

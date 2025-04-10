@@ -19,7 +19,7 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 		/**
 		 * Class instance.
 		 *
-		 * @var $instance Class instance.
+		 * @var Class $instance instance.
 		 */
 		private static $instance;
 
@@ -115,8 +115,6 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 			}
 
 			if ( isset( $container_layout ) ) {
-				$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
-
 				// Setting up "Full-Width / Stretched" layout transparent but not for "Full-Width / Contained" in case of Max-Width site layout.
 				// Because we showcase container with "Full-Width / Contained" layout, so it should be visible as it looks on frontend with their content background styles.
 				$boxed_container = array(
@@ -278,7 +276,7 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 			/**
 			 * Sale bubble color
 			 */
-			if ( 'circle-outline' == $product_sale_style ) {
+			if ( 'circle-outline' === $product_sale_style ) {
 				/**
 				 * Sale bubble color - Circle Outline
 				 */
@@ -292,7 +290,7 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 				);
 
 				$css_output .= astra_parse_css( $sale_style_css );
-			} elseif ( 'square' == $product_sale_style ) {
+			} elseif ( 'square' === $product_sale_style ) {
 				/**
 				 * Sale bubble color - Square
 				 */
@@ -304,7 +302,7 @@ if ( ! class_exists( 'Addon_Gutenberg_Editor_CSS' ) ) {
 				);
 
 				$css_output .= astra_parse_css( $sale_style_css );
-			} elseif ( 'square-outline' == $product_sale_style ) {
+			} elseif ( 'square-outline' === $product_sale_style ) {
 				/**
 				 * Sale bubble color - Square Outline
 				 */

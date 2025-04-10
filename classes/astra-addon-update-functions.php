@@ -168,3 +168,17 @@ function astra_addon_background_updater_4_8_4() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Background updater function for addon v4.9.2
+ *
+ * @since 4.9.2
+ * @return void
+ */
+function astra_addon_background_updater_4_9_2() {
+	$theme_options = astra_get_options();
+	if ( ! isset( $theme_options['v4-9-2-comp'] ) ) {
+		$theme_options['v4-9-2-comp'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

@@ -12,7 +12,6 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 	 * Astra_Addon_Background_Updater Class.
 	 */
 	class Astra_Addon_Background_Updater {
-
 		/**
 		 * Background update class.
 		 *
@@ -52,6 +51,9 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 			),
 			'4.8.4' => array(
 				'astra_addon_background_updater_4_8_4',
+			),
+			'4.9.2' => array(
+				'astra_addon_background_updater_4_9_2',
 			),
 		);
 
@@ -204,9 +206,9 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 
 			$fallback         = $this->test_cron();
 			$db_migrated      = $this->check_if_data_migrated();
-			$is_queue_running = ( isset( $customizer_options['is_astra_addon_queue_running'] ) && '' !== $customizer_options['is_astra_addon_queue_running'] ) ? $customizer_options['is_astra_addon_queue_running'] : false;
+			$is_queue_running = isset( $customizer_options['is_astra_addon_queue_running'] ) && '' !== $customizer_options['is_astra_addon_queue_running'] ? $customizer_options['is_astra_addon_queue_running'] : false;
 
-			$fallback = ( $db_migrated ) ? $db_migrated : $fallback;
+			$fallback = $db_migrated ? $db_migrated : $fallback;
 
 			if ( $this->needs_db_update() && ! $is_queue_running ) {
 				$this->update( $fallback );
@@ -215,32 +217,25 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 					self::update_db_version();
 				}
 			}
-
 		}
 
 		/**
 		 * Is this a brand new addon install?
 		 *
 		 * @since 2.1.3
-		 * @return boolean
+		 * @return bool
 		 */
 		private function is_new_install() {
-
 			// Get auto saved version number.
 			$saved_version = Astra_Addon_Update::astra_addon_stored_version();
-
-			if ( false === $saved_version ) {
-				return true;
-			} else {
-				return false;
-			}
+			return false === $saved_version;
 		}
 
 		/**
 		 * Is a DB update needed?
 		 *
 		 * @since 2.1.3
-		 * @return boolean
+		 * @return bool
 		 */
 		private function needs_db_update() {
 
@@ -255,10 +250,9 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 
 			$customizer_options = get_option( 'astra-settings' );
 
-			$addon_auto_version = ( isset( $customizer_options['astra-addon-auto-version'] ) && '' !== $customizer_options['astra-addon-auto-version'] ) ? $customizer_options['astra-addon-auto-version'] : null;
+			$addon_auto_version = isset( $customizer_options['astra-addon-auto-version'] ) && '' !== $customizer_options['astra-addon-auto-version'] ? $customizer_options['astra-addon-auto-version'] : null;
 
 			return ! is_null( $addon_auto_version ) && version_compare( $addon_auto_version, $latest, '<' );
-
 		}
 
 		/**
@@ -413,7 +407,6 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 		}
 	}
 }
-
 
 /**
  * Kicking this off by creating a new instance

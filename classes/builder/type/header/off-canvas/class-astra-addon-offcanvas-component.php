@@ -20,7 +20,6 @@ define( 'ASTRA_ADDON_OFFCANVAS_URI', ASTRA_EXT_URI . 'classes/builder/type/heade
  * @since 3.3.0
  */
 class Astra_Addon_Offcanvas_Component {
-
 	/**
 	 * Constructor function that initializes required actions and hooks
 	 */

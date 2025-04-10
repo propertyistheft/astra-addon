@@ -56,8 +56,7 @@ class Astra_Footer_Language_Switcher_Component_Loader {
 			'mobile'  => '',
 		);
 		$defaults['footer-language-switcher-options']          = array(
-			'items' =>
-			array(
+			'items' => array(
 				array(
 					'id'      => 'gb',
 					'enabled' => true,
@@ -85,14 +84,11 @@ class Astra_Footer_Language_Switcher_Component_Loader {
 		/**
 		 * Load unminified if SCRIPT_DEBUG is true.
 		 */
-		/* Directory and Extension */
-		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_script( 'astra-footer-language-switcher-customizer-preview-js', ASTRA_ADDON_FOOTER_LANGUAGE_SWITCHER_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'ahfb-addon-base-customizer-preview' ), ASTRA_EXT_VER, true );
 	}
 }
 
 /**
-*  Kicking this off by creating the object of the class.
-*/
+ *  Kicking this off by creating the object of the class.
+ */
 new Astra_Footer_Language_Switcher_Component_Loader();

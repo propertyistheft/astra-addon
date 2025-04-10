@@ -6,7 +6,7 @@
  * @since 1.6.0
  */
 
-if ( ! class_exists( 'Astra_Addon_Beaver_Builder_Compatibility' ) ) :
+if ( ! class_exists( 'Astra_Addon_Beaver_Builder_Compatibility' ) ) {
 
 	/**
 	 * Astra Addon Page Builder Compatibility base class
@@ -14,7 +14,6 @@ if ( ! class_exists( 'Astra_Addon_Beaver_Builder_Compatibility' ) ) :
 	 * @since 1.6.0
 	 */
 	class Astra_Addon_Beaver_Builder_Compatibility extends Astra_Addon_Page_Builder_Compatibility {
-
 		/**
 		 * Instance
 		 *
@@ -64,7 +63,6 @@ if ( ! class_exists( 'Astra_Addon_Beaver_Builder_Compatibility' ) ) :
 					array()
 				);
 			}
-
 		}
 
 		/**
@@ -84,4 +82,4 @@ if ( ! class_exists( 'Astra_Addon_Beaver_Builder_Compatibility' ) ) :
 
 	}
 
-endif;
+}

@@ -6,7 +6,7 @@
  * @since 1.6.0
  */
 
-if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
+if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) {
 
 	/**
 	 * Astra Addon Page Builder Compatibility base class
@@ -14,7 +14,6 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 	 * @since 1.6.0
 	 */
 	class Astra_Addon_Brizy_Compatibility extends Astra_Addon_Page_Builder_Compatibility {
-
 		/**
 		 * Instance
 		 *
@@ -114,7 +113,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 			add_filter( 'body_class', array( $main, 'body_class_frontend' ) );
 			add_action(
 				'wp_enqueue_scripts',
-				function() use ( $main ) {
+				static function() use ( $main ) {
 					if ( ! wp_script_is( 'brizy-preview' ) ) {
 						add_action( 'wp_enqueue_scripts', array( $main, '_action_enqueue_preview_assets' ), 10001 );
 					}
@@ -124,7 +123,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 
 			add_action(
 				'wp_head',
-				function() use ( $post ) {
+				static function() use ( $post ) {
 					$html = new Brizy_Editor_CompiledHtml( $post->get_compiled_html() );
 					echo do_shortcode( $html->get_head() );
 				}
@@ -135,7 +134,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 				// Add page admin edit menu.
 				add_action(
 					'admin_bar_menu',
-					function( $wp_admin_bar ) use ( $post ) {
+					static function( $wp_admin_bar ) use ( $post ) {
 						$wp_post_id = $post->get_wp_post()->ID;
 						$args       = array(
 							'id'    => 'brizy_Edit_page_' . $wp_post_id . '_link',
@@ -157,7 +156,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) :
 		}
 	}
 
-endif;
+}
 
 // Add support for Advannced Hooks.
 Astra_Addon_Brizy_Compatibility::get_instance();

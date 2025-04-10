@@ -29,9 +29,9 @@ function astra_addon_offcanvas_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$selector = '.ast-mobile-popup-drawer.active';
 
 	$popup_width            = astra_get_option( 'off-canvas-width' );
-	$popup_width_desktop    = ( isset( $popup_width['desktop'] ) && ! empty( $popup_width['desktop'] ) ) ? $popup_width['desktop'] : '';
-	$popup_width_tablet     = ( isset( $popup_width['tablet'] ) && ! empty( $popup_width['tablet'] ) ) ? $popup_width['tablet'] : '';
-	$popup_width_mobile     = ( isset( $popup_width['mobile'] ) && ! empty( $popup_width['mobile'] ) ) ? $popup_width['mobile'] : '';
+	$popup_width_desktop    = isset( $popup_width['desktop'] ) && ! empty( $popup_width['desktop'] ) ? $popup_width['desktop'] : '';
+	$popup_width_tablet     = isset( $popup_width['tablet'] ) && ! empty( $popup_width['tablet'] ) ? $popup_width['tablet'] : '';
+	$popup_width_mobile     = isset( $popup_width['mobile'] ) && ! empty( $popup_width['mobile'] ) ? $popup_width['mobile'] : '';
 	$off_canvas_header_type = astra_get_option( 'mobile-header-type' );
 
 	$css_output        = array();
@@ -43,12 +43,12 @@ function astra_addon_offcanvas_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	}
 
 	if ( ! empty( $popup_width_tablet ) ) {
-		$css_output_tablet['#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner']['width'] = ( $off_canvas_header_type === 'off-canvas' ) ? $popup_width_tablet . '%' : '';
+		$css_output_tablet['#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner']['width'] = $off_canvas_header_type === 'off-canvas' ? $popup_width_tablet . '%' : '';
 		$css_output_tablet[ $selector . ' .ast-mobile-popup-inner' ]['max-width']                                 = $popup_width_tablet . '%';
 	}
 
 	if ( ! empty( $popup_width_mobile ) ) {
-		$css_output_mobile['#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner']['width'] = ( $off_canvas_header_type === 'off-canvas' ) ? $popup_width_mobile . '%' : '';
+		$css_output_mobile['#ast-mobile-popup-wrapper .ast-mobile-popup-drawer .ast-mobile-popup-inner']['width'] = $off_canvas_header_type === 'off-canvas' ? $popup_width_mobile . '%' : '';
 		$css_output_mobile[ $selector . ' .ast-mobile-popup-inner' ]['max-width']                                 = $popup_width_mobile . '%';
 	}
 

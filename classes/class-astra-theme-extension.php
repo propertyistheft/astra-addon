@@ -114,7 +114,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 				// Admin DOMPurify script for DOM sanitization.
 				add_action(
 					'admin_enqueue_scripts',
-					function() {
+					static function() {
 						wp_enqueue_script( 'astra-admin-dom-purify', ASTRA_EXT_URI . '/assets/js/minified/purify.min.js', array(), ASTRA_EXT_VER, true );
 					}
 				);
@@ -191,7 +191,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			return $classes;
 		}
 
-
 		/**
 		 * Load Astra Pro Text Domain.
 		 * This will load the translation textdomain depending on the file priorities.
@@ -224,7 +223,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			/**
 			 * Language Locale for Astra Pro
 			 *
-			 * @var $get_locale The locale to use. Uses get_user_locale()` in WordPress 4.7 or greater,
+			 * @var The $get_locale locale to use. Uses get_user_locale()` in WordPress 4.7 or greater,
 			 *                  otherwise uses `get_locale()`.
 			 */
 			$locale = apply_filters( 'plugin_locale', $get_locale, 'astra-addon' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
@@ -266,7 +265,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			);
 
 			return array_merge( $action_links, $links );
-
 		}
 
 		/**
@@ -397,7 +395,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 				require_once ASTRA_EXT_DIR . 'classes/cache/class-astra-addon-cache.php';
 			}
 			require_once ASTRA_EXT_DIR . 'classes/class-astra-ext-model.php';
-
 		}
 		/**
 		 * Load Gutenberg assets
@@ -480,7 +477,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			wp_localize_script( 'astra-addon-customizer-preview-js', 'ast_enabled_addons', $addons );
 		}
 
-
 		/**
 		 * Base on addon activation section registered.
 		 *
@@ -532,7 +528,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 
 				add_filter(
 					'astra_customizer_primary_header_typo',
-					function( $header_arr ) {
+					static function( $header_arr ) {
 
 						$header_arr['section'] = 'section-header-typo-group';
 
@@ -560,8 +556,8 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 						array(
 							'title'       => astra_get_theme_name(),
 							'description' => (
-							'<p>' . __( 'Looking for a theme? You can search or browse the WordPress.org theme directory, install and preview themes, then activate them right here.', 'astra-addon' ) . '</p>' .
-							'<p>' . __( 'While previewing a new theme, you can continue to tailor things like widgets and menus, and explore theme-specific options.', 'astra-addon' ) . '</p>'
+							'<p>' . __( 'Looking for a theme? You can search or browse the WordPress.org theme directory, install and preview themes, then activate them right here.', 'astra-addon' ) . '</p>
+							<p>' . __( 'While previewing a new theme, you can continue to tailor things like widgets and menus, and explore theme-specific options.', 'astra-addon' ) . '</p>'
 							),
 							'capability'  => 'switch_themes',
 							'priority'    => 0,
@@ -916,7 +912,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 		 * @since 1.2.1
 		 */
 		public function astra_header_top_right_content() {
-			$top_links = apply_filters(
+			apply_filters(
 				'astra_header_top_links', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 				array(
 					'astra-theme-info' => array(
@@ -924,7 +920,6 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 					),
 				)
 			);
-
 		}
 
 		/**
@@ -938,7 +933,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			global $pagenow;
 			/* Check current admin page. */
 
-			if ( 'themes.php' == $pagenow && isset( $_GET['action'] ) && 'addons' == $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( 'themes.php' === $pagenow && isset( $_GET['action'] ) && 'addons' === $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				wp_safe_redirect( admin_url( '/themes.php?page=astra' ), 301 );
 				exit;
 			}
@@ -995,16 +990,15 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			ob_start();
 			// Include SVGs Json file.
 			include_once ASTRA_EXT_DIR . 'assets/svg/svgs.json';
-			$svg_icon_arr  = json_decode( ob_get_clean(), true );
-			$ast_svg_icons = array_merge( $svg_arr, $svg_icon_arr );
-			return $ast_svg_icons;
+			$svg_icon_arr = json_decode( ob_get_clean(), true );
+			return array_merge( $svg_arr, $svg_icon_arr );
 		}
 
 		/**
 		 * Add limit to show number of versions to rollback.
 		 *
-		 * @param integer $per_page per page count.
-		 * @return integer
+		 * @param int $per_page per page count.
+		 * @return int
 		 */
 		public function astra_addon_rollback_versions_limit( $per_page ) {
 			return 6;

@@ -12,7 +12,6 @@
  * @since 1.7.0
  */
 class Astra_Addon_AMP_Compatibility {
-
 	/**
 	 *  Constructor
 	 */
@@ -121,9 +120,9 @@ class Astra_Addon_AMP_Compatibility {
 	 * Disable Custom Layout on frontend if it is disabled on AMP.
 	 *
 	 * @since 1.7.0
-	 * @param boolean $status Status true if layout is tobe displayed on the frontend. False is it should not be rendered.
-	 * @param int     $post_id Post ID which is to be rendered from the Custom Layout.
-	 * @return boolean.
+	 * @param bool $status Status true if layout is tobe displayed on the frontend. False is it should not be rendered.
+	 * @param int  $post_id Post ID which is to be rendered from the Custom Layout.
+	 * @return bool.
 	 */
 	public function custom_layout_disable_on_amp( $status, $post_id ) {
 		$amp_status = get_post_meta( $post_id, 'amp_status', true );
@@ -195,6 +194,6 @@ class Astra_Addon_AMP_Compatibility {
 }
 
 /**
-*  Kicking this off by calling 'get_instance()' method
-*/
+ *  Kicking this off by calling 'get_instance()' method
+ */
 new Astra_Addon_AMP_Compatibility();

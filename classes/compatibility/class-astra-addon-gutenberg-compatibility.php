@@ -12,7 +12,6 @@
  * @since 2.5.1
  */
 class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compatibility {
-
 	/**
 	 * Render Blocks content for post.
 	 *
@@ -38,7 +37,7 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 		} else {
 			$output = $current_post->post_content;
 		}
-		
+
 		// Process nested shortcodes as it's for site builder and remove automatic <p> tags around them.
 		echo do_shortcode( do_shortcode( shortcode_unautop( $output ) ) );
 	}
@@ -111,20 +110,20 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 								if ( ! empty( $used_uag_elements ) ) {
 									add_action(
 										'wp_enqueue_scripts',
-										function() use ( $current_post, $used_uag_elements ) {
+										static function() use ( $current_post, $used_uag_elements ) {
 
 											if ( has_blocks( $current_post ) ) {
 
 												$uag_blocks       = UAGB_Config::get_block_attributes();
 												$uag_block_assets = UAGB_Config::get_block_assets();
 
-												foreach ( $used_uag_elements as $key => $curr_block_name ) {
+												foreach ( $used_uag_elements as $curr_block_name ) {
 
-													$js_assets  = ( isset( $uag_blocks[ $curr_block_name ]['js_assets'] ) ) ? $uag_blocks[ $curr_block_name ]['js_assets'] : array();
-													$css_assets = ( isset( $uag_blocks[ $curr_block_name ]['css_assets'] ) ) ? $uag_blocks[ $curr_block_name ]['css_assets'] : array();
+													$js_assets  = isset( $uag_blocks[ $curr_block_name ]['js_assets'] ) ? $uag_blocks[ $curr_block_name ]['js_assets'] : array();
+													$css_assets = isset( $uag_blocks[ $curr_block_name ]['css_assets'] ) ? $uag_blocks[ $curr_block_name ]['css_assets'] : array();
 
 													// Script Assets.
-													foreach ( $js_assets as $asset_handle => $val ) {
+													foreach ( $js_assets as $val ) {
 														wp_register_script(
 															$val, // Handle.
 															$uag_block_assets[ $val ]['src'],
@@ -137,7 +136,7 @@ class Astra_Addon_Gutenberg_Compatibility extends Astra_Addon_Page_Builder_Compa
 													}
 
 													// Style Assets.
-													foreach ( $css_assets as $asset_handle => $val ) {
+													foreach ( $css_assets as $val ) {
 														wp_register_style(
 															$val, // Handle.
 															$uag_block_assets[ $val ]['src'],

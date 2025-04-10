@@ -6,7 +6,7 @@
  * @since 2.1.3
  */
 
-if ( class_exists( 'WP_Background_Process' ) ) :
+if ( class_exists( 'WP_Background_Process' ) ) {
 
 	/**
 	 * Database Background Process
@@ -14,7 +14,6 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 	 * @since 2.1.3
 	 */
 	class WP_Background_Process_Astra_Addon extends WP_Background_Process {
-
 		/**
 		 * Database Process
 		 *
@@ -37,7 +36,7 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 */
 		protected function task( $process ) {
 
-			do_action( 'astra_addon_batch_process_task' . '-' . $process, $process );
+			do_action( 'astra_addon_batch_process_task-' . $process, $process );
 
 			if ( function_exists( $process ) ) {
 				call_user_func( $process );
@@ -66,9 +65,8 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 			do_action( 'astra_addon_database_migration_complete' );
 
 			parent::complete();
-
 		}
 
 	}
 
-endif;
+}

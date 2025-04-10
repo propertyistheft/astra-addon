@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 3.3.0
  */
 class Astra_Addon_Header_Menu_Component_Configs extends Astra_Customizer_Config_Base {
-
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
@@ -41,10 +40,8 @@ class Astra_Addon_Header_Menu_Component_Configs extends Astra_Customizer_Config_
 
 		}
 
-		$html_config    = call_user_func_array( 'array_merge', $html_config + array( array() ) );
-		$configurations = array_merge( $configurations, $html_config );
-
-		return $configurations;
+		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+		return array_merge( $configurations, $html_config );
 	}
 }
 

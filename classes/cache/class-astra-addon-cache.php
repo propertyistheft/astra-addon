@@ -20,7 +20,6 @@ if ( ! class_exists( 'Astra_Cache_Base' ) ) {
  * Astra_Addon_Cache
  */
 class Astra_Addon_Cache extends Astra_Cache_Base {
-
 	/**
 	 * Member Variable
 	 *

@@ -13,7 +13,6 @@ if ( ! class_exists( 'WP_Async_Request' ) ) {
 	 * @abstract
 	 */
 	abstract class WP_Async_Request {
-
 		/**
 		 * Prefix
 		 *

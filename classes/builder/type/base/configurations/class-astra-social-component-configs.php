@@ -33,13 +33,10 @@ class Astra_Social_Component_Configs {
 	 */
 	public static function register_configuration( $configurations, $builder_type = 'header', $section = 'section-hb-social-icons-' ) {
 
-		$social_configs = array();
-
-		$class_obj              = Astra_Addon_Builder_Header::get_instance();
+		$social_configs         = array();
 		$number_of_social_icons = astra_addon_builder_helper()->num_of_header_social_icons;
 
 		if ( 'footer' === $builder_type ) {
-			$class_obj              = Astra_Addon_Builder_Footer::get_instance();
 			$number_of_social_icons = astra_addon_builder_helper()->num_of_footer_social_icons;
 		}
 
@@ -75,9 +72,7 @@ class Astra_Social_Component_Configs {
 		}
 
 		$social_configs = call_user_func_array( 'array_merge', $social_configs + array( array() ) );
-		$configurations = array_merge( $configurations, $social_configs );
-
-		return $configurations;
+		return array_merge( $configurations, $social_configs );
 	}
 }
 

@@ -34,9 +34,9 @@ function astra_addon_footer_lang_switcher_dynamic_css( $dynamic_css, $dynamic_cs
 
 		$alignment = astra_get_option( 'footer-language-switcher-alignment' );
 
-		$desktop_alignment = ( isset( $alignment['desktop'] ) ) ? $alignment['desktop'] : '';
-		$tablet_alignment  = ( isset( $alignment['tablet'] ) ) ? $alignment['tablet'] : '';
-		$mobile_alignment  = ( isset( $alignment['mobile'] ) ) ? $alignment['mobile'] : '';
+		$desktop_alignment = isset( $alignment['desktop'] ) ? $alignment['desktop'] : '';
+		$tablet_alignment  = isset( $alignment['tablet'] ) ? $alignment['tablet'] : '';
+		$mobile_alignment  = isset( $alignment['mobile'] ) ? $alignment['mobile'] : '';
 
 		/**
 		 * Copyright CSS.

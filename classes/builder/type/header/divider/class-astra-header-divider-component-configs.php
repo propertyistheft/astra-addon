@@ -36,9 +36,7 @@ class Astra_Header_Divider_Component_Configs extends Astra_Customizer_Config_Bas
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$configurations = Astra_Divider_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-divider-' );
-
-		return $configurations;
+		return Astra_Divider_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-divider-' );
 	}
 }
 

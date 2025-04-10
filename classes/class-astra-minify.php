@@ -24,7 +24,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * WordPress Filesystem
 		 *
 		 * @since 1.0
-		 * @var bool $_in_customizer_preview
+		 * @var bool $astra_addon_filesystem
 		 */
 		private static $astra_addon_filesystem = null;
 
@@ -116,14 +116,14 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'customize_preview_init', __CLASS__ . '::preview_init', 11 );
-			add_action( 'customize_save_after', __CLASS__ . '::refresh_assets', 11 );
-			add_action( 'astra_addon_activated', __CLASS__ . '::refresh_assets', 11 );
-			add_action( 'astra_addon_deactivated', __CLASS__ . '::refresh_assets', 11 );
+			add_action( 'customize_preview_init', self::class . '::preview_init', 11 );
+			add_action( 'customize_save_after', self::class . '::refresh_assets', 11 );
+			add_action( 'astra_addon_activated', self::class . '::refresh_assets', 11 );
+			add_action( 'astra_addon_deactivated', self::class . '::refresh_assets', 11 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 			// remove the cached css files when the site language gets changed.
-			add_action( 'update_option_WPLANG', array( __CLASS__, 'remove_cached_css_files' ) );
+			add_action( 'update_option_WPLANG', array( self::class, 'remove_cached_css_files' ) );
 
 			if ( version_compare( ASTRA_THEME_VERSION, '3.6.8', '>' ) ) {
 				add_action( 'astra_addon_get_js_files', array( $this, 'add_fronted_pro_script' ) );
@@ -144,8 +144,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			 */
 			if ( apply_filters( 'astra_addon_enqueue_assets', true ) ) {
 
-				$uri  = ASTRA_EXT_URI . 'assets/js/';
-				$path = ASTRA_EXT_DIR . 'assets/js/';
+				$uri = ASTRA_EXT_URI . 'assets/js/';
 
 				$css_url     = self::get_css_url();
 				$js_url      = self::get_js_url();
@@ -159,7 +158,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 				$js_uri  = $uri . $dir_name . '/';
 				$dep_uri = $uri . 'minified/';
-				
+
 				$gen_path     = $js_uri;
 				$dep_gen_path = $dep_uri;
 
@@ -214,8 +213,8 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Used to add enqueue frontend styles.
 		 *
 		 * @since 1.0
-		 * @param string  $src    Source URL.
-		 * @param boolean $handle Script handle.
+		 * @param string $src    Source URL.
+		 * @param bool   $handle Script handle.
 		 * @return void
 		 */
 		public static function add_css( $src = null, $handle = false ) {
@@ -230,8 +229,8 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Used to enqueue frontend scripts.
 		 *
 		 * @since 1.0
-		 * @param string  $src    Source URL.
-		 * @param boolean $handle Script handle.
+		 * @param string $src    Source URL.
+		 * @param bool   $handle Script handle.
 		 * @return void
 		 */
 		public static function add_js( $src = null, $handle = false ) {
@@ -247,8 +246,8 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * Used to enqueue dependent js frontend scripts.
 		 *
 		 * @since 1.0
-		 * @param boolean $handle Script handle.
-		 * @param string  $src    Source URL.
+		 * @param bool   $handle Script handle.
+		 * @param string $src    Source URL.
 		 * @return void
 		 */
 		public static function add_dependent_js( $handle, $src = null ) {
@@ -349,13 +348,14 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 */
 		public static function astra_is_ssl() {
 			if ( is_ssl() ) {
-
 				return true;
-			} elseif ( 0 === stripos( get_option( 'siteurl' ), 'https://' ) ) {
+			}
 
+			if ( 0 === stripos( get_option( 'siteurl' ), 'https://' ) ) {
 				return true;
-			} elseif ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' == $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+			}
 
+			if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
 				return true;
 			}
 
@@ -442,7 +442,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 		 * $all is set to true.
 		 *
 		 * @since 1.0
-		 * @return boolean Returns True if files were successfull deleted,  False If files could not be deleted.
+		 * @return bool Returns True if files were successfull deleted,  False If files could not be deleted.
 		 */
 		public static function clear_assets_cache() {
 
@@ -528,7 +528,8 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 				self::enqueue_http2_css();
 				return false;
-			} elseif ( ! get_option( 'ast-theme-css-status' ) ) {
+			}
+			if ( ! get_option( 'ast-theme-css-status' ) ) {
 
 				// Get the cache dir and css key.
 				$cache_dir = self::get_cache_dir();
@@ -550,11 +551,10 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 				// Return the url.
 				return $css_url;
-			} else {
-
-				self::render_fallback_css();
-				return false;
 			}
+
+			self::render_fallback_css();
+			return false;
 		}
 
 		/**
@@ -611,7 +611,8 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 				self::enqueue_http2_js();
 				return false;
-			} elseif ( ! get_option( 'astra-addon-js-status' ) ) {
+			}
+			if ( ! get_option( 'astra-addon-js-status' ) ) {
 
 				// Get the cache dir and js key.
 				$cache_dir = self::get_cache_dir();
@@ -637,11 +638,10 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 				// Return the url.
 				return $js_url;
-			} else {
-
-				self::render_fallback_js();
-				return false;
 			}
+
+			self::render_fallback_js();
+			return false;
 		}
 
 		/**
@@ -750,12 +750,11 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			$css_slug    = self::_asset_slug();
 			$css_files   = self::get_css_files();
 			$css         = '';
-			$css_min     = '';
 			$filepath    = $cache_dir['path'] . $css_slug . '-' . $new_css_key . '.css';
 
 			if ( count( $css_files ) > 0 ) {
 
-				foreach ( $css_files as $k => $file ) {
+				foreach ( $css_files as $file ) {
 
 					if ( ! empty( $file ) && file_exists( $file ) ) {
 						$css .= self::$astra_addon_filesystem->get_contents(
@@ -867,7 +866,6 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 
 			update_option( self::$_js_key . '-files-' . $js_slug, $js_files );
 			update_option( self::$_js_key . '-dep-' . $js_slug, $dep_js_files );
-
 		}
 
 		/**
@@ -898,12 +896,11 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 			$js_files     = self::get_js_files();
 			$dep_js_files = self::$dependent_js_files;
 			$js           = '';
-			$js_min       = '';
 			$filepath     = $cache_dir['path'] . $js_slug . '-' . $new_js_key . '.js';
 
 			if ( count( $js_files ) > 0 ) {
 
-				foreach ( $js_files as $k => $file ) {
+				foreach ( $js_files as $file ) {
 
 					if ( ! empty( $file ) && file_exists( $file ) ) {
 						$js .= self::$astra_addon_filesystem->get_contents(
@@ -1068,7 +1065,7 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 				$gen_path = $js_dir;
 			}
 
-			/*** End Path Logic */
+			/* End Path Logic */
 			self::add_js( $gen_path . 'frontend-pro' . $file_prefix . '.js' );
 		}
 	}

@@ -36,9 +36,7 @@ class Astra_Header_Language_Switcher_Configs extends Astra_Customizer_Config_Bas
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$configurations = Astra_Language_Switcher_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-language-switcher' );
-
-		return $configurations;
+		return Astra_Language_Switcher_Component_Configs::register_configuration( $configurations, 'header', 'section-hb-language-switcher' );
 	}
 }
 

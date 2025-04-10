@@ -29,8 +29,8 @@ add_filter( 'astra_addon_bb_render_content_by_id', 'astra_deprecated_astra_bb_re
  * Render Beaver Builder content by ID.
  *
  * @since 3.6.2
- * @param boolean $render_content true | false.
- * @return boolean true for enabled | false for disable.
+ * @param bool $render_content true | false.
+ * @return bool true for enabled | false for disable.
  *
  * @see astra_addon_bb_render_content_by_id
  */
@@ -61,8 +61,8 @@ add_filter( 'astra_addon_show_branding', 'astra_deprecated_astra_pro_show_brandi
  * Whitelabel branding markup.
  *
  * @since 3.6.2
- * @param boolean $show_branding true | false.
- * @return boolean true for showing | false for hiding branding markup.
+ * @param bool $show_branding true | false.
+ * @return bool true for showing | false for hiding branding markup.
  *
  * @see astra_addon_show_branding
  */
@@ -353,7 +353,7 @@ add_filter( 'astra_addon_target_page_settings', 'astra_deprecated_astra_target_p
  * @param array $current_layout Active custom layout.
  * @param array $layout_id Current layout ID.
  *
- * @return int|boolean If the current layout is to be displayed it will be returned back else a boolean will be passed.
+ * @return int|bool If the current layout is to be displayed it will be returned back else a boolean will be passed.
  *
  * @see astra_addon_target_page_settings
  */

@@ -19,7 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 3.0.0
  */
 final class Astra_Addon_Builder_Customizer {
-
 	/**
 	 * Constructor
 	 *
@@ -41,7 +40,6 @@ final class Astra_Addon_Builder_Customizer {
 		add_action( 'customize_register', array( $this, 'footer_configs' ), 5 );
 
 		add_filter( 'astra_flags_svgs', array( $this, 'astra_addon_flag_svgs' ), 1, 10 );
-
 	}
 
 	/**
@@ -179,7 +177,6 @@ final class Astra_Addon_Builder_Customizer {
 		);
 	}
 
-
 	/**
 	 * Add Styles Callback
 	 *
@@ -187,7 +184,7 @@ final class Astra_Addon_Builder_Customizer {
 	 */
 	public function add_styles() {
 
-		/*** Start Path Logic */
+		/* Start Path Logic */
 
 		/* Define Variables */
 		$uri  = ASTRA_EXT_URI . 'classes/builder/assets/css/';
@@ -216,7 +213,7 @@ final class Astra_Addon_Builder_Customizer {
 			$gen_path = $css_dir;
 		}
 
-		/*** End Path Logic */
+		/* End Path Logic */
 
 		/* Add style.css */
 		Astra_Minify::add_css( $gen_path . 'style' . $file_prefix . '.css' );
@@ -234,9 +231,8 @@ final class Astra_Addon_Builder_Customizer {
 		ob_start();
 		// Include SVGs Json file.
 		include_once ASTRA_EXT_DIR . 'assets/flags/svgs.json';
-		$svg_icon_arr  = json_decode( ob_get_clean(), true );
-		$ast_flag_svgs = array_merge( $svg_arr, $svg_icon_arr );
-		return $ast_flag_svgs;
+		$svg_icon_arr = json_decode( ob_get_clean(), true );
+		return array_merge( $svg_arr, $svg_icon_arr );
 	}
 }
 

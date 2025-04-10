@@ -12,7 +12,6 @@
  * @since 2.0.0
  */
 class Astra_Addon_Nginx_Helper_Compatibility {
-
 	/**
 	 * Setup the class
 	 */

@@ -85,8 +85,8 @@ class Astra_Footer_Divider_Component_Loader {
 		 * Load unminified if SCRIPT_DEBUG is true.
 		 */
 		/* Directory and Extension */
-		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+		$dir_name    = SCRIPT_DEBUG ? 'unminified' : 'minified';
+		$file_prefix = SCRIPT_DEBUG ? '' : '.min';
 		wp_enqueue_script( 'astra-footer-divider-customizer-preview-js', ASTRA_ADDON_FOOTER_DIVIDER_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_EXT_VER, true );
 
 		// Localize variables for divider JS.
@@ -103,6 +103,6 @@ class Astra_Footer_Divider_Component_Loader {
 }
 
 /**
-*  Kicking this off by creating the object of the class.
-*/
+ *  Kicking this off by creating the object of the class.
+ */
 new Astra_Footer_Divider_Component_Loader();
