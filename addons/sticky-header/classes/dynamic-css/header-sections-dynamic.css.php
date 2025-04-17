@@ -605,15 +605,11 @@ function astra_below_header_builder_sections_dynamic_css( $dynamic_css, $dynamic
 
 	$sticky_header_style   = astra_get_option( 'sticky-header-style' );
 	$sticky_hide_on_scroll = astra_get_option( 'sticky-hide-on-scroll' );
-	$palette_key           = ''; // Initialize with a default value
-	if ( method_exists( 'Astra_Global_Palette', 'astra_get_active_global_palette' ) ) {
-		$palette_key = Astra_Global_Palette::astra_get_active_global_palette();
-	}
 
 	/**
 	 * Below Header.
 	 */
-	$desktop_sticky_below_header_bg_color = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'desktop', ( $palette_key === 'palette_4' ) ? 'var( --ast-global-color-secondary, --ast-global-color-5 )' : '#414042' );
+	$desktop_sticky_below_header_bg_color = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'desktop', astra_addon_is_dark_palette() ? 'var( --ast-global-color-secondary, --ast-global-color-5 )' : '#414042' );
 	$tablet_sticky_below_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'tablet' );
 	$mobile_sticky_below_header_bg_color  = astra_get_prop( astra_get_option( 'sticky-below-header-bg-color-responsive' ), 'mobile' );
 

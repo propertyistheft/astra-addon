@@ -46,6 +46,16 @@ if ( ! class_exists( 'Astra_Icons' ) ) {
 		}
 
 		/**
+		 * Returns an array of allowed SVG arguments.
+		 * 
+		 * @return array An array of allowed SVG arguments.
+		 * @since 4.10.0
+		 */
+		public static function allowed_svg_args() {
+			return Astra_Addon_Kses::astra_addon_svg_kses_protocols();
+		}
+
+		/**
 		 * Get SVG icons.
 		 * Returns the SVG icon you want to display.
 		 *

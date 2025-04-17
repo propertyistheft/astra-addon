@@ -59,13 +59,9 @@ class Astra_Addon_Admin_Ajax {
 	 * @since 4.0.0
 	 */
 	public function __construct() {
-		$this->errors = array(
-			'permission' => __( 'Sorry, you are not allowed to do this operation.', 'astra-addon' ),
-			'nonce'      => __( 'Nonce validation failed', 'astra-addon' ),
-			'default'    => __( 'Sorry, something went wrong.', 'astra-addon' ),
-			'invalid'    => __( 'No post data found!', 'astra-addon' ),
-		);
-
+		// Delay translation loading.
+		add_action( 'init', array( $this, 'load_translations' ) );
+	
 		// Ajax requests.
 		add_action( 'wp_ajax_astra_addon_update_module_status', array( $this, 'update_module_status' ) );
 
@@ -83,6 +79,20 @@ class Astra_Addon_Admin_Ajax {
 		// Enable/Disable file generation.
 		add_action( 'wp_ajax_astra_addon_update_whitelabel', array( $this, 'astra_addon_update_whitelabel' ) );
 	}
+	
+	/**
+	 * Load translation strings after 'init'.
+	 * @since 4.10.0
+	 */
+	public function load_translations() {
+		$this->errors = array(
+			'permission' => __( 'Sorry, you are not allowed to do this operation.', 'astra-addon' ),
+			'nonce'      => __( 'Nonce validation failed', 'astra-addon' ),
+			'default'    => __( 'Sorry, something went wrong.', 'astra-addon' ),
+			'invalid'    => __( 'No post data found!', 'astra-addon' ),
+		);
+	}
+	
 
 	/**
 	 * Return settings for admin dashboard app.

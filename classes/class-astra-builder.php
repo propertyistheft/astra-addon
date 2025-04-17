@@ -92,6 +92,12 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 				'section' => 'section-hb-language-switcher',
 			);
 
+			$header_items['color-switcher'] = array(
+				'name'    => __( 'Color Switcher', 'astra-addon' ),
+				'icon'    => 'art',
+				'section' => 'section-hb-color-switcher',
+			);
+
 			if ( version_compare( ASTRA_THEME_VERSION, '3.2.0', '>' ) ) {
 
 				$header_items['mobile-trigger'] = array(
@@ -145,6 +151,12 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 				'name'    => __( 'Language Switcher', 'astra-addon' ),
 				'icon'    => 'translation',
 				'section' => 'section-hb-language-switcher',
+			);
+
+			$mobile_items['color-switcher'] = array(
+				'name'    => __( 'Color Switcher', 'astra-addon' ),
+				'icon'    => 'art',
+				'section' => 'section-hb-color-switcher',
 			);
 
 			return $mobile_items;
@@ -305,6 +317,16 @@ if ( ! class_exists( 'Astra_Builder' ) ) {
 						do_action( $action_name );
 					?>
 					</div>
+				<?php
+			} elseif ( strpos( $slug, 'color-switcher' ) === 0 ) {
+				$layout_class = astra_get_option( 'header-' . $slug . '-layout' );
+				?>
+				<div class="ast-builder-layout-element site-header-focus-item ast-header-color-switcher-element ast-header-<?php echo esc_attr( $slug ); ?> ast-hb-color-switcher-layout-<?php echo esc_attr( $layout_class ); ?>" data-section="section-hb-<?php echo esc_attr( $slug ); ?>">
+					<?php
+					$action_name = 'astra_header_' . str_replace( '-', '_', $slug );
+					do_action( $action_name );
+					?>
+				</div>
 				<?php
 			}
 		}

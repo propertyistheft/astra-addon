@@ -157,6 +157,9 @@ class Astra_Addon_Admin_Loader {
 		if ( is_admin() ) {
 			/* Ajax init */
 			require_once ASTRA_ADDON_ADMIN_DIR . 'includes/class-astra-addon-admin-ajax.php';
+
+			/* BSF Analytics */
+			require_once ASTRA_ADDON_ADMIN_DIR . 'class-astra-addon-bsf-analytics.php';
 		}
 	}
 

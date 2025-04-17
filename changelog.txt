@@ -1,5 +1,13 @@
 *** Astra Pro Changelog ***
 
+2025-04-15 - 4.10.0
+* New: Header Builder – Introduced the Color Switcher widget, allowing visitors to toggle between two color palettes, including support for Dark Mode. ( https://wpastra.com/docs/color-switcher-widget/ )
+* Improvement: Compatibility with WordPress 6.8.
+* Improvement: Enhanced accessibility with keyboard support, screen reader announcements, and ARIA attributes for filters.
+* Improvement: Added support for detecting custom fields dynamically during add-to-cart requests.
+* Improvement: Adjusted top margin in the modern My Account page layout to ensure better compatibility with transparent headers.
+* Fix: Resolved a Customizer error related to divider widget CSS generation by adding proper object and type checks.
+
 2025-04-02 - 4.9.2
 * Improvement: Added alphabetical sorting for next/previous product navigation with the `astra_woo_product_navigation_sort_args` filter for custom sorting. (https://wpastra.com/docs/product-navigation-with-custom-sorting/)
 * Fix: Resolved an issue where Banner Layout 2 was displaying on Single/Archive pages when Site Builder Templates were applied.

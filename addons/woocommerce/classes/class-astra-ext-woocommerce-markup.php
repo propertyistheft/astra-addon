@@ -66,7 +66,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			add_action( 'wp', array( $this, 'customization_cart_page' ) );
 			add_action( 'wp', array( $this, 'woo_product_tabs_layout' ) );
 			add_action( 'wp', array( $this, 'modern_my_account_template' ) );
-			add_action( 'wp', array( $this, 'restrict_modern_cart' ), );
+			add_action( 'wp', array( $this, 'restrict_modern_cart_and_checkout' ), 9 );
 
 			// Load WooCommerce shop page styles.
 			add_action( 'wp', array( $this, 'shop_page_styles' ) );
@@ -2281,20 +2281,28 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @global WP_Post $post This is the current post object.
 		 * @return void
 		 */
-		public function restrict_modern_cart() {
-			if ( defined( 'ELEMENTOR_VERSION' ) ) {
+		public function restrict_modern_cart_and_checkout() {
+			if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
 				global $post;
 				if ( ! empty( $post ) ) {
+
 					$elementor_data = get_post_meta( $post->ID, '_elementor_data', true );
 
 					// Ensure $elementor_data is a string before calling json_decode
 					if ( is_string( $elementor_data ) && ! empty( $elementor_data ) ) {
 						$elementor_data = json_decode( $elementor_data, true );
 
-						// Proceed if json_decode returns valid data (array or object)
-						if ( $elementor_data && astra_check_elementor_widget( $elementor_data, 'woocommerce-cart' ) ) {
-							if ( class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
-								remove_action( 'wp', array( self::get_instance(), 'modern_cart' ), 99 );
+						
+						// Proceed if json_decode returns valid data (array or object).
+						if ( $elementor_data ) {
+							// Restrict Astra Modern Cart.
+							if ( astra_check_elementor_widget( $elementor_data, 'woocommerce-cart' ) ) {
+								add_filter( 'astra_addon_enable_modern_cart', '__return_false' );
+							}
+							
+							// Restrict Astra Modern Checkout.
+							if ( astra_check_elementor_widget( $elementor_data, 'woocommerce-checkout-page' ) ) {
+								add_filter( 'astra_addon_enable_modern_checkout', '__return_false' );
 							}
 						}
 					}
@@ -3424,7 +3432,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @return void
 		 */
 		public function modern_cart() {
-			if ( ! astra_get_option( 'cart-modern-layout' ) ) {
+			if ( apply_filters( 'astra_addon_enable_modern_cart', ! astra_get_option( 'cart-modern-layout' ) ) ) {
 				return;
 			}
 			add_action( 'woocommerce_before_cart', array( $this, 'woocommerce_cart_wrapper_start' ) );

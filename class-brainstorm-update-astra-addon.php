@@ -43,7 +43,7 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) {
 		public function __construct() {
 
 			self::version_check();
-			add_action( 'init', array( $this, 'load' ), 999 );
+			add_action( 'init', array( $this, 'load' ), 98 );
 			add_filter( 'bsf_display_product_activation_notice_astra', '__return_false' );
 			add_filter( 'bsf_get_license_message_astra-addon', array( $this, 'license_message_astra_addon' ), 10, 2 );
 			add_filter( 'bsf_is_product_bundled', array( $this, 'remove_astra_pro_bundled_products' ), 20, 3 );
@@ -54,30 +54,6 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) {
 			add_filter( 'bsf_enable_product_autoupdates_astra', array( $this, 'enable_astra_beta_updates' ) );
 			add_filter( 'bsf_allow_beta_updates_astra', array( $this, 'enable_beta_updates' ) );
 			add_filter( 'bsf_allow_beta_updates_astra-addon', array( $this, 'enable_beta_updates' ) );
-
-			/*
-			* BSF Analytics.
-			*/
-			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
-				require_once ASTRA_EXT_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
-			}
-
-			$astra_addon_bsf_analytics = BSF_Analytics_Loader::get_instance();
-
-			$astra_addon_bsf_analytics->set_entity(
-				array(
-					'bsf' => array(
-						'product_name'    => 'Astra Pro',
-						'path'            => ASTRA_EXT_DIR . 'admin/bsf-analytics',
-						'author'          => 'Brainstorm Force',
-						'time_to_display' => '+24 hours',
-					),
-				)
-			);
-
-			add_filter( 'bsf_core_stats', array( $this, 'astra_addon_get_specific_stats' ) );
-			add_action( 'astra_addon_get_addon_usage', array( $this, 'astra_addon_get_addon_usage' ) );
-			add_filter( 'init', array( $this, 'astra_addon_run_scheduled_analytic_job' ) );
 		}
 
 		/**
@@ -246,84 +222,6 @@ if ( ! class_exists( 'Brainstorm_Update_Astra_Addon' ) ) {
 			global $bsf_core_version, $bsf_core_path;
 			if ( is_file( realpath( $bsf_core_path . '/index.php' ) ) ) {
 				include_once realpath( $bsf_core_path . '/index.php' );
-			}
-		}
-
-		/**
-		 * Pass addon specific stats to BSF analytics.
-		 *
-		 * @since 2.6.4
-		 * @param array $default_stats Default stats array.
-		 * @return array $default_stats Default stats with addon specific stats array.
-		 */
-		public function astra_addon_get_specific_stats( $default_stats ) {
-			$astra_settings                  = get_option( 'astra-settings', array() );
-			$default_stats['astra_settings'] = array(
-				'astra-addon-version' => ASTRA_EXT_VER,
-				'astra-theme-version' => ASTRA_THEME_VERSION,
-				'breadcrumb-position' => isset( $astra_settings['breadcrumb-position'] ) ? $astra_settings['breadcrumb-position'] : 'none',
-				'mega-menu-details'   => get_option( 'ast_extension_data', array() ),
-			);
-			return $default_stats;
-		}
-
-		/**
-		 * Prepare Astra's megamenu data to pass BSF-Analytics.
-		 *
-		 * @since 3.9.3
-		 *
-		 * @return void
-		 */
-		public function astra_addon_get_addon_usage() {
-
-			$all_menus               = wp_get_nav_menus();
-			$megamenu_analytics_data = array();
-
-			if ( ! is_array( $all_menus ) && empty( $all_menus ) ) {
-				return;
-			}
-
-			foreach ( $all_menus as $key => $menu_term ) {
-				$menu_items = wp_get_nav_menu_items( $menu_term->term_id );
-				foreach ( $menu_items as $menu_item ) {
-					// Enable Megamenu.
-					$is_enable = isset( $menu_item->megamenu ) ? $menu_item->megamenu : '';
-					if ( 'megamenu' === $is_enable ) {
-						$megamenu_analytics_data['megamenu-is-enabled'][] = 'yes';
-					}
-
-					// Width type.
-					$width_type = isset( $menu_item->megamenu_width ) ? $menu_item->megamenu_width : '';
-					if ( '' !== $width_type ) {
-						$megamenu_analytics_data['menu-container-types'][] = $width_type;
-					}
-
-					// Content source.
-					$content_source = isset( $menu_item->megamenu_content_src ) ? $menu_item->megamenu_content_src : '';
-					if ( '' !== $content_source ) {
-						$megamenu_analytics_data['sub-menus-content-source'][] = $content_source;
-					}
-
-					// Enabled heading.
-					$enabled_heading = isset( $menu_item->megamenu_enable_heading ) ? $menu_item->megamenu_enable_heading : '';
-					if ( '' !== $enabled_heading ) {
-						$megamenu_analytics_data['sub-menus-heading-enabled'][] = $enabled_heading;
-					}
-				}
-			}
-
-			update_option( 'ast_extension_data', $megamenu_analytics_data );
-		}
-
-		/**
-		 * Run scheduled job for BSF-Analytics.
-		 *
-		 * @since 3.9.3
-		 * @return void
-		 */
-		public function astra_addon_run_scheduled_analytic_job() {
-			if ( ! wp_next_scheduled( 'astra_addon_get_addon_usage' ) && ! wp_installing() ) {
-				wp_schedule_event( time(), 'daily', 'astra_addon_get_addon_usage' );
 			}
 		}
 	}

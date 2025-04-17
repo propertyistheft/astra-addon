@@ -469,6 +469,91 @@ function astra_builder_language_switcher_css( builder_type = 'header' ) {
 }
 
 /**
+ * Color Switcher Component CSS for Customizer Preview.
+ *
+ * @param {string} builder_type Builder Type ('header' or 'footer').
+ * @since x.x.x
+ */
+function astra_builder_color_switcher_css( builderType = 'header' ) {
+	const selector = `${ builderType } .ast-header-color-switcher-element`;
+	const btnSelector = `${ selector } .ast-switcher-button`;
+	const section = `section-${ builderType }`;
+
+	/**
+	 * Apply properties using the helper functions.
+	 */
+
+	// Icon Size.
+	astraGenerateResponsiveStyle(
+		section,
+		'color-switcher-icon-size',
+		`${ selector } svg`,
+		[ 'width', 'height' ],
+		'px'
+	);
+
+	// Visibility.
+	astraGenerateVisibilityStyle( section, 'color-switcher-visibility', selector );
+
+	// Icon Color.
+	astraGenerateResponsiveStyle( section, 'color-switcher-icon-color', btnSelector, [ 'color' ] );
+	// Button Normal and Hover Background.
+	astraGenerateResponsiveStyle( section, 'color-switcher-background', btnSelector, [ 'background' ] );
+	astraGenerateResponsiveStyle(
+		section,
+		'color-switcher-background-hover',
+		btnSelector + ':hover',
+		[ 'background' ]
+	);
+	// Border Radius
+	astraGenerateResponsiveSpacingStyle(
+		section,
+		'color-switcher-radius',
+		btnSelector,
+		'border-radius'
+	);
+
+	// Margin & Padding.
+	[ 'margin', 'padding' ].forEach( ( property ) =>
+		astraGenerateResponsiveSpacingStyle(
+			section,
+			`color-switcher-${ property }`,
+			btnSelector,
+			property
+		)
+	);
+
+	/**
+	 * Transparent & Sticky styles.
+	 */
+	[ 'transparent', 'sticky'].forEach( ( headerType ) => {
+		const prefixSelector = headerType === 'transparent' ? '.ast-theme-transparent-header header' : 'header .ast-header-sticked';
+		const typeBtnSelector = `${ prefixSelector } .ast-header-color-switcher-element .ast-switcher-button`;
+
+		// Icon Color.
+		astraGenerateResponsiveStyle(
+			section,
+			`${ headerType }-color-switcher-icon-color`,
+			typeBtnSelector,
+			[ 'color' ]
+		);
+		// Button Normal and Hover Background.
+		astraGenerateResponsiveStyle(
+			section,
+			`${ headerType }-color-switcher-background`,
+			typeBtnSelector,
+			[ 'background' ]
+		);
+		astraGenerateResponsiveStyle(
+			section,
+			`${ headerType }-color-switcher-background-hover`,
+			typeBtnSelector + ':hover',
+			[ 'background' ]
+		);
+	} );
+}
+
+/**
  * Box Shadow CSS.
  *
  * @param string prefix Controls prefix.

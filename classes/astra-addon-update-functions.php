@@ -182,3 +182,27 @@ function astra_addon_background_updater_4_9_2() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Background updater function for addon v4.10.0
+ *
+ * @since 4.10.0
+ * @return void
+ */
+function astra_addon_background_updater_4_10_0() {
+	// Retrieve the installed time and optin status of BSF Analytics and update it as per product specific key.
+	$analytics_options = array(
+		'bsf_analytics_installed_time' => 'astra_analytics_installed_time',
+		'bsf_analytics_optin'          => 'astra_analytics_optin',
+	);
+
+	foreach ( $analytics_options as $source => $target ) {
+		$status = get_site_option( $source );
+		if ( ! get_site_option( $target ) && $status ) {
+			update_option( $target, $status );
+		}
+	}
+
+	// Remove irrelevant option.
+	delete_option( 'ast_extension_data' );
+}

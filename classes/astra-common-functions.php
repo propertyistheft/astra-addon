@@ -548,6 +548,105 @@ if ( ! function_exists( 'astra_addon_get_search_form' ) ) {
 }
 
 /**
+ * Icon Selector SVG.
+ */
+if ( ! function_exists( 'astra_icon_selector_svg' ) ) {
+	/**
+	 * Renders an SVG icon for SVG Icon Selector Control.
+	 *
+	 * @param array  $icon    The icon to be rendered. Contains type and value keys.
+	 * @param bool   $echo    Whether to echo the SVG markup directly or return it.
+	 * @param string $default The default icon to use if no icon is provided.
+	 *
+	 * @return string|null The SVG icon markup or null if SVG icons are not enabled or no icon is provided.
+	 * @since 4.10.0
+	 */
+	function astra_icon_selector_svg( $icon, $echo = false, $default = '' ) {
+		// Bail early if SVG icons are not enabled.
+		if ( ! Astra_Icons::is_svg_icons() || ! $icon ) {
+			return $echo ? null : '';
+		}
+
+		$svg     = '';
+		$classes = array( 'ast-icon' );
+
+		if ( isset( $icon['type'], $icon['value'] ) ) {
+			$type  = $icon['type'];
+			$value = $icon['value'];
+
+			if ( $type === 'custom' ) {
+				$svg       = do_shortcode( $value );
+				$classes[] = 'icon-' . $type;
+			} elseif ( $type !== 'none' && is_callable( 'Astra_Builder_UI_Controller::fetch_svg_icon' ) ) {
+				$svg       = Astra_Builder_UI_Controller::fetch_svg_icon( $value );
+				$classes[] = 'icon-' . $value;
+			}
+		}
+
+		if ( ! $svg && $default && is_callable( 'Astra_Builder_UI_Controller::fetch_svg_icon' ) ) {
+			$svg = Astra_Builder_UI_Controller::fetch_svg_icon( $default );
+		}
+
+		if ( $svg ) {
+			$svg = sprintf(
+				'<span class="%1$s">%2$s</span>',
+				implode( ' ', $classes ),
+				$svg
+			);
+		}
+
+		if ( $echo !== true ) {
+			return wp_kses( $svg, Astra_Addon_Kses::astra_addon_svg_kses_protocols() );
+		}
+		
+		echo wp_kses( $svg, Astra_Addon_Kses::astra_addon_svg_kses_protocols() );
+	}
+}
+
+/**
+ * Global color palette names.
+ */
+if ( ! function_exists( 'astra_get_palette_names' ) ) {
+	/**
+	 * Function to get global color palette names.
+	 *
+	 * @return array color palette names.
+	 * @since 4.10.0
+	 */
+	function astra_get_palette_names() {
+		$color_palette_reorganize = is_callable( 'Astra_Dynamic_CSS::astra_4_8_9_compatibility' ) && Astra_Dynamic_CSS::astra_4_8_9_compatibility();
+		$default_palette_names    = array(
+			'palette_1' => 'Default',
+			'palette_2' => $color_palette_reorganize ? 'Oak' : 'Style 2',
+			'palette_3' => $color_palette_reorganize ? 'Lavender' : 'Style 3',
+			'palette_4' => 'Dark',
+		);
+
+		$color_palettes = get_option( 'astra-color-palettes', array() );
+
+		$palette_names = $default_palette_names;
+		if ( isset( $color_palettes['presetNames'] ) ) {
+			$palette_names = $color_palettes['presetNames'];
+
+			// Ensure all 4 palette names exist, use default if empty.
+			foreach ( $default_palette_names as $key => $default_name ) {
+				if ( empty( $palette_names[ $key ] ) ) {
+					$palette_names[ $key ] = $default_name;
+				}
+			}
+		}
+
+		/**
+		 * Filter the color palette names before returning them.
+		 *
+		 * @param array $palette_names The array of color palette names.
+		 * @return array The filtered array of color palette names.
+		 */
+		return apply_filters( 'astra_get_palette_names', $palette_names );
+	}
+}
+
+/**
  * Get instance of WP_Filesystem.
  *
  * @since 2.6.4
@@ -751,4 +850,28 @@ function astra_addon_check_reveal_effect_condition( $type = '' ) {
  */
 function astra_addon_4_6_0_compatibility() {
 	return is_callable( 'Astra_Dynamic_CSS::astra_4_6_0_compatibility' ) ? Astra_Dynamic_CSS::astra_4_6_0_compatibility() : false;
+}
+
+/**
+ * Determines if the specified palette key corresponds to a dark palette.
+ *
+ * @param string $palette_key The key of the palette to check. Defaults to 'current' which indicates the current global palette.
+ *
+ * @since 4.10.0
+ * @return bool Returns true if the palette key is associated with a dark palette, false otherwise.
+ */
+function astra_addon_is_dark_palette( $palette_key = 'current' ) {
+	if ( $palette_key === 'current' ) {
+		// Check if the 'is_dark_palette' method exists and use it to determine if the current palette is dark.
+		if ( method_exists( 'Astra_Global_Palette', 'is_dark_palette' ) ) {
+			return Astra_Global_Palette::is_dark_palette();
+		}
+
+		// If the 'is_dark_palette' method does not exist, try to get the active global palette key.
+		if ( method_exists( 'Astra_Global_Palette', 'astra_get_active_global_palette' ) ) {
+			$palette_key = Astra_Global_Palette::astra_get_active_global_palette();
+		}
+	}
+
+	return $palette_key === 'palette_4';
 }

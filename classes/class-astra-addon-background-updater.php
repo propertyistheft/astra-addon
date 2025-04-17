@@ -25,35 +25,38 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 		 * @var array
 		 */
 		private static $db_updates = array(
-			'4.0.0' => array(
+			'4.0.0'  => array(
 				'astra_addon_background_updater_4_0_0',
 			),
-			'4.1.0' => array(
+			'4.1.0'  => array(
 				'astra_addon_background_updater_4_1_0',
 			),
-			'4.1.6' => array(
+			'4.1.6'  => array(
 				'astra_addon_background_updater_4_1_6',
 			),
-			'4.4.0' => array(
+			'4.4.0'  => array(
 				'astra_addon_background_updater_4_4_0',
 			),
-			'4.6.0' => array(
+			'4.6.0'  => array(
 				'astra_addon_background_updater_4_6_0',
 			),
-			'4.6.1' => array(
+			'4.6.1'  => array(
 				'astra_addon_background_updater_4_6_1',
 			),
-			'4.6.8' => array(
+			'4.6.8'  => array(
 				'astra_addon_background_updater_4_6_8',
 			),
-			'4.7.0' => array(
+			'4.7.0'  => array(
 				'astra_addon_background_updater_4_7_0',
 			),
-			'4.8.4' => array(
+			'4.8.4'  => array(
 				'astra_addon_background_updater_4_8_4',
 			),
-			'4.9.2' => array(
+			'4.9.2'  => array(
 				'astra_addon_background_updater_4_9_2',
+			),
+			'4.10.0' => array(
+				'astra_addon_background_updater_4_10_0',
 			),
 		);
 

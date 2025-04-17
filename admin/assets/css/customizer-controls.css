@@ -281,3 +281,15 @@ body.rtl #customize-control-astra-settings-mobile-header-logo .customize-control
 li#customize-control-astra-settings-fullscreen-modal-heading-text {
     margin-top: 32px;
 }
+
+#customize-control-astra-settings-color-switcher-palettes-quick-link {
+    margin-top: 24px;
+}
+
+#customize-control-astra-settings-color-switcher-palettes-quick-link .ahfb-builder-item-start {
+    margin-bottom: 0;
+}
+
+#customize-control-astra-settings-checkout-layout-type.customize-control.customize-control-ast-selector .ast-control-tooltip {
+    top: 30px;
+}

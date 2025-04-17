@@ -36,6 +36,20 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
+			// Help text for modern checkout.
+			$checkout_description = '';
+			if ( defined( 'CARTFLOWS_VER' ) ) {
+				$checkout_description = __( "Astra's modern checkout is disabled when CartFlows is active to prevent layout conflicts.", 'astra-addon' );
+			} elseif ( defined( 'ELEMENTOR_PRO_VERSION' ) && function_exists( 'wc_get_page_id' ) ) {
+				$checkout_page_id = wc_get_page_id( 'checkout' );
+				$elementor_data   = get_post_meta( $checkout_page_id, '_elementor_data', true );
+				if ( is_string( $elementor_data ) && ! empty( $elementor_data ) ) {
+					$elementor_data = json_decode( $elementor_data, true );
+					if ( astra_check_elementor_widget( $elementor_data, 'woocommerce-checkout-page' ) ) {
+						$checkout_description = __( "Astra's modern checkout is disabled when Elementor Checkout block is added on the checkout page to prevent layout conflicts.", 'astra-addon' );
+					}
+				}
+			}
 
 			$_configs = array(
 
@@ -135,7 +149,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'transport'   => 'refresh',
 					'renderAs'    => 'text',
 					'responsive'  => false,
-					'description' => defined( 'CARTFLOWS_VER' ) ? __( 'Astra’s modern checkout is disabled when CartFlows is active to prevent layout conflicts.', 'astra-addon' ) : '',
+					'description' => $checkout_description,
 					'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 

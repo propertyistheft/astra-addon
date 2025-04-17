@@ -160,8 +160,6 @@ astraNavMenuTogglePro = function ( event, body, mobileHeaderType, thisObj ) {
     }
 }
 
-
-
 const accountMenuToggle = function () {
     const checkAccountActionTypeCondition = astraAddon.hf_account_action_type && 'menu' === astraAddon.hf_account_action_type;
     const accountMenuClickCondition = checkAccountActionTypeCondition && astraAddon.hf_account_show_menu_on && 'click' === astraAddon.hf_account_show_menu_on;
@@ -209,12 +207,169 @@ const accountMenuToggle = function () {
     }
 }
 
+/**
+ * Color Switcher.
+ *
+ * @since 4.10.0
+ */
+const astraColorSwitcher = {
+	...astraAddon?.colorSwitcher, // Spreading Color Switcher options.
+
+	/**
+	 * Initializes the Color Switcher Widget.
+	 */
+	init: function () {
+		if ( ! this?.isInit ) {
+			return;
+		}
+
+		this.switcherButtons = document.querySelectorAll( '.ast-builder-color-switcher .ast-switcher-button' );
+
+		if ( ! this.switcherButtons?.length ) {
+			return;
+		}
+
+		this.switcherButtons?.forEach( ( switcherButton ) => {
+			switcherButton?.addEventListener( 'click', this.toggle ); // ✅ `this` refers to astraColorSwitcher
+		} );
+
+		if ( this.isDarkPalette && this.defaultMode === 'system' ) {
+			// Detect system preference and apply mode accordingly.
+			this.detectSystemColorScheme();
+		}
+	},
+
+	/**
+	 * Detects the system's color scheme preference and sets the theme accordingly.
+	 */
+	detectSystemColorScheme: function () {
+		const storedPreference = this.getCookie( 'astraColorSwitcherState' );
+
+		// Bail early, if user has previously chosen a theme.
+		if ( storedPreference !== null ) {
+			return;
+		}
+
+		// Detect system preference.
+		const prefersDark = window.matchMedia( '(prefers-color-scheme: dark)' ).matches;
+
+		if ( prefersDark && ! this.isSwitched ) {
+			// Apply the detected or stored theme.
+			this.toggle();
+		}
+	},
+
+	/**
+	 * Toggle the palette.
+	 *
+	 * @param {Event} e Button click event object.
+	 */
+	toggle: function ( e ) {
+		e?.preventDefault();
+		const switcher = astraColorSwitcher;
+
+		// Toggle the state
+		switcher.isSwitched = ! switcher.isSwitched;
+
+		// Store state in cookie (expires in 90 days).
+		switcher.setCookie( 'astraColorSwitcherState', switcher.isSwitched, 90 );
+
+		if ( switcher?.forceReload ) {
+			window.location.reload();
+			return;
+		}
+
+		switcher.switchPaletteColors();
+		switcher.switchIcon();
+
+		if ( switcher.isDarkPalette ) {
+			switcher.handleDarkModeCompatibility();
+		}
+	},
+
+	/**
+	 * Switch Palette Colors.
+	 */
+	switchPaletteColors: function () {
+		// Choose the correct palette based on `isSwitched` state.
+		const currentPalette = this.isSwitched ? this?.palettes?.switched : this?.palettes?.default;
+
+		// Apply the colors to CSS variables.
+		currentPalette?.forEach( ( color, index ) => {
+			document.documentElement.style.setProperty( `--ast-global-color-${ index }`, color );
+		} );
+	},
+
+	/**
+	 * Switch Icon.
+	 */
+	switchIcon: function () {
+		this.switcherButtons?.forEach( ( switcherButton ) => {
+			const [ defaultIcon, switchedIcon ] = switcherButton?.querySelectorAll( '.ast-switcher-icon' );
+
+			// Avoid icon switching if there is none or only one.
+			if ( defaultIcon && switchedIcon ) {
+				const [ first, second ] = this.isSwitched ? [ switchedIcon, defaultIcon ] : [ defaultIcon, switchedIcon ];
+
+				// Animate icon.
+				switcherButton?.classList.add( 'ast-animate' );
+
+				setTimeout( () => {
+					first?.classList.add( 'ast-current' );
+					second?.classList.remove( 'ast-current' );
+				}, 100 );
+
+				setTimeout( () => switcherButton?.classList.remove( 'ast-animate' ), 200 );
+			}
+
+            /// Switch aria attribute.
+            const ariaLabelTextKey = this.isSwitched ? 'defaultText' : 'switchedText';
+			switcherButton?.setAttribute(
+				'aria-label',
+				switcherButton?.dataset?.[ ariaLabelTextKey ] || 'Switch color palette.'
+			);
+		} );
+	},
+
+	/**
+	 * Handle Dark Mode Compatibility.
+	 */
+	handleDarkModeCompatibility: function () {
+		// Add the dark mode class.
+		document.body.classList.toggle( 'astra-dark-mode-enable' );
+
+		// Todo: Handle dark compatibility CSS.
+	},
+
+	/**
+	 * Helper function to set a cookie.
+	 */
+	setCookie: ( name, value, days ) => {
+		const expires = new Date();
+		expires.setTime( expires.getTime() + days * 24 * 60 * 60 * 1000 );
+		document.cookie = `${ name }=${ value }; expires=${ expires.toUTCString() }; path=/`;
+	},
+
+	/**
+	 * Helper function to get a cookie.
+	 */
+	getCookie: ( name ) => {
+		const cookies = document.cookie.split( '; ' );
+		for ( let cookie of cookies ) {
+			const [ key, val ] = cookie.split( '=' );
+			if ( key === name ) return val;
+		}
+		return null;
+	},
+};
+
 document.addEventListener( 'astPartialContentRendered', function() {
     accountMenuToggle();
 });
 
 window.addEventListener( 'load', function() {
     accountMenuToggle();
+    astraColorSwitcher.init();
 } );
 
 document.addEventListener( 'astLayoutWidthChanged', function() {

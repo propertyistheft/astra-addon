@@ -470,6 +470,9 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Loader' ) ) {
 
 				// Menu Toggle Sticky Configs.
 				require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-header-toggle-configs.php';
+
+				// Color Switcher Sticky Configs.
+				require_once ASTRA_ADDON_EXT_STICKY_HEADER_DIR . 'classes/sections/class-astra-sticky-header-color-switcher-configs.php';
 			}
 		}
 

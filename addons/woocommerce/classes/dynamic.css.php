@@ -3795,6 +3795,9 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					.ast-modern-woo-account-page .entry-content {
 						margin: 2em auto;
 					}
+					.ast-theme-transparent-header.ast-modern-woo-account-page header.ast-no-title + .entry-content {
+					margin: 0;
+					}
 					.woocommerce-MyAccount-navigation-link .ahfb-svg-iconset {
 						margin-' . esc_attr( $ltr_right ) . ': 20px;
 					}

@@ -57,12 +57,14 @@ final class Astra_Addon_Builder_Customizer {
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-addon-button-component-configs.php';
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-social-component-configs.php';
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-language-switcher-component-configs.php';
+		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php';
 
 		// Base Dynamic CSS Files.
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/dynamic-css/divider/class-astra-divider-component-dynamic-css.php';
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/dynamic-css/language-switcher/class-astra-language-switcher-component-dynamic-css.php';
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/dynamic-css/social-icon/class-astra-social-icon-component-dynamic-css.php';
 		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/dynamic-css/button/class-astra-addon-button-component-dynamic-css.php';
+		require_once ASTRA_EXT_DIR . 'classes/builder/type/base/dynamic-css/color-switcher/class-astra-color-switcher-component-dynamic-css.php';
 
 		$this->load_header_components();
 		$this->load_footer_components();
@@ -85,6 +87,7 @@ final class Astra_Addon_Builder_Customizer {
 		require_once $header_config_path . '/social-icon/class-astra-header-social-component-configs.php';
 		require_once $header_config_path . '/language-switcher/class-astra-header-language-switcher-configs.php';
 		require_once $header_config_path . '/off-canvas/class-astra-addon-offcanvas-configs.php';
+		require_once $header_config_path . '/color-switcher/class-astra-header-color-switcher-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
@@ -122,6 +125,7 @@ final class Astra_Addon_Builder_Customizer {
 		require_once $header_components_path . '/social-icon/class-astra-header-social-component.php';
 		require_once $header_components_path . '/language-switcher/class-astra-header-language-switcher-component.php';
 		require_once $header_components_path . '/off-canvas/class-astra-addon-offcanvas-component.php';
+		require_once $header_components_path . '/color-switcher/class-astra-header-color-switcher-component.php';
 
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
