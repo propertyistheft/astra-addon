@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				$classes[] = 'ast-sticky-custom-logo';
 			}
 
-			if ( ( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' == $sticky_primary_header_meta ) ) ) ) {
+			if ( ( '1' == $main_stick || ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) ) ) ) {
 				$classes[] = 'ast-primary-sticky-enabled';
 			}
 
@@ -131,13 +131,13 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			$sticky_header_meta         = astra_get_option_meta( 'stick-header-meta' );
 			$sticky_primary_header_meta = astra_get_option_meta( 'header-main-stick-meta' );
 
-			if ( '1' == $inherit_desk_logo && ( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' == $sticky_primary_header_meta ) ) ) && 'none' == $header_style ) {
+			if ( '1' == $inherit_desk_logo && ( '1' == $main_stick || ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) ) ) && 'none' === $header_style ) {
 				// Logo For None Effect.
 				add_filter( 'astra_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'none_custom_logo' ), 10, 2 );
 			}
 
-			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active && 'none' == $header_style ) {
+			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active && 'none' === $header_style ) {
 
 				// Logo For None Effect.
 				add_filter( 'astra_has_custom_logo', '__return_true' );
@@ -175,16 +175,16 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				$sticky_below_header_meta   = astra_get_option_meta( 'header-below-stick-meta' );
 
 				if ( ! (
-						( '1' == $main_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_primary_header_meta || 'disabled' == $sticky_primary_header_meta ) ) ) ||
-						( '1' == $above_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_above_header_meta || 'disabled' == $sticky_above_header_meta ) ) ) ||
-						( '1' == $below_stick || ( 'enabled' == $sticky_header_meta && ( 'on' == $sticky_below_header_meta || 'disabled' == $sticky_below_header_meta ) ) )
+						( '1' == $main_stick || ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) ) ) ||
+						( '1' == $above_stick || ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_above_header_meta || 'disabled' === $sticky_above_header_meta ) ) ) ||
+						( '1' == $below_stick || ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_below_header_meta || 'disabled' === $sticky_below_header_meta ) ) )
 					) ) {
 					return;
 				}
 
 				$sticky_header_style   = astra_get_option( 'sticky-header-style' );
 				$sticky_hide_on_scroll = astra_get_option( 'sticky-hide-on-scroll' );
-				if ( 'none' == $sticky_header_style && ! $sticky_hide_on_scroll ) {
+				if ( 'none' === $sticky_header_style && ! $sticky_hide_on_scroll ) {
 					return;
 				}
 
@@ -205,9 +205,9 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				add_filter( 'astra_header_menu_ul_id', array( $this, 'update_menu_ul_id' ), 10, 1 );
 
 				// Check if globally enabled or specific post/page enabled.
-				$disable_above_markup = ! $above_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' === $sticky_above_header_meta || 'disabled' === $sticky_above_header_meta ) );
-				$disable_main_markup  = ! $main_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' === $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) );
-				$disable_below_markup = ! $below_stick && ! ( 'enabled' == $sticky_header_meta && ( 'on' === $sticky_below_header_meta || 'disabled' === $sticky_below_header_meta ) );
+				$disable_above_markup = ! $above_stick && ! ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_above_header_meta || 'disabled' === $sticky_above_header_meta ) );
+				$disable_main_markup  = ! $main_stick && ! ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_primary_header_meta || 'disabled' === $sticky_primary_header_meta ) );
+				$disable_below_markup = ! $below_stick && ! ( 'enabled' === $sticky_header_meta && ( 'on' === $sticky_below_header_meta || 'disabled' === $sticky_below_header_meta ) );
 
 				?>
 				<header id="ast-fixed-header" <?php astra_header_classes(); ?> style="visibility: hidden;" data-type="fixed-header">
@@ -431,7 +431,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 				$file_type      = wp_check_filetype( $attr['src'] );
 				$file_extension = $file_type['ext'];
 
-				if ( 'svg' == $file_extension ) {
+				if ( 'svg' === $file_extension ) {
 					$attr['width']  = '100%';
 					$attr['height'] = '100%';
 					$attr['class']  = 'astra-logo-svg';
@@ -662,7 +662,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 						if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
 							// Above Header Layout.
 							$above_header_layout = astra_get_option( 'above-header-layout' );
-							if ( 'disabled' != $above_header_layout ) {
+							if ( 'disabled' !== $above_header_layout ) {
 								?>
 									<div class="sticky-above-header-meta-wrapper" >
 									<p class="post-attributes-label-wrapper">
@@ -675,7 +675,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 						}
 						// Main Header Layout.
 						$header_layouts = astra_get_option( 'header-layouts' );
-						if ( 'header-main-layout-5' != $header_layouts ) {
+						if ( 'header-main-layout-5' !== $header_layouts ) {
 							?>
 
 						<div class="stick-main-header-meta-wrapper">
@@ -689,7 +689,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 						if ( Astra_Ext_Extension::is_active( 'header-sections' ) ) {
 							// Below Header Layout.
 							$below_header_layout = astra_get_option( 'below-header-layout' );
-							if ( 'disabled' != $below_header_layout ) {
+							if ( 'disabled' !== $below_header_layout ) {
 								?>
 									<div class="sticky-below-header-meta-wrapper" >
 									<p class="post-attributes-label-wrapper">

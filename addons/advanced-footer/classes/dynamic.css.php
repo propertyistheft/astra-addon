@@ -127,7 +127,7 @@ function astra_ext_footer_adv_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$adv_footer_css_output .= astra_parse_css( $mobile_css, '', astra_addon_get_mobile_breakpoint() );
 
 	/* Width for Footer Widgets */
-	if ( 'content' != $footer_adv_width ) {
+	if ( 'content' !== $footer_adv_width ) {
 
 		$footer_adv_left_padding  = 35;
 		$footer_adv_right_padding = 35;

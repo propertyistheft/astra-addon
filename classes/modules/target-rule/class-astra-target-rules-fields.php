@@ -1220,7 +1220,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 											}
 										} elseif ( 'tax' === $specific_post_type ) {
 											$tax_id = get_queried_object_id();
-											if ( $specific_post_id === $tax_id ) {
+											if ( $specific_post_id == $tax_id ) {
 												$display = true;
 											}
 										}

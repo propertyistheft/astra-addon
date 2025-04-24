@@ -20,8 +20,6 @@ function astra_addon_header_sections_colors_dynamic_css( $dynamic_css, $dynamic_
 	$above_header_merged = astra_get_option( 'above-header-merge-menu' );
 	$below_header_merged = astra_get_option( 'below-header-merge-menu' );
 
-	$header_break_point = astra_header_break_point(); // Header Break Point.
-
 	$parse_css = '';
 
 	/**

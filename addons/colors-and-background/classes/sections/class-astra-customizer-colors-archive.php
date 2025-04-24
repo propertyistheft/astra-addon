@@ -40,12 +40,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Archive' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
-
-			$content_colors_config_title = __( 'Content', 'astra-addon' );
-			if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
-				$content_colors_config_title = __( 'Content Color', 'astra-addon' );
-			}
-
 			$_configs = array(
 				// Option: Blog Content Color.
 				array(

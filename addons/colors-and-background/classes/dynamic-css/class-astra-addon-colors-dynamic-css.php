@@ -101,7 +101,6 @@ class Astra_Addon_Colors_Dynamic_CSS {
 		$footer_color        = astra_get_option( 'footer-color' );
 		$footer_link_color   = astra_get_option( 'footer-link-color' );
 		$footer_link_h_color = astra_get_option( 'footer-link-h-color' );
-		$header_break_point  = astra_header_break_point(); // Header Break Point.
 
 		/**
 		 * Normal Colors without responsive option.

@@ -996,7 +996,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type && ( isset( $_GET['code_editor'] ) || ( isset( $post->ID ) && 'code_editor' == get_post_meta( $post->ID, 'editor_type', true ) ) ) ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type && ( isset( $_GET['code_editor'] ) || ( isset( $post->ID ) && 'code_editor' === get_post_meta( $post->ID, 'editor_type', true ) ) ) ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 				if ( ! function_exists( 'wp_enqueue_code_editor' ) || isset( $_GET['wordpress_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 					return;
@@ -1033,7 +1033,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type && isset( $post_types[ ASTRA_ADVANCED_HOOKS_POST_TYPE ] ) ) {
+			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type && isset( $post_types[ ASTRA_ADVANCED_HOOKS_POST_TYPE ] ) ) {
 				unset( $post_types[ ASTRA_ADVANCED_HOOKS_POST_TYPE ] );
 			}
 			return $post_types;
@@ -1146,7 +1146,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) {
+			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type ) {
 				$with_php = get_post_meta( $post->ID, 'editor_type', true );
 				if ( 'code_editor' === $with_php ) {
 					$classes = ' astra-php-snippt-enabled';
@@ -1218,15 +1218,15 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 				if ( is_array( $location_rules ) && isset( $location_rules['rule'] ) ) {
 
-					foreach ( $location_rules['rule'] as $key => $rule ) {
+					foreach ( $location_rules['rule'] as $rule ) {
 
 						if ( ! isset( $all_rules[ $rule ] ) ) {
 							$all_rules[ $rule ] = array();
 						}
 
-						if ( 'specifics' == $rule && isset( $location_rules['specific'] ) && is_array( $location_rules['specific'] ) ) {
+						if ( 'specifics' === $rule && isset( $location_rules['specific'] ) && is_array( $location_rules['specific'] ) ) {
 
-							foreach ( $location_rules['specific'] as $s_index => $s_value ) {
+							foreach ( $location_rules['specific'] as $s_value ) {
 
 								$all_rules[ $rule ][ $s_value ][ $header->ID ] = array(
 									'ID'     => $header->ID,
@@ -1253,7 +1253,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			if ( is_array( $current_post_data ) && isset( $current_post_data['rule'] ) ) {
 
-				foreach ( $current_post_data['rule'] as $c_key => $c_rule ) {
+				foreach ( $current_post_data['rule'] as $c_rule ) {
 
 					if ( ! isset( $all_rules[ $c_rule ] ) ) {
 						continue;
@@ -1261,7 +1261,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 					if ( 'specifics' === $c_rule ) {
 
-						foreach ( $current_post_data['specific'] as $s_index => $s_id ) {
+						foreach ( $current_post_data['specific'] as $s_id ) {
 							if ( ! isset( $all_rules[ $c_rule ][ $s_id ] ) ) {
 								continue;
 							}
@@ -1482,7 +1482,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 			// Get all posts.
 			$post_type = get_post_type();
 
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $post_type ) {
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
 
 				wp_nonce_field( basename( __FILE__ ), ASTRA_ADVANCED_HOOKS_POST_TYPE );
 				$stored = get_post_meta( $post->ID );

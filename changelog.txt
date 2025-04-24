@@ -1,6 +1,12 @@
 *** Astra Pro Changelog ***
 
-2025-04-15 - 4.10.0
+2025-04-24 - version 4.10.1
+* Fix: WooCommerce – Resolved product gallery image glitches when changing variations on single product pages in WC v4.8.0+.
+* Fix: Resolved an issue where Site Builder exclusions were not working for specific category archive pages.
+* Fix: Addressed an issue where the Shop Filter button did not trigger the off-canvas flyout.
+* Fix: Resolved an issue affecting users who installed the ZIP file from the WooCommerce Marketplace.
+
+2025-04-15 - version 4.10.0
 * New: Header Builder – Introduced the Color Switcher widget, allowing visitors to toggle between two color palettes, including support for Dark Mode. ( https://wpastra.com/docs/color-switcher-widget/ )
 * Improvement: Compatibility with WordPress 6.8.
 * Improvement: Enhanced accessibility with keyboard support, screen reader announcements, and ARIA attributes for filters.
@@ -8,14 +14,14 @@
 * Improvement: Adjusted top margin in the modern My Account page layout to ensure better compatibility with transparent headers.
 * Fix: Resolved a Customizer error related to divider widget CSS generation by adding proper object and type checks.
 
-2025-04-02 - 4.9.2
+2025-04-02 - version 4.9.2
 * Improvement: Added alphabetical sorting for next/previous product navigation with the `astra_woo_product_navigation_sort_args` filter for custom sorting. (https://wpastra.com/docs/product-navigation-with-custom-sorting/)
 * Fix: Resolved an issue where Banner Layout 2 was displaying on Single/Archive pages when Site Builder Templates were applied.
 
-2025-03-07 - 4.9.1
+2025-03-07 - version 4.9.1
 * Fix: Resolved critical error which was introduced in previous version (v4.9.0).
 
-2025-03-06 - 4.9.0
+2025-03-06 - version 4.9.0
 * New: Astra New color palette compatibility with Astra Addon features - (Beta Feature) (https://wpastra.com/docs/dark-colour-palette/)
 * Fix: Resolved an issue where the inside spacing of responsive blog posts was not applied correctly.
 * Fix: Resolved an issue where Social widget Alignment option not working properly when Stack option is used. 

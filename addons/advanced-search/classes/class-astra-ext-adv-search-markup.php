@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			$search_box       = astra_get_option( 'header-main-rt-section' );
 			$search_box_style = astra_get_option( 'header-main-rt-section-search-box-type' );
 
-			if ( 'search' == $search_box && 'header-cover' == $search_box_style ) {
+			if ( 'search' === $search_box && 'header-cover' === $search_box_style ) {
 				$this->get_search_form_shortcode( 'header-cover', true );
 			}
 		}
@@ -158,19 +158,19 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			$section_1_search_box       = astra_get_option( 'below-header-section-1' );
 			$section_1_search_box_style = astra_get_option( 'below-header-section-1-search-box-type' );
 
-			if ( 'below-header-layout-1' == $layout ) {
+			if ( 'below-header-layout-1' === $layout ) {
 				$section_2_search_box       = astra_get_option( 'below-header-section-2' );
 				$section_2_search_box_style = astra_get_option( 'below-header-section-2-search-box-type' );
 
-				if ( ! $header_cover && 'search' == $section_2_search_box ) {
-					if ( 'header-cover' == $section_2_search_box_style ) {
+				if ( ! $header_cover && 'search' === $section_2_search_box ) {
+					if ( 'header-cover' === $section_2_search_box_style ) {
 						$header_cover = true;
 					}
 				}
 			}
 
-			if ( 'search' == $section_1_search_box ) {
-				if ( 'header-cover' == $section_1_search_box_style ) {
+			if ( 'search' === $section_1_search_box ) {
+				if ( 'header-cover' === $section_1_search_box_style ) {
 					$header_cover = true;
 				}
 			}
@@ -194,16 +194,16 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			$left_search_box       = astra_get_option( 'above-header-section-1' );
 			$left_search_box_style = astra_get_option( 'above-header-section-1-search-box-type' );
 
-			if ( 'search' == $left_search_box && 'header-cover' == $left_search_box_style ) {
+			if ( 'search' === $left_search_box && 'header-cover' === $left_search_box_style ) {
 				$header_cover = true;
 			}
 
-			if ( 'above-header-layout-1' == $top_layout ) {
+			if ( 'above-header-layout-1' === $top_layout ) {
 
 				$right_search_box       = astra_get_option( 'above-header-section-2' );
 				$right_search_box_style = astra_get_option( 'above-header-section-2-search-box-type' );
 
-				if ( 'search' == $right_search_box && 'header-cover' == $right_search_box_style ) {
+				if ( 'search' === $right_search_box && 'header-cover' === $right_search_box_style ) {
 					$header_cover = true;
 				}
 			}
@@ -258,10 +258,10 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 					$search_in_popup = true;
 				}
 
-				if ( 'search-box' == $search_box_style || ( $search_in_popup && 'mobile' === $device ) ) {
+				if ( 'search-box' === $search_box_style || ( $search_in_popup && 'mobile' === $device ) ) {
 
 					$search_markup = $this->get_search_form_shortcode( 'search-box' );
-				} elseif ( ( 'header-cover' == $search_box_style || 'full-screen' == $search_box_style ) && ! ( $search_in_popup && 'mobile' === $device ) ) {
+				} elseif ( ( 'header-cover' === $search_box_style || 'full-screen' === $search_box_style ) && ! ( $search_in_popup && 'mobile' === $device ) ) {
 
 					$search_markup  = $this->get_search_icon( $search_box_style );
 					$search_markup .= '<div class="ast-search-menu-icon ' . $search_box_style . '">';
@@ -273,9 +273,9 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 				$option_slug      = str_replace( '-', '_', $option );
 				$search_box_style = apply_filters( 'astra_search_style_' . $option_slug, $search_box_style );
 
-				if ( 'search-box' == $search_box_style ) {
+				if ( 'search-box' === $search_box_style ) {
 					$search_markup = $this->get_search_form_shortcode( 'search-box' );
-				} elseif ( 'header-cover' == $search_box_style || 'full-screen' == $search_box_style ) {
+				} elseif ( 'header-cover' === $search_box_style || 'full-screen' === $search_box_style ) {
 
 					$search_markup = $this->get_search_icon( $search_box_style );
 					if ( false == astra_get_option( 'header-display-outside-menu' ) && 'header-main-rt-section' === $option ) {
@@ -360,7 +360,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 			if ( $echo !== true ) {
 				return wp_kses( $svg, $allowed_svg_args );
 			}
-			
+
 			echo wp_kses( $svg, $allowed_svg_args );
 		}
 

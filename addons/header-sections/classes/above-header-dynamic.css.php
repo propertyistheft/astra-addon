@@ -18,7 +18,7 @@ function astra_ext_above_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 
 	$above_header_layout = astra_get_option( 'above-header-layout' );
 
-	if ( 'disabled' == $above_header_layout ) {
+	if ( 'disabled' === $above_header_layout ) {
 		return $dynamic_css;
 	}
 

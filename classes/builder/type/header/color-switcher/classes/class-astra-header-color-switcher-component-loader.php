@@ -17,7 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 4.10.0
  */
 class Astra_Header_Color_Switcher_Component_Loader {
-
 	/**
 	 * Constructor.
 	 *
@@ -100,7 +99,9 @@ class Astra_Header_Color_Switcher_Component_Loader {
 		if ( $is_switched && isset( $palettes_colors[ $switcher_palette ] ) ) {
 			$global_palette['palette'] = $palettes_colors[ $switcher_palette ];
 			// Add filter to set the active global palette key to the switcher palette.
-			add_filter( 'astra_get_active_global_palette_key', fn() => $switcher_palette );
+			add_filter( 'astra_get_active_global_palette_key', function() use ( $switcher_palette ) {
+				return $switcher_palette;
+			} );
 		}
 
 		return $global_palette;
@@ -108,7 +109,7 @@ class Astra_Header_Color_Switcher_Component_Loader {
 
 	/**
 	 * Checks if the color switcher is currently in the switched state.
-	 * 
+	 *
 	 * @return bool Returns true if the color switcher is switched, false otherwise.
 	 * @since 4.10.0
 	 */
@@ -139,7 +140,7 @@ class Astra_Header_Color_Switcher_Component_Loader {
 	public function localize_frontend_pro_variables( $localize_vars ) {
 		// Bail early if it is the customizer preview or color-switcher component is not loaded for the header.
 		if ( is_customize_preview() || ! Astra_Addon_Builder_Helper::is_component_loaded( 'color-switcher', 'header' ) ) {
-			return;
+			return $localize_vars;
 		}
 
 		// Get the palette colors data.

@@ -160,7 +160,7 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 			if ( $is_edd_archive_page ) {
 
 				$shop_style = astra_get_option( 'edd-archive-style' );
-				if ( 'edd-archive-page-list-style' == $shop_style ) {
+				if ( 'edd-archive-page-list-style' === $shop_style ) {
 					$classes[] = 'ast-' . $shop_style;
 				}
 			} elseif ( edd_is_checkout() ) {
@@ -320,7 +320,7 @@ if ( ! class_exists( 'ASTRA_Ext_Edd_Markup' ) ) {
 			// Shop page style.
 			$shop_page_style = astra_get_option( 'edd-archive-style' );
 
-			if ( 'edd-archive-page-list-style' == $shop_page_style ) {
+			if ( 'edd-archive-page-list-style' === $shop_page_style ) {
 				$shop_page_style = Astra_Addon_Builder_Helper::apply_flex_based_css() ? $shop_page_style . '-grid' : $shop_page_style;
 				Astra_Minify::add_css( $gen_path . $shop_page_style . $file_prefix . '.css' );
 			}

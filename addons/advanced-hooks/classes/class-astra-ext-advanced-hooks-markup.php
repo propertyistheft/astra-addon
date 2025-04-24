@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				}
 
 				// Get all the template layouts.
-				foreach ( $ids as $index => $post_id ) {
+				foreach ( $ids as $post_id ) {
 					if ( 'template' === get_post_meta( $post_id, 'ast-advanced-hook-layout', true ) ) {
 						$template_layouts[] = $post_id;
 					}
@@ -323,7 +323,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			$woocommerce_hooks     = array( 'woo-global', 'woo-shop', 'woo-product', 'woo-cart', 'woo-checkout', 'woo-distraction-checkout', 'woo-account' );
 			$woocommerce_activated = false;
 
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $post->post_type ) {
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $post->post_type ) {
 				if ( 'hooks' === $layout ) {
 					foreach ( Astra_Ext_Advanced_Hooks_Meta::$hooks as $key => $value ) {
 						if ( in_array( $key, $woocommerce_hooks ) && isset( Astra_Ext_Advanced_Hooks_Meta::$hooks[ $key ]['hooks'][ $action ] ) ) {
@@ -395,10 +395,10 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				}
 
 				$vc_activated = Astra_Addon_Page_Builder_Compatibility::is_vc_activated( $post_id );
-				if ( 'astra_advanced_hook_template' == $action || $vc_activated ) {
+				if ( 'astra_advanced_hook_template' === $action || $vc_activated ) {
 					remove_action( 'astra_advanced_hook_template', array( $this, 'template_empty_content' ) );
 					add_action( 'astra_advanced_hook_template', 'the_content' );
-				} elseif ( 'header' == $layout ) {
+				} elseif ( 'header' === $layout ) {
 
 					$this->prepare_astra_header_filter( $post_id, 'header' );
 
@@ -422,7 +422,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						},
 						$priority
 					);
-				} elseif ( 'footer' == $layout ) {
+				} elseif ( 'footer' === $layout ) {
 
 					$this->prepare_astra_header_filter( $post_id, 'footer' );
 
@@ -539,7 +539,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 		 */
 		public function remove_navigation_markup() {
 			$post_type = get_post_type();
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $post_type ) {
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 		}
@@ -669,7 +669,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						}
 					);
 
-					if ( isset( $layout[0] ) && '404-page' == $layout[0] && 0 == $layout_404_counter ) {
+					if ( isset( $layout[0] ) && '404-page' === $layout[0] && 0 == $layout_404_counter ) {
 
 						$this->prepare_astra_header_filter( $post_id, '404-page' );
 
@@ -677,14 +677,14 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						add_action( 'astra_page_layout', 'astra_addon_return_page_layout_no_sidebar' );
 
 						$layout_404_settings = get_post_meta( $post_id, 'ast-404-page', true );
-						if ( isset( $layout_404_settings['disable_header'] ) && 'enabled' == $layout_404_settings['disable_header'] ) {
+						if ( isset( $layout_404_settings['disable_header'] ) && 'enabled' === $layout_404_settings['disable_header'] ) {
 							remove_action( 'astra_header', 'astra_header_markup' );
 							if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 								remove_action( 'astra_header', array( Astra_Builder_Header::get_instance(), 'prepare_header_builder_markup' ) );
 							}
 						}
 
-						if ( isset( $layout_404_settings['disable_footer'] ) && 'enabled' == $layout_404_settings['disable_footer'] ) {
+						if ( isset( $layout_404_settings['disable_footer'] ) && 'enabled' === $layout_404_settings['disable_footer'] ) {
 							remove_action( 'astra_footer', 'astra_footer_markup' );
 							if ( true === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 								remove_action( 'astra_footer', array( Astra_Builder_Footer::get_instance(), 'footer_markup' ) );
@@ -700,7 +700,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						);
 
 						$layout_404_counter++;
-					} elseif ( isset( $layout[0] ) && 'header' == $layout[0] && 0 == $header_counter ) {
+					} elseif ( isset( $layout[0] ) && 'header' === $layout[0] && 0 == $header_counter ) {
 
 						$this->prepare_astra_header_filter( $post_id, 'header' );
 
@@ -723,7 +723,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 							$priority
 						);
 						$header_counter++;
-					} elseif ( isset( $layout[0] ) && 'footer' == $layout[0] && 0 == $footer_counter ) {
+					} elseif ( isset( $layout[0] ) && 'footer' === $layout[0] && 0 == $footer_counter ) {
 
 						$this->prepare_astra_header_filter( $post_id, 'footer' );
 
@@ -750,7 +750,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 							$priority
 						);
 						$footer_counter++;
-					} elseif ( isset( $layout[0] ) && 'content' == $layout[0] ) {
+					} elseif ( isset( $layout[0] ) && 'content' === $layout[0] ) {
 
 						add_filter(
 							'render_block',
@@ -1023,12 +1023,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			foreach ( $result as $post_id => $post_data ) {
 				$post_type = get_post_type();
 
-				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE != $post_type ) {
+				if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
 					$header = get_post_meta( $post_id, 'ast-advanced-hook-header', true );
 					$footer = get_post_meta( $post_id, 'ast-advanced-hook-footer', true );
 					$layout = get_post_meta( $post_id, 'ast-advanced-hook-layout', false );
 
-					if ( 0 == $counter_header && isset( $layout[0] ) && 'header' == $layout[0] ) {
+					if ( 0 == $counter_header && isset( $layout[0] ) && 'header' === $layout[0] ) {
 						$localize_vars['hook_sticky_header']            = isset( $header['sticky'] ) ? $header['sticky'] : '';
 						$localize_vars['hook_shrink_header']            = isset( $header['shrink'] ) ? $header['shrink'] : '';
 						$localize_vars['hook_sticky_header_on_devices'] = isset( $header['sticky-header-on-devices'] ) ? $header['sticky-header-on-devices'] : '';
@@ -1038,7 +1038,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 						$counter_header++;
 					}
 
-					if ( 0 == $counter_footer && isset( $layout[0] ) && 'footer' == $layout[0] ) {
+					if ( 0 == $counter_footer && isset( $layout[0] ) && 'footer' === $layout[0] ) {
 						$localize_vars['hook_sticky_footer']             = isset( $footer['sticky'] ) ? $footer['sticky'] : '';
 						$localize_vars['hook_sticky_footer_on_devices']  = isset( $footer['sticky-footer-on-devices'] ) ? $footer['sticky-footer-on-devices'] : '';
 						$localize_vars['hook_custom_footer_break_point'] = apply_filters( 'astra_custom_footer_break_point', 921 );
@@ -1070,16 +1070,16 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 				foreach ( $result as $post_id => $post_data ) {
 					$post_type = get_post_type();
 
-					if ( ASTRA_ADVANCED_HOOKS_POST_TYPE != $post_type ) {
+					if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
 						$footer = get_post_meta( $post_id, 'ast-advanced-hook-footer', true );
 						$layout = get_post_meta( $post_id, 'ast-advanced-hook-layout', false );
 
-						if ( 0 == $counter && isset( $layout[0] ) && 'footer' == $layout[0] ) {
+						if ( 0 == $counter && isset( $layout[0] ) && 'footer' === $layout[0] ) {
 
-							if ( isset( $footer['sticky'] ) && 'enabled' == $footer['sticky'] && isset( $footer['sticky-footer-on-devices'] ) && ( 'desktop' == $footer['sticky-footer-on-devices'] || 'both' == $footer['sticky-footer-on-devices'] ) && ! wp_is_mobile() ) {
+							if ( isset( $footer['sticky'] ) && 'enabled' === $footer['sticky'] && isset( $footer['sticky-footer-on-devices'] ) && ( 'desktop' === $footer['sticky-footer-on-devices'] || 'both' === $footer['sticky-footer-on-devices'] ) && ! wp_is_mobile() ) {
 								$classes[] = 'ast-footer-sticky-active';
 							}
-							if ( isset( $footer['sticky'] ) && 'enabled' == $footer['sticky'] && isset( $footer['sticky-footer-on-devices'] ) && 'mobile' == $footer['sticky-footer-on-devices'] && wp_is_mobile() ) {
+							if ( isset( $footer['sticky'] ) && 'enabled' === $footer['sticky'] && isset( $footer['sticky-footer-on-devices'] ) && 'mobile' === $footer['sticky-footer-on-devices'] && wp_is_mobile() ) {
 								$classes[] = 'ast-footer-sticky-active';
 							}
 							$counter++;
@@ -1110,12 +1110,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Markup' ) ) {
 			$layout     = astra_get_option( 'site-layout', 'ast-full-width-layout' );
 
 			// set page width depending on site layout.
-			if ( 'ast-box-layout' == $layout ) {
+			if ( 'ast-box-layout' === $layout ) {
 				$page_width = astra_get_option( 'site-layout-box-width' ) . 'px';
 			}
 
 			/* Box Layout CSS */
-			if ( 'ast-box-layout' == $layout ) {
+			if ( 'ast-box-layout' === $layout ) {
 				$box_css    = array(
 					'.ast-custom-header, .ast-custom-footer' => array(
 						'max-width'    => $page_width,

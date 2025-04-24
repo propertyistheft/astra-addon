@@ -27,9 +27,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var $_actions
+		 * @var $action
 		 */
-		public static $_action = 'advanced-hooks'; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
+		public static $action = 'advanced-hooks';
 
 		/**
 		 * Member Variable
@@ -421,7 +421,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			}
 
 			$ruleset_markup = '<ul class="ast-layout-visibility-list">';
-			foreach ( $location_label as $key => $rule ) {
+			foreach ( $location_label as $rule ) {
 				$ruleset_markup .= '<li class="layout-list-item">' . esc_html( $rule ) . '</li>';
 			}
 			$ruleset_markup .= '</ul>';
@@ -516,7 +516,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) {
+			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type ) {
 				// Styles.
 				wp_enqueue_media();
 
@@ -581,7 +581,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				);
 			}
 
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type && 'edit.php' === $pagenow ) {
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type && 'edit.php' === $pagenow ) {
 				if ( SCRIPT_DEBUG ) {
 					wp_enqueue_script( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/js/unminified/advanced-hooks-list-page.js', array( 'wp-util' ), ASTRA_EXT_VER, false );
 					wp_enqueue_style( 'advanced-hook-admin-list', ASTRA_ADDON_EXT_ADVANCED_HOOKS_URL . 'assets/css/unminified/astra-advanced-hooks-admin-list.css', null, ASTRA_EXT_VER );
@@ -618,7 +618,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 
 			$custom_post_type = get_post_type( get_the_ID() );
 
-			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE == $custom_post_type ) {
+			if ( ASTRA_ADVANCED_HOOKS_POST_TYPE === $custom_post_type ) {
 
 				$obj                           = get_post_type_object( $custom_post_type );
 				$singular_name                 = $obj->labels->singular_name;
@@ -704,7 +704,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 				return;
 			}
 
-			$responsive_visibility_status = 'array' == gettype( get_post_meta( get_the_ID(), 'ast-advanced-display-device', true ) ) ? true : false;
+			$responsive_visibility_status = 'array' === gettype( get_post_meta( get_the_ID(), 'ast-advanced-display-device', true ) ) ? true : false;
 
 			// UAG plugin slug.
 			$plugin_slug = 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php';

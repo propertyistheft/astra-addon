@@ -20,7 +20,6 @@ define( 'ASTRA_ADDON_HEADER_COLOR_SWITCHER_URI', ASTRA_EXT_URI . 'classes/builde
  * @since 4.10.0
  */
 class Astra_Header_Color_Switcher_Component {
-
 	/**
 	 * Constructor function that initializes required actions and hooks
 	 */

@@ -23,7 +23,6 @@ if ( class_exists( 'Astra_Color_Switcher_Component_Dynamic_CSS' ) ) {
  * @since 4.10.0
  */
 class Astra_Color_Switcher_Component_Dynamic_CSS {
-
 	/**
 	 * Dynamic CSS
 	 *
@@ -69,8 +68,7 @@ class Astra_Color_Switcher_Component_Dynamic_CSS {
 			 * Common CSS (applies to all devices).
 			 */
 			'common'  => array(
-				'.ast-color-switcher-wrapper .ast-builder-color-switcher,
-				.ast-color-switcher-wrapper .ast-builder-color-switcher .ast-icon' => array(
+				'.ast-color-switcher-wrapper .ast-builder-color-switcher, .ast-color-switcher-wrapper .ast-builder-color-switcher .ast-icon' => array(
 					'display' => 'flex',
 				),
 				'.ast-color-switcher-wrapper .ast-switcher-button' => array(
@@ -87,7 +85,7 @@ class Astra_Color_Switcher_Component_Dynamic_CSS {
 					'outline-style' => 'dotted',
 				),
 				'.ast-color-switcher-wrapper .ast-switcher-button .ast-switcher-icon' => array(
-					'display'    => 'none',
+					'display' => 'none',
 				),
 				'.ast-color-switcher-wrapper .ast-switcher-button .ast-switcher-icon.ast-current' => array(
 					'display'     => 'flex',
@@ -109,29 +107,29 @@ class Astra_Color_Switcher_Component_Dynamic_CSS {
 		/**
 		 * Dynamically add Visibility, Icon Size, Spacing & Color for all devices.
 		 */
-		foreach ( [ 'desktop', 'tablet', 'mobile' ] as $device ) {
+		foreach ( array( 'desktop', 'tablet', 'mobile' ) as $device ) {
 			$css[ $device ]['.ast-header-color-switcher-element'] = array(
 				'display' => astra_get_prop( $visibility, $device ) !== 0 ? 'block' : 'none',
 			);
-			
+
 			$css[ $device ]['.ast-color-switcher-wrapper svg'] = array(
 				'width'  => astra_get_css_value( astra_get_prop( $icon_size, $device ) ),
 				'height' => astra_get_css_value( astra_get_prop( $icon_size, $device ) ),
 			);
 
 			$css[ $device ]['.ast-color-switcher-wrapper .ast-switcher-button'] = array(
-				'color'          => astra_get_prop( $icon_color, $device ),
-				'background'     => astra_get_prop( $background, $device ),
+				'color'                      => astra_get_prop( $icon_color, $device ),
+				'background'                 => astra_get_prop( $background, $device ),
 				// Margin.
-				'margin-top'     => astra_responsive_spacing( $margin, 'top', $device ),
-				'margin-bottom'  => astra_responsive_spacing( $margin, 'bottom', $device ),
-				'margin-left'    => astra_responsive_spacing( $margin, 'left', $device ),
-				'margin-right'   => astra_responsive_spacing( $margin, 'right', $device ),
+				'margin-top'                 => astra_responsive_spacing( $margin, 'top', $device ),
+				'margin-bottom'              => astra_responsive_spacing( $margin, 'bottom', $device ),
+				'margin-left'                => astra_responsive_spacing( $margin, 'left', $device ),
+				'margin-right'               => astra_responsive_spacing( $margin, 'right', $device ),
 				// Padding.
-				'padding-top'    => astra_responsive_spacing( $padding, 'top', $device ),
-				'padding-bottom' => astra_responsive_spacing( $padding, 'bottom', $device ),
-				'padding-left'   => astra_responsive_spacing( $padding, 'left', $device ),
-				'padding-right'  => astra_responsive_spacing( $padding, 'right', $device ),
+				'padding-top'                => astra_responsive_spacing( $padding, 'top', $device ),
+				'padding-bottom'             => astra_responsive_spacing( $padding, 'bottom', $device ),
+				'padding-left'               => astra_responsive_spacing( $padding, 'left', $device ),
+				'padding-right'              => astra_responsive_spacing( $padding, 'right', $device ),
 				// Border Radius.
 				'border-top-left-radius'     => astra_responsive_spacing( $border_radius, 'top', $device ),
 				'border-top-right-radius'    => astra_responsive_spacing( $border_radius, 'right', $device ),

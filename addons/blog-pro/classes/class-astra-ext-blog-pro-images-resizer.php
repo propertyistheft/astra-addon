@@ -201,7 +201,6 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Images_Resizer' ) ) {
 			$check_is_singular_post = is_singular( $post_types );
 
 			if ( $check_is_singular_post ) {
-				$current_post_type        = strval( get_post_type() );
 				$blog_single_image_width  = astra_get_option( 'blog-single-post-image-width' );
 				$blog_single_image_height = astra_get_option( 'blog-single-post-image-height' );
 

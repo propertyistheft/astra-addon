@@ -39,10 +39,10 @@ function astra_ext_sticky_header_with_site_layouts_dynamic_css( $dynamic_css, $d
 	 */
 
 	$page_width = '100%';
-	if ( 'ast-box-layout' == $site_layout ) {
+	if ( 'ast-box-layout' === $site_layout ) {
 		$page_width = astra_get_option( 'site-layout-box-width' ) . 'px';
 	}
-	if ( 'ast-padded-layout' == $site_layout ) {
+	if ( 'ast-padded-layout' === $site_layout ) {
 
 		$padded_layout_padding = astra_get_option( 'site-layout-padded-pad' );
 

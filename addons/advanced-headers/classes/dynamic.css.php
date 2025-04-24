@@ -16,7 +16,7 @@ add_filter( 'astra_addon_dynamic_css', 'astra_ext_advanced_headers_dynamic_css',
  */
 function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) ) {
+	if ( is_front_page() && 'posts' === get_option( 'show_on_front' ) ) {
 		return $dynamic_css;
 	}
 
@@ -27,7 +27,6 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 	$below_header_enabled    = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_layout_option( 'below-header-enabled' );
 
 	// Design options.
-	$logo_url           = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'logo-url' );
 	$page_post_featured = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'page-post-featured' );
 	$bg_image           = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'bg-image' );
 	$header_logo_width  = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'header-logo-width' );
@@ -35,7 +34,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 
 	// Title Colors.
 	$title_color = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'title-color' );
-	if ( $advanced_headers_merged && 'disable' == $advanced_headers_layout ) {
+	if ( $advanced_headers_merged && 'disable' === $advanced_headers_layout ) {
 		$title_color = '';
 	}
 	$breadcrumb_color = Astra_Ext_Advanced_Headers_Loader::astra_advanced_headers_design_option( 'b-text-color', $title_color );
@@ -187,7 +186,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$title_bar_bg_img = $bg_image;
 	} else {
 		// If selected Post / Page Featured image.
-		if ( 'enabled' == $page_post_featured ) {
+		if ( 'enabled' === $page_post_featured ) {
 
 			$src = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail_size' );
 			if ( has_post_thumbnail( get_the_ID() ) && ! empty( $src ) ) {
@@ -211,7 +210,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 	// Custom Background Size.
 	$custom_top_padding    = '';
 	$custom_bottom_padding = '';
-	if ( 'custom-bg-size' == $background_size ) {
+	if ( 'custom-bg-size' === $background_size ) {
 
 		$custom_top_padding = $custom_background_top_p;
 		if ( is_numeric( $custom_background_top_p ) ) {
@@ -626,7 +625,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 	}
 
 	// Transparent header is enable and not archive, search , 404 page.
-	if ( ( $advanced_headers_merged && 'disable' == $advanced_headers_layout ) &&
+	if ( ( $advanced_headers_merged && 'disable' === $advanced_headers_layout ) &&
 		( ! ( is_archive() || is_search() || is_404() || is_home() ) || Astra_Ext_Advanced_Headers_Markup::transparent_header_disabled_archive() )
 		) {
 		// default fall-back color variables.
@@ -855,7 +854,7 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 		);
 
 		// If background color is transparent.
-		if ( 'transparent' == $tr_header_bg_color ) {
+		if ( 'transparent' === $tr_header_bg_color ) {
 			$parse_css .= astra_parse_css( $transparent_header_mobile_style, $header_break_point );
 		} else {
 			$parse_css .= astra_parse_css( $transparent_header_mobile_style );

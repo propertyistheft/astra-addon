@@ -190,18 +190,18 @@ class Astra_Rollback_Version {
 	 */
 	public static function astra_get_white_lable_name() {
 		static $theme_name = null;
-	
+
 		if ( null === $theme_name ) {
 			if ( did_action( 'init' ) ) {
 				$theme_name = __( 'Astra', 'astra-addon' );
 			} else {
-				add_action( 'init', function() use ( &$theme_name ) {
+				add_action( 'init', static function() use ( &$theme_name ) {
 					$theme_name = __( 'Astra', 'astra-addon' );
 				}, 1 );
 				$theme_name = 'Astra';
 			}
 		}
-	
+
 		$theme_whitelabelled_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra', 'name', false );
 
 		if ( false !== $theme_whitelabelled_name ) {

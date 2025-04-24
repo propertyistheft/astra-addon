@@ -27,9 +27,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var $_action
+		 * @var $action
 		 */
-		public static $_action = 'advanced-headers'; // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
+		public static $action = 'advanced-headers';
 
 		/**
 		 *  Initiator
@@ -203,8 +203,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && 'astra_adv_header' == $screen->post_type ) ||
-			( 'astra_adv_header' == $screen->post_type && 'edit.php' === $pagenow ) ) {
+			if ( ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && 'astra_adv_header' === $screen->post_type ) ||
+			( 'astra_adv_header' === $screen->post_type && 'edit.php' === $pagenow ) ) {
 				$rtl = '';
 				if ( is_rtl() ) {
 					$rtl = '-rtl';
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 				);
 			}
 
-			if ( 'astra_adv_header' == $screen->post_type && 'edit.php' === $pagenow ) {
+			if ( 'astra_adv_header' === $screen->post_type && 'edit.php' === $pagenow ) {
 				wp_enqueue_style( 'astra-admin-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap', array(), ASTRA_EXT_VER ); // Styles.
 
 				if ( defined( 'ASTRA_THEME_ADMIN_URL' ) && ASTRA_THEME_ADMIN_URL ) {
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 
 			$custom_post_type = get_post_type( get_the_ID() );
 
-			if ( 'astra_adv_header' == $custom_post_type ) {
+			if ( 'astra_adv_header' === $custom_post_type ) {
 
 				$obj                           = get_post_type_object( $custom_post_type );
 				$singular_name                 = $obj->labels->singular_name;
@@ -360,7 +360,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Loader' ) ) {
 		 */
 		public function column_content( $column, $post_id ) {
 
-			if ( 'advanced_headers_display_rules' == $column ) {
+			if ( 'advanced_headers_display_rules' === $column ) {
 
 				$locations = get_post_meta( $post_id, 'ast-advanced-headers-location', true );
 				if ( ! empty( $locations ) ) {

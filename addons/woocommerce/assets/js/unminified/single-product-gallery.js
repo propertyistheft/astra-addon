@@ -1,20 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-	triggerFirstSlide();
 	triggerGalleryImageMutation();
 });
-
-function triggerFirstSlide() {
-	const sliderTrigger = document.querySelector(
-		".woocommerce-product-gallery-thumbnails__wrapper div"
-	);
-	const variationWrap = jQuery(".single_variation_wrap");
-
-	if (variationWrap && sliderTrigger) {
-		variationWrap.on("show_variation", function (event, variation) {
-			sliderTrigger.click();
-		});
-	}
-}
 
 /**
  * Function to change the gallery's first image to current selected variation image
@@ -100,9 +86,10 @@ function triggerGalleryImageMutation() {
                     observer.disconnect();
 
                     if (galleryImages[0]) {
-                        const img = galleryImages[0]
-                        img?.querySelector("img")?.setAttribute("src", selectedVariationImageSrc);
-                        img?.querySelector("img")?.setAttribute("data-original-src", mutatedImgSrc);
+                        const imageWrapper = galleryImages[0];
+                        imageWrapper?.querySelector("img")?.setAttribute("src", selectedVariationImageSrc);
+                        imageWrapper?.querySelector("img")?.setAttribute("data-original-src", mutatedImgSrc);
+                        imageWrapper?.click();
                     }
                     if (verticalGallery && typeof MoveSlide === "function") {
                         MoveSlide("prev", prevButton, nextButton);

@@ -18,7 +18,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  * Register Color Switcher configuration for Sticky Header.
  */
 class Astra_Sticky_Header_Color_Switcher_Configs extends Astra_Customizer_Config_Base {
-
 	/**
 	 * Register Sticky Header <> Color Switcher Customizer Configurations.
 	 *

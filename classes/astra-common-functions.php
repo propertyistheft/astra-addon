@@ -598,7 +598,7 @@ if ( ! function_exists( 'astra_icon_selector_svg' ) ) {
 		if ( $echo !== true ) {
 			return wp_kses( $svg, Astra_Addon_Kses::astra_addon_svg_kses_protocols() );
 		}
-		
+
 		echo wp_kses( $svg, Astra_Addon_Kses::astra_addon_svg_kses_protocols() );
 	}
 }

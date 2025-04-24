@@ -19,7 +19,7 @@ function astra_ext_below_header_dynamic_css( $dynamic_css, $dynamic_css_filtered
 	// set page width depending on site layout.
 	$below_header_layout = astra_get_option( 'below-header-layout' );
 
-	if ( 'disabled' == $below_header_layout ) {
+	if ( 'disabled' === $below_header_layout ) {
 		return $dynamic_css;
 	}
 

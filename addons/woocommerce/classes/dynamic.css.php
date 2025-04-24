@@ -838,7 +838,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * Sale bubble color
 	 */
-	if ( 'circle-outline' == $product_sale_style ) {
+	if ( 'circle-outline' === $product_sale_style ) {
 		/**
 		 * Sale bubble color - Circle Outline
 		 */
@@ -852,7 +852,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		);
 
 		$css_output .= astra_parse_css( $sale_style_css );
-	} elseif ( 'square' == $product_sale_style ) {
+	} elseif ( 'square' === $product_sale_style ) {
 		/**
 		 * Sale bubble color - Square
 		 */
@@ -864,7 +864,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		);
 
 		$css_output .= astra_parse_css( $sale_style_css );
-	} elseif ( 'square-outline' == $product_sale_style ) {
+	} elseif ( 'square-outline' === $product_sale_style ) {
 		/**
 		 * Sale bubble color - Square Outline
 		 */
@@ -881,7 +881,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$css_output .= astra_parse_css( $sale_style_css );
 	}
 
-	if ( 'disable' != $product_nav_style ) {
+	if ( 'disable' !== $product_nav_style ) {
 
 		/**
 		 * Product Navingation Style
@@ -4381,7 +4381,7 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$woo_enable_sale_border_radius = astra_get_option( 'woo-enable-sale-border-radius' );
 	$is_sale_badge_active          = astra_get_option( 'product-sale-notification', 'default' );
 
-	if ( $woo_enable_sale_border_radius && 'none' != $is_sale_badge_active ) {
+	if ( $woo_enable_sale_border_radius && 'none' !== $is_sale_badge_active ) {
 		$woo_sale_border_radius_css = array();
 		$woo_sale_border_radius_css['body.woocommerce .onsale, body.woocommerce-page .onsale, .ast-onsale-card, body .wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-onsale'] = array(
 			'border-radius' => astra_get_css_value( $woo_sale_border_radius, 'px !important' ),

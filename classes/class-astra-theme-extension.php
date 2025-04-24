@@ -621,8 +621,8 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 				}
 
 				$message = sprintf(
-					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the Astra Theme */
-					__( 'Please update %1$1s Theme to version %2$2s or higher. Ignore if already updated.', 'astra-addon' ),
+					/* translators: %1$s: Theme Name, %2$s: Minimum Required version of the Astra Theme */
+					__( 'Please update %1$s Theme to version %2$s or higher. Ignore if already updated.', 'astra-addon' ),
 					$astra_theme_name,
 					ASTRA_THEME_MIN_VER
 				);

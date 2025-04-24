@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 		 */
 		public function menu_highlight() {
 			global $post_type;
-			if ( 'astra_adv_header' == $post_type ) {
+			if ( 'astra_adv_header' === $post_type ) {
 				/* Same display rule assign notice */
 				$option = array(
 					'location'  => 'ast-advanced-headers-location',
@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 			// Get all posts.
 			$post_types = get_post_types();
 
-			if ( 'astra_adv_header' == get_post_type() ) {
+			if ( 'astra_adv_header' === get_post_type() ) {
 				// Enable for all posts.
 				foreach ( $post_types as $type ) {
 
@@ -271,7 +271,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 			$section        = '';
 			$section_option = astra_get_option( $header_section );
-			if ( Astra_Ext_Extension::is_active( 'header-sections' ) && 'disabled' != $section_option ) {
+			if ( Astra_Ext_Extension::is_active( 'header-sections' ) && 'disabled' !== $section_option ) {
 				$section = 'enabled';
 			}
 
@@ -455,7 +455,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						);
 						$view_actions = apply_filters( 'astra_adv_headers_tab_options', $actions );
 
-						$count = 0;
 						foreach ( $view_actions as $slug => $data ) {
 
 							if ( ! $data['show'] ) {
@@ -467,7 +466,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 							if ( '' != $current_tab && 'ast-adv-headers-tab-' . esc_attr( $slug ) == $current_tab ) {
 								$class = 'nav-tab-active';
-							} elseif ( '' == $current_tab && esc_attr( $slug ) == 'page-header' ) {
+							} elseif ( '' == $current_tab && esc_attr( $slug ) === 'page-header' ) {
 								$class = 'nav-tab-active';
 							}
 
@@ -477,14 +476,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 								id='ast-adv-headers-tab-<?php echo esc_attr( $slug ); ?>'> <?php echo esc_html( $data['label'] ); ?> </a>
 							</li>
 							<?php
-							$count++;
 						}
 						?>
 					</ul>
 				</div><!-- .nav-tab-wrapper -->
 
 				<?php
-				$count = 0;
 				foreach ( $view_actions as $slug => $data ) {
 
 					if ( ! $data['show'] ) {
@@ -494,7 +491,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 					if ( '' != $current_tab && 'ast-adv-headers-tab-' . esc_attr( $slug ) == $current_tab ) {
 						$class = 'tab-active';
-					} elseif ( '' == $current_tab && esc_attr( $slug ) == 'page-header' ) {
+					} elseif ( '' == $current_tab && esc_attr( $slug ) === 'page-header' ) {
 						$class = 'tab-active';
 					}
 
@@ -504,7 +501,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 						<?php do_action( 'astra_adv_headers_tabs_' . esc_attr( $slug ) . '_action', $ast_advanced_headers ); ?>
 					</div>
 					<?php
-					$count++;
 				}
 				?>
 			</div> <!-- #ast-advanced-headers-tabs -->
@@ -1245,7 +1241,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 				$above_header_layout = astra_get_option( 'above-header-layout' );
 
-				if ( Astra_Ext_Extension::is_active( 'header-sections' ) && 'disabled' != $above_header_layout ) {
+				if ( Astra_Ext_Extension::is_active( 'header-sections' ) && 'disabled' !== $above_header_layout ) {
 					?>
 
 				<!-- Above Header Colors  -->
@@ -1352,7 +1348,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 
 				$below_header_layout = astra_get_option( 'below-header-layout' );
 
-				if ( Astra_Ext_Extension::is_active( 'header-sections' ) && 'disabled' != $below_header_layout ) {
+				if ( Astra_Ext_Extension::is_active( 'header-sections' ) && 'disabled' !== $below_header_layout ) {
 					?>
 
 				<!-- Below Header Colors  -->
@@ -2017,7 +2013,6 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 			Astra_Target_Rules_Fields::get_instance()->admin_styles();
 
 			$layout            = $options['layouts'];
-			$design            = $options['designs'];
 			$include_locations = $options['include_locations'];
 			$exclude_locations = $options['exclude_locations'];
 			$users             = $options['user_roles'];

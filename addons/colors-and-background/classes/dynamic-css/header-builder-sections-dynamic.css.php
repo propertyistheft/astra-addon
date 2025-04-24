@@ -433,8 +433,6 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 	if ( Astra_Addon_Builder_Helper::is_component_loaded( 'language-switcher', 'header' ) ) {
 		$_section = 'section-hb-language-switcher';
 
-		$selector = '.ast-header-language-switcher';
-
 		$css_output = array(
 			'.ast-lswitcher-item-header' => array(
 				'color' => astra_get_option( $_section . '-color' ),
@@ -449,8 +447,6 @@ function astra_addon_header_builder_sections_colors_dynamic_css( $dynamic_css, $
 	 */
 	if ( Astra_Addon_Builder_Helper::is_component_loaded( 'language-switcher', 'footer' ) ) {
 		$_section = 'section-fb-language-switcher';
-
-		$selector = '.ast-footer-language-switcher';
 
 		$css_output = array(
 			'.ast-lswitcher-item-footer' => array(

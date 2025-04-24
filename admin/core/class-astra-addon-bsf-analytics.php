@@ -30,7 +30,7 @@ class Astra_Addon_BSF_Analytics {
 		/*
 		* BSF Analytics.
 		*/
-		if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
+		if ( ASTRA_ADDON_BSF_PACKAGE && ! class_exists( 'BSF_Analytics_Loader' ) ) {
 			require_once ASTRA_EXT_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
 		}
 
@@ -52,7 +52,7 @@ class Astra_Addon_BSF_Analytics {
 		}
 
 		// Skip initialization if the Astra theme version is 4.10.0 or higher, as they already have analytics integrated.
-		if ( version_compare( ASTRA_THEME_VERSION, '4.10.0', '>=' ) ) {
+		if ( ! defined( 'ASTRA_THEME_VERSION' ) || ! version_compare( ASTRA_THEME_VERSION, '4.10.0', '>=' ) ) {
 			return;
 		}
 

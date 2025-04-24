@@ -61,7 +61,7 @@ class Astra_Addon_Admin_Ajax {
 	public function __construct() {
 		// Delay translation loading.
 		add_action( 'init', array( $this, 'load_translations' ) );
-	
+
 		// Ajax requests.
 		add_action( 'wp_ajax_astra_addon_update_module_status', array( $this, 'update_module_status' ) );
 
@@ -79,9 +79,10 @@ class Astra_Addon_Admin_Ajax {
 		// Enable/Disable file generation.
 		add_action( 'wp_ajax_astra_addon_update_whitelabel', array( $this, 'astra_addon_update_whitelabel' ) );
 	}
-	
+
 	/**
 	 * Load translation strings after 'init'.
+	 *
 	 * @since 4.10.0
 	 */
 	public function load_translations() {
@@ -92,7 +93,6 @@ class Astra_Addon_Admin_Ajax {
 			'invalid'    => __( 'No post data found!', 'astra-addon' ),
 		);
 	}
-	
 
 	/**
 	 * Return settings for admin dashboard app.
@@ -139,7 +139,7 @@ class Astra_Addon_Admin_Ajax {
 		$extensions               = array_map( 'esc_attr', $extensions );
 		Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_enabled_extensions', $extensions );
 
-		if ( 'http2' == $module_id ) {
+		if ( 'http2' === $module_id ) {
 			Astra_Admin_Helper::update_admin_settings_option( '_astra_ext_http2', true );
 		}
 

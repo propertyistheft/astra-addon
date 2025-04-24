@@ -23,7 +23,6 @@ if ( class_exists( 'Astra_Color_Switcher_Component_Configs' ) ) {
  * @since 4.10.0
  */
 class Astra_Color_Switcher_Component_Configs {
-
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
@@ -82,6 +81,7 @@ class Astra_Color_Switcher_Component_Configs {
 				'priority' => 1,
 				'context'  => astra_addon_builder_helper()->general_tab,
 				'help'     => sprintf(
+					// translators: %s - Astra theme version number.
 					'<div class="ast-customizer-notice wp-ui-highlight"><p>' . __( 'The Color Switcher feature is not fully compatible with your current Astra theme version %s. Please update your theme to the latest version for full compatibility.', 'astra-addon' ) . '</p></div>',
 					ASTRA_THEME_VERSION
 				),
