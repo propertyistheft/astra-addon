@@ -55,7 +55,6 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Colors_Configs' ) ) {
 					'context'           => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
-					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 			);

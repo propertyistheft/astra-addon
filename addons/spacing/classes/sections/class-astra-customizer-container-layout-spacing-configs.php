@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Customizer_Container_Layout_Spacing_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 90,
-					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
 					'context'  => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),
@@ -82,6 +82,7 @@ if ( ! class_exists( 'Astra_Customizer_Container_Layout_Spacing_Configs' ) ) {
 						'bottom' => __( 'Bottom', 'astra-addon' ),
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -96,7 +97,6 @@ if ( ! class_exists( 'Astra_Customizer_Container_Layout_Spacing_Configs' ) ) {
 						astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 					'transport'      => 'postMessage',
 					'section'        => 'section-container-layout',
-					'divider'        => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					'priority'       => 100,
 					'title'          => __( 'Inside', 'astra-addon' ),
 					'linked_choices' => true,

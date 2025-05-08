@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 5,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -152,7 +152,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'title'    => __( 'Enable Image Zoom Effect', 'astra-addon' ),
 					'priority' => 5,
 					'control'  => Astra_Theme_Extension::$switch_control,
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'title'    => __( 'Enable Sticky Product Image', 'astra-addon' ),
 					'priority' => 5,
 					'control'  => Astra_Theme_Extension::$switch_control,
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -219,7 +219,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 						'step' => 1,
 						'max'  => 70,
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 16,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -258,7 +258,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'default'     => astra_get_option( 'single-product-nav-style' ),
 					'type'        => 'control',
 					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Product Navigation', 'astra-addon' ),
 					'description' => __( 'Adds a product navigation control on the top of product summary section.', 'astra-addon' ),
 					'control'     => 'ast-select',
 					'priority'    => 16,
@@ -269,7 +268,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 						'square'         => __( 'Square', 'astra-addon' ),
 						'square-outline' => __( 'Square Outline', 'astra-addon' ),
 					),
-					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -291,7 +289,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 						),
 					),
 					'priority' => 16,
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -428,7 +426,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 16,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -442,7 +440,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'title'    => __( 'Change Dropdown to Buttons', 'astra-addon' ),
 					'priority' => 16,
 					'control'  => Astra_Theme_Extension::$switch_control,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 
 				),
 
@@ -457,7 +455,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 30,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -471,7 +469,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'title'    => __( 'Enable Product Description', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 30,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -512,7 +509,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -534,7 +531,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -654,7 +651,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 							'value'    => 'accordion',
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -668,7 +665,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 60,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -780,7 +777,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
-					'divider'           => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -821,6 +818,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Configs' ) ) {
 							),
 						),
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 			);

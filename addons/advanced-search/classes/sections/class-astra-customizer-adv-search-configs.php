@@ -90,7 +90,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'description' => Astra_Icons::is_svg_icons() ? '' : sprintf( __( 'SVG icons are currently disabled. To enable them, use the filter `%s`.', 'astra-addon' ), 'apply_filters( \'astra_is_svg_icons\', \'__return_true\' )' ),
 				'context'     => astra_addon_builder_helper()->general_tab,
 				'responsive'  => false,
-				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			/**
@@ -144,7 +144,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'title'     => __( 'Modal Box Heading', 'astra-addon' ),
 				'transport' => 'refresh',
 				'priority'  => 3,
-				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				'context'   => array(
 					astra_addon_builder_helper()->general_tab_config,
 					array(
@@ -163,7 +163,7 @@ class Astra_Customizer_Adv_Search_Configs extends Astra_Customizer_Config_Base {
 				'type'      => 'control',
 				'control'   => 'ast-text-input',
 				'transport' => 'refresh',
-				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				'partial'   => $markup_partial,
 				'context'   => array(
 					astra_addon_builder_helper()->general_tab_config,

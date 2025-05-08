@@ -123,6 +123,7 @@ if ( ! class_exists( 'Astra_Customizer_Header_Builder_Menu_Configs' ) ) {
 					'priority' => 320,
 					'settings' => array(),
 					'context'  => astra_addon_builder_helper()->design_tab,
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -139,7 +140,6 @@ if ( ! class_exists( 'Astra_Customizer_Header_Builder_Menu_Configs' ) ) {
 					'title'          => __( 'Item Spacing', 'astra-addon' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
-					'divider'        => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 					'choices'        => array(
 						'top'    => __( 'Top', 'astra-addon' ),
 						'right'  => __( 'Right', 'astra-addon' ),
@@ -170,6 +170,7 @@ if ( ! class_exists( 'Astra_Customizer_Header_Builder_Menu_Configs' ) ) {
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
 					'context'        => astra_addon_builder_helper()->design_tab,
+					'divider'        => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 			);
@@ -188,7 +189,7 @@ if ( ! class_exists( 'Astra_Customizer_Header_Builder_Menu_Configs' ) ) {
 					'priority' => 320,
 					'settings' => array(),
 					'context'  => astra_addon_builder_helper()->design_tab,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -212,7 +213,6 @@ if ( ! class_exists( 'Astra_Customizer_Header_Builder_Menu_Configs' ) ) {
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
 					'context'        => astra_addon_builder_helper()->design_tab,
-					'divider'        => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**

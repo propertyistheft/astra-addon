@@ -53,6 +53,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Shop_Single_Colors_Configs' ) ) {
 					'context'  => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
+					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
 				),
 
 				/**

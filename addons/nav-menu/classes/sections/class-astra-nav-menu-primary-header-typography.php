@@ -45,6 +45,7 @@ if ( ! class_exists( 'Astra_Nav_Menu_Primary_Header_Typography' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Mega Menu Heading Font', 'astra-addon' ),
+					'is_font'   => true,
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
 					'priority'  => 72,

@@ -269,7 +269,16 @@ if ( ! class_exists( 'Astra_Addon_Customizer' ) ) {
 
 			$js_uri = ASTRA_EXT_URI . 'classes/customizer/assets/js/';
 
-			wp_enqueue_style( 'ast-ext-admin-settings', ASTRA_EXT_URI . 'admin/assets/css/customizer-controls.css', array(), ASTRA_EXT_VER );
+			/* Directory and Extension */
+			$file_prefix = SCRIPT_DEBUG ? '' : '.min';
+			$dir_name    = SCRIPT_DEBUG ? 'unminified' : 'minified';
+
+			wp_enqueue_style(
+				'ast-ext-admin-settings',
+				ASTRA_EXT_URI . 'admin/assets/css/' . $dir_name . '/customizer-controls' . $file_prefix . '.css',
+				array(),
+				ASTRA_EXT_VER
+			);
 
 			if ( ! SCRIPT_DEBUG ) {
 				// Enqueue Customizer script.

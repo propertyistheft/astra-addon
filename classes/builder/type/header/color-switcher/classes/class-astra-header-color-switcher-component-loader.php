@@ -99,9 +99,12 @@ class Astra_Header_Color_Switcher_Component_Loader {
 		if ( $is_switched && isset( $palettes_colors[ $switcher_palette ] ) ) {
 			$global_palette['palette'] = $palettes_colors[ $switcher_palette ];
 			// Add filter to set the active global palette key to the switcher palette.
-			add_filter( 'astra_get_active_global_palette_key', function() use ( $switcher_palette ) {
-				return $switcher_palette;
-			} );
+			add_filter(
+				'astra_get_active_global_palette_key',
+				static function() use ( $switcher_palette ) {
+					return $switcher_palette;
+				}
+			);
 		}
 
 		return $global_palette;

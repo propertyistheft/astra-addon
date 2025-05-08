@@ -67,7 +67,6 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Sidebar' ) ) {
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'sidebar-bg-obj' ),
 					'title'     => __( 'Background', 'astra-addon' ),
-					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 					'context'   => true === astra_addon_builder_helper()->is_header_footer_builder_active ?
 					astra_addon_builder_helper()->design_tab : astra_addon_builder_helper()->general_tab,
 				),

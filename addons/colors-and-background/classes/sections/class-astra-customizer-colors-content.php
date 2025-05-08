@@ -55,6 +55,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Content' ) ) {
 					'name'              => ASTRA_THEME_SETTINGS . '[h1-color]',
 					'title'             => __( 'Heading 1', 'astra-addon' ),
 					'section'           => $_section,
+					'divider'           => array( 'ast_class' => 'ast-sub-top-divider' ),
 				),
 
 				// Option: Heading 2 <h2> Color.

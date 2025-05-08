@@ -56,6 +56,7 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 				'control'  => 'ast-heading',
 				'priority' => 5,
 				'settings' => array(),
+				'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
 			),
 
 			/**
@@ -69,7 +70,6 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 				'title'    => __( 'Enable Modern Layout', 'astra-addon' ),
 				'priority' => 5,
 				'control'  => Astra_Theme_Extension::$switch_control,
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -92,7 +92,7 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 						'value'    => true,
 					),
 				),
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -114,7 +114,6 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 				),
 				'priority' => 10,
 				'control'  => Astra_Theme_Extension::$switch_control,
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -137,7 +136,7 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 						'value'    => true,
 					),
 				),
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -159,7 +158,6 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 				),
 				'priority' => 15,
 				'control'  => Astra_Theme_Extension::$switch_control,
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -186,7 +184,7 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 						'value'    => true,
 					),
 				),
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -304,7 +302,7 @@ class Astra_Addon_Woocommerce_My_Account_Configs extends Astra_Customizer_Config
 				'control'  => 'ast-heading',
 				'priority' => 15,
 				'settings' => array(),
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				'context'  => array(
 					astra_addon_builder_helper()->general_tab_config,
 					array(

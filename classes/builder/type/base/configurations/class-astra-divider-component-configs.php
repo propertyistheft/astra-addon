@@ -172,7 +172,7 @@ class Astra_Divider_Component_Configs {
 						'step' => 1,
 						'max'  => 60,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 					'suffix'            => 'px',
 					'context'           => astra_addon_builder_helper()->design_tab,
 				),
@@ -202,6 +202,7 @@ class Astra_Divider_Component_Configs {
 							'value'    => $divider_size_layout,
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -218,7 +219,7 @@ class Astra_Divider_Component_Configs {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'title'             => __( 'Color', 'astra-addon' ),
 					'context'           => astra_addon_builder_helper()->design_tab,
-					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -233,7 +234,7 @@ class Astra_Divider_Component_Configs {
 					'priority' => 99,
 					'settings' => array(),
 					'context'  => astra_addon_builder_helper()->design_tab,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

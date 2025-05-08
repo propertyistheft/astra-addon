@@ -1,5 +1,12 @@
 *** Astra Pro Changelog ***
 
+2025-05-07 - 4.11.0
+* New: Introducing a new polished UI for the Astra Customizer, offering an improved user experience and refreshed design.
+* Improvement: Enhanced accessibility of post filters with keyboard support & screen reader announcements.
+* Improvement: Optimized product navigation queries to reduce database load.
+* Fix: Addressed an issue where the `Display for Users` condition was not applying from the Site Builder overview page.
+* Fix: Resolved conflict between Astra’s Modern Cart Layout and Elementor Pro Cart Widget that was breaking the column layout.
+
 2025-04-24 - version 4.10.1
 * Fix: WooCommerce – Resolved product gallery image glitches when changing variations on single product pages in WC v4.8.0+.
 * Fix: Resolved an issue where Site Builder exclusions were not working for specific category archive pages.

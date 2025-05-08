@@ -78,6 +78,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Account_Configs' ) ) {
 							),
 						),
 					),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -91,7 +92,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Account_Configs' ) ) {
 					'priority'          => 130,
 					'transport'         => 'postMessage',
 					'control'           => 'ast-color',
-					'divider'           => array( 'ast_class' => 'ast-bottom-spacing ast-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'title'             => __( 'Icon Color', 'astra-addon' ),
 					'context'           => array(

@@ -155,7 +155,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Image_Resizer_Configs' ) ) {
 					'section'     => 'section-blog-single',
 					'title'       => __( 'Featured Images Size', 'astra-addon' ),
 					'suffix'      => '(px)',
-					'divider'     => array( 'ast_class' => 'ast-top-spacing ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-spacing ast-top-divider' ),
 					'priority'    => 6,
 					'settings'    => array(),
 					'description' => __( 'This custom size will be used for the title area and content before featured images.', 'astra-addon' ),

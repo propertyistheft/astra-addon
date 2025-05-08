@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 164,
-					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'context'  => astra_addon_builder_helper()->design_tab,
 				),
 
@@ -80,7 +80,6 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 						'bottom' => __( 'Bottom', 'astra-addon' ),
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -105,6 +104,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Spacing_Configs' ) ) {
 						'bottom' => __( 'Bottom', 'astra-addon' ),
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

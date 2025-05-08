@@ -47,6 +47,7 @@ if ( ! class_exists( 'Astra_Nav_Menu_Above_Header_Typography' ) ) {
 					'default'   => astra_get_option( 'above-header-typography-megamenu-styling' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Mega Menu Column Heading', 'astra-addon' ),
 					'section'   => 'section-above-header',
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),

@@ -34,6 +34,18 @@ class Astra_Woocommerce_Shop_Cart_Configs extends Astra_Customizer_Config_Base {
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
+		// Help text for modern cart.
+		$cart_description = '';
+		if ( defined( 'ELEMENTOR_PRO_VERSION' ) && function_exists( 'wc_get_page_id' ) ) {
+			$cart_page_id   = wc_get_page_id( 'cart' );
+			$elementor_data = get_post_meta( $cart_page_id, '_elementor_data', true );
+			if ( is_string( $elementor_data ) && ! empty( $elementor_data ) ) {
+				$elementor_data = json_decode( $elementor_data, true );
+				if ( astra_check_elementor_widget( $elementor_data, 'woocommerce-cart' ) ) {
+					$cart_description = __( "Astra's modern cart is disabled when Elementor Cart block is added on the cart page to prevent layout conflicts.", 'astra-addon' );
+				}
+			}
+		}
 
 		$_configs = array(
 
@@ -54,14 +66,16 @@ class Astra_Woocommerce_Shop_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Enable Modern Cart Layout.
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[cart-modern-layout]',
-				'default'  => astra_get_option( 'cart-modern-layout' ),
-				'type'     => 'control',
-				'section'  => 'section-woo-shop-cart',
-				'title'    => __( 'Enable Modern Cart Layout', 'astra-addon' ),
-				'priority' => 1,
-				'control'  => Astra_Theme_Extension::$switch_control,
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'name'        => ASTRA_THEME_SETTINGS . '[cart-modern-layout]',
+				'default'     => astra_get_option( 'cart-modern-layout' ),
+				'type'        => 'control',
+				'section'     => 'section-woo-shop-cart',
+				'title'       => __( 'Enable Modern Cart Layout', 'astra-addon' ),
+				'priority'    => 1,
+				'control'     => Astra_Theme_Extension::$switch_control,
+				'description' => $cart_description,
+				'disabled'    => true,
+				'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -108,7 +122,7 @@ class Astra_Woocommerce_Shop_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'  => 'ast-heading',
 				'priority' => 2.5,
 				'settings' => array(),
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 		);
 

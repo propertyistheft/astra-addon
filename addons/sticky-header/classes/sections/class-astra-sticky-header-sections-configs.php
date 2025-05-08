@@ -52,27 +52,29 @@ if ( ! class_exists( 'Astra_Sticky_Header_Sections_Configs' ) ) {
 			);
 
 			if ( Astra_Sticky_Header_Configs::is_header_section_active() ) {
+				$control_type = Astra_Sticky_Header_Configs::get_sticky_header_setting_control_type();
+
 				$_config[] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-above-stick]',
-					'default'   => astra_get_option( 'header-above-stick' ),
-					'type'      => 'control',
-					'section'   => 'section-sticky-header',
-					'title'     => __( 'Stick Above Header', 'astra-addon' ),
-					'priority'  => 5,
-					'control'   => Astra_Theme_Extension::$switch_control,
-					'context'   => ! astra_addon_builder_helper()->is_header_footer_builder_active ? array( ASTRA_THEME_SETTINGS . '[above-header-layout]', '!=', 'disabled' ) : '',
-					'transport' => 'refresh',
+					'name'     => Astra_Sticky_Header_Configs::get_sticky_header_setting_name( 'header-above-stick' ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[sticky-header-stick-on]',
+					'default'  => astra_get_option( 'header-above-stick' ),
+					'type'     => $control_type,
+					'section'  => 'section-sticky-header',
+					'title'    => __( 'Above Header', 'astra-addon' ),
+					'priority' => 5,
+					'control'  => Astra_Theme_Extension::$switch_control,
+					'context'  => ! astra_addon_builder_helper()->is_header_footer_builder_active ? array( ASTRA_THEME_SETTINGS . '[above-header-layout]', '!=', 'disabled' ) : '',
 				);
 				$_config[] = array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-below-stick]',
-					'default'   => astra_get_option( 'header-below-stick' ),
-					'type'      => 'control',
-					'section'   => 'section-sticky-header',
-					'title'     => __( 'Stick Below Header', 'astra-addon' ),
-					'priority'  => 13,
-					'control'   => Astra_Theme_Extension::$switch_control,
-					'context'   => ! astra_addon_builder_helper()->is_header_footer_builder_active ? array( ASTRA_THEME_SETTINGS . '[below-header-layout]', '!=', 'disabled' ) : '',
-					'transport' => 'refresh',
+					'name'     => Astra_Sticky_Header_Configs::get_sticky_header_setting_name( 'header-below-stick' ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[sticky-header-stick-on]',
+					'default'  => astra_get_option( 'header-below-stick' ),
+					'type'     => $control_type,
+					'section'  => 'section-sticky-header',
+					'title'    => __( 'Below Header', 'astra-addon' ),
+					'priority' => 13,
+					'control'  => Astra_Theme_Extension::$switch_control,
+					'context'  => ! astra_addon_builder_helper()->is_header_footer_builder_active ? array( ASTRA_THEME_SETTINGS . '[below-header-layout]', '!=', 'disabled' ) : '',
 				);
 			}
 

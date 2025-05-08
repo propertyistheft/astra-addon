@@ -176,7 +176,7 @@ if ( ! class_exists( 'Astra_Customizer_Notices_Configs' ) ) {
 
 			switch ( $context ) {
 				case 'custom-header':
-					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>The header on the page you are previewing is built using Custom Layouts. Options given below will not work here.</p><p> <a href="' . $this->get_custom_layout_edit_link() . '" target="_blank">Click here</a> to modify the header on this page.<p></div>';
+					$notice = '<span>The header on the page you are previewing is built using Custom Layouts. Options given below will not work here.</span><a style="display: block;" href="' . $this->get_custom_layout_edit_link() . '" target="_blank">Click here</a> to modify the header on this page.';
 					break;
 
 				default:

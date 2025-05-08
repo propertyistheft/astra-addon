@@ -56,6 +56,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 						'type'     => 'control',
 						'control'  => 'ast-settings-group',
 						'title'    => __( 'Submenu Font', 'astra-addon' ),
+						'is_font'  => true,
 						'section'  => $_section,
 						'priority' => 130,
 						'context'  => array(
@@ -85,7 +86,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 								'value'   => 'general',
 							),
 						),
-						'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+						'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 					),
 
 					// Option: Primary Submenu Font Weight.
@@ -108,7 +109,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 								'value'   => 'general',
 							),
 						),
-						'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+						'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 					),
 
 					// Option: Primary Submenu Font Size.
@@ -179,6 +180,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'type'     => 'control',
 							'control'  => 'ast-settings-group',
 							'title'    => __( 'Mega Menu Heading', 'astra-addon' ),
+							'is_font'  => true,
 							'section'  => $_section,
 							'priority' => 130,
 							'context'  => array(
@@ -208,7 +210,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 									'value'   => 'general',
 								),
 							),
-							'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+							'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 						),
 
 						// Option: Primary Megamenu Header Menu Font Weight.
@@ -231,7 +233,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 									'value'   => 'general',
 								),
 							),
-							'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+							'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 						),
 
 						// Option: Primary Megamenu Header Menu Font Size.
@@ -321,7 +323,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'font_type' => 'ast-font-family',
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 22,
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 					'connect'   => 'footer-menu-font-weight',
 					'context'   => astra_addon_builder_helper()->general_tab,
 				),
@@ -336,7 +338,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'control'           => 'ast-font',
 					'transport'         => 'postMessage',
 					'font_type'         => 'ast-font-weight',
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'priority'          => 22,
@@ -370,6 +372,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-settings-group',
 					'title'    => __( 'Submenu Font', 'astra-addon' ),
+					'is_font'  => true,
 					'section'  => 'section-header-mobile-menu',
 					'priority' => 130,
 					'context'  => array(
@@ -399,7 +402,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'value'   => 'general',
 						),
 					),
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				// Option: Primary Submenu Font Weight.
@@ -422,7 +425,7 @@ if ( ! class_exists( 'Astra_Builder_Menu_Configs' ) ) {
 							'value'   => 'general',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				// Option: Primary Submenu Font Size.

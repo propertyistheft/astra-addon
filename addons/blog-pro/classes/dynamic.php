@@ -767,7 +767,7 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		$blog_filter_class      = '.ast-post-filter';
 		$blog_filter_static_css = '';
 		$blog_filter            = astra_get_option( 'blog-filter' );
-		$blog_filter_target     = 'li.ast-post-filter-single';
+		$blog_filter_target     = 'a.ast-post-filter-single';
 
 		// Blog filter text color.
 		$blog_filter_text_normal_color = astra_get_option( 'blog-filter-taxonomy-text-normal-color' );
@@ -820,6 +820,8 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 				line-height: normal;
 				border-radius: 4px;
 				border: 0;
+				display: inline-block;
+				text-decoration: none;
 			}
 		';
 

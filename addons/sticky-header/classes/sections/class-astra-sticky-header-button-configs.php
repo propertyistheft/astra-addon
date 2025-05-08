@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'settings' => array(),
 						'priority' => 100,
 						'context'  => astra_addon_builder_helper()->design_tab,
-						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+						'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 					),
 					/**
 					 * Group: Primary Header Button Colors Group
@@ -188,6 +188,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 							'left'   => __( 'Left', 'astra-addon' ),
 						),
 						'context'           => astra_addon_builder_helper()->design_tab,
+						'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 
 					/**
@@ -223,7 +224,6 @@ if ( ! class_exists( 'Astra_Sticky_Header_Button_Configs' ) ) {
 						'transport'  => 'postMessage',
 						'context'    => astra_addon_builder_helper()->design_tab,
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					/**

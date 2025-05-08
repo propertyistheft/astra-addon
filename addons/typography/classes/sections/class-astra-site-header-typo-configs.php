@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Site_Header_Typo_Configs' ) ) {
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 8,
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-site-title]',
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Site_Header_Typo_Configs' ) ) {
 					'default'   => astra_get_option( 'font-weight-site-title' ),
 					'priority'  => 10,
 					'connect'   => 'font-family-site-title',
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Site_Header_Typo_Configs' ) ) {
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'priority'  => 13,
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-site-tagline]',
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Site_Header_Typo_Configs' ) ) {
 					'title'     => __( 'Font Weight', 'astra-addon' ),
 					'priority'  => 15,
 					'connect'   => 'font-family-site-tagline',
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**

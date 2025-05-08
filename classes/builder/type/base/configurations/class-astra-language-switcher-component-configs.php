@@ -239,6 +239,7 @@ class Astra_Language_Switcher_Component_Configs {
 					),
 					astra_addon_builder_helper()->design_tab_config,
 				),
+				'divider'     => array( 'ast_class' => 'ast-top-section-divider ' ),
 			),
 
 			// Section: Above Footer Border.
@@ -265,6 +266,7 @@ class Astra_Language_Switcher_Component_Configs {
 					),
 					astra_addon_builder_helper()->design_tab_config,
 				),
+				'divider'     => array( 'ast_class' => 'ast-top-section-divider ' ),
 			),
 
 		);

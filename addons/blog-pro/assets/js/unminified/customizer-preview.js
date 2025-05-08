@@ -584,7 +584,7 @@ function astra_refresh_customizer_iframe( control ) {
 	astra_css( 'astra-settings[navigation-link-bg-h-color]', 'background-color', '.single .post-navigation a:hover' );
 
 	// Blog filter
-	const blog_filter_selector = 'li.ast-post-filter-single';
+	const blog_filter_selector = 'a.ast-post-filter-single';
 	const blog_filter_parent_selector = '.ast-post-filter ul';
 	const blog_filter_main_parent = '.ast-post-filter';
 

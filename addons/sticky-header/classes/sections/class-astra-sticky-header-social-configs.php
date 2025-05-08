@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Social_Configs' ) ) {
 								'value'    => 'custom',
 							),
 						),
-						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+						'divider'  => array( 'ast_class' => 'ast-section-spacing ast-top-divider' ),
 					),
 
 					/**

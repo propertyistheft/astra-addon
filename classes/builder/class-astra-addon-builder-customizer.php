@@ -29,6 +29,7 @@ final class Astra_Addon_Builder_Customizer {
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customizer_preview_scripts' ) );
 
 		if ( false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
+			require_once ASTRA_EXT_DIR . 'classes/builder/type/base/configurations/class-astra-addon-base-configs.php';
 			return;
 		}
 

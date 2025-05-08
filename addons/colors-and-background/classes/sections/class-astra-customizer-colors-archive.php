@@ -395,90 +395,37 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Archive' ) ) {
 					'name'              => 'blog-read-more-h-color',
 					'title'             => __( 'Read More Color', 'astra-addon' ),
 				),
+			);
 
-				// Option Group: Box shadow Group.
+			// Option: Box shadow controls.
+			$box_shadow_configurations = Astra_Addon_Base_Configs::prepare_box_shadow_tab(
+				'section-blog',
+				'blog-item',
+				143,
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-items-box-shadow-group]',
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Box Shadow', 'astra-addon' ),
-					'section'   => 'section-blog',
-					'transport' => 'postMessage',
-					'priority'  => 143,
-					'context'   => array(
-						astra_addon_builder_helper()->design_tab_config,
+					astra_addon_builder_helper()->design_tab_config,
+					array(
+						'relation' => 'OR',
 						array(
-							'relation' => 'OR',
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[blog-layout]',
-								'operator' => '===',
-								'value'    => 'blog-layout-4',
-							),
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[blog-layout]',
-								'operator' => '===',
-								'value'    => 'blog-layout-5',
-							),
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[blog-layout]',
-								'operator' => '===',
-								'value'    => 'blog-layout-6',
-							),
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-layout]',
+							'operator' => '===',
+							'value'    => 'blog-layout-4',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-layout]',
+							'operator' => '===',
+							'value'    => 'blog-layout-5',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-layout]',
+							'operator' => '===',
+							'value'    => 'blog-layout-6',
 						),
 					),
-				),
-
-				/**
-				 * Option: Blog Box Shadow Sub Controls.
-				 */
-				array(
-					'name'              => 'blog-item-box-shadow-control',
-					'default'           => astra_get_option( 'blog-item-box-shadow-control' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[blog-items-box-shadow-group]',
-					'type'              => 'sub-control',
-					'transport'         => 'postMessage',
-					'control'           => 'ast-box-shadow',
-					'section'           => 'section-blog',
-					'sanitize_callback' => array( 'Astra_Addon_Customizer', 'sanitize_box_shadow' ),
-					'priority'          => 1,
-					'title'             => __( 'Value', 'astra-addon' ),
-					'choices'           => array(
-						'x'      => __( 'X', 'astra-addon' ),
-						'y'      => __( 'Y', 'astra-addon' ),
-						'blur'   => __( 'Blur', 'astra-addon' ),
-						'spread' => __( 'Spread', 'astra-addon' ),
-					),
-				),
-
-				array(
-					'name'      => 'blog-item-box-shadow-position',
-					'default'   => astra_get_option( 'blog-item-box-shadow-position' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-items-box-shadow-group]',
-					'type'      => 'sub-control',
-					'section'   => 'section-blog',
-					'transport' => 'postMessage',
-					'control'   => 'ast-select',
-					'title'     => __( 'Position', 'astra-addon' ),
-					'choices'   => array(
-						'outline' => __( 'Outline', 'astra-addon' ),
-						'inset'   => __( 'Inset', 'astra-addon' ),
-					),
-					'priority'  => 2,
-				),
-
-				array(
-					'name'      => 'blog-item-box-shadow-color',
-					'default'   => astra_get_option( 'blog-item-box-shadow-color' ),
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-items-box-shadow-group]',
-					'type'      => 'sub-control',
-					'section'   => 'woocommerce_product_catalog',
-					'transport' => 'postMessage',
-					'control'   => 'ast-color',
-					'title'     => __( 'Color', 'astra-addon' ),
-					'rgba'      => true,
-					'priority'  => 3,
-				),
+				)
 			);
+
+			$_configs = array_merge( $_configs, $box_shadow_configurations );
 
 			if ( false === astra_addon_builder_helper()->is_header_footer_builder_active ) {
 

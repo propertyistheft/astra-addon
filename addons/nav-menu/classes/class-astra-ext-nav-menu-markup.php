@@ -1642,9 +1642,8 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '_menu_item_spacing_title',
 					'control'  => 'ast-title',
 					'title'    => __( 'Spacing', 'astra-addon' ),
-					'divider'  => '',
 					'tab_type' => 'design',
-					'divider'  => 'ast-top-section-divider',
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'depth'    => 0,
 					'context'  => array(
 						array(

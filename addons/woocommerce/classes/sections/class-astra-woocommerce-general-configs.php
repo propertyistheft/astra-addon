@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'description' => '',
 					'priority'    => 15,
 					'settings'    => array(),
-					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'default'     => astra_get_option( 'product-sale-notification' ),
 					'type'        => 'control',
 					'section'     => 'section-woo-misc',
-					'title'       => __( 'Sale Notification', 'astra-addon' ),
+					// 'title'       => __( 'Sale Notification', 'astra-addon' ),
 					'control'     => 'ast-selector',
 					'priority'    => 15,
 					'description' => __( 'Change sale badge ui for all products.', 'astra-addon' ),
@@ -101,7 +101,6 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'transport'   => 'refresh',
 					'renderAs'    => 'text',
 					'responsive'  => false,
-					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -115,7 +114,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 58,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -145,7 +144,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -167,7 +166,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -190,7 +189,6 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				array(
 					'name'       => 'plusminus-text-normal-color',
@@ -279,7 +277,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 59,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -294,7 +292,6 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'description' => __( 'Display steps navigation at top of the cart, checkout & thank you page.', 'astra-addon' ),
 					'priority'    => 59,
 					'control'     => Astra_Theme_Extension::$switch_control,
-					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -399,7 +396,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -425,7 +422,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'input_attrs' => array(
 						'placeholder' => astra_get_option( 'product-sale-percent-value' ),
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -460,7 +457,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 						'square'         => __( 'Square', 'astra-addon' ),
 						'square-outline' => __( 'Square Outline', 'astra-addon' ),
 					),
-					'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -483,7 +480,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 							'value'    => 'none',
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -517,7 +514,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 							'value'    => 'none',
 						),
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -535,6 +532,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'context'     => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-section-spacing' ),
 				),
 
 				/**
@@ -628,6 +626,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'title'       => __( 'Disable Quantity Updater', 'astra-addon' ),
 					'description' => __( 'Disable quantity updater fields in mini cart', 'astra-addon' ),
 					'priority'    => 59,
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -641,7 +640,7 @@ if ( ! class_exists( 'Astra_Woocommerce_General_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 59,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

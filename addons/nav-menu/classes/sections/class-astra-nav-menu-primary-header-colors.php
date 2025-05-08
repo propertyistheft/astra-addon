@@ -82,6 +82,7 @@ if ( ! class_exists( 'Astra_Nav_Menu_Primary_Header_Colors' ) ) {
 						'control'   => Astra_Theme_Extension::$group_control,
 						'title'     => __( 'Mega Menu Heading', 'astra-addon' ),
 						'section'   => 'section-sticky-header',
+						'is_font'   => true,
 						'transport' => 'postMessage',
 						'priority'  => 100,
 						'context'   => true === astra_addon_builder_helper()->is_header_footer_builder_active ?

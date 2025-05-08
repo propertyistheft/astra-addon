@@ -50,6 +50,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 145,
 					'context'  => astra_addon_builder_helper()->design_tab,
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				array(
@@ -58,6 +59,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Post Title Font', 'astra-addon' ),
+					'is_font'   => true,
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
@@ -78,7 +80,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-page-title]',
 					'priority'  => 1,
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -96,7 +98,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-page-title',
 					'priority'          => 1,
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -158,6 +160,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Meta Font', 'astra-addon' ),
+					'is_font'   => true,
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
@@ -170,6 +173,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Taxonomy Font', 'astra-addon' ),
+					'is_font'   => true,
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
@@ -207,6 +211,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Excerpt Font', 'astra-addon' ),
+					'is_font'   => true,
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 145,
@@ -225,6 +230,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'default'   => astra_get_option( 'blog-content-post-read-more-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Read More Font', 'astra-addon' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
@@ -244,6 +250,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'default'   => astra_get_option( 'blog-content-pagination-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Pagination Font', 'astra-addon' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
@@ -265,7 +272,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-meta]',
 					'priority'  => 5,
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -283,7 +290,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-post-meta',
 					'priority'          => 5,
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -354,7 +361,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-tax]',
 					'priority'  => 5,
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -372,7 +379,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-post-tax',
 					'priority'          => 5,
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -443,7 +450,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-read-more]',
 					'priority'  => 5,
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -461,7 +468,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-post-read-more',
 					'priority'          => 5,
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -532,7 +539,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'     => __( 'Font Family', 'astra-addon' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-post-excerpt]',
 					'priority'  => 5,
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -550,7 +557,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 					'title'             => __( 'Font Weight', 'astra-addon' ),
 					'connect'           => 'font-family-post-excerpt',
 					'priority'          => 5,
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -627,7 +634,7 @@ if ( ! class_exists( 'Astra_Archive_Advanced_Typo_Configs' ) ) {
 						'lowercase'  => __( 'Lowercase', 'astra-addon' ),
 					),
 					'priority'  => 6,
-					'divider'   => array( 'ast_class' => 'ast-sub-top-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-top-divider' ),
 				),
 
 				/**

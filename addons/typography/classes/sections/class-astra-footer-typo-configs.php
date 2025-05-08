@@ -47,6 +47,7 @@ if ( ! class_exists( 'Astra_Footer_Typo_Configs' ) ) {
 					'default'   => astra_get_option( 'footer-bar-typography-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Content Font', 'astra-addon' ),
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',

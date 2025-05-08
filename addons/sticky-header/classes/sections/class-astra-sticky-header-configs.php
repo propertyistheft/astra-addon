@@ -28,6 +28,31 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 		// @codingStandardsIgnoreEnd
 
 		/**
+		 * Returns the sticky header setting name based on the theme version.
+		 *
+		 * @param string $name The setting name.
+		 * @return string The formatted setting name.
+		 *
+		 * @since 4.11.0
+		 */
+		public static function get_sticky_header_setting_name( $name ) {
+			$is_multiselect_checkbox_supported = version_compare( ASTRA_THEME_VERSION, '4.9.0', '>=' ); // TODO: Change the version on customize UI release.
+			return $is_multiselect_checkbox_supported ? $name : ASTRA_THEME_SETTINGS . '[' . $name . ']';
+		}
+
+		/**
+		 * Returns the sticky header setting control type based on the theme version.
+		 *
+		 * @return string The control type.
+		 *
+		 * @since 4.11.0
+		 */
+		public static function get_sticky_header_setting_control_type() {
+			$is_multiselect_checkbox_supported = version_compare( ASTRA_THEME_VERSION, '4.9.0', '>=' ); // TODO: Change the version on customize UI release.
+			return $is_multiselect_checkbox_supported ? 'sub-control' : 'control';
+		}
+
+		/**
 		 * Register Sticky Header Customizer Configurations.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
@@ -67,14 +92,31 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Stick.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[sticky-header-stick-on]',
+					'type'     => 'control',
+					'control'  => 'ast-multiselect-checkbox-group',
+					'section'  => 'section-sticky-header',
+					'title'    => __( 'Stick', 'astra', 'astra-addon' ),
+					'options'  => array(
+						'showAllButton' => true,
+					),
+					'priority' => 10,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Option: Stick Primary Header
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-main-stick]',
+					'name'      => self::get_sticky_header_setting_name( 'header-main-stick' ),
+					'parent'    => ASTRA_THEME_SETTINGS . '[sticky-header-stick-on]',
 					'default'   => astra_get_option( 'header-main-stick' ),
-					'type'      => 'control',
+					'type'      => self::get_sticky_header_setting_control_type(),
 					'section'   => 'section-sticky-header',
-					'title'     => __( 'Stick Primary Header', 'astra-addon' ),
+					'title'     => __( 'Primary Header', 'astra-addon' ),
 					'priority'  => 10,
 					'control'   => Astra_Theme_Extension::$switch_control,
 					'transport' => 'refresh',
@@ -598,7 +640,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 									),
 								),
 							),
-							'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+							'divider'  => array( 'ast_class' => 'ast-section-spacing ast-top-divider' ),
 						),
 						// Option: Sticky header logo colot.
 						array(
@@ -866,7 +908,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 								'settings' => array(),
 								'priority' => 101,
 								'context'  => astra_addon_builder_helper()->design_tab,
-								'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+								'divider'  => array( 'ast_class' => 'ast-section-spacing ast-top-divider' ),
 							),
 
 							// Option Group: Menu Color.

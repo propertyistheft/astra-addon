@@ -133,7 +133,7 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
-				'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			/**
@@ -271,7 +271,7 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
-				'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			$register_option,
@@ -284,7 +284,7 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 				'section'   => $_section,
 				'priority'  => 205,
 				'title'     => __( 'Lost your password?', 'astra-addon' ),
-				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				'context'   => array(
 					astra_addon_builder_helper()->general_tab_config,
 					array(
@@ -341,7 +341,7 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 					),
 				),
 				'responsive' => false,
-				'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 		);
 
@@ -351,7 +351,7 @@ class Astra_Ext_Header_Account_Component_Configs extends Astra_Customizer_Config
 				'default'   => astra_get_option( 'header-account-type' ),
 				'type'      => 'control',
 				'control'   => 'ast-select',
-				'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider ast-section-spacing' ),
+				'divider'   => array( 'ast_class' => 'ast-bottom-divider ast-section-spacing' ),
 				'section'   => $_section,
 				'priority'  => 1,
 				'title'     => __( 'Select Account', 'astra-addon' ),

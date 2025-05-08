@@ -98,7 +98,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -127,7 +126,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 1920,
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -185,7 +184,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 							'value'    => false,
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 				),
 
 				/**
@@ -399,7 +398,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 							'value'    => 'modern',
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/*
@@ -467,7 +466,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 5,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -481,7 +480,6 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'title'    => __( 'Two Step Checkout', 'astra-addon' ),
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'priority' => 5,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -868,7 +866,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 5,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -885,6 +883,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'context'  => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
+					'divider'  => array( 'ast_class' => 'ast-top-section-spacing' ),
 				),
 
 				/**
@@ -920,7 +919,7 @@ if ( ! class_exists( 'Astra_Woocommerce_Checkout_Configs' ) ) {
 					'context'  => array(
 						astra_addon_builder_helper()->design_tab_config,
 					),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

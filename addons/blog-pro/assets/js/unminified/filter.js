@@ -1,7 +1,6 @@
-
 const masonryEnabled  = astra.masonryEnabled || false;
-const revealEffectEnable  = astra.revealEffectEnable || false;
-const blogArchiveTitleLayout =  astra.blogArchiveTitleLayout || '';
+const revealEffectEnable = astra.revealEffectEnable || false;
+const blogArchiveTitleLayout = astra.blogArchiveTitleLayout || '';
 const blogArchiveTitleOn = astra.blogArchiveTitleOn || '';
 
 function domReady(fn) {
@@ -14,24 +13,51 @@ function domReady(fn) {
 }
 
 domReady(() => {
-    const filterList  = document.querySelectorAll('.ast-post-filter li');
-    if( filterList ) {
-        filterList.forEach( single => {
-            single.addEventListener( 'click', function(e) {
-                filterList.forEach(element => {
-                    element.classList.remove('active');
-                });
-                e.currentTarget.classList.add('active');
-
-                const dataFilter = e.target.getAttribute('data-filter') ? e.target.getAttribute('data-filter') : '';
-                const dataValue =  e.currentTarget.getAttribute('value') ? e.currentTarget.getAttribute('value') : '';
-                ArticleMarkup(dataFilter, dataValue);
+    const statusRegion = document.querySelector('.ast-filter-status');
+    const filterLinks = document.querySelectorAll('.ast-post-filter a.ast-post-filter-single');
+    
+    if (filterLinks) {
+        filterLinks.forEach(link => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleFilterClick(e);
+                }
+            });
+            
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleFilterClick(e);
             });
         });
     }
 
     astNavigationListener();
 });
+
+function handleFilterClick(e) {
+    const statusRegion = document.querySelector('.ast-filter-status');
+    const filterLinks = document.querySelectorAll('.ast-post-filter a.ast-post-filter-single');
+    
+    // Update active state
+    filterLinks.forEach(element => {
+        element.classList.remove('active');
+        element.setAttribute('aria-current', 'false');
+    });
+    
+    const currentTarget = e.currentTarget;
+    currentTarget.classList.add('active');
+    currentTarget.setAttribute('aria-current', 'page');
+    
+    // Announce filter change
+    const filterText = currentTarget.textContent.trim();
+    statusRegion.textContent = `Posts filtered by: ${filterText}`;
+    
+    const dataFilter = currentTarget.getAttribute('data-filter') || '';
+    const dataValue = currentTarget.getAttribute('value') || '';
+    
+    ArticleMarkup(dataFilter, dataValue);
+}
 
 // To add ajax functionality on navigation links.
 function astNavigationListener() {

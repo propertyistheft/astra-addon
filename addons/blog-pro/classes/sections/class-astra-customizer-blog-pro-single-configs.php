@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'       => __( 'Auto Load Previous Posts', 'astra-addon' ),
 					'control'     => Astra_Theme_Extension::$switch_control,
 					'description' => __( 'Auto load previous posts cannot be previewed in the customizer.', 'astra-addon' ),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 					'priority'    => 9,
 				),
 
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'       => __( 'Remove Image Padding', 'astra-addon' ),
 					'description' => __( 'This option will not work on full width layouts.', 'astra-addon' ),
 					'priority'    => 9,
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						'relation' => 'AND',
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'    => __( 'Post Navigation', 'astra-addon' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'priority' => 9,
 					'settings' => array(),
 					'context'  => astra_addon_builder_helper()->general_tab,
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'default' => __( 'Default', 'astra-addon' ),
 						'badge'   => __( 'Badge', 'astra-addon' ),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 					'context'    => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'title'    => __( 'Author Box', 'astra-addon' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'priority' => 9,
 					'settings' => array(),
 				),
@@ -246,7 +246,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'context'  => astra_addon_builder_helper()->general_tab,
 					'priority' => 9,
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[author-box-socials]',
@@ -257,7 +257,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'control'  => Astra_Theme_Extension::$switch_control,
 					'context'  => astra_addon_builder_helper()->general_tab,
 					'priority' => 9,
-					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[author-box-social-icon-list]',
@@ -288,7 +288,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'left'   => __( 'Left', 'astra-addon' ),
 						'center' => __( 'Center', 'astra-addon' ),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 					'context'    => astra_addon_builder_helper()->general_tab,
 					'responsive' => false,
 					'renderAs'   => 'text',
@@ -305,6 +305,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 9,
 					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 				array(
 					'name'     => 'ast-sub-section-post-social-sharing',
@@ -376,7 +377,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'  => array( 'ast_class' => 'ast-bottom-dotted-divider ast-top-dotted-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -436,7 +437,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 
 				),
 
@@ -460,7 +461,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -514,7 +515,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 
 				),
 
@@ -536,7 +537,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'left-content'     => __( 'Left Content', 'astra-addon' ),
 						'right-content'    => __( 'Right Content', 'astra-addon' ),
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-section-divider icon-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider ast-bottom-section-divider icon-divider' ),
 					'context'     => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
@@ -601,7 +602,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'context'    => $social_design_sharing_context,
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider ast-top-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
@@ -892,7 +893,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'step' => 1,
 						'max'  => 50,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => $social_design_sharing_context,
 				),
 
@@ -915,7 +916,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'step' => 1,
 						'max'  => 50,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => $social_design_sharing_context,
 				),
 
@@ -953,7 +954,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -977,6 +978,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'default'   => astra_get_option( 'single-post-social-sharing-heading-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Heading Font', 'astra-addon' ),
 					'section'   => 'section-blog-single',
 					'transport' => 'postMessage',
@@ -1012,7 +1014,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'connect'   => 'single-post-social-sharing-heading-font-weight',
 					'priority'  => 4,
 					'transport' => 'postMessage',
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -1031,7 +1033,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'priority'          => 4,
 					'connect'           => 'single-post-social-sharing-heading-font-family',
 					'transport'         => 'postMessage',
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -1094,6 +1096,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'default'   => astra_get_option( 'single-post-social-sharing-icon-label-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Label Font', 'astra-addon' ),
 					'section'   => 'section-blog-single',
 					'transport' => 'postMessage',
@@ -1129,7 +1132,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'priority'  => 4,
 					'connect'   => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-label-font-weight]',
 					'transport' => 'postMessage',
-					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -1148,7 +1151,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'priority'          => 4,
 					'connect'           => 'single-post-social-sharing-icon-label-font-family',
 					'transport'         => 'postMessage',
-					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-divider' ),
 				),
 
 				/**
@@ -1251,7 +1254,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'left'   => __( 'Left', 'astra-addon' ),
 					),
 					'context'           => $social_design_sharing_context,
-					'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -1276,7 +1279,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 						'bottom_left'  => __( 'Left', 'astra-addon' ),
 					),
 					'context'           => $social_design_sharing_context,
-					'divider'           => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 				),
 
 				array(

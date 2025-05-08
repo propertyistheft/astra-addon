@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Header' ) ) {
 							'step' => 1,
 							'max'  => 100,
 						),
-						'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+						'divider'     => array( 'ast_class' => 'ast-top-divider' ),
 						'context'     => array(
 							astra_addon_builder_helper()->general_tab_config,
 							array(

@@ -84,6 +84,7 @@ if ( ! class_exists( 'Astra_Customizer_Site_Identity_Spacing_Configs' ) ) {
 					),
 					'priority' => 50,
 					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

@@ -1143,37 +1143,52 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 				ob_start();
 				?>
-				<div class="ast-post-filter">
-					<ul>
-					<?php
+				<div class="ast-post-filter" role="region" aria-label="<?php esc_attr_e( 'Post Filters', 'astra-addon' ); ?>">
+					<h2 class="screen-reader-text"><?php esc_html_e( 'Filter posts by category', 'astra-addon' ); ?></h2>
+					<ul role="list">
+						<?php
 						$blog_filter_layout_2_classes = 'blog-filter-layout-2' === $blog_filter_layout ? 'ast-button' : '';
 						$category_tag_page_classes    = ! ( is_category() || is_tag() ) ? 'active' : '';
 						$add_spacing                  = $category_tag_page_classes ? ' ' : '';
 						$classes                      = $blog_filter_layout_2_classes || $category_tag_page_classes ? ' ' . $blog_filter_layout_2_classes . $add_spacing . $category_tag_page_classes : '';
-					?>
-					<li class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" value="all" data-filter="<?php echo esc_attr( get_post_type_archive_link( 'post' ) ); ?>" ><?php echo esc_html( __( 'All', 'astra-addon' ) ); ?></li>
-						<?php
-						foreach ( $terms as $term ) {
-								$term_name = isset( $term->name ) ? $term->name : '';
-								$term_id   = isset( $term->term_id ) ? $term->term_id : '';
-
-							$active_category_tag = '';
-							if ( is_tag() || is_category() ) {
-								$active_category_tag = get_queried_object_id() && get_queried_object_id() === $term_id ? 'active' : '';
-								$add_spacing         = $active_category_tag ? ' ' : '';
-							}
-							$classes = $blog_filter_layout_2_classes || $active_category_tag ? ' ' . $blog_filter_layout_2_classes . $add_spacing . $active_category_tag : '';
-
-							if ( ( 'categories' === $blog_filter_by && isset( $category_include_array ) && ! in_array( $term_id, $category_include_array ) ) || ( 'tags' === $blog_filter_by && isset( $tag_include_array ) && ! in_array( $term_id, $tag_include_array ) ) ) {
-								?>
-								<li class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" value="<?php echo esc_attr( $term_id ); ?>" data-filter="<?php echo esc_attr( get_category_link( $term_id ) ); ?>" ><?php echo esc_html( $term_name ); ?></li>
-
-								<?php
-							}
-						}
 						?>
+						<li>
+							<a href="<?php echo esc_attr( get_post_type_archive_link( 'post' ) ); ?>"
+								class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" 
+								data-filter="<?php echo esc_attr( get_post_type_archive_link( 'post' ) ); ?>"
+								aria-current="<?php echo $category_tag_page_classes ? 'page' : 'false'; ?>">
+								<?php echo esc_html( __( 'All', 'astra-addon' ) ); ?>
+							</a>
+						</li>
+					<?php
+					foreach ( $terms as $term ) {
+						$term_name = isset( $term->name ) ? $term->name : '';
+						$term_id   = isset( $term->term_id ) ? $term->term_id : '';
+
+						$active_category_tag = '';
+						if ( is_tag() || is_category() ) {
+							$active_category_tag = get_queried_object_id() && get_queried_object_id() === $term_id ? 'active' : '';
+							$add_spacing         = $active_category_tag ? ' ' : '';
+						}
+						$classes = $blog_filter_layout_2_classes || $active_category_tag ? ' ' . $blog_filter_layout_2_classes . $add_spacing . $active_category_tag : '';
+
+						if ( ( 'categories' === $blog_filter_by && isset( $category_include_array ) && ! in_array( $term_id, $category_include_array ) ) || ( 'tags' === $blog_filter_by && isset( $tag_include_array ) && ! in_array( $term_id, $tag_include_array ) ) ) {
+							?>
+							<li>
+								<a href="<?php echo esc_attr( get_category_link( $term_id ) ); ?>" 
+									class="ast-post-filter-single<?php echo esc_attr( $classes ); ?>" 
+									data-filter="<?php echo esc_attr( get_category_link( $term_id ) ); ?>"
+									aria-current="<?php echo $active_category_tag ? 'page' : 'false'; ?>">
+									<?php echo esc_html( $term_name ); ?>
+								</a>
+							</li>
+							<?php
+						}
+					}
+					?>
 					</ul>
 				</div>
+				<div class="ast-filter-status" aria-live="polite" aria-atomic="true" style="position:absolute;overflow:hidden;clip:rect(1px,1px,1px,1px);width:1px;height:1px;white-space:nowrap;"></div>
 				<?php
 				echo wp_kses_post( ob_get_clean() );
 			}

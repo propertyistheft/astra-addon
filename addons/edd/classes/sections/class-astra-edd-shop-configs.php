@@ -140,7 +140,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 						'step' => 1,
 						'max'  => 5,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -196,7 +196,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 						'step' => 1,
 						'max'  => 200,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -242,6 +242,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'default'   => astra_get_option( 'edd-archive-product-title-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Product Title Font', 'astra-addon' ),
 					'section'   => 'section-edd-archive',
 					'transport' => 'postMessage',
@@ -256,6 +257,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'default'   => astra_get_option( 'edd-archive-product-price-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Product Price Font', 'astra-addon' ),
 					'section'   => 'section-edd-archive',
 					'transport' => 'postMessage',
@@ -270,6 +272,7 @@ if ( ! class_exists( 'Astra_Edd_Shop_Configs' ) ) {
 					'default'   => astra_get_option( 'edd-archive-product-content-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
+					'is_font'   => true,
 					'title'     => __( 'Product Content Font', 'astra-addon' ),
 					'section'   => 'section-edd-archive',
 					'transport' => 'postMessage',
