@@ -70,7 +70,12 @@ if ( ! class_exists( 'BSF_Update_Manager' ) ) {
 				}
 
 				if ( isset( $_transient_data->response[ $template ] ) ) {
-					continue;
+					$other_plugins = $_transient_data->response[ $template ];
+
+					if ( is_object( $other_plugins ) && isset( $other_plugins->id ) && 'w.org/plugins/convertpro' !== $other_plugins->id ) {
+						// Skip updating this plugin — it doesn't belong to us.
+						continue;
+					}
 				}
 
 				if ( false === $this->enable_auto_updates( $product['id'] ) ) {

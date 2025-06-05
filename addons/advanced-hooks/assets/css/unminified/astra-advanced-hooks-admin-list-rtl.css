@@ -41,8 +41,8 @@
 	transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .ast-custom-layout-switch.ast-active {
-	background: #1c81c8;
-	border-color: #1c81c8;
+	background: #5c2ede;
+	border-color: #5c2ede;
 	opacity: 1;
 }
 .ast-custom-layout-switch.ast-active:before {
@@ -215,7 +215,6 @@ tfoot .ast-advanced-hook-heading-help {
 	line-height: 2.5em;
 	color: #777;
 	background: #e5e5e5;
-	border-radius: 4px;
 	cursor: inherit !important;
 	white-space: nowrap;
 	max-width: 100%;
@@ -225,7 +224,6 @@ tfoot .ast-advanced-hook-heading-help {
 	border-radius: 2px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	background-color: #F0F0F1;
 	box-shadow: none;
 }
 .ast-data-rule-group h2 {
@@ -360,10 +358,10 @@ tfoot .ast-advanced-hook-heading-help {
 	margin-right: -5px;
 }
 .advanced_hook_shortcode .layout-status {
-	border: 1px solid #8C8F94;
+	border: 1px solid #D2D3E2;
 	font-size: 14px;
 	font-weight: 500;
-	background-color: #F0F0F1;
+	background-color: #ffe4c400;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	justify-content: center;
@@ -371,7 +369,8 @@ tfoot .ast-advanced-hook-heading-help {
 .advanced_hook_shortcode .layout-status span {
 	border-radius: 0;
 	line-height: 33px;
-	font-weight: 500;
+	font-weight: 400;
+	color: #4F4E7C;
 }
 .advanced_hook_shortcode > div {
 	position: relative;
@@ -383,4 +382,48 @@ tfoot .ast-advanced-hook-heading-help {
 .advanced_hook_quick_view .dashicons {
 	color: #404040;
 	font-size: 18px;
+}
+
+.post-type-astra-advanced-hook .button,
+.post-type-astra-advanced-hook .button-secondary {
+	color: #5C2EDE;
+	border-color: #5C2EDE;
+	background: #ffffff;
+}
+
+.post-type-astra-advanced-hook .button,
+.post-type-astra-advanced-hook .button-secondary {
+	color: #5C2EDE;
+	border-color: #5C2EDE;
+	background: #ffffff;
+}
+
+.post-type-astra-advanced-hook .button-link {
+	color: #5C2EDE;
+	border-color: #5C2EDE;
+}
+
+.post-type-astra-advanced-hook .button:hover,
+.post-type-astra-advanced-hook .button-secondary:hover {
+	color: #5C2EDE;
+	border-color: #5C2EDE;
+	background: #ffffff;
+}
+
+.post-type-astra-advanced-hook .striped>tbody> :nth-child(odd),
+ul.striped> :nth-child(odd),
+.alternate {
+	background-color: #F3F3F8;
+}
+
+.post-type-astra-advanced-hook select:hover {
+	color: #5C2EDE;
+}
+
+.post-type-astra-advanced-hook .ast-data-preview footer .button.button-large {
+	background: transparent;
+}
+
+.post-type-astra-advanced-hook .ast-site-builder-table-view .table-view-layout-section a:hover {
+	color: #5c2ede !important;
 }

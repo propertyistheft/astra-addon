@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) {
 
 			$tve_content = apply_filters( 'the_content', $current_post->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
-			if ( isset( $_REQUEST[ TVE_EDITOR_FLAG ] ) ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_REQUEST[ TVE_EDITOR_FLAG ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for this simple conditional check.
 				$tve_content = str_replace( 'id="tve_editor"', '', $tve_content );
 			}
 
@@ -104,8 +104,8 @@ if ( ! class_exists( 'Astra_Addon_Thrive_Compatibility' ) ) {
 		 * @return bool True if current if is being rendered is not being edited.
 		 */
 		private function is_thrive_builder_page( $post_id ) {
-			$tve  = isset( $_GET['tve'] ) && 'true' == $_GET['tve'] ? true : false;  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$post = isset( $_GET['post'] ) ? sanitize_text_field( $_GET['post'] ) : false;  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$tve  = isset( $_GET['tve'] ) && 'true' == $_GET['tve'] ? true : false;  // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these GET parameters as they are being used in a controlled environment.
+			$post = isset( $_GET['post'] ) ? sanitize_text_field( $_GET['post'] ) : false;  // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these GET parameters as they are being used in a controlled environment.
 
 			return true == $tve && $post_id !== $post;
 		}

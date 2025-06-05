@@ -933,7 +933,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			global $pagenow;
 			/* Check current admin page. */
 
-			if ( 'themes.php' === $pagenow && isset( $_GET['action'] ) && 'addons' === $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( 'themes.php' === $pagenow && isset( $_GET['action'] ) && 'addons' === $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for this redirect action.
 				wp_safe_redirect( admin_url( '/themes.php?page=astra' ), 301 );
 				exit;
 			}

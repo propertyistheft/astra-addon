@@ -753,7 +753,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			global $wp_query;
 
 			// if this is not a request for partial or a singular object then bail.
-			if ( ( isset( $wp_query->query_vars['partial-prev'] ) || isset( $_GET['partial-prev'] ) ) && is_singular() ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ( isset( $wp_query->query_vars['partial-prev'] ) || isset( $_GET['partial-prev'] ) ) && is_singular() ) { /// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these non-sensitive query parameters.
 				// include custom template.
 				include ASTRA_ADDON_EXT_BLOG_PRO_DIR . '/template/content-partial.php';
 

@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Addon_Header_Account_Markup' ) ) {
 							<span class="ast-svg-iconset">
 								<?php
 								if ( is_callable( 'Astra_Builder_UI_Controller', 'fetch_svg_icon' ) ) {
-									echo Astra_Builder_UI_Controller::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									echo Astra_Builder_UI_Controller::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG content needs to remain raw for correct rendering; escaping would break the markup.
 								}
 								?>
 							</span>

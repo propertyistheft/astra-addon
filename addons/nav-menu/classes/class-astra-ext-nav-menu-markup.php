@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_Ext_Nav_Menu_Markup' ) ) {
 
 			check_ajax_referer( 'astra-addon-get-posts-by-query', 'nonce' );
 
-			$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verification is not required for this POST request as it's a search query.
 			$data          = array();
 			$result        = array();
 

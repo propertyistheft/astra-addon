@@ -338,7 +338,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 			check_ajax_referer( 'astra-addon-get-posts-by-query', 'nonce' );
 
-			$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verification is not applicable here as it's a search query processed via POST.
 			$data          = array();
 			$result        = array();
 
@@ -453,7 +453,7 @@ if ( ! class_exists( 'Astra_Target_Rules_Fields' ) ) {
 
 			check_ajax_referer( 'astra-addon-get-posts-by-query', 'nonce' );
 
-			$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verification is not applicable here as it's a search query processed via POST.
 			$data          = array();
 			$result        = array();
 

@@ -361,8 +361,8 @@ class Astra_Addon_Admin_Loader {
 	public static function get_active_tab( $default = '' ) {
 		$current_tab = $default;
 
-		if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$current_tab = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for this non-sensitive request parameter.
+			$current_tab = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for this non-sensitive request parameter.
 		}
 
 		return $current_tab;
@@ -380,42 +380,31 @@ class Astra_Addon_Admin_Loader {
 	 */
 	public static function admin_dashboard_header( $title, $tabs, $button_url, $kb_docs_url ) {
 		?>
+		<div class="ast-site-builder-table-view">
 			<div class="-ml-5 ast-admin-top-bar-root -mb-11.5 [2.875rem] sm:mb-0">
-				<div class="bg-white border-b border-slate-200 px-5">
-					<div class="max-w-3xl mx-auto lg:max-w-full">
-						<div class="relative flex flex-wrap flex-col sm:flex-row justify-between items-start sm:items-center h-full min-h-24 sm:min-h-15 pt-14 pb-2 sm:pb-0 sm:pt-0">
-							<div class="flex gap-6">
+				<div class="bg-white border-b border-solid border-slate-200 px-5">
+					<div class="max-w-3xl mx-auto lg:max-w-full h-[62px]">
+						<div class="relative flex flex-wrap flex-col sm:flex-row justify-between items-start sm:items-center h-full min-h-24 sm:min-h-15 pt-14 sm:pb-0 sm:pt-0">
+							<div class="flex items-center gap-6">
 								<a href="" target="_blank" rel="noopener">
 									<img src="<?php echo esc_url( apply_filters( 'astra_admin_menu_icon', ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound ?>" class="lg:block h-[2.6rem] w-auto ast-theme-icon" alt="Workflow" >
 								</a>
 								<div class="flex items-center">
-									<h5 class="text-lg sm:text-xl leading-6 font-semibold mr-3 pl-6 border-l border-slate-200"><?php echo esc_html( $title ); ?></h5>
-									<a href="<?php echo esc_url( admin_url( $button_url ) ); ?>" class="text-xs text-astra font-medium leading-4 px-3 py-2 rounded-[0.1875rem] border border-astra bg-[#F6F7F7]">Add New</a>
+								<h5 class="text-2xl [8px] my-0 mr-3 pl-6 border-l-[1px] border-slate-200 font-semibold tracking-[-0.006em] align-middle table-view-header">Site Builder</h5>
+									<a href="<?php echo esc_url( admin_url( $button_url ) ); ?>" class="text-xs text-astra font-medium leading-4 px-3 py-2 rounded-[0.1875rem] border border-solid bg-[#F6F7F7] no-underline">Add New</a>
 								</div>
 							</div>
-							<div class="flex justify-end items-center font-inter">	
-								<div class="flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-3 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3">
-									<div class="flex items-center">
-										<span><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
-										<span class="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] border border-slate-400 font-medium rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> <?php esc_html_e( 'CORE', 'astra-addon' ); ?> </span>
-									</div>
-									<div class="flex items-center pl-3">
-										<span><?php echo esc_html( ASTRA_EXT_VER ); ?></span>
-										<span class="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] text-white font-medium border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> <?php esc_html_e( 'PRO', 'astra-addon' ); ?> </span>
-									</div>
-									<?php
-									if ( ASTRA_ADDON_BSF_PACKAGE ) {
-										$highlight_class     = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? 'text-[#4AB866]' : '';
-										$license_status_text = BSF_License_Manager::bsf_is_active_license( bsf_extract_product_id( ASTRA_EXT_DIR ) ) ? '<span class="pl-3 ' . esc_attr( $highlight_class ) . '">' . __( 'License activated', 'astra-addon' ) . '</span>' : '<a href="' . esc_url( admin_url( 'admin.php?page=astra&path=settings' ) ) . '" class="hover:text-astra text-slate-400 ml-3">' . __( 'License not activated', 'astra-addon' ) . '</a>';
-										echo wp_kses_post( $license_status_text );
-									}
-									?>
-								</div>
+							<div class="flex justify-end items-center font-inter gap-x-4">	
+							<svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M4 0.25H36C38.0711 0.25 39.75 1.92893 39.75 4V16C39.75 18.0711 38.0711 19.75 36 19.75H4C1.92893 19.75 0.25 18.0711 0.25 16V4C0.25 1.92893 1.92893 0.25 4 0.25Z" fill="#F3F3F8"/>
+								<path d="M4 0.25H36C38.0711 0.25 39.75 1.92893 39.75 4V16C39.75 18.0711 38.0711 19.75 36 19.75H4C1.92893 19.75 0.25 18.0711 0.25 16V4C0.25 1.92893 1.92893 0.25 4 0.25Z" stroke="#E6E6EF" stroke-width="0.5"/>
+								<path d="M9.09144 14V5.6H11.9234C12.4834 5.6 12.9754 5.716 13.3994 5.948C13.8314 6.172 14.1674 6.488 14.4074 6.896C14.6554 7.296 14.7794 7.764 14.7794 8.3C14.7794 8.82 14.6674 9.284 14.4434 9.692C14.2194 10.1 13.9074 10.42 13.5074 10.652C13.1154 10.884 12.6634 11 12.1514 11H10.2674V14H9.09144ZM10.2674 9.908H12.1394C12.5634 9.908 12.9114 9.76 13.1834 9.464C13.4554 9.16 13.5914 8.772 13.5914 8.3C13.5914 7.812 13.4314 7.42 13.1114 7.124C12.7994 6.828 12.3994 6.68 11.9114 6.68H10.2674V9.908ZM16.1227 14V5.6H18.9547C19.5147 5.6 20.0067 5.712 20.4307 5.936C20.8627 6.152 21.1987 6.456 21.4387 6.848C21.6867 7.232 21.8107 7.68 21.8107 8.192C21.8107 8.696 21.6787 9.144 21.4147 9.536C21.1587 9.928 20.8067 10.236 20.3587 10.46C19.9107 10.676 19.4067 10.784 18.8467 10.784H17.2987V14H16.1227ZM20.8147 14L18.8227 10.568L19.7587 9.944L22.1467 14H20.8147ZM17.2987 9.704H19.0627C19.3507 9.704 19.6067 9.64 19.8307 9.512C20.0627 9.376 20.2467 9.196 20.3827 8.972C20.5267 8.74 20.5987 8.48 20.5987 8.192C20.5987 7.744 20.4427 7.38 20.1307 7.1C19.8187 6.82 19.4147 6.68 18.9187 6.68H17.2987V9.704ZM27.329 14.144C26.513 14.144 25.789 13.96 25.157 13.592C24.525 13.224 24.029 12.712 23.669 12.056C23.317 11.4 23.141 10.648 23.141 9.8C23.141 8.952 23.317 8.204 23.669 7.556C24.029 6.9 24.521 6.388 25.145 6.02C25.769 5.644 26.489 5.456 27.305 5.456C28.121 5.456 28.841 5.644 29.465 6.02C30.089 6.388 30.577 6.9 30.929 7.556C31.281 8.204 31.457 8.952 31.457 9.8C31.457 10.648 31.281 11.4 30.929 12.056C30.577 12.712 30.089 13.224 29.465 13.592C28.849 13.96 28.137 14.144 27.329 14.144ZM27.329 13.064C27.905 13.064 28.413 12.924 28.853 12.644C29.293 12.364 29.637 11.98 29.885 11.492C30.133 11.004 30.257 10.44 30.257 9.8C30.257 9.168 30.129 8.608 29.873 8.12C29.625 7.624 29.277 7.236 28.829 6.956C28.389 6.676 27.881 6.536 27.305 6.536C26.729 6.536 26.217 6.676 25.769 6.956C25.321 7.236 24.969 7.624 24.713 8.12C24.465 8.608 24.341 9.168 24.341 9.8C24.341 10.44 24.469 11.004 24.725 11.492C24.981 11.98 25.333 12.364 25.781 12.644C26.237 12.924 26.753 13.064 27.329 13.064Z" fill="#4F4E7C"/>
+							</svg>
 								<?php
 
 								if ( ! astra_is_white_labelled() ) {
 									?>
-									<a href="<?php echo esc_url( $kb_docs_url ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200 mr-3">
+									<a href="<?php echo esc_url( $kb_docs_url ); ?>" target="_blank" class=" h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200">
 										<?php echo class_exists( 'Astra_Builder_UI_Controller' ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'knowledge-base', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
 									</a>
 									<?php
@@ -423,8 +412,8 @@ class Astra_Addon_Admin_Loader {
 
 								if ( Astra_Ext_White_Label_Markup::show_branding() ) {
 									?>
-									<a href="<?php echo esc_url( 'https://wpastra.com/whats-new/' ); ?>" target="_blank" class="w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200">
-									<?php echo class_exists( 'Astra_Builder_UI_Controller' ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'horn', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
+									<a href="<?php echo esc_url( 'https://wpastra.com/whats-new/' ); ?>" target="_blank" class=" h-8 sm:h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200">
+									<?php echo class_exists( 'Astra_Builder_UI_Controller' ) ? wp_kses( Astra_Builder_UI_Controller::fetch_svg_icon( 'horn2', false ), Astra_Addon_Kses::astra_addon_svg_kses_protocols() ) : ''; ?>
 								</a>
 									<?php
 								}
@@ -440,8 +429,8 @@ class Astra_Addon_Admin_Loader {
 					$active_class = ' text-astra border-astra';
 					$current_tab  = self::get_active_tab();
 
-					if ( ! empty( $_REQUEST['layout_type'] ) && 'all' !== $current_tab ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-						$current_type = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+					if ( ! empty( $_REQUEST['layout_type'] ) && 'all' !== $current_tab ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for this non-sensitive request parameter.
+						$current_type = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for this non-sensitive request parameter.
 						$active_class = '';
 					}
 
@@ -463,8 +452,8 @@ class Astra_Addon_Admin_Loader {
 					$all_layouts_url = add_query_arg( 'layout_type', 'all', admin_url( 'edit.php?post_type=' . ASTRA_ADVANCED_HOOKS_POST_TYPE ) );
 					?>
 
-					<div class="bg-white border-b border-slate-200 flex flex-wrap items-center -mb-0.5">
-						<a class="text-sm font-medium ml-2 px-5 py-4 border-b-2 border-white <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $all_layouts_url ); ?>">
+					<div class="bg-white border-b border-slate-200 flex flex-wrap items-center -mb-0.5 border-b border-solid table-view-layout-section">
+						<a class="text-sm font-medium ml-2 px-5 py-4 border-b-2 border-white no-underline <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $all_layouts_url ); ?>">
 							<?php
 								echo esc_html__( 'All', 'astra-addon' );
 							?>
@@ -474,15 +463,18 @@ class Astra_Addon_Admin_Loader {
 							$type_url     = esc_url( add_query_arg( 'layout_type', $type, $baseurl ) );
 							$active_class = $current_type === $type ? ' text-astra border-astra' : 'text-slate-600 border-white';
 							?>
-									<a class="text-sm font-medium px-5 py-4 border-b-2 <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $type_url ); ?>">
+							<a class="text-sm font-medium px-5 py-4 border-b-2 no-underline <?php echo esc_attr( $active_class ); ?> hover:text-[#5c2ede]"
+							   href="<?php echo esc_url( $type_url ); ?>">
 								<?php echo esc_attr( $title ); ?>
-									</a>
-								<?php
+							</a>
+							<?php
 						}
+
 						?>
 					</div>
 				<?php } ?>
 			</div>
+					</div>
 		<?php
 	}
 

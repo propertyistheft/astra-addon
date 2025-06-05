@@ -1,5 +1,10 @@
 *** Astra Pro Changelog ***
 
+2025-06-05 - 4.11.1
+* New: Revamped the Astra Addon Dashboard using Force UI for a modern, cohesive user experience.
+* Fix: Resolved an issue where responsive outer and inner post spacing was not applied correctly.
+* Fix: Resolved RTL mega menu positioning by implementing right-edge calculation instead of left positioning.
+
 2025-05-07 - 4.11.0
 * New: Introducing a new polished UI for the Astra Customizer, offering an improved user experience and refreshed design.
 * Improvement: Enhanced accessibility of post filters with keyboard support & screen reader announcements.

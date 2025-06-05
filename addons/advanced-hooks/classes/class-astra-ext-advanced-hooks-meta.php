@@ -996,9 +996,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 
 			$screen = get_current_screen();
 
-			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type && ( isset( $_GET['code_editor'] ) || ( isset( $post->ID ) && 'code_editor' === get_post_meta( $post->ID, 'editor_type', true ) ) ) ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $screen->post_type && ( isset( $_GET['code_editor'] ) || ( isset( $post->ID ) && 'code_editor' === get_post_meta( $post->ID, 'editor_type', true ) ) ) ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these non-sensitive URL parameters and post meta checks.
 
-				if ( ! function_exists( 'wp_enqueue_code_editor' ) || isset( $_GET['wordpress_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				if ( ! function_exists( 'wp_enqueue_code_editor' ) || isset( $_GET['wordpress_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these non-sensitive URL parameters and post meta checks.
 					return;
 				}
 
@@ -1356,9 +1356,9 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				global $post; //phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.VariableRedeclaration -- Separately used in different function
 			}
 
-			if ( isset( $_GET['wordpress_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_GET['wordpress_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these non-sensitive URL parameters and post meta checks.
 				update_post_meta( $post->ID, 'editor_type', 'wordpress_editor' );
-			} elseif ( isset( $_GET['code_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			} elseif ( isset( $_GET['code_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these non-sensitive URL parameters and post meta checks.
 				update_post_meta( $post->ID, 'editor_type', 'code_editor' );
 			}
 
@@ -1447,13 +1447,13 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Meta' ) ) {
 				$icon  = 'dashicons-editor-code';
 				$label = $enable_label;
 
-				if ( ( 'post-new.php' === $pagenow && isset( $_GET['code_editor'] ) ) || isset( $_GET['code_editor'] ) || 'enabled' === $with_php ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				if ( ( 'post-new.php' === $pagenow && isset( $_GET['code_editor'] ) ) || isset( $_GET['code_editor'] ) || 'enabled' === $with_php ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these non-sensitive URL parameters.
 					$editor_type = 'code_editor';
 					$icon        = 'dashicons-edit';
 					$label       = $disable_label;
 				}
 
-				if ( isset( $_GET['wordpress_editor'] ) || 'wordpress_editor' === $editor_type ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				if ( isset( $_GET['wordpress_editor'] ) || 'wordpress_editor' === $editor_type ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for these non-sensitive URL parameters.
 					$editor_type = 'wordpress_editor';
 					$icon        = 'dashicons-editor-code';
 					$label       = $enable_label;

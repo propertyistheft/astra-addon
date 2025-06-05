@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Addon_Brizy_Compatibility' ) ) {
 
 			$prefix = method_exists( 'Brizy_Editor', 'prefix' ) ? Brizy_Editor::prefix() : 'brizy';
 
-			if ( isset( $_GET[ "{$prefix}-edit-iframe" ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_GET[ "{$prefix}-edit-iframe" ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for this simple conditional check.
 				return;
 			}
 

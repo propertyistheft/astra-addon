@@ -285,8 +285,8 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 		public function get_active_tab( $default = '' ) {
 			$current_tab = $default;
 
-			if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				$current_tab = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ! empty( $_REQUEST['layout_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce is not required as this is just reading a sanitized URL parameter.
+				$current_tab = sanitize_text_field( $_REQUEST['layout_type'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Sanitizing the request parameter for safe use.
 				if ( 'all' === $current_tab ) {
 					$current_tab = '';
 				}
@@ -374,7 +374,12 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					echo '<div> <label class="layout-status"> <span class="ast-layout-' . esc_attr( $post_id ) . '">[astra_custom_layout id=' . esc_attr( $post_id ) . ']</span> </label> <a href="javascript:void(0)" class="ast-copy-layout-shortcode" title="' . esc_attr__( 'Copy to Clipboard', 'astra-addon' ) . '" data-linked_span="ast-layout-' . esc_attr( $post_id ) . '"> <span class="dashicons dashicons-admin-page"></span> </a> </div>';
 					break;
 				case 'advanced_hook_quick_view':
-					echo '<a href="javascript:void(0)" data-layout_id="' . esc_attr( $post_id ) . '" title="Preview" class="advanced_hook_data_trigger"> <span class="dashicons dashicons-visibility"></span> </a>';
+					echo '<a href="javascript:void(0)" data-layout_id="' . esc_attr( $post_id ) . '" title="Preview" class="advanced_hook_data_trigger" style="box-shadow: none; outline: none;">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1.66699 10.0003C1.66699 10.0003 4.16699 4.16699 10.0003 4.16699C15.8337 4.16699 18.3337 10.0003 18.3337 10.0003C18.3337 10.0003 15.8337 15.8337 10.0003 15.8337C4.16699 15.8337 1.66699 10.0003 1.66699 10.0003Z" stroke="#6F6B99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="#6F6B99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+					</a>';
 					break;
 				case 'enable_disable':
 					$switch_class = 'ast-custom-layout-switch ast-option-switch';
@@ -481,7 +486,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 			}
 
 			// Rest support true if it is a WordPress editor.
-			if ( isset( $_GET['wordpress_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_GET['wordpress_editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not needed for this non-sensitive URL parameter check.
 				$rest_support = true;
 			}
 
@@ -633,7 +638,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					/* translators: %s: singular custom post type name */
 					4  => sprintf( __( '%s updated.', 'astra-addon' ), $singular_name ),
 					/* translators: %1$s: singular custom post type name ,%2$s: date and time of the revision */
-					5  => isset( $_GET['revision'] ) ? sprintf( __( '%1$s restored to revision from %2$s', 'astra-addon' ), $singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+					5  => isset( $_GET['revision'] ) ? sprintf( __( '%1$s restored to revision from %2$s', 'astra-addon' ), $singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification is not required for revision data.
 					/* translators: %s: singular custom post type name */
 					6  => sprintf( __( '%s published.', 'astra-addon' ), $singular_name ),
 					/* translators: %s: singular custom post type name */

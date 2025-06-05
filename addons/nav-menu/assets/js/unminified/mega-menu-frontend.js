@@ -225,6 +225,17 @@ function apply_megamenu_width_styles() {
 								width: customMegaMenuWidth + "px",
 							});
 					}
+				} else if ($this.hasClass("content-width-mega")){
+					if (astra.isRtl){
+						var menuItemRight = $menuPosition.left + $menuWidth - ($menuItemPosition.left + $this.outerWidth());
+						$this
+							.find(".astra-megamenu")
+							.css({ right: "-" + menuItemRight + "px", width: $menuWidth });
+					} else {
+						$this
+							.find(".astra-megamenu")
+							.css({ left: "-" + positionLeft + "px", width: $menuWidth });
+					}
 				}
 				else {
 					if (astra.isRtl) {

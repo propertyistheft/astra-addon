@@ -22,7 +22,7 @@
 .ml-8 {
 	margin-left: 2rem/* 32px */;
 }
-.astra-parent-field-false + .astra-child-field {
+.astra-parent-field-false + div + .astra-child-field {
 	pointer-events: none;
 	opacity: 0.4;
 }
@@ -71,12 +71,6 @@ a.bsf-core-license-form-btn {
 	border: 1px solid #CBD5E1;
 	padding: 6px 13px;
 	border-radius: 6px;
-}
-.ast-licensing-wrap .ast-admin_license-input-field {
-	border: 1px solid #CBD5E1;
-	padding: 6px 36px;
-	border-radius: 6px;
-	width: 28.3125rem;
 }
 .cursor-help {
 	cursor: help;
@@ -198,12 +192,11 @@ a.bsf-core-license-form-btn {
 }
 .post-type-astra-advanced-hook .wrap, .post-type-astra_adv_header .wrap {
 	margin-top: 45px;
+	padding-left: 20px;
+	padding-right: 5px;
 }
 .post-type-astra_adv_header #wpcontent, .post-type-astra-advanced-hook #wpcontent {
 	padding-left: 0;
-}
-.post-type-astra-advanced-hook #wpbody-content, .post-type-astra_adv_header #wpbody-content {
-	padding: 0 0 65px 20px;
 }
 .post-type-astra-advanced-hook table.wp-list-table, .post-type-astra_adv_header table.wp-list-table {
 	position: relative;
@@ -227,6 +220,11 @@ table .type-astra_adv_header .title, table .type-astra-advanced-hook .title,
 .post-type-astra_adv_header table .column-title a, .post-type-astra-advanced-hook table .column-title a {
 	color: #2271b1;
 }
+
+.post-type-astra-advanced-hook .subsubsub a, .post-type-astra-advanced-hook table .column-title a, .post-type-astra-advanced-hook .the-list .button-link {
+	color: #5C2EDE;
+}
+
 .post-type-astra_adv_header .subsubsub a.current,
 .post-type-astra-advanced-hook .subsubsub a.current {
 	color: #000;
@@ -243,4 +241,49 @@ table .type-astra_adv_header .title, table .type-astra-advanced-hook .title,
 }
 .ast-admin-top-bar-root a:focus, .ast-admin-top-bar-root a:active {
     box-shadow: none;
+}
+
+.table-view-title {
+	border-left-width: 2px;
+    border-left-color: #d2d3e2 !important;
+    padding-left: 20px;
+	border-left: 2px solid;
+	font-weight: 600;
+	font-size: 1.5rem;
+    line-height: 2rem;
+	vertical-align: middle;
+	margin-right: 0.75rem;
+	margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.tabel-view-anchor {
+	text-decoration-line: none;
+	font-weight: 500;
+	font-size: 0.875rem;
+    line-height: 1.25rem;
+	padding-top: 1rem;
+    padding-bottom: 1rem;
+	padding-left: 1.25rem;
+    padding-right: 1.25rem;
+	margin-left: 0.5rem;
+}
+
+.tabel-view-anchor:hover {
+	color: #5c2ede;
+}
+
+.tabel-view-anchor-div {
+background: #fff;
+border-style: solid;
+border-bottom-width: 1px;
+border-top-width: 0;
+align-items: center;
+display: flex;
+--tw-border-opacity: 1;
+border-color: #e2e8f0;
+}
+
+.table-view-layout-section {
+	border-top-width: 0;
 }
