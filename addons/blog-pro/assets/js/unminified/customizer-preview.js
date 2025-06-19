@@ -495,13 +495,23 @@ function astra_refresh_customizer_iframe( control ) {
 				if( current_blog_layout ) {
 					const position = wp.customize( 'astra-settings[blog-item-box-shadow-position]' ).get();
 					const color = wp.customize( 'astra-settings[blog-item-box-shadow-color]' ).get();
-					const blog_grid = wp.customize( 'astra-settings[blog-grid]' ).get();
-					let blog_archive_bs_class = '';
-					if( 1 === blog_grid ) {
-						blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-post, .ast-separate-container .ast-blog-layout-5-grid .ast-article-post, .ast-separate-container .ast-blog-layout-6-grid .ast-article-post';
-					} else {
-						blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-5-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-6-grid .ast-article-inner';
-					}
+                                        const blog_grid = wp.customize( 'astra-settings[blog-grid-resp]' ).get();
+                                        let blog_grid_val = blog_grid;
+                                        if ( 'object' === typeof blog_grid ) {
+                                                if ( window.innerWidth <= mobile_break_point ) {
+                                                        blog_grid_val = parseInt( blog_grid.mobile );
+                                                } else if ( window.innerWidth <= tablet_break_point ) {
+                                                        blog_grid_val = parseInt( blog_grid.tablet );
+                                                } else {
+                                                        blog_grid_val = parseInt( blog_grid.desktop );
+                                                }
+                                        }
+                                        let blog_archive_bs_class = '';
+                                        if( 1 === blog_grid_val ) {
+                                                blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-post, .ast-separate-container .ast-blog-layout-5-grid .ast-article-post, .ast-separate-container .ast-blog-layout-6-grid .ast-article-post';
+                                        } else {
+                                                blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-5-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-6-grid .ast-article-inner';
+                                        }
 
 					dynamicStyle = astra_addon_get_shop_items_shadow_css( blog_archive_bs_class, shadow, position, color );
 				}
@@ -523,13 +533,23 @@ function astra_refresh_customizer_iframe( control ) {
 				if( current_blog_layout ) {
 					const shadow = wp.customize( 'astra-settings[blog-item-box-shadow-control]' ).get();
 					const position = wp.customize( 'astra-settings[blog-item-box-shadow-position]' ).get();
-					const blog_grid = wp.customize( 'astra-settings[blog-grid]' ).get();
-					let blog_archive_bs_class = '';
-					if( 1 === blog_grid ) {
-						blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-post, .ast-separate-container .ast-blog-layout-5-grid .ast-article-post, .ast-separate-container .ast-blog-layout-6-grid .ast-article-post';
-					} else {
-						blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-5-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-6-grid .ast-article-inner';
-					}
+                                        const blog_grid = wp.customize( 'astra-settings[blog-grid-resp]' ).get();
+                                        let blog_grid_val = blog_grid;
+                                        if ( 'object' === typeof blog_grid ) {
+                                                if ( window.innerWidth <= mobile_break_point ) {
+                                                        blog_grid_val = parseInt( blog_grid.mobile );
+                                                } else if ( window.innerWidth <= tablet_break_point ) {
+                                                        blog_grid_val = parseInt( blog_grid.tablet );
+                                                } else {
+                                                        blog_grid_val = parseInt( blog_grid.desktop );
+                                                }
+                                        }
+                                        let blog_archive_bs_class = '';
+                                        if( 1 === blog_grid_val ) {
+                                                blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-post, .ast-separate-container .ast-blog-layout-5-grid .ast-article-post, .ast-separate-container .ast-blog-layout-6-grid .ast-article-post';
+                                        } else {
+                                                blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-5-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-6-grid .ast-article-inner';
+                                        }
 
 					dynamicStyle = astra_addon_get_shop_items_shadow_css( blog_archive_bs_class, shadow, position, color );
 				}
@@ -550,13 +570,23 @@ function astra_refresh_customizer_iframe( control ) {
 				if( current_blog_layout ){
 					const shadow = wp.customize( 'astra-settings[blog-item-box-shadow-control]' ).get();
 					const color = wp.customize( 'astra-settings[blog-item-box-shadow-color]' ).get();
-					const blog_grid = wp.customize( 'astra-settings[blog-grid]' ).get();
-					let blog_archive_bs_class = '';
-					if( 1 === blog_grid ) {
-						blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-post, .ast-separate-container .ast-blog-layout-5-grid .ast-article-post, .ast-separate-container .ast-blog-layout-6-grid .ast-article-post';
-					} else {
-						blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-5-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-6-grid .ast-article-inner';
-					}
+                                        const blog_grid = wp.customize( 'astra-settings[blog-grid-resp]' ).get();
+                                        let blog_grid_val = blog_grid;
+                                        if ( 'object' === typeof blog_grid ) {
+                                                if ( window.innerWidth <= mobile_break_point ) {
+                                                        blog_grid_val = parseInt( blog_grid.mobile );
+                                                } else if ( window.innerWidth <= tablet_break_point ) {
+                                                        blog_grid_val = parseInt( blog_grid.tablet );
+                                                } else {
+                                                        blog_grid_val = parseInt( blog_grid.desktop );
+                                                }
+                                        }
+                                        let blog_archive_bs_class = '';
+                                        if( 1 === blog_grid_val ) {
+                                                blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-post, .ast-separate-container .ast-blog-layout-5-grid .ast-article-post, .ast-separate-container .ast-blog-layout-6-grid .ast-article-post';
+                                        } else {
+                                                blog_archive_bs_class = '.ast-separate-container .ast-blog-layout-4-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-5-grid .ast-article-inner, .ast-separate-container .ast-blog-layout-6-grid .ast-article-inner';
+                                        }
 
 					dynamicStyle = astra_addon_get_shop_items_shadow_css( blog_archive_bs_class, shadow, position, color );
 				}

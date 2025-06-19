@@ -226,12 +226,13 @@ function apply_megamenu_width_styles() {
 							});
 					}
 				} else if ($this.hasClass("content-width-mega")){
-					if (astra.isRtl){
-						var menuItemRight = $menuPosition.left + $menuWidth - ($menuItemPosition.left + $this.outerWidth());
-						$this
-							.find(".astra-megamenu")
-							.css({ right: "-" + menuItemRight + "px", width: $menuWidth });
-					} else {
+                                        if (astra.isRtl){
+                                                var menuItemRight = $menuPosition.left + $menuWidth - ($menuItemPosition.left + $this.outerWidth());
+                                                $this
+                                                        .find(".astra-megamenu")
+                                                        .css({ right: "-" + menuItemRight + "px", width: $menuWidth })
+                                                        .data("astra-hover-right", menuItemRight);
+                                        } else {
 						$this
 							.find(".astra-megamenu")
 							.css({ left: "-" + positionLeft + "px", width: $menuWidth });
@@ -242,6 +243,7 @@ function apply_megamenu_width_styles() {
 						$this
 							.find(".astra-megamenu")
 							.css({ right: "-" + positionRight + "px", width: $menuWidth });
+                                                $this.data("astra-hover-right", positionRight);
 					} else {
 						$this
 							.find(".astra-megamenu")
@@ -317,7 +319,7 @@ document.addEventListener("astMenuHoverStyleChanged", function () {
 				positionLeft =
 					$menuItemPosition.left -
 					($menuPosition.left + parseFloat($main_container.css("paddingLeft"))),
-				positionRight = $menuItemPosition.left + $menuPosition.left;
+                                positionRight = $menuWidth - ($menuItemPosition.left + $menuPosition.left) + 130;
 
 			var $fullMenuWidth = $full_width_main_container.width(),
 				$fullMenuPosition = $full_width_main_container.offset(),
@@ -389,27 +391,42 @@ document.addEventListener("astMenuHoverStyleChanged", function () {
 				$this
 					.find(".astra-full-megamenu-wrapper")
 					.css({ left: "-" + fullPositionLeft + "px", width: $fullMenuWidth });
-			} else if ($this.hasClass("custom-width-mega")) {
-				if (astra.isRtl) {
-					$this
-						.find(".astra-mega-menu-width-custom")
-						.css({
-							right: "-" + customWithPositionRight + "px",
-							width: customMegaMenuWidth + "px",
-						});
-				} else {
-					$this
-						.find(".astra-mega-menu-width-custom")
-						.css({
-							left: "-" + customWithPositionLeft + "px",
-							width: customMegaMenuWidth + "px",
-						});
-				}
-			} else {
-				if (astra.isRtl) {
-					$this
-						.find(".astra-megamenu")
-						.css({ right: "-" + positionRight + "px", width: $menuWidth });
+                        } else if ($this.hasClass("custom-width-mega")) {
+                                if (astra.isRtl) {
+                                        $this
+                                                .find(".astra-mega-menu-width-custom")
+                                                .css({
+                                                        right: "-" + customWithPositionRight + "px",
+                                                        width: customMegaMenuWidth + "px",
+                                                });
+                                } else {
+                                        $this
+                                                .find(".astra-mega-menu-width-custom")
+                                                .css({
+                                                        left: "-" + customWithPositionLeft + "px",
+                                                        width: customMegaMenuWidth + "px",
+                                                });
+                                }
+                        } else if ($this.hasClass("content-width-mega")) {
+                                if (astra.isRtl){
+                                        var menuItemRight = $menuPosition.left + $menuWidth - ($menuItemPosition.left + $this.outerWidth());
+                                        $this
+                                                .find(".astra-megamenu")
+                                                .css({ right: "-" + menuItemRight + "px", width: $menuWidth })
+                                                .data("astra-hover-right", menuItemRight);
+                                } else {
+                                        $this
+                                                .find(".astra-megamenu")
+                                                .css({ left: "-" + positionLeft + "px", width: $menuWidth });
+                                }
+                        } else {
+                                    var hoverRight = $this.data("astra-hover-right");
+                                    var finalRight = typeof hoverRight !== "undefined" ? hoverRight : positionRight;
+                                if (astra.isRtl) {
+                                          $this
+                                                  .find(".astra-megamenu")
+                                                  .css({ right: "-" + finalRight + "px", width: $menuWidth })
+                                                  .data("astra-hover-right", finalRight);
 				} else {
 					$this
 						.find(".astra-megamenu")

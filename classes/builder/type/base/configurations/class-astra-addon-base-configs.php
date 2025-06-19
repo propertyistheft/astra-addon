@@ -12,6 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Class Astra_Addon_Base_Configs.
+ * 
+ * Handles base configurations for Astra Addon builder elements.
+ * Provides methods to generate common configuration arrays for customizer controls.
  */
 class Astra_Addon_Base_Configs {
 	/**
@@ -33,25 +36,25 @@ class Astra_Addon_Base_Configs {
 		}
 
 		return array(
-
-			// Option Group: Box shadow Group.
+			/**
+			 * Option: Box Shadow Heading
+			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-shadow-heading]',
-				'type'      => 'control',
-				'control'   => 'ast-heading',
-				'title'     => __( 'Box Shadow', 'astra-addon' ),
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'priority'  => $priority,
-				'context'   => $context,
-				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-box-shadow-heading]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Box Shadow', 'astra-addon' ),
+				'priority' => $priority,
+				'context'  => $context,
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
 			 * Option: box shadow
 			 */
 			array(
-				'name'              => $_prefix . '-box-shadow-control',
+				'name'              => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-box-shadow-control]',
 				'default'           => astra_get_option( $_prefix . '-box-shadow-control' ),
 				'type'              => 'control',
 				'transport'         => 'postMessage',
@@ -70,7 +73,7 @@ class Astra_Addon_Base_Configs {
 			),
 
 			array(
-				'name'      => $_prefix . '-box-shadow-position',
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-box-shadow-position]',
 				'default'   => astra_get_option( $_prefix . '-box-shadow-position' ),
 				'type'      => 'control',
 				'section'   => $_section,
@@ -86,7 +89,7 @@ class Astra_Addon_Base_Configs {
 			),
 
 			array(
-				'name'      => $_prefix . '-box-shadow-color',
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_prefix . '-box-shadow-color]',
 				'default'   => astra_get_option( $_prefix . '-box-shadow-color' ),
 				'type'      => 'control',
 				'section'   => $_section,

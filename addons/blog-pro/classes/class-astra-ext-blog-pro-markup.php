@@ -68,6 +68,7 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 
 			// Social Sharing.
 			add_action( 'wp', array( $this, 'astra_social_sharing' ) );
+			add_filter( 'astra_get_option_single-post-social-sharing-icon-list', array( $this, 'astra_social_twitter_x_icon_color' ) );
 
 			// Blog Post filter.
 			add_action( 'wp', array( $this, 'blog_post_filter' ) );
@@ -1192,6 +1193,24 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 				<?php
 				echo wp_kses_post( ob_get_clean() );
 			}
+		}
+
+		/**
+		 * Filter to update Twitter X icon color to black.
+		 *
+		 * @since 4.11.2
+		 * @param array $value Social sharing items array.
+		 * @return array Modified social sharing items array.
+		 */
+		public function astra_social_twitter_x_icon_color( $value ) {
+			if ( isset( $value['items'] ) && is_array( $value['items'] ) ) {
+				foreach ( $value['items'] as &$item ) {
+					if ( isset( $item['id'] ) && 'twitter' === $item['id'] && isset( $item['icon'] ) && 'twitter-x' === $item['icon'] ) {
+						$item['color'] = '#000000';
+					}
+				}
+			}
+			return $value;
 		}
 	}
 }

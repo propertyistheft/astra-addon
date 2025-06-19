@@ -90,9 +90,16 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 				}
 
 				if ( isset( $this->megamenu_column_divider_width ) && '' != $this->megamenu_column_divider_width ) {
-					$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' ' . $megamenu_class . ' .astra-megamenu > .menu-item' ] = array(
-						'border-right-width' => $this->megamenu_column_divider_width . 'px',
-					);
+						$direction = is_rtl() ? 'left' : 'right';
+						$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' ' . $megamenu_class . ' .astra-megamenu > .menu-item' ] = array(
+							'border-' . $direction . '-width' => $this->megamenu_column_divider_width . 'px',
+						);
+
+						if ( is_rtl() ) {
+								$style[ '.ast-desktop li.astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' ' . $megamenu_class . ' .astra-megamenu > .menu-item:last-child' ] = array(
+									'border-left-width' => 0,
+								);
+						}
 				}
 
 				if ( isset( $this->megamenu_top_border_color ) && '' != $this->megamenu_top_border_color ) {
@@ -106,10 +113,17 @@ if ( ! class_exists( 'Astra_Custom_Nav_Walker' ) ) {
 				}
 
 				if ( isset( $this->megamenu_column_divider_color ) && '' != $this->megamenu_column_divider_color ) {
-					$megamenu_divider_class = ' astra-megamenu-has-divider';
-					$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' ' . $megamenu_class . ' .astra-megamenu > .menu-item' ] = array(
-						'border-right' => '1px solid ' . $this->megamenu_column_divider_color,
-					);
+						$direction              = is_rtl() ? 'left' : 'right';
+						$megamenu_divider_class = ' astra-megamenu-has-divider';
+						$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' ' . $megamenu_class . ' .astra-megamenu > .menu-item' ] = array(
+							'border-' . $direction => '1px solid ' . $this->megamenu_column_divider_color,
+						);
+
+						if ( is_rtl() ) {
+								$style[ '.ast-desktop .astra-megamenu-li.menu-item-' . $this->menu_megamenu_item_id . ' ' . $megamenu_class . ' .astra-megamenu > .menu-item:last-child' ] = array(
+									'border-left' => 'none',
+								);
+						}
 				}
 
 				if ( isset( $this->megamenu_divider_style ) && '' != $this->megamenu_divider_style ) {

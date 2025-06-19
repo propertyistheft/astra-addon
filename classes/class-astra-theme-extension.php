@@ -387,6 +387,7 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 			if ( function_exists( 'astra_addon_filesystem' ) ) {
 				require_once ASTRA_EXT_DIR . 'classes/cache/class-astra-cache-base.php';
 				require_once ASTRA_EXT_DIR . 'classes/cache/class-astra-cache.php';
+				require_once ASTRA_EXT_DIR . 'classes/cache/class-astra-dark-mode-cache.php';
 			}
 
 			require_once ASTRA_EXT_DIR . 'classes/class-astra-minify.php';

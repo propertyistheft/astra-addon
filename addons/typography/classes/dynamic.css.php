@@ -782,7 +782,7 @@ function astra_typography_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		 */
 
 		if ( Astra_Addon_Builder_Helper::is_component_loaded( 'account', 'header' ) ) {
-			$selector = '.ast-hb-account-login-wrapper';
+			$selector = '.ast-header-account-wrap';
 			$_section = 'section-header-account';
 
 			$menu_font_size             = astra_get_option( $_section . '-menu-font-size' );

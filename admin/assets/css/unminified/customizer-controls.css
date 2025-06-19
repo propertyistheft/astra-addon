@@ -298,7 +298,9 @@ li#customize-control-astra-settings-fullscreen-modal-heading-text {
 li#customize-control-astra-settings-sticky-header-stick-on:not( :has( .ast-multiselect ) ) {
 	margin-top: 0;
 }
-
+li#customize-control-astra-settings-sticky-header-logo .attachment-media-view-image .thumbnail-image img{
+	filter: drop-shadow(0 0 5px rgba(0,0,0,.5));
+}
 #customize-control-astra-settings-color-switcher-palettes-quick-link {
     margin-top: 24px;
 }

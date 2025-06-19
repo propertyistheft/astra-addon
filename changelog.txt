@@ -1,11 +1,18 @@
 *** Astra Pro Changelog ***
 
-2025-06-05 - 4.11.1
+2025-06-17 - version 4.11.2
+* Improvement: Added shadow for better visibility of white logo images in the Sticky Header Logo Customizer control.
+* Fix: Ensured Dark Mode toggle works consistently by always including dark palette CSS in cached files.
+* Fix: Resolved an issue where the Account widget menu font was not applying on the frontend.
+* Fix: Resolved an issue with the Twitter icon appearing black in Social Sharing.
+* Fix: Resolved an issue where the box shadow control was not working on the blog archive page
+
+2025-06-05 - version 4.11.1
 * New: Revamped the Astra Addon Dashboard using Force UI for a modern, cohesive user experience.
 * Fix: Resolved an issue where responsive outer and inner post spacing was not applied correctly.
 * Fix: Resolved RTL mega menu positioning by implementing right-edge calculation instead of left positioning.
 
-2025-05-07 - 4.11.0
+2025-05-07 - version 4.11.0
 * New: Introducing a new polished UI for the Astra Customizer, offering an improved user experience and refreshed design.
 * Improvement: Enhanced accessibility of post filters with keyboard support & screen reader announcements.
 * Improvement: Optimized product navigation queries to reduce database load.

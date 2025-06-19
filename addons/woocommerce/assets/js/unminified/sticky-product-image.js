@@ -48,7 +48,7 @@
 		}
 
 		/**
-		 * Handle the sticky prodcut image by screen size.
+		 * Handle the sticky product image by screen size.
 		 * This needs to be triggered on both document load and window resize.
 		 * This way, we can make sure, sticky image does not block the contents
 		 * or breaks the design.
@@ -56,7 +56,7 @@
 		 * @since x.x.x
 		 */
 		const handleStickyImageByScreenSize = () => {
-			if (+astraAddon.break_point > window.innerWidth) {
+			if (+astraAddon.break_point > window.innerWidth || !document.body.classList.contains('ast-desktop') ) {
 				/**
 				 * If we are here, then we are in responsive mode.
 				 * Reset Sticky Product Image for responsive devices.
@@ -76,7 +76,7 @@
 					productImage.appendChild(saleTag);
 				}
 			}
-		}
+		};
 
 		handleStickyImageByScreenSize();
 		window.addEventListener("resize", handleStickyImageByScreenSize);

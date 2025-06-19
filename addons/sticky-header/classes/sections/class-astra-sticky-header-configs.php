@@ -143,6 +143,7 @@ if ( ! class_exists( 'Astra_Sticky_Header_Configs' ) ) {
 					'section'        => 'section-sticky-header',
 					'priority'       => 16,
 					'title'          => __( 'Sticky Logo', 'astra-addon' ),
+					'description'    => __( 'Note: A subtle shadow is added in this preview so white logos remain visible.', 'astra-addon' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'context'        => array(
 						astra_addon_builder_helper()->general_tab_config,
