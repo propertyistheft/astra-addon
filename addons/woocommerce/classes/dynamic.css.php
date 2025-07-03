@@ -3169,16 +3169,16 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					.woocommerce-cart-form__contents .woocommerce-cart-form__cart-item {
 						position: relative;
 					}
-					#ast-cart-wrapper {
+					.ast-no-sidebar #ast-cart-wrapper {
 						display: flex;
 						flex-wrap: wrap;
 						align-items: flex-start;
 						justify-content: space-between;
 					}
-					#ast-cart-wrapper .ast-cart-non-sticky {
+					.ast-no-sidebar #ast-cart-wrapper .ast-cart-non-sticky {
 						width: 68%;
 					}
-					#ast-cart-wrapper .cart-collaterals {
+					.ast-no-sidebar #ast-cart-wrapper .cart-collaterals {
 						width: 30%;
 					}
 					#ast-cart-wrapper .cart-collaterals .cart_totals {

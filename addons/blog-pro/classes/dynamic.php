@@ -37,6 +37,7 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 	// Author Box social sharing.
 	$author_box_enabled                = astra_get_option( 'ast-author-info' );
 	$author_box_social_sharing_enabled = astra_get_option( 'author-box-socials' );
+	$load_more_button_compatibility    = Astra_Addon_Update_Filter_Function::astra_addon_load_more_button_compatibility();
 
 	$css_output = array(
 		// Blog Layout 1 Dynamic Style.
@@ -47,12 +48,7 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-article-post .ast-date-meta .posted-on .date-month, .ast-article-post .ast-date-meta .posted-on .date-year' => array(
 			'color' => astra_get_foreground_color( $link_color ),
 		),
-		'.ast-load-more:hover' => array(
-			'color'            => astra_get_foreground_color( $link_color ),
-			'border-color'     => esc_attr( $link_color ),
-			'background-color' => esc_attr( $link_color ),
-		),
-		'.ast-loader > div'    => array(
+		'.ast-loader > div' => array(
 			'background-color' => esc_attr( $link_color ),
 		),
 	);
@@ -976,6 +972,40 @@ function astra_ext_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 
 		$parse_css .= astra_parse_css( $blog_filter_css_output_mobile, '', astra_addon_get_mobile_breakpoint() );
 
+	}
+
+	// Parse CSS for the load more button.
+	if ( ! $load_more_button_compatibility ) {
+		$parse_css .= '
+				.ast-load-more {
+					cursor: pointer;
+					display: none;
+					border: 2px solid var(--ast-border-color);
+					transition: all 0.2s linear;
+					color: #000;
+				}
+		
+				.ast-load-more.active {
+					display: inline-block;
+					padding: 0 1.5em;
+					line-height: 3em;
+				}
+		
+				.ast-load-more.no-more:hover {
+					border-color: var(--ast-border-color);
+					color: #000;
+				}
+				.ast-load-more.no-more:hover {
+					background-color: inherit;
+				}
+			';
+			
+		// Add the hover styles to the CSS output array.
+		$css_output['.ast-load-more:hover'] = array(
+			'color'            => astra_get_foreground_color( $link_color ),
+			'border-color'     => esc_attr( $link_color ),
+			'background-color' => esc_attr( $link_color ),
+		);
 	}
 
 	return $dynamic_css . $parse_css;

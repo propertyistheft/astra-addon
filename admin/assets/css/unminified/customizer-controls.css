@@ -27,11 +27,6 @@
 	box-sizing: border-box;
 }
 
-.ast-customizer-notice a {
-	color: white;
-	font-weight: bold;
-}
-
 .ast-customizer-notice p {
 	padding: 5px;
 }

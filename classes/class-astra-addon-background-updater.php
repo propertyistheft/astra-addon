@@ -58,6 +58,9 @@ if ( ! class_exists( 'Astra_Addon_Background_Updater' ) ) {
 			'4.10.0' => array(
 				'astra_addon_background_updater_4_10_0',
 			),
+			'4.11.3' => array(
+				'astra_addon_background_updater_4_11_3',
+			),
 		);
 
 		/**

@@ -206,3 +206,17 @@ function astra_addon_background_updater_4_10_0() {
 	// Remove irrelevant option.
 	delete_option( 'ast_extension_data' );
 }
+
+/**
+ * Background updater function for addon v4.11.3
+ *
+ * @since 4.11.3
+ * @return void
+ */
+function astra_addon_background_updater_4_11_3() {
+	$theme_options = astra_get_options();
+	if ( ! isset( $theme_options['load_more_btn_comp'] ) ) {
+		$theme_options['load_more_btn_comp'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

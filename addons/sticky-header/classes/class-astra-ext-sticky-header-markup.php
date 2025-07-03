@@ -570,6 +570,7 @@ if ( ! class_exists( 'Astra_Ext_Sticky_Header_Markup' ) ) {
 			$localize_vars['mobile_break_point'] = astra_addon_get_mobile_breakpoint();
 
 			$localize_vars['header_main_shrink']           = astra_get_option( 'header-main-shrink' );
+			$localize_vars['header_animation_effect']      = astra_get_option( 'sticky-header-style' );
 			$localize_vars['header_logo_width']            = astra_get_option( 'ast-header-logo-width' );
 			$localize_vars['responsive_header_logo_width'] = astra_get_option( 'ast-header-responsive-logo-width' );
 			$localize_vars['stick_origin_position']        = apply_filters( 'astra_addon_sticky_header_stick_origin_position', false );

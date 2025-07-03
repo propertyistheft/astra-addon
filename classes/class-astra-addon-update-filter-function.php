@@ -167,4 +167,16 @@ class Astra_Addon_Update_Filter_Function {
 		$astra_settings['hiding_social_share_icon_position'] = isset( $astra_settings['hiding_social_share_icon_position'] ) ? false : true;
 		return apply_filters( 'astra_addon_hide_left_right_social_icon_responsive_positions', $astra_settings['hiding_social_share_icon_position'] );
 	}
+
+	/**
+	 * Load more button backward compatibility.
+	 *
+	 * @since 4.11.3
+	 * @return bool false if it is an existing user, true if not.
+	 */
+	public static function astra_addon_load_more_button_compatibility() {
+		$astra_settings                       = astra_get_options();
+		$astra_settings['load_more_btn_comp'] = isset( $astra_settings['load_more_btn_comp'] ) ? false : true;
+		return apply_filters( 'astra_addon_load_more_btn_comp', $astra_settings['load_more_btn_comp'] );
+	}
 }

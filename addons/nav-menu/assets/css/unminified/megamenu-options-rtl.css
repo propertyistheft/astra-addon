@@ -1192,7 +1192,7 @@
   font-size: 16px;
   background-color: transparent;
   width: 42px;
-  height: 30px;
+  height: 30px !important;
   padding: 0;
   border: 1px solid var(--ast-admin-color-14);
   color: var(--ast-admin-color-8);

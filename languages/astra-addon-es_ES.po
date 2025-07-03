@@ -420,17 +420,17 @@ msgid "Zoom"
 msgstr ""
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:175
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:697
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:698
 msgid "Stick Below Header"
 msgstr "Fijar debajo de la cabecera"
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:149
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:684
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:685
 msgid "Stick Primary Header"
 msgstr "Fijar cabecera principal"
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:162
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:670
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:671
 msgid "Stick Above Header"
 msgstr "Fijar arriba de la cabecera"
 
@@ -438,14 +438,14 @@ msgstr "Fijar arriba de la cabecera"
 #: addons/header-sections/classes/sections/class-astra-below-header-configs.php:68
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:226
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:240
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:657
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:658
 #: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-configs.php:865
 msgid "Disabled"
 msgstr "Desactivado"
 
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:225
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:239
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:656
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:657
 msgid "Enabled"
 msgstr "Activado"
 
@@ -453,7 +453,7 @@ msgstr "Activado"
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-meta.php:1207
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:224
 #: addons/lifterlms/classes/class-astra-ext-lifterlms-loader.php:238
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:655
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:656
 msgid "Customizer Setting"
 msgstr "Ajustes del personalizador"
 
@@ -821,7 +821,7 @@ msgstr "Añadir ubicaciones donde debería aparecer esta cabecera avanzada."
 msgid "Display On"
 msgstr "Mostrar en"
 
-#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:652
+#: addons/sticky-header/classes/class-astra-ext-sticky-header-markup.php:653
 #: addons/sticky-header/classes/class-astra-sticky-header-panels-configs.php:44
 msgid "Sticky Header"
 msgstr "Cabecera fija"
@@ -1510,7 +1510,7 @@ msgstr "Sesión cerrada"
 msgid "Logged In"
 msgstr "Conectado"
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1161
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1172
 #: admin/core/class-astra-addon-admin-loader.php:458
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:245
 #: addons/advanced-hooks/react/build/index.js:1
@@ -4585,27 +4585,27 @@ msgctxt "Blogs: Load More Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:690
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:701
 msgid "minute of reading"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:691
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:702
 msgid "minutes of reading"
 msgstr ""
 
 #. translators: %1$s: $read_time the time to read the article, %2$s: $singular_min_reading_text the singular minute reading time text, %3$s: $plural_mins_reading_text the plural minutes reading time text
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:696
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:707
 msgid "%1$s %2$s"
 msgid_plural "%1$s %3$s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:790
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:801
 msgctxt "Blogs: Read More Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:931
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:942
 msgctxt "Single Post: Social Sharing: Heading Text"
 msgid "%astra%"
 msgstr ""
@@ -8468,11 +8468,11 @@ msgstr ""
 msgid "Astra's modern checkout is disabled when Elementor Checkout block is added on the checkout page to prevent layout conflicts."
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1147
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1158
 msgid "Post Filters"
 msgstr ""
 
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1148
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1159
 msgid "Filter posts by category"
 msgstr ""
 
@@ -8522,4 +8522,8 @@ msgstr ""
 
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:146
 msgid "Note: A subtle shadow is added in this preview so white logos remain visible."
+msgstr ""
+
+#: addons/woocommerce/templates/single-product-gallery.php:91
+msgid "Product image gallery"
 msgstr ""

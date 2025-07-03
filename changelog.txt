@@ -1,11 +1,22 @@
 *** Astra Pro Changelog ***
 
+2025-07-02 - version 4.11.4
+* Fix: Resolved an issue where the product was not added to the cart when using Astra Pro add to cart options.
+* Fix: Page Header - Resolved a UI issue where the selected Primary Menu was not visually reflected in the dropdown.
+* Fix: Resolved form sync issue on My Account page when using Elementor's WooCommerce Pages widget with Astra's modern login/registration.
+
+2025-07-01 - version 4.11.3
+* Improvement: Enhanced accessibility and semantics in infinite scroll pagination by using semantic, interactive elements for the "Load More" trigger and enabling full keyboard navigation support.
+* Fix: Mobile menu not properly closing when clicking anchor links (#) in fade/slide header animations.
+* Fix: Resolved overlapping issue in the Modern Cart layout when sidebar is enabled.
+* Fix: Resolved an issue with adding variable products when multiple "Add to Cart" instances are present.
+
 2025-06-17 - version 4.11.2
 * Improvement: Added shadow for better visibility of white logo images in the Sticky Header Logo Customizer control.
 * Fix: Ensured Dark Mode toggle works consistently by always including dark palette CSS in cached files.
 * Fix: Resolved an issue where the Account widget menu font was not applying on the frontend.
 * Fix: Resolved an issue with the Twitter icon appearing black in Social Sharing.
-* Fix: Resolved an issue where the box shadow control was not working on the blog archive page
+* Fix: Resolved an issue where the box shadow control was not working on the blog archive page.
 
 2025-06-05 - version 4.11.1
 * New: Revamped the Astra Addon Dashboard using Force UI for a modern, cohesive user experience.

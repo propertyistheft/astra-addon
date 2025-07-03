@@ -138,6 +138,8 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 			}
 
 			if ( 'infinite' === $pagination ) {
+				$load_more_button_compatibility = Astra_Addon_Update_Filter_Function::astra_addon_load_more_button_compatibility();
+
 				ob_start();
 				?>
 				<div class="ast-ajax-pagination-wrapper">
@@ -152,12 +154,21 @@ if ( ! class_exists( 'Astra_Ext_Blog_Pro_Markup' ) ) {
 									<div class="ast-loader-3"></div>
 							</div>
 							<?php if ( 'click' === $infinite_event ) { ?>
-								<span class="ast-load-more active">
-									<?php
-										$load_more_text = apply_filters( 'astra_load_more_text', $load_more_text );
-										echo esc_html( $load_more_text );
-									?>
-								</span>
+								<?php if ( $load_more_button_compatibility ) { ?>
+									<button class="ast-load-more active ast-button" data-ast-btn-style>
+										<?php
+											$load_more_text = apply_filters( 'astra_load_more_text', $load_more_text );
+											echo esc_html( $load_more_text );
+										?>
+									</button>
+								<?php } else { ?>
+									<a href="#" class="ast-load-more active">
+										<?php
+											$load_more_text = apply_filters( 'astra_load_more_text', $load_more_text );
+											echo esc_html( $load_more_text );
+										?>
+									</a>
+								<?php } ?>
 							<?php } ?>
 						</nav>
 					<?php

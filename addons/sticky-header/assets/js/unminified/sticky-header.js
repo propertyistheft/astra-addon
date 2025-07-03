@@ -976,5 +976,34 @@
 	    });
 	}
 
+	/**
+	 * Handle mobile menu close behavior for fade/slide header animations
+	 * This code ensures that when a user clicks on an anchor link (#) in the mobile menu:
+	 * 1. The mobile menu is properly closed
+	 * 2. The toggle button state is reset
+	 * 3. The body class for open navigation is removed
+	 */
+	if ( astraAddon.header_animation_effect == 'fade' || astraAddon.header_animation_effect == 'slide' ){
+	document.querySelectorAll('#ast-hf-mobile-menu a[href^="#"]').forEach(link => {
+		link.addEventListener('click', function (e) {
+		  const mobileMenu = document.querySelector('.ast-main-header-bar-navigation.toggle-on');
+		  const toggleButtons = document.querySelectorAll('.ast-mobile-menu-trigger-minimal');
+	  
+		  setTimeout(() => {
+				if (mobileMenu) {
+					mobileMenu.style.display = "none";
+					mobileMenu.classList.remove("toggle-on");
+				}
+
+				toggleButtons.forEach((btn) => {
+					btn.classList.remove("toggled");
+					btn.setAttribute("aria-expanded", "false");
+				});
+
+				document.body.classList.remove("ast-main-header-nav-open");
+			}, 50);
+		});
+	  });
+	}
 
 }(jQuery, window));

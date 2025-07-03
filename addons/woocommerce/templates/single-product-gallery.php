@@ -88,7 +88,7 @@ $is_vertical_layout = 'vertical-slider' === astra_get_option( 'single-product-ga
 			</div>
 	</div>
 	<?php } else { ?>
-		<div class="ast-single-product-thumbnails <?php echo esc_attr( $slider_disabled ? 'slider-disabled' : '' ); ?>">
+		<div class="ast-single-product-thumbnails <?php echo esc_attr( $slider_disabled ? 'slider-disabled' : '' ); ?>" aria-label="<?php echo esc_attr__( 'Product image gallery', 'astra-addon' ); ?>">
 			<div class="woocommerce-product-gallery-thumbnails__wrapper">
 				<?php
 

@@ -11,19 +11,29 @@
  * @param {string} type Type of form to display ('do-register' or 'do-login').
  */
 function astraToggleShopForm(type) {
-	var loginForm = document.querySelector('#customer_login > .u-column1');
-	var registerForm = document.querySelector('#customer_login > .u-column2');
+	let loginForms = document.querySelectorAll("#customer_login > .u-column1");
+	let registerForms = document.querySelectorAll(
+		"#customer_login > .u-column2"
+	);
 
-	if ('do-register' === type) {
+	if ("do-register" === type) {
 		// Registration form should be visible.
-		loginForm.style.display = "none";
-		registerForm.style.display = "block";
-		updateUrlHash('#ast-woo-register');
+		loginForms.forEach(function (form) {
+			form.style.display = "none";
+		});
+		registerForms.forEach(function (form) {
+			form.style.display = "block";
+		});
+		updateUrlHash("#ast-woo-register");
 	} else {
 		// Login form should be visible.
-		loginForm.style.display = "block";
-		registerForm.style.display = "none";
-		updateUrlHash('#ast-woo-login');
+		loginForms.forEach(function (form) {
+			form.style.display = "block";
+		});
+		registerForms.forEach(function (form) {
+			form.style.display = "none";
+		});
+		updateUrlHash("#ast-woo-login");
 	}
 }
 
@@ -40,12 +50,12 @@ function updateUrlHash(hash) {
  * Astra updating shop view. Grid|List.
  */
 function astraUpdateShopView() {
-	var astWooFormTriggerLinks = document.querySelectorAll('.ast-woo-account-form-link');
+	let astWooFormTriggerLinks = document.querySelectorAll('.ast-woo-account-form-link');
 
 	astWooFormTriggerLinks.forEach(function (link) {
 		link.addEventListener('click', function (e) {
 			e.preventDefault();
-			var type = this.dataset.type;
+			let type = this.dataset.type;
 			astraToggleShopForm(type);
 		});
 	});
@@ -55,8 +65,8 @@ function astraUpdateShopView() {
  * Enhances shop view to handle URL hash-based form toggling.
  */
 function toggleShopFormByHash() {
-	var hash = window.location.hash;
-	var type = hash === '#ast-woo-register' ? 'do-register' : 'do-login';
+	let hash = window.location.hash;
+	let type = hash === '#ast-woo-register' ? 'do-register' : 'do-login';
 	astraToggleShopForm(type);
 }
 

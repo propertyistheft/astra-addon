@@ -1158,7 +1158,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 								if ( isset( $design['custom-menu'] ) && ! empty( $nav_menus ) ) {
 									foreach ( $nav_menus as $menu ) {
 										?>
-										<option <?php selected( $custom_menu === $menu->term_id ); ?>
+										<option <?php selected( intval( $custom_menu ) === $menu->term_id ); ?>
 											value="<?php echo esc_attr( $menu->term_id ); ?>">
 											<?php echo esc_html( $menu->name ); ?>
 										</option>
@@ -1776,7 +1776,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Headers_Meta' ) ) {
 								if ( isset( $design['custom-menu'] ) && ! empty( $nav_menus ) ) {
 									foreach ( $nav_menus as $menu ) {
 										?>
-										<option <?php selected( $custom_menu === $menu->term_id ); ?>
+										<option <?php selected( intval( $custom_menu ) === $menu->term_id ); ?>
 											value="<?php echo esc_attr( $menu->term_id ); ?>">
 											<?php echo esc_html( $menu->name ); ?>
 										</option>

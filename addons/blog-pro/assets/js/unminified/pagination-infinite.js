@@ -24,8 +24,34 @@
 		if ( typeof infinite_event === 'string' ) {
 			switch( infinite_event ) {
 				case 'click':
+				// Accessibility improvement for load more button.
+				document.addEventListener('DOMContentLoaded', function() {
+					var loadMoreLinks = document.querySelectorAll('.ast-load-more.active');
+					loadMoreLinks.forEach(function(link) {
+						link.setAttribute('tabindex', '0');
+						link.setAttribute('role', 'button');
+						link.addEventListener('keydown', function(e) {
+							if (e.key === 'Enter' || e.keyCode === 13) {
+								e.preventDefault();
+								var infinitePagination = document.querySelector('.ast-pagination-infinite');
+								if( infinitePagination ) {
+									var total = parseInt( infinitePagination.getAttribute('data-total') ) || '';
+									var count = parseInt( infinitePagination.getAttribute('data-page') ) || '';
+									if( count != 'undefined' && count != ''&& total != 'undefined' && total != '' ) {
+										if ( count <= total ) {
+											NextloadArticles(count);
+											infinitePagination.setAttribute('data-page', count + 1 );
+										}
+									}
+								}
+							}
+						});
+					});
+				});
+
 				document.addEventListener('click',function(event) {
 					if( event.target.classList.contains('ast-load-more') ) {
+						event.preventDefault(); // prevent the jump
 					//	For Click
 					const infinitePagination = document.querySelector('.ast-pagination-infinite');
 					if( infinitePagination ) {
@@ -106,6 +132,8 @@
 					loader.style.display = 'none';
 					if( astLoadMore ){
 						astLoadMore.classList.add( 'active');
+						astLoadMore.setAttribute('tabindex', '0');
+						astLoadMore.setAttribute('role', 'button');
 					}
 					//	Append articles
 					for (var boxCount = 0; boxCount < boxes.length; boxCount++) {

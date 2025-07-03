@@ -191,25 +191,6 @@ hr.ast-single-previous-hr {
   margin: 2.5em 0;
 }
 
-.ast-load-more {
-  cursor: pointer;
-  display: none;
-  border: 2px solid var(--ast-border-color);
-  transition: all 0.2s linear;
-  color: #000;
-}
-
-.ast-load-more.active {
-  display: inline-block;
-  padding: 0 1.5em;
-  line-height: 3em;
-}
-
-.ast-load-more.no-more:hover {
-  border-color: var(--ast-border-color);
-  color: #000;
-}
-
 /**
  * Globally hidden elements when Infinite Scroll is supported and in use.
  */
@@ -224,10 +205,6 @@ hr.ast-single-previous-hr {
  */
 .infinity-end.neverending .site-footer {
   display: block;
-}
-
-.ast-load-more.no-more:hover {
-  background-color: inherit;
 }
 
 .no-more {

@@ -62,8 +62,8 @@
 			}
 
 			var $thisbutton  = $( this ),
-				product_id   = $('input[name="add-to-cart"]').val() || $(this).val() || '',
-				variation_id = $('input[name="variation_id"]').val() || '';
+			product_id   = $('input[name="add-to-cart"]').val() || $(this).val() || '',
+			variation_id = $('input[name="variation_id"]').val() || '';
 			
 			if( $thisbutton.hasClass( 'disabled' ) ) {
 				return;

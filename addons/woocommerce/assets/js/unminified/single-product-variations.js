@@ -17,12 +17,45 @@ const productVariation = (image_slider_wrap) => {
                 element.classList.remove( 'active' );
                 element.style.opacity = '1';
                 element.style.pointerEvents = 'inherit';
+                element.setAttribute('aria-pressed', 'false');
             } );
         } );
     }
 
+    // Add accessibility attributes to all variation buttons
+    const setupAccessibility = () => {
+        const variationButtons = document.querySelectorAll('.ast-single-variation');
+        variationButtons.forEach((button, index) => {
+            // Make sure each button is focusable
+            button.setAttribute('tabindex', '0');
+            
+            // Add proper ARIA attributes
+            button.setAttribute('role', 'button');
+            button.setAttribute('aria-pressed', button.classList.contains('active') ? 'true' : 'false');
+            
+            // Get the variation name for better accessibility
+            const variationName = button.getAttribute('data-slug') || 'variation option';
+            const variationGroup = button.closest('.ast-variation-button-group');
+            const attributeName = variationGroup && variationGroup.previousElementSibling ? 
+                variationGroup.previousElementSibling.textContent.trim() : 'Product variation';
+            
+            button.setAttribute('aria-label', `${attributeName}: ${variationName}`);
+        });
+    };
+
+    // Run accessibility setup
+    setupAccessibility();
+
     if( productSingleVariations ) {
         productSingleVariations.forEach( element => {
+            // Handle keyboard interactions
+            element.addEventListener('keydown', (e) => {
+                // Handle Enter or Space key to activate the button
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    element.click();
+                }
+            });
 
             // Single Product Variation Buttons.
             element.addEventListener( 'click', (e) => {
@@ -33,6 +66,7 @@ const productVariation = (image_slider_wrap) => {
                     if( allVariationButtonSingle ) {
                         allVariationButtonSingle.forEach( element => {
                             element.classList.remove( 'active' );
+                            element.setAttribute('aria-pressed', 'false');
                         } );
                     }
                 }
@@ -63,14 +97,17 @@ const productVariation = (image_slider_wrap) => {
                                             if( ! node.includes( element.getAttribute('data-slug') ) ) {
                                                 element.style.opacity = '.5';
                                                 element.style.pointerEvents = 'none';
+                                                element.setAttribute('aria-disabled', 'true');
+                                                element.setAttribute('tabindex', '-1');
                                             } else {
                                                 element.style.opacity = '1';
                                                 element.style.pointerEvents = 'inherit';
+                                                element.setAttribute('aria-disabled', 'false');
+                                                element.setAttribute('tabindex', '0');
                                             }
-        
-                                        } );                                    });
+                                        } );
+                                    });
                                 }
-
                             } );
                         }, 100 );
                     }
@@ -82,6 +119,7 @@ const productVariation = (image_slider_wrap) => {
                 // On Variation Change Trigger Hidden Select.
                 if( currentSlug && currentTarget ) {
                     e.target.classList.add( 'active' );
+                    e.target.setAttribute('aria-pressed', 'true');
                     currentTarget.value = currentSlug;
                     currentTarget.dispatchEvent( new Event( 'change', { 'bubbles': true } ) )
 
