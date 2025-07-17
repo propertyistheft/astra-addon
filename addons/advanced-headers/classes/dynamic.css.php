@@ -266,15 +266,15 @@ function astra_ext_advanced_headers_dynamic_css( $dynamic_css, $dynamic_css_filt
 				'color' => esc_attr( $title_color ),
 			),
 
-			'.ast-advanced-headers-breadcrumb, .ast-advanced-headers-breadcrumb .woocommerce-breadcrumb' => array(
+			astra_parse_selector( '.ast-advanced-headers-breadcrumb, .ast-advanced-headers-breadcrumb .woocommerce-breadcrumb', 'wc' ) => array(
 				'color' => esc_attr( $breadcrumb_color ),
 			),
 
-			'.ast-advanced-headers-breadcrumb a, .woocommerce .ast-advanced-headers-breadcrumb a' => array(
+			astra_parse_selector( '.ast-advanced-headers-breadcrumb a, .woocommerce .ast-advanced-headers-breadcrumb a', 'wc' ) => array(
 				'color' => esc_attr( $breadcrumb_fb_link_color ),
 			),
 
-			'.ast-advanced-headers-breadcrumb a:hover, .woocommerce .ast-advanced-headers-breadcrumb a:hover' => array(
+			astra_parse_selector( '.ast-advanced-headers-breadcrumb a:hover, .woocommerce .ast-advanced-headers-breadcrumb a:hover', 'wc' ) => array(
 				'color' => esc_attr( $breadcrumb_fb_link_h_color ),
 			),
 

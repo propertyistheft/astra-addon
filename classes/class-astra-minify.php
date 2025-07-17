@@ -792,6 +792,11 @@ if ( ! class_exists( 'Astra_Minify' ) ) {
 						$handle = 'astra-addon-css-' . $k;
 					}
 
+					// Skip the WooCommerce file from cached data if it is not active.
+					if ( strpos( $file, '/addons/woocommerce/' ) !== false && ! defined( 'WC_VERSION' ) ) {
+						continue;
+					}
+
 					wp_enqueue_style(
 						$handle,
 						$file,

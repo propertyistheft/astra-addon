@@ -2809,53 +2809,29 @@ function astra_woocommerce_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	// Product Variations to Buttons.
 	if ( $single_product_variation_select ) {
-		if ( is_rtl() ) {
-			$woo_single_product_variation = '
-				.woocommerce div.product form.cart .variations .ast-variation-button-group + select {
-					display: none;
-				}
-				.woocommerce div.product form.cart .variations th {
-					text-align: right;
-					padding-right: 0;
-				}
-				.ast-variation-button-group {
-					display: flex;
-					flex-wrap: wrap;
-					margin-top: .2em;
-				}
-				.ast-variation-button-group .ast-single-variation{
-					display: inline-block;
-					padding: 0.2em 1em;
-					margin-bottom: 0.5em;
-					margin-left: 0.5em;
-					border: 1px solid var(--ast-border-color);
-					cursor: pointer;
-				}
-			';
-		} else {
-			$woo_single_product_variation = '
-				.woocommerce div.product form.cart .variations .ast-variation-button-group + select {
-					display: none;
-				}
-				.woocommerce div.product form.cart .variations th {
-					text-align: left;
-					padding-left: 0;
-				}
-				.ast-variation-button-group {
-					display: flex;
-					flex-wrap: wrap;
-					margin-top: .2em;
-				}
-				.ast-variation-button-group .ast-single-variation{
-					display: inline-block;
-					padding: 0.2em 1em;
-					margin-bottom: 0.5em;
-					margin-right: 0.5em;
-					border: 1px solid var(--ast-border-color);
-					cursor: pointer;
-				}
-			';
-		}
+		$woo_single_product_variation = '
+			.woocommerce div.product form.cart .variations .ast-variation-button-group + select {
+				display: none;
+			}
+			.woocommerce div.product form.cart .variations th {
+				text-align: ' . ( is_rtl() ? 'right' : 'left' ) . ';
+				padding-' . ( is_rtl() ? 'right' : 'left' ) . ': 0;
+			}
+			.ast-variation-button-group {
+				display: flex;
+				flex-wrap: wrap;
+				margin-top: .2em;
+			}
+			.ast-variation-button-group .ast-single-variation {
+				display: inline-block;
+				padding: 0.2em 1em;
+				margin-bottom: 0.5em;
+				margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 0.5em;
+				border: 1px solid var(--ast-border-color);
+				cursor: pointer;
+			}
+		';
+
 		if ( Astra_Addon_Update_Filter_Function::astra_addon_update_variant_active_style() ) {
 			$woo_single_product_variation .= '
 				.ast-variation-button-group .ast-single-variation.active {

@@ -1,5 +1,9 @@
 *** Astra Pro Changelog ***
 
+2025-07-16 - version 4.11.5
+* Improvement: Prevented WooCommerce-related CSS selectors from being included in dynamic CSS when WooCommerce is not installed or activated, reducing unnecessary output and improving code cleanliness.
+* Fix: Resolved an issue where duplicate variation buttons appeared when using "Change Dropdown to Buttons" alongside the Variation Swatches plugin.
+
 2025-07-02 - version 4.11.4
 * Fix: Resolved an issue where the product was not added to the cart when using Astra Pro add to cart options.
 * Fix: Page Header - Resolved a UI issue where the selected Primary Menu was not visually reflected in the dropdown.

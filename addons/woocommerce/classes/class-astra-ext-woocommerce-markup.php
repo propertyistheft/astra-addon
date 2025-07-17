@@ -2700,8 +2700,9 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function single_product_product_variations_custom_output() {
+			// Check if Variation Swatches for WooCommerce plugins are not active and current request is for a WooCommerce single product page.
 			if ( ! defined( 'CFVSW_VER' ) && class_exists( 'woocommerce' ) && is_product() && astra_get_option( 'single-product-select-variations' ) ) {
-				add_filter( 'woocommerce_dropdown_variation_attribute_options_html', array( $this, 'single_product_variations_custom_html' ), 999, 2 );
+				add_filter( 'woocommerce_dropdown_variation_attribute_options_html', array( $this, 'single_product_variations_custom_html' ), 15, 2 );
 			}
 		}
 
@@ -3195,6 +3196,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * @since 3.9.0
 		 */
 		public function single_product_variations_custom_html( $html, $args ) {
+			ob_start();
 			?>
 			<div class="ast-variation-button-group">
 				<?php
@@ -3257,7 +3259,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				?>
 			</div>
 			<?php
-			return $html;
+			return ob_get_clean() . $html;
 		}
 
 		/**

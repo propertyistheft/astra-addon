@@ -748,6 +748,7 @@ msgstr "Elegir..."
 
 #. translators: %s: singular  post name;
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:29
+#, php-format
 msgid "This %s will not appear at these locations."
 msgstr "Esta %s no aparece en estos lugares."
 
@@ -757,6 +758,7 @@ msgstr "Añadir regla de ubicación"
 
 #. translators: %s: singular  post name;
 #: addons/advanced-headers/includes/admin-edit-location-rules.php:14
+#, php-format
 msgid "Add locations for where this %s should appear."
 msgstr "Añadir ubicaciones donde debería aparecer esta %s."
 
@@ -1053,48 +1055,56 @@ msgstr "Encabezado de página"
 #. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:330
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:651
+#, php-format
 msgid "%s draft updated."
 msgstr "%s borrador actualizado."
 
 #. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:328
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:649
+#, php-format
 msgid "%s scheduled for."
 msgstr "%s programada."
 
 #. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:326
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:647
+#, php-format
 msgid "%s submitted."
 msgstr "%s enviada."
 
 #. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:324
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:645
+#, php-format
 msgid "%s saved."
 msgstr "%s guardada."
 
 #. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:322
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:643
+#, php-format
 msgid "%s published."
 msgstr "%s publicada."
 
 #. translators: %1$s: singular custom post type name ,%2$s: date and time of the revision
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:320
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:641
+#, php-format
 msgid "%1$s restored to revision from %2$s"
 msgstr "%1$s restaurado a la revisión de %2$s"
 
 #. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:316
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:637
+#, php-format
 msgid "Custom %s deleted."
 msgstr "%s personalizada eliminada."
 
 #. translators: %s: singular custom post type name
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:314
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:635
+#, php-format
 msgid "Custom %s updated."
 msgstr "%s personalizada actualizada."
 
@@ -1103,6 +1113,7 @@ msgstr "%s personalizada actualizada."
 #: addons/advanced-headers/classes/class-astra-ext-advanced-headers-loader.php:318
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:633
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-loader.php:639
+#, php-format
 msgid "%s updated."
 msgstr "%s actualizado."
 
@@ -1468,17 +1479,9 @@ msgstr "Diseño 5"
 msgid "Layout 4"
 msgstr "Diseño 4"
 
-#: admin/core/assets/build/dashboard-app.js:3
-msgid "Deactivate"
-msgstr "Desactivar"
-
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:66
 msgid "Layout 3"
 msgstr "Diseño 3"
-
-#: admin/core/assets/build/dashboard-app.js:3
-msgid "Activate"
-msgstr "Activar"
 
 #: addons/advanced-footer/classes/sections/class-astra-advanced-footer-configs.php:62
 #: addons/header-sections/classes/sections/class-astra-above-header-configs.php:77
@@ -1589,6 +1592,7 @@ msgstr "Tamaño de la fuente"
 #. translators: %s taxonomy label
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:902
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:912
+#, php-format
 msgid "All %s Archive"
 msgstr "Archivo de todos los %s"
 
@@ -1614,6 +1618,7 @@ msgstr "Minúsculas"
 
 #. translators: %s post label
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:896
+#, php-format
 msgid "All %s"
 msgstr "Todos los %s"
 
@@ -1910,10 +1915,6 @@ msgstr "Centrado superior"
 msgid "Basic"
 msgstr "Básico"
 
-#: addons/nav-menu/react/build/index.js:1
-msgid "Left Bottom"
-msgstr "Inferior izquierda"
-
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:790
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:1255
 msgid "Add Rule"
@@ -1938,14 +1939,6 @@ msgstr "Ver"
 #: addons/nav-menu/react/build/index.js:1
 msgid "Scroll"
 msgstr "Desplazar"
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Fixed"
-msgstr "Fijo"
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Preview"
-msgstr "Vista previa"
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1163
 #: addons/nav-menu/react/build/index.js:1
@@ -1986,14 +1979,6 @@ msgstr "Heredar"
 #: addons/nav-menu/react/build/index.js:1
 msgid "Repeat Vertically"
 msgstr "Repetir verticalmente"
-
-#: addons/advanced-hooks/theme-builder/build/index.js:1
-msgid "Move to Trash"
-msgstr "Mover a la papelera"
-
-#: addons/nav-menu/react/build/index.js:1
-msgid "Repeat Horizontally"
-msgstr "Repetir horizontalmente"
 
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:1136
 #: addons/nav-menu/react/build/index.js:1
@@ -2076,6 +2061,7 @@ msgstr "Color del enlace"
 
 #. translators: 1: file location
 #: classes/class-astra-templates.php:30
+#, php-format
 msgid "%s does not exist."
 msgstr "%s no existe."
 
@@ -2161,6 +2147,7 @@ msgstr "Diapositiva"
 
 #. translators: %s post title.
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:1780
+#, php-format
 msgid "The same display setting is already exist in %s post/s."
 msgstr "El mismo ajuste de visibilidad ya existe en la/s entrada/s %s."
 
@@ -2371,22 +2358,6 @@ msgstr "Encabezado de página: alineado al centro"
 msgid "Save Changes"
 msgstr ""
 
-#: admin/core/assets/build/dashboard-app.js:9
-msgid "Astra Pro Branding"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:9
-msgid "Astra Theme Branding"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:9
-msgid "Agency Details"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:9
-msgid "White Label"
-msgstr ""
-
 #: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:246
 #: addons/advanced-hooks/react/build/index.js:1
 msgid "Enable Shrink Effect"
@@ -2583,6 +2554,7 @@ msgstr ""
 
 #. translators: %s layout.
 #: addons/advanced-hooks/classes/class-astra-ext-advanced-hooks-meta.php:1309
+#, php-format
 msgid "Another %s Layout is selected for the same display rules."
 msgstr ""
 
@@ -4516,6 +4488,7 @@ msgstr ""
 #: addons/advanced-search/classes/sections/class-astra-customizer-adv-search-configs.php:90
 #: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:190
 #: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:216
+#, php-format
 msgid "SVG icons are currently disabled. To enable them, use the filter `%s`."
 msgstr ""
 
@@ -4595,6 +4568,7 @@ msgstr ""
 
 #. translators: %1$s: $read_time the time to read the article, %2$s: $singular_min_reading_text the singular minute reading time text, %3$s: $plural_mins_reading_text the plural minutes reading time text
 #: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:707
+#, php-format
 msgid "%1$s %2$s"
 msgid_plural "%1$s %3$s"
 msgstr[0] ""
@@ -5981,6 +5955,7 @@ msgstr ""
 
 #. translators: Astra Pro whitelabbeled string
 #: addons/nav-menu/classes/class-astra-ext-nav-menu-markup.php:147
+#, php-format
 msgid "%1$s Menu Settings"
 msgstr ""
 
@@ -6620,7 +6595,7 @@ msgid "Already a member?"
 msgstr ""
 
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-loader.php:537
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3042
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3043
 msgid "Login"
 msgstr ""
 
@@ -6726,175 +6701,177 @@ msgctxt "Extras item 10"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2776
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2777
 msgid "1"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2780
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2781
 msgid "Shopping Cart"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2787
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2788
 msgid "2"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2791
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2792
 msgid "Checkout details"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2798
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2799
 msgid "3"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2802
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2803
 msgid "Order Complete"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2821
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2822
 msgctxt "WooCommerce Checkout: Back to Cart Text (« Back to Cart)"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2975
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2976
 msgid "Exist."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2975
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2976
 msgid "Not exist"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2997
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:2998
 msgctxt "WooCommerce Checkout: Customer information Text"
 msgid "%astra%"
 msgstr ""
 
 #. translators: %1$s: Link HTML start, %2$s Link HTML End
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3004
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3005
+#, php-format
 msgid "Already have an account? %1$s Log in%2$s"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3017
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3018
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3019
 msgid "Username or Email Address"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3017
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3018
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3019
 msgid "Email Address"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3035
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3036
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3037
 msgid "Password"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3043
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3044
 #: classes/builder/type/header/account/class-astra-ext-header-account-component-configs.php:286
 #: classes/builder/type/header/account/classes/class-astra-addon-header-account-markup.php:115
 msgid "Lost your password?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3048
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3049
 msgid "Login is optional, you can continue with your order below."
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3061
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3062
 msgid "Create an account?"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3076
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3077
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3078
 msgid "Account username"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3089
 #: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3090
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3091
 msgid "Create account password"
 msgstr ""
 
 #. translators: %1$s: username, %2$s emailid
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3100
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3101
+#, php-format
 msgid " Welcome Back %1$s (%2$s)"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3133
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3134
 msgctxt "WooCommerce Checkout: Button Text (Place Order)"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3152
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3153
 msgctxt "WooCommerce Checkout: Payment Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3468
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3470
 msgid "Select a country / region&hellip; *"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3472
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3474
 msgid "Select an option&hellip; *"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3576
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3578
 msgctxt "WooCommerce Misc: Coupon Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3577
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3579
 msgctxt "WooCommerce Misc: Coupon Input Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3578
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3580
 msgctxt "WooCommerce Misc: Coupon Apply Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3583
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3585
 msgid "coupon:"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3645
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3647
 msgctxt "WooCommerce Checkout: Step One Title"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3646
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3648
 msgctxt "WooCommerce Checkout: Step One Sub Title"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3647
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3649
 msgctxt "WooCommerce Checkout: Step Two Title"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3648
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3650
 msgctxt "WooCommerce Checkout: Step Two Sub Title"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3688
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3690
 msgctxt "WooCommerce Checkout: Note Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3705
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3707
 msgctxt "WooCommerce Checkout: Offer Button Title"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3706
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3708
 msgctxt "WooCommerce Checkout: Offer Button Sub Title"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3902
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3904
 msgctxt "WooCommerce Single Product: Recently Viewed Products Text"
 msgid "%astra%"
 msgstr ""
 
-#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3987
+#: addons/woocommerce/classes/class-astra-ext-woocommerce-markup.php:3989
 msgid "Your Cart Is Empty Let's Fix That."
 msgstr ""
 
@@ -7504,6 +7481,7 @@ msgstr ""
 
 #. translators: 1: Active user name.
 #: addons/woocommerce/templates/navigation.php:42
+#, php-format
 msgid "Hello %1$s"
 msgstr ""
 
@@ -7543,6 +7521,7 @@ msgstr ""
 
 #. translators: 1: formatted order total 2: total order items
 #: addons/woocommerce/templates/orders.php:75
+#, php-format
 msgid "%1$s for %2$s item"
 msgid_plural "%1$s for %2$s items"
 msgstr[0] ""
@@ -7580,11 +7559,13 @@ msgstr ""
 
 #. translators: %s: whitelable name
 #: admin/astra-rollback/class-astra-rollback-version-manager.php:119
+#, php-format
 msgid "Rollback %s Version"
 msgstr ""
 
 #. translators: %s: whitelable name
 #: admin/astra-rollback/class-astra-rollback-version-manager.php:120
+#, php-format
 msgid "Are you sure you want to rollback %s to version #VERSION#?"
 msgstr ""
 
@@ -7600,6 +7581,7 @@ msgstr ""
 
 #. translators: %s: whitelable name and version
 #: admin/astra-rollback/class-astra-rollback-version.php:112
+#, php-format
 msgid "Rollback %1$s to version %2$s"
 msgstr ""
 
@@ -7627,6 +7609,7 @@ msgstr ""
 
 #. translators: %s - Astra theme install URL.
 #: astra-addon.php:37
+#, php-format
 msgid "Astra Pro requires <strong> Astra </strong> to be your active theme. <a href=\"%s\">Install and activate now.</a>"
 msgstr ""
 
@@ -7657,11 +7640,13 @@ msgstr ""
 
 #. translators: %s Index
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:85
+#, php-format
 msgid "Divider %s"
 msgstr ""
 
 #. translators: %1$s builder type param
 #: classes/builder/type/base/configurations/class-astra-divider-component-configs.php:125
+#, php-format
 msgid "If the Divider don't seem to be visible please check if elements are added in the current %1$s row."
 msgstr ""
 
@@ -7809,6 +7794,7 @@ msgstr ""
 
 #. translators: %1$s: Theme Name, %2$s: Minimum Required version of the Astra Theme
 #: classes/class-astra-theme-extension.php:626
+#, php-format
 msgid "Please update %1$s Theme to version %2$s or higher. Ignore if already updated."
 msgstr ""
 
@@ -7857,6 +7843,7 @@ msgstr ""
 
 #. translators: %s is the page title
 #: classes/compatibility/class-astra-addon-brizy-compatibility.php:142
+#, php-format
 msgid "Edit %1$s with %2$s"
 msgstr ""
 
@@ -7866,6 +7853,239 @@ msgstr ""
 
 #: classes/modules/target-rule/class-astra-target-rules-fields.php:223
 msgid "Specific Pages / Posts / Taxonomies, etc."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:246
+msgid "This will be applicable for all sites from the network."
+msgstr ""
+
+#. translators: %s usage doc link
+#: admin/bsf-analytics/class-bsf-analytics.php:270
+msgid " Know More."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:280
+msgid "Yes! Allow it"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:291
+msgid "No Thanks"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:416
+msgid "Usage Tracking"
+msgstr ""
+
+#. translators: %s Product title
+#: admin/bsf-analytics/class-bsf-analytics.php:460
+#, php-format
+msgid "Allow %s products to track non-sensitive usage tracking data."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:463
+msgid " This will be applicable for all sites from the network."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:468
+msgid "Learn More."
+msgstr ""
+
+#: admin/bsf-analytics/classes/class-bsf-analytics-helper.php:28
+msgid "Oops! Something went wrong. Please refresh the page and try again."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:80
+#: admin/core/class-astra-addon-bsf-analytics.php:159
+msgid "Quick Feedback"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:83
+msgid "If you have a moment, please share why you are deactivating the plugin."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:139
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:314
+msgid "Please tell us more details."
+msgstr ""
+
+#. translators: %1$s: link html start, %2$s: link html end
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:148
+#, php-format
+msgid "Need help from our experts? %1$sClick here to contact us.%2$s"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:159
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:160
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:289
+msgid "This is a temporary deactivation for testing."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:290
+msgid "How can we assist you?"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:295
+msgid "The plugin isn't working properly."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:296
+msgid "Please tell us more about what went wrong?"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:301
+msgid "I found a better alternative plugin."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:302
+msgid "Could you please specify which plugin?"
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:307
+msgid "It's missing a specific feature."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:308
+msgid "Please tell us more about the feature."
+msgstr ""
+
+#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:313
+msgid "Other"
+msgstr ""
+
+#: admin/core/class-astra-addon-bsf-analytics.php:161
+msgid "If you have a moment, please share why you are deactivating Astra Pro:"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:69
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:452
+#: classes/class-astra-builder.php:96
+#: classes/class-astra-builder.php:157
+msgid "Color Switcher"
+msgstr ""
+
+#. translators: %s - Astra theme version number.
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:85
+#, php-format
+msgid "The Color Switcher feature is not fully compatible with your current Astra theme version %s. Please update your theme to the latest version for full compatibility."
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:104
+msgid "Configure Palettes"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:117
+msgid "Alternate Palette"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:132
+msgid "Default Color Mode"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:133
+msgid "Preview is disabled in the Customizer to prevent conflicts with color settings."
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:135
+msgid "System Default"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:151
+msgid "`System Default` adapts to your device's and browser's light or dark mode setting automatically."
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:163
+msgid "Force Reload"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:164
+msgid "Enable this option to trigger a full page reload when switching the color palette. This can improve performance in cases where dark mode compatibility CSS is applied dynamically."
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:176
+msgid "Default Mode Icon"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:202
+msgid "Alternate Mode Icon"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:249
+msgid "Default Mode Label"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:263
+msgid "Alternate Mode Label"
+msgstr ""
+
+#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:304
+msgid "Icon / Text Color"
+msgstr ""
+
+#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:204
+msgctxt "Color Switcher: Default Text"
+msgid "%astra%"
+msgstr ""
+
+#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:205
+msgctxt "Color Switcher: Switched Text"
+msgid "%astra%"
+msgstr ""
+
+#. Translators: %s is the name of the default color palette text.
+#. Translators: %s is the name of the switched palette text.
+#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:209
+#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:212
+#, php-format
+msgid "Switch to %s palette"
+msgstr ""
+
+#. Translators: %s is the name of the default color palette text.
+#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:209
+msgid "default"
+msgstr ""
+
+#. Translators: %s is the name of the switched palette text.
+#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:212
+msgid "next"
+msgstr ""
+
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:42
+msgid "Astra's modern checkout is disabled when CartFlows is active to prevent layout conflicts."
+msgstr ""
+
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:49
+msgid "Astra's modern checkout is disabled when Elementor Checkout block is added on the checkout page to prevent layout conflicts."
+msgstr ""
+
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1158
+msgid "Post Filters"
+msgstr ""
+
+#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1159
+msgid "Filter posts by category"
+msgstr ""
+
+#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-cart-configs.php:45
+msgid "Astra's modern cart is disabled when Elementor Cart block is added on the cart page to prevent layout conflicts."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:238
+#, php-format
+msgid "Help us improve %1$s and our other products!<br><br>With your permission, we'd like to collect <strong>non-sensitive information</strong> from your website — like your PHP version and which features you use — so we can fix bugs faster, make smarter decisions, and build features that actually matter to you. <em>No personal info. Ever.</em>"
+msgstr ""
+
+#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:146
+msgid "Note: A subtle shadow is added in this preview so white logos remain visible."
+msgstr ""
+
+#: addons/woocommerce/templates/single-product-gallery.php:91
+msgid "Product image gallery"
 msgstr ""
 
 #: addons/advanced-hooks/react/build/index.js:1
@@ -8040,6 +8260,10 @@ msgid "(untitled)"
 msgstr ""
 
 #: addons/advanced-hooks/theme-builder/build/index.js:1
+msgid "Preview"
+msgstr ""
+
+#: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "Copied"
 msgstr ""
 
@@ -8053,6 +8277,10 @@ msgstr ""
 
 #: addons/advanced-hooks/theme-builder/build/index.js:1
 msgid "No Layouts Found"
+msgstr ""
+
+#: addons/advanced-hooks/theme-builder/build/index.js:1
+msgid "Move to Trash"
 msgstr ""
 
 #: addons/advanced-hooks/theme-builder/build/index.js:1
@@ -8080,6 +8308,7 @@ msgid "Dismiss"
 msgstr ""
 
 #: addons/nav-menu/react/build/index.js:1
+#, js-format
 msgid "%s Menu Options"
 msgstr ""
 
@@ -8104,11 +8333,23 @@ msgid "Replace image"
 msgstr ""
 
 #: addons/nav-menu/react/build/index.js:1
+msgid "Left Bottom"
+msgstr ""
+
+#: addons/nav-menu/react/build/index.js:1
 msgid "Attachment"
 msgstr ""
 
 #: addons/nav-menu/react/build/index.js:1
+msgid "Fixed"
+msgstr ""
+
+#: addons/nav-menu/react/build/index.js:1
 msgid "Repeat"
+msgstr ""
+
+#: addons/nav-menu/react/build/index.js:1
+msgid "Repeat Horizontally"
 msgstr ""
 
 #: addons/nav-menu/react/build/index.js:1
@@ -8144,6 +8385,11 @@ msgid "Rollback to Previous Version"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:1
+#, js-format
+msgid "Are you sure you want to rollback to %1$s %2$s?"
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:1
 msgid "Experiencing an issue with current versions of software? Roll back to a previous version to help troubleshoot the issue."
 msgstr ""
 
@@ -8156,12 +8402,26 @@ msgid "Successfully saved!"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:1
-msgid "Enable Beta"
+#: admin/core/assets/build/dashboard-app.js:5
+msgid "this article"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:1
-#: admin/core/assets/build/dashboard-app.js:5
-msgid "this article"
+msgid "Enable Beta"
+msgstr ""
+
+#. translators: %s is the this article text with link.
+#: admin/core/assets/build/dashboard-app.js:1
+#, js-format
+msgid "Enable this option to receive update notifications for beta versions. Please read %s to know more."
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:3
+msgid "Deactivate"
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:3
+msgid "Activate"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:3
@@ -8180,6 +8440,17 @@ msgstr ""
 msgid "Your License"
 msgstr ""
 
+#. translators: %s is Astra Pro text with pricing link.
+#: admin/core/assets/build/dashboard-app.js:3
+#, js-format
+msgid "Activate %s to get professional support and automatic updates from your WordPress dashboard."
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:5
+#, js-format
+msgid "You are using %s."
+msgstr ""
+
 #: admin/core/assets/build/dashboard-app.js:5
 msgid "Need more license?"
 msgstr ""
@@ -8192,6 +8463,18 @@ msgstr ""
 msgid "File Generation"
 msgstr ""
 
+#. translators: %s is the Astra theme name.
+#: admin/core/assets/build/dashboard-app.js:5
+#, js-format
+msgid "%s loads the CSS and JS inline on the page by default. If you want to generate separate CSS and JS files for individual addons, enable this option."
+msgstr ""
+
+#. translators: %s is the this article text with link.
+#: admin/core/assets/build/dashboard-app.js:7
+#, js-format
+msgid "Please read %s to learn the difference between generating CSS and JS inline and in a separate file."
+msgstr ""
+
 #: admin/core/assets/build/dashboard-app.js:9
 msgid "Asset Regeneration"
 msgstr ""
@@ -8201,11 +8484,19 @@ msgid "Regenerate Assets"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:9
+msgid "Assets regenerated successfully!"
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:9
 msgid "Enable White Label"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:9
 msgid "White Label removes any links to Astra website and change the identity in the dashboard. This setting is mostly used by agencies and developers who are building websites for clients."
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:9
+msgid "Agency Details"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:9
@@ -8222,6 +8513,10 @@ msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:9
 msgid "Get license link will be displayed in the license form when the purchase key is expired/not valid."
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:9
+msgid "Astra Theme Branding"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:9
@@ -8249,6 +8544,10 @@ msgid "The recommended icon should have some background to get adjust properly o
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:9
+msgid "Astra Pro Branding"
+msgstr ""
+
+#: admin/core/assets/build/dashboard-app.js:9
 msgid "Plugin Name"
 msgstr ""
 
@@ -8261,269 +8560,13 @@ msgid "Starter Templates Branding"
 msgstr ""
 
 #: admin/core/assets/build/dashboard-app.js:9
-msgid "Version Control"
-msgstr ""
-
-#: admin/bsf-analytics/class-bsf-analytics.php:246
-msgid "This will be applicable for all sites from the network."
-msgstr ""
-
-#. translators: %s usage doc link
-#: admin/bsf-analytics/class-bsf-analytics.php:270
-msgid " Know More."
-msgstr ""
-
-#: admin/bsf-analytics/class-bsf-analytics.php:280
-msgid "Yes! Allow it"
-msgstr ""
-
-#: admin/bsf-analytics/class-bsf-analytics.php:291
-msgid "No Thanks"
-msgstr ""
-
-#: admin/bsf-analytics/class-bsf-analytics.php:416
-msgid "Usage Tracking"
-msgstr ""
-
-#. translators: %s Product title
-#: admin/bsf-analytics/class-bsf-analytics.php:460
-msgid "Allow %s products to track non-sensitive usage tracking data."
-msgstr ""
-
-#: admin/bsf-analytics/class-bsf-analytics.php:463
-msgid " This will be applicable for all sites from the network."
-msgstr ""
-
-#: admin/bsf-analytics/class-bsf-analytics.php:468
-msgid "Learn More."
-msgstr ""
-
-#: admin/bsf-analytics/classes/class-bsf-analytics-helper.php:28
-msgid "Oops! Something went wrong. Please refresh the page and try again."
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:80
-#: admin/core/class-astra-addon-bsf-analytics.php:159
-msgid "Quick Feedback"
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:83
-msgid "If you have a moment, please share why you are deactivating the plugin."
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:139
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:314
-msgid "Please tell us more details."
-msgstr ""
-
-#. translators: %1$s: link html start, %2$s: link html end
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:148
-msgid "Need help from our experts? %1$sClick here to contact us.%2$s"
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:159
-msgid "Submit & Deactivate"
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:160
-msgid "Skip & Deactivate"
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:289
-msgid "This is a temporary deactivation for testing."
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:290
-msgid "How can we assist you?"
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:295
-msgid "The plugin isn't working properly."
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:296
-msgid "Please tell us more about what went wrong?"
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:301
-msgid "I found a better alternative plugin."
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:302
-msgid "Could you please specify which plugin?"
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:307
-msgid "It's missing a specific feature."
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:308
-msgid "Please tell us more about the feature."
-msgstr ""
-
-#: admin/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:313
-msgid "Other"
-msgstr ""
-
-#: admin/core/class-astra-addon-bsf-analytics.php:161
-msgid "If you have a moment, please share why you are deactivating Astra Pro:"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:69
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:452
-#: classes/class-astra-builder.php:96
-#: classes/class-astra-builder.php:157
-msgid "Color Switcher"
-msgstr ""
-
-#. translators: %s - Astra theme version number.
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:85
-msgid "The Color Switcher feature is not fully compatible with your current Astra theme version %s. Please update your theme to the latest version for full compatibility."
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:104
-msgid "Configure Palettes"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:117
-msgid "Alternate Palette"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:132
-msgid "Default Color Mode"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:133
-msgid "Preview is disabled in the Customizer to prevent conflicts with color settings."
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:135
-msgid "System Default"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:151
-msgid "`System Default` adapts to your device's and browser's light or dark mode setting automatically."
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:163
-msgid "Force Reload"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:164
-msgid "Enable this option to trigger a full page reload when switching the color palette. This can improve performance in cases where dark mode compatibility CSS is applied dynamically."
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:176
-msgid "Default Mode Icon"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:202
-msgid "Alternate Mode Icon"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:249
-msgid "Default Mode Label"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:263
-msgid "Alternate Mode Label"
-msgstr ""
-
-#: classes/builder/type/base/configurations/class-astra-color-switcher-component-configs.php:304
-msgid "Icon / Text Color"
-msgstr ""
-
-#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:204
-msgctxt "Color Switcher: Default Text"
-msgid "%astra%"
-msgstr ""
-
-#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:205
-msgctxt "Color Switcher: Switched Text"
-msgid "%astra%"
-msgstr ""
-
-#. Translators: %s is the name of the default color palette text.
-#. Translators: %s is the name of the switched palette text.
-#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:209
-#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:212
-msgid "Switch to %s palette"
-msgstr ""
-
-#. Translators: %s is the name of the default color palette text.
-#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:209
-msgid "default"
-msgstr ""
-
-#. Translators: %s is the name of the switched palette text.
-#: classes/builder/type/base/controllers/class-astra-addon-builder-ui-controller.php:212
-msgid "next"
-msgstr ""
-
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:42
-msgid "Astra's modern checkout is disabled when CartFlows is active to prevent layout conflicts."
-msgstr ""
-
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-checkout-configs.php:49
-msgid "Astra's modern checkout is disabled when Elementor Checkout block is added on the checkout page to prevent layout conflicts."
-msgstr ""
-
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1158
-msgid "Post Filters"
-msgstr ""
-
-#: addons/blog-pro/classes/class-astra-ext-blog-pro-markup.php:1159
-msgid "Filter posts by category"
-msgstr ""
-
-#: addons/woocommerce/classes/sections/class-astra-woocommerce-shop-cart-configs.php:45
-msgid "Astra's modern cart is disabled when Elementor Cart block is added on the cart page to prevent layout conflicts."
-msgstr ""
-
-#: admin/bsf-analytics/class-bsf-analytics.php:238
-msgid "Help us improve %1$s and our other products!<br><br>With your permission, we'd like to collect <strong>non-sensitive information</strong> from your website — like your PHP version and which features you use — so we can fix bugs faster, make smarter decisions, and build features that actually matter to you. <em>No personal info. Ever.</em>"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Are you sure you want to rollback to %1$s %2$s?"
-msgstr ""
-
-#. translators: %s is the this article text with link.
-#: admin/core/assets/build/dashboard-app.js:1
-msgid "Enable this option to receive update notifications for beta versions. Please read %s to know more."
-msgstr ""
-
-#. translators: %s is Astra Pro text with pricing link.
-#: admin/core/assets/build/dashboard-app.js:3
-msgid "Activate %s to get professional support and automatic updates from your WordPress dashboard."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:5
-msgid "You are using %s."
-msgstr ""
-
-#. translators: %s is the Astra theme name.
-#: admin/core/assets/build/dashboard-app.js:5
-msgid "%s loads the CSS and JS inline on the page by default. If you want to generate separate CSS and JS files for individual addons, enable this option."
-msgstr ""
-
-#. translators: %s is the this article text with link.
-#: admin/core/assets/build/dashboard-app.js:7
-msgid "Please read %s to learn the difference between generating CSS and JS inline and in a separate file."
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:9
-msgid "Assets regenerated successfully!"
-msgstr ""
-
-#: admin/core/assets/build/dashboard-app.js:9
 msgid "Inactive"
 msgstr ""
 
-#: addons/sticky-header/classes/sections/class-astra-sticky-header-configs.php:146
-msgid "Note: A subtle shadow is added in this preview so white logos remain visible."
+#: admin/core/assets/build/dashboard-app.js:9
+msgid "Version Control"
 msgstr ""
 
-#: addons/woocommerce/templates/single-product-gallery.php:91
-msgid "Product image gallery"
+#: admin/core/assets/build/dashboard-app.js:9
+msgid "White Label"
 msgstr ""

@@ -875,3 +875,63 @@ function astra_addon_is_dark_palette( $palette_key = 'current' ) {
 
 	return $palette_key === 'palette_4';
 }
+
+// Check if the function astra_parse_selector exists to avoid redeclaration.
+if ( ! function_exists( 'astra_parse_selector' ) ) {
+	/**
+	 * Parses selectors and conditionally removes plugin-specific selectors.
+	 * Usage:
+	 * ```
+	 * $selectors = '.class1, .class2, .class3';
+	 * $filtered  = astra_parse_selector( $selectors, 'wc' );
+	 * ```
+	 *
+	 * @param string       $selectors       Full selector string (comma-separated).
+	 * @param string|array $keywords  Keywords to filter out selectors. If a string is provided, it will be converted to an array.
+	 *
+	 * @return string Final selector string.
+	 * @since 4.11.5
+	 */
+	function astra_parse_selector( $selectors, $keywords = '' ) {
+		$selector_array     = explode( ',', $selectors );
+		$filtered_selectors = array();
+
+		// If $keywords is a string, convert it to an array.
+		if ( is_string( $keywords ) ) {
+			$keywords = array( $keywords );
+		}
+
+		foreach ( $selector_array as $selector ) {
+			$selector        = trim( $selector );
+			$ignore_selector = false;
+
+			foreach ( $keywords as $keyword ) {
+				switch ( $keyword ) {
+					case 'wc':
+					case 'woocommerce':
+						if ( ! defined( 'WC_VERSION' ) && strpos( $selector, 'woocommerce' ) !== false ) {
+							$ignore_selector = true;
+							break 2;
+						}
+						break;
+
+					case 'el':
+					case 'elementor':
+						if ( ! defined( 'ELEMENTOR_VERSION' ) && strpos( $selector, 'elementor' ) !== false ) {
+							$ignore_selector = true;
+							break 2;
+						}
+						break;
+
+					// Add more cases here for other plugins.
+				}
+			}
+
+			if ( ! $ignore_selector ) {
+				$filtered_selectors[] = $selector;
+			}
+		}
+
+		return implode( ', ', $filtered_selectors );
+	}
+}

@@ -68,22 +68,21 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		/**
 		 * Content Spacing
 		 */
-		'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector => array(
+		astra_parse_selector( '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector, 'wc' ) => array(
 			'padding-top'    => astra_responsive_spacing( $container_inside_spacing, 'top', 'desktop' ),
 			'padding-bottom' => astra_responsive_spacing( $container_inside_spacing, 'bottom', 'desktop' ),
 		),
-
 		// Narrow Container global inside spacing support.
-		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector => array(
+		astra_parse_selector( '.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector, 'wc' ) => array(
 			'padding-top'    => astra_responsive_spacing( $container_inside_spacing, 'top', 'desktop' ),
 			'padding-bottom' => astra_responsive_spacing( $container_inside_spacing, 'bottom', 'desktop' ),
 		),
-		'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector => array(
+		astra_parse_selector( '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector, 'wc' ) => array(
 			'padding-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'desktop' ),
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'desktop' ),
 		),
 		// Narrow Container global inside spacing support.
-		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single,.ast-narrow-container .comments-count-wrapper, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond,.ast-narrow-container .related-posts-title-wrapper,.ast-narrow-container .related-posts-title-wrapper, .single.ast-narrow-container .about-author-title-wrapper, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector => array(
+		astra_parse_selector( '.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single,.ast-narrow-container .comments-count-wrapper, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond,.ast-narrow-container .related-posts-title-wrapper,.ast-narrow-container .related-posts-title-wrapper, .single.ast-narrow-container .about-author-title-wrapper, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector, 'wc' ) => array(
 			'padding-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'desktop' ),
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'desktop' ),
 		),
@@ -171,21 +170,21 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		/**
 		 * Content Spacing
 		 */
-		'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector => array(
+		astra_parse_selector( '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector, 'wc' ) => array(
 			'padding-top'    => astra_responsive_spacing( $container_inside_spacing, 'top', 'tablet' ),
 			'padding-bottom' => astra_responsive_spacing( $container_inside_spacing, 'bottom', 'tablet' ),
 		),
-		'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector . $related_boxed_selector => array(
+		astra_parse_selector( '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector . $related_boxed_selector, 'wc' ) => array(
 			'padding-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'tablet' ),
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'tablet' ),
 		),
 		// Narrow Container global tablet support for inside spacing.
-		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector => array(
+		astra_parse_selector( '.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector, 'wc' ) => array(
 			'padding-top'    => astra_responsive_spacing( $container_inside_spacing, 'top', 'tablet' ),
 			'padding-bottom' => astra_responsive_spacing( $container_inside_spacing, 'bottom', 'tablet' ),
 		),
 		// Narrow Container global tablet support for inside spacing.
-		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single,.ast-narrow-container .comments-count-wrapper, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond,.ast-narrow-container .related-posts-title-wrapper,.ast-narrow-container .related-posts-title-wrapper, .single.ast-narrow-container .about-author-title-wrapper, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector => array(
+		astra_parse_selector( '.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single,.ast-narrow-container .comments-count-wrapper, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond,.ast-narrow-container .related-posts-title-wrapper,.ast-narrow-container .related-posts-title-wrapper, .single.ast-narrow-container .about-author-title-wrapper, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector, 'wc' ) => array(
 			'padding-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'tablet' ),
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'tablet' ),
 		),
@@ -248,21 +247,21 @@ function astra_ext_spacing_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		/**
 		 * Content Spacing
 		 */
-		'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector => array(
+		astra_parse_selector( '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector, 'wc' ) => array(
 			'padding-top'    => astra_responsive_spacing( $container_inside_spacing, 'top', 'mobile' ),
 			'padding-bottom' => astra_responsive_spacing( $container_inside_spacing, 'bottom', 'mobile' ),
 		),
 		// Narrow Container global mobile support for inside spacing.
-		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector => array(
+		astra_parse_selector( '.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector, 'wc' ) => array(
 			'padding-top'    => astra_responsive_spacing( $container_inside_spacing, 'top', 'mobile' ),
 			'padding-bottom' => astra_responsive_spacing( $container_inside_spacing, 'bottom', 'mobile' ),
 		),
-		'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper, .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector => array(
+		astra_parse_selector( '.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single,.ast-separate-container .comments-count-wrapper, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container .related-posts-title-wrapper, .single.ast-separate-container .about-author-title-wrapper, .ast-separate-container .ast-related-posts-wrap, .ast-separate-container .ast-woocommerce-container' . $author_box_minimal_boxed_selector, 'wc' ) => array(
 			'padding-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'mobile' ),
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'mobile' ),
 		),
 		// Narrow Container global mobile support for inside spacing.
-		'.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single,.ast-narrow-container .comments-count-wrapper, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond,.ast-narrow-container .related-posts-title-wrapper,.ast-narrow-container .related-posts-title-wrapper, .single.ast-narrow-container .about-author-title-wrapper, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector => array(
+		astra_parse_selector( '.ast-narrow-container .ast-article-post, .ast-narrow-container .ast-article-single,.ast-narrow-container .comments-count-wrapper, .ast-narrow-container .ast-comment-list li.depth-1, .ast-narrow-container .comment-respond,.ast-narrow-container .related-posts-title-wrapper,.ast-narrow-container .related-posts-title-wrapper, .single.ast-narrow-container .about-author-title-wrapper, .ast-narrow-container .ast-related-posts-wrap, .ast-narrow-container .ast-woocommerce-container, .ast-narrow-container .ast-single-related-posts-container' . $author_box_minimal_narrow_selector, 'wc' ) => array(
 			'padding-right' => astra_responsive_spacing( $container_inside_spacing, 'right', 'mobile' ),
 			'padding-left'  => astra_responsive_spacing( $container_inside_spacing, 'left', 'mobile' ),
 		),

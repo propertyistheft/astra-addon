@@ -54,7 +54,7 @@ function astra_addon_blog_pro_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	}
 
 	if ( astra_addon_check_reveal_effect_condition() ) {
-		$desktop_max_css['.ast-fade-up, .woocommerce ul.products li.product.ast-fade-up, .woocommerce-page ul.products li.product.ast-fade-up'] = array(
+		$desktop_max_css[ astra_parse_selector( '.ast-fade-up, .woocommerce ul.products li.product.ast-fade-up, .woocommerce-page ul.products li.product.ast-fade-up', 'wc' ) ] = array(
 			'opacity'             => '0',
 			'transition-property' => 'opacity,transform',
 			'transform'           => 'translate3d(0,100px,0)',

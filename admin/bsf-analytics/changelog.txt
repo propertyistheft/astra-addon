@@ -1,3 +1,6 @@
+v1.1.15 - 1-July-2025
+- Improvement: Added `Ultimate_VC_Addons` slug to UTM analytics.
+
 v1.1.14 - 6-May-2025
 - New: Introduced a key 'hide_optin_checkbox' to hide checkbox from Settings > General.
 - Improvement: Single optin notice for all bsf products.
