@@ -1,5 +1,10 @@
 *** Astra Pro Changelog ***
 
+2025-07-30 - version 4.11.6
+* Improvement: Enhanced accessibility by preventing focus on links inside hidden product gallery slides.
+* Improvement: Moved Account Login Popup JavaScript from the theme to the addon for more reliable widget functionality.
+* Fix: Fixed a CSS conflict between the Astra Addon and the CartFlows Instant Checkout template on the checkout page.
+
 2025-07-16 - version 4.11.5
 * Improvement: Prevented WooCommerce-related CSS selectors from being included in dynamic CSS when WooCommerce is not installed or activated, reducing unnecessary output and improving code cleanliness.
 * Fix: Resolved an issue where duplicate variation buttons appeared when using "Change Dropdown to Buttons" alongside the Variation Swatches plugin.

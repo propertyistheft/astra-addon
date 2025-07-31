@@ -363,15 +363,62 @@ const astraColorSwitcher = {
 	},
 };
 
+/**
+ * Account Login Popup Trigger
+ *
+ * Moved from theme's JS to addon to ensure the login popup JS always loads with the account component.
+ * Fixes cases where the JS was missing when the widget was added due to theme script loading order.
+ *
+ * @since 4.11.5 Moved from theme to addon
+ */
+var accountPopupTrigger = function () {
+	if ( typeof astraAddon === 'undefined' || 'login' !== astraAddon.hf_account_logout_action ) {
+		return;
+	}
+
+	// Account login form popup.
+	var header_account_trigger =  document.querySelectorAll( '.ast-account-action-login' );
+
+	if (!header_account_trigger.length) {
+		return;
+	}
+
+	const formWrapper = document.querySelector('#ast-hb-account-login-wrap');
+
+	if (!formWrapper) {
+		return;
+	}
+
+	const formCloseBtn = document.querySelector('#ast-hb-login-close');
+
+	header_account_trigger.forEach(function(_trigger) {
+		_trigger.addEventListener('click', function(e) {
+			e.preventDefault();
+
+			formWrapper.classList.add('show');
+		});
+	});
+
+	if (formCloseBtn) {
+		formCloseBtn.addEventListener('click', function(e) {
+			e.preventDefault();
+			formWrapper.classList.remove('show');
+		});
+	}
+};
+
 document.addEventListener( 'astPartialContentRendered', function() {
     accountMenuToggle();
+    accountPopupTrigger();
 });
 
 window.addEventListener( 'load', function() {
     accountMenuToggle();
+    accountPopupTrigger();
     astraColorSwitcher.init();
 } );
 
 document.addEventListener( 'astLayoutWidthChanged', function() {
     accountMenuToggle();
+    accountPopupTrigger();
 } );

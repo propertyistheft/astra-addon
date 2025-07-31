@@ -260,14 +260,15 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				),
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[author-box-social-icon-list]',
-					'section'  => 'ast-sub-section-author-box',
-					'type'     => 'control',
-					'control'  => 'ast-social-icons',
-					'title'    => __( 'Social Icons', 'astra-addon' ),
-					'priority' => 9,
-					'default'  => astra_get_option( 'author-box-social-icon-list' ),
-					'context'  => array(
+					'name'           => ASTRA_THEME_SETTINGS . '[author-box-social-icon-list]',
+					'section'        => 'ast-sub-section-author-box',
+					'type'           => 'control',
+					'control'        => 'ast-social-icons',
+					'title'          => __( 'Social Icons', 'astra-addon' ),
+					'priority'       => 9,
+					'disable_custom' => true,
+					'default'        => astra_get_option( 'author-box-social-icon-list' ),
+					'context'        => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[author-box-socials]',
@@ -445,15 +446,16 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 				 * Option: Social Icons.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-list]',
-					'section'    => 'ast-sub-section-post-social-sharing',
-					'type'       => 'control',
-					'control'    => 'ast-social-icons',
-					'title'      => __( 'Social Icons', 'astra-addon' ),
-					'priority'   => 9,
-					'share_mode' => true,
-					'default'    => astra_get_option( 'single-post-social-sharing-icon-list' ),
-					'context'    => array(
+					'name'           => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-list]',
+					'section'        => 'ast-sub-section-post-social-sharing',
+					'type'           => 'control',
+					'control'        => 'ast-social-icons',
+					'title'          => __( 'Social Icons', 'astra-addon' ),
+					'priority'       => 9,
+					'share_mode'     => true,
+					'disable_custom' => true,
+					'default'        => astra_get_option( 'single-post-social-sharing-icon-list' ),
+					'context'        => array(
 						astra_addon_builder_helper()->general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[single-post-social-sharing-icon-enable]',
@@ -461,7 +463,7 @@ if ( ! class_exists( 'Astra_Customizer_Blog_Pro_Single_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'        => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

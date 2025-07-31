@@ -47,8 +47,9 @@ if ( ! class_exists( 'Astra_Addon_Header_Account_Markup' ) ) {
 		 */
 		public function localize_variables( $localize_vars ) {
 
-			$localize_vars['hf_account_show_menu_on'] = astra_get_option( 'header-account-action-menu-display-on' );
-			$localize_vars['hf_account_action_type']  = astra_get_option( 'header-account-action-type' );
+			$localize_vars['hf_account_show_menu_on']  = astra_get_option( 'header-account-action-menu-display-on' );
+			$localize_vars['hf_account_action_type']   = astra_get_option( 'header-account-action-type' );
+			$localize_vars['hf_account_logout_action'] = astra_get_option( 'header-account-logout-action' );
 
 			return $localize_vars;
 		}
