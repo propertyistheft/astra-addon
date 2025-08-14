@@ -158,9 +158,10 @@ if ( ! class_exists( 'Astra_Addon_Builder_UI_Controller' ) ) {
 									if ( $item['enabled'] ) {
 
 										$link = '' !== $item['url'] ? $item['url'] : '';
+										$role = $link === '' ? 'button' : 'link';
 										?>
 										<li class="ast-builder-language-switcher-menu-item-<?php echo esc_attr( $builder_type ); ?>">
-											<a href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $item['label'] ); ?>" class="ast-builder-language-switcher-item">
+											<a href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $item['label'] ); ?>" role="<?php echo esc_attr( $role ); ?>" class="ast-builder-language-switcher-item">
 												<?php if ( $show_flag && 'zz-other' !== $item['id'] ) { ?>
 													<span class="ast-lswitcher-item-<?php echo esc_attr( $builder_type ); ?>">
 														<?php

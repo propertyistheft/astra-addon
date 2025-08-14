@@ -132,22 +132,22 @@ class Astra_Addon_Colors_Dynamic_CSS {
 			/**
 			 * Content <h1> to <h6> headings
 			 */
-			'h1, .entry-content h1'            => array(
+			'h1, .entry-content :where(h1)'    => array(
 				'color' => esc_attr( $h1_color ),
 			),
-			'h2, .entry-content h2'            => array(
+			'h2, .entry-content :where(h2)'    => array(
 				'color' => esc_attr( $h2_color ),
 			),
-			'h3, .entry-content h3'            => array(
+			'h3, .entry-content :where(h3)'    => array(
 				'color' => esc_attr( $h3_color ),
 			),
-			'h4, .entry-content h4'            => array(
+			'h4, .entry-content :where(h4)'    => array(
 				'color' => esc_attr( $h4_color ),
 			),
-			'h5, .entry-content h5'            => array(
+			'h5, .entry-content :where(h5)'    => array(
 				'color' => esc_attr( $h5_color ),
 			),
-			'h6, .entry-content h6'            => array(
+			'h6, .entry-content :where(h6)'    => array(
 				'color' => esc_attr( $h6_color ),
 			),
 

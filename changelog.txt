@@ -1,5 +1,11 @@
 *** Astra Pro Changelog ***
 
+2025-08-11 - version 4.11.7
+* Improvement: Enhanced WooCommerce My Account form reliability and readability by updating URL hashes to #create-account and #login.
+* Fix: Redirected WordPress logo in fullscreen editor to correct custom layout screen for Astra post types.
+* Fix: Resolved an issue with Cross sell product layout conflict with Elementor Pro widgets.
+* Fix: Fixed duplicate createaccount ID error in Modern Checkout when both Astra Modern Checkout and WooCommerce account login options are enabled simultaneously.
+
 2025-07-30 - version 4.11.6
 * Improvement: Enhanced accessibility by preventing focus on links inside hidden product gallery slides.
 * Improvement: Moved Account Login Popup JavaScript from the theme to the addon for more reliable widget functionality.

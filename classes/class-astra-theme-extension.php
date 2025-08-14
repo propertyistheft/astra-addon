@@ -621,11 +621,17 @@ if ( ! class_exists( 'Astra_Theme_Extension' ) ) {
 					$astra_theme_name = astra_get_theme_name();
 				}
 
-				$message = sprintf(
-					/* translators: %1$s: Theme Name, %2$s: Minimum Required version of the Astra Theme */
-					__( 'Please update %1$s Theme to version %2$s or higher. Ignore if already updated.', 'astra-addon' ),
+				$update_url = wp_nonce_url(
+					admin_url( 'update.php?action=upgrade-theme&theme=astra' ),
+					'upgrade-theme_astra'
+				);
+				$message    = sprintf(
+					/* translators: %1$s: Theme Name, %2$s: Minimum Required version of the Astra Theme, %3$s: Update URL, %4$s: Space for better readability */
+					__( 'Please update %1$s Theme to version %2$s or higher.%4$s<a href="%3$s">Update now</a>%4$sor ignore if already updated.', 'astra-addon' ),
 					$astra_theme_name,
-					ASTRA_THEME_MIN_VER
+					ASTRA_THEME_MIN_VER,
+					$update_url,
+					'&nbsp;', // Adding space for better readability.
 				);
 
 				$min_version = get_user_meta( get_current_user_id(), 'theme-min-version-notice-min-ver', true );

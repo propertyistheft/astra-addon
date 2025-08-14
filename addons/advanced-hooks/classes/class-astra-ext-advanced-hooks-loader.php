@@ -740,6 +740,7 @@ if ( ! class_exists( 'Astra_Ext_Advanced_Hooks_Loader' ) ) {
 					'siteurl'                    => get_option( 'siteurl' ),
 					'isWhitelabelled'            => Astra_Ext_White_Label_Markup::show_branding(),
 					'logo_url'                   => apply_filters( 'astra_admin_menu_icon', '' ),
+					'siteBuilderUrl'             => admin_url( 'admin.php?page=theme-builder' ),
 				)
 			);
 

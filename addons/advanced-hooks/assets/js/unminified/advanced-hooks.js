@@ -31,6 +31,10 @@
 					}, 1 );
 				});
 			}
+
+			if ( typeof wp !== 'undefined' && typeof wp.domReady !== 'undefined' ) {
+				AstraAdvancedHooks.initSiteBuilderBackButton();
+			}
 		},
 
 		timeDurationEnabled: function () {
@@ -394,6 +398,37 @@
 				$( '.ast-layout-content-before-heading' ).hide();
 			}
 
+		},
+
+		/**
+		 * Initialize Site Builder back button redirect for Gutenberg editor.
+		 * Updates the WordPress logo button URL to redirect to the new Site Builder screen.
+		 *
+		 * @since 4.8.6
+		 * @method initSiteBuilderBackButton
+		 */
+		initSiteBuilderBackButton: function() {
+			wp.domReady(function() {
+
+				if (document.body && document.body.classList.contains('post-type-astra-advanced-hook')) {
+					const siteBuilderUrl = window.astCustomLayout && window.astCustomLayout.siteBuilderUrl ? window.astCustomLayout.siteBuilderUrl : '/wp-admin/admin.php?page=theme-builder';
+					
+					function updateBackButtonUrl() {
+						const backButton = document.querySelector('.edit-post-fullscreen-mode-close');
+						if (backButton && backButton.href && backButton.href.includes('edit.php?post_type=astra-advanced-hook')) {
+							backButton.href = siteBuilderUrl;
+						}
+					}
+					
+					updateBackButtonUrl();
+					
+					if (typeof wp.data !== 'undefined' && typeof wp.data.subscribe !== 'undefined') {
+						wp.data.subscribe(function() {
+							updateBackButtonUrl();
+						});
+					}
+				}
+			});
 		}
 	}
 

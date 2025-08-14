@@ -104,7 +104,7 @@ function validateCheckoutInputs() {
         let customerInfoFields;
         const isLogin = document.querySelector( '#ast-customer-login-url' );
         const isCreateAccount = document.querySelector( '.ast-create-account-section' );
-        const isCreateAccountOptional = customerInformation.querySelector( '#createaccount' );
+        const isCreateAccountOptional = customerInformation.querySelector( '#create-account' );
 
         if( isLogin && isLogin.classList.contains( 'active' ) ) {
             customerInfoFields = customerInformation.querySelectorAll( '#billing_email, #billing_password' );

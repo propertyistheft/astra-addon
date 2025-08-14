@@ -372,7 +372,7 @@ if ( ! class_exists( 'Astra_Ext_Adv_Search_Markup' ) ) {
 		 * @return mixed        HTML Markup.
 		 */
 		public function get_search_icon( $style ) {
-			return '<div class="ast-search-icon"><a class="' . esc_attr( $style ) . ' astra-search-icon" aria-label="Search icon link" href="#">' . self::search_icon() . '</a></div>';
+			return '<div class="ast-search-icon"><a class="' . esc_attr( $style ) . ' astra-search-icon" aria-label="Search icon link" href="#" role="button">' . self::search_icon() . '</a></div>';
 		}
 
 		/**

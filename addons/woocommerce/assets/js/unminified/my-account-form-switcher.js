@@ -24,7 +24,7 @@ function astraToggleShopForm(type) {
 		registerForms.forEach(function (form) {
 			form.style.display = "block";
 		});
-		updateUrlHash("#ast-woo-register");
+		updateUrlHash("#create-account");
 	} else {
 		// Login form should be visible.
 		loginForms.forEach(function (form) {
@@ -33,7 +33,7 @@ function astraToggleShopForm(type) {
 		registerForms.forEach(function (form) {
 			form.style.display = "none";
 		});
-		updateUrlHash("#ast-woo-login");
+		updateUrlHash("#login");
 	}
 }
 
@@ -66,7 +66,7 @@ function astraUpdateShopView() {
  */
 function toggleShopFormByHash() {
 	let hash = window.location.hash;
-	let type = hash === '#ast-woo-register' ? 'do-register' : 'do-login';
+	let type = hash === '#create-account' ? 'do-register' : 'do-login';
 	astraToggleShopForm(type);
 }
 

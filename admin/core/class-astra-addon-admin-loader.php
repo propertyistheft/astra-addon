@@ -463,8 +463,10 @@ class Astra_Addon_Admin_Loader {
 							$type_url     = esc_url( add_query_arg( 'layout_type', $type, $baseurl ) );
 							$active_class = $current_type === $type ? ' text-astra border-astra' : 'text-slate-600 border-white';
 							?>
-							<a class="text-sm font-medium px-5 py-4 border-b-2 no-underline <?php echo esc_attr( $active_class ); ?> hover:text-[#5c2ede]"
-							   href="<?php echo esc_url( $type_url ); ?>">
+							<a
+								class="text-sm font-medium px-5 py-4 border-b-2 no-underline <?php echo esc_attr( $active_class ); ?> hover:text-[#5c2ede]"
+								href="<?php echo esc_url( $type_url ); ?>"
+							>
 								<?php echo esc_attr( $title ); ?>
 							</a>
 							<?php

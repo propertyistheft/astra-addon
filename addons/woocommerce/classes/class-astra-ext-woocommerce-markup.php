@@ -222,7 +222,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			printf(
 				'<p class="ast-woo-form-actions">
 					%1$s
-					<a href="#ast-woo-register" data-type="do-register" class="ast-woo-account-form-link">
+					<a href="#create-account" data-type="do-register" class="ast-woo-account-form-link">
 						%2$s
 					</a>
 				</p>',
@@ -244,7 +244,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 			printf(
 				'<p class="ast-woo-form-actions">
 					%1$s
-					<a href="#ast-woo-login" data-type="do-login" class="ast-woo-account-form-link">
+					<a href="#login" data-type="do-login" class="ast-woo-account-form-link">
 						%2$s
 					</a>
 				</p>',
@@ -1854,7 +1854,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 				Astra_Minify::add_css( $gen_path . 'tinyslider' . $file_prefix . '.css' );
 			}
 
-			if ( self::$is_modern_cart_enabled ) {
+			if ( ! self::restrict_modern_cart_and_checkout() ) {
 				Astra_Minify::add_css( $gen_path . 'modern-cart' . $file_prefix . '.css' );
 				Astra_Minify::add_css( $gen_path . 'cart-cross-sells-list-view' . $file_prefix . '.css' );
 			}
@@ -2366,16 +2366,21 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 		 * Function to Check if a specific Elementor widget is used on the cart page and remove Astra's modern cart action.
 		 *
 		 * @global WP_Post $post This is the current post object.
-		 * @return void
+		 * @return bool Returns true if the modern cart is enabled, false otherwise.
 		 */
 		public function restrict_modern_cart_and_checkout() {
 			self::$is_modern_cart_enabled = astra_get_option( 'cart-modern-layout' );
 
-			if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
-				global $post;
-				if ( ! empty( $post ) ) {
+			if ( defined( 'ELEMENTOR_PRO_VERSION' ) && function_exists( 'wc_get_page_id' ) ) {
+				$post_id = wc_get_page_id( 'cart' );
+				if ( $post_id ) {
+					// If not in Elementor builder, return.
+					$is_elementor = get_post_meta( $post_id, '_elementor_edit_mode', true ) === 'builder';
+					if ( ! $is_elementor ) {
+						return ! self::$is_modern_cart_enabled;
+					}
 
-					$elementor_data = get_post_meta( $post->ID, '_elementor_data', true );
+					$elementor_data = get_post_meta( $post_id, '_elementor_data', true );
 
 					// Ensure $elementor_data is a string before calling json_decode
 					if ( is_string( $elementor_data ) && ! empty( $elementor_data ) ) {
@@ -2397,6 +2402,9 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 					}
 				}
 			}
+
+			// If the modern cart is enabled, we return false.
+			return ! self::$is_modern_cart_enabled;
 		}
 
 		/**
@@ -3059,7 +3067,7 @@ if ( ! class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
 									<?php if ( 'yes' === get_option( 'woocommerce_enable_guest_checkout' ) ) { ?>
 											<p class="form-row form-row-wide create-account">
 												<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-													<input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" type="checkbox" name="createaccount" value="1" /> <span><?php esc_html_e( 'Create an account?', 'astra-addon' ); ?></span>
+													<input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="create-account" type="checkbox" name="createaccount" value="1" /> <span><?php esc_html_e( 'Create an account?', 'astra-addon' ); ?></span>
 												</label>
 											</p>
 									<?php } ?>
